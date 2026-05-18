@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BGA Drill Wk1 · L1 — Systematische Auswertung + Normalwerte</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F7F4EE;
+    --paper: #FFFFFF;
+    --ink: #1A1A1A;
+    --ink-muted: #5C5C5C;
+    --ink-soft: #8A8A8A;
+    --rule: #E8E2D6;
+
+    --grundlagen: #C0392B;
+    --grundlagen-soft: #FBEAE7;
+    --klinik: #D97706;
+    --klinik-soft: #FDF2E2;
+    --diagnostik: #1E5F9E;
+    --diagnostik-soft: #E5EEF7;
+    --therapie: #2D7A3E;
+    --therapie-soft: #E3F1E6;
+    --perlen: #B8860B;
+    --perlen-soft: #FBF2D9;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container { max-width: 880px; margin: 0 auto; padding: 48px 28px 80px; }
+
+  /* HEADER */
+  header { margin-bottom: 32px; }
+  .eyebrow {
+    font-family: 'Manrope', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 14px;
+  }
+  .eyebrow::before { content: "— "; }
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: clamp(34px, 5vw, 50px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 14px;
+  }
+  h1 .accent { font-style: italic; color: var(--diagnostik); }
+  .subtitle {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 19px;
+    color: var(--ink-muted);
+    margin-bottom: 22px;
+    max-width: 700px;
+  }
+  .meta {
+    font-family: 'Manrope', sans-serif;
+    font-size: 13px;
+    color: var(--ink-soft);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    align-items: center;
+  }
+  .meta span { display: inline-flex; align-items: center; }
+  .meta span + span::before {
+    content: "•";
+    margin: 0 12px;
+    color: var(--ink-soft);
+  }
+
+  /* TABS */
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 36px 0 32px;
+    background: var(--paper);
+    padding: 6px;
+    border-radius: 50px;
+    border: 1px solid var(--rule);
+  }
+  .tab {
+    flex: 1;
+    min-width: 130px;
+    padding: 11px 14px;
+    font-family: 'Manrope', sans-serif;
+    font-size: 12.5px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    background: transparent;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+  }
+  .tab:hover { color: var(--ink); }
+  .tab.active { color: white; }
+  .tab[data-station="1"].active { background: var(--grundlagen); }
+  .tab[data-station="2"].active { background: var(--klinik); }
+  .tab[data-station="3"].active { background: var(--diagnostik); }
+  .tab[data-station="4"].active { background: var(--therapie); }
+
+  /* STATION */
+  .station { display: none; animation: fadeIn 0.3s ease; }
+  .station.active { display: block; }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .station-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-bottom: 14px;
+    margin-bottom: 28px;
+    border-bottom: 2px solid;
+    gap: 20px;
+  }
+  .station-header-left { flex: 1; }
+  .station-eyebrow {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--ink-muted);
+    margin-bottom: 6px;
+  }
+  .station-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+  .station-tagline {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--ink-muted);
+    text-align: right;
+    max-width: 240px;
+  }
+  #s1 .station-header { border-bottom-color: var(--grundlagen); }
+  #s1 .station-title { color: var(--grundlagen); }
+  #s2 .station-header { border-bottom-color: var(--klinik); }
+  #s2 .station-title { color: var(--klinik); }
+  #s3 .station-header { border-bottom-color: var(--diagnostik); }
+  #s3 .station-title { color: var(--diagnostik); }
+  #s4 .station-header { border-bottom-color: var(--therapie); }
+  #s4 .station-title { color: var(--therapie); }
+
+  /* CARDS */
+  .card {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 14px;
+    margin-bottom: 18px;
+    overflow: hidden;
+    transition: box-shadow 0.2s ease;
+  }
+  .card:hover { box-shadow: 0 2px 14px rgba(0,0,0,0.04); }
+  .card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 22px;
+    cursor: pointer;
+    gap: 14px;
+  }
+  .card-head-left { flex: 1; }
+  .card-tag {
+    display: inline-block;
+    font-family: 'Manrope', sans-serif;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    padding: 4px 9px;
+    border-radius: 4px;
+    margin-bottom: 6px;
+  }
+  #s1 .card-tag { background: var(--grundlagen-soft); color: var(--grundlagen); }
+  #s2 .card-tag { background: var(--klinik-soft); color: var(--klinik); }
+  #s3 .card-tag { background: var(--diagnostik-soft); color: var(--diagnostik); }
+  #s4 .card-tag { background: var(--therapie-soft); color: var(--therapie); }
+  .card-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 1.3;
+  }
+  .toggle {
+    font-family: 'Manrope', sans-serif;
+    font-size: 24px;
+    font-weight: 300;
+    color: var(--ink-muted);
+    transition: transform 0.25s ease;
+    flex-shrink: 0;
+  }
+  .card.open .toggle { transform: rotate(45deg); }
+  .card-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+  }
+  .card.open .card-body { max-height: 4000px; }
+  .card-body-inner { padding: 4px 22px 22px; }
+
+  /* CONTENT */
+  p { margin-bottom: 12px; }
+  h4 {
+    font-family: 'Manrope', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin: 20px 0 10px;
+  }
+  .card-body-inner > h4:first-child { margin-top: 6px; }
+  ul, ol { margin: 0 0 14px 0; padding-left: 4px; list-style: none; }
+  li {
+    position: relative;
+    padding-left: 22px;
+    margin-bottom: 7px;
+    line-height: 1.55;
+  }
+  li::before {
+    content: "";
+    position: absolute;
+    left: 6px;
+    top: 11px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+  }
+  #s1 li::before { background: var(--grundlagen); }
+  #s2 li::before { background: var(--klinik); }
+  #s3 li::before { background: var(--diagnostik); }
+  #s4 li::before { background: var(--therapie); }
+  li ul { margin-top: 6px; margin-bottom: 8px; }
+  li ul li::before {
+    width: 5px;
+    height: 5px;
+    border-radius: 0;
+    transform: rotate(45deg);
+    background: var(--ink-soft) !important;
+    top: 12px;
+  }
+  strong { font-weight: 600; }
+  em.highlight {
+    font-style: normal;
+    background-image: linear-gradient(to top, var(--grundlagen-soft) 60%, transparent 60%);
+    padding: 0 2px;
+    font-weight: 500;
+  }
+  kbd {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    background: #F0EBE0;
+    padding: 1px 6px;
+    border-radius: 3px;
+    border: 1px solid var(--rule);
+    color: var(--ink);
+  }
+
+  /* TABLES */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Manrope', sans-serif;
+    font-size: 14px;
+    margin: 12px 0 16px;
+  }
+  th {
+    background: #F0EBE0;
+    text-transform: uppercase;
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
+    color: var(--ink-muted);
+    text-align: left;
+    padding: 10px 12px;
+    font-weight: 700;
+    border-bottom: 1px solid var(--rule);
+  }
+  td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+  tr:last-child td { border-bottom: none; }
+  td.mono { font-family: 'JetBrains Mono', monospace; font-size: 13px; }
+  td.val { color: var(--diagnostik); font-weight: 600; }
+
+  /* CALLOUTS */
+  .callout {
+    border-left: 3px solid;
+    padding: 14px 18px;
+    margin: 16px 0;
+    border-radius: 0 8px 8px 0;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    line-height: 1.55;
+  }
+  .callout-label {
+    font-family: 'Manrope', sans-serif;
+    font-style: normal;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 6px;
+  }
+  .callout.critical { border-color: var(--grundlagen); background: var(--grundlagen-soft); }
+  .callout.critical .callout-label { color: var(--grundlagen); }
+  .callout.warning { border-color: var(--klinik); background: var(--klinik-soft); }
+  .callout.warning .callout-label { color: var(--klinik); }
+  .callout.fact { border-color: var(--diagnostik); background: var(--diagnostik-soft); }
+  .callout.fact .callout-label { color: var(--diagnostik); }
+  .callout.pearl { border-color: var(--perlen); background: var(--perlen-soft); }
+  .callout.pearl .callout-label { color: var(--perlen); }
+
+  /* Q&A INLINE */
+  .qa {
+    background: #F5EFE2;
+    border-left: 4px solid var(--perlen);
+    border-radius: 0 10px 10px 0;
+    padding: 16px 20px;
+    margin: 18px 0;
+  }
+  .qa-q {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .qa-q::before {
+    content: "Prüfer:";
+    font-family: 'Manrope', sans-serif;
+    font-style: normal;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    color: var(--perlen);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .qa-a {
+    font-family: 'Fraunces', serif;
+    font-size: 15.5px;
+    line-height: 1.55;
+    padding-top: 12px;
+    border-top: 1px dashed rgba(184,134,11,0.4);
+  }
+  .qa-a::before {
+    content: "Ideale Antwort:";
+    font-family: 'Manrope', sans-serif;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    color: var(--perlen);
+    display: block;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+
+  /* CASE BOX */
+  .case {
+    background: var(--diagnostik-soft);
+    border-left: 4px solid var(--diagnostik);
+    border-radius: 0 10px 10px 0;
+    padding: 16px 20px;
+    margin: 16px 0;
+  }
+  .case-label {
+    font-family: 'Manrope', sans-serif;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--diagnostik);
+    margin-bottom: 8px;
+  }
+  .case-values {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13.5px;
+    background: white;
+    padding: 10px 14px;
+    border-radius: 6px;
+    margin: 10px 0;
+    border: 1px solid rgba(30,95,158,0.15);
+  }
+  .case-answer {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 15px;
+    padding-top: 10px;
+    border-top: 1px dashed rgba(30,95,158,0.3);
+    margin-top: 10px;
+    display: none;
+  }
+  .case.revealed .case-answer { display: block; animation: fadeIn 0.3s ease; }
+  .case-answer::before {
+    content: "Interpretation:";
+    font-family: 'Manrope', sans-serif;
+    font-style: normal;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    color: var(--diagnostik);
+    display: block;
+    margin-bottom: 6px;
+  }
+  .reveal-btn {
+    font-family: 'Manrope', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: var(--diagnostik);
+    color: white;
+    border: none;
+    padding: 7px 14px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .reveal-btn:hover { background: #174D7F; }
+  .case.revealed .reveal-btn { display: none; }
+
+  /* ALGORITHM STEPS */
+  .step {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+    padding: 14px 16px;
+    background: var(--diagnostik-soft);
+    border-radius: 10px;
+  }
+  .step-num {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    background: var(--diagnostik);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+  }
+  .step-content { flex: 1; }
+  .step-title {
+    font-family: 'Manrope', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--diagnostik);
+    margin-bottom: 4px;
+  }
+  .step-body {
+    font-family: 'Fraunces', serif;
+    font-size: 15.5px;
+    line-height: 1.5;
+  }
+  .step-body code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    background: white;
+    padding: 1px 6px;
+    border-radius: 3px;
+  }
+
+  /* PARAM CARDS GRID */
+  .param-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0 18px;
+  }
+  .param-cell {
+    background: var(--klinik-soft);
+    border-radius: 10px;
+    padding: 14px 16px;
+  }
+  .param-name {
+    font-family: 'Manrope', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--klinik);
+    margin-bottom: 4px;
+  }
+  .param-val {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .param-desc {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--ink-muted);
+    line-height: 1.4;
+  }
+
+  /* FOOTER */
+  footer {
+    margin-top: 60px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-family: 'Manrope', sans-serif;
+    font-size: 12px;
+    color: var(--ink-soft);
+    text-align: center;
+  }
+
+  @media (max-width: 600px) {
+    .container { padding: 32px 18px 60px; }
+    .station-header { flex-direction: column; align-items: flex-start; }
+    .station-tagline { text-align: left; max-width: none; }
+    .tab { font-size: 11.5px; padding: 9px 8px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div class="eyebrow">BGA Drill · Woche 1 · Level 1</div>
+    <h1>Systematische <span class="accent">Auswertung</span><br>+ Normalwerte</h1>
+    <p class="subtitle">Der saubere 5-Schritt-Algorithmus, die Normalwerte aus dem Kopf, und Mustererkennung an realen Konstellationen — die Grundlage für jede klinische BGA-Frage in der Prüfung.</p>
+    <div class="meta">
+      <span>~ 15 min</span>
+      <span>4 Stationen</span>
+      <span>Inkl. 6 Mini-Cases</span>
+      <span>KP Mainz</span>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab active" data-station="1">01 · Grundlagen</button>
+    <button class="tab" data-station="2">02 · Parameter</button>
+    <button class="tab" data-station="3">03 · Auswertung</button>
+    <button class="tab" data-station="4">04 · Anwendung</button>
+  </nav>
+
+  <!-- STATION 1: GRUNDLAGEN -->
+  <section class="station active" id="s1">
+    <div class="station-header">
+      <div class="station-header-left">
+        <div class="station-eyebrow">Station 01</div>
+        <div class="station-title">Probenentnahme & Normalwerte</div>
+      </div>
+      <div class="station-tagline">Wo, wie, was — und welche Zahlen müssen sitzen?</div>
+    </div>
+
+    <div class="card open">
+      <div class="card-head">
+        <div class="card-head-left">
+          <span class="card-tag">Probenentnahme</span>
+          <div class="card-title">Arterielle vs. venöse BGA — wann welche?</div>
+        </div>
+        <span class="toggle">+</span>
+      </div>
+      <div class="card-body"><div class="card-body-inner">
+        <h4>Arterielle BGA</h4>
+        <ul>
+          <li><strong>Goldstandard</strong> für Oxygenierung (pO₂, SaO₂) und kompletten Säure-Basen-Status</li>
+          <li>Punktionsstellen: <em class="highlight">A. radialis</em> (Standard) → vorher <strong>Allen-Test</strong>, A. femoralis, A. brachialis</li>
+          <li>Indikationen: respiratorische Insuffizienz, Schock, schwere Azidose/Alkalose, Intoxikation, Beatmung</li>
+        </ul>
+        <h4>Venöse BGA</h4>
+        <ul>
+          <li>Schnell, einfach, geringere Komplikationen — <strong>screening-tauglich</strong></li>
+          <li>pH und HCO₃⁻ korrelieren gut mit arteriell (Differenz pH ≈ 0,03–0,04 niedriger)</li>
+          <li><strong>Nicht verlässlich</strong> für Oxygenierung (pO₂, SaO₂) und pCO₂ in Schockzuständen</li>
+        </ul>
+        <h4>Kapillär</h4>
+        <ul>
+          <li>Pädiatrie, Geriatrie — Ohrläppchen oder Fingerbeere, vorher hyperämisieren</li>
+          <li>Kompromiss: pO₂ weniger zuverlässig als arteriell</li>
+        </ul>
+        <div class="callout warning">
+          <span class="callout-label">⚠ Praxis-Tipp</span>
+          Vor arterieller Punktion: Heparin-Spritze, Luftblasen sofort entfernen (sonst falsch-hoher pO₂), Probe sofort analysieren oder auf Eis lagern. Allen-Test dokumentieren.
+        </div>
+      </div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <div class="card-head-left">
+          <span class="card-tag">Normalwerte</span>
+          <div class="card-title">Die Zahlen, die sitzen müssen</div>
+        </div>
+        <span class="toggle">+</span>
+      </div>
+      <div class="card-body"><div class="card-body-inner">
+        <table>
+          <thead>
+            <tr><th>Parameter</th><th>Normalwert</th><th>Einheit</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>pH</strong></td><td class="val mono">7,36 – 7,44</td><td class="mono">—</td></tr>
+            <tr><td><strong>pCO₂</strong></td><td class="val mono">35 – 45</td><td class="mono">mmHg</td></tr>
+            <tr><td><strong>pO₂</strong> (arteriell)</td><td class="val mono">70 – 100</td><td class="mono">mmHg</td></tr>
+            <tr><td><strong>HCO₃⁻</strong> (Standard)</td><td class="val mono">22 – 26</td><td class="mono">mmol/L</td></tr>
+            <tr><td><strong>BE</strong> (Base Excess)</td><td class="val mono">−2 bis +2</td><td class="mono">mmol/L</td></tr>
+            <tr><td><strong>SaO₂</strong></td><td class="val mono">95 – 98</td><td class="mono">%</td></tr>
+            <tr><td><strong>Laktat</strong></td><td class="val mono">&lt; 2,0</td><td class="mono">mmol/L</td></tr>
+            <tr><td><strong>Anionenlücke</strong></td><td class="val mono">8 – 12</td><td class="mono">mmol/L</td></tr>
+          </tbody>
+        </table>
+        <div class="callout fact">
+          <span class="callout-label">⚙ Faustregel pO₂</span>
+          Altersangepasster Normalwert: <strong>pO₂ ≈ 100 − (Alter / 4)</strong> mmHg. Ein 80-Jähriger mit pO₂ 80 mmHg ist also nicht respiratorisch insuffizient.
+        </div>
+        <div class="qa">
+          <div class="qa-q">Welche Normalwerte für eine arterielle BGA müssen Sie kennen?</div>
+          <div class="qa-a">pH 7,36–7,44; pCO₂ 35–45 mmHg; pO₂ 70–100 mmHg, altersabhängig; HCO₃⁻ 22–26 mmol/L; BE ±2 mmol/L; SaO₂ 95–98%. Zusätzlich Anionenlücke 8–12 mmol/L und Laktat unter 2 mmol/L.</div>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <div class="card-head-left">
+          <span class="card-tag">Komplikationen</span>
+          <div class="card-title">Risiken der arteriellen Punktion</div>
+        </div>
+        <span class="toggle">+</span>
+      </div>
+      <div class="card-body"><div class="card-body-inner">
+        <ul>
+          <li><strong>Hämatom</strong> — häufigste Komplikation; danach 5 min komprimieren, bei Antikoagulation länger</li>
+          <li><strong>Arterienspasmus</strong> — meist selbstlimitierend</li>
+          <li><strong>Thrombose / Embolie</strong> — selten, aber Allen-Test schützt vor Hand-Ischämie</li>
+          <li><strong>AV-Fistel</strong> — sehr selten</li>
+          <li><strong>Nervenläsion</strong> — bei A. brachialis (N. medianus) oder A. femoralis (N. femoralis)</li>
+          <li><strong>Infektion</strong> — Asepsis beachten</li>
+        </ul>
+        <div class="callout critical">
+          <span class="callout-label">▲ Kontraindikation Allen-Test pathologisch</span>
+          Wenn die Rekapillarisierung nach Allen-Test &gt; 10 s dauert: <strong>keine A.-radialis-Punktion</strong> — Ausweichen auf Gegenseite oder andere Arterie. Hand-Ischämie-Gefahr.
+        </div>
+      </div></div>
+    </div>
+  </section>
+
+  <!-- STATION 2: PARAMETER -->
+  <section class="station" id="s2">
+    <div class="station-header">
+      <div class="station-header-left">
+        <div class="station-eyebrow">Station 02</div>
+        <div class="station-title">Die 5 Schlüsselparameter</div>
+      </div>
+      <div class="station-tagline">Was misst jeder Wert wirklich — und was bedeutet er klinisch?</div>
+    </div>
+
+    <div class="card open">
+      <div class="card-head">
+        <div class="card-head-left">
+          <span class="card-tag">Quick Reference</span>
+          <div class="card-title">Was sagt mir welcher Wert?</div>
+        </div>
+        <span class="toggle">+</span>
+      </div>
+      <div class="card-body"><div class="card-body-inner">
+        <div class="param-grid">
+          <div class="param-cell">
+            <div class="param-name">pH</div>
+            <div class="param-val">7,36 – 7,44</div>
+            <div class="param-desc">Säure-Basen-Status. Log-Skala — kleine Abweichungen, große Wirkung.</div>
+          </div>
+          <div class="param-cell">
+            <div class="param-name">pCO₂</div>
+            <div class="param-val">35 – 45 mmHg</div>
+            <div class="param-desc">Respiratorische Komponente. Direkt durch Ventilation reguliert.</div>
+          </div>
+          <div class="param-cell">
+            <div class="param-name">HCO₃⁻</div>
+            <div class="param-val">22 – 26 mmol/L</div>
+            <div class="param-desc">Metabolische Komponente. Renal reguliert über Stunden bis Tage.</div>
+          </div>
+          <div class="param-cell">
+            <div class="param-name">BE</div>
+            <div class="param-val">−2 bis +2 mmol/L</div>
+            <div class="param-desc">Basenüberschuss. Reine metabolische Komponente, Hb-korrigiert.</div>
+          </div>
+          <div class="param-cell">
+            <div class="param-name">SaO₂</div>
+            <div class="param-val">95 – 98 %</div>
+            <div class="param-desc">Hämoglobin-Sättigung. Sigmoide Bindungskurve — ab pO₂ 60 fällt SaO₂ steil ab.</div>
+          </div>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <div class="card-head-left">
+          <span class="card-tag">pH & pCO₂</span>
+          <div class="card-title">Die respiratorische Achse</div>
+        </div>
+        <span class="toggle">+</span>
+      </div>
+      <div class="card-body"><div class="card-body-inner">
+        <h4>pH</h4>
+        <ul>
+          <li><strong>&lt; 7,36 = Azidose</strong> · <strong>&gt; 7,44 = Alkalose</strong></li>
+          <li>Logarithmische Skala: pH 7,1 ist nicht nur „etwas saurer", sondern doppelt so sauer wie pH 7,4</li>
+          <li>Lebensgefährlich: pH &lt; 7,1 oder &gt; 7,6</li>
+        </ul>
+        <h4>pCO₂</h4>
+        <ul>
+          <li><strong>↑ pCO₂ = Hyperkapnie</strong> → Hypoventilation (COPD-Exazerbation, Opioide, neuromuskulär, ZNS-Depression)</li>
+          <li><strong>↓ pCO₂ = Hypokapnie</strong> → Hyperventilation (Angst, Schmerz, Schwangerschaft, ZNS, frühe Sepsis, PE)</li>
+          <li>CO₂ ist „flüchtige Säure" — über Lunge in Minuten regulierbar</li>
+        </ul>
+        <div class="callout fact">
+          <span class="callout-label">⚙ Henderson-Hasselbalch</span>
+          pH ∝ HCO₃⁻ / pCO₂. Daher: <strong>pCO₂ und pH bewegen sich bei primär respiratorischen Störungen gegensätzlich</strong> (pCO₂ ↑ → pH ↓), bei primär metabolischen <strong>gleichsinnig</strong> (HCO₃⁻ ↓ → pH ↓).
+        </div>
+      </div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <div class="card-head-left">
+          <span class="card-tag">HCO₃⁻ & BE</span>
+          <div class="card-title">Die metabolische Achse</div>
+        </div>
+        <span class="toggle">+</span>
+      </div>
+      <div class="card-body"><div class="card-body-inner">
+        <h4>HCO₃⁻ (Bikarbonat)</h4>
+        <ul>
+          <li>Wichtigster Blutpuffer; renal über Stunden bis Tage reguliert</li>
+          <li><strong>↓ HCO₃⁻</strong> = metabolische Azidose (Verlust oder Verbrauch — DKA, Laktat, Diarrhö, NI)</li>
+          <li><strong>↑ HCO₃⁻</strong> = metabolische Alkalose (Erbrechen, Diuretika, Hyperaldosteronismus)</li>
+        </ul>
+        <h4>BE — Base Excess</h4>
+        <ul>
+          <li>Menge an Säure/Base, die nötig wäre, um 1 L Blut auf pH 7,4 bei pCO₂ 40 mmHg zurückzubringen</li>
+          <li><strong>Negativ (&lt; −2):</strong> Basenmangel → metabolische Azidose</li>
+          <li><strong>Positiv (&gt; +2):</strong> Basenüberschuss → metabolische Alkalose</li>
+          <li>Vorteil gegenüber HCO₃⁻: <strong>Hb-korrigiert</strong>, daher robuster bei gemischten Störungen</li>
+        </ul>
+        <div class="callout pearl">
+          <span class="callout-label">★ Pearl</span>
+          BE und HCO₃⁻ sagen das Gleiche aus — nur dass <strong>BE die „reine" metabolische Komponente</strong> isoliert. Wenn HCO₃⁻ und BE divergieren (selten), liegt eine komplexe gemischte Störung vor.
+        </div>
+      </div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <div class="card-head-left">
+          <span class="card-tag">Oxygenierung</span>
+          <div class="card-title">pO₂, SaO₂ & der Horovitz-Quotient</div>
+        </div>
+        <span class="toggle">+</span>
+      </div>
+      <div class="card-body"><div class="card-body-inner">
+        <h4>pO₂ — Sauerstoffpartialdruck</h4>
+        <ul>
+          <li>Norm 70–100 mmHg, altersangepasst (100 − Alter/4)</li>
+          <li><strong>Respiratorische Partialinsuffizienz (Typ I):</strong> pO₂ &lt; 60 mmHg, pCO₂ normal/niedrig</li>
+          <li><strong>Globalinsuffizienz (Typ II):</strong> pO₂ &lt; 60 mmHg <em>und</em> pCO₂ &gt; 45 mmHg</li>
+        </ul>
+        <h4>SaO₂ — Sauerstoffsättigung</h4>
+        <ul>
+          <li>Anteil des oxygenierten Hb (sigmoide Bindungskurve)</li>
+          <li><strong>Kritischer Punkt: pO₂ ≈ 60 mmHg = SaO₂ ≈ 90%</strong> — darunter fällt SaO₂ steil ab</li>
+          <li>Linksverschiebung (Alkalose, Hypothermie, ↓2,3-BPG) → höhere SaO₂ bei gleichem pO₂, aber schlechtere Gewebeabgabe</li>
+        </ul>
+        <h4>Horovitz-Quotient</h4>
+        <ul>
+          <li><strong>paO₂ / FiO₂</strong> — Maß für die Oxygenierungsleistung</li>
+          <li>Normal: &gt; 400</li>
+          <li>ARDS-Kriterien (Berlin): <em class="highlight">mild &lt; 300, moderat &lt; 200, schwer &lt; 100</em></li>
+        </ul>
+        <div class="qa">
+          <div class="qa-q">Patient hat SaO₂ 96% bei pO₂ 55 mmHg — Widerspruch?</div>
+          <div class="qa-a">Nein, das spricht für eine Linksverschiebung der Sauerstoffbindungskurve — z.B. bei Alkalose, Hypothermie oder CO-Intoxikation. Die SaO₂ ist trotz erniedrigter pO₂ erhalten, aber die Sauerstoffabgabe ans Gewebe ist beeinträchtigt. Klinisch wichtiger Hinweis: SaO₂ und pO₂ immer zusammen beurteilen.</div>
+        </div>
+      </div></div>
+    </div>
+  </section>
+
+  <!-- STATION 3: AUSWERTUNG -->
+  <section class="station" id="s3">
+    <div class="station-header">
+      <div class="station-header-left">
+        <div class="station-eyebrow">Station 03</div>
+        <div class="station-title">Der 5-Schritt-Algorithmus</div>
+      </div>
+      <div class="station-tagline">Immer dieselbe Reihenfolge — dann verirrt man sich nie.</div>
+    </div>
+
+    <div class="card open">
+      <div class="card-head">
+        <div class="card-head-left">
+          <span class="card-tag">Algorithmus</span>
+          <div class="card-title">Die 5 Schritte — jedes Mal in dieser Reihenfolge</div>
+        </div>
+        <span class="toggle">+</span>
+      </div>
+      <div class="card-body"><div class="card-body-inner">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-title">Oxygenierung</div>
+            <div class="step-body"><strong>pO₂ und SaO₂</strong> beurteilen. Bei pO₂ &lt; 60 mmHg → respiratorische Insuffizienz. Horovitz-Quotient berechnen, wenn FiO₂ bekannt.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <div class="step-title">pH — Azidose oder Alkalose?</div>
+            <div class="step-body"><code>pH &lt; 7,36</code> = Azidose · <code>pH &gt; 7,44</code> = Alkalose · <code>7,36–7,44</code> = normal (kann trotzdem kompensiert sein!)</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <div class="step-title">Primärstörung — respiratorisch oder metabolisch?</div>
+            <div class="step-body">Welcher Wert bewegt sich „in die Richtung" des pH? Bei Azidose: ↑pCO₂ = respiratorisch · ↓HCO₃⁻ = metabolisch. Bei Alkalose: ↓pCO₂ = respiratorisch · ↑HCO₃⁻ = metabolisch.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <div class="step-title">Kompensation — akut, chronisch, vollständig?</div>
+            <div class="step-body">Bewegt sich der zweite Wert „in die Gegenrichtung", spricht das für Kompensation. pH normal trotz pathologischer pCO₂/HCO₃⁻ → <strong>vollständig kompensiert</strong>.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">5</div>
+          <div class="step-content">
+            <div class="step-title">Anionenlücke (bei metabolischer Azidose)</div>
+            <div class="step-body"><code>AG = Na⁺ − (Cl⁻ + HCO₃⁻)</code> · Normal 8–12 mmol/L · <strong>Erhöht</strong> bei DKA, Laktat, Urämie, Intoxikation („KUSSMAUL/MUDPILES") · <strong>Normal</strong> bei Diarrhö, RTA, TPN.</div>
+          </div>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <div class="card-head-left">
+          <span class="card-tag">4-Felder-Tafel</span>
+          <div class="card-title">Mustererkennung: Was ist primär?</div>
+        </div>
+        <span class="toggle">+</span>
+      </div>
+      <div class="card-body"><div class="card-body-inner">
+        <table>
+          <thead>
+            <tr><th>pH</th><th>pCO₂</th><th>HCO₃⁻ / BE</th><th>Diagnose</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="mono">↓</td><td class="mono val">↑</td><td class="mono">↑ (Komp.)</td><td><strong>Respiratorische Azidose</strong></td></tr>
+            <tr><td class="mono">↓</td><td class="mono">↓ (Komp.)</td><td class="mono val">↓</td><td><strong>Metabolische Azidose</strong></td></tr>
+            <tr><td class="mono">↑</td><td class="mono val">↓</td><td class="mono">↓ (Komp.)</td><td><strong>Respiratorische Alkalose</strong></td></tr>
+            <tr><td class="mono">↑</td><td class="mono">↑ (Komp.)</td><td class="mono val">↑</td><td><strong>Metabolische Alkalose</strong></td></tr>
+          </tbody>
+        </table>
+        <div class="callout fact">
+          <span class="callout-label">⚙ Merksatz</span>
+          <strong>Primär ist der Wert, der „in die pH-Richtung" zeigt.</strong> pH ↓ + pCO₂ ↑ + HCO₃⁻ ↑ → primär respiratorisch (pCO₂ macht den pH sauer), HCO₃⁻ kompensiert. Niemals umgekehrt.
+        </div>
+      </div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <div class="card-head-left">
+          <span class="card-tag">Kompensation</span>
+          <div class="card-title">Akut vs. chronisch — Faustregeln</div>
+        </div>
+        <span class="toggle">+</span>
+      </div>
+      <div class="card-body"><div class="card-body-inner">
+        <h4>Respiratorische Störungen (Kompensation renal)</h4>
+        <ul>
+          <li><strong>Akut</strong> (Stunden): ΔHCO₃⁻ ≈ <code>0,1 × ΔpCO₂</code> — kleine HCO₃⁻-Bewegung</li>
+          <li><strong>Chronisch</strong> (Tage): ΔHCO₃⁻ ≈ <code>0,35 × ΔpCO₂</code> — größere HCO₃⁻-Bewegung</li>
+        </ul>
+        <h4>Metabolische Störungen (Kompensation respiratorisch, Minuten)</h4>
+        <ul>
+          <li><strong>Met. Azidose:</strong> erwarteter pCO₂ = <code>1,5 × HCO₃⁻ + 8 ± 2</code> (Winters-Formel)</li>
+          <li><strong>Met. Alkalose:</strong> ΔpCO₂ ≈ <code>0,7 × ΔHCO₃⁻</code> (begrenzt, da Hypoventilation Hypoxie macht)</li>
+        </ul>
+        <div class="callout warning">
+          <span class="callout-label">⚠ Klinische Faustregel</span>
+          <strong>Vollständige Kompensation</strong> = pH normalisiert sich (nie übers Ziel hinaus!). Wenn pH überkompensiert ist → <strong>gemischte Störung</strong>. Z.B. respiratorische Azidose + metabolische Alkalose bei COPD-Patient unter Schleifendiuretika.
+        </div>
+        <div class="qa">
+          <div class="qa-q">Wie unterscheiden Sie eine akute von einer chronischen respiratorischen Azidose?</div>
+          <div class="qa-a">An der renalen Kompensation. Akut: die Niere hat noch nicht reagiert, HCO₃⁻ steigt nur minimal (etwa 0,1 mmol/L pro 1 mmHg pCO₂-Anstieg), der pH fällt deutlich. Chronisch — z.B. bei COPD: über Tage steigt HCO₃⁻ relevant (etwa 0,35 pro 1 mmHg), der pH ist nur grenzwertig erniedrigt oder normal. Klinik: pCO₂ 70 mit pH 7,20 ist akut, pCO₂ 70 mit pH 7,36 ist chronisch.</div>
+        </div>
+      </div></div>
+    </div>
+  </section>
+
+  <!-- STATION 4: ANWENDUNG -->
+  <section class="station" id="s4">
+    <div class="station-header">
+      <div class="station-header-left">
+        <div class="station-eyebrow">Station 04</div>
+        <div class="station-title">Mini-Cases — Mustererkennung</div>
+      </div>
+      <div class="station-tagline">Erst auswerten, dann aufdecken — 6 typische Konstellationen.</div>
+    </div>
+
+    <div class="card open">
+      <div class="card-head">
+        <div class="card-head-left">
+          <span class="card-tag">Case Drill</span>
+          <div class="card-title">6 Konstellationen — jeweils 30 Sekunden</div>
+        </div>
+        <span class="toggle">+</span>
+      </div>
+      <div class="card-body"><div class="card-body-inner">
+
+        <p style="font-style: italic; color: var(--ink-muted); margin-bottom: 18px;">Werten Sie zuerst nach dem 5-Schritt-Algorithmus aus, dann auf „Auflösen" klicken.</p>
+
+        <div class="case">
+          <div class="case-label">Fall 1 · 68-J., COPD-Exazerbation</div>
+          <div class="case-values">pH 7,21 · pCO₂ 72 · HCO₃⁻ 26 · BE +1 · pO₂ 52 · SaO₂ 84%</div>
+          <button class="reveal-btn">Auflösen</button>
+          <div class="case-answer"><strong>Akute respiratorische Azidose</strong> bei <strong>respiratorischer Globalinsuffizienz</strong> (Typ II). HCO₃⁻ noch normal — Niere hatte keine Zeit zu kompensieren. Bei chronischer COPD wäre HCO₃⁻ &gt; 30. Therapie: O₂ vorsichtig titriert, NIV erwägen.</div>
+        </div>
+
+        <div class="case">
+          <div class="case-label">Fall 2 · 24-J., bekannter Typ-1-Diabetes, Bauchschmerzen</div>
+          <div class="case-values">pH 7,10 · pCO₂ 22 · HCO₃⁻ 7 · BE −20 · pO₂ 105 · Na 138 · Cl 100 · Glukose 480</div>
+          <button class="reveal-btn">Auflösen</button>
+          <div class="case-answer"><strong>Metabolische Azidose mit erhöhter Anionenlücke</strong> (AG = 138 − 107 = 31) bei <strong>diabetischer Ketoazidose</strong>. Respiratorische Kompensation per Kussmaul-Atmung (Winters: erwarteter pCO₂ ≈ 1,5×7+8 = 18,5 ± 2 → passt). Therapie: Volumen, Insulin, K⁺-Substitution.</div>
+        </div>
+
+        <div class="case">
+          <div class="case-label">Fall 3 · 32-J., Panikattacke in der Notaufnahme</div>
+          <div class="case-values">pH 7,52 · pCO₂ 26 · HCO₃⁻ 21 · BE −1 · pO₂ 110 · SaO₂ 99%</div>
+          <button class="reveal-btn">Auflösen</button>
+          <div class="case-answer"><strong>Akute respiratorische Alkalose</strong> bei Hyperventilation. HCO₃⁻ noch normal. Wichtig: <strong>D-Dimere und EKG</strong> ausschließen — Lungenembolie ist die gefährlichste Differenzialdiagnose der Hyperventilation in der Notaufnahme.</div>
+        </div>
+
+        <div class="case">
+          <div class="case-label">Fall 4 · 76-J., seit 5 Tagen Erbrechen</div>
+          <div class="case-values">pH 7,52 · pCO₂ 48 · HCO₃⁻ 38 · BE +14 · K⁺ 2,9 · Cl⁻ 88</div>
+          <button class="reveal-btn">Auflösen</button>
+          <div class="case-answer"><strong>Metabolische Alkalose</strong> (HCl-Verlust durch Erbrechen) mit <strong>respiratorischer Kompensation</strong> (pCO₂ ↑). Typisch: Hypokaliämie + Hypochlorämie. Therapie: NaCl 0,9% + KCl — die Alkalose ist „chlorid-responsiv".</div>
+        </div>
+
+        <div class="case">
+          <div class="case-label">Fall 5 · 70-J., bekannte COPD, jetzt Furosemid wegen Beinödemen</div>
+          <div class="case-values">pH 7,44 · pCO₂ 60 · HCO₃⁻ 40 · BE +14 · pO₂ 58</div>
+          <button class="reveal-btn">Auflösen</button>
+          <div class="case-answer"><strong>Gemischte Störung:</strong> chronische respiratorische Azidose (pCO₂ ↑) + metabolische Alkalose (HCO₃⁻ überproportional ↑, BE deutlich positiv). pH normal — aber für eine reine chronische resp. Azidose wäre HCO₃⁻ &lt; 35. Furosemid hat eine zusätzliche metabolische Alkalose induziert.</div>
+        </div>
+
+        <div class="case">
+          <div class="case-label">Fall 6 · 45-J., Beatmungspatient ARDS, FiO₂ 0,6</div>
+          <div class="case-values">pH 7,32 · pCO₂ 50 · HCO₃⁻ 25 · pO₂ 90 · SaO₂ 96%</div>
+          <button class="reveal-btn">Auflösen</button>
+          <div class="case-answer"><strong>Horovitz = 90/0,6 = 150</strong> → <strong>moderates ARDS</strong> (Berlin: &lt; 200). Zusätzlich leichte respiratorische Azidose — passend zur lungenprotektiven Beatmung mit permissiver Hyperkapnie. SaO₂ täuscht: trotz akzeptabler Sättigung ist die Lungenfunktion schwer gestört.</div>
+        </div>
+
+      </div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <div class="card-head-left">
+          <span class="card-tag">Take-Home</span>
+          <div class="card-title">Was sitzt jetzt — was kommt in L2?</div>
+        </div>
+        <span class="toggle">+</span>
+      </div>
+      <div class="card-body"><div class="card-body-inner">
+        <h4>L1 sitzt, wenn Sie:</h4>
+        <ul>
+          <li>Die 8 Normalwerte (pH, pCO₂, pO₂, HCO₃⁻, BE, SaO₂, Laktat, AG) <strong>auswendig</strong> nennen können</li>
+          <li>Den 5-Schritt-Algorithmus <strong>ohne nachzusehen</strong> abarbeiten</li>
+          <li>Eine BGA-Konstellation in <strong>unter 30 Sekunden</strong> einer der 4 Felder zuordnen</li>
+          <li>Anionenlücke berechnen und beurteilen können</li>
+          <li>Akut vs. chronisch an der Kompensation erkennen</li>
+        </ul>
+        <h4>L2 (nächste Woche):</h4>
+        <ul>
+          <li>Anionenlücke-Differenzialdiagnose (KUSSMAUL/MUDPILES)</li>
+          <li>Delta-Gap-Konzept bei gemischten metabolischen Störungen</li>
+          <li>Tiefere Kompensationsformeln & Erkennung gemischter Störungen</li>
+          <li>Spezielle Konstellationen: Salicylat-Intox, COPD vs. Asthma, Sepsis</li>
+        </ul>
+        <div class="callout pearl">
+          <span class="callout-label">★ Prüfer-Perle</span>
+          In Mainz ist die <strong>BGA-Auswertung am Patientenbett</strong> Standardstoff. Wer den 5-Schritt-Algorithmus laut und in dieser Reihenfolge abspult, signalisiert sofort klinische Sicherheit — auch wenn der Fall am Ende komplex wird. <em>Reihenfolge schlägt Geschwindigkeit.</em>
+        </div>
+      </div></div>
+    </div>
+  </section>
+
+  <footer>
+    KP Mainz Drills · BGA Wk1 · L1 — Systematische Auswertung & Normalwerte
+  </footer>
+
+</div>
+
+<script>
+  // Tab switching
+  const tabs = document.querySelectorAll('.tab');
+  const stations = document.querySelectorAll('.station');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const target = tab.dataset.station;
+      tabs.forEach(t => t.classList.remove('active'));
+      stations.forEach(s => s.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById('s' + target).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  // Card expand/collapse
+  document.querySelectorAll('.card-head').forEach(head => {
+    head.addEventListener('click', () => {
+      head.closest('.card').classList.toggle('open');
+    });
+  });
+
+  // Case reveal
+  document.querySelectorAll('.reveal-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      btn.closest('.case').classList.add('revealed');
+    });
+  });
+</script>
+</body>
+</html>
