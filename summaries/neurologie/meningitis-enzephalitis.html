@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meningitis / Enzephalitis · 1-Seiten-Summary</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F7F4EE;
+    --paper: #FFFFFF;
+    --ink: #1A1A1A;
+    --ink-muted: #5C5C5C;
+    --ink-soft: #8A8A8A;
+    --rule: #E8E2D6;
+    --red: #C0392B;    --red-soft: #FDE4E1;
+    --blue: #1E5F9E;   --blue-soft: #E5EEF7;
+    --purple: #7B3F9E; --purple-soft: #EFE5F7;
+    --orange: #D97706; --orange-soft: #FDF2E2;
+    --green: #2D7A3E;  --green-soft: #E3F1E6;
+    --yellow: #B8860B; --yellow-soft: #FBF2D9;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 980px; margin: 0 auto; padding: 36px 24px 60px; }
+
+  /* Back link */
+  .back {
+    display: inline-block;
+    font-family: 'Manrope', sans-serif;
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--ink-muted);
+    text-decoration: none;
+    margin-bottom: 22px;
+    transition: color 0.2s ease;
+  }
+  .back:hover { color: var(--ink); }
+
+  /* Title strip */
+  .title-strip {
+    background: var(--paper);
+    border-top: 4px solid var(--blue);
+    border-bottom: 4px solid var(--blue);
+    padding: 22px 28px;
+    margin-bottom: 28px;
+    border-radius: 4px;
+  }
+  .eyebrow {
+    font-family: 'Manrope', sans-serif;
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-muted); margin-bottom: 10px;
+  }
+  h1 {
+    font-family: 'Fraunces', serif; font-weight: 600;
+    font-size: clamp(32px, 5vw, 44px);
+    line-height: 1.05; letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+  h1 .sep { color: var(--ink-soft); font-weight: 400; margin: 0 8px; }
+  .tagline {
+    font-family: 'Fraunces', serif; font-style: italic;
+    font-size: 16px; color: var(--ink-muted);
+  }
+
+  /* 2-column grid */
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  /* Section card */
+  .section {
+    background: var(--paper);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 14px;
+    border: 1px solid var(--rule);
+  }
+  .section-head {
+    padding: 12px 18px;
+    border-left: 6px solid;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .section-emoji { font-size: 20px; line-height: 1; }
+  .section-title {
+    font-family: 'Manrope', sans-serif;
+    font-size: 13px; font-weight: 700;
+    letter-spacing: 0.18em; text-transform: uppercase;
+  }
+  .section-body { padding: 14px 18px 18px; }
+
+  /* Color variants */
+  .s-blue .section-head { background: var(--blue-soft); border-left-color: var(--blue); }
+  .s-blue .section-title { color: var(--blue); }
+  .s-red .section-head { background: var(--red-soft); border-left-color: var(--red); }
+  .s-red .section-title { color: var(--red); }
+  .s-orange .section-head { background: var(--orange-soft); border-left-color: var(--orange); }
+  .s-orange .section-title { color: var(--orange); }
+  .s-green .section-head { background: var(--green-soft); border-left-color: var(--green); }
+  .s-green .section-title { color: var(--green); }
+  .s-purple .section-head { background: var(--purple-soft); border-left-color: var(--purple); }
+  .s-purple .section-title { color: var(--purple); }
+  .s-yellow .section-head { background: var(--yellow-soft); border-left-color: var(--yellow); }
+  .s-yellow .section-title { color: var(--yellow); }
+
+  /* Sub-headers within section */
+  h4 {
+    font-family: 'Manrope', sans-serif;
+    font-size: 10.5px; font-weight: 700;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--ink-muted);
+    margin: 12px 0 6px;
+  }
+  .section-body > h4:first-child { margin-top: 0; }
+
+  /* Bullets */
+  ul { list-style: none; padding-left: 2px; margin-bottom: 4px; }
+  li {
+    position: relative;
+    padding-left: 18px;
+    margin-bottom: 5px;
+    font-size: 14.5px;
+    line-height: 1.5;
+  }
+  li::before {
+    content: "▸";
+    position: absolute;
+    left: 2px; top: 0;
+    font-weight: 700;
+  }
+  .s-blue li::before { color: var(--blue); }
+  .s-red li::before { color: var(--red); }
+  .s-orange li::before { color: var(--orange); }
+  .s-green li::before { color: var(--green); }
+  .s-purple li::before { color: var(--purple); }
+  .s-yellow li::before { color: var(--yellow); }
+
+  strong { font-weight: 600; }
+  .s-red strong.key { color: var(--red); }
+  .s-orange strong.key { color: var(--orange); }
+
+  /* Footer */
+  footer {
+    margin-top: 36px;
+    padding-top: 16px;
+    border-top: 1px solid var(--rule);
+    text-align: center;
+    font-family: 'Manrope', sans-serif;
+    font-size: 12px;
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+
+  @media (max-width: 720px) {
+    .container { padding: 24px 16px 50px; }
+    .grid { grid-template-columns: 1fr; gap: 0; }
+    .title-strip { padding: 18px 20px; }
+    h1 { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <a href="../../index.html" class="back">← Zurück zur Library</a>
+
+  <div class="title-strip">
+    <div class="eyebrow">KP Mainz · Neurologie</div>
+    <h1>Meningitis<span class="sep">/</span>Enzephalitis</h1>
+    <div class="tagline">Eine Seite — Erreger, Klinik, Liquor, Therapie.</div>
+  </div>
+
+  <div class="grid">
+
+    <!-- LEFT COLUMN -->
+    <div class="col">
+
+      <!-- DEFINITION (blue) -->
+      <div class="section s-blue">
+        <div class="section-head">
+          <span class="section-emoji">🧠</span>
+          <span class="section-title">Definition & Einteilung</span>
+        </div>
+        <div class="section-body">
+          <ul>
+            <li><strong>Meningitis:</strong> Entzündung der Meningen (Pia + Arachnoidea).</li>
+            <li><strong>Enzephalitis:</strong> Entzündung des Hirnparenchyms.</li>
+            <li><strong>Meningoenzephalitis:</strong> Beide Strukturen betroffen — Mischbild.</li>
+          </ul>
+          <h4>Erregerklassen</h4>
+          <ul>
+            <li>bakteriell · viral · tuberkulös · mykotisch · parasitär</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ÄTIOLOGIE (red) -->
+      <div class="section s-red">
+        <div class="section-head">
+          <span class="section-emoji">⚠</span>
+          <span class="section-title">Ätiologie nach Alter</span>
+        </div>
+        <div class="section-body">
+          <h4>Neugeborene</h4>
+          <ul>
+            <li><strong class="key">E. coli</strong>, <strong class="key">Streptokokken Gruppe B</strong>, <strong class="key">Listerien</strong></li>
+          </ul>
+          <h4>Kinder & Erwachsene</h4>
+          <ul>
+            <li><strong class="key">S. pneumoniae</strong> (häufigster Erreger)</li>
+            <li><strong class="key">N. meningitidis</strong> (Petechien!)</li>
+            <li><strong class="key">H. influenzae</strong> (selten seit Impfung)</li>
+          </ul>
+          <h4>&gt; 50 J. / Immunsuppression</h4>
+          <ul>
+            <li>zusätzlich <strong class="key">Listeria monocytogenes</strong></li>
+          </ul>
+          <h4>Virale Enzephalitis</h4>
+          <ul>
+            <li><strong class="key">HSV-1</strong> (häufigste!), VZV, FSME, Enteroviren</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- KLINIK (orange) -->
+      <div class="section s-orange">
+        <div class="section-head">
+          <span class="section-emoji">🔥</span>
+          <span class="section-title">Klinik</span>
+        </div>
+        <div class="section-body">
+          <h4>Klassische Trias (Meningitis)</h4>
+          <ul>
+            <li><strong class="key">Fieber + Kopfschmerz + Meningismus</strong></li>
+          </ul>
+          <h4>Weitere Symptome</h4>
+          <ul>
+            <li>Photophobie, Übelkeit/Erbrechen, Bewusstseinsstörung</li>
+            <li><strong class="key">Petechien / Waterhouse-Friderichsen</strong> → Meningokokken</li>
+          </ul>
+          <h4>Hinweise auf Enzephalitis</h4>
+          <ul>
+            <li>Vigilanzminderung, <strong>fokal-neurologische Defizite</strong>, <strong>Krampfanfälle</strong>, Wesensänderung</li>
+          </ul>
+          <h4>Untersuchungszeichen</h4>
+          <ul>
+            <li><strong>Nackensteife</strong>, Kernig, Brudzinski, Lasègue</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="col">
+
+      <!-- DIAGNOSTIK (green) -->
+      <div class="section s-green">
+        <div class="section-head">
+          <span class="section-emoji">🔬</span>
+          <span class="section-title">Diagnostik</span>
+        </div>
+        <div class="section-body">
+          <h4>Sofortmaßnahmen</h4>
+          <ul>
+            <li><strong>Blutkulturen</strong> + Labor (BB, CRP, PCT, Gerinnung)</li>
+            <li><strong>cCT vor LP</strong> bei: Vigilanzminderung, fokalen Defiziten, Stauungspapille, Immunsuppression, Krampfanfall</li>
+            <li><strong>Lumbalpunktion</strong> — Druck, Zellzahl, Eiweiß, Glucose, Laktat, Gram, Kultur, PCR (HSV!)</li>
+          </ul>
+          <h4>Liquor-Konstellationen</h4>
+          <ul>
+            <li><strong>Bakteriell:</strong> trüb, &gt;1000 Zellen, <strong>Granulozyten</strong>, Eiweiß ↑↑, <strong>Glucose ↓</strong>, Laktat ↑</li>
+            <li><strong>Viral:</strong> klar, &lt;500 Zellen, <strong>Lymphozyten</strong>, Eiweiß ↑, Glucose normal</li>
+            <li><strong>TBC:</strong> lymphozytär, Eiweiß ↑↑, Glucose ↓, ADA ↑</li>
+          </ul>
+          <h4>Bildgebung</h4>
+          <ul>
+            <li><strong>MRT bei Enzephalitis:</strong> temporale Hyperintensität bei HSV</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- THERAPIE (purple) -->
+      <div class="section s-purple">
+        <div class="section-head">
+          <span class="section-emoji">💊</span>
+          <span class="section-title">Therapie</span>
+        </div>
+        <div class="section-body">
+          <h4>Empirisch sofort (vor Erregernachweis!)</h4>
+          <ul>
+            <li><strong>Ceftriaxon 2g i.v.</strong> 12-stdl. (oder Cefotaxim 2g 6-stdl.)</li>
+            <li><strong>+ Ampicillin 2g i.v. 4-stdl.</strong> (Listerien-Abdeckung)</li>
+            <li><strong>+ Dexamethason 10mg i.v.</strong> 6-stdl. — vor/mit erster AB-Gabe</li>
+            <li>Bei Verdacht Enzephalitis: <strong>Aciclovir 10 mg/kg i.v. 8-stdl.</strong></li>
+          </ul>
+          <h4>Hospital-acquired / Trauma</h4>
+          <ul>
+            <li>+ <strong>Vancomycin</strong> (MRSA-Abdeckung)</li>
+          </ul>
+          <h4>Postexpositionsprophylaxe</h4>
+          <ul>
+            <li><strong>Rifampicin</strong> 2×600mg/d × 2 Tage für enge Kontaktpersonen bei Meningokokken</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- PERLEN (yellow) -->
+      <div class="section s-yellow">
+        <div class="section-head">
+          <span class="section-emoji">⚡</span>
+          <span class="section-title">Prüfer-Perlen & Pitfalls</span>
+        </div>
+        <div class="section-body">
+          <ul>
+            <li><strong>Reihenfolge:</strong> Blutkultur → Dexa+AB → CT → LP — niemals AB-Verzögerung wegen Bildgebung</li>
+            <li><strong>Meldepflicht:</strong> V.a. + Erkrankung + Tod (§§ 6, 7 IfSG); Meningokokken sofort namentlich</li>
+            <li><strong>HSV-Enzephalitis:</strong> Aciclovir bei Verdacht — Letalität unbehandelt ~70 %, behandelt ~20 %</li>
+            <li><strong>Liquor-Pattern merken:</strong> Bakteriell = Glucose runter (Erreger fressen mit)</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <footer>
+    KP-Mainz · Stex Lernkarten + Amboss KP-Lernplan · 1-Seiten-Summary
+  </footer>
+
+</div>
+</body>
+</html>
