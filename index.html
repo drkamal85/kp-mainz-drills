@@ -6,411 +6,307 @@
 <title>KP Mainz · Drill Library</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #F7F4EE;
-    --paper: #FFFFFF;
+    --bg: #FBFAF7;
     --ink: #1A1A1A;
-    --ink-muted: #5C5C5C;
-    --ink-soft: #8A8A8A;
-    --rule: #E8E2D6;
-    --grundlagen: #C0392B;
-    --klinik: #D97706;
-    --diagnostik: #1E5F9E;
-    --therapie: #2D7A3E;
-    --perlen: #B8860B;
+    --ink-muted: #6B6B6B;
+    --ink-soft: #9A9A9A;
+    --rule: #E6E2D9;
+    --accent: #1A1A1A;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
   body {
     background: var(--bg);
     color: var(--ink);
-    font-family: 'Fraunces', Georgia, serif;
-    font-size: 17px;
+    font-family: 'Manrope', system-ui, sans-serif;
+    font-size: 16px;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
   }
-  .container { max-width: 880px; margin: 0 auto; padding: 56px 24px 80px; }
+  .container { max-width: 680px; margin: 0 auto; padding: 88px 28px 100px; }
 
-  .eyebrow {
-    font-family: 'Manrope', sans-serif;
+  /* MASTHEAD */
+  .masthead { margin-bottom: 72px; }
+  .kicker {
     font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.22em;
+    font-weight: 600;
+    letter-spacing: 0.24em;
     text-transform: uppercase;
-    color: var(--ink-muted);
-    margin-bottom: 16px;
+    color: var(--ink-soft);
+    margin-bottom: 20px;
   }
-  .eyebrow::before { content: "— "; }
   h1 {
     font-family: 'Fraunces', serif;
-    font-weight: 600;
-    font-size: clamp(38px, 6vw, 58px);
-    line-height: 1.02;
-    letter-spacing: -0.02em;
-    margin-bottom: 18px;
+    font-weight: 500;
+    font-size: clamp(36px, 7vw, 54px);
+    line-height: 1.0;
+    letter-spacing: -0.025em;
+    margin-bottom: 22px;
   }
-  h1 .accent { font-style: italic; color: var(--diagnostik); }
-  .subtitle {
+  .lede {
     font-family: 'Fraunces', serif;
-    font-style: italic;
-    font-size: 19px;
+    font-size: 18px;
+    line-height: 1.5;
     color: var(--ink-muted);
-    max-width: 640px;
+    max-width: 480px;
     margin-bottom: 28px;
   }
-  .meta {
-    font-family: 'Manrope', sans-serif;
+  .stat-row {
+    display: flex;
+    gap: 28px;
     font-size: 13px;
     color: var(--ink-soft);
-    display: flex; flex-wrap: wrap; gap: 0; align-items: center;
-    margin-bottom: 48px;
+    border-top: 1px solid var(--rule);
+    padding-top: 20px;
   }
-  .meta span + span::before {
-    content: "•"; margin: 0 12px; color: var(--ink-soft);
-  }
+  .stat-row strong { color: var(--ink); font-weight: 600; }
 
-  .section-title {
-    font-family: 'Fraunces', serif;
-    font-style: italic;
-    font-size: 14px;
-    color: var(--ink-muted);
-    margin-bottom: 6px;
+  /* SECTION */
+  section { margin-bottom: 56px; }
+  .section-label {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 4px;
   }
-  .section-h {
-    font-family: 'Fraunces', serif;
-    font-weight: 600;
-    font-size: 28px;
-    margin-bottom: 18px;
-    padding-bottom: 12px;
-    border-bottom: 2px solid var(--rule);
-    letter-spacing: -0.01em;
-  }
-  .section-h .label {
-    font-family: 'Manrope', sans-serif;
-    font-size: 11px;
+  .section-label h2 {
+    font-size: 12px;
     font-weight: 700;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--diagnostik);
-    margin-right: 10px;
-    vertical-align: middle;
-  }
-
-  .drill-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 16px;
-    margin-bottom: 42px;
-  }
-  .drill {
-    background: var(--paper);
-    border: 1px solid var(--rule);
-    border-radius: 14px;
-    padding: 22px 22px 20px;
-    text-decoration: none;
     color: var(--ink);
-    transition: all 0.2s ease;
-    display: flex;
-    flex-direction: column;
-    min-height: 200px;
   }
-  .drill:hover {
-    border-color: var(--diagnostik);
-    box-shadow: 0 4px 18px rgba(0,0,0,0.06);
-    transform: translateY(-2px);
+  .section-label .count {
+    font-size: 12px;
+    color: var(--ink-soft);
+    font-variant-numeric: tabular-nums;
   }
-  .drill-tag {
-    display: inline-block;
-    font-family: 'Manrope', sans-serif;
-    font-size: 10.5px;
-    font-weight: 700;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    padding: 4px 10px;
-    border-radius: 4px;
-    margin-bottom: 12px;
-    align-self: flex-start;
-  }
-  .drill-tag.bga { background: #E5EEF7; color: var(--diagnostik); }
-  .drill-tag.echo { background: #E3F1E6; color: var(--therapie); }
-  .drill-tag.eeg { background: #FBEAE7; color: var(--grundlagen); }
-  .drill-tag.memorize { background: #FBF2D9; color: var(--perlen); }
-  .drill-tag.summary { background: #EFE5F7; color: #7B3F9E; }
-  .drill-tag.review { background: #FBEAE7; color: var(--grundlagen); }
-  .drill-tag.pdf { background: #FBEAE7; color: var(--grundlagen); }
-  .drill-tag.deutsch { background: #E5EEF7; color: var(--diagnostik); }
-
-  /* Summary card variant — smaller, side-by-side layout */
-  .summary-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 12px;
-    margin-bottom: 28px;
-  }
-  .summary-card {
-    background: var(--paper);
-    border: 1px solid var(--rule);
-    border-radius: 12px;
-    padding: 16px 18px;
-    text-decoration: none;
-    color: var(--ink);
-    transition: all 0.2s ease;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-  .summary-card:hover {
-    border-color: #7B3F9E;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.05);
-    transform: translateY(-1px);
-  }
-  .summary-title {
-    font-family: 'Fraunces', serif;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 1.3;
-    letter-spacing: -0.005em;
-  }
-  .summary-links {
-    display: flex;
-    gap: 6px;
-    margin-top: 4px;
-    font-family: 'Manrope', sans-serif;
-    font-size: 10.5px;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-  }
-  .summary-link {
-    padding: 3px 9px;
-    border-radius: 4px;
-    text-decoration: none;
-    transition: all 0.15s ease;
-  }
-  .summary-link.pdf-link { background: var(--grundlagen-soft, #FBEAE7); color: var(--grundlagen); }
-  .summary-link.docx-link { background: var(--diagnostik-soft, #E5EEF7); color: var(--diagnostik); }
-  .summary-link:hover { filter: brightness(0.94); }
-
-  .topic-h {
-    font-family: 'Fraunces', serif;
-    font-style: italic;
-    font-size: 16px;
-    color: var(--ink-muted);
-    margin: 18px 0 10px;
-    padding-bottom: 6px;
-    border-bottom: 1px solid var(--rule);
-    letter-spacing: -0.005em;
-  }
-  .drill-title {
-    font-family: 'Fraunces', serif;
-    font-weight: 500;
-    font-size: 21px;
-    line-height: 1.25;
-    margin-bottom: 8px;
-    letter-spacing: -0.01em;
-  }
-  .drill-desc {
+  .section-note {
     font-family: 'Fraunces', serif;
     font-style: italic;
     font-size: 14.5px;
     color: var(--ink-muted);
-    line-height: 1.45;
-    margin-bottom: 14px;
-    flex: 1;
+    margin-bottom: 18px;
+    max-width: 460px;
   }
-  .drill-meta {
-    font-family: 'Manrope', sans-serif;
+
+  /* GROUP (sub-category within a section) */
+  .group-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin: 26px 0 4px;
+  }
+
+  /* ROW LIST */
+  .rows { border-top: 1px solid var(--rule); }
+  .row {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    padding: 16px 4px;
+    border-bottom: 1px solid var(--rule);
+    text-decoration: none;
+    color: var(--ink);
+    transition: padding-left 0.18s ease, background 0.18s ease;
+  }
+  .row:hover {
+    padding-left: 12px;
+    background: rgba(0,0,0,0.015);
+  }
+  .row-main { flex: 1; min-width: 0; }
+  .row-title {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    margin-bottom: 3px;
+  }
+  .row-desc {
+    font-size: 13.5px;
+    color: var(--ink-muted);
+    line-height: 1.45;
+  }
+  .row-meta {
+    font-size: 11.5px;
+    color: var(--ink-soft);
+    margin-top: 6px;
+    font-variant-numeric: tabular-nums;
+  }
+  .row-meta span + span::before { content: "·"; margin: 0 7px; }
+  .row-tag {
+    flex-shrink: 0;
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    white-space: nowrap;
+    padding-top: 3px;
+  }
+  .row-arrow {
+    flex-shrink: 0;
+    font-size: 15px;
+    color: var(--ink-soft);
+    transition: transform 0.18s ease, color 0.18s ease;
+    align-self: center;
+  }
+  .row:hover .row-arrow { transform: translateX(3px); color: var(--ink); }
+
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
     font-size: 11.5px;
     color: var(--ink-soft);
     display: flex;
-    gap: 0;
-    align-items: center;
-  }
-  .drill-meta span + span::before {
-    content: "·"; margin: 0 8px;
-  }
-  .drill-arrow {
-    font-family: 'Manrope', sans-serif;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--diagnostik);
-    margin-top: 14px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
   }
 
-  .empty {
-    background: var(--paper);
-    border: 1px dashed var(--rule);
-    border-radius: 14px;
-    padding: 32px 24px;
-    text-align: center;
-    font-family: 'Fraunces', serif;
-    font-style: italic;
-    color: var(--ink-soft);
-    margin-bottom: 42px;
-  }
-
-  footer {
-    margin-top: 60px;
-    padding-top: 24px;
-    border-top: 1px solid var(--rule);
-    font-family: 'Manrope', sans-serif;
-    font-size: 12px;
-    color: var(--ink-soft);
-    text-align: center;
-  }
-
-  @media (max-width: 600px) {
-    .container { padding: 36px 18px 60px; }
-    .section-h { font-size: 24px; }
+  @media (max-width: 560px) {
+    .container { padding: 56px 20px 70px; }
+    .row-desc { display: none; }
+    .stat-row { flex-wrap: wrap; gap: 14px 24px; }
   }
 </style>
 </head>
 <body>
 <div class="container">
 
-  <div class="eyebrow">KP Mainz · Drill Library</div>
-  <h1>Drill <span class="accent">Library</span></h1>
-  <p class="subtitle">Interaktive Lerneinheiten zur KP-Vorbereitung. Stationsweise aufgebaut, Phone-tauglich, mit eingebauten KP-Fragen und Mustererkennungs-Cases.</p>
-  <div class="meta">
-    <span>Mainz · März 2027</span>
-    <span>Aktive Drills: 4</span>
-    <span>Live</span>
+  <div class="masthead">
+    <div class="kicker">KP Mainz · März 2027</div>
+    <h1>Drill Library</h1>
+    <p class="lede">Interaktive Lerneinheiten zur KP-Vorbereitung. Stationsweise, phone-tauglich, mit KP-Fragen und Mustererkennung.</p>
+    <div class="stat-row">
+      <span><strong>4</strong> Drills</span>
+      <span><strong>3</strong> Reviews</span>
+      <span><strong>1</strong> Summary</span>
+      <span><strong>1</strong> Sprechübung</span>
+    </div>
   </div>
 
-  <div class="section-title">Modul 01</div>
-  <h2 class="section-h"><span class="label">BGA</span>Blutgasanalyse</h2>
+  <!-- DRILLS -->
+  <section>
+    <div class="section-label">
+      <h2>Drills</h2>
+      <span class="count">BGA · Echo · EEG</span>
+    </div>
+    <div class="rows">
+      <a href="drills/01-bga-wk1-l1.html" class="row">
+        <div class="row-main">
+          <div class="row-title">Systematische Auswertung + Normalwerte</div>
+          <div class="row-desc">5-Schritt-Algorithmus, Normalwerte, Mustererkennung an realen Konstellationen.</div>
+          <div class="row-meta"><span>BGA · Wk 1 L1</span><span>~15 min</span><span>4 Stationen</span></div>
+        </div>
+        <span class="row-arrow">→</span>
+      </a>
+      <a href="drills/02-bga-normalwerte-memorize.html" class="row">
+        <div class="row-main">
+          <div class="row-title">Normalwerte verankern</div>
+          <div class="row-desc">Drei Modi — Anker-System, Flashcards, 10-Fragen-Quiz mit Pattern-Aufgaben.</div>
+          <div class="row-meta"><span>BGA · Memorize</span><span>~5 min</span><span>8 Werte</span></div>
+        </div>
+        <span class="row-arrow">→</span>
+      </a>
+      <a href="drills/03-echo-wk1-l1.html" class="row">
+        <div class="row-main">
+          <div class="row-title">Schallkopfpositionen + Standardschnitte</div>
+          <div class="row-desc">PLAX, PSAX und A4C — die Grundlage jeder Echo-Untersuchung.</div>
+          <div class="row-meta"><span>Echo · Wk 1 L1</span><span>~15 min</span><span>5 Mini-Cases</span></div>
+        </div>
+        <span class="row-arrow">→</span>
+      </a>
+      <a href="drills/04-eeg-wk1-l1.html" class="row">
+        <div class="row-main">
+          <div class="row-title">Grundrhythmus + Wellen + Normalbefund</div>
+          <div class="row-desc">Vier Wellen, ein Grundrhythmus, systematische Befundung. α/β/θ/δ.</div>
+          <div class="row-meta"><span>EEG · Wk 1 L1</span><span>~15 min</span><span>5 Mini-Cases</span></div>
+        </div>
+        <span class="row-arrow">→</span>
+      </a>
+    </div>
+  </section>
 
-  <div class="drill-grid">
-    <a href="drills/01-bga-wk1-l1.html" class="drill">
-      <span class="drill-tag bga">Wk 1 · L1</span>
-      <div class="drill-title">Systematische Auswertung + Normalwerte</div>
-      <div class="drill-desc">Der 5-Schritt-Algorithmus, die Normalwerte aus dem Kopf, und Mustererkennung an realen Konstellationen.</div>
-      <div class="drill-meta">
-        <span>~ 15 min</span>
-        <span>4 Stationen</span>
-        <span>6 Mini-Cases</span>
-      </div>
-      <div class="drill-arrow">Drill öffnen →</div>
-    </a>
+  <!-- REVIEWS -->
+  <section>
+    <div class="section-label">
+      <h2>Themen-Reviews</h2>
+      <span class="count">Spaced Repetition</span>
+    </div>
+    <p class="section-note">R1/R2/R3 bereits gelernter Themen. Kurz, klinisch, mit KP-Fragen und Perlen aus Mainz-Protokollen.</p>
 
-    <a href="drills/02-bga-normalwerte-memorize.html" class="drill">
-      <span class="drill-tag memorize">Memorize</span>
-      <div class="drill-title">Normalwerte verankern</div>
-      <div class="drill-desc">Drei Modi — Anker-System, Flashcards in beide Richtungen, 10-Fragen-Quiz mit Pattern-Aufgaben.</div>
-      <div class="drill-meta">
-        <span>~ 5 min/Burst</span>
-        <span>3 Modi</span>
-        <span>8 Werte</span>
-      </div>
-      <div class="drill-arrow">Drill öffnen →</div>
-    </a>
-  </div>
+    <div class="group-label">Allgemein- und Viszeralchirurgie</div>
+    <div class="rows">
+      <a href="reviews/chirurgie/cholezystitis-r2.html" class="row">
+        <div class="row-main"><div class="row-title">Cholezystitis</div></div>
+        <span class="row-tag">R2 · Kurz</span>
+        <span class="row-arrow">→</span>
+      </a>
+      <a href="reviews/chirurgie/appendizitis-r2.html" class="row">
+        <div class="row-main"><div class="row-title">Appendizitis</div></div>
+        <span class="row-tag">R2 · Kurz</span>
+        <span class="row-arrow">→</span>
+      </a>
+    </div>
 
-  <div class="section-title">Modul 02</div>
-  <h2 class="section-h"><span class="label" style="color: var(--therapie);">Echo</span>Echokardiographie</h2>
+    <div class="group-label">Unfallchirurgie / Orthopädie</div>
+    <div class="rows">
+      <a href="reviews/unfallchirurgie/distale-radiusfraktur-r2.html" class="row">
+        <div class="row-main"><div class="row-title">Distale Radiusfraktur</div></div>
+        <span class="row-tag">R2 · Kurz</span>
+        <span class="row-arrow">→</span>
+      </a>
+    </div>
+  </section>
 
-  <div class="drill-grid">
-    <a href="drills/03-echo-wk1-l1.html" class="drill">
-      <span class="drill-tag echo">Wk 1 · L1</span>
-      <div class="drill-title">Schallkopfpositionen + Standardschnitte</div>
-      <div class="drill-desc">Drei Schnitte, sechs Strukturen, ein Workflow. PLAX, PSAX und A4C — die Grundlage jeder Echo-Untersuchung.</div>
-      <div class="drill-meta">
-        <span>~ 15 min</span>
-        <span>4 Stationen</span>
-        <span>5 Mini-Cases</span>
-      </div>
-      <div class="drill-arrow">Drill öffnen →</div>
-    </a>
-  </div>
+  <!-- SUMMARIES -->
+  <section>
+    <div class="section-label">
+      <h2>1-Seiten-Summaries</h2>
+      <span class="count">ACS-Format</span>
+    </div>
+    <p class="section-note">Kompakte Themen-Übersichten — Definition, Ätiologie, Klinik, Diagnostik, Therapie, Perlen.</p>
 
-  <div class="section-title">Modul 03</div>
-  <h2 class="section-h"><span class="label" style="color: var(--grundlagen);">EEG</span>Elektroenzephalographie</h2>
+    <div class="group-label">Neurologie</div>
+    <div class="rows">
+      <a href="summaries/neurologie/meningitis-enzephalitis.html" class="row">
+        <div class="row-main"><div class="row-title">Meningitis / Enzephalitis</div></div>
+        <span class="row-tag">Summary</span>
+        <span class="row-arrow">→</span>
+      </a>
+    </div>
+  </section>
 
-  <div class="drill-grid">
-    <a href="drills/04-eeg-wk1-l1.html" class="drill">
-      <span class="drill-tag eeg">Wk 1 · L1</span>
-      <div class="drill-title">Grundrhythmus + Wellen + Normalbefund</div>
-      <div class="drill-desc">Vier Wellen, ein dominanter Rhythmus, eine systematische Befundung. α/β/θ/δ erkennen und einordnen.</div>
-      <div class="drill-meta">
-        <span>~ 15 min</span>
-        <span>4 Stationen</span>
-        <span>5 Mini-Cases</span>
-      </div>
-      <div class="drill-arrow">Drill öffnen →</div>
-    </a>
-  </div>
-
-  <div class="section-title" style="margin-top: 48px;">Deutschlernen</div>
-  <h2 class="section-h"><span class="label" style="color: var(--diagnostik);">Sprechen</span>Interaktive Sprechübungen</h2>
-  <p style="font-family: 'Fraunces', serif; font-style: italic; color: var(--ink-muted); margin-bottom: 22px; font-size: 15px;">Rollenspiele für die mündliche KP — Arzt-Patient-Gespräche mit Sofort-Feedback, Korrekturen und Fachwortschatz. Kein Zeitdruck.</p>
-
-  <div class="drill-grid">
-    <a href="deutschlernen/01-arzt-patient-anamnese.html" class="drill">
-      <span class="drill-tag deutsch">Rollenspiel</span>
-      <div class="drill-title">Beim Hausarzt — Anamnese</div>
-      <div class="drill-desc">Komplettes Anamnesegespräch: Beschwerden, Schmerzbeschreibung, Begleitsymptome, Medikamente, Untersuchung, Rückfragen. Antwort wählen oder frei tippen.</div>
-      <div class="drill-meta">
-        <span>~ 10 min</span>
-        <span>6 Stationen</span>
-        <span>Sofort-Feedback</span>
-      </div>
-      <div class="drill-arrow">Übung öffnen →</div>
-    </a>
-  </div>
-
-  <div class="section-title" style="margin-top: 48px;">Spaced Repetition</div>
-  <h2 class="section-h"><span class="label" style="color: var(--grundlagen);">R-Reviews</span>Themen-Reviews</h2>
-  <p style="font-family: 'Fraunces', serif; font-style: italic; color: var(--ink-muted); margin-bottom: 22px; font-size: 15px;">R1/R2/R3-Reviews bereits gelernter Themen. Kurz, klinisch, mit KP-Fragen und Perlen aus Mainz-Protokollen.</p>
-
-  <div class="topic-h">Allgemein- und Viszeralchirurgie</div>
-  <div class="summary-grid">
-    <a href="reviews/chirurgie/cholezystitis-r2.html" class="summary-card">
-      <span class="drill-tag review">R2 · Kurz</span>
-      <div class="summary-title">Cholezystitis</div>
-      <div class="summary-links">
-        <span class="summary-link pdf-link">Review öffnen →</span>
-      </div>
-    </a>
-    <a href="reviews/chirurgie/appendizitis-r2.html" class="summary-card">
-      <span class="drill-tag review">R2 · Kurz</span>
-      <div class="summary-title">Appendizitis</div>
-      <div class="summary-links">
-        <span class="summary-link pdf-link">Review öffnen →</span>
-      </div>
-    </a>
-  </div>
-
-  <div class="topic-h">Unfallchirurgie / Orthopädie</div>
-  <div class="summary-grid">
-    <a href="reviews/unfallchirurgie/distale-radiusfraktur-r2.html" class="summary-card">
-      <span class="drill-tag review">R2 · Kurz</span>
-      <div class="summary-title">Distale Radiusfraktur</div>
-      <div class="summary-links">
-        <span class="summary-link pdf-link">Review öffnen →</span>
-      </div>
-    </a>
-  </div>
-
-  <div class="section-title" style="margin-top: 48px;">Bibliothek</div>
-  <h2 class="section-h"><span class="label" style="color: #7B3F9E;">1-Seiten</span>Summaries</h2>
-  <p style="font-family: 'Fraunces', serif; font-style: italic; color: var(--ink-muted); margin-bottom: 22px; font-size: 15px;">Kompakte Themen-Übersichten im ACS-Format — Definition, Ätiologie, Klinik, Diagnostik, Therapie, Perlen. Nach Fachgebiet sortiert.</p>
-
-  <div class="topic-h">Neurologie</div>
-  <div class="summary-grid">
-    <a href="summaries/neurologie/meningitis-enzephalitis.html" class="summary-card">
-      <span class="drill-tag summary">Summary</span>
-      <div class="summary-title">Meningitis / Enzephalitis</div>
-      <div class="summary-links">
-        <span class="summary-link pdf-link">Öffnen →</span>
-      </div>
-    </a>
-  </div>
+  <!-- DEUTSCH -->
+  <section>
+    <div class="section-label">
+      <h2>Sprechübungen</h2>
+      <span class="count">Mündliche KP</span>
+    </div>
+    <p class="section-note">Arzt-Patient-Rollenspiele mit Sofort-Feedback, Korrekturen und Fachwortschatz. Kein Zeitdruck.</p>
+    <div class="rows">
+      <a href="deutschlernen/01-arzt-patient-anamnese.html" class="row">
+        <div class="row-main">
+          <div class="row-title">Beim Hausarzt — Anamnese</div>
+          <div class="row-desc">Komplettes Anamnesegespräch: Beschwerden, Schmerz, Begleitsymptome, Medikamente.</div>
+          <div class="row-meta"><span>Rollenspiel</span><span>~10 min</span><span>6 Stationen</span></div>
+        </div>
+        <span class="row-arrow">→</span>
+      </a>
+    </div>
+  </section>
 
   <footer>
-    Auto-deploy via Cloudflare Pages · Last update: <span id="ts"></span>
+    <span>KP Mainz Drills</span>
+    <span>Auto-deploy · Cloudflare · <span id="ts"></span></span>
   </footer>
 
 </div>
