@@ -15,6 +15,10 @@
     --ink-soft: #9A9A9A;
     --rule: #E6E2D9;
     --accent: #1A1A1A;
+    --c-drills: #1E5F9E;
+    --c-reviews: #C0392B;
+    --c-summaries: #7B3F9E;
+    --c-deutsch: #2D7A3E;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
@@ -71,6 +75,8 @@
     align-items: baseline;
     justify-content: space-between;
     margin-bottom: 4px;
+    padding-left: 12px;
+    border-left: 3px solid var(--ink);
   }
   .section-label h2 {
     font-size: 12px;
@@ -79,6 +85,15 @@
     text-transform: uppercase;
     color: var(--ink);
   }
+  /* per-section accent */
+  section.s-drills .section-label { border-left-color: var(--c-drills); }
+  section.s-drills .section-label h2 { color: var(--c-drills); }
+  section.s-reviews .section-label { border-left-color: var(--c-reviews); }
+  section.s-reviews .section-label h2 { color: var(--c-reviews); }
+  section.s-summaries .section-label { border-left-color: var(--c-summaries); }
+  section.s-summaries .section-label h2 { color: var(--c-summaries); }
+  section.s-deutsch .section-label { border-left-color: var(--c-deutsch); }
+  section.s-deutsch .section-label h2 { color: var(--c-deutsch); }
   .section-label .count {
     font-size: 12px;
     color: var(--ink-soft);
@@ -157,7 +172,22 @@
     transition: transform 0.18s ease, color 0.18s ease;
     align-self: center;
   }
-  .row:hover .row-arrow { transform: translateX(3px); color: var(--ink); }
+  /* per-section row accents */
+  section.s-drills .row:hover { background: rgba(30,95,158,0.045); }
+  section.s-drills .row:hover .row-arrow { color: var(--c-drills); }
+  section.s-drills .row:hover .row-title { color: var(--c-drills); }
+  section.s-reviews .row:hover { background: rgba(192,57,43,0.045); }
+  section.s-reviews .row:hover .row-arrow { color: var(--c-reviews); }
+  section.s-reviews .row:hover .row-title { color: var(--c-reviews); }
+  section.s-reviews .row-tag { color: var(--c-reviews); }
+  section.s-summaries .row:hover { background: rgba(123,63,158,0.05); }
+  section.s-summaries .row:hover .row-arrow { color: var(--c-summaries); }
+  section.s-summaries .row:hover .row-title { color: var(--c-summaries); }
+  section.s-summaries .row-tag { color: var(--c-summaries); }
+  section.s-deutsch .row:hover { background: rgba(45,122,62,0.05); }
+  section.s-deutsch .row:hover .row-arrow { color: var(--c-deutsch); }
+  section.s-deutsch .row:hover .row-title { color: var(--c-deutsch); }
+  .row:hover .row-title { transition: color 0.18s ease; }
 
   footer {
     margin-top: 80px;
@@ -186,15 +216,15 @@
     <h1>Drill Library</h1>
     <p class="lede">Interaktive Lerneinheiten zur KP-Vorbereitung. Stationsweise, phone-tauglich, mit KP-Fragen und Mustererkennung.</p>
     <div class="stat-row">
-      <span><strong>4</strong> Drills</span>
-      <span><strong>4</strong> Reviews</span>
-      <span><strong>1</strong> Summary</span>
-      <span><strong>1</strong> Sprechübung</span>
+      <span style="color:var(--c-drills)"><strong>4</strong> Drills</span>
+      <span style="color:var(--c-reviews)"><strong>4</strong> Reviews</span>
+      <span style="color:var(--c-summaries)"><strong>1</strong> Summary</span>
+      <span style="color:var(--c-deutsch)"><strong>1</strong> Sprechübung</span>
     </div>
   </div>
 
   <!-- DRILLS -->
-  <section>
+  <section class="s-drills">
     <div class="section-label">
       <h2>Drills</h2>
       <span class="count">BGA · Echo · EEG</span>
@@ -236,7 +266,7 @@
   </section>
 
   <!-- REVIEWS -->
-  <section>
+  <section class="s-reviews">
     <div class="section-label">
       <h2>Themen-Reviews</h2>
       <span class="count">Spaced Repetition</span>
@@ -273,7 +303,7 @@
   </section>
 
   <!-- SUMMARIES -->
-  <section>
+  <section class="s-summaries">
     <div class="section-label">
       <h2>1-Seiten-Summaries</h2>
       <span class="count">ACS-Format</span>
@@ -291,7 +321,7 @@
   </section>
 
   <!-- DEUTSCH -->
-  <section>
+  <section class="s-deutsch">
     <div class="section-label">
       <h2>Sprechübungen</h2>
       <span class="count">Mündliche KP</span>
