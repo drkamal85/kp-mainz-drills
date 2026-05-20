@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Distale Radiusfraktur · R2 Review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F7F4EE; --paper: #FFFFFF; --ink: #1A1A1A;
+    --ink-muted: #5C5C5C; --ink-soft: #8A8A8A; --rule: #E8E2D6;
+    --grundlagen: #C0392B; --grundlagen-soft: #FBEAE7;
+    --klinik: #D97706;     --klinik-soft: #FDF2E2;
+    --diagnostik: #1E5F9E; --diagnostik-soft: #E5EEF7;
+    --therapie: #2D7A3E;   --therapie-soft: #E3F1E6;
+    --fragen: #7B3F9E;     --fragen-soft: #EFE5F7;
+    --perlen: #B8860B;     --perlen-soft: #FBF2D9;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--ink); font-family: 'Fraunces', Georgia, serif; font-size: 16.5px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .container { max-width: 860px; margin: 0 auto; padding: 40px 24px 70px; }
+  .back { display: inline-block; font-family: 'Manrope', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-muted); text-decoration: none; margin-bottom: 22px; }
+  .back:hover { color: var(--ink); }
+  .eyebrow { font-family: 'Manrope', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 12px; }
+  .eyebrow::before { content: "— "; }
+  h1 { font-family: 'Fraunces', serif; font-weight: 600; font-size: clamp(30px, 5vw, 44px); line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 12px; }
+  h1 .accent { font-style: italic; color: var(--grundlagen); }
+  .subtitle { font-family: 'Fraunces', serif; font-style: italic; font-size: 17px; color: var(--ink-muted); margin-bottom: 18px; max-width: 640px; }
+  .meta { font-family: 'Manrope', sans-serif; font-size: 12.5px; color: var(--ink-soft); display: flex; flex-wrap: wrap; gap: 0; align-items: center; margin-bottom: 30px; }
+  .meta span + span::before { content: "•"; margin: 0 12px; }
+  .tabs { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 28px; background: var(--paper); padding: 5px; border-radius: 50px; border: 1px solid var(--rule); }
+  .tab { flex: 1; min-width: 95px; padding: 10px 8px; font-family: 'Manrope', sans-serif; font-size: 11.5px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink-muted); background: transparent; border: none; border-radius: 50px; cursor: pointer; text-align: center; transition: all 0.2s ease; }
+  .tab:hover { color: var(--ink); }
+  .tab.active { color: white; }
+  .tab[data-s="1"].active { background: var(--grundlagen); }
+  .tab[data-s="2"].active { background: var(--klinik); }
+  .tab[data-s="3"].active { background: var(--diagnostik); }
+  .tab[data-s="4"].active { background: var(--therapie); }
+  .tab[data-s="5"].active { background: var(--fragen); }
+  .tab[data-s="6"].active { background: var(--perlen); }
+  .station { display: none; animation: fadeIn 0.25s ease; }
+  .station.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+  .station-header { display: flex; justify-content: space-between; align-items: flex-end; padding-bottom: 12px; margin-bottom: 22px; border-bottom: 2px solid; gap: 16px; }
+  .station-eyebrow { font-family: 'Fraunces', serif; font-style: italic; font-size: 13px; color: var(--ink-muted); margin-bottom: 4px; }
+  .station-title { font-family: 'Fraunces', serif; font-weight: 600; font-size: 26px; line-height: 1.1; letter-spacing: -0.01em; }
+  .station-tagline { font-family: 'Fraunces', serif; font-style: italic; font-size: 13.5px; color: var(--ink-muted); text-align: right; max-width: 220px; }
+  #s1 .station-header { border-bottom-color: var(--grundlagen); } #s1 .station-title { color: var(--grundlagen); }
+  #s2 .station-header { border-bottom-color: var(--klinik); }     #s2 .station-title { color: var(--klinik); }
+  #s3 .station-header { border-bottom-color: var(--diagnostik); } #s3 .station-title { color: var(--diagnostik); }
+  #s4 .station-header { border-bottom-color: var(--therapie); }   #s4 .station-title { color: var(--therapie); }
+  #s5 .station-header { border-bottom-color: var(--fragen); }     #s5 .station-title { color: var(--fragen); }
+  #s6 .station-header { border-bottom-color: var(--perlen); }     #s6 .station-title { color: var(--perlen); }
+  .card { background: var(--paper); border: 1px solid var(--rule); border-radius: 12px; margin-bottom: 14px; overflow: hidden; }
+  .card-head { display: flex; justify-content: space-between; align-items: center; padding: 14px 18px; cursor: pointer; gap: 12px; }
+  .card-tag { display: inline-block; font-family: 'Manrope', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; padding: 3px 8px; border-radius: 3px; margin-bottom: 4px; }
+  #s1 .card-tag { background: var(--grundlagen-soft); color: var(--grundlagen); }
+  #s2 .card-tag { background: var(--klinik-soft); color: var(--klinik); }
+  #s3 .card-tag { background: var(--diagnostik-soft); color: var(--diagnostik); }
+  #s4 .card-tag { background: var(--therapie-soft); color: var(--therapie); }
+  .card-title { font-family: 'Fraunces', serif; font-weight: 500; font-size: 17.5px; line-height: 1.3; }
+  .toggle { font-family: 'Manrope', sans-serif; font-size: 22px; font-weight: 300; color: var(--ink-muted); transition: transform 0.25s ease; flex-shrink: 0; }
+  .card.open .toggle { transform: rotate(45deg); }
+  .card-body { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+  .card.open .card-body { max-height: 4000px; }
+  .card-body-inner { padding: 2px 18px 18px; }
+  h4 { font-family: 'Manrope', sans-serif; font-size: 10.5px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-muted); margin: 14px 0 8px; }
+  .card-body-inner > h4:first-child { margin-top: 4px; }
+  ul { list-style: none; padding-left: 2px; margin-bottom: 10px; }
+  li { position: relative; padding-left: 20px; margin-bottom: 5px; line-height: 1.5; font-size: 15.5px; }
+  li::before { content: ""; position: absolute; left: 5px; top: 9px; width: 6px; height: 6px; border-radius: 50%; }
+  #s1 li::before { background: var(--grundlagen); }
+  #s2 li::before { background: var(--klinik); }
+  #s3 li::before { background: var(--diagnostik); }
+  #s4 li::before { background: var(--therapie); }
+  li ul { margin-top: 5px; margin-bottom: 6px; }
+  li ul li::before { width: 5px; height: 5px; border-radius: 0; transform: rotate(45deg); background: var(--ink-soft) !important; top: 11px; }
+  strong { font-weight: 600; }
+  em.h { font-style: normal; background-image: linear-gradient(to top, var(--grundlagen-soft) 60%, transparent 60%); padding: 0 2px; font-weight: 500; }
+  table { width: 100%; border-collapse: collapse; font-family: 'Manrope', sans-serif; font-size: 13.5px; margin: 8px 0 12px; }
+  th { background: #F0EBE0; text-transform: uppercase; font-size: 10px; letter-spacing: 0.12em; color: var(--ink-muted); text-align: left; padding: 8px 10px; font-weight: 700; border-bottom: 1px solid var(--rule); }
+  td { padding: 8px 10px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  .callout { border-left: 3px solid; padding: 12px 16px; margin: 12px 0; border-radius: 0 8px 8px 0; font-family: 'Fraunces', serif; font-style: italic; font-size: 14.5px; line-height: 1.5; }
+  .callout-label { font-family: 'Manrope', sans-serif; font-style: normal; font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; display: block; margin-bottom: 5px; }
+  .callout.critical { border-color: var(--grundlagen); background: var(--grundlagen-soft); } .callout.critical .callout-label { color: var(--grundlagen); }
+  .callout.warning { border-color: var(--klinik); background: var(--klinik-soft); } .callout.warning .callout-label { color: var(--klinik); }
+  .callout.fact { border-color: var(--diagnostik); background: var(--diagnostik-soft); } .callout.fact .callout-label { color: var(--diagnostik); }
+  .callout.pearl { border-color: var(--perlen); background: var(--perlen-soft); } .callout.pearl .callout-label { color: var(--perlen); }
+  .qa { background: var(--fragen-soft); border-left: 4px solid var(--fragen); border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 14px 0; }
+  .qa-q { font-family: 'Fraunces', serif; font-style: italic; font-size: 15.5px; line-height: 1.45; margin-bottom: 10px; }
+  .qa-q::before { content: "Prüfer:"; font-family: 'Manrope', sans-serif; font-style: normal; font-size: 10px; font-weight: 700; letter-spacing: 0.16em; color: var(--fragen); display: block; margin-bottom: 3px; text-transform: uppercase; }
+  .qa-a { font-family: 'Fraunces', serif; font-size: 15px; line-height: 1.55; padding-top: 10px; border-top: 1px dashed rgba(123,63,158,0.4); }
+  .qa-a::before { content: "Ideale Antwort:"; font-family: 'Manrope', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.16em; color: var(--fragen); display: block; margin-bottom: 5px; text-transform: uppercase; }
+  .qa-meta { font-family: 'Manrope', sans-serif; font-size: 11px; color: var(--ink-soft); margin-top: 10px; padding-top: 8px; border-top: 1px solid rgba(123,63,158,0.15); font-style: italic; }
+  .pearl-card { background: var(--perlen-soft); border: 1px solid rgba(184,134,11,0.3); border-radius: 10px; padding: 14px 18px; margin: 12px 0; }
+  .pearl-label { font-family: 'Manrope', sans-serif; font-size: 10.5px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--perlen); margin-bottom: 8px; }
+  .pearl-content { font-family: 'Fraunces', serif; font-size: 15.5px; line-height: 1.5; margin-bottom: 8px; }
+  .pearl-content strong { color: #6A4C00; }
+  .pearl-mnemonic { background: rgba(255,255,255,0.6); border-radius: 6px; padding: 8px 12px; font-family: 'Fraunces', serif; font-style: italic; font-size: 14px; color: var(--ink-muted); }
+  .pearl-mnemonic::before { content: "✦ "; color: var(--perlen); font-weight: 700; font-style: normal; }
+  footer { margin-top: 50px; padding-top: 20px; border-top: 1px solid var(--rule); font-family: 'Manrope', sans-serif; font-size: 11.5px; color: var(--ink-soft); text-align: center; }
+  @media (max-width: 600px) { .container { padding: 28px 16px 50px; } .station-header { flex-direction: column; align-items: flex-start; } .station-tagline { text-align: left; max-width: none; } .tab { font-size: 10.5px; padding: 9px 6px; } }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <a href="../../index.html" class="back">← Zurück zur Library</a>
+
+  <header>
+    <div class="eyebrow">R2 Review · Unfallchirurgie / Orthopädie</div>
+    <h1>Distale Radiusfraktur<span class="accent"> · kurz</span></h1>
+    <p class="subtitle">Häufigste Fraktur des Menschen. Colles vs. Smith, Röntgen-Beschreibung, Reposition + Gips — und die N.-medianus-Falle, die in Mainz garantiert kommt.</p>
+    <div class="meta">
+      <span>~ 15 min</span>
+      <span>6 Stationen</span>
+      <span>6 KP-Fragen · 8 Perlen</span>
+      <span>R2 Kurz</span>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab active" data-s="1">01 · Grund</button>
+    <button class="tab" data-s="2">02 · Klinik</button>
+    <button class="tab" data-s="3">03 · Diagn</button>
+    <button class="tab" data-s="4">04 · Th</button>
+    <button class="tab" data-s="5">05 · Fragen</button>
+    <button class="tab" data-s="6">06 · Perlen</button>
+  </nav>
+
+  <!-- STATION 1 -->
+  <section class="station active" id="s1">
+    <div class="station-header">
+      <div><div class="station-eyebrow">Station 01</div><div class="station-title">Grundlagen</div></div>
+      <div class="station-tagline">Mechanismus entscheidet den Typ.</div>
+    </div>
+    <div class="card open">
+      <div class="card-head"><div><span class="card-tag">Epidemiologie</span><div class="card-title">Häufigste Fraktur des Menschen</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <ul>
+          <li><strong>Ca. ¼ aller Frakturen</strong> — die häufigste überhaupt</li>
+          <li>Zwei Altersgipfel: junge Patienten (Hochrasanztrauma) + ältere (osteoporotischer Sturz, v.a. Frauen)</li>
+          <li>Mechanismus: <strong>Sturz auf die ausgestreckte Hand</strong> (Abstützreflex)</li>
+        </ul>
+      </div></div>
+    </div>
+    <div class="card">
+      <div class="card-head"><div><span class="card-tag">Klassifikation</span><div class="card-title">Colles vs. Smith — Mechanismus = Kipprichtung</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <table>
+          <thead><tr><th>Typ</th><th>Mechanismus</th><th>Kippung</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Colles</strong> (häufiger)</td><td>Sturz auf <em>dorsalextendierte</em> Hand → Extensionsfraktur</td><td><strong>dorso-radial</strong></td></tr>
+            <tr><td><strong>Smith</strong> (seltener)</td><td>Sturz auf <em>palmarflektierte</em> Hand → Flexionsfraktur</td><td><strong>palmar (volar)</strong></td></tr>
+          </tbody>
+        </table>
+        <h4>Sonderformen</h4>
+        <ul>
+          <li><strong>Barton:</strong> partiell-artikuläre Extensionsfraktur mit dorsalem Kantenfragment</li>
+          <li><strong>Reversed Barton:</strong> partiell-artikulär, palmares Kantenfragment</li>
+          <li><strong>Chauffeur (Hutchinson):</strong> Processus-styloideus-radii-Fraktur</li>
+        </ul>
+        <div class="callout fact">
+          <span class="callout-label">⚙ Abgrenzung Schaftfrakturen</span>
+          <strong>Galeazzi:</strong> Radiusschaft-Fraktur + distale Ulna-Luxation (Sturz auf supinierten Arm). <strong>Monteggia:</strong> proximale Ulna-Fraktur + Radiusköpfchen-Luxation (Sturz auf pronierten Arm). Beide → OP.
+        </div>
+      </div></div>
+    </div>
+  </section>
+
+  <!-- STATION 2 -->
+  <section class="station" id="s2">
+    <div class="station-header">
+      <div><div class="station-eyebrow">Station 02</div><div class="station-title">Klinik</div></div>
+      <div class="station-tagline">Fehlstellung + pDMS sofort.</div>
+    </div>
+    <div class="card open">
+      <div class="card-head"><div><span class="card-tag">Leitsymptome</span><div class="card-title">Was sehe und taste ich?</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <ul>
+          <li>Schwellung, Hämatom, Druckschmerz, schmerzhafte Bewegungseinschränkung</li>
+          <li><strong>Colles:</strong> typische Fehlstellung — <em class="h">Fourchette-Stellung</em> (dorsale Abknickung, „Gabelrücken") + <em class="h">Bajonett-Stellung</em> (radiale Abknickung)</li>
+          <li><strong>Smith:</strong> Abknickung nach palmar</li>
+        </ul>
+        <div class="callout critical">
+          <span class="callout-label">▲ pDMS — immer zuerst</span>
+          <strong>Periphere Durchblutung, Motorik, Sensibilität</strong> dokumentieren — A. radialis + A. ulnaris tasten. Besonders <strong>N. medianus</strong> prüfen (Sensibilität Finger I–III). Vor UND nach jeder Reposition.
+        </div>
+      </div></div>
+    </div>
+    <div class="card">
+      <div class="card-head"><div><span class="card-tag">Anamnese</span><div class="card-title">Vier Dinge nicht vergessen</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <ul>
+          <li><strong>Unfallhergang</strong> — bestimmt Frakturtyp</li>
+          <li><strong>Blutverdünner</strong> (OAK, ASS) — präoperativ relevant</li>
+          <li><strong>Tetanusschutz</strong> bei offenem Hautmantel</li>
+          <li>Begleitverletzungen: angrenzende Knochen (Tabatière → Skaphoid!), Ellenbogen</li>
+        </ul>
+      </div></div>
+    </div>
+  </section>
+
+  <!-- STATION 3 -->
+  <section class="station" id="s3">
+    <div class="station-header">
+      <div><div class="station-eyebrow">Station 03</div><div class="station-title">Diagnostik</div></div>
+      <div class="station-tagline">Röntgen 2 Ebenen — Beschreibung üben.</div>
+    </div>
+    <div class="card open">
+      <div class="card-head"><div><span class="card-tag">Bildgebung</span><div class="card-title">Röntgen + wann CT?</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <ul>
+          <li><strong>Röntgen Handgelenk in 2 Ebenen:</strong> p.a./a.p. + streng seitlich, mit Handwurzelknochen</li>
+          <li><strong>CT</strong> bei komplexer/mehrfragmentärer Fraktur oder intraartikulärer Gelenkflächenbeteiligung</li>
+          <li><strong>MRT/Arthroskopie</strong> bei V.a. Bandverletzung (z.B. skapholunär)</li>
+        </ul>
+      </div></div>
+    </div>
+    <div class="card">
+      <div class="card-head"><div><span class="card-tag">Röntgen-Beschreibung</span><div class="card-title">Systematik — so fängt man an (Mainz!)</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <h4>Schritt für Schritt</h4>
+        <ul>
+          <li><strong>1. Formalia:</strong> Name, Datum, Seite, Aufnahmeart</li>
+          <li><strong>2. Qualität + Vollständigkeit</strong> der Aufnahme beurteilen</li>
+          <li><strong>3. Befund:</strong> Frakturlinie, Lokalisation, Dislokation, Gelenkbeteiligung, Begleitfrakturen (z.B. Proc. styloideus ulnae)</li>
+          <li><strong>4. Zusatz:</strong> Osteophyten/Arthrosezeichen, Weichteile</li>
+        </ul>
+        <div class="callout fact">
+          <span class="callout-label">⚙ Mainz 01/2026</span>
+          Gezeigt: Handgelenk a.p. + seitlich → <strong>distale Radiusfraktur mit Dislokation nach dorsal + Abrissfraktur Proc. styloideus ulnae + Osteophyten am MC 1</strong>. Frage: „Womit fangen wir bei der Beschreibung an?" → Formalia, Qualität, Vollständigkeit, DANN Befund.
+        </div>
+      </div></div>
+    </div>
+  </section>
+
+  <!-- STATION 4 -->
+  <section class="station" id="s4">
+    <div class="station-header">
+      <div><div class="station-eyebrow">Station 04</div><div class="station-title">Therapie</div></div>
+      <div class="station-tagline">Reposition, Gips, OP-Indikationen.</div>
+    </div>
+    <div class="card open">
+      <div class="card-head"><div><span class="card-tag">Konservativ</span><div class="card-title">Reposition + Ruhigstellung</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <h4>Indikation</h4>
+        <ul>
+          <li>Stabile, nicht-dislozierte Frakturen → primär Gips ohne Reposition</li>
+          <li>Dislozierte, aber gut reponierbare Frakturen → Reposition, dann Gips</li>
+        </ul>
+        <h4>Durchführung</h4>
+        <ul>
+          <li><strong>Analgesie:</strong> Bruchspaltanästhesie oder Piritramid i.v.</li>
+          <li><strong>Reposition</strong> unter Längszug (manuell/kontinuierlich)</li>
+          <li><strong>Ruhigstellung:</strong> dorsale Unterarmgipsschiene, <em class="h">bis proximaler Unterarm — ohne Ellenbogen</em>, ggf. mit Daumeneinschluss, 4–6 Wochen</li>
+          <li><strong>Röntgenkontrolle</strong> nach Reposition + im Verlauf (1, 3, 6 Wo), Kühlen, Hochlagern, pDMS</li>
+        </ul>
+        <div class="callout warning">
+          <span class="callout-label">⚠ Ellenbogen mitfixieren wann?</span>
+          Bei <strong>instabilen Frakturen oder Beteiligung des distalen Radioulnargelenks</strong> wird Handgelenk + Ellenbogen ruhiggestellt (Oberarmgips), um Rotation auszuschalten.
+        </div>
+      </div></div>
+    </div>
+    <div class="card">
+      <div class="card-head"><div><span class="card-tag">Operativ</span><div class="card-title">Wann OP — und welches Verfahren?</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <h4>Indikationen</h4>
+        <ul>
+          <li>Dislozierte/instabile Frakturen, <strong>Gelenkbeteiligung</strong></li>
+          <li>Offene Frakturen, massiver Weichteilschaden, Kompartmentsyndrom</li>
+          <li>Begleitende Gefäß-/Nervenverletzung, konservatives Versagen (sekundäre Dislokation)</li>
+          <li><strong>Smith-Fraktur: meist OP, da instabil</strong></li>
+        </ul>
+        <h4>Verfahren</h4>
+        <ul>
+          <li><strong>Palmare Plattenosteosynthese</strong> — Standard beim Erwachsenen</li>
+          <li><strong>K-Draht (Spickdraht)</strong> — v.a. bei Kindern / einfache extraartikuläre</li>
+          <li><strong>Fixateur externe</strong> — bei Trümmerfrakturen / schwerem Weichteilschaden</li>
+        </ul>
+      </div></div>
+    </div>
+    <div class="card">
+      <div class="card-head"><div><span class="card-tag">Komplikationen</span><div class="card-title">Die Klassiker</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <ul>
+          <li><strong>Karpaltunnelsyndrom / N.-medianus-Kompression</strong> — akut oder posttraumatisch verzögert</li>
+          <li><strong>CRPS (M. Sudeck)</strong> — Inzidenz ca. 3 %</li>
+          <li><strong>EPL-Sehnenruptur</strong> (M. extensor pollicis longus)</li>
+          <li>Sekundäre Dislokation, Heilung in Fehlstellung, Pseudarthrose, Arthrose, Handgelenksinstabilität</li>
+        </ul>
+      </div></div>
+    </div>
+  </section>
+
+  <!-- STATION 5: KP-FRAGEN -->
+  <section class="station" id="s5">
+    <div class="station-header">
+      <div><div class="station-eyebrow">Station 05</div><div class="station-title">KP-Fragen Mainz</div></div>
+      <div class="station-tagline">Aus dem Protokoll 10.01.2026.</div>
+    </div>
+
+    <div class="qa">
+      <div class="qa-q">Womit fangen Sie bei der Röntgen-Beschreibung an?</div>
+      <div class="qa-a">Zuerst die <strong>Formalia</strong> — Name, Datum, Seite, Aufnahmeart. Dann <strong>Qualität und Vollständigkeit</strong> der Aufnahme prüfen (sind beide Ebenen, alle relevanten Strukturen abgebildet?). Erst danach der eigentliche <strong>Befund</strong>: Frakturlinie, Lokalisation, Dislokationsrichtung, Gelenkbeteiligung, Begleitfrakturen.</div>
+      <div class="qa-meta">Mainz 10.01.2026 (Bader/Grill/Müller-Forelle)</div>
+    </div>
+
+    <div class="qa">
+      <div class="qa-q">Welche Fraktur ist das? Welche Typen gibt es noch, und welcher ist am häufigsten?</div>
+      <div class="qa-a">Bei dorsaler Dislokation handelt es sich um eine <strong>Colles-Fraktur</strong> (Extensionsfraktur, häufigster Typ). Daneben: <strong>Smith</strong> (Flexionsfraktur, palmare Kippung), <strong>Barton</strong> und <strong>Reversed Barton</strong> (partiell-artikulär) sowie die <strong>Chauffeur-Fraktur</strong> (Proc. styloideus radii). Der Mechanismus bestimmt den Typ: Sturz auf die dorsalextendierte Hand → Colles, auf die palmarflektierte Hand → Smith.</div>
+      <div class="qa-meta">Mainz 10.01.2026 · 12.07.2023</div>
+    </div>
+
+    <div class="qa">
+      <div class="qa-q">Wie behandeln Sie konservativ? Wie reponieren Sie?</div>
+      <div class="qa-a">Zunächst Analgesie über <strong>Bruchspaltanästhesie</strong> oder Piritramid i.v. Dann <strong>geschlossene Reposition unter Längszug</strong>. Anschließend Ruhigstellung in einer <strong>dorsalen Unterarmgipsschiene</strong> für 4–6 Wochen, mit Röntgenkontrolle nach Reposition und im Verlauf. Vorher und nachher immer pDMS prüfen und dokumentieren.</div>
+      <div class="qa-meta">Mainz 10.01.2026</div>
+    </div>
+
+    <div class="qa">
+      <div class="qa-q">Von wo bis wo geht der Gips? Wann fixieren Sie Handgelenk und Ellenbogen gleichzeitig?</div>
+      <div class="qa-a">Die Gipsschiene reicht <strong>bis zum proximalen Unterarm, ohne den Ellenbogen einzuschließen</strong> — das Handgelenk wird ruhiggestellt, der Ellenbogen bleibt frei beweglich. Handgelenk <em>und</em> Ellenbogen werden zusammen fixiert, wenn die Fraktur <strong>instabil ist oder das distale Radioulnargelenk beteiligt ist</strong>, um die Unterarmrotation auszuschalten.</div>
+      <div class="qa-meta">Mainz 10.01.2026 · konkret gefragt</div>
+    </div>
+
+    <div class="qa">
+      <div class="qa-q">Welcher Nerv ist am häufigsten betroffen und warum ist das gefährlich?</div>
+      <div class="qa-a">Am häufigsten der <strong>N. medianus</strong> — durch Kompression im Karpaltunnel bei Schwellung oder Fehlstellung (posttraumatisches Karpaltunnelsyndrom). Gefährlich, weil eine anhaltende Kompression zur <strong>Thenar-Atrophie</strong> und zum Sensibilitätsverlust der radialen Finger führt. Prüfung: Sensibilität Finger I–III, Daumenopposition, Zwei-Punkte-Diskrimination.</div>
+      <div class="qa-meta">Mainz 10.01.2026 · Kernfrage</div>
+    </div>
+
+    <div class="qa">
+      <div class="qa-q">Patient hatte vor 2 Jahren eine operierte UA-Fraktur, kommt jetzt mit V.a. Karpaltunnelsyndrom. Kommt das vom Bruch?</div>
+      <div class="qa-a">Ein KTS <strong>so spät</strong> nach einer ausgeheilten, operativ versorgten Fraktur ist meist <strong>nicht direkt fraktur­bedingt</strong>, sondern Folge der weitaus häufigeren idiopathischen Genese — oder einer chronischen Fehlstellung/Arthrose mit sekundärer Tunnelverengung. Vorgehen: Klinik (Phalen, Hoffmann-Tinel), <strong>Nervenleitgeschwindigkeit/EMG</strong> zur Bestätigung; Therapie zunächst konservativ (Nachtschiene), bei Persistenz operative Spaltung des Retinaculum flexorum.</div>
+      <div class="qa-meta">Mainz 10.01.2026 · Transfer-Frage</div>
+    </div>
+  </section>
+
+  <!-- STATION 6: PERLEN -->
+  <section class="station" id="s6">
+    <div class="station-header">
+      <div><div class="station-eyebrow">Station 06</div><div class="station-title">KP-Perlen</div></div>
+      <div class="station-tagline">Acht Sätze für die Prüfung.</div>
+    </div>
+
+    <div class="pearl-card">
+      <div class="pearl-label">⭐ Perle 1 · Mechanismus = Typ</div>
+      <div class="pearl-content"><strong>Dorsalextendierte Hand → Colles (dorsale Kippung). Palmarflektierte Hand → Smith (palmare Kippung).</strong> An der Sturzrichtung hängt der Frakturtyp.</div>
+      <div class="pearl-mnemonic">Colles = „cool nach hinten" (dorsal) · Smith = „smash nach vorn" (palmar)</div>
+    </div>
+
+    <div class="pearl-card">
+      <div class="pearl-label">⭐ Perle 2 · Fourchette + Bajonett</div>
+      <div class="pearl-content"><strong>Fourchette-Stellung</strong> (Gabelrücken, dorsale Abknickung) + <strong>Bajonett-Stellung</strong> (radiale Abknickung) sind die klinischen Colles-Zeichen.</div>
+      <div class="pearl-mnemonic">Fourchette = Gabel von der Seite · Bajonett = Knick von oben</div>
+    </div>
+
+    <div class="pearl-card">
+      <div class="pearl-label">⭐ Perle 3 · pDMS-Reflex</div>
+      <div class="pearl-content"><strong>pDMS vor UND nach jeder Reposition</strong> — Durchblutung (A. radialis/ulnaris), Motorik, Sensibilität. Wird in Mainz erwartet, nicht vergessen.</div>
+      <div class="pearl-mnemonic">Erst tasten, dann ziehen, dann wieder tasten</div>
+    </div>
+
+    <div class="pearl-card">
+      <div class="pearl-label">⭐ Perle 4 · Röntgen-Systematik</div>
+      <div class="pearl-content">Beschreibung immer: <strong>Formalia → Qualität/Vollständigkeit → Befund</strong>. Niemals direkt mit „da ist eine Fraktur" anfangen.</div>
+      <div class="pearl-mnemonic">Name vor Knochen — Form vor Befund</div>
+    </div>
+
+    <div class="pearl-card">
+      <div class="pearl-label">⭐ Perle 5 · Smith = OP</div>
+      <div class="pearl-content"><strong>Smith-Frakturen sind meist instabil → operative Versorgung</strong> (palmare Platte). Colles dagegen häufig konservativ reponierbar.</div>
+      <div class="pearl-mnemonic">Smith „smashed" = instabil = Platte</div>
+    </div>
+
+    <div class="pearl-card">
+      <div class="pearl-label">⭐ Perle 6 · Gips ohne Ellenbogen</div>
+      <div class="pearl-content"><strong>Dorsale Unterarmgipsschiene bis proximaler Unterarm, Ellenbogen frei.</strong> Mit-Fixierung des Ellenbogens nur bei Instabilität / DRUG-Beteiligung.</div>
+      <div class="pearl-mnemonic">Hand fixieren, Ellenbogen schwingen lassen</div>
+    </div>
+
+    <div class="pearl-card">
+      <div class="pearl-label">⭐ Perle 7 · N. medianus</div>
+      <div class="pearl-content"><strong>N. medianus = häufigster betroffener Nerv</strong> → Karpaltunnelsyndrom → Thenar-Atrophie. Sensibilität Finger I–III prüfen.</div>
+      <div class="pearl-mnemonic">Medianus macht den Daumenballen — schwindet er, Alarm</div>
+    </div>
+
+    <div class="pearl-card">
+      <div class="pearl-label">⭐ Perle 8 · CRPS</div>
+      <div class="pearl-content"><strong>CRPS (M. Sudeck) ~3 %</strong> aller distalen Radiusfrakturen — bei anhaltendem brennendem Schmerz, Schwellung, Hautveränderungen nach Ausheilung daran denken.</div>
+      <div class="pearl-mnemonic">Drei Prozent Sudeck — Schmerz passt nicht zum Heilungsverlauf</div>
+    </div>
+  </section>
+
+  <footer>
+    KP-Mainz Drills · Distale Radiusfraktur R2 (kurz) · Stex Lernkarten + Mainz-Protokolle 07/2023 & 01/2026
+  </footer>
+
+</div>
+
+<script>
+  const tabs = document.querySelectorAll('.tab');
+  const stations = document.querySelectorAll('.station');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      stations.forEach(s => s.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById('s' + tab.dataset.s).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+  document.querySelectorAll('.card-head').forEach(head => {
+    head.addEventListener('click', () => head.closest('.card').classList.toggle('open'));
+  });
+</script>
+</body>
+</html>
