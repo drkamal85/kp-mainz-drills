@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tag 3 – Rollenspiel: Arzt-Patient</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #F7F4EE;
+    --paper: #FFFFFF;
+    --ink: #2B2724;
+    --muted: #8A8276;
+    --doc: #1E5F9E;       /* Arzt - blau */
+    --doc-soft: #E8F0F8;
+    --pat: #2D7A3E;       /* Patient - grün */
+    --pat-soft: #E7F2EA;
+    --gold: #B8860B;
+    --gold-soft: #FBF3DD;
+    --red: #C0392B;
+    --red-soft: #FBEAE7;
+    --line: #E5DFD4;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Fraunces', Georgia, serif;
+    line-height: 1.55;
+    padding: 24px 16px 60px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: 720px; margin: 0 auto; }
+
+  /* Header */
+  .eyebrow {
+    font-family: 'Manrope', sans-serif;
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--doc); margin-bottom: 10px;
+  }
+  .eyebrow::before { content: "— "; }
+  h1 {
+    font-size: 38px; font-weight: 600; line-height: 1.1;
+    margin-bottom: 8px;
+  }
+  h1 em { font-style: italic; color: var(--doc); }
+  .subtitle {
+    font-style: italic; color: var(--muted);
+    font-size: 17px; margin-bottom: 16px;
+  }
+  .meta {
+    font-family: 'Manrope', sans-serif;
+    font-size: 12.5px; color: var(--muted);
+    display: flex; gap: 8px; flex-wrap: wrap; align-items: center;
+    margin-bottom: 22px;
+  }
+  .meta span:not(:last-child)::after { content: " ·"; margin-left: 8px; }
+
+  /* Progress */
+  .progress-box {
+    background: var(--paper); border: 1px solid var(--line);
+    border-radius: 14px; padding: 14px 18px; margin-bottom: 22px;
+  }
+  .progress-label {
+    font-family: 'Manrope', sans-serif; font-size: 11px;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 8px;
+    display: flex; justify-content: space-between;
+  }
+  .bar { height: 10px; background: var(--line); border-radius: 99px; overflow: hidden; }
+  .bar-fill {
+    height: 100%; background: linear-gradient(90deg, var(--doc), var(--pat));
+    width: 0%; border-radius: 99px; transition: width 0.5s ease;
+  }
+
+  /* Chat */
+  .chat { display: flex; flex-direction: column; gap: 16px; }
+
+  .bubble {
+    background: var(--paper); border: 1px solid var(--line);
+    border-radius: 16px; padding: 14px 18px; max-width: 88%;
+    animation: pop 0.35s ease;
+  }
+  @keyframes pop { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+  .bubble .who {
+    font-family: 'Manrope', sans-serif; font-size: 10.5px;
+    font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+  .bubble.doc { align-self: flex-start; background: var(--doc-soft); border-color: #CFE0F0; }
+  .bubble.doc .who { color: var(--doc); }
+  .bubble.pat { align-self: flex-end; background: var(--pat-soft); border-color: #CDE5D3; }
+  .bubble.pat .who { color: var(--pat); text-align: right; }
+  .bubble .de { font-size: 17px; }
+  .bubble .en {
+    font-family: 'Manrope', sans-serif; font-size: 13px;
+    color: var(--muted); font-style: normal; margin-top: 5px;
+    display: none;
+  }
+  .bubble .en.show { display: block; }
+  .hint-btn {
+    font-family: 'Manrope', sans-serif; font-size: 11px;
+    background: none; border: none; color: var(--doc);
+    cursor: pointer; padding: 2px 0; margin-top: 4px;
+    text-decoration: underline; text-underline-offset: 3px;
+  }
+
+  /* Options */
+  .options { display: flex; flex-direction: column; gap: 10px; margin-top: 4px; }
+  .opt {
+    background: var(--paper); border: 1.5px solid var(--line);
+    border-radius: 14px; padding: 13px 16px; cursor: pointer;
+    font-family: 'Fraunces', serif; font-size: 16px; text-align: left;
+    transition: all 0.18s ease; color: var(--ink);
+  }
+  .opt:hover { border-color: var(--pat); background: var(--pat-soft); transform: translateX(3px); }
+  .opt:disabled { cursor: default; opacity: 0.55; transform: none; }
+  .opt.chosen { border-color: var(--pat); background: var(--pat-soft); }
+
+  /* Feedback */
+  .feedback {
+    border-radius: 14px; padding: 14px 18px; margin-top: 6px;
+    font-size: 15px; animation: pop 0.35s ease;
+  }
+  .feedback.good { background: var(--pat-soft); border-left: 4px solid var(--pat); }
+  .feedback.fix { background: var(--gold-soft); border-left: 4px solid var(--gold); }
+  .feedback .fb-head {
+    font-family: 'Manrope', sans-serif; font-size: 11px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 6px;
+  }
+  .feedback.good .fb-head { color: var(--pat); }
+  .feedback.fix .fb-head { color: var(--gold); }
+  .feedback .corr { font-weight: 600; }
+  .feedback ul { margin: 8px 0 0 18px; }
+  .feedback li { margin-bottom: 3px; font-size: 14px; }
+
+  .next-btn {
+    font-family: 'Manrope', sans-serif; font-weight: 600; font-size: 14px;
+    background: var(--ink); color: var(--bg); border: none;
+    border-radius: 12px; padding: 12px 24px; cursor: pointer;
+    margin-top: 14px; transition: opacity 0.2s; align-self: flex-start;
+  }
+  .next-btn:hover { opacity: 0.85; }
+
+  /* Free type */
+  .freebox { margin-top: 8px; }
+  .freebox textarea {
+    width: 100%; border: 1.5px solid var(--line); border-radius: 12px;
+    padding: 12px 14px; font-family: 'Fraunces', serif; font-size: 16px;
+    resize: vertical; min-height: 60px; background: var(--paper); color: var(--ink);
+  }
+  .freebox textarea:focus { outline: none; border-color: var(--doc); }
+  .free-hint {
+    font-family: 'Manrope', sans-serif; font-size: 12px;
+    color: var(--muted); margin-top: 6px; font-style: italic;
+  }
+
+  /* End screen */
+  .end {
+    background: var(--paper); border: 1px solid var(--line);
+    border-radius: 18px; padding: 28px 24px; text-align: center;
+    animation: pop 0.5s ease;
+  }
+  .end h2 { font-size: 28px; margin-bottom: 6px; }
+  .end h2 em { font-style: italic; color: var(--pat); }
+  .end p { color: var(--muted); font-size: 16px; margin-bottom: 18px; }
+  .summary {
+    text-align: left; background: var(--bg); border-radius: 12px;
+    padding: 16px 18px; font-family: 'Manrope', sans-serif; font-size: 14px;
+  }
+  .summary .row { display: flex; justify-content: space-between; padding: 5px 0; border-bottom: 1px dashed var(--line); }
+  .summary .row:last-child { border-bottom: none; }
+  .summary .tag { color: var(--muted); }
+  .summary .val { font-weight: 600; }
+  .restart {
+    font-family: 'Manrope', sans-serif; font-weight: 600; font-size: 13px;
+    background: none; border: 1.5px solid var(--line); border-radius: 10px;
+    padding: 10px 20px; cursor: pointer; margin-top: 18px; color: var(--ink);
+  }
+  .restart:hover { border-color: var(--doc); }
+
+  .relax-note {
+    font-family: 'Manrope', sans-serif; font-size: 12.5px;
+    color: var(--muted); background: var(--gold-soft);
+    border-radius: 10px; padding: 10px 14px; margin-bottom: 20px;
+    border-left: 3px solid var(--gold);
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">Tag 3 · Rollenspiel · entspannt</div>
+  <h1>Beim <em>Hausarzt</em></h1>
+  <p class="subtitle">Du bist der Patient. Der Arzt macht eine Anamnese. Antworte in Ruhe.</p>
+  <div class="meta">
+    <span>🩺 Anamnese-Gespräch</span>
+    <span>~10 Min</span>
+    <span>Kein Zeitdruck</span>
+  </div>
+
+  <div class="relax-note">
+    💡 So geht's: Lies, was der Arzt sagt. Wähl eine Antwort <em>oder</em> tipp frei. Du bekommst sofort sanftes Feedback — Fehler sind völlig okay. Klick „Übersetzung", wenn du ein Wort nicht kennst.
+  </div>
+
+  <div class="progress-box">
+    <div class="progress-label"><span>Fortschritt</span><span id="pct">0 / 6</span></div>
+    <div class="bar"><div class="bar-fill" id="barfill"></div></div>
+  </div>
+
+  <div class="chat" id="chat"></div>
+</div>
+
+<script>
+const steps = [
+  {
+    doc: "Guten Tag! Schön, dass Sie da sind. Was führt Sie heute zu mir?",
+    en: "Hello! Good that you're here. What brings you to me today?",
+    options: [
+      { t: "Ich habe seit drei Tagen starke Kopfschmerzen.", ok: true,
+        fb: "Perfekt! „seit drei Tagen" + „starke Kopfschmerzen" — Zeitangabe und Symptom klar. So eröffnet man eine Anamnese ideal." },
+      { t: "Mein Kopf tut weh seit drei Tage.", ok: false,
+        corr: "Mein Kopf tut seit drei Tagen weh.",
+        fb: ["„seit drei Tage" → „seit drei Tagen" (Dativ Plural → -n)", "„tut weh" zusammen ans Ende: „tut … weh"", "Noch klinischer: „Ich habe seit drei Tagen Kopfschmerzen.""] },
+      { t: "Ich bin krank und ich brauchen Hilfe.", ok: false,
+        corr: "Ich bin krank und brauche Hilfe.",
+        fb: ["„ich brauchen" → „ich brauche" (Subjekt ich → -e)", "Sag konkret, was dir fehlt — der Arzt braucht ein Symptom."] }
+    ]
+  },
+  {
+    doc: "Das tut mir leid. Können Sie den Schmerz genauer beschreiben? Wo genau und wie fühlt er sich an?",
+    en: "I'm sorry. Can you describe the pain more precisely? Where exactly and how does it feel?",
+    options: [
+      { t: "Der Schmerz ist pochend und sitzt hinter der Stirn.", ok: true,
+        fb: "Sehr gut! „pochend" (throbbing) ist ein präzises medizinisches Wort. „hinter der Stirn" — Dativ korrekt." },
+      { t: "Es ist ein drückender Schmerz auf beiden Seiten.", ok: true,
+        fb: "Stark! „drückend" + „auf beiden Seiten" — klingt nach Spannungskopfschmerz. Genau die Art Detail, die der Arzt hören will." },
+      { t: "Mein Kopf ist sehr schlecht und drücken viel.", ok: false,
+        corr: "Mein Kopf tut sehr weh und drückt stark.",
+        fb: ["„ist schlecht" passt nicht für Schmerz → „tut weh"", "„drücken viel" → „drückt stark" (er/es → -t; „stark" statt „viel")"] }
+    ]
+  },
+  {
+    doc: "Verstehe. Haben Sie noch andere Beschwerden? Zum Beispiel Übelkeit, Fieber oder Sehstörungen?",
+    en: "I see. Do you have other symptoms? For example nausea, fever, or vision problems?",
+    options: [
+      { t: "Ja, mir ist manchmal übel, aber ich habe kein Fieber.", ok: true,
+        fb: "Ausgezeichnet! „mir ist übel" ist die korrekte Form (Dativ — nicht „ich bin übel"). „kein Fieber" — perfekt verneint." },
+      { t: "Ich habe Übelkeit und ich sehe nicht gut manchmal.", ok: false,
+        corr: "Ich habe Übelkeit und sehe manchmal nicht gut.",
+        fb: ["Wortstellung: „manchmal" vor „nicht gut" → „sehe manchmal nicht gut"", "Beim zweiten Verb „ich" weglassen klingt flüssiger."] },
+      { t: "Nein, nur die Kopfschmerzen. Sonst geht es mir gut.", ok: true,
+        fb: "Sehr natürlich! „Sonst geht es mir gut" ist eine tolle, idiomatische Wendung. Top." }
+    ]
+  },
+  {
+    doc: "Nehmen Sie zurzeit Medikamente ein? Und haben Sie Vorerkrankungen?",
+    en: "Are you currently taking any medication? And do you have any pre-existing conditions?",
+    options: [
+      { t: "Ich nehme keine Medikamente und bin sonst gesund.", ok: true,
+        fb: "Perfekt und effizient! Beide Fragen in einem Satz beantwortet. „sonst gesund" — genau richtig." },
+      { t: "Nein, ich nehme nichts. Ich habe nur ab und zu Migräne.", ok: true,
+        fb: "Sehr gut! „ab und zu" (now and then) ist eine schöne idiomatische Wendung — klingt muttersprachlich." },
+      { t: "Ich nehme nicht Medikamente. Ich habe Bluthochdruck.", ok: false,
+        corr: "Ich nehme keine Medikamente. Ich habe Bluthochdruck.",
+        fb: ["Verneinung von Nomen → „keine", nicht „nicht": „keine Medikamente"", "Inhaltlich wichtig: Bluthochdruck ist eine relevante Vorerkrankung — gut, dass du es nennst!"] }
+    ]
+  },
+  {
+    doc: "Gut. Ich würde Sie gerne kurz untersuchen und den Blutdruck messen. Ist das in Ordnung?",
+    en: "Good. I'd like to examine you briefly and measure your blood pressure. Is that okay?",
+    options: [
+      { t: "Ja, natürlich. Gehen Sie ruhig vor.", ok: true,
+        fb: "Sehr idiomatisch! „Gehen Sie ruhig vor" = „go right ahead". Klingt entspannt und muttersprachlich." },
+      { t: "Ja, das ist in Ordnung. Was muss ich machen?", ok: true,
+        fb: "Klar und höflich. Die Rückfrage „Was muss ich machen?" ist genau passend." },
+      { t: "Ja gut. Können Sie mir sagen was haben ich?", ok: false,
+        corr: "Ja, gut. Können Sie mir sagen, was ich habe?",
+        fb: ["Nebensatz: Verb ans Ende → „was ich habe" (nicht „was haben ich")", "Komma vor „was"", "Gute Frage inhaltlich — Patienten dürfen das fragen!"] }
+    ]
+  },
+  {
+    doc: "Ihr Blutdruck ist leicht erhöht. Ich verschreibe Ihnen ein Schmerzmittel und möchte Sie in einer Woche wiedersehen. Haben Sie noch Fragen?",
+    en: "Your blood pressure is slightly elevated. I'll prescribe a painkiller and would like to see you again in a week. Any questions?",
+    options: [
+      { t: "Wie oft soll ich das Schmerzmittel einnehmen?", ok: true,
+        fb: "Exzellent! „Wie oft soll ich … einnehmen?" — „einnehmen" ist das Fachwort für Medikamente (statt „nehmen"). Sehr gut." },
+      { t: "Muss ich auf etwas achten, wenn die Schmerzen schlimmer werden?", ok: true,
+        fb: "Hervorragend — komplexer Satz mit Nebensatz, alles korrekt! „auf etwas achten" + „wenn … werden" (Verb am Ende). Stark." },
+      { t: "Nein danke. Wann ich soll wiederkommen?", ok: false,
+        corr: "Nein, danke. Wann soll ich wiederkommen?",
+        fb: ["Frage: Verb vor Subjekt → „Wann soll ich …?"", "Komma nach „Nein"", "Gute Frage — der Arzt sagte „in einer Woche"."] }
+    ]
+  }
+];
+
+let current = 0;
+let scoreGood = 0;
+let scoreFix = 0;
+const chat = document.getElementById('chat');
+const barfill = document.getElementById('barfill');
+const pct = document.getElementById('pct');
+
+function updateProgress() {
+  const p = (current / steps.length) * 100;
+  barfill.style.width = p + '%';
+  pct.textContent = current + ' / ' + steps.length;
+}
+
+function renderStep() {
+  const step = steps[current];
+
+  // Doctor bubble
+  const docB = document.createElement('div');
+  docB.className = 'bubble doc';
+  docB.innerHTML = `
+    <div class="who">🩺 Arzt</div>
+    <div class="de">${step.doc}</div>
+    <div class="en">${step.en}</div>
+    <button class="hint-btn">Übersetzung anzeigen</button>
+  `;
+  chat.appendChild(docB);
+  docB.querySelector('.hint-btn').onclick = function() {
+    const en = docB.querySelector('.en');
+    en.classList.toggle('show');
+    this.textContent = en.classList.contains('show') ? 'Übersetzung ausblenden' : 'Übersetzung anzeigen';
+  };
+
+  // Options
+  const optWrap = document.createElement('div');
+  optWrap.className = 'options';
+  step.options.forEach((o, i) => {
+    const b = document.createElement('button');
+    b.className = 'opt';
+    b.textContent = o.t;
+    b.onclick = () => chooseOption(o, b, optWrap, step);
+    optWrap.appendChild(b);
+  });
+  chat.appendChild(optWrap);
+
+  // Free type
+  const free = document.createElement('div');
+  free.className = 'freebox';
+  free.innerHTML = `
+    <textarea placeholder="… oder tipp deine eigene Antwort frei auf Deutsch"></textarea>
+    <div class="free-hint">Frei tippen ist die beste Übung. Wenn du fertig bist, wähl trotzdem die Option, die deiner Antwort am nächsten ist — oder schreib's mir im Chat, dann korrigiere ich genau deine Version.</div>
+  `;
+  chat.appendChild(free);
+
+  docB.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  updateProgress();
+}
+
+function chooseOption(o, btn, optWrap, step) {
+  // Disable all
+  optWrap.querySelectorAll('.opt').forEach(b => b.disabled = true);
+  btn.classList.add('chosen');
+
+  // Patient bubble (echo choice)
+  const patB = document.createElement('div');
+  patB.className = 'bubble pat';
+  patB.innerHTML = `<div class="who">🗣️ Du</div><div class="de">${o.t}</div>`;
+  chat.appendChild(patB);
+
+  // Feedback
+  const fb = document.createElement('div');
+  if (o.ok) {
+    scoreGood++;
+    fb.className = 'feedback good';
+    fb.innerHTML = `<div class="fb-head">✅ Sehr gut</div><div>${o.fb}</div>`;
+  } else {
+    scoreFix++;
+    fb.className = 'feedback fix';
+    let lis = o.fb.map(x => `<li>${x}</li>`).join('');
+    fb.innerHTML = `<div class="fb-head">💡 Kleine Korrektur</div>
+      <div class="corr">Besser: „${o.corr}"</div>
+      <ul>${lis}</ul>`;
+  }
+  chat.appendChild(fb);
+
+  // Next button
+  const next = document.createElement('button');
+  next.className = 'next-btn';
+  next.textContent = current < steps.length - 1 ? 'Weiter →' : 'Gespräch abschließen ✓';
+  next.onclick = () => {
+    next.remove();
+    current++;
+    if (current < steps.length) {
+      renderStep();
+    } else {
+      renderEnd();
+    }
+  };
+  chat.appendChild(next);
+  fb.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+function renderEnd() {
+  updateProgress();
+  const end = document.createElement('div');
+  end.className = 'end';
+  const total = scoreGood + scoreFix;
+  let msg;
+  if (scoreFix === 0) msg = "Fehlerfrei — beeindruckend! Deine Anamnese-Sprache sitzt.";
+  else if (scoreFix <= 2) msg = "Stark! Nur kleine Stolpersteine — dein Deutsch trägt das Gespräch.";
+  else msg = "Gut gemacht! Jede Korrektur ist ein Lernschritt. Sprechen schlägt Schweigen.";
+
+  end.innerHTML = `
+    <h2>Tag 3 <em>abgeschlossen</em> 🎉</h2>
+    <p>${msg}</p>
+    <div class="summary">
+      <div class="row"><span class="tag">Stationen gemeistert</span><span class="val">${total} / 6</span></div>
+      <div class="row"><span class="tag">Sofort korrekt ✅</span><span class="val">${scoreGood}</span></div>
+      <div class="row"><span class="tag">Mit Korrektur 💡</span><span class="val">${scoreFix}</span></div>
+      <div class="row"><span class="tag">Neue Fachwörter</span><span class="val">pochend · einnehmen · Vorerkrankung</span></div>
+    </div>
+    <button class="restart" onclick="location.reload()">Nochmal üben ↻</button>
+  `;
+  chat.appendChild(end);
+  end.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+window.addEventListener('DOMContentLoaded', function() {
+  try {
+    renderStep();
+  } catch (e) {
+    document.getElementById('chat').innerHTML =
+      '<div class="bubble doc"><div class="who">⚠️ Fehler</div><div class="de">' + e.message + '</div></div>';
+  }
+});
+</script>
+</body>
+</html>
