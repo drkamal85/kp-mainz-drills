@@ -224,13 +224,13 @@ const steps = [
     en: "Hello! Good that you're here. What brings you to me today?",
     options: [
       { t: "Ich habe seit drei Tagen starke Kopfschmerzen.", ok: true,
-        fb: "Perfekt! „seit drei Tagen" + „starke Kopfschmerzen" — Zeitangabe und Symptom klar. So eröffnet man eine Anamnese ideal." },
+        fb: "Perfekt! „seit drei Tagen” + „starke Kopfschmerzen” — Zeitangabe und Symptom klar. So eröffnet man eine Anamnese ideal." },
       { t: "Mein Kopf tut weh seit drei Tage.", ok: false,
         corr: "Mein Kopf tut seit drei Tagen weh.",
-        fb: ["„seit drei Tage" → „seit drei Tagen" (Dativ Plural → -n)", "„tut weh" zusammen ans Ende: „tut … weh"", "Noch klinischer: „Ich habe seit drei Tagen Kopfschmerzen.""] },
+        fb: ["„seit drei Tage” → „seit drei Tagen” (Dativ Plural → -n)", "„tut weh” zusammen ans Ende: „tut … weh”", "Noch klinischer: „Ich habe seit drei Tagen Kopfschmerzen.”"] },
       { t: "Ich bin krank und ich brauchen Hilfe.", ok: false,
         corr: "Ich bin krank und brauche Hilfe.",
-        fb: ["„ich brauchen" → „ich brauche" (Subjekt ich → -e)", "Sag konkret, was dir fehlt — der Arzt braucht ein Symptom."] }
+        fb: ["„ich brauchen” → „ich brauche” (Subjekt ich → -e)", "Sag konkret, was dir fehlt — der Arzt braucht ein Symptom."] }
     ]
   },
   {
@@ -238,12 +238,12 @@ const steps = [
     en: "I'm sorry. Can you describe the pain more precisely? Where exactly and how does it feel?",
     options: [
       { t: "Der Schmerz ist pochend und sitzt hinter der Stirn.", ok: true,
-        fb: "Sehr gut! „pochend" (throbbing) ist ein präzises medizinisches Wort. „hinter der Stirn" — Dativ korrekt." },
+        fb: "Sehr gut! „pochend” (throbbing) ist ein präzises medizinisches Wort. „hinter der Stirn” — Dativ korrekt." },
       { t: "Es ist ein drückender Schmerz auf beiden Seiten.", ok: true,
-        fb: "Stark! „drückend" + „auf beiden Seiten" — klingt nach Spannungskopfschmerz. Genau die Art Detail, die der Arzt hören will." },
+        fb: "Stark! „drückend” + „auf beiden Seiten” — klingt nach Spannungskopfschmerz. Genau die Art Detail, die der Arzt hören will." },
       { t: "Mein Kopf ist sehr schlecht und drücken viel.", ok: false,
         corr: "Mein Kopf tut sehr weh und drückt stark.",
-        fb: ["„ist schlecht" passt nicht für Schmerz → „tut weh"", "„drücken viel" → „drückt stark" (er/es → -t; „stark" statt „viel")"] }
+        fb: ["„ist schlecht” passt nicht für Schmerz → „tut weh”", "„drücken viel” → „drückt stark” (er/es → -t; „stark” statt „viel”)"] }
     ]
   },
   {
@@ -251,12 +251,12 @@ const steps = [
     en: "I see. Do you have other symptoms? For example nausea, fever, or vision problems?",
     options: [
       { t: "Ja, mir ist manchmal übel, aber ich habe kein Fieber.", ok: true,
-        fb: "Ausgezeichnet! „mir ist übel" ist die korrekte Form (Dativ — nicht „ich bin übel"). „kein Fieber" — perfekt verneint." },
+        fb: "Ausgezeichnet! „mir ist übel” ist die korrekte Form (Dativ — nicht „ich bin übel”). „kein Fieber” — perfekt verneint." },
       { t: "Ich habe Übelkeit und ich sehe nicht gut manchmal.", ok: false,
         corr: "Ich habe Übelkeit und sehe manchmal nicht gut.",
-        fb: ["Wortstellung: „manchmal" vor „nicht gut" → „sehe manchmal nicht gut"", "Beim zweiten Verb „ich" weglassen klingt flüssiger."] },
+        fb: ["Wortstellung: „manchmal” vor „nicht gut” → „sehe manchmal nicht gut”", "Beim zweiten Verb „ich” weglassen klingt flüssiger."] },
       { t: "Nein, nur die Kopfschmerzen. Sonst geht es mir gut.", ok: true,
-        fb: "Sehr natürlich! „Sonst geht es mir gut" ist eine tolle, idiomatische Wendung. Top." }
+        fb: "Sehr natürlich! „Sonst geht es mir gut” ist eine tolle, idiomatische Wendung. Top." }
     ]
   },
   {
@@ -264,12 +264,12 @@ const steps = [
     en: "Are you currently taking any medication? And do you have any pre-existing conditions?",
     options: [
       { t: "Ich nehme keine Medikamente und bin sonst gesund.", ok: true,
-        fb: "Perfekt und effizient! Beide Fragen in einem Satz beantwortet. „sonst gesund" — genau richtig." },
+        fb: "Perfekt und effizient! Beide Fragen in einem Satz beantwortet. „sonst gesund” — genau richtig." },
       { t: "Nein, ich nehme nichts. Ich habe nur ab und zu Migräne.", ok: true,
-        fb: "Sehr gut! „ab und zu" (now and then) ist eine schöne idiomatische Wendung — klingt muttersprachlich." },
+        fb: "Sehr gut! „ab und zu” (now and then) ist eine schöne idiomatische Wendung — klingt muttersprachlich." },
       { t: "Ich nehme nicht Medikamente. Ich habe Bluthochdruck.", ok: false,
         corr: "Ich nehme keine Medikamente. Ich habe Bluthochdruck.",
-        fb: ["Verneinung von Nomen → „keine", nicht „nicht": „keine Medikamente"", "Inhaltlich wichtig: Bluthochdruck ist eine relevante Vorerkrankung — gut, dass du es nennst!"] }
+        fb: ["Verneinung von Nomen → „keine”, nicht „nicht”: „keine Medikamente”", "Inhaltlich wichtig: Bluthochdruck ist eine relevante Vorerkrankung — gut, dass du es nennst!"] }
     ]
   },
   {
@@ -277,12 +277,12 @@ const steps = [
     en: "Good. I'd like to examine you briefly and measure your blood pressure. Is that okay?",
     options: [
       { t: "Ja, natürlich. Gehen Sie ruhig vor.", ok: true,
-        fb: "Sehr idiomatisch! „Gehen Sie ruhig vor" = „go right ahead". Klingt entspannt und muttersprachlich." },
+        fb: "Sehr idiomatisch! „Gehen Sie ruhig vor” = „go right ahead”. Klingt entspannt und muttersprachlich." },
       { t: "Ja, das ist in Ordnung. Was muss ich machen?", ok: true,
-        fb: "Klar und höflich. Die Rückfrage „Was muss ich machen?" ist genau passend." },
+        fb: "Klar und höflich. Die Rückfrage „Was muss ich machen?” ist genau passend." },
       { t: "Ja gut. Können Sie mir sagen was haben ich?", ok: false,
         corr: "Ja, gut. Können Sie mir sagen, was ich habe?",
-        fb: ["Nebensatz: Verb ans Ende → „was ich habe" (nicht „was haben ich")", "Komma vor „was"", "Gute Frage inhaltlich — Patienten dürfen das fragen!"] }
+        fb: ["Nebensatz: Verb ans Ende → „was ich habe” (nicht „was haben ich”)", "Komma vor „was”", "Gute Frage inhaltlich — Patienten dürfen das fragen!"] }
     ]
   },
   {
@@ -290,12 +290,12 @@ const steps = [
     en: "Your blood pressure is slightly elevated. I'll prescribe a painkiller and would like to see you again in a week. Any questions?",
     options: [
       { t: "Wie oft soll ich das Schmerzmittel einnehmen?", ok: true,
-        fb: "Exzellent! „Wie oft soll ich … einnehmen?" — „einnehmen" ist das Fachwort für Medikamente (statt „nehmen"). Sehr gut." },
+        fb: "Exzellent! „Wie oft soll ich … einnehmen?” — „einnehmen” ist das Fachwort für Medikamente (statt „nehmen”). Sehr gut." },
       { t: "Muss ich auf etwas achten, wenn die Schmerzen schlimmer werden?", ok: true,
-        fb: "Hervorragend — komplexer Satz mit Nebensatz, alles korrekt! „auf etwas achten" + „wenn … werden" (Verb am Ende). Stark." },
+        fb: "Hervorragend — komplexer Satz mit Nebensatz, alles korrekt! „auf etwas achten” + „wenn … werden” (Verb am Ende). Stark." },
       { t: "Nein danke. Wann ich soll wiederkommen?", ok: false,
         corr: "Nein, danke. Wann soll ich wiederkommen?",
-        fb: ["Frage: Verb vor Subjekt → „Wann soll ich …?"", "Komma nach „Nein"", "Gute Frage — der Arzt sagte „in einer Woche"."] }
+        fb: ["Frage: Verb vor Subjekt → „Wann soll ich …?”", "Komma nach „Nein”", "Gute Frage — der Arzt sagte „in einer Woche”."] }
     ]
   }
 ];
@@ -379,7 +379,7 @@ function chooseOption(o, btn, optWrap, step) {
     fb.className = 'feedback fix';
     let lis = o.fb.map(x => `<li>${x}</li>`).join('');
     fb.innerHTML = `<div class="fb-head">💡 Kleine Korrektur</div>
-      <div class="corr">Besser: „${o.corr}"</div>
+      <div class="corr">Besser: „${o.corr}”</div>
       <ul>${lis}</ul>`;
   }
   chat.appendChild(fb);
