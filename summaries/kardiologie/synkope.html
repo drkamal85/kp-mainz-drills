@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Synkope · 1-Seiten-Summary</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#F7F4EE; --paper:#fff; --ink:#1A1A1A; --muted:#5C5C5C; --soft:#8A8A8A; --rule:#E8E2D6;
+    --def:#1E5F9E; --def-s:#E5EEF7; --aetio:#C0392B; --aetio-s:#FBEAE7;
+    --klinik:#D97706; --klinik-s:#FDF2E2; --dx:#2D7A3E; --dx-s:#E3F1E6;
+    --tx:#7B3F9E; --tx-s:#EFE5F7; --perle:#B8860B; --perle-s:#FBF2D9;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:'Manrope',sans-serif;font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased}
+  .container{max-width:1000px;margin:0 auto;padding:32px 24px 60px}
+  .back{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);text-decoration:none;margin-bottom:18px}
+  .back:hover{color:var(--ink)}
+  .eyebrow{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+  h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(30px,5vw,42px);line-height:1.04;letter-spacing:-.02em;margin-bottom:8px}
+  h1 .accent{font-style:italic;color:var(--def)}
+  .subtitle{font-family:'Fraunces',serif;font-style:italic;font-size:16px;color:var(--muted);margin-bottom:24px;max-width:640px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .card{background:var(--paper);border:1px solid var(--rule);border-radius:12px;padding:16px 18px;border-top:3px solid}
+  .card.def{border-top-color:var(--def)} .card.aetio{border-top-color:var(--aetio)}
+  .card.klinik{border-top-color:var(--klinik)} .card.dx{border-top-color:var(--dx)}
+  .card.tx{border-top-color:var(--tx)} .card.perle{border-top-color:var(--perle)}
+  .card.wide{grid-column:1 / -1}
+  .card-label{font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px}
+  .def .card-label{color:var(--def)} .aetio .card-label{color:var(--aetio)}
+  .klinik .card-label{color:var(--klinik)} .dx .card-label{color:var(--dx)}
+  .tx .card-label{color:var(--tx)} .perle .card-label{color:var(--perle)}
+  h3{font-family:'Fraunces',serif;font-weight:600;font-size:16px;margin:10px 0 5px}
+  h3:first-of-type{margin-top:0}
+  ul{list-style:none;padding-left:0;margin-bottom:6px}
+  li{position:relative;padding-left:16px;margin-bottom:4px;line-height:1.45;font-size:13.5px}
+  li::before{content:"";position:absolute;left:3px;top:7px;width:5px;height:5px;border-radius:50%;background:var(--soft)}
+  .def li::before{background:var(--def)} .aetio li::before{background:var(--aetio)}
+  .klinik li::before{background:var(--klinik)} .dx li::before{background:var(--dx)}
+  .tx li::before{background:var(--tx)} .perle li::before{background:var(--perle)}
+  strong{font-weight:700}
+  em.h{font-style:normal;font-weight:600;background:var(--def-s);padding:0 3px;border-radius:2px}
+  table{width:100%;border-collapse:collapse;font-size:12.5px;margin:6px 0}
+  th{text-align:left;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--soft);font-weight:700;padding:5px 7px;border-bottom:1px solid var(--rule)}
+  td{padding:5px 7px;border-bottom:1px solid var(--rule);vertical-align:top}
+  tr:last-child td{border-bottom:none}
+  .pill{display:inline-block;font-size:11px;font-weight:600;background:var(--aetio-s);color:var(--aetio);padding:2px 7px;border-radius:4px;margin:2px 3px 2px 0}
+  footer{margin-top:28px;padding-top:16px;border-top:1px solid var(--rule);font-size:11px;color:var(--soft);text-align:center}
+  @media(max-width:680px){.grid{grid-template-columns:1fr}.container{padding:24px 14px 44px}}
+</style>
+</head>
+<body>
+<div class="container">
+  <a href="../../index.html" class="back">← Zurück zur Library</a>
+  <div class="eyebrow">1-Seiten-Summary · Kardiologie</div>
+  <h1>Synkope<span class="accent"> · Überblick</span></h1>
+  <p class="subtitle">Plötzlicher, kurzer Bewusstseins- und Tonusverlust durch transiente globale zerebrale Minderperfusion — mit kompletter Spontanerholung.</p>
+
+  <div class="grid">
+
+    <div class="card def">
+      <div class="card-label">Definition</div>
+      <ul>
+        <li><strong>Synkope:</strong> plötzlicher Verlust von Bewusstsein + Muskeltonus, rasche, spontane, komplette Erholung — durch <em class="h">transiente globale zerebrale Minderperfusion</em></li>
+        <li><strong>Präsynkope:</strong> Prodromalstadium — Schwarzwerden vor Augen, Schwindel, Kaltschweißigkeit</li>
+        <li>Geht <strong>per definitionem immer mit Bewusstseinsverlust</strong> einher</li>
+        <li>Auslöser-Mechanismus: ↓ peripherer Widerstand und/oder ↓ Herzzeitvolumen</li>
+      </ul>
+      <h3>Pathophysiologie</h3>
+      <ul>
+        <li>Zerebraler Blutfluss sistiert <strong>≥ 6–8 s</strong> ODER systolischer RR <strong>&lt; 60 mmHg</strong> → Bewusstseinsverlust</li>
+      </ul>
+    </div>
+
+    <div class="card aetio">
+      <div class="card-label">Einteilung (ESC 2018)</div>
+      <h3>1 · Kardiale Synkope</h3>
+      <ul>
+        <li><strong>Erhöhtes Herztodrisiko</strong> — unbedingt ausschließen!</li>
+        <li>Arrhythmogen: brady (SSS, AV-Block) / tachy (TAA, AVNRT, WPW)</li>
+        <li>Strukturell: Aortenklappenstenose, HOCM, Vorhofmyxom</li>
+        <li>Extrakardial: Lungenembolie, Aortendissektion, pulm. Hypertonie</li>
+      </ul>
+      <h3>2 · Reflexsynkope</h3>
+      <ul>
+        <li>Keine erhöhte Mortalität, aber Sturzrisiko</li>
+        <li><strong>Neurokardiogen (vasovagal):</strong> häufigste Form, junge Gesunde — Angst, Schmerz, langes Stehen</li>
+        <li><strong>Situativ:</strong> Miktion, Defäkation, Husten, postprandial</li>
+        <li><strong>Karotissinussyndrom:</strong> ältere Pat., Kopfdrehen/Druck</li>
+      </ul>
+      <h3>3 · Orthostatische Synkope</h3>
+      <ul>
+        <li>Neurogen: Parkinson, MS, Diabetes (autonome Dysfunktion)</li>
+        <li>Nicht-neurogen: Volumenmangel (Blutung, Diarrhö, Erbrechen), Medikamente (Diuretika, Antidepressiva)</li>
+      </ul>
+    </div>
+
+    <div class="card klinik">
+      <div class="card-label">Symptomatik</div>
+      <ul>
+        <li>Plötzlicher Bewusstseins- + Tonusverlust, <strong>rasche komplette Erholung</strong></li>
+        <li>Blasses Hautkolorit, ggf. Einnässen</li>
+        <li><strong>Konvulsive Synkope</strong> (häufig): kurze Myoklonien &lt; 15 s <em>nach</em> Tonusverlust</li>
+      </ul>
+      <h3>Synkope vs. epileptischer Anfall</h3>
+      <table>
+        <thead><tr><th></th><th>Synkope</th><th>Epi-Anfall</th></tr></thead>
+        <tbody>
+          <tr><td>Zuckung</td><td>nach BW-Verlust</td><td>zeitgleich</td></tr>
+          <tr><td>Dauer</td><td>&lt; 15 s</td><td>&gt; 15 s</td></tr>
+          <tr><td>Aufklaren</td><td>sofort</td><td>postiktal verzögert</td></tr>
+          <tr><td>Zungenbiss</td><td>—</td><td>lateral</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card dx">
+      <div class="card-label">Diagnostik</div>
+      <h3>Basisdiagnostik (jeder Patient)</h3>
+      <ul>
+        <li>Anamnese + körperliche Untersuchung</li>
+        <li><strong>12-Kanal-Ruhe-EKG</strong> — Arrhythmie? strukturelle Herzerkrankung?</li>
+        <li><strong>Schellong-Test:</strong> RR/HF liegend (10 min) → stehend (1, 3, 5, 10 min)</li>
+      </ul>
+      <h3>Schellong pathologisch wenn</h3>
+      <ul>
+        <li>Syst. RR &lt; 90 mmHg, ODER</li>
+        <li>Syst. Abfall <strong>≥ 20 mmHg</strong>, ODER diast. Abfall <strong>≥ 10 mmHg</strong></li>
+      </ul>
+      <h3>Erweitert (bei unklarer Ursache)</h3>
+      <ul>
+        <li>EKG-Monitoring, <strong>Echokardiografie</strong>, Kipptisch, Karotissinus-Massage, EPU</li>
+        <li><span class="pill">Klug entscheiden</span> Duplex der Hirngefäße NICHT in der Notfallroutine</li>
+      </ul>
+    </div>
+
+    <div class="card tx">
+      <div class="card-label">Therapie</div>
+      <h3>Kardiale Synkope</h3>
+      <ul>
+        <li>Grunderkrankung behandeln (z.B. Klappenstenose)</li>
+        <li>Reversible Auslöser ausschließen: Elektrolyte, Schilddrüse, Medikamente</li>
+        <li>Brady → <strong>Schrittmacher</strong> · Tachy → Ablation / Antiarrhythmika / <strong>ICD</strong></li>
+      </ul>
+      <h3>Reflexsynkope</h3>
+      <ul>
+        <li>Aufklärung, Auslöser meiden, Prodromi erkennen</li>
+        <li><strong>Counter-pressure-Manöver:</strong> Hände/Beine verschränken + Muskelanspannung → ↑ Sympathikotonus</li>
+      </ul>
+      <h3>Orthostatische Synkope</h3>
+      <ul>
+        <li>Trinkmenge ≥ 2 L/Tag + Kochsalz, Ausdauertraining</li>
+        <li>Langsam aufstehen, vasoaktive Medikamente/Diuretika meiden</li>
+      </ul>
+    </div>
+
+    <div class="card perle wide">
+      <div class="card-label">⭐ KP-Perlen</div>
+      <ul>
+        <li><strong>Kardiale Synkope = höchstes Risiko</strong> (plötzlicher Herztod) → immer zuerst ausschließen. Basisdiagnostik = Anamnese + EKG + Schellong bei <em>jedem</em> Patienten.</li>
+        <li><strong>Konvulsive Synkope ≠ Epilepsie:</strong> Myoklonien beginnen <em>nach</em> dem Bewusstseinsverlust, dauern &lt; 15 s, sofortiges Aufklaren — kein lateraler Zungenbiss, keine postiktale Phase.</li>
+        <li><strong>Schellong-Schwellen:</strong> syst. ↓ ≥ 20 mmHg oder diast. ↓ ≥ 10 mmHg. Ein unauffälliger Test schließt eine orthostatische Dysregulation bei typischer Anamnese NICHT aus.</li>
+        <li><strong>Warnsignal Herztod:</strong> Synkope bei HOCM, ARVD, Long-QT- oder Brugada-Syndrom gilt IMMER als Risiko für plötzlichen Herztod.</li>
+        <li><strong>Rezidivrisiko ~30 %</strong> innerhalb von 3 Jahren. Reflexsynkope: normale Lebenserwartung; kardiale Synkope: erhöhte Mortalität je nach Grunderkrankung.</li>
+        <li><strong>POTS</strong> ist keine eigene Synkopenform — Tachykardie im Stehen <em>ohne</em> RR-Abfall, führt meist nicht zur Synkope.</li>
+      </ul>
+    </div>
+
+  </div>
+  <footer>KP-Mainz Drills · Synkope 1-Seiten-Summary · Amboss + ESC-Leitlinie 2018</footer>
+</div>
+</body>
+</html>
