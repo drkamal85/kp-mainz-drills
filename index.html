@@ -74,18 +74,6 @@
     }
     .hero-p { font-size: 15px; color: var(--t2); margin-bottom: 32px; max-width: 480px; }
 
-    .prog-row { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
-    .prog-track {
-      width: 260px; max-width: 100%; height: 5px;
-      background: var(--border); border-radius: 99px; overflow: hidden;
-    }
-    .prog-fill {
-      height: 100%; background: var(--blue); border-radius: 99px;
-      transition: width 0.5s cubic-bezier(.4,0,.2,1);
-      width: 0%;
-    }
-    .prog-txt { font-family: var(--m); font-size: 12.5px; color: var(--t2); white-space: nowrap; }
-
     .stats-row { display: flex; gap: 20px; flex-wrap: wrap; }
     .stat { font-size: 13px; color: var(--t3); display: flex; align-items: center; gap: 5px; }
     .stat strong { font-family: var(--m); font-weight: 600; color: var(--t2); }
@@ -141,7 +129,6 @@
       transform: translateY(-2px); border-color: var(--border-hi);
     }
     .card:hover .c-arrow { transform: translateX(3px); color: var(--blue); }
-    .card.done { opacity: 0.45; }
 
     /* Card top row */
     .c-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
@@ -163,15 +150,6 @@
     .r1 { background: oklch(95% 0.04 160); color: oklch(32% 0.12 160); }
     .r2 { background: oklch(95% 0.04 245); color: oklch(32% 0.12 245); }
 
-    /* Check button */
-    .chk {
-      width: 22px; height: 22px; border-radius: 50%;
-      border: 1.5px solid var(--border-hi);
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0; transition: all 0.14s; color: transparent;
-    }
-    .chk:hover { border-color: var(--blue); background: var(--blue-bg); color: var(--blue); }
-    .chk.on    { border-color: var(--blue); background: var(--blue); color: white; }
 
     /* Card body */
     .c-title {
@@ -289,11 +267,6 @@
     [data-density=compact] .sec    { margin-bottom: 40px; }
 
     /* ── Hide completed ──────────────────────── */
-    [data-hidedone=true] .card.done { display: none; }
-
-    /* ── Responsive ──────────────────────────── */
-    @media (max-width: 700px) {
-      .wrap { padding: 0 16px; }
       .hero { padding: 32px 0 28px; }
       .g4, .g3, .g2 { grid-template-columns: 1fr; }
       .tw { bottom: 16px; right: 16px; width: 214px; }
@@ -328,13 +301,9 @@
     <h1 class="hero-h1">Lerneinheiten &amp; Reviews</h1>
     <p class="hero-p">Drills, Reviews und Summaries für die mündliche Prüfung.</p>
 
-    <div class="prog-row">
-      <div class="prog-track"><div class="prog-fill" id="pFill"></div></div>
-      <span class="prog-txt" id="pTxt">0 / 13 abgeschlossen</span>
-    </div>
     <div class="stats-row">
       <span class="stat"><strong>4</strong> Drills</span>
-      <span class="stat"><strong>6</strong> Reviews</span>
+      <span class="stat"><strong>7</strong> Reviews</span>
       <span class="stat"><strong>2</strong> Summaries</span>
       <span class="stat"><strong>1</strong> Tool</span>
     </div>
@@ -361,9 +330,6 @@
             <span class="pill" style="background:oklch(96% 0.03 228);color:oklch(36% 0.12 228);border-color:oklch(90% 0.05 228)">BGA</span>
             <span class="pill" style="background:oklch(96% 0.025 262);color:oklch(40% 0.08 262);border-color:oklch(90% 0.04 262)">Wk 1 · L1</span>
           </div>
-          <button class="chk" data-id="01-bga-wk1-l1" onclick="event.preventDefault();event.stopPropagation();toggle(this)">
-            <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
         </div>
         <div class="c-title">Systematische Auswertung + Normalwerte</div>
         <div class="c-desc">5-Schritt-Algorithmus, Normalwerte, Mustererkennung an realen Konstellationen.</div>
@@ -380,9 +346,6 @@
             <span class="pill" style="background:oklch(96% 0.03 228);color:oklch(36% 0.12 228);border-color:oklch(90% 0.05 228)">BGA</span>
             <span class="pill" style="background:oklch(95.5% 0.03 162);color:oklch(34% 0.12 162);border-color:oklch(89% 0.05 162)">Memorize</span>
           </div>
-          <button class="chk" data-id="02-bga-normalwerte-memorize" onclick="event.preventDefault();event.stopPropagation();toggle(this)">
-            <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
         </div>
         <div class="c-title">Normalwerte verankern</div>
         <div class="c-desc">Drei Modi — Anker-System, Flashcards, 10-Fragen-Quiz mit Pattern-Aufgaben.</div>
@@ -399,9 +362,6 @@
             <span class="pill" style="background:oklch(96% 0.03 175);color:oklch(34% 0.12 175);border-color:oklch(89% 0.05 175)">Echo</span>
             <span class="pill" style="background:oklch(96% 0.025 262);color:oklch(40% 0.08 262);border-color:oklch(90% 0.04 262)">Wk 1 · L1</span>
           </div>
-          <button class="chk" data-id="03-echo-wk1-l1" onclick="event.preventDefault();event.stopPropagation();toggle(this)">
-            <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
         </div>
         <div class="c-title">Schallkopfpositionen + Standardschnitte</div>
         <div class="c-desc">PLAX, PSAX und A4C — die Grundlage jeder Echo-Untersuchung.</div>
@@ -418,9 +378,6 @@
             <span class="pill" style="background:oklch(96% 0.03 300);color:oklch(34% 0.12 300);border-color:oklch(89% 0.05 300)">EEG</span>
             <span class="pill" style="background:oklch(96% 0.025 262);color:oklch(40% 0.08 262);border-color:oklch(90% 0.04 262)">Wk 1 · L1</span>
           </div>
-          <button class="chk" data-id="04-eeg-wk1-l1" onclick="event.preventDefault();event.stopPropagation();toggle(this)">
-            <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
         </div>
         <div class="c-title">Grundrhythmus + Wellen + Normalbefund</div>
         <div class="c-desc">Vier Wellen, ein Grundrhythmus, systematische Befundung. α / β / θ / δ.</div>
@@ -451,12 +408,7 @@
               <span class="pill p-type">Review</span>
               <span class="pill" style="background:oklch(96% 0.03 35);color:oklch(34% 0.12 35);border-color:oklch(89% 0.05 35)">Chirurgie</span>
             </div>
-            <div style="display:flex;align-items:center;gap:6px">
-              <span class="lvl r2">R2</span>
-              <button class="chk" data-id="cholezystitis-r2" onclick="event.preventDefault();event.stopPropagation();toggle(this)">
-                <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </button>
-            </div>
+            <span class="lvl r2">R2</span>
           </div>
           <div class="c-title">Cholezystitis</div>
           <div class="c-desc">Zweite Wiederholung · Kurz-Review</div>
@@ -472,12 +424,7 @@
               <span class="pill p-type">Review</span>
               <span class="pill" style="background:oklch(96% 0.03 35);color:oklch(34% 0.12 35);border-color:oklch(89% 0.05 35)">Chirurgie</span>
             </div>
-            <div style="display:flex;align-items:center;gap:6px">
-              <span class="lvl r2">R2</span>
-              <button class="chk" data-id="appendizitis-r2" onclick="event.preventDefault();event.stopPropagation();toggle(this)">
-                <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </button>
-            </div>
+            <span class="lvl r2">R2</span>
           </div>
           <div class="c-title">Appendizitis</div>
           <div class="c-desc">Zweite Wiederholung · Kurz-Review</div>
@@ -493,12 +440,7 @@
               <span class="pill p-type">Review</span>
               <span class="pill" style="background:oklch(96% 0.03 35);color:oklch(34% 0.12 35);border-color:oklch(89% 0.05 35)">Chirurgie</span>
             </div>
-            <div style="display:flex;align-items:center;gap:6px">
-              <span class="lvl r2">R2</span>
-              <button class="chk" data-id="ileus-r2" onclick="event.preventDefault();event.stopPropagation();toggle(this)">
-                <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </button>
-            </div>
+            <span class="lvl r2">R2</span>
           </div>
           <div class="c-title">Ileus</div>
           <div class="c-desc">Zweite Wiederholung · Kurz-Review</div>
@@ -514,12 +456,7 @@
               <span class="pill p-type">Review</span>
               <span class="pill" style="background:oklch(96% 0.03 35);color:oklch(34% 0.12 35);border-color:oklch(89% 0.05 35)">Chirurgie</span>
             </div>
-            <div style="display:flex;align-items:center;gap:6px">
-              <span class="lvl r1">R1</span>
-              <button class="chk" data-id="leistenhernie-r1" onclick="event.preventDefault();event.stopPropagation();toggle(this)">
-                <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </button>
-            </div>
+            <span class="lvl r1">R1</span>
           </div>
           <div class="c-title">Leistenhernie</div>
           <div class="c-desc">Erstreview · 4 Stationen</div>
@@ -546,12 +483,7 @@
               <span class="pill p-type">Review</span>
               <span class="pill" style="background:oklch(96% 0.03 50);color:oklch(34% 0.12 50);border-color:oklch(89% 0.05 50)">Unfallchir.</span>
             </div>
-            <div style="display:flex;align-items:center;gap:6px">
-              <span class="lvl r2">R2</span>
-              <button class="chk" data-id="distale-radiusfraktur-r2" onclick="event.preventDefault();event.stopPropagation();toggle(this)">
-                <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </button>
-            </div>
+            <span class="lvl r2">R2</span>
           </div>
           <div class="c-title">Distale Radiusfraktur</div>
           <div class="c-desc">Zweite Wiederholung · Kurz-Review</div>
@@ -567,12 +499,7 @@
               <span class="pill p-type">Review</span>
               <span class="pill" style="background:oklch(96% 0.03 200);color:oklch(34% 0.12 200);border-color:oklch(89% 0.05 200)">Pneumologie</span>
             </div>
-            <div style="display:flex;align-items:center;gap:6px">
-              <span class="lvl r1">R1</span>
-              <button class="chk" data-id="copd-r1" onclick="event.preventDefault();event.stopPropagation();toggle(this)">
-                <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </button>
-            </div>
+            <span class="lvl r1">R1</span>
           </div>
           <div class="c-title">COPD</div>
           <div class="c-desc">Erstreview · Erste Bearbeitung</div>
@@ -588,12 +515,7 @@
               <span class="pill p-type">Review</span>
               <span class="pill" style="background:oklch(96% 0.03 18);color:oklch(34% 0.12 18);border-color:oklch(89% 0.05 18)">Notfall</span>
             </div>
-            <div style="display:flex;align-items:center;gap:6px">
-              <span class="lvl r1">R1</span>
-              <button class="chk" data-id="schaedel-hirn-trauma-r1" onclick="event.preventDefault();event.stopPropagation();toggle(this)">
-                <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </button>
-            </div>
+            <span class="lvl r1">R1</span>
           </div>
           <div class="c-title">Schädel-Hirn-Trauma</div>
           <div class="c-desc">Erstreview · Erste Bearbeitung</div>
@@ -619,9 +541,6 @@
             <span class="pill p-type">Summary</span>
             <span class="pill" style="background:oklch(96% 0.03 10);color:oklch(34% 0.12 10);border-color:oklch(89% 0.05 10)">Kardiologie</span>
           </div>
-          <button class="chk" data-id="synkope" onclick="event.preventDefault();event.stopPropagation();toggle(this)">
-            <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
         </div>
         <div class="c-title">Synkope</div>
         <div class="c-desc">Einseitiger Überblick · Kardiologie</div>
@@ -637,9 +556,6 @@
             <span class="pill p-type">Summary</span>
             <span class="pill" style="background:oklch(96% 0.03 284);color:oklch(34% 0.12 284);border-color:oklch(89% 0.05 284)">Neurologie</span>
           </div>
-          <button class="chk" data-id="meningitis-enzephalitis" onclick="event.preventDefault();event.stopPropagation();toggle(this)">
-            <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
         </div>
         <div class="c-title">Meningitis / Enzephalitis</div>
         <div class="c-desc">Einseitiger Überblick · Neurologie</div>
@@ -662,9 +578,6 @@
           <div class="c-tags">
             <span class="pill p-type">Tool</span>
           </div>
-          <button class="chk" data-id="master-themenliste" onclick="event.preventDefault();event.stopPropagation();toggle(this)">
-            <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
         </div>
         <div class="c-title">Master-Themenliste</div>
         <div class="c-desc">69 Prüfungsthemen nach Häufigkeit in 4 Tiers sortiert. Aus 82 Protokollen + 176 Erfahrungsberichten abgeleitet.</div>
@@ -712,16 +625,8 @@
       <button class="tw-btn"    data-tw="density" data-val="compact">Kompakt</button>
     </div>
   </div>
-
-  <div class="tw-row">
-    <p class="tw-lbl">Fortschritt</p>
-    <div class="tw-toggle" id="twHideDoneRow">
-      <span class="tw-tl">Erledigtes ausblenden</span>
-      <div class="tw-track" id="twHideTrack"><div class="tw-knob"></div></div>
     </div>
   </div>
-
-  <button class="tw-reset" id="twReset">Fortschritt zurücksetzen</button>
 </div>
 
 <script>
@@ -731,38 +636,6 @@
     const diff = Math.ceil((exam - Date.now()) / 86400000);
     document.getElementById('countdown').textContent = diff > 0 ? diff + ' Tage' : 'Prüfung jetzt';
   })();
-
-  /* ── Progress tracking ───────────────────────────────────── */
-  const LS_DONE = 'kp-done-v1';
-  const TOTAL   = 13;
-  let done = {};
-  try { done = JSON.parse(localStorage.getItem(LS_DONE) || '{}'); } catch(e) {}
-
-  function saveDone() { localStorage.setItem(LS_DONE, JSON.stringify(done)); }
-
-  function updateProgress() {
-    const n = Object.values(done).filter(Boolean).length;
-    document.getElementById('pFill').style.width = Math.round(n / TOTAL * 100) + '%';
-    document.getElementById('pTxt').textContent  = n + ' / ' + TOTAL + ' abgeschlossen';
-  }
-
-  function toggle(btn) {
-    const id   = btn.dataset.id;
-    done[id]   = !done[id];
-    saveDone();
-    document.querySelectorAll('.chk[data-id="'  + id + '"]').forEach(b => b.classList.toggle('on',   !!done[id]));
-    document.querySelectorAll('.card[data-id="' + id + '"]').forEach(c => c.classList.toggle('done', !!done[id]));
-    updateProgress();
-  }
-
-  function initDone() {
-    Object.entries(done).forEach(([id, v]) => {
-      if (!v) return;
-      document.querySelectorAll('.chk[data-id="'  + id + '"]').forEach(b => b.classList.add('on'));
-      document.querySelectorAll('.card[data-id="' + id + '"]').forEach(c => c.classList.add('done'));
-    });
-    updateProgress();
-  }
 
   /* ── Filter tabs ─────────────────────────────────────────── */
   document.getElementById('tabs').addEventListener('click', function (e) {
@@ -778,8 +651,7 @@
   /* ── Tweaks ──────────────────────────────────────────────── */
   var TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
     "theme": "light",
-    "density": "comfortable",
-    "hideDone": true
+    "density": "comfortable"
   }/*EDITMODE-END*/;
 
   var tweaks = Object.assign({}, TWEAK_DEFAULTS);
@@ -787,14 +659,12 @@
   function applyTweaks() {
     document.documentElement.dataset.theme   = tweaks.theme;
     document.documentElement.dataset.density = tweaks.density;
-    document.documentElement.dataset.hidedone = String(tweaks.hideDone);
     document.querySelectorAll('.tw-btn[data-tw="theme"]').forEach(function (b) {
       b.classList.toggle('on', b.dataset.val === tweaks.theme);
     });
     document.querySelectorAll('.tw-btn[data-tw="density"]').forEach(function (b) {
       b.classList.toggle('on', b.dataset.val === tweaks.density);
     });
-    document.getElementById('twHideTrack').classList.toggle('on', !!tweaks.hideDone);
   }
 
   document.querySelectorAll('.tw-btn').forEach(function (b) {
@@ -804,21 +674,6 @@
       window.parent.postMessage({ type: '__edit_mode_set_keys', edits: tweaks }, '*');
     });
   });
-
-  document.getElementById('twHideDoneRow').addEventListener('click', function () {
-    tweaks.hideDone = !tweaks.hideDone;
-    applyTweaks();
-    window.parent.postMessage({ type: '__edit_mode_set_keys', edits: tweaks }, '*');
-  });
-
-  document.getElementById('twReset').addEventListener('click', function () {
-    done = {};
-    saveDone();
-    document.querySelectorAll('.chk').forEach(function (b) { b.classList.remove('on'); });
-    document.querySelectorAll('.card').forEach(function (c) { c.classList.remove('done'); });
-    updateProgress();
-  });
-
   document.getElementById('twClose').addEventListener('click', function () {
     document.getElementById('twPanel').classList.remove('vis');
     window.parent.postMessage({ type: '__edit_mode_dismissed' }, '*');
@@ -834,7 +689,6 @@
 
   /* ── Init ────────────────────────────────────────────────── */
   applyTweaks();
-  initDone();
 </script>
 </body>
 </html>
