@@ -19,6 +19,7 @@
     --c-reviews: #C0392B;
     --c-summaries: #7B3F9E;
     --c-deutsch: #2D7A3E;
+    --c-planung: #B8860B;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
@@ -94,6 +95,8 @@
   section.s-summaries .section-label h2 { color: var(--c-summaries); }
   section.s-deutsch .section-label { border-left-color: var(--c-deutsch); }
   section.s-deutsch .section-label h2 { color: var(--c-deutsch); }
+  section.s-planung .section-label { border-left-color: var(--c-planung); }
+  section.s-planung .section-label h2 { color: var(--c-planung); }
   .section-label .count {
     font-size: 12px;
     color: var(--ink-soft);
@@ -187,6 +190,9 @@
   section.s-deutsch .row:hover { background: rgba(45,122,62,0.05); }
   section.s-deutsch .row:hover .row-arrow { color: var(--c-deutsch); }
   section.s-deutsch .row:hover .row-title { color: var(--c-deutsch); }
+  section.s-planung .row:hover { background: rgba(184,134,11,0.05); }
+  section.s-planung .row:hover .row-arrow { color: var(--c-planung); }
+  section.s-planung .row:hover .row-title { color: var(--c-planung); }
   .row:hover .row-title { transition: color 0.18s ease; }
 
   footer {
@@ -336,6 +342,24 @@
           <div class="row-title">Beim Hausarzt — Anamnese</div>
           <div class="row-desc">Komplettes Anamnesegespräch: Beschwerden, Schmerz, Begleitsymptome, Medikamente.</div>
           <div class="row-meta"><span>Rollenspiel</span><span>~10 min</span><span>6 Stationen</span></div>
+        </div>
+        <span class="row-arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- PLANUNG -->
+  <section class="s-planung">
+    <div class="section-label">
+      <h2>Studienplanung</h2>
+    </div>
+    <p class="section-note">Aus 82 Protokollen + 176 Erfahrungsberichten abgeleitet.</p>
+    <div class="rows">
+      <a href="tools/master-themenliste.html" class="row">
+        <div class="row-main">
+          <div class="row-title">Master-Themenliste</div>
+          <div class="row-desc">69 Prüfungsthemen, nach Häufigkeit in 4 Tiers sortiert. Zum Abhaken.</div>
+          <div class="row-meta"><span>Checkliste</span><span>69 Themen</span><span>4 Tiers</span></div>
         </div>
         <span class="row-arrow">→</span>
       </a>

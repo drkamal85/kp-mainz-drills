@@ -1,0 +1,432 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KP Mainz · Master-Themenliste</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FBFAF7;--ink:#1A1A1A;--muted:#6B6B6B;--soft:#9A9A9A;--rule:#E6E2D9;--paper:#fff}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:Manrope,sans-serif;font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+.container{max-width:760px;margin:0 auto;padding:56px 22px 90px}
+.kicker{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--soft);margin-bottom:16px}
+h1{font-family:Fraunces,serif;font-weight:500;font-size:clamp(32px,6vw,46px);line-height:1.02;letter-spacing:-.02em;margin-bottom:14px}
+.lede{font-family:Fraunces,serif;font-size:17px;color:var(--muted);max-width:520px;margin-bottom:22px}
+.stat-row{display:flex;gap:24px;font-size:13px;color:var(--soft);border-top:1px solid var(--rule);padding-top:16px;flex-wrap:wrap}
+.stat-row strong{color:var(--ink)}
+.tier{margin-top:42px}
+.tier-head{display:flex;justify-content:space-between;align-items:flex-end;border-left:3px solid var(--tc);padding-left:13px;margin-bottom:10px}
+.tier-title{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--tc)}
+.tier-desc{font-family:Fraunces,serif;font-style:italic;font-size:13.5px;color:var(--muted);margin-top:3px}
+.tier-count{font-size:11.5px;color:var(--soft);white-space:nowrap}
+table{width:100%;border-collapse:collapse}
+td{padding:11px 8px;border-bottom:1px solid var(--rule);vertical-align:middle}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:rgba(0,0,0,.014)}
+.chk{width:26px}
+.box{display:inline-block;width:16px;height:16px;border:1.5px solid var(--soft);border-radius:4px;vertical-align:middle;cursor:pointer;transition:.15s}
+.box.checked{background:var(--tc);border-color:var(--tc);position:relative}
+.box.checked::after{content:"✓";color:#fff;font-size:12px;font-weight:700;position:absolute;top:-1px;left:2px}
+.topic{font-family:Fraunces,serif;font-size:16px;font-weight:500}
+tr.done .topic{color:var(--soft)}
+.have{display:inline-block;font-family:Manrope;font-size:9.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#2D7A3E;background:#E3F1E6;padding:2px 6px;border-radius:3px;margin-left:8px;vertical-align:middle}
+.fach{font-size:12.5px;color:var(--muted);white-space:nowrap}
+.cnt{text-align:right;white-space:nowrap}
+.cnt .n{font-family:'JetBrains Mono',monospace;font-weight:500;font-size:14px;color:var(--tc)}
+.cnt .src{display:block;font-size:10px;color:var(--soft);font-family:'JetBrains Mono',monospace}
+.legend{margin-top:38px;padding:16px;background:var(--paper);border:1px solid var(--rule);border-radius:10px;font-size:13px;color:var(--muted)}
+.legend b{color:var(--ink)}
+.foot{margin-top:48px;padding-top:18px;border-top:1px solid var(--rule);font-size:11.5px;color:var(--soft);text-align:center}
+@media(max-width:560px){.container{padding:36px 15px}.fach{display:none}}
+</style></head><body><div class="container">
+<a href="../index.html" style="display:inline-block;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#9A9A9A;text-decoration:none;margin-bottom:22px">← Zurück zur Library</a>
+<div class="kicker">KP Mainz · Studienplanung</div>
+<h1>Master-Themenliste</h1>
+<p class="lede">Alle Prüfungsthemen aus beiden Protokoll-Quellen — zusammengeführt, nach Häufigkeit in Tiers sortiert. Zum Abhaken.</p>
+<div class="stat-row">
+<span><strong>69</strong> Themen gesamt</span>
+<span><strong>5</strong> Reviews gebaut</span>
+<span><strong>82</strong> PB-Fälle + <strong>176</strong> WA-Berichte</span>
+<span id="prog">0 abgehakt</span>
+</div>
+
+<section class="tier" style="--tc:#C0392B">
+<div class="tier-head"><div><div class="tier-title">Tier 1 · Kernthemen</div><div class="tier-desc">≥ 20 Nennungen — mit Sicherheit prüfungsrelevant</div></div><div class="tier-count">9 Themen</div></div>
+<table><tbody><tr class="done">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">Ileus<span class="have">✓ Review vorhanden</span></td>
+<td class="fach">Viszeralchirurgie</td>
+<td class="cnt"><span class="n">42</span><span class="src">2·PB 40·WA</span></td>
+</tr><tr class="done">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">Appendizitis<span class="have">✓ Review vorhanden</span></td>
+<td class="fach">Viszeralchirurgie</td>
+<td class="cnt"><span class="n">35</span><span class="src">3·PB 32·WA</span></td>
+</tr><tr class="done">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">Cholezystitis / Cholelithiasis<span class="have">✓ Review vorhanden</span></td>
+<td class="fach">Viszeralchirurgie</td>
+<td class="cnt"><span class="n">35</span><span class="src">2·PB 33·WA</span></td>
+</tr><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">Divertikulitis / Divertikulose</td>
+<td class="fach">Viszeralchirurgie</td>
+<td class="cnt"><span class="n">32</span><span class="src">2·PB 30·WA</span></td>
+</tr><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">Kolonkarzinom</td>
+<td class="fach">Viszeralchirurgie</td>
+<td class="cnt"><span class="n">31</span><span class="src">1·PB 30·WA</span></td>
+</tr><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">Lungenembolie</td>
+<td class="fach">Angiologie</td>
+<td class="cnt"><span class="n">25</span><span class="src">2·PB 23·WA</span></td>
+</tr><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">Herzinsuffizienz</td>
+<td class="fach">Kardiologie</td>
+<td class="cnt"><span class="n">23</span><span class="src">6·PB 17·WA</span></td>
+</tr><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">Pankreatitis</td>
+<td class="fach">Viszeralchirurgie</td>
+<td class="cnt"><span class="n">22</span><span class="src">1·PB 21·WA</span></td>
+</tr><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">Schilddrüse (allg.)</td>
+<td class="fach">Endokrinologie</td>
+<td class="cnt"><span class="n">21</span><span class="src">0·PB 21·WA</span></td>
+</tr></tbody></table>
+</section>
+<section class="tier" style="--tc:#D97706">
+<div class="tier-head"><div><div class="tier-title">Tier 2 · Hochfrequent</div><div class="tier-desc">10–19 Nennungen — sehr wahrscheinlich</div></div><div class="tier-count">11 Themen</div></div>
+<table><tbody><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">Pneumothorax</td>
+<td class="fach">Pneumologie</td>
+<td class="cnt"><span class="n">18</span><span class="src">0·PB 18·WA</span></td>
+</tr><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">Pneumonie</td>
+<td class="fach">Pneumologie</td>
+<td class="cnt"><span class="n">17</span><span class="src">2·PB 15·WA</span></td>
+</tr><tr class="done">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">COPD<span class="have">✓ Review vorhanden</span></td>
+<td class="fach">Pneumologie</td>
+<td class="cnt"><span class="n">16</span><span class="src">2·PB 14·WA</span></td>
+</tr><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">Allg. Frakturlehre</td>
+<td class="fach">Unfallchirurgie</td>
+<td class="cnt"><span class="n">14</span><span class="src">0·PB 14·WA</span></td>
+</tr><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">Schilddrüsenkarzinom</td>
+<td class="fach">Endokrinologie</td>
+<td class="cnt"><span class="n">14</span><span class="src">1·PB 13·WA</span></td>
+</tr><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">ALL / Leukämie</td>
+<td class="fach">Hämatologie</td>
+<td class="cnt"><span class="n">13</span><span class="src">3·PB 10·WA</span></td>
+</tr><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">Hyperthyreose</td>
+<td class="fach">Endokrinologie</td>
+<td class="cnt"><span class="n">13</span><span class="src">1·PB 12·WA</span></td>
+</tr><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">AV-Block</td>
+<td class="fach">Kardiologie</td>
+<td class="cnt"><span class="n">12</span><span class="src">2·PB 10·WA</span></td>
+</tr><tr class="done">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">Distale Radiusfraktur<span class="have">✓ Review vorhanden</span></td>
+<td class="fach">Unfallchirurgie</td>
+<td class="cnt"><span class="n">12</span><span class="src">1·PB 11·WA</span></td>
+</tr><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">Sprunggelenkfraktur (OSG)</td>
+<td class="fach">Unfallchirurgie</td>
+<td class="cnt"><span class="n">12</span><span class="src">1·PB 11·WA</span></td>
+</tr><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">Vorhofflimmern</td>
+<td class="fach">Kardiologie</td>
+<td class="cnt"><span class="n">12</span><span class="src">0·PB 12·WA</span></td>
+</tr></tbody></table>
+</section>
+<section class="tier" style="--tc:#1E5F9E">
+<div class="tier-head"><div><div class="tier-title">Tier 3 · Mittelfrequent</div><div class="tier-desc">5–9 Nennungen — solide vorbereiten</div></div><div class="tier-count">12 Themen</div></div>
+<table><tbody><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">KHK / Angina pectoris</td>
+<td class="fach">Kardiologie</td>
+<td class="cnt"><span class="n">9</span><span class="src">1·PB 8·WA</span></td>
+</tr><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">Rektumkarzinom</td>
+<td class="fach">Viszeralchirurgie</td>
+<td class="cnt"><span class="n">9</span><span class="src">3·PB 6·WA</span></td>
+</tr><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">Hypothyreose</td>
+<td class="fach">Endokrinologie</td>
+<td class="cnt"><span class="n">8</span><span class="src">1·PB 7·WA</span></td>
+</tr><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">Magenkarzinom</td>
+<td class="fach">Viszeralchirurgie</td>
+<td class="cnt"><span class="n">8</span><span class="src">2·PB 6·WA</span></td>
+</tr><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">Aortenklappenstenose</td>
+<td class="fach">Kardiologie</td>
+<td class="cnt"><span class="n">6</span><span class="src">1·PB 5·WA</span></td>
+</tr><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">Eisenmangelanämie</td>
+<td class="fach">Hämatologie</td>
+<td class="cnt"><span class="n">6</span><span class="src">3·PB 3·WA</span></td>
+</tr><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">Pankreaskarzinom</td>
+<td class="fach">Viszeralchirurgie</td>
+<td class="cnt"><span class="n">6</span><span class="src">1·PB 5·WA</span></td>
+</tr><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">Femurfraktur</td>
+<td class="fach">Unfallchirurgie</td>
+<td class="cnt"><span class="n">5</span><span class="src">0·PB 5·WA</span></td>
+</tr><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">GI-Blutung (OGIB)</td>
+<td class="fach">Viszeralchirurgie</td>
+<td class="cnt"><span class="n">5</span><span class="src">5·PB 0·WA</span></td>
+</tr><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">Hüft-/Knie-TEP</td>
+<td class="fach">Unfallchirurgie</td>
+<td class="cnt"><span class="n">5</span><span class="src">2·PB 3·WA</span></td>
+</tr><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">Schenkelhalsfraktur</td>
+<td class="fach">Unfallchirurgie</td>
+<td class="cnt"><span class="n">5</span><span class="src">1·PB 4·WA</span></td>
+</tr><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">Wirbelsäulenfraktur</td>
+<td class="fach">Unfallchirurgie</td>
+<td class="cnt"><span class="n">5</span><span class="src">0·PB 5·WA</span></td>
+</tr></tbody></table>
+</section>
+<section class="tier" style="--tc:#2D7A3E">
+<div class="tier-head"><div><div class="tier-title">Tier 4 · Niedrigfrequent / Drittes Fach</div><div class="tier-desc">1–4 Nennungen — Überblick genügt</div></div><div class="tier-count">37 Themen</div></div>
+<table><tbody><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">Beckenfraktur</td>
+<td class="fach">Unfallchirurgie</td>
+<td class="cnt"><span class="n">4</span><span class="src">0·PB 4·WA</span></td>
+</tr><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">Humerusfraktur</td>
+<td class="fach">Unfallchirurgie</td>
+<td class="cnt"><span class="n">4</span><span class="src">2·PB 2·WA</span></td>
+</tr><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">Myokardinfarkt / ACS</td>
+<td class="fach">Kardiologie</td>
+<td class="cnt"><span class="n">4</span><span class="src">0·PB 4·WA</span></td>
+</tr><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">Endokarditis</td>
+<td class="fach">Kardiologie</td>
+<td class="cnt"><span class="n">3</span><span class="src">1·PB 2·WA</span></td>
+</tr><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">Lebermetastasen / Lebertumor</td>
+<td class="fach">Gastroenterologie</td>
+<td class="cnt"><span class="n">3</span><span class="src">1·PB 2·WA</span></td>
+</tr><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">Leberzirrhose</td>
+<td class="fach">Gastroenterologie</td>
+<td class="cnt"><span class="n">3</span><span class="src">2·PB 1·WA</span></td>
+</tr><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">Mitralklappenvitium</td>
+<td class="fach">Kardiologie</td>
+<td class="cnt"><span class="n">3</span><span class="src">0·PB 3·WA</span></td>
+</tr><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">Morbus Hodgkin</td>
+<td class="fach">Hämatologie</td>
+<td class="cnt"><span class="n">3</span><span class="src">2·PB 1·WA</span></td>
+</tr><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">Sepsis</td>
+<td class="fach">Notfallmedizin</td>
+<td class="cnt"><span class="n">3</span><span class="src">1·PB 2·WA</span></td>
+</tr><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">Struma</td>
+<td class="fach">Endokrinologie</td>
+<td class="cnt"><span class="n">3</span><span class="src">0·PB 3·WA</span></td>
+</tr><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">Synkope</td>
+<td class="fach">Kardiologie</td>
+<td class="cnt"><span class="n">3</span><span class="src">1·PB 2·WA</span></td>
+</tr><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">Asthma bronchiale</td>
+<td class="fach">Pneumologie</td>
+<td class="cnt"><span class="n">2</span><span class="src">0·PB 2·WA</span></td>
+</tr><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">Bronchialkarzinom</td>
+<td class="fach">Pneumologie</td>
+<td class="cnt"><span class="n">2</span><span class="src">1·PB 1·WA</span></td>
+</tr><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">Cushing-Syndrom</td>
+<td class="fach">Endokrinologie</td>
+<td class="cnt"><span class="n">2</span><span class="src">0·PB 2·WA</span></td>
+</tr><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">Delir</td>
+<td class="fach">Notfallmedizin</td>
+<td class="cnt"><span class="n">2</span><span class="src">1·PB 1·WA</span></td>
+</tr><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">Hepatitis</td>
+<td class="fach">Gastroenterologie</td>
+<td class="cnt"><span class="n">2</span><span class="src">2·PB 0·WA</span></td>
+</tr><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">Ikterus / Cholestase</td>
+<td class="fach">Gastroenterologie</td>
+<td class="cnt"><span class="n">2</span><span class="src">1·PB 1·WA</span></td>
+</tr><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">Neuroblastom (Päd)</td>
+<td class="fach">Pädiatrie</td>
+<td class="cnt"><span class="n">2</span><span class="src">2·PB 0·WA</span></td>
+</tr><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">Schlaganfall</td>
+<td class="fach">Neurologie</td>
+<td class="cnt"><span class="n">2</span><span class="src">0·PB 2·WA</span></td>
+</tr><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">Sturz / Polytrauma</td>
+<td class="fach">Unfallchirurgie</td>
+<td class="cnt"><span class="n">2</span><span class="src">2·PB 0·WA</span></td>
+</tr><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">Akute Dyspnoe (DD)</td>
+<td class="fach">Pneumologie</td>
+<td class="cnt"><span class="n">1</span><span class="src">1·PB 0·WA</span></td>
+</tr><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">Aortenaneurysma (AAA)</td>
+<td class="fach">Angiologie</td>
+<td class="cnt"><span class="n">1</span><span class="src">1·PB 0·WA</span></td>
+</tr><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">Arterielle Hypertonie</td>
+<td class="fach">Kardiologie</td>
+<td class="cnt"><span class="n">1</span><span class="src">1·PB 0·WA</span></td>
+</tr><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">Check-up / Prävention</td>
+<td class="fach">Querschnitt</td>
+<td class="cnt"><span class="n">1</span><span class="src">1·PB 0·WA</span></td>
+</tr><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">Diabetes mellitus</td>
+<td class="fach">Endokrinologie</td>
+<td class="cnt"><span class="n">1</span><span class="src">1·PB 0·WA</span></td>
+</tr><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">Diarrhoe / Gastroenteritis</td>
+<td class="fach">Viszeralchirurgie</td>
+<td class="cnt"><span class="n">1</span><span class="src">1·PB 0·WA</span></td>
+</tr><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">Gastroduodenales Ulkus</td>
+<td class="fach">Viszeralchirurgie</td>
+<td class="cnt"><span class="n">1</span><span class="src">1·PB 0·WA</span></td>
+</tr><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">Germinom (Päd)</td>
+<td class="fach">Pädiatrie</td>
+<td class="cnt"><span class="n">1</span><span class="src">1·PB 0·WA</span></td>
+</tr><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">Gliogangliom (Päd)</td>
+<td class="fach">Pädiatrie</td>
+<td class="cnt"><span class="n">1</span><span class="src">1·PB 0·WA</span></td>
+</tr><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">Lymphom</td>
+<td class="fach">Hämatologie</td>
+<td class="cnt"><span class="n">1</span><span class="src">0·PB 1·WA</span></td>
+</tr><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">M. Bechterew</td>
+<td class="fach">Rheumatologie</td>
+<td class="cnt"><span class="n">1</span><span class="src">1·PB 0·WA</span></td>
+</tr><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">Morbus Crohn</td>
+<td class="fach">Viszeralchirurgie</td>
+<td class="cnt"><span class="n">1</span><span class="src">1·PB 0·WA</span></td>
+</tr><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">PMR / RZA</td>
+<td class="fach">Rheumatologie</td>
+<td class="cnt"><span class="n">1</span><span class="src">1·PB 0·WA</span></td>
+</tr><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">Sarkoidose</td>
+<td class="fach">Pneumologie</td>
+<td class="cnt"><span class="n">1</span><span class="src">0·PB 1·WA</span></td>
+</tr><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">Schock</td>
+<td class="fach">Notfallmedizin</td>
+<td class="cnt"><span class="n">1</span><span class="src">0·PB 1·WA</span></td>
+</tr><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">TVT / Phlebothrombose</td>
+<td class="fach">Angiologie</td>
+<td class="cnt"><span class="n">1</span><span class="src">0·PB 1·WA</span></td>
+</tr><tr class="">
+<td class="chk"><span class="box"></span></td>
+<td class="topic">pAVK</td>
+<td class="fach">Angiologie</td>
+<td class="cnt"><span class="n">1</span><span class="src">1·PB 0·WA</span></td>
+</tr></tbody></table>
+</section>
+<div class="legend">
+<b>Häufigkeit</b> = wie oft das Thema als Prüfungsfall auftauchte (PB = Protokolle bearbeitet, WA = WhatsApp).
+Tiers nach Gesamthäufigkeit. <b>Reihenfolge-Empfehlung:</b> Tier 1 → 2 → 3 zuerst, Tier 4 (inkl. Drittes-Fach-/Neuro-Themen) nur im Überblick.
+Häkchen werden lokal im Browser gespeichert.
+</div>
+<div class="foot">KP Mainz · Master-Themenliste · aus Protokolle bearbeitet + WhatsApp-Chat · 69 Themen</div>
+</div>
+<script>
+const boxes=document.querySelectorAll('.box');
+function load(){try{return JSON.parse(localStorage.getItem('kp_master')||'{}')}catch(e){return {}}}
+function save(s){localStorage.setItem('kp_master',JSON.stringify(s))}
+let st=load();
+boxes.forEach((b,i)=>{
+  const row=b.closest('tr'); const key=row.querySelector('.topic').textContent.trim();
+  if(st[key]) b.classList.add('checked');
+  b.addEventListener('click',()=>{b.classList.toggle('checked');st[key]=b.classList.contains('checked');save(st);prog();});
+});
+function prog(){const n=document.querySelectorAll('.box.checked').length;document.getElementById('prog').innerHTML='<strong>'+n+'</strong> abgehakt';}
+prog();
+</script>
+</body></html>
