@@ -1,378 +1,840 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KP Mainz · Drill Library</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bg: #FBFAF7;
-    --ink: #1A1A1A;
-    --ink-muted: #6B6B6B;
-    --ink-soft: #9A9A9A;
-    --rule: #E6E2D9;
-    --accent: #1A1A1A;
-    --c-drills: #1E5F9E;
-    --c-reviews: #C0392B;
-    --c-summaries: #7B3F9E;
-    --c-deutsch: #2D7A3E;
-    --c-planung: #B8860B;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    background: var(--bg);
-    color: var(--ink);
-    font-family: 'Manrope', system-ui, sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
-  .container { max-width: 680px; margin: 0 auto; padding: 88px 28px 100px; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KP Mainz · Drill Library</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /*
+     * KP Mainz · Design System
+     * Font: DM Sans (clinical, geometric) + DM Mono (metadata/numbers)
+     * Colors: cool-white bg, near-black text, medical blue accent
+     * Category hues: oklch(38% 0.12 H) — same chroma/lightness, vary hue
+     * Cards: white, 1px border, hover lift — no left-border tropes
+     */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  /* MASTHEAD */
-  .masthead { margin-bottom: 72px; }
-  .kicker {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.24em;
-    text-transform: uppercase;
-    color: var(--ink-soft);
-    margin-bottom: 20px;
-  }
-  h1 {
-    font-family: 'Fraunces', serif;
-    font-weight: 500;
-    font-size: clamp(36px, 7vw, 54px);
-    line-height: 1.0;
-    letter-spacing: -0.025em;
-    margin-bottom: 22px;
-  }
-  .lede {
-    font-family: 'Fraunces', serif;
-    font-size: 18px;
-    line-height: 1.5;
-    color: var(--ink-muted);
-    max-width: 480px;
-    margin-bottom: 28px;
-  }
-  .stat-row {
-    display: flex;
-    gap: 28px;
-    font-size: 13px;
-    color: var(--ink-soft);
-    border-top: 1px solid var(--rule);
-    padding-top: 20px;
-  }
-  .stat-row strong { color: var(--ink); font-weight: 600; }
+    :root {
+      --bg:          oklch(98.5% 0.004 250);
+      --surface:     #ffffff;
+      --surface-2:   oklch(96.5% 0.006 250);
+      --border:      oklch(90% 0.007 250);
+      --border-hi:   oklch(76% 0.012 250);
+      --t1:          oklch(16% 0.013 265);
+      --t2:          oklch(43% 0.015 265);
+      --t3:          oklch(63% 0.010 265);
+      --blue:        oklch(44% 0.14 245);
+      --blue-bg:     oklch(95.5% 0.035 245);
+      --r:           10px;
+      --f:           'DM Sans', system-ui, sans-serif;
+      --m:           'DM Mono', 'Menlo', monospace;
+    }
 
-  /* SECTION */
-  section { margin-bottom: 56px; }
-  .section-label {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    margin-bottom: 4px;
-    padding-left: 12px;
-    border-left: 3px solid var(--ink);
-  }
-  .section-label h2 {
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--ink);
-  }
-  /* per-section accent */
-  section.s-drills .section-label { border-left-color: var(--c-drills); }
-  section.s-drills .section-label h2 { color: var(--c-drills); }
-  section.s-reviews .section-label { border-left-color: var(--c-reviews); }
-  section.s-reviews .section-label h2 { color: var(--c-reviews); }
-  section.s-summaries .section-label { border-left-color: var(--c-summaries); }
-  section.s-summaries .section-label h2 { color: var(--c-summaries); }
-  section.s-planung .section-label { border-left-color: var(--c-planung); }
-  section.s-planung .section-label h2 { color: var(--c-planung); }
-  .section-label .count {
-    font-size: 12px;
-    color: var(--ink-soft);
-    font-variant-numeric: tabular-nums;
-  }
-  .section-note {
-    font-family: 'Fraunces', serif;
-    font-style: italic;
-    font-size: 14.5px;
-    color: var(--ink-muted);
-    margin-bottom: 18px;
-    max-width: 460px;
-  }
+    html  { font-family: var(--f); background: var(--bg); color: var(--t1); line-height: 1.5; -webkit-font-smoothing: antialiased; }
+    a     { color: inherit; text-decoration: none; }
+    button { font: inherit; cursor: pointer; border: none; background: none; padding: 0; }
 
-  /* GROUP (sub-category within a section) */
-  .group-label {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--ink-soft);
-    margin: 26px 0 4px;
-  }
+    .wrap { max-width: 1160px; margin: 0 auto; padding: 0 28px; }
 
-  /* ROW LIST */
-  .rows { border-top: 1px solid var(--rule); }
-  .row {
-    display: flex;
-    align-items: baseline;
-    gap: 16px;
-    padding: 16px 4px;
-    border-bottom: 1px solid var(--rule);
-    text-decoration: none;
-    color: var(--ink);
-    transition: padding-left 0.18s ease, background 0.18s ease;
-  }
-  .row:hover {
-    padding-left: 12px;
-    background: rgba(0,0,0,0.015);
-  }
-  .row-main { flex: 1; min-width: 0; }
-  .row-title {
-    font-family: 'Fraunces', serif;
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 1.3;
-    letter-spacing: -0.01em;
-    margin-bottom: 3px;
-  }
-  .row-desc {
-    font-size: 13.5px;
-    color: var(--ink-muted);
-    line-height: 1.45;
-  }
-  .row-meta {
-    font-size: 11.5px;
-    color: var(--ink-soft);
-    margin-top: 6px;
-    font-variant-numeric: tabular-nums;
-  }
-  .row-meta span + span::before { content: "·"; margin: 0 7px; }
-  .row-tag {
-    flex-shrink: 0;
-    font-size: 10.5px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--ink-soft);
-    white-space: nowrap;
-    padding-top: 3px;
-  }
-  .row-arrow {
-    flex-shrink: 0;
-    font-size: 15px;
-    color: var(--ink-soft);
-    transition: transform 0.18s ease, color 0.18s ease;
-    align-self: center;
-  }
-  /* per-section row accents */
-  section.s-drills .row:hover { background: rgba(30,95,158,0.045); }
-  section.s-drills .row:hover .row-arrow { color: var(--c-drills); }
-  section.s-drills .row:hover .row-title { color: var(--c-drills); }
-  section.s-reviews .row:hover { background: rgba(192,57,43,0.045); }
-  section.s-reviews .row:hover .row-arrow { color: var(--c-reviews); }
-  section.s-reviews .row:hover .row-title { color: var(--c-reviews); }
-  section.s-reviews .row-tag { color: var(--c-reviews); }
-  section.s-summaries .row:hover { background: rgba(123,63,158,0.05); }
-  section.s-summaries .row:hover .row-arrow { color: var(--c-summaries); }
-  section.s-summaries .row:hover .row-title { color: var(--c-summaries); }
-  section.s-summaries .row-tag { color: var(--c-summaries); }
-  section.s-planung .row:hover { background: rgba(184,134,11,0.05); }
-  section.s-planung .row:hover .row-arrow { color: var(--c-planung); }
-  section.s-planung .row:hover .row-title { color: var(--c-planung); }
-  .row:hover .row-title { transition: color 0.18s ease; }
+    /* ── Header ─────────────────────────────── */
+    .hdr {
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      position: sticky; top: 0; z-index: 200;
+    }
+    .hdr-in { height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .logo { display: flex; align-items: baseline; gap: 8px; }
+    .logo-mark { font-size: 15px; font-weight: 600; letter-spacing: -0.02em; }
+    .logo-sep  { color: var(--border-hi); font-weight: 300; }
+    .logo-sub  { font-size: 12.5px; color: var(--t3); }
+    .hdr-right { display: flex; align-items: center; gap: 12px; }
+    .exam-chip {
+      font-family: var(--m); font-size: 11.5px; font-weight: 500;
+      color: var(--blue); background: var(--blue-bg);
+      padding: 4px 10px; border-radius: 20px; white-space: nowrap;
+    }
+    .countdown-chip {
+      font-family: var(--m); font-size: 11px; font-weight: 400;
+      color: var(--t3); background: var(--surface-2);
+      padding: 4px 10px; border-radius: 20px; white-space: nowrap;
+      border: 1px solid var(--border);
+    }
+    @media (max-width: 540px) { .countdown-chip { display: none; } .logo-sub { display: none; } }
 
-  footer {
-    margin-top: 80px;
-    padding-top: 24px;
-    border-top: 1px solid var(--rule);
-    font-size: 11.5px;
-    color: var(--ink-soft);
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
+    /* ── Hero ────────────────────────────────── */
+    .hero { padding: 52px 0 40px; }
+    .hero-h1 {
+      font-size: clamp(24px, 3.4vw, 38px);
+      font-weight: 600; letter-spacing: -0.03em; line-height: 1.1;
+      margin-bottom: 8px;
+    }
+    .hero-p { font-size: 15px; color: var(--t2); margin-bottom: 32px; max-width: 480px; }
 
-  @media (max-width: 560px) {
-    .container { padding: 56px 20px 70px; }
-    .row-desc { display: none; }
-    .stat-row { flex-wrap: wrap; gap: 14px 24px; }
-  }
-</style>
+    .prog-row { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+    .prog-track {
+      width: 260px; max-width: 100%; height: 5px;
+      background: var(--border); border-radius: 99px; overflow: hidden;
+    }
+    .prog-fill {
+      height: 100%; background: var(--blue); border-radius: 99px;
+      transition: width 0.5s cubic-bezier(.4,0,.2,1);
+      width: 0%;
+    }
+    .prog-txt { font-family: var(--m); font-size: 12.5px; color: var(--t2); white-space: nowrap; }
+
+    .stats-row { display: flex; gap: 20px; flex-wrap: wrap; }
+    .stat { font-size: 13px; color: var(--t3); display: flex; align-items: center; gap: 5px; }
+    .stat strong { font-family: var(--m); font-weight: 600; color: var(--t2); }
+
+    /* ── Tabs ────────────────────────────────── */
+    .tabs {
+      display: flex; border-bottom: 1px solid var(--border);
+      margin-bottom: 44px; overflow-x: auto;
+      scrollbar-width: none; -webkit-overflow-scrolling: touch;
+    }
+    .tabs::-webkit-scrollbar { display: none; }
+    .tab {
+      padding: 11px 14px; font-size: 13.5px; font-weight: 500;
+      color: var(--t3); cursor: pointer;
+      border-bottom: 2px solid transparent; margin-bottom: -1px;
+      transition: color 0.12s, border-color 0.12s;
+      white-space: nowrap; display: flex; align-items: center; gap: 6px;
+      user-select: none;
+    }
+    .tab:hover { color: var(--t1); }
+    .tab.on { color: var(--blue); border-bottom-color: var(--blue); }
+    .tab-ct {
+      font-family: var(--m); font-size: 10px; font-weight: 600;
+      background: var(--surface-2); color: var(--t3);
+      padding: 1px 5px; border-radius: 4px;
+    }
+    .tab.on .tab-ct { background: var(--blue-bg); color: var(--blue); }
+
+    /* ── Section ─────────────────────────────── */
+    .sec { margin-bottom: 56px; }
+    .sec[hidden] { display: none !important; }
+    .sec-lbl {
+      font-size: 10.5px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.13em; color: var(--t3); margin-bottom: 20px;
+    }
+
+    /* ── Grids ───────────────────────────────── */
+    .grid   { display: grid; gap: 12px; }
+    .g4     { grid-template-columns: repeat(auto-fill, minmax(256px, 1fr)); }
+    .g3     { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+    .g2     { grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); }
+
+    /* ── Card ────────────────────────────────── */
+    .card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--r); padding: 18px 20px;
+      display: flex; flex-direction: column; gap: 10px;
+      transition: box-shadow 0.18s, transform 0.18s, border-color 0.18s;
+      cursor: pointer;
+    }
+    .card:hover {
+      box-shadow: 0 2px 6px oklch(0% 0 0 / 0.07), 0 8px 24px oklch(0% 0 0 / 0.06);
+      transform: translateY(-2px); border-color: var(--border-hi);
+    }
+    .card:hover .c-arrow { transform: translateX(3px); color: var(--blue); }
+    .card.done { opacity: 0.45; }
+
+    /* Card top row */
+    .c-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+    .c-tags { display: flex; gap: 5px; flex-wrap: wrap; align-items: center; }
+
+    /* Pills */
+    .pill {
+      font-family: var(--m); font-size: 10.5px; font-weight: 500;
+      padding: 2px 6px; border-radius: 4px; border: 1px solid transparent;
+      line-height: 1.6;
+    }
+    .p-type { background: var(--surface-2); color: var(--t2); border-color: var(--border); }
+
+    /* Level badge */
+    .lvl {
+      font-family: var(--m); font-size: 9.5px; font-weight: 700;
+      padding: 2px 5px; border-radius: 3px; text-transform: uppercase; letter-spacing: 0.04em;
+    }
+    .r1 { background: oklch(95% 0.04 160); color: oklch(32% 0.12 160); }
+    .r2 { background: oklch(95% 0.04 245); color: oklch(32% 0.12 245); }
+
+    /* Check button */
+    .chk {
+      width: 22px; height: 22px; border-radius: 50%;
+      border: 1.5px solid var(--border-hi);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; transition: all 0.14s; color: transparent;
+    }
+    .chk:hover { border-color: var(--blue); background: var(--blue-bg); color: var(--blue); }
+    .chk.on    { border-color: var(--blue); background: var(--blue); color: white; }
+
+    /* Card body */
+    .c-title {
+      font-size: 14.5px; font-weight: 600; line-height: 1.33;
+      letter-spacing: -0.015em; text-wrap: pretty; color: var(--t1);
+    }
+    .c-desc {
+      font-size: 12.5px; color: var(--t2); line-height: 1.55; text-wrap: pretty;
+      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+    }
+
+    /* Card footer */
+    .c-foot {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-top: 11px; border-top: 1px solid var(--border);
+      margin-top: auto; gap: 8px;
+    }
+    .c-meta { display: flex; gap: 10px; }
+    .c-meta span { font-family: var(--m); font-size: 11.5px; color: var(--t3); }
+    .c-arrow { font-size: 13px; color: var(--t3); transition: transform 0.15s, color 0.15s; line-height: 1; }
+
+    /* ── Specialty group (reviews) ───────────── */
+    .spe { margin-bottom: 28px; }
+    .spe-hd {
+      font-size: 12px; font-weight: 500; color: var(--t3);
+      padding-bottom: 10px; margin-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .spe-ct { font-family: var(--m); font-size: 10px; color: var(--t3); }
+
+    /* ── Light tool card ─────────────────────── */
+    .card-tool { background: var(--blue-bg); border-color: oklch(88% 0.06 245); }
+
+    /* ── Footer ──────────────────────────────── */
+    .ftr {
+      border-top: 1px solid var(--border); padding: 22px 0 32px;
+      display: flex; justify-content: space-between; align-items: center; gap: 16px;
+      font-size: 12px; color: var(--t3);
+    }
+
+    /* ── Tweaks Panel ────────────────────────── */
+    .tw {
+      position: fixed; bottom: 24px; right: 24px;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 14px;
+      box-shadow: 0 8px 32px oklch(0% 0 0 / 0.14), 0 2px 8px oklch(0% 0 0 / 0.08);
+      padding: 18px 20px; width: 236px; z-index: 500;
+      display: none;
+    }
+    .tw.vis { display: block; }
+    .tw-hd  { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+    .tw-h   { font-size: 13px; font-weight: 600; }
+    .tw-x   {
+      width: 22px; height: 22px; border-radius: 50%;
+      background: var(--surface-2); color: var(--t2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 15px; line-height: 1;
+    }
+    .tw-row { margin-bottom: 14px; }
+    .tw-lbl { font-size: 10.5px; font-weight: 600; color: var(--t3); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 7px; }
+    .tw-seg { display: flex; gap: 4px; }
+    .tw-btn {
+      flex: 1; padding: 6px 8px; font-size: 12px; font-weight: 500;
+      border: 1px solid var(--border); border-radius: 6px;
+      color: var(--t2); background: var(--surface-2); text-align: center; cursor: pointer;
+      transition: all 0.1s;
+    }
+    .tw-btn.on { background: var(--blue); color: white; border-color: var(--blue); }
+
+    .tw-toggle { display: flex; align-items: center; justify-content: space-between; cursor: pointer; }
+    .tw-tl { font-size: 12px; color: var(--t2); }
+    .tw-track {
+      width: 34px; height: 20px; background: var(--border-hi);
+      border-radius: 10px; position: relative; transition: background 0.18s; flex-shrink: 0;
+    }
+    .tw-track.on { background: var(--blue); }
+    .tw-knob {
+      position: absolute; top: 3px; left: 3px;
+      width: 14px; height: 14px; background: white; border-radius: 50%;
+      transition: transform 0.18s; box-shadow: 0 1px 3px oklch(0% 0 0 / 0.22);
+    }
+    .tw-track.on .tw-knob { transform: translateX(14px); }
+
+    .tw-reset {
+      width: 100%; margin-top: 6px; padding: 7px;
+      font-size: 11.5px; font-weight: 500;
+      color: oklch(38% 0.14 20); background: oklch(97% 0.02 20);
+      border: 1px solid oklch(89% 0.04 20); border-radius: 6px;
+      transition: background 0.1s;
+    }
+    .tw-reset:hover { background: oklch(93% 0.035 20); }
+
+    /* ── Dark theme ──────────────────────────── */
+    [data-theme=dark] {
+      --bg:        oklch(11% 0.008 260);
+      --surface:   oklch(15% 0.010 260);
+      --surface-2: oklch(20% 0.010 260);
+      --border:    oklch(24% 0.010 260);
+      --border-hi: oklch(34% 0.013 260);
+      --t1:        oklch(93% 0.005 260);
+      --t2:        oklch(70% 0.010 260);
+      --t3:        oklch(51% 0.010 260);
+      --blue:      oklch(68% 0.13 245);
+      --blue-bg:   oklch(21% 0.04 245);
+    }
+    [data-theme=dark] .hdr { background: rgba(17,18,26,0.88); }
+    [data-theme=dark] .card-tool { background: oklch(20% 0.04 245); border-color: oklch(30% 0.06 245); }
+
+    /* ── Compact density ─────────────────────── */
+    [data-density=compact] .card   { padding: 14px 16px; gap: 8px; }
+    [data-density=compact] .c-foot { padding-top: 9px; }
+    [data-density=compact] .grid   { gap: 8px; }
+    [data-density=compact] .hero   { padding: 36px 0 28px; }
+    [data-density=compact] .sec    { margin-bottom: 40px; }
+
+    /* ── Hide completed ──────────────────────── */
+    [data-hidedone=true] .card.done { display: none; }
+
+    /* ── Responsive ──────────────────────────── */
+    @media (max-width: 700px) {
+      .wrap { padding: 0 16px; }
+      .hero { padding: 32px 0 28px; }
+      .g4, .g3, .g2 { grid-template-columns: 1fr; }
+      .tw { bottom: 16px; right: 16px; width: 214px; }
+    }
+  </style>
 </head>
-<body>
-<div class="container">
+<body style="font-family: 'DM Sans'; font-size: 16px;">
 
-  <div class="masthead">
-    <div class="kicker">Kenntnisprüfung · März 2027</div>
-    <h1>KP Mainz</h1>
-    <p class="lede">Lerneinheiten, Reviews und Summaries für die mündliche Prüfung.</p>
-    <div class="stat-row">
-      <span style="color:var(--c-drills)"><strong>4</strong> Drills</span>
-      <span style="color:var(--c-reviews)"><strong>7</strong> Reviews</span>
-      <span style="color:var(--c-summaries)"><strong>2</strong> Summaries</span>
+<!-- ══ Header ══════════════════════════════════════════════ -->
+<header class="hdr">
+  <div class="wrap">
+    <div class="hdr-in">
+      <div class="logo">
+        <span class="logo-mark">KP Mainz</span>
+        <span class="logo-sep">·</span>
+        <span class="logo-sub">Drill Library</span>
+      </div>
+      <div class="hdr-right">
+        <span class="countdown-chip" id="countdown">— Tage</span>
+        <span class="exam-chip">Kenntnisprüfung · März 2027</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ══ Main ════════════════════════════════════════════════ -->
+<main>
+<div class="wrap">
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1 class="hero-h1">Lerneinheiten &amp; Reviews</h1>
+    <p class="hero-p">Drills, Reviews und Summaries für die mündliche Prüfung.</p>
+
+    <div class="prog-row">
+      <div class="prog-track"><div class="prog-fill" id="pFill"></div></div>
+      <span class="prog-txt" id="pTxt">0 / 13 abgeschlossen</span>
+    </div>
+    <div class="stats-row">
+      <span class="stat"><strong>4</strong> Drills</span>
+      <span class="stat"><strong>6</strong> Reviews</span>
+      <span class="stat"><strong>2</strong> Summaries</span>
+      <span class="stat"><strong>1</strong> Tool</span>
+    </div>
+  </section>
+
+  <!-- Filter Tabs -->
+  <nav class="tabs" id="tabs">
+    <button class="tab on" data-f="all">Alle <span class="tab-ct">13</span></button>
+    <button class="tab" data-f="drills">Drills <span class="tab-ct">4</span></button>
+    <button class="tab" data-f="reviews">Reviews <span class="tab-ct">6</span></button>
+    <button class="tab" data-f="summaries">Summaries <span class="tab-ct">2</span></button>
+    <button class="tab" data-f="tools">Tools <span class="tab-ct">1</span></button>
+  </nav>
+
+  <!-- ══ Drills ═════════════════════════════════════════════ -->
+  <section class="sec" data-s="drills">
+    <p class="sec-lbl">Drills — 4 Einheiten</p>
+    <div class="grid g4">
+
+      <a class="card" href="drills/01-bga-wk1-l1.html" data-id="01-bga-wk1-l1">
+        <div class="c-top">
+          <div class="c-tags">
+            <span class="pill p-type">Drill</span>
+            <span class="pill" style="background:oklch(96% 0.03 228);color:oklch(36% 0.12 228);border-color:oklch(90% 0.05 228)">BGA</span>
+            <span class="pill" style="background:oklch(96% 0.025 262);color:oklch(40% 0.08 262);border-color:oklch(90% 0.04 262)">Wk 1 · L1</span>
+          </div>
+          <button class="chk" data-id="01-bga-wk1-l1" onclick="event.preventDefault();event.stopPropagation();toggle(this)">
+            <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+        <div class="c-title">Systematische Auswertung + Normalwerte</div>
+        <div class="c-desc">5-Schritt-Algorithmus, Normalwerte, Mustererkennung an realen Konstellationen.</div>
+        <div class="c-foot">
+          <div class="c-meta"><span>~15 min</span><span>4 Stationen</span></div>
+          <span class="c-arrow">→</span>
+        </div>
+      </a>
+
+      <a class="card" href="drills/02-bga-normalwerte-memorize.html" data-id="02-bga-normalwerte-memorize">
+        <div class="c-top">
+          <div class="c-tags">
+            <span class="pill p-type">Drill</span>
+            <span class="pill" style="background:oklch(96% 0.03 228);color:oklch(36% 0.12 228);border-color:oklch(90% 0.05 228)">BGA</span>
+            <span class="pill" style="background:oklch(95.5% 0.03 162);color:oklch(34% 0.12 162);border-color:oklch(89% 0.05 162)">Memorize</span>
+          </div>
+          <button class="chk" data-id="02-bga-normalwerte-memorize" onclick="event.preventDefault();event.stopPropagation();toggle(this)">
+            <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+        <div class="c-title">Normalwerte verankern</div>
+        <div class="c-desc">Drei Modi — Anker-System, Flashcards, 10-Fragen-Quiz mit Pattern-Aufgaben.</div>
+        <div class="c-foot">
+          <div class="c-meta"><span>~5 min</span><span>8 Werte</span></div>
+          <span class="c-arrow">→</span>
+        </div>
+      </a>
+
+      <a class="card" href="drills/03-echo-wk1-l1.html" data-id="03-echo-wk1-l1">
+        <div class="c-top">
+          <div class="c-tags">
+            <span class="pill p-type">Drill</span>
+            <span class="pill" style="background:oklch(96% 0.03 175);color:oklch(34% 0.12 175);border-color:oklch(89% 0.05 175)">Echo</span>
+            <span class="pill" style="background:oklch(96% 0.025 262);color:oklch(40% 0.08 262);border-color:oklch(90% 0.04 262)">Wk 1 · L1</span>
+          </div>
+          <button class="chk" data-id="03-echo-wk1-l1" onclick="event.preventDefault();event.stopPropagation();toggle(this)">
+            <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+        <div class="c-title">Schallkopfpositionen + Standardschnitte</div>
+        <div class="c-desc">PLAX, PSAX und A4C — die Grundlage jeder Echo-Untersuchung.</div>
+        <div class="c-foot">
+          <div class="c-meta"><span>~15 min</span><span>5 Mini-Cases</span></div>
+          <span class="c-arrow">→</span>
+        </div>
+      </a>
+
+      <a class="card" href="drills/04-eeg-wk1-l1.html" data-id="04-eeg-wk1-l1">
+        <div class="c-top">
+          <div class="c-tags">
+            <span class="pill p-type">Drill</span>
+            <span class="pill" style="background:oklch(96% 0.03 300);color:oklch(34% 0.12 300);border-color:oklch(89% 0.05 300)">EEG</span>
+            <span class="pill" style="background:oklch(96% 0.025 262);color:oklch(40% 0.08 262);border-color:oklch(90% 0.04 262)">Wk 1 · L1</span>
+          </div>
+          <button class="chk" data-id="04-eeg-wk1-l1" onclick="event.preventDefault();event.stopPropagation();toggle(this)">
+            <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+        <div class="c-title">Grundrhythmus + Wellen + Normalbefund</div>
+        <div class="c-desc">Vier Wellen, ein Grundrhythmus, systematische Befundung. α / β / θ / δ.</div>
+        <div class="c-foot">
+          <div class="c-meta"><span>~15 min</span><span>5 Mini-Cases</span></div>
+          <span class="c-arrow">→</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ══ Reviews ════════════════════════════════════════════ -->
+  <section class="sec" data-s="reviews">
+    <p class="sec-lbl">Themen-Reviews — 6 Einheiten</p>
+
+    <!-- Chirurgie -->
+    <div class="spe">
+      <div class="spe-hd">
+        <span>Allgemein- und Viszeralchirurgie</span>
+        <span class="spe-ct">4 Themen</span>
+      </div>
+      <div class="grid g3">
+
+        <a class="card" href="reviews/chirurgie/cholezystitis-r2.html" data-id="cholezystitis-r2">
+          <div class="c-top">
+            <div class="c-tags">
+              <span class="pill p-type">Review</span>
+              <span class="pill" style="background:oklch(96% 0.03 35);color:oklch(34% 0.12 35);border-color:oklch(89% 0.05 35)">Chirurgie</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:6px">
+              <span class="lvl r2">R2</span>
+              <button class="chk" data-id="cholezystitis-r2" onclick="event.preventDefault();event.stopPropagation();toggle(this)">
+                <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="c-title">Cholezystitis</div>
+          <div class="c-desc">Zweite Wiederholung · Kurz-Review</div>
+          <div class="c-foot">
+            <div class="c-meta"><span>Kurz</span></div>
+            <span class="c-arrow">→</span>
+          </div>
+        </a>
+
+        <a class="card" href="reviews/chirurgie/appendizitis-r2.html" data-id="appendizitis-r2">
+          <div class="c-top">
+            <div class="c-tags">
+              <span class="pill p-type">Review</span>
+              <span class="pill" style="background:oklch(96% 0.03 35);color:oklch(34% 0.12 35);border-color:oklch(89% 0.05 35)">Chirurgie</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:6px">
+              <span class="lvl r2">R2</span>
+              <button class="chk" data-id="appendizitis-r2" onclick="event.preventDefault();event.stopPropagation();toggle(this)">
+                <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="c-title">Appendizitis</div>
+          <div class="c-desc">Zweite Wiederholung · Kurz-Review</div>
+          <div class="c-foot">
+            <div class="c-meta"><span>Kurz</span></div>
+            <span class="c-arrow">→</span>
+          </div>
+        </a>
+
+        <a class="card" href="reviews/chirurgie/ileus-r2.html" data-id="ileus-r2">
+          <div class="c-top">
+            <div class="c-tags">
+              <span class="pill p-type">Review</span>
+              <span class="pill" style="background:oklch(96% 0.03 35);color:oklch(34% 0.12 35);border-color:oklch(89% 0.05 35)">Chirurgie</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:6px">
+              <span class="lvl r2">R2</span>
+              <button class="chk" data-id="ileus-r2" onclick="event.preventDefault();event.stopPropagation();toggle(this)">
+                <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="c-title">Ileus</div>
+          <div class="c-desc">Zweite Wiederholung · Kurz-Review</div>
+          <div class="c-foot">
+            <div class="c-meta"><span>Kurz</span></div>
+            <span class="c-arrow">→</span>
+          </div>
+        </a>
+
+        <a class="card" href="reviews/chirurgie/leistenhernie-r1.html" data-id="leistenhernie-r1">
+          <div class="c-top">
+            <div class="c-tags">
+              <span class="pill p-type">Review</span>
+              <span class="pill" style="background:oklch(96% 0.03 35);color:oklch(34% 0.12 35);border-color:oklch(89% 0.05 35)">Chirurgie</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:6px">
+              <span class="lvl r1">R1</span>
+              <button class="chk" data-id="leistenhernie-r1" onclick="event.preventDefault();event.stopPropagation();toggle(this)">
+                <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="c-title">Leistenhernie</div>
+          <div class="c-desc">Erstreview · 4 Stationen</div>
+          <div class="c-foot">
+            <div class="c-meta"><span>Erstreview</span></div>
+            <span class="c-arrow">→</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- Further specialties -->
+    <div class="spe">
+      <div class="spe-hd">
+        <span>Weitere Fachrichtungen</span>
+        <span class="spe-ct">3 Themen</span>
+      </div>
+      <div class="grid g3">
+
+        <a class="card" href="reviews/unfallchirurgie/distale-radiusfraktur-r2.html" data-id="distale-radiusfraktur-r2">
+          <div class="c-top">
+            <div class="c-tags">
+              <span class="pill p-type">Review</span>
+              <span class="pill" style="background:oklch(96% 0.03 50);color:oklch(34% 0.12 50);border-color:oklch(89% 0.05 50)">Unfallchir.</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:6px">
+              <span class="lvl r2">R2</span>
+              <button class="chk" data-id="distale-radiusfraktur-r2" onclick="event.preventDefault();event.stopPropagation();toggle(this)">
+                <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="c-title">Distale Radiusfraktur</div>
+          <div class="c-desc">Zweite Wiederholung · Kurz-Review</div>
+          <div class="c-foot">
+            <div class="c-meta"><span>Kurz</span></div>
+            <span class="c-arrow">→</span>
+          </div>
+        </a>
+
+        <a class="card" href="reviews/pneumologie/copd-r1.html" data-id="copd-r1">
+          <div class="c-top">
+            <div class="c-tags">
+              <span class="pill p-type">Review</span>
+              <span class="pill" style="background:oklch(96% 0.03 200);color:oklch(34% 0.12 200);border-color:oklch(89% 0.05 200)">Pneumologie</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:6px">
+              <span class="lvl r1">R1</span>
+              <button class="chk" data-id="copd-r1" onclick="event.preventDefault();event.stopPropagation();toggle(this)">
+                <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="c-title">COPD</div>
+          <div class="c-desc">Erstreview · Erste Bearbeitung</div>
+          <div class="c-foot">
+            <div class="c-meta"><span>Erstreview</span></div>
+            <span class="c-arrow">→</span>
+          </div>
+        </a>
+
+        <a class="card" href="reviews/notfallmedizin/schaedel-hirn-trauma-r1.html" data-id="schaedel-hirn-trauma-r1">
+          <div class="c-top">
+            <div class="c-tags">
+              <span class="pill p-type">Review</span>
+              <span class="pill" style="background:oklch(96% 0.03 18);color:oklch(34% 0.12 18);border-color:oklch(89% 0.05 18)">Notfall</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:6px">
+              <span class="lvl r1">R1</span>
+              <button class="chk" data-id="schaedel-hirn-trauma-r1" onclick="event.preventDefault();event.stopPropagation();toggle(this)">
+                <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="c-title">Schädel-Hirn-Trauma</div>
+          <div class="c-desc">Erstreview · Erste Bearbeitung</div>
+          <div class="c-foot">
+            <div class="c-meta"><span>Erstreview</span></div>
+            <span class="c-arrow">→</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ══ Summaries ══════════════════════════════════════════ -->
+  <section class="sec" data-s="summaries">
+    <p class="sec-lbl">1-Seiten-Summaries — 2 Einheiten</p>
+    <div class="grid g2">
+
+      <a class="card" href="summaries/kardiologie/synkope.html" data-id="synkope">
+        <div class="c-top">
+          <div class="c-tags">
+            <span class="pill p-type">Summary</span>
+            <span class="pill" style="background:oklch(96% 0.03 10);color:oklch(34% 0.12 10);border-color:oklch(89% 0.05 10)">Kardiologie</span>
+          </div>
+          <button class="chk" data-id="synkope" onclick="event.preventDefault();event.stopPropagation();toggle(this)">
+            <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+        <div class="c-title">Synkope</div>
+        <div class="c-desc">Einseitiger Überblick · Kardiologie</div>
+        <div class="c-foot">
+          <div class="c-meta"><span>1 Seite</span></div>
+          <span class="c-arrow">→</span>
+        </div>
+      </a>
+
+      <a class="card" href="summaries/neurologie/meningitis-enzephalitis.html" data-id="meningitis-enzephalitis">
+        <div class="c-top">
+          <div class="c-tags">
+            <span class="pill p-type">Summary</span>
+            <span class="pill" style="background:oklch(96% 0.03 284);color:oklch(34% 0.12 284);border-color:oklch(89% 0.05 284)">Neurologie</span>
+          </div>
+          <button class="chk" data-id="meningitis-enzephalitis" onclick="event.preventDefault();event.stopPropagation();toggle(this)">
+            <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+        <div class="c-title">Meningitis / Enzephalitis</div>
+        <div class="c-desc">Einseitiger Überblick · Neurologie</div>
+        <div class="c-foot">
+          <div class="c-meta"><span>1 Seite</span></div>
+          <span class="c-arrow">→</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ══ Tools ══════════════════════════════════════════════ -->
+  <section class="sec" data-s="tools">
+    <p class="sec-lbl">Studienplanung</p>
+    <div class="grid g2">
+
+      <a class="card card-tool" href="tools/master-themenliste.html" data-id="master-themenliste">
+        <div class="c-top">
+          <div class="c-tags">
+            <span class="pill p-type">Tool</span>
+          </div>
+          <button class="chk" data-id="master-themenliste" onclick="event.preventDefault();event.stopPropagation();toggle(this)">
+            <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+        <div class="c-title">Master-Themenliste</div>
+        <div class="c-desc">69 Prüfungsthemen nach Häufigkeit in 4 Tiers sortiert. Aus 82 Protokollen + 176 Erfahrungsberichten abgeleitet.</div>
+        <div class="c-foot">
+          <div class="c-meta"><span>Checkliste</span><span>69 Themen</span><span>4 Tiers</span></div>
+          <span class="c-arrow">→</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+</div>
+</main>
+
+<!-- ══ Footer ══════════════════════════════════════════════ -->
+<footer>
+  <div class="wrap">
+    <div class="ftr">
+      <span>KP Mainz · Drill Library</span>
+      <span>Aktualisiert Mai 2026</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ══ Tweaks Panel ═════════════════════════════════════════ -->
+<div class="tw" id="twPanel">
+  <div class="tw-hd">
+    <span class="tw-h">Tweaks</span>
+    <button class="tw-x" id="twClose" aria-label="Schließen">×</button>
+  </div>
+
+  <div class="tw-row">
+    <p class="tw-lbl">Darstellung</p>
+    <div class="tw-seg">
+      <button class="tw-btn on" data-tw="theme" data-val="light">Hell</button>
+      <button class="tw-btn"    data-tw="theme" data-val="dark">Dunkel</button>
     </div>
   </div>
 
-  <!-- DRILLS -->
-  <section class="s-drills">
-    <div class="section-label">
-      <h2>Drills</h2>
+  <div class="tw-row">
+    <p class="tw-lbl">Dichte</p>
+    <div class="tw-seg">
+      <button class="tw-btn on" data-tw="density" data-val="comfortable">Normal</button>
+      <button class="tw-btn"    data-tw="density" data-val="compact">Kompakt</button>
     </div>
-    <div class="rows">
-      <a href="drills/01-bga-wk1-l1.html" class="row">
-        <div class="row-main">
-          <div class="row-title">Systematische Auswertung + Normalwerte</div>
-          <div class="row-desc">5-Schritt-Algorithmus, Normalwerte, Mustererkennung an realen Konstellationen.</div>
-          <div class="row-meta"><span>BGA · Wk 1 L1</span><span>~15 min</span><span>4 Stationen</span></div>
-        </div>
-        <span class="row-arrow">→</span>
-      </a>
-      <a href="drills/02-bga-normalwerte-memorize.html" class="row">
-        <div class="row-main">
-          <div class="row-title">Normalwerte verankern</div>
-          <div class="row-desc">Drei Modi — Anker-System, Flashcards, 10-Fragen-Quiz mit Pattern-Aufgaben.</div>
-          <div class="row-meta"><span>BGA · Memorize</span><span>~5 min</span><span>8 Werte</span></div>
-        </div>
-        <span class="row-arrow">→</span>
-      </a>
-      <a href="drills/03-echo-wk1-l1.html" class="row">
-        <div class="row-main">
-          <div class="row-title">Schallkopfpositionen + Standardschnitte</div>
-          <div class="row-desc">PLAX, PSAX und A4C — die Grundlage jeder Echo-Untersuchung.</div>
-          <div class="row-meta"><span>Echo · Wk 1 L1</span><span>~15 min</span><span>5 Mini-Cases</span></div>
-        </div>
-        <span class="row-arrow">→</span>
-      </a>
-      <a href="drills/04-eeg-wk1-l1.html" class="row">
-        <div class="row-main">
-          <div class="row-title">Grundrhythmus + Wellen + Normalbefund</div>
-          <div class="row-desc">Vier Wellen, ein Grundrhythmus, systematische Befundung. α/β/θ/δ.</div>
-          <div class="row-meta"><span>EEG · Wk 1 L1</span><span>~15 min</span><span>5 Mini-Cases</span></div>
-        </div>
-        <span class="row-arrow">→</span>
-      </a>
-    </div>
-  </section>
+  </div>
 
-  <!-- REVIEWS -->
-  <section class="s-reviews">
-    <div class="section-label">
-      <h2>Themen-Reviews</h2>
+  <div class="tw-row">
+    <p class="tw-lbl">Fortschritt</p>
+    <div class="tw-toggle" id="twHideDoneRow">
+      <span class="tw-tl">Erledigtes ausblenden</span>
+      <div class="tw-track" id="twHideTrack"><div class="tw-knob"></div></div>
     </div>
+  </div>
 
-    <div class="group-label">Allgemein- und Viszeralchirurgie</div>
-    <div class="rows">
-      <a href="reviews/chirurgie/cholezystitis-r2.html" class="row">
-        <div class="row-main"><div class="row-title">Cholezystitis</div></div>
-        <span class="row-tag">R2 · Kurz</span>
-        <span class="row-arrow">→</span>
-      </a>
-      <a href="reviews/chirurgie/appendizitis-r2.html" class="row">
-        <div class="row-main"><div class="row-title">Appendizitis</div></div>
-        <span class="row-tag">R2 · Kurz</span>
-        <span class="row-arrow">→</span>
-      </a>
-      <a href="reviews/chirurgie/ileus-r2.html" class="row">
-        <div class="row-main"><div class="row-title">Ileus</div></div>
-        <span class="row-tag">R2 · Kurz</span>
-        <span class="row-arrow">→</span>
-      </a>
-      <a href="reviews/chirurgie/leistenhernie-r1.html" class="row">
-        <div class="row-main"><div class="row-title">Leistenhernie</div></div>
-        <span class="row-tag">R1 · Erstreview</span>
-        <span class="row-arrow">→</span>
-      </a>
-    </div>
-
-    <div class="group-label">Unfallchirurgie / Orthopädie</div>
-    <div class="rows">
-      <a href="reviews/unfallchirurgie/distale-radiusfraktur-r2.html" class="row">
-        <div class="row-main"><div class="row-title">Distale Radiusfraktur</div></div>
-        <span class="row-tag">R2 · Kurz</span>
-        <span class="row-arrow">→</span>
-      </a>
-    </div>
-
-    <div class="group-label">Pneumologie</div>
-    <div class="rows">
-      <a href="reviews/pneumologie/copd-r1.html" class="row">
-        <div class="row-main"><div class="row-title">COPD</div></div>
-        <span class="row-tag">R1 · Erstreview</span>
-        <span class="row-arrow">→</span>
-      </a>
-    </div>
-
-    <div class="group-label">Notfall- &amp; Unfallchirurgie</div>
-    <div class="rows">
-      <a href="reviews/notfallmedizin/schaedel-hirn-trauma-r1.html" class="row">
-        <div class="row-main"><div class="row-title">Schädel-Hirn-Trauma</div></div>
-        <span class="row-tag">R1 · Erstreview</span>
-        <span class="row-arrow">→</span>
-      </a>
-    </div>
-  </section>
-
-  <!-- SUMMARIES -->
-  <section class="s-summaries">
-    <div class="section-label">
-      <h2>1-Seiten-Summaries</h2>
-    </div>
-
-    <div class="group-label">Kardiologie</div>
-    <div class="rows">
-      <a href="summaries/kardiologie/synkope.html" class="row">
-        <div class="row-main"><div class="row-title">Synkope</div></div>
-        <span class="row-tag">Summary</span>
-        <span class="row-arrow">→</span>
-      </a>
-    </div>
-
-    <div class="group-label">Neurologie</div>
-    <div class="rows">
-      <a href="summaries/neurologie/meningitis-enzephalitis.html" class="row">
-        <div class="row-main"><div class="row-title">Meningitis / Enzephalitis</div></div>
-        <span class="row-tag">Summary</span>
-        <span class="row-arrow">→</span>
-      </a>
-    </div>
-  </section>
-
-  <!-- PLANUNG -->
-  <section class="s-planung">
-    <div class="section-label">
-      <h2>Studienplanung</h2>
-    </div>
-    <p class="section-note">Aus 82 Protokollen + 176 Erfahrungsberichten abgeleitet.</p>
-    <div class="rows">
-      <a href="tools/master-themenliste.html" class="row">
-        <div class="row-main">
-          <div class="row-title">Master-Themenliste</div>
-          <div class="row-desc">69 Prüfungsthemen, nach Häufigkeit in 4 Tiers sortiert. Zum Abhaken.</div>
-          <div class="row-meta"><span>Checkliste</span><span>69 Themen</span><span>4 Tiers</span></div>
-        </div>
-        <span class="row-arrow">→</span>
-      </a>
-    </div>
-  </section>
-
-  <footer>
-    <span>KP Mainz</span>
-    <span>Aktualisiert <span id="ts"></span></span>
-  </footer>
-
+  <button class="tw-reset" id="twReset">Fortschritt zurücksetzen</button>
 </div>
+
 <script>
-  document.getElementById('ts').textContent = new Date().toISOString().split('T')[0];
+  /* ── Exam countdown ──────────────────────────────────────── */
+  (function () {
+    const exam = new Date('2027-03-01');
+    const diff = Math.ceil((exam - Date.now()) / 86400000);
+    document.getElementById('countdown').textContent = diff > 0 ? diff + ' Tage' : 'Prüfung jetzt';
+  })();
+
+  /* ── Progress tracking ───────────────────────────────────── */
+  const LS_DONE = 'kp-done-v1';
+  const TOTAL   = 13;
+  let done = {};
+  try { done = JSON.parse(localStorage.getItem(LS_DONE) || '{}'); } catch(e) {}
+
+  function saveDone() { localStorage.setItem(LS_DONE, JSON.stringify(done)); }
+
+  function updateProgress() {
+    const n = Object.values(done).filter(Boolean).length;
+    document.getElementById('pFill').style.width = Math.round(n / TOTAL * 100) + '%';
+    document.getElementById('pTxt').textContent  = n + ' / ' + TOTAL + ' abgeschlossen';
+  }
+
+  function toggle(btn) {
+    const id   = btn.dataset.id;
+    done[id]   = !done[id];
+    saveDone();
+    document.querySelectorAll('.chk[data-id="'  + id + '"]').forEach(b => b.classList.toggle('on',   !!done[id]));
+    document.querySelectorAll('.card[data-id="' + id + '"]').forEach(c => c.classList.toggle('done', !!done[id]));
+    updateProgress();
+  }
+
+  function initDone() {
+    Object.entries(done).forEach(([id, v]) => {
+      if (!v) return;
+      document.querySelectorAll('.chk[data-id="'  + id + '"]').forEach(b => b.classList.add('on'));
+      document.querySelectorAll('.card[data-id="' + id + '"]').forEach(c => c.classList.add('done'));
+    });
+    updateProgress();
+  }
+
+  /* ── Filter tabs ─────────────────────────────────────────── */
+  document.getElementById('tabs').addEventListener('click', function (e) {
+    var tab = e.target.closest('.tab');
+    if (!tab) return;
+    var f = tab.dataset.f;
+    document.querySelectorAll('.tab').forEach(function (t) { t.classList.toggle('on', t === tab); });
+    document.querySelectorAll('.sec').forEach(function (s) {
+      f === 'all' ? s.removeAttribute('hidden') : s.toggleAttribute('hidden', s.dataset.s !== f);
+    });
+  });
+
+  /* ── Tweaks ──────────────────────────────────────────────── */
+  var TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+    "theme": "light",
+    "density": "comfortable",
+    "hideDone": true
+  }/*EDITMODE-END*/;
+
+  var tweaks = Object.assign({}, TWEAK_DEFAULTS);
+
+  function applyTweaks() {
+    document.documentElement.dataset.theme   = tweaks.theme;
+    document.documentElement.dataset.density = tweaks.density;
+    document.documentElement.dataset.hidedone = String(tweaks.hideDone);
+    document.querySelectorAll('.tw-btn[data-tw="theme"]').forEach(function (b) {
+      b.classList.toggle('on', b.dataset.val === tweaks.theme);
+    });
+    document.querySelectorAll('.tw-btn[data-tw="density"]').forEach(function (b) {
+      b.classList.toggle('on', b.dataset.val === tweaks.density);
+    });
+    document.getElementById('twHideTrack').classList.toggle('on', !!tweaks.hideDone);
+  }
+
+  document.querySelectorAll('.tw-btn').forEach(function (b) {
+    b.addEventListener('click', function () {
+      tweaks[b.dataset.tw] = b.dataset.val;
+      applyTweaks();
+      window.parent.postMessage({ type: '__edit_mode_set_keys', edits: tweaks }, '*');
+    });
+  });
+
+  document.getElementById('twHideDoneRow').addEventListener('click', function () {
+    tweaks.hideDone = !tweaks.hideDone;
+    applyTweaks();
+    window.parent.postMessage({ type: '__edit_mode_set_keys', edits: tweaks }, '*');
+  });
+
+  document.getElementById('twReset').addEventListener('click', function () {
+    done = {};
+    saveDone();
+    document.querySelectorAll('.chk').forEach(function (b) { b.classList.remove('on'); });
+    document.querySelectorAll('.card').forEach(function (c) { c.classList.remove('done'); });
+    updateProgress();
+  });
+
+  document.getElementById('twClose').addEventListener('click', function () {
+    document.getElementById('twPanel').classList.remove('vis');
+    window.parent.postMessage({ type: '__edit_mode_dismissed' }, '*');
+  });
+
+  /* ── Host protocol ───────────────────────────────────────── */
+  window.addEventListener('message', function (e) {
+    if (!e.data) return;
+    if (e.data.type === '__activate_edit_mode')   document.getElementById('twPanel').classList.add('vis');
+    if (e.data.type === '__deactivate_edit_mode') document.getElementById('twPanel').classList.remove('vis');
+  });
+  window.parent.postMessage({ type: '__edit_mode_available' }, '*');
+
+  /* ── Init ────────────────────────────────────────────────── */
+  applyTweaks();
+  initDone();
 </script>
 </body>
 </html>
