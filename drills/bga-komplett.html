@@ -70,6 +70,18 @@
   .qa .a-label { font-family: 'Manrope', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); display: block; margin-bottom: 4px; }
   footer { margin-top: 50px; padding-top: 20px; border-top: 1px solid var(--rule); font-family: 'Manrope', sans-serif; font-size: 11.5px; color: var(--ink-soft); text-align: center; }
   @media (max-width: 600px) { .container { padding: 28px 16px 50px; } }
+  .schema { margin: 12px 0; }
+  .schema-title { font-family: 'Manrope', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 10px; }
+  .schema-row { display: flex; align-items: stretch; gap: 8px; margin-bottom: 12px; }
+  .schema-box { flex: 1; border-radius: 10px; padding: 12px 10px; text-align: center; font-family: 'Manrope', sans-serif; font-size: 13.5px; line-height: 1.4; }
+  .schema-box small { color: var(--ink-soft); font-size: 11.5px; }
+  .schema-box .schema-tag { display: block; font-size: 9.5px; font-weight: 800; letter-spacing: 0.12em; margin-bottom: 4px; }
+  .schema-box.driver { background: var(--grundlagen-soft, #FBEAE7); color: var(--grundlagen, #C0392B); border: 1px solid var(--grundlagen, #C0392B); }
+  .schema-box.comp { background: var(--diagnostik-soft, #E5EEF7); color: var(--diagnostik, #1E5F9E); border: 1px solid var(--diagnostik, #1E5F9E); }
+  .schema-arrow { display: flex; align-items: center; font-family: 'Manrope', sans-serif; font-size: 12px; font-weight: 700; color: var(--ink-muted); white-space: nowrap; }
+  .schema-legend { font-family: 'Manrope', sans-serif; font-size: 13px; line-height: 1.7; padding: 10px 12px; background: #F0EBE0; border-radius: 8px; margin-bottom: 8px; }
+  .schema-ex { font-family: 'Fraunces', serif; font-style: italic; font-size: 13.5px; color: var(--ink-muted); padding-left: 4px; }
+  @media (max-width: 600px) { .schema-row { flex-direction: column; } .schema-arrow { justify-content: center; transform: rotate(90deg); padding: 4px 0; } }
 </style>
 </head>
 <body>
@@ -182,8 +194,19 @@
           <tr><td>Resp. Alkalose, akut</td><td>up</td><td>down</td><td>norm</td></tr>
           <tr><td>Resp. Alkalose, kompens.</td><td>fast norm</td><td>down</td><td>down</td></tr>
         </tbody></table>
-        <div class="callout fact"><span class="callout-label">Wer ist Treiber, wer Kompensator?</span><strong>Schritt 1 — pH:</strong> Richtung der Störung (down = Azidose, up = Alkalose). <strong>Schritt 2 — Treiber:</strong> der Wert, der den pH <em>in seine Richtung erklärt</em>. Azidose (pH down): Treiber ist, was sauer macht → <strong>pCO2 up</strong> (resp.) oder <strong>HCO3- down</strong> (metab.). Alkalose (pH up): <strong>pCO2 down</strong> (resp.) oder <strong>HCO3- up</strong> (metab.). <strong>Schritt 3 — Kompensator:</strong> der andere Wert; bewegt sich in <em>dieselbe Richtung wie der Treiber</em>, um den pH zurückzuholen.</div>
-        <div class="callout key"><span class="callout-label">Faustregel</span>Der Treiber passt zum pH (erklärt ihn), der Kompensator zieht dagegen. Beispiel pH 7,35 · pCO2 up · HCO3- up → <strong>Treiber pCO2</strong> (resp. Azidose), <strong>Kompensator HCO3-</strong> (renal). Niere kompensiert langsam (Tage), Lunge schnell (Minuten).</div>
+        <div class="schema">
+          <div class="schema-title">Treiber erkennt man so</div>
+          <div class="schema-row">
+            <div class="schema-box driver"><span class="schema-tag">TREIBER</span>passt zum pH<br><small>erklärt die Störung</small></div>
+            <div class="schema-arrow">→ pH →</div>
+            <div class="schema-box comp"><span class="schema-tag">KOMPENSATOR</span>zieht dagegen<br><small>holt pH zurück</small></div>
+          </div>
+          <div class="schema-legend">
+            <div><strong>pH&nbsp;down</strong> (Azidose) → Treiber = <strong>pCO2&nbsp;up</strong> (resp.) <em>oder</em> <strong>HCO3-&nbsp;down</strong> (metab.)</div>
+            <div><strong>pH&nbsp;up</strong> (Alkalose) → Treiber = <strong>pCO2&nbsp;down</strong> (resp.) <em>oder</em> <strong>HCO3-&nbsp;up</strong> (metab.)</div>
+          </div>
+          <div class="schema-ex">Bsp. pH 7,35 · pCO2&nbsp;up · HCO3-&nbsp;up → Treiber <strong>pCO2</strong> (resp. Azidose), Kompensator <strong>HCO3-</strong> (Niere). Lunge schnell (Min), Niere langsam (Tage).</div>
+        </div>
       </div></div>
     </div>
   </section>
