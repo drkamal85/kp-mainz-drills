@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sono Komplett · Abdomensonografie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F7F4EE; --paper: #FFFFFF; --ink: #1A1A1A;
+    --ink-muted: #5C5C5C; --ink-soft: #8A8A8A; --rule: #E8E2D6;
+    --accent: #1E5F9E; --accent-soft: #E5EEF7;
+    --key: #2D7A3E; --key-soft: #E3F1E6;
+    --warn: #D97706; --warn-soft: #FDF2E2;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--ink); font-family: 'Fraunces', Georgia, serif; font-size: 16.5px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .container { max-width: 800px; margin: 0 auto; padding: 40px 24px 80px; }
+  .back { display: inline-block; font-family: 'Manrope', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-muted); text-decoration: none; margin-bottom: 22px; }
+  .back:hover { color: var(--ink); }
+  .eyebrow { font-family: 'Manrope', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 12px; }
+  .eyebrow::before { content: "— "; }
+  h1 { font-family: 'Fraunces', serif; font-weight: 600; font-size: clamp(30px, 5vw, 44px); line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 12px; }
+  h1 .accent { font-style: italic; color: var(--accent); }
+  .subtitle { font-family: 'Fraunces', serif; font-style: italic; font-size: 17px; color: var(--ink-muted); margin-bottom: 18px; max-width: 600px; }
+  .meta { font-family: 'Manrope', sans-serif; font-size: 12.5px; color: var(--ink-soft); display: flex; flex-wrap: wrap; gap: 0; align-items: center; margin-bottom: 28px; }
+  .meta span + span::before { content: "•"; margin: 0 12px; }
+  /* sticky chapter nav */
+  .toc { position: sticky; top: 0; z-index: 10; background: rgba(247,244,238,0.92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); padding: 10px 0; margin-bottom: 8px; border-bottom: 1px solid var(--rule); display: flex; flex-wrap: wrap; gap: 6px; }
+  .toc a { font-family: 'Manrope', sans-serif; font-size: 11.5px; font-weight: 600; letter-spacing: 0.03em; color: var(--ink-muted); text-decoration: none; padding: 5px 11px; border-radius: 50px; border: 1px solid var(--rule); background: var(--paper); transition: all 0.15s; }
+  .toc a:hover { color: white; background: var(--accent); border-color: var(--accent); }
+  .chapter { margin-top: 44px; scroll-margin-top: 60px; }
+  .chapter-head { display: flex; align-items: baseline; gap: 12px; padding-bottom: 10px; margin-bottom: 18px; border-bottom: 2px solid var(--accent); }
+  .chapter-num { font-family: 'Manrope', sans-serif; font-size: 12px; font-weight: 800; letter-spacing: 0.1em; color: white; background: var(--accent); padding: 3px 9px; border-radius: 5px; }
+  .chapter-title { font-family: 'Fraunces', serif; font-weight: 600; font-size: 25px; color: var(--accent); }
+  .card { background: var(--paper); border: 1px solid var(--rule); border-radius: 12px; margin-bottom: 14px; overflow: hidden; }
+  .card-head { display: flex; justify-content: space-between; align-items: center; padding: 14px 18px; cursor: pointer; gap: 12px; }
+  .card-tag { display: inline-block; font-family: 'Manrope', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; padding: 3px 8px; border-radius: 3px; margin-bottom: 4px; background: var(--accent-soft); color: var(--accent); }
+  .card-title { font-family: 'Fraunces', serif; font-weight: 500; font-size: 17.5px; line-height: 1.3; }
+  .toggle { font-family: 'Manrope', sans-serif; font-size: 22px; font-weight: 300; color: var(--ink-muted); transition: transform 0.25s ease; flex-shrink: 0; }
+  .card.open .toggle { transform: rotate(45deg); }
+  .card-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+  .card.open .card-body { max-height: 3000px; }
+  .card-body-inner { padding: 2px 18px 18px; }
+  h4 { font-family: 'Manrope', sans-serif; font-size: 10.5px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-muted); margin: 14px 0 8px; }
+  .card-body-inner > h4:first-child { margin-top: 4px; }
+  ul { list-style: none; padding-left: 2px; margin-bottom: 10px; }
+  li { position: relative; padding-left: 20px; margin-bottom: 6px; line-height: 1.5; font-size: 15.5px; }
+  li::before { content: ""; position: absolute; left: 5px; top: 9px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+  strong { font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-family: 'Manrope', sans-serif; font-size: 14px; margin: 8px 0 12px; }
+  th { background: #F0EBE0; text-transform: uppercase; font-size: 10px; letter-spacing: 0.12em; color: var(--ink-muted); text-align: left; padding: 8px 10px; font-weight: 700; border-bottom: 1px solid var(--rule); }
+  td { padding: 9px 10px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  .swatch { display: inline-block; width: 14px; height: 14px; border-radius: 3px; vertical-align: middle; margin-right: 6px; border: 1px solid var(--rule); }
+  .callout { border-left: 3px solid; padding: 12px 16px; margin: 12px 0; border-radius: 0 8px 8px 0; font-family: 'Fraunces', serif; font-style: italic; font-size: 14.5px; line-height: 1.5; }
+  .callout-label { font-family: 'Manrope', sans-serif; font-style: normal; font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; display: block; margin-bottom: 5px; }
+  .callout.fact { border-color: var(--accent); background: var(--accent-soft); } .callout.fact .callout-label { color: var(--accent); }
+  .callout.key { border-color: var(--key); background: var(--key-soft); } .callout.key .callout-label { color: var(--key); }
+  .callout.warn { border-color: var(--warn); background: var(--warn-soft); } .callout.warn .callout-label { color: var(--warn); }
+  .qa { background: var(--key-soft); border-left: 4px solid var(--key); border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 12px 0; }
+  .qa .q { font-family: 'Manrope', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--key); display: block; margin-bottom: 5px; }
+  .qa .q-text { font-family: 'Fraunces', serif; font-style: italic; font-size: 15px; margin-bottom: 8px; }
+  .qa .a { border-top: 1px dashed var(--rule); padding-top: 8px; font-size: 14.5px; }
+  .qa .a-label { font-family: 'Manrope', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); display: block; margin-bottom: 4px; }
+  footer { margin-top: 50px; padding-top: 20px; border-top: 1px solid var(--rule); font-family: 'Manrope', sans-serif; font-size: 11.5px; color: var(--ink-soft); text-align: center; }
+  @media (max-width: 600px) { .container { padding: 28px 16px 50px; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <a href="../index.html" class="back">← Zurück zur Library</a>
+  <header>
+    <div class="eyebrow">Sono · Komplettskript</div>
+    <h1>Abdomen<span class="accent">sonografie</span></h1>
+    <p class="subtitle">Alles auf einer Seite — von den Grundlagen bis zu den Organen. Wächst Kapitel für Kapitel. Vor der Prüfung einmal durchlesen.</p>
+    <div class="meta"><span>Wächst laufend</span><span>aktuell 2 Kapitel</span></div>
+  </header>
+
+  <nav class="toc">
+    <a href="#k1">1 · Grundlagen</a>
+    <a href="#k2">2 · Systematik</a>
+  </nav>
+
+  <!-- KAPITEL 1: GRUNDLAGEN -->
+  <section class="chapter" id="k1">
+    <div class="chapter-head"><span class="chapter-num">1</span><span class="chapter-title">Grundlagen — Knobology & Bild</span></div>
+
+    <div class="card open">
+      <div class="card-head"><div><span class="card-tag">Schallkopf</span><div class="card-title">Welcher Schallkopf wofür?</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <table>
+          <thead><tr><th>Sonde</th><th>Frequenz</th><th>Wofür</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Konvex</strong></td><td>niedrig (3–5 MHz)</td><td>Abdomen — tief, großes Bild</td></tr>
+            <tr><td><strong>Linear</strong></td><td>hoch (7–12 MHz)</td><td>oberflächlich — Gefäße, Schilddrüse</td></tr>
+            <tr><td><strong>Sektor</strong></td><td>niedrig</td><td>Herz — passt zwischen die Rippen</td></tr>
+          </tbody>
+        </table>
+        <div class="callout fact">
+          <span class="callout-label">⚙ Die eine Regel</span>
+          <strong>Hohe Frequenz = scharf, aber flach. Niedrige Frequenz = tief, aber unschärfer.</strong> Abdomen → niedrige Frequenz, Konvexsonde.
+        </div>
+      </div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div><span class="card-tag">Orientierung</span><div class="card-title">Wie das Bild liegt</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <ul>
+          <li><strong>Oben am Bild = nah am Schallkopf</strong> (Haut), unten = tief</li>
+          <li><strong>Markierung</strong> am Schallkopf = Markierung am Bildschirm (links oben)</li>
+          <li><strong>Längsschnitt</strong> + <strong>Querschnitt</strong> — Marker nach kranial bzw. zur rechten Patientenseite</li>
+        </ul>
+        <div class="callout fact">
+          <span class="callout-label">⚙ Zwei wichtigste Knöpfe</span>
+          <strong>Tiefe</strong> (Organ bildfüllend) und <strong>Gain</strong> (Helligkeit — nicht zu hell).
+        </div>
+      </div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div><span class="card-tag">★ Grundbegriffe</span><div class="card-title">Schwarz bis weiß</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <table>
+          <thead><tr><th>Begriff</th><th>Aussehen</th><th>Heißt</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Echofrei</strong></td><td><span class="swatch" style="background:#111"></span>schwarz</td><td>reine Flüssigkeit (Zyste, Blase, Erguss)</td></tr>
+            <tr><td><strong>Echoarm</strong></td><td><span class="swatch" style="background:#555"></span>dunkelgrau</td><td>solide, zellreich (Lymphknoten, Metastase)</td></tr>
+            <tr><td><strong>Echoreich</strong></td><td><span class="swatch" style="background:#e8e8e8"></span>hell/weiß</td><td>dicht (Stein, Luft, Verkalkung, Fett)</td></tr>
+            <tr><td><strong>Isoechogen</strong></td><td><span class="swatch" style="background:#999"></span>wie Umgebung</td><td>gleiche Helligkeit wie Nachbargewebe</td></tr>
+          </tbody>
+        </table>
+        <div class="callout key">
+          <span class="callout-label">★ Merksatz</span>
+          <strong>Flüssigkeit ist schwarz, Festes/Dichtes ist weiß.</strong> Je dichter, desto heller.
+        </div>
+      </div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div><span class="card-tag">Artefakte</span><div class="card-title">Die zwei, die man kennen muss</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <ul>
+          <li><strong>Dorsale Schallverstärkung:</strong> hinter Flüssigkeit wird es <strong>heller</strong> → echte Zyste/Flüssigkeit</li>
+          <li><strong>Dorsaler Schallschatten:</strong> hinter Dichtem (Stein, Luft, Knochen) wird es <strong>dunkel</strong></li>
+        </ul>
+        <div class="qa">
+          <span class="q">Prüfer-Frage</span>
+          <div class="q-text">Schwarze, runde Struktur mit Aufhellung dahinter — was ist das?</div>
+          <div class="a"><span class="a-label">Ideale Antwort</span>Eine <strong>Zyste</strong> — echofrei + <strong>dorsale Schallverstärkung</strong>. Ein Stein wäre weiß mit Schallschatten.</div>
+        </div>
+      </div></div>
+    </div>
+  </section>
+
+  <!-- KAPITEL 2: SYSTEMATIK -->
+  <section class="chapter" id="k2">
+    <div class="chapter-head"><span class="chapter-num">2</span><span class="chapter-title">Systematik — so schallt man</span></div>
+
+    <div class="card open">
+      <div class="card-head"><div><span class="card-tag">Vorbereitung</span><div class="card-title">Vor dem ersten Bild</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <ul>
+          <li><strong>Nüchtern</strong> (≥ 6 h) — sonst kontrahierte Galle + viel Darmgas</li>
+          <li><strong>Lagerung:</strong> Rückenlage; für Milz/Nieren ggf. Seitenlage</li>
+          <li><strong>Gerät:</strong> Konvexsonde, Abdomen-Preset, Tiefe + Gain einstellen</li>
+          <li>Untersuchung <strong>in tiefer Inspiration</strong> — Organe rutschen unter den Rippenbogen ins Schallfenster</li>
+        </ul>
+        <div class="callout fact">
+          <span class="callout-label">⚙ Schallfenster</span>
+          Die <strong>Leber</strong> ist das große Schallfenster für rechts oben (Galle, rechte Niere). Die <strong>gefüllte Blase</strong> ist das Fenster fürs kleine Becken.
+        </div>
+      </div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div><span class="card-tag">★ Reihenfolge</span><div class="card-title">Der feste Durchgang</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <p style="margin-bottom:10px">Immer dieselbe Reihenfolge — dann vergisst man nichts:</p>
+        <ul>
+          <li><strong>1. Leber</strong> (+ Lebervenen, Pfortader)</li>
+          <li><strong>2. Gallenblase + Gallenwege</strong> (DHC)</li>
+          <li><strong>3. Pankreas</strong> (quer, an den Leitgefäßen)</li>
+          <li><strong>4. Milz</strong> (+ linke Niere)</li>
+          <li><strong>5. Nieren</strong> (beide)</li>
+          <li><strong>6. Aorta + V. cava</strong> (längs + quer)</li>
+          <li><strong>7. Harnblase</strong> (+ kleines Becken)</li>
+          <li><strong>8. Freie Flüssigkeit</strong> (Morrison, Koller, Douglas)</li>
+        </ul>
+        <div class="callout key">
+          <span class="callout-label">★ Eselsbrücke</span>
+          Von rechts oben nach links und unten: <strong>Leber → Galle → Pankreas → Milz → Nieren → Aorta → Blase</strong>. Zum Schluss immer nach <strong>freier Flüssigkeit</strong> suchen.
+        </div>
+      </div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div><span class="card-tag">Befunden</span><div class="card-title">Was man pro Organ beurteilt</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <ul>
+          <li><strong>Größe</strong> (Maß), <strong>Form/Kontur</strong> (glatt?), <strong>Echo</strong> (hell/dunkel/homogen?)</li>
+          <li><strong>Herdbefunde</strong> (Zyste, Tumor?), <strong>Umgebung</strong> (freie Flüssigkeit, Stau?)</li>
+        </ul>
+        <div class="callout key">
+          <span class="callout-label">★ Merksatz</span>
+          Pro Organ vier Fragen: <strong>Größe — Form — Echo — Herd?</strong> Immer gleich, dann ist der Befund vollständig.
+        </div>
+        <div class="qa">
+          <span class="q">Prüfer-Frage</span>
+          <div class="q-text">Wie gehen Sie bei einer Abdomensonografie systematisch vor?</div>
+          <div class="a"><span class="a-label">Ideale Antwort</span>Nüchterner Patient, Konvexsonde, in Inspiration. Feste Reihenfolge: <strong>Leber, Galle, Pankreas, Milz, Nieren, Aorta, Blase</strong> — und zum Abschluss Suche nach <strong>freier Flüssigkeit</strong>.</div>
+        </div>
+      </div></div>
+    </div>
+  </section>
+
+  <footer>KP-Mainz Drills · Sono Komplettskript · wächst Kapitel für Kapitel · Grundlagen + Systematik</footer>
+</div>
+<script>
+  document.querySelectorAll('.card-head').forEach(head => { head.addEventListener('click', () => head.closest('.card').classList.toggle('open')); });
+</script>
+</body>
+</html>
