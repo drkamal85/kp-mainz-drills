@@ -122,7 +122,7 @@
   .tab[data-station="4"].active { background: var(--therapie); }
 
   /* STATION */
-  .station { display: none; animation: fadeIn 0.3s ease; }
+  .weekpanel { display: none; } .weekpanel.active { display: block; } .station, .station.show { display: block; animation: fadeIn 0.3s ease; }
   .station.active { display: block; }
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(6px); }
@@ -549,6 +549,9 @@
     .station-tagline { text-align: left; max-width: none; }
     .tab { font-size: 11.5px; padding: 9px 8px; }
   }
+
+  .weekpanel { display:none; } .weekpanel.active { display:block; }
+  .station, .station.show { display:block !important; animation:none; }
 </style>
 </head>
 <body>
@@ -558,22 +561,18 @@
     <div class="eyebrow">BGA Drill · Woche 1 · Level 1</div>
     <h1>Blutgas<span class="accent">analyse</span><br>Komplettskript</h1>
     <p class="subtitle">Von Probenahme und Normalwerten bis zu den respiratorischen Störungen. Alles auf einer Seite, 8 Stationen.</p>
-    <div class="meta"><span>~ 25 min</span><span>8 Stationen</span><span>Wk1 + Wk2</span></div>
+    <div class="meta"><span>2 Wochen + Memorizer</span><span>8 Stationen</span></div>
   </header>
 
   <nav class="tabs">
-    <button class="tab active" data-station="1">01 · Probenahme</button>
-    <button class="tab" data-station="2">02 · Parameter</button>
-    <button class="tab" data-station="3">03 · Algorithmus</button>
-    <button class="tab" data-station="4">04 · Mini-Cases</button>
-    <button class="tab" data-station="5">05 · Resp. Grundlagen</button>
-    <button class="tab" data-station="6">06 · Resp. Azidose</button>
-    <button class="tab" data-station="7">07 · Resp. Alkalose</button>
-    <button class="tab" data-station="8">08 · Kompensation</button>
+    <button class="tab active" data-k="wk1">Woche 1 · Grundlagen</button>
+    <button class="tab" data-k="wk2">Woche 2 · Respiratorisch</button>
+    <button class="tab" data-k="memo">Memorizer</button>
   </nav>
 
   <!-- STATION 1: GRUNDLAGEN -->
-  <section class="station active" id="s1">
+  <div class="weekpanel active" id="wk1">
+<section class="station show" id="s1">
     <div class="station-header">
       <div class="station-header-left">
         <div class="station-eyebrow">Station 01</div>
@@ -674,8 +673,7 @@
       </div></div>
     </div>
   </section>
-
-<section class="station" id="s2">
+<section class="station show" id="s2">
     <div class="station-header">
       <div class="station-header-left">
         <div class="station-eyebrow">Station 02</div>
@@ -814,8 +812,7 @@
       </div></div>
     </div>
   </section>
-
-<section class="station" id="s3">
+<section class="station show" id="s3">
     <div class="station-header">
       <div class="station-header-left">
         <div class="station-eyebrow">Station 03</div>
@@ -928,8 +925,7 @@
       </div></div>
     </div>
   </section>
-
-<section class="station" id="s4">
+<section class="station show" id="s4">
     <div class="station-header">
       <div class="station-header-left">
         <div class="station-eyebrow">Station 04</div>
@@ -1026,8 +1022,10 @@
       </div></div>
     </div>
   </section>
+</div>
 
-<section class="station" id="s5">
+<div class="weekpanel" id="wk2">
+<section class="station show" id="s5">
     <div class="station-header"><div><div class="station-eyebrow">Station 01</div><div class="station-title">Grundlagen</div></div><div class="station-tagline">Normwerte + die Logik.</div></div>
 
     <div class="card open">
@@ -1064,8 +1062,7 @@
       </div></div>
     </div>
   </section>
-
-<section class="station" id="s6">
+<section class="station show" id="s6">
     <div class="station-header"><div><div class="station-eyebrow">Station 02</div><div class="station-title">Respiratorische Azidose</div></div><div class="station-tagline">Hypoventilation → pCO₂ ↑.</div></div>
 
     <div class="card open">
@@ -1101,8 +1098,7 @@
       </div></div>
     </div>
   </section>
-
-<section class="station" id="s7">
+<section class="station show" id="s7">
     <div class="station-header"><div><div class="station-eyebrow">Station 03</div><div class="station-title">Respiratorische Alkalose</div></div><div class="station-tagline">Hyperventilation → pCO₂ ↓.</div></div>
 
     <div class="card open">
@@ -1136,8 +1132,7 @@
       </div></div>
     </div>
   </section>
-
-<section class="station" id="s8">
+<section class="station show" id="s8">
     <div class="station-header"><div><div class="station-eyebrow">Station 04</div><div class="station-title">Kompensation</div></div><div class="station-tagline">Die Niere antwortet — langsam.</div></div>
 
     <div class="card open">
@@ -1191,6 +1186,11 @@
       </div></div>
     </div>
   </section>
+</div>
+
+<div class="weekpanel" id="memo">
+  <iframe src="02-bga-normalwerte-memorize.html" style="width:100%;height:80vh;border:1px solid var(--rule);border-radius:12px;background:#fff"></iframe>
+</div>
 
   <footer>
     KP Mainz Drills · BGA Wk1 · L1 — Systematische Auswertung & Normalwerte
@@ -1201,14 +1201,13 @@
 <script>
   // Tab switching
   const tabs = document.querySelectorAll('.tab');
-  const stations = document.querySelectorAll('.station');
+  const panels = document.querySelectorAll('.weekpanel');
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
-      const target = tab.dataset.station;
       tabs.forEach(t => t.classList.remove('active'));
-      stations.forEach(s => s.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
       tab.classList.add('active');
-      document.getElementById('s' + target).classList.add('active');
+      document.getElementById(tab.dataset.k).classList.add('active');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   });
