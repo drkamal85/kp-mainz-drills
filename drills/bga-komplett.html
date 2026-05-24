@@ -573,620 +573,120 @@
   <!-- STATION 1: GRUNDLAGEN -->
   <div class="weekpanel active" id="wk1">
 <section class="station show" id="s1">
-    <div class="station-header">
-      <div class="station-header-left">
-        <div class="station-eyebrow">Station 01</div>
-        <div class="station-title">Probenentnahme & Normalwerte</div>
-      </div>
-      <div class="station-tagline">Wo, wie, was — und welche Zahlen müssen sitzen?</div>
-    </div>
-
-    <div class="card open">
-      <div class="card-head">
-        <div class="card-head-left">
-          <span class="card-tag">Probenentnahme</span>
-          <div class="card-title">Arterielle vs. venöse BGA — wann welche?</div>
-        </div>
-        <span class="toggle">+</span>
-      </div>
+    <div class="station-header"><div class="station-header-left"><div class="station-eyebrow">Station 01</div><div class="station-title">Normalwerte & Probe</div></div><div class="station-tagline">Die Zahlen, die sitzen müssen.</div></div>
+    <div class="card open"><div class="card-head"><div class="card-head-left"><span class="card-tag">Normalwerte</span><div class="card-title">Die 6 Werte</div></div><span class="toggle">+</span></div>
       <div class="card-body"><div class="card-body-inner">
-        <h4>Arterielle BGA</h4>
-        <ul>
-          <li><strong>Goldstandard</strong> für Oxygenierung (pO₂, SaO₂) und kompletten Säure-Basen-Status</li>
-          <li>Punktionsstellen: <em class="highlight">A. radialis</em> (Standard) → vorher <strong>Allen-Test</strong>, A. femoralis, A. brachialis</li>
-          <li>Indikationen: respiratorische Insuffizienz, Schock, schwere Azidose/Alkalose, Intoxikation, Beatmung</li>
-        </ul>
-        <h4>Venöse BGA</h4>
-        <ul>
-          <li>Schnell, einfach, geringere Komplikationen — <strong>screening-tauglich</strong></li>
-          <li>pH und HCO₃⁻ korrelieren gut mit arteriell (Differenz pH ≈ 0,03–0,04 niedriger)</li>
-          <li><strong>Nicht verlässlich</strong> für Oxygenierung (pO₂, SaO₂) und pCO₂ in Schockzuständen</li>
-        </ul>
-        <h4>Kapillär</h4>
-        <ul>
-          <li>Pädiatrie, Geriatrie — Ohrläppchen oder Fingerbeere, vorher hyperämisieren</li>
-          <li>Kompromiss: pO₂ weniger zuverlässig als arteriell</li>
-        </ul>
-        <div class="callout warning">
-          <span class="callout-label">⚠ Praxis-Tipp</span>
-          Vor arterieller Punktion: Heparin-Spritze, Luftblasen sofort entfernen (sonst falsch-hoher pO₂), Probe sofort analysieren oder auf Eis lagern. Allen-Test dokumentieren.
-        </div>
+        <table><thead><tr><th>Wert</th><th>Norm</th></tr></thead><tbody>
+          <tr><td><strong>pH</strong></td><td>7,36 – 7,44</td></tr>
+          <tr><td><strong>pCO₂</strong></td><td>35 – 45 mmHg</td></tr>
+          <tr><td><strong>HCO₃⁻</strong></td><td>22 – 26 mmol/l</td></tr>
+          <tr><td><strong>BE</strong></td><td>−2 bis +2</td></tr>
+          <tr><td><strong>pO₂</strong></td><td>70 – 100 mmHg</td></tr>
+          <tr><td><strong>SaO₂</strong></td><td>&gt; 95 %</td></tr>
+        </tbody></table>
+        <div class="callout fact"><span class="callout-label">⚙ Arteriell vs. venös</span><strong>Arteriell</strong> für pO₂/Oxygenierung (Allen-Test vor A. radialis). <strong>Venös</strong> reicht für pH/pCO₂/HCO₃⁻ im Verlauf.</div>
       </div></div>
     </div>
+</section>
 
-    <div class="card">
-      <div class="card-head">
-        <div class="card-head-left">
-          <span class="card-tag">Normalwerte</span>
-          <div class="card-title">Die Zahlen, die sitzen müssen</div>
-        </div>
-        <span class="toggle">+</span>
-      </div>
-      <div class="card-body"><div class="card-body-inner">
-        <table>
-          <thead>
-            <tr><th>Parameter</th><th>Normalwert</th><th>Einheit</th></tr>
-          </thead>
-          <tbody>
-            <tr><td><strong>pH</strong></td><td class="val mono">7,36 – 7,44</td><td class="mono">—</td></tr>
-            <tr><td><strong>pCO₂</strong></td><td class="val mono">35 – 45</td><td class="mono">mmHg</td></tr>
-            <tr><td><strong>pO₂</strong> (arteriell)</td><td class="val mono">70 – 100</td><td class="mono">mmHg</td></tr>
-            <tr><td><strong>HCO₃⁻</strong> (Standard)</td><td class="val mono">22 – 26</td><td class="mono">mmol/L</td></tr>
-            <tr><td><strong>BE</strong> (Base Excess)</td><td class="val mono">−2 bis +2</td><td class="mono">mmol/L</td></tr>
-            <tr><td><strong>SaO₂</strong></td><td class="val mono">95 – 98</td><td class="mono">%</td></tr>
-            <tr><td><strong>Laktat</strong></td><td class="val mono">&lt; 2,0</td><td class="mono">mmol/L</td></tr>
-            <tr><td><strong>Anionenlücke</strong></td><td class="val mono">8 – 12</td><td class="mono">mmol/L</td></tr>
-          </tbody>
-        </table>
-        <div class="callout fact">
-          <span class="callout-label">⚙ Faustregel pO₂</span>
-          Altersangepasster Normalwert: <strong>pO₂ ≈ 100 − (Alter / 4)</strong> mmHg. Ein 80-Jähriger mit pO₂ 80 mmHg ist also nicht respiratorisch insuffizient.
-        </div>
-        <div class="qa">
-          <div class="qa-q">Welche Normalwerte für eine arterielle BGA müssen Sie kennen?</div>
-          <div class="qa-a">pH 7,36–7,44; pCO₂ 35–45 mmHg; pO₂ 70–100 mmHg, altersabhängig; HCO₃⁻ 22–26 mmol/L; BE ±2 mmol/L; SaO₂ 95–98%. Zusätzlich Anionenlücke 8–12 mmol/L und Laktat unter 2 mmol/L.</div>
-        </div>
-      </div></div>
-    </div>
-
-    <div class="card">
-      <div class="card-head">
-        <div class="card-head-left">
-          <span class="card-tag">Komplikationen</span>
-          <div class="card-title">Risiken der arteriellen Punktion</div>
-        </div>
-        <span class="toggle">+</span>
-      </div>
-      <div class="card-body"><div class="card-body-inner">
-        <ul>
-          <li><strong>Hämatom</strong> — häufigste Komplikation; danach 5 min komprimieren, bei Antikoagulation länger</li>
-          <li><strong>Arterienspasmus</strong> — meist selbstlimitierend</li>
-          <li><strong>Thrombose / Embolie</strong> — selten, aber Allen-Test schützt vor Hand-Ischämie</li>
-          <li><strong>AV-Fistel</strong> — sehr selten</li>
-          <li><strong>Nervenläsion</strong> — bei A. brachialis (N. medianus) oder A. femoralis (N. femoralis)</li>
-          <li><strong>Infektion</strong> — Asepsis beachten</li>
-        </ul>
-        <div class="callout critical">
-          <span class="callout-label">▲ Kontraindikation Allen-Test pathologisch</span>
-          Wenn die Rekapillarisierung nach Allen-Test &gt; 10 s dauert: <strong>keine A.-radialis-Punktion</strong> — Ausweichen auf Gegenseite oder andere Arterie. Hand-Ischämie-Gefahr.
-        </div>
-      </div></div>
-    </div>
-  </section>
 <section class="station show" id="s2">
-    <div class="station-header">
-      <div class="station-header-left">
-        <div class="station-eyebrow">Station 02</div>
-        <div class="station-title">Die 5 Schlüsselparameter</div>
-      </div>
-      <div class="station-tagline">Was misst jeder Wert wirklich — und was bedeutet er klinisch?</div>
-    </div>
-
-    <div class="card open">
-      <div class="card-head">
-        <div class="card-head-left">
-          <span class="card-tag">Quick Reference</span>
-          <div class="card-title">Was sagt mir welcher Wert?</div>
-        </div>
-        <span class="toggle">+</span>
-      </div>
+    <div class="station-header"><div class="station-header-left"><div class="station-eyebrow">Station 02</div><div class="station-title">Die zwei Achsen</div></div><div class="station-tagline">Wer ist respiratorisch, wer metabolisch?</div></div>
+    <div class="card open"><div class="card-head"><div class="card-head-left"><span class="card-tag">Zuordnung</span><div class="card-title">pCO₂ vs. HCO₃⁻</div></div><span class="toggle">+</span></div>
       <div class="card-body"><div class="card-body-inner">
-        <div class="param-grid">
-          <div class="param-cell">
-            <div class="param-name">pH</div>
-            <div class="param-val">7,36 – 7,44</div>
-            <div class="param-desc">Säure-Basen-Status. Log-Skala — kleine Abweichungen, große Wirkung.</div>
-          </div>
-          <div class="param-cell">
-            <div class="param-name">pCO₂</div>
-            <div class="param-val">35 – 45 mmHg</div>
-            <div class="param-desc">Respiratorische Komponente. Direkt durch Ventilation reguliert.</div>
-          </div>
-          <div class="param-cell">
-            <div class="param-name">HCO₃⁻</div>
-            <div class="param-val">22 – 26 mmol/L</div>
-            <div class="param-desc">Metabolische Komponente. Renal reguliert über Stunden bis Tage.</div>
-          </div>
-          <div class="param-cell">
-            <div class="param-name">BE</div>
-            <div class="param-val">−2 bis +2 mmol/L</div>
-            <div class="param-desc">Basenüberschuss. Reine metabolische Komponente, Hb-korrigiert.</div>
-          </div>
-          <div class="param-cell">
-            <div class="param-name">SaO₂</div>
-            <div class="param-val">95 – 98 %</div>
-            <div class="param-desc">Hämoglobin-Sättigung. Sigmoide Bindungskurve — ab pO₂ 60 fällt SaO₂ steil ab.</div>
-          </div>
-        </div>
+        <ul>
+          <li><strong>pCO₂ = respiratorisch</strong> (Lunge)</li>
+          <li><strong>HCO₃⁻ / BE = metabolisch</strong> (Niere/Stoffwechsel)</li>
+        </ul>
+        <div class="callout fact"><span class="callout-label">⚙ Richtungsregel</span><strong>Respiratorisch:</strong> pH und pCO₂ laufen <em>gegensätzlich</em>. <strong>Metabolisch:</strong> pH und HCO₃⁻ laufen <em>gleichsinnig</em>.</div>
       </div></div>
     </div>
+</section>
 
-    <div class="card">
-      <div class="card-head">
-        <div class="card-head-left">
-          <span class="card-tag">pH & pCO₂</span>
-          <div class="card-title">Die respiratorische Achse</div>
-        </div>
-        <span class="toggle">+</span>
-      </div>
-      <div class="card-body"><div class="card-body-inner">
-        <h4>pH</h4>
-        <ul>
-          <li><strong>&lt; 7,36 = Azidose</strong> · <strong>&gt; 7,44 = Alkalose</strong></li>
-          <li>Logarithmische Skala: pH 7,1 ist nicht nur „etwas saurer", sondern doppelt so sauer wie pH 7,4</li>
-          <li>Lebensgefährlich: pH &lt; 7,1 oder &gt; 7,6</li>
-        </ul>
-        <h4>pCO₂</h4>
-        <ul>
-          <li><strong>↑ pCO₂ = Hyperkapnie</strong> → Hypoventilation (COPD-Exazerbation, Opioide, neuromuskulär, ZNS-Depression)</li>
-          <li><strong>↓ pCO₂ = Hypokapnie</strong> → Hyperventilation (Angst, Schmerz, Schwangerschaft, ZNS, frühe Sepsis, PE)</li>
-          <li>CO₂ ist „flüchtige Säure" — über Lunge in Minuten regulierbar</li>
-        </ul>
-        <div class="callout fact">
-          <span class="callout-label">⚙ Henderson-Hasselbalch</span>
-          pH ∝ HCO₃⁻ / pCO₂. Daher: <strong>pCO₂ und pH bewegen sich bei primär respiratorischen Störungen gegensätzlich</strong> (pCO₂ ↑ → pH ↓), bei primär metabolischen <strong>gleichsinnig</strong> (HCO₃⁻ ↓ → pH ↓).
-        </div>
-      </div></div>
-    </div>
-
-    <div class="card">
-      <div class="card-head">
-        <div class="card-head-left">
-          <span class="card-tag">HCO₃⁻ & BE</span>
-          <div class="card-title">Die metabolische Achse</div>
-        </div>
-        <span class="toggle">+</span>
-      </div>
-      <div class="card-body"><div class="card-body-inner">
-        <h4>HCO₃⁻ (Bikarbonat)</h4>
-        <ul>
-          <li>Wichtigster Blutpuffer; renal über Stunden bis Tage reguliert</li>
-          <li><strong>↓ HCO₃⁻</strong> = metabolische Azidose (Verlust oder Verbrauch — DKA, Laktat, Diarrhö, NI)</li>
-          <li><strong>↑ HCO₃⁻</strong> = metabolische Alkalose (Erbrechen, Diuretika, Hyperaldosteronismus)</li>
-        </ul>
-        <h4>BE — Base Excess</h4>
-        <ul>
-          <li>Menge an Säure/Base, die nötig wäre, um 1 L Blut auf pH 7,4 bei pCO₂ 40 mmHg zurückzubringen</li>
-          <li><strong>Negativ (&lt; −2):</strong> Basenmangel → metabolische Azidose</li>
-          <li><strong>Positiv (&gt; +2):</strong> Basenüberschuss → metabolische Alkalose</li>
-          <li>Vorteil gegenüber HCO₃⁻: <strong>Hb-korrigiert</strong>, daher robuster bei gemischten Störungen</li>
-        </ul>
-        <div class="callout pearl">
-          <span class="callout-label">★ Pearl</span>
-          BE und HCO₃⁻ sagen das Gleiche aus — nur dass <strong>BE die „reine" metabolische Komponente</strong> isoliert. Wenn HCO₃⁻ und BE divergieren (selten), liegt eine komplexe gemischte Störung vor.
-        </div>
-      </div></div>
-    </div>
-
-    <div class="card">
-      <div class="card-head">
-        <div class="card-head-left">
-          <span class="card-tag">Oxygenierung</span>
-          <div class="card-title">pO₂, SaO₂ & der Horovitz-Quotient</div>
-        </div>
-        <span class="toggle">+</span>
-      </div>
-      <div class="card-body"><div class="card-body-inner">
-        <h4>pO₂ — Sauerstoffpartialdruck</h4>
-        <ul>
-          <li>Norm 70–100 mmHg, altersangepasst (100 − Alter/4)</li>
-          <li><strong>Respiratorische Partialinsuffizienz (Typ I):</strong> pO₂ &lt; 60 mmHg, pCO₂ normal/niedrig</li>
-          <li><strong>Globalinsuffizienz (Typ II):</strong> pO₂ &lt; 60 mmHg <em>und</em> pCO₂ &gt; 45 mmHg</li>
-        </ul>
-        <h4>SaO₂ — Sauerstoffsättigung</h4>
-        <ul>
-          <li>Anteil des oxygenierten Hb (sigmoide Bindungskurve)</li>
-          <li><strong>Kritischer Punkt: pO₂ ≈ 60 mmHg = SaO₂ ≈ 90%</strong> — darunter fällt SaO₂ steil ab</li>
-          <li>Linksverschiebung (Alkalose, Hypothermie, ↓2,3-BPG) → höhere SaO₂ bei gleichem pO₂, aber schlechtere Gewebeabgabe</li>
-        </ul>
-        <h4>Horovitz-Quotient</h4>
-        <ul>
-          <li><strong>paO₂ / FiO₂</strong> — Maß für die Oxygenierungsleistung</li>
-          <li>Normal: &gt; 400</li>
-          <li>ARDS-Kriterien (Berlin): <em class="highlight">mild &lt; 300, moderat &lt; 200, schwer &lt; 100</em></li>
-        </ul>
-        <div class="qa">
-          <div class="qa-q">Patient hat SaO₂ 96% bei pO₂ 55 mmHg — Widerspruch?</div>
-          <div class="qa-a">Nein, das spricht für eine Linksverschiebung der Sauerstoffbindungskurve — z.B. bei Alkalose, Hypothermie oder CO-Intoxikation. Die SaO₂ ist trotz erniedrigter pO₂ erhalten, aber die Sauerstoffabgabe ans Gewebe ist beeinträchtigt. Klinisch wichtiger Hinweis: SaO₂ und pO₂ immer zusammen beurteilen.</div>
-        </div>
-      </div></div>
-    </div>
-  </section>
 <section class="station show" id="s3">
-    <div class="station-header">
-      <div class="station-header-left">
-        <div class="station-eyebrow">Station 03</div>
-        <div class="station-title">Der 5-Schritt-Algorithmus</div>
-      </div>
-      <div class="station-tagline">Immer dieselbe Reihenfolge — dann verirrt man sich nie.</div>
-    </div>
-
-    <div class="card open">
-      <div class="card-head">
-        <div class="card-head-left">
-          <span class="card-tag">Algorithmus</span>
-          <div class="card-title">Die 5 Schritte — jedes Mal in dieser Reihenfolge</div>
-        </div>
-        <span class="toggle">+</span>
-      </div>
-      <div class="card-body"><div class="card-body-inner">
-        <div class="step">
-          <div class="step-num">1</div>
-          <div class="step-content">
-            <div class="step-title">Oxygenierung</div>
-            <div class="step-body"><strong>pO₂ und SaO₂</strong> beurteilen. Bei pO₂ &lt; 60 mmHg → respiratorische Insuffizienz. Horovitz-Quotient berechnen, wenn FiO₂ bekannt.</div>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">2</div>
-          <div class="step-content">
-            <div class="step-title">pH — Azidose oder Alkalose?</div>
-            <div class="step-body"><code>pH &lt; 7,36</code> = Azidose · <code>pH &gt; 7,44</code> = Alkalose · <code>7,36–7,44</code> = normal (kann trotzdem kompensiert sein!)</div>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">3</div>
-          <div class="step-content">
-            <div class="step-title">Primärstörung — respiratorisch oder metabolisch?</div>
-            <div class="step-body">Welcher Wert bewegt sich „in die Richtung" des pH? Bei Azidose: ↑pCO₂ = respiratorisch · ↓HCO₃⁻ = metabolisch. Bei Alkalose: ↓pCO₂ = respiratorisch · ↑HCO₃⁻ = metabolisch.</div>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">4</div>
-          <div class="step-content">
-            <div class="step-title">Kompensation — akut, chronisch, vollständig?</div>
-            <div class="step-body">Bewegt sich der zweite Wert „in die Gegenrichtung", spricht das für Kompensation. pH normal trotz pathologischer pCO₂/HCO₃⁻ → <strong>vollständig kompensiert</strong>.</div>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">5</div>
-          <div class="step-content">
-            <div class="step-title">Anionenlücke (bei metabolischer Azidose)</div>
-            <div class="step-body"><code>AG = Na⁺ − (Cl⁻ + HCO₃⁻)</code> · Normal 8–12 mmol/L · <strong>Erhöht</strong> bei DKA, Laktat, Urämie, Intoxikation („KUSSMAUL/MUDPILES") · <strong>Normal</strong> bei Diarrhö, RTA, TPN.</div>
-          </div>
-        </div>
-      </div></div>
-    </div>
-
-    <div class="card">
-      <div class="card-head">
-        <div class="card-head-left">
-          <span class="card-tag">4-Felder-Tafel</span>
-          <div class="card-title">Mustererkennung: Was ist primär?</div>
-        </div>
-        <span class="toggle">+</span>
-      </div>
-      <div class="card-body"><div class="card-body-inner">
-        <table>
-          <thead>
-            <tr><th>pH</th><th>pCO₂</th><th>HCO₃⁻ / BE</th><th>Diagnose</th></tr>
-          </thead>
-          <tbody>
-            <tr><td class="mono">↓</td><td class="mono val">↑</td><td class="mono">↑ (Komp.)</td><td><strong>Respiratorische Azidose</strong></td></tr>
-            <tr><td class="mono">↓</td><td class="mono">↓ (Komp.)</td><td class="mono val">↓</td><td><strong>Metabolische Azidose</strong></td></tr>
-            <tr><td class="mono">↑</td><td class="mono val">↓</td><td class="mono">↓ (Komp.)</td><td><strong>Respiratorische Alkalose</strong></td></tr>
-            <tr><td class="mono">↑</td><td class="mono">↑ (Komp.)</td><td class="mono val">↑</td><td><strong>Metabolische Alkalose</strong></td></tr>
-          </tbody>
-        </table>
-        <div class="callout fact">
-          <span class="callout-label">⚙ Merksatz</span>
-          <strong>Primär ist der Wert, der „in die pH-Richtung" zeigt.</strong> pH ↓ + pCO₂ ↑ + HCO₃⁻ ↑ → primär respiratorisch (pCO₂ macht den pH sauer), HCO₃⁻ kompensiert. Niemals umgekehrt.
-        </div>
-      </div></div>
-    </div>
-
-    <div class="card">
-      <div class="card-head">
-        <div class="card-head-left">
-          <span class="card-tag">Kompensation</span>
-          <div class="card-title">Akut vs. chronisch — Faustregeln</div>
-        </div>
-        <span class="toggle">+</span>
-      </div>
-      <div class="card-body"><div class="card-body-inner">
-        <h4>Respiratorische Störungen (Kompensation renal)</h4>
-        <ul>
-          <li><strong>Akut</strong> (Stunden): ΔHCO₃⁻ ≈ <code>0,1 × ΔpCO₂</code> — kleine HCO₃⁻-Bewegung</li>
-          <li><strong>Chronisch</strong> (Tage): ΔHCO₃⁻ ≈ <code>0,35 × ΔpCO₂</code> — größere HCO₃⁻-Bewegung</li>
-        </ul>
-        <h4>Metabolische Störungen (Kompensation respiratorisch, Minuten)</h4>
-        <ul>
-          <li><strong>Met. Azidose:</strong> erwarteter pCO₂ = <code>1,5 × HCO₃⁻ + 8 ± 2</code> (Winters-Formel)</li>
-          <li><strong>Met. Alkalose:</strong> ΔpCO₂ ≈ <code>0,7 × ΔHCO₃⁻</code> (begrenzt, da Hypoventilation Hypoxie macht)</li>
-        </ul>
-        <div class="callout warning">
-          <span class="callout-label">⚠ Klinische Faustregel</span>
-          <strong>Vollständige Kompensation</strong> = pH normalisiert sich (nie übers Ziel hinaus!). Wenn pH überkompensiert ist → <strong>gemischte Störung</strong>. Z.B. respiratorische Azidose + metabolische Alkalose bei COPD-Patient unter Schleifendiuretika.
-        </div>
-        <div class="qa">
-          <div class="qa-q">Wie unterscheiden Sie eine akute von einer chronischen respiratorischen Azidose?</div>
-          <div class="qa-a">An der renalen Kompensation. Akut: die Niere hat noch nicht reagiert, HCO₃⁻ steigt nur minimal (etwa 0,1 mmol/L pro 1 mmHg pCO₂-Anstieg), der pH fällt deutlich. Chronisch — z.B. bei COPD: über Tage steigt HCO₃⁻ relevant (etwa 0,35 pro 1 mmHg), der pH ist nur grenzwertig erniedrigt oder normal. Klinik: pCO₂ 70 mit pH 7,20 ist akut, pCO₂ 70 mit pH 7,36 ist chronisch.</div>
-        </div>
-      </div></div>
-    </div>
-  </section>
-<section class="station show" id="s4">
-    <div class="station-header">
-      <div class="station-header-left">
-        <div class="station-eyebrow">Station 04</div>
-        <div class="station-title">Mini-Cases — Mustererkennung</div>
-      </div>
-      <div class="station-tagline">Erst auswerten, dann aufdecken — 6 typische Konstellationen.</div>
-    </div>
-
-    <div class="card open">
-      <div class="card-head">
-        <div class="card-head-left">
-          <span class="card-tag">Case Drill</span>
-          <div class="card-title">6 Konstellationen — jeweils 30 Sekunden</div>
-        </div>
-        <span class="toggle">+</span>
-      </div>
-      <div class="card-body"><div class="card-body-inner">
-
-        <p style="font-style: italic; color: var(--ink-muted); margin-bottom: 18px;">Werten Sie zuerst nach dem 5-Schritt-Algorithmus aus, dann auf „Auflösen" klicken.</p>
-
-        <div class="case">
-          <div class="case-label">Fall 1 · 68-J., COPD-Exazerbation</div>
-          <div class="case-values">pH 7,21 · pCO₂ 72 · HCO₃⁻ 26 · BE +1 · pO₂ 52 · SaO₂ 84%</div>
-          <button class="reveal-btn">Auflösen</button>
-          <div class="case-answer"><strong>Akute respiratorische Azidose</strong> bei <strong>respiratorischer Globalinsuffizienz</strong> (Typ II). HCO₃⁻ noch normal — Niere hatte keine Zeit zu kompensieren. Bei chronischer COPD wäre HCO₃⁻ &gt; 30. Therapie: O₂ vorsichtig titriert, NIV erwägen.</div>
-        </div>
-
-        <div class="case">
-          <div class="case-label">Fall 2 · 24-J., bekannter Typ-1-Diabetes, Bauchschmerzen</div>
-          <div class="case-values">pH 7,10 · pCO₂ 22 · HCO₃⁻ 7 · BE −20 · pO₂ 105 · Na 138 · Cl 100 · Glukose 480</div>
-          <button class="reveal-btn">Auflösen</button>
-          <div class="case-answer"><strong>Metabolische Azidose mit erhöhter Anionenlücke</strong> (AG = 138 − 107 = 31) bei <strong>diabetischer Ketoazidose</strong>. Respiratorische Kompensation per Kussmaul-Atmung (Winters: erwarteter pCO₂ ≈ 1,5×7+8 = 18,5 ± 2 → passt). Therapie: Volumen, Insulin, K⁺-Substitution.</div>
-        </div>
-
-        <div class="case">
-          <div class="case-label">Fall 3 · 32-J., Panikattacke in der Notaufnahme</div>
-          <div class="case-values">pH 7,52 · pCO₂ 26 · HCO₃⁻ 21 · BE −1 · pO₂ 110 · SaO₂ 99%</div>
-          <button class="reveal-btn">Auflösen</button>
-          <div class="case-answer"><strong>Akute respiratorische Alkalose</strong> bei Hyperventilation. HCO₃⁻ noch normal. Wichtig: <strong>D-Dimere und EKG</strong> ausschließen — Lungenembolie ist die gefährlichste Differenzialdiagnose der Hyperventilation in der Notaufnahme.</div>
-        </div>
-
-        <div class="case">
-          <div class="case-label">Fall 4 · 76-J., seit 5 Tagen Erbrechen</div>
-          <div class="case-values">pH 7,52 · pCO₂ 48 · HCO₃⁻ 38 · BE +14 · K⁺ 2,9 · Cl⁻ 88</div>
-          <button class="reveal-btn">Auflösen</button>
-          <div class="case-answer"><strong>Metabolische Alkalose</strong> (HCl-Verlust durch Erbrechen) mit <strong>respiratorischer Kompensation</strong> (pCO₂ ↑). Typisch: Hypokaliämie + Hypochlorämie. Therapie: NaCl 0,9% + KCl — die Alkalose ist „chlorid-responsiv".</div>
-        </div>
-
-        <div class="case">
-          <div class="case-label">Fall 5 · 70-J., bekannte COPD, jetzt Furosemid wegen Beinödemen</div>
-          <div class="case-values">pH 7,44 · pCO₂ 60 · HCO₃⁻ 40 · BE +14 · pO₂ 58</div>
-          <button class="reveal-btn">Auflösen</button>
-          <div class="case-answer"><strong>Gemischte Störung:</strong> chronische respiratorische Azidose (pCO₂ ↑) + metabolische Alkalose (HCO₃⁻ überproportional ↑, BE deutlich positiv). pH normal — aber für eine reine chronische resp. Azidose wäre HCO₃⁻ &lt; 35. Furosemid hat eine zusätzliche metabolische Alkalose induziert.</div>
-        </div>
-
-        <div class="case">
-          <div class="case-label">Fall 6 · 45-J., Beatmungspatient ARDS, FiO₂ 0,6</div>
-          <div class="case-values">pH 7,32 · pCO₂ 50 · HCO₃⁻ 25 · pO₂ 90 · SaO₂ 96%</div>
-          <button class="reveal-btn">Auflösen</button>
-          <div class="case-answer"><strong>Horovitz = 90/0,6 = 150</strong> → <strong>moderates ARDS</strong> (Berlin: &lt; 200). Zusätzlich leichte respiratorische Azidose — passend zur lungenprotektiven Beatmung mit permissiver Hyperkapnie. SaO₂ täuscht: trotz akzeptabler Sättigung ist die Lungenfunktion schwer gestört.</div>
-        </div>
-
-      </div></div>
-    </div>
-
-    <div class="card">
-      <div class="card-head">
-        <div class="card-head-left">
-          <span class="card-tag">Take-Home</span>
-          <div class="card-title">Was sitzt jetzt — was kommt in L2?</div>
-        </div>
-        <span class="toggle">+</span>
-      </div>
-      <div class="card-body"><div class="card-body-inner">
-        <h4>L1 sitzt, wenn Sie:</h4>
-        <ul>
-          <li>Die 8 Normalwerte (pH, pCO₂, pO₂, HCO₃⁻, BE, SaO₂, Laktat, AG) <strong>auswendig</strong> nennen können</li>
-          <li>Den 5-Schritt-Algorithmus <strong>ohne nachzusehen</strong> abarbeiten</li>
-          <li>Eine BGA-Konstellation in <strong>unter 30 Sekunden</strong> einer der 4 Felder zuordnen</li>
-          <li>Anionenlücke berechnen und beurteilen können</li>
-          <li>Akut vs. chronisch an der Kompensation erkennen</li>
-        </ul>
-        <h4>L2 (nächste Woche):</h4>
-        <ul>
-          <li>Anionenlücke-Differenzialdiagnose (KUSSMAUL/MUDPILES)</li>
-          <li>Delta-Gap-Konzept bei gemischten metabolischen Störungen</li>
-          <li>Tiefere Kompensationsformeln & Erkennung gemischter Störungen</li>
-          <li>Spezielle Konstellationen: Salicylat-Intox, COPD vs. Asthma, Sepsis</li>
-        </ul>
-        <div class="callout pearl">
-          <span class="callout-label">★ Prüfer-Perle</span>
-          In Mainz ist die <strong>BGA-Auswertung am Patientenbett</strong> Standardstoff. Wer den 5-Schritt-Algorithmus laut und in dieser Reihenfolge abspult, signalisiert sofort klinische Sicherheit — auch wenn der Fall am Ende komplex wird. <em>Reihenfolge schlägt Geschwindigkeit.</em>
-        </div>
-      </div></div>
-    </div>
-  </section>
-</div>
-
-<div class="weekpanel" id="wk2">
-<section class="station show" id="s5">
-    <div class="station-header"><div><div class="station-eyebrow">Station 01</div><div class="station-title">Grundlagen</div></div><div class="station-tagline">Normwerte + die Logik.</div></div>
-
-    <div class="card open">
-      <div class="card-head"><div><span class="card-tag">Normwerte</span><div class="card-title">Die vier Schlüsselwerte</div></div><span class="toggle">+</span></div>
-      <div class="card-body"><div class="card-body-inner">
-        <table>
-          <thead><tr><th>Parameter</th><th>Normbereich</th></tr></thead>
-          <tbody>
-            <tr><td><strong>pH</strong></td><td>7,36 – 7,44</td></tr>
-            <tr><td><strong>pCO₂</strong></td><td>35 – 45 mmHg</td></tr>
-            <tr><td><strong>HCO₃⁻</strong></td><td>22 – 26 mmol/l</td></tr>
-            <tr><td><strong>BE (Base Excess)</strong></td><td>−2 bis +2 mmol/l</td></tr>
-          </tbody>
-        </table>
-        <div class="callout fact">
-          <span class="callout-label">⚙ Wer ist wer</span>
-          <strong>pCO₂ = respiratorisch</strong> (Lunge). <strong>HCO₃⁻ / BE = metabolisch</strong> (Niere/Stoffwechsel). Diese Zuordnung trägt die ganze BGA-Interpretation.
-        </div>
-      </div></div>
-    </div>
-
-    <div class="card">
-      <div class="card-head"><div><span class="card-tag">Kernlogik</span><div class="card-title">Wie pCO₂ den pH bestimmt</div></div><span class="toggle">+</span></div>
-      <div class="card-body"><div class="card-body-inner">
-        <ul>
-          <li>CO₂ + H₂O ⇌ H₂CO₃ ⇌ H⁺ + HCO₃⁻ (Kohlensäure-Bicarbonat-Puffer)</li>
-          <li><strong>pCO₂ ↑ → mehr H⁺ → pH ↓ (Azidose)</strong></li>
-          <li><strong>pCO₂ ↓ → weniger H⁺ → pH ↑ (Alkalose)</strong></li>
-        </ul>
-        <div class="callout fact">
-          <span class="callout-label">⚙ Eselsbrücke</span>
-          <strong>Respiratorisch: pH und pCO₂ laufen gegensätzlich</strong> (pH↓/pCO₂↑ = Azidose). Bei metabolischen Störungen laufen pH und HCO₃⁻ <em>gleichsinnig</em>.
-        </div>
-      </div></div>
-    </div>
-  </section>
-<section class="station show" id="s6">
-    <div class="station-header"><div><div class="station-eyebrow">Station 02</div><div class="station-title">Respiratorische Azidose</div></div><div class="station-tagline">Hypoventilation → pCO₂ ↑.</div></div>
-
-    <div class="card open">
-      <div class="card-head"><div><span class="card-tag">Definition</span><div class="card-title">pH ↓ · pCO₂ ↑</div></div><span class="toggle">+</span></div>
-      <div class="card-body"><div class="card-body-inner">
-        <ul>
-          <li><strong>pH &lt; 7,36 + pCO₂ &gt; 45 mmHg</strong></li>
-          <li>Grundmechanismus: <strong>alveoläre Hypoventilation</strong> → CO₂ wird nicht abgeatmet (Hyperkapnie)</li>
-        </ul>
-      </div></div>
-    </div>
-
-    <div class="card">
-      <div class="card-head"><div><span class="card-tag">Ursachen</span><div class="card-title">Wo die Ventilation versagt</div></div><span class="toggle">+</span></div>
-      <div class="card-body"><div class="card-body-inner">
-        <table>
-          <thead><tr><th>Ebene</th><th>Beispiele</th></tr></thead>
-          <tbody>
-            <tr><td><strong>Lunge/Atemwege</strong></td><td>COPD (häufigste!), schweres Asthma, Lungenödem, Pneumonie</td></tr>
-            <tr><td><strong>Atemantrieb (zentral)</strong></td><td>Opioide/Sedativa, Hirnstammläsion, O₂-Gabe bei chron. Hyperkapnie</td></tr>
-            <tr><td><strong>Atempumpe</strong></td><td>Thoraxtrauma, Kyphoskoliose, neuromuskulär (Guillain-Barré, Myasthenie)</td></tr>
-          </tbody>
-        </table>
-        <div class="callout warning">
-          <span class="callout-label">⚠ COPD & O₂</span>
-          Bei chronischer Hyperkapnie wirkt der niedrige O₂ als Atemantrieb → <strong>unkontrollierte O₂-Gabe (&gt;2 l/min) kann den Antrieb dämpfen</strong> → CO₂-Narkose. Ziel-SpO₂ 88–92 %.
-        </div>
-        <div class="qa">
-          <span class="q">Prüfer-Frage</span>
-          <div class="q-text">BGA: pH 7,28 · pCO₂ 60 · HCO₃⁻ 26. Wie lautet die Diagnose?</div>
-          <div class="a"><span class="a-label">Ideale Antwort</span><strong>Akute (nicht-kompensierte) respiratorische Azidose</strong> — pH↓, pCO₂↑, HCO₃⁻ noch normal (Niere hatte keine Zeit zu kompensieren). Typisch bei akuter Hypoventilation, z.B. Opioidüberdosis.</div>
-        </div>
-      </div></div>
-    </div>
-  </section>
-<section class="station show" id="s7">
-    <div class="station-header"><div><div class="station-eyebrow">Station 03</div><div class="station-title">Respiratorische Alkalose</div></div><div class="station-tagline">Hyperventilation → pCO₂ ↓.</div></div>
-
-    <div class="card open">
-      <div class="card-head"><div><span class="card-tag">Definition</span><div class="card-title">pH ↑ · pCO₂ ↓</div></div><span class="toggle">+</span></div>
-      <div class="card-body"><div class="card-body-inner">
-        <ul>
-          <li><strong>pH &gt; 7,44 + pCO₂ &lt; 35 mmHg</strong></li>
-          <li>Grundmechanismus: <strong>alveoläre Hyperventilation</strong> → zu viel CO₂ abgeatmet (Hypokapnie)</li>
-        </ul>
-      </div></div>
-    </div>
-
-    <div class="card">
-      <div class="card-head"><div><span class="card-tag">Ursachen</span><div class="card-title">Was zum Hyperventilieren treibt</div></div><span class="toggle">+</span></div>
-      <div class="card-body"><div class="card-body-inner">
-        <ul>
-          <li><strong>Psychogen:</strong> Angst, Panik, Schmerz (häufigste Ursache)</li>
-          <li><strong>Hypoxämie-Antwort:</strong> Lungenembolie, Pneumonie, Höhe, beginnendes Lungenödem</li>
-          <li><strong>Zentral:</strong> Fieber, Sepsis, SHT, Enzephalitis, Salicylat-Intoxikation (frühe Phase)</li>
-          <li><strong>Iatrogen:</strong> übermäßige maschinelle Beatmung</li>
-        </ul>
-        <div class="callout fact">
-          <span class="callout-label">⚙ Hyperventilationstetanie</span>
-          Akute resp. Alkalose → ionisiertes Ca²⁺ ↓ → <strong>Parästhesien, Pfötchenstellung</strong>. Therapie: Beruhigung, CO₂-Rückatmung (Tüte). DD beachten — erst LAE ausschließen!
-        </div>
-        <div class="qa">
-          <span class="q">Prüfer-Frage</span>
-          <div class="q-text">Junge Patientin, akute Dyspnoe, Kribbeln in den Händen. BGA: pH 7,50 · pCO₂ 28 · HCO₃⁻ 23. Was steckt dahinter — und was dürfen Sie nicht übersehen?</div>
-          <div class="a"><span class="a-label">Ideale Antwort</span><strong>Akute respiratorische Alkalose</strong>, am ehesten Hyperventilation. Aber: <strong>Lungenembolie zuerst ausschließen</strong> (Wells-Score, D-Dimer) — die LAE macht ebenfalls Hyperventilation + Hypokapnie.</div>
-        </div>
-      </div></div>
-    </div>
-  </section>
-<section class="station show" id="s8">
-    <div class="station-header"><div><div class="station-eyebrow">Station 04</div><div class="station-title">Kompensation</div></div><div class="station-tagline">Die Niere antwortet — langsam.</div></div>
-
-    <div class="card open">
-      <div class="card-head"><div><span class="card-tag">Prinzip</span><div class="card-title">Wer kompensiert wen?</div></div><span class="toggle">+</span></div>
-      <div class="card-body"><div class="card-body-inner">
-        <ul>
-          <li><strong>Respiratorische Störung → renale Kompensation</strong> über HCO₃⁻ (langsam, Stunden–Tage)</li>
-          <li><strong>Azidose:</strong> Niere <em>retiniert</em> HCO₃⁻ → HCO₃⁻ ↑ hebt pH zurück</li>
-          <li><strong>Alkalose:</strong> Niere <em>scheidet</em> HCO₃⁻ aus → HCO₃⁻ ↓ senkt pH zurück</li>
-        </ul>
-        <div class="callout fact">
-          <span class="callout-label">⚙ Faustregel akut vs. chronisch</span>
-          <strong>Akut:</strong> HCO₃⁻ noch normal, pH deutlich entgleist. <strong>Chronisch (kompensiert):</strong> HCO₃⁻ gleichsinnig verschoben, pH (fast) normalisiert. Kompensation normalisiert den pH nie ganz.
-        </div>
-      </div></div>
-    </div>
-
-    <div class="card">
-      <div class="card-head"><div><span class="card-tag">★ Befundmuster</span><div class="card-title">Die Tabelle zum Auswendiglernen</div></div><span class="toggle">+</span></div>
-      <div class="card-body"><div class="card-body-inner">
-        <table>
-          <thead><tr><th>Störung</th><th>pH</th><th>pCO₂</th><th>HCO₃⁻</th></tr></thead>
-          <tbody>
-            <tr><td>Resp. Azidose, akut</td><td>↓</td><td><strong>↑</strong></td><td>normal</td></tr>
-            <tr><td>Resp. Azidose, kompensiert</td><td>(fast) normal</td><td><strong>↑</strong></td><td>↑</td></tr>
-            <tr><td>Resp. Alkalose, akut</td><td>↑</td><td><strong>↓</strong></td><td>normal</td></tr>
-            <tr><td>Resp. Alkalose, kompensiert</td><td>(fast) normal</td><td><strong>↓</strong></td><td>↓</td></tr>
-          </tbody>
-        </table>
-        <div class="callout fact">
-          <span class="callout-label">⚙ Trick</span>
-          Bei <strong>respiratorischen</strong> Störungen zeigen pCO₂ und HCO₃⁻ in <em>dieselbe</em> Richtung, sobald kompensiert wird (beide ↑ oder beide ↓). Gegensätzliche Richtung → gemischte Störung.
-        </div>
-      </div></div>
-    </div>
-
-    <div class="card">
-      <div class="card-head"><div><span class="card-tag">4-Schritt</span><div class="card-title">Jede BGA systematisch ablesen</div></div><span class="toggle">+</span></div>
+    <div class="station-header"><div class="station-header-left"><div class="station-eyebrow">Station 03</div><div class="station-title">4-Schritt-Ablesen</div></div><div class="station-tagline">Jede BGA, immer gleich.</div></div>
+    <div class="card open"><div class="card-head"><div class="card-head-left"><span class="card-tag">Algorithmus</span><div class="card-title">Die 4 Schritte</div></div><span class="toggle">+</span></div>
       <div class="card-body"><div class="card-body-inner">
         <ul>
           <li><strong>1. pH?</strong> &lt;7,36 Azidose · &gt;7,44 Alkalose</li>
-          <li><strong>2. pCO₂?</strong> passt es zum pH (gegensätzlich) → respiratorisch</li>
-          <li><strong>3. HCO₃⁻/BE?</strong> passt es zum pH (gleichsinnig) → metabolisch</li>
-          <li><strong>4. Kompensation?</strong> der „andere" Wert verschoben → kompensiert/gemischt</li>
+          <li><strong>2. pCO₂?</strong> passt gegensätzlich zum pH → respiratorisch</li>
+          <li><strong>3. HCO₃⁻/BE?</strong> passt gleichsinnig zum pH → metabolisch</li>
+          <li><strong>4. Kompensiert?</strong> der andere Wert mitverschoben → ja</li>
         </ul>
-        <div class="qa">
-          <span class="q">Prüfer-Frage</span>
-          <div class="q-text">COPD-Patient. BGA: pH 7,35 · pCO₂ 60 · HCO₃⁻ 32. Interpretation?</div>
-          <div class="a"><span class="a-label">Ideale Antwort</span><strong>Chronische, (teil-)kompensierte respiratorische Azidose</strong>: pCO₂↑ (resp. Azidose), HCO₃⁻↑ als renale Kompensation, pH nahezu normalisiert. Typisch für die chronische CO₂-Retention bei COPD.</div>
-        </div>
       </div></div>
     </div>
-  </section>
-</div>
+</section>
+
+<section class="station show" id="s4">
+    <div class="station-header"><div class="station-header-left"><div class="station-eyebrow">Station 04</div><div class="station-title">Mini-Cases</div></div><div class="station-tagline">Mustererkennung in 30 Sekunden.</div></div>
+    <div class="card open"><div class="card-head"><div class="card-head-left"><span class="card-tag">Übung</span><div class="card-title">4 Konstellationen</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <table><thead><tr><th>pH</th><th>pCO₂</th><th>HCO₃⁻</th><th>Diagnose</th></tr></thead><tbody>
+          <tr><td>↓</td><td>↑</td><td>norm</td><td>resp. Azidose (akut)</td></tr>
+          <tr><td>↑</td><td>↓</td><td>norm</td><td>resp. Alkalose (akut)</td></tr>
+          <tr><td>↓</td><td>norm</td><td>↓</td><td>metab. Azidose</td></tr>
+          <tr><td>↑</td><td>norm</td><td>↑</td><td>metab. Alkalose</td></tr>
+        </tbody></table>
+        <div class="callout key"><span class="callout-label">★ Trick</span>Schau pH an → dann welcher Wert „in dieselbe Richtung wie die Störung" zeigt. pCO₂ gegensätzlich = respiratorisch, HCO₃⁻ gleichsinnig = metabolisch.</div>
+      </div></div>
+    </div>
+</section>
+
+<div class="weekpanel" id="wk2">
+<section class="station show" id="s5">
+    <div class="station-header"><div class="station-header-left"><div class="station-eyebrow">Station 05</div><div class="station-title">Respiratorisch — Grundlogik</div></div><div class="station-tagline">pCO₂ ist der Hebel.</div></div>
+    <div class="card open"><div class="card-head"><div class="card-head-left"><span class="card-tag">Kernlogik</span><div class="card-title">CO₂ steuert den pH</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <ul>
+          <li><strong>pCO₂ ↑ → pH ↓ (Azidose)</strong> — Hypoventilation</li>
+          <li><strong>pCO₂ ↓ → pH ↑ (Alkalose)</strong> — Hyperventilation</li>
+        </ul>
+      </div></div>
+    </div>
+</section>
+
+<section class="station show" id="s6">
+    <div class="station-header"><div class="station-header-left"><div class="station-eyebrow">Station 06</div><div class="station-title">Respiratorische Azidose</div></div><div class="station-tagline">Zu wenig abgeatmet.</div></div>
+    <div class="card open"><div class="card-head"><div class="card-head-left"><span class="card-tag">pH↓ · pCO₂↑</span><div class="card-title">Ursachen</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <ul>
+          <li><strong>Lunge:</strong> COPD (häufigste), schweres Asthma, Pneumonie</li>
+          <li><strong>Atemantrieb ↓:</strong> Opioide/Sedativa, zentrale Läsion</li>
+          <li><strong>Atempumpe:</strong> neuromuskulär, Thoraxtrauma</li>
+        </ul>
+        <div class="callout warn"><span class="callout-label">⚠ COPD & O₂</span>Unkontrollierte O₂-Gabe kann den Atemantrieb dämpfen → CO₂-Narkose. Ziel-SpO₂ 88–92 %.</div>
+      </div></div>
+    </div>
+</section>
+
+<section class="station show" id="s7">
+    <div class="station-header"><div class="station-header-left"><div class="station-eyebrow">Station 07</div><div class="station-title">Respiratorische Alkalose</div></div><div class="station-tagline">Zu viel abgeatmet.</div></div>
+    <div class="card open"><div class="card-head"><div class="card-head-left"><span class="card-tag">pH↑ · pCO₂↓</span><div class="card-title">Ursachen</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <ul>
+          <li><strong>Psychogen:</strong> Angst, Schmerz (häufigste)</li>
+          <li><strong>Hypoxämie:</strong> Lungenembolie, Pneumonie, Höhe</li>
+          <li><strong>Zentral:</strong> Fieber, Sepsis, Salicylat (früh)</li>
+        </ul>
+        <div class="callout warn"><span class="callout-label">⚠ Nicht übersehen</span>Bei akuter Hyperventilation + Dyspnoe immer <strong>Lungenembolie ausschließen</strong>.</div>
+      </div></div>
+    </div>
+</section>
+
+<section class="station show" id="s8">
+    <div class="station-header"><div class="station-header-left"><div class="station-eyebrow">Station 08</div><div class="station-title">Kompensation</div></div><div class="station-tagline">Die Niere antwortet — langsam.</div></div>
+    <div class="card open"><div class="card-head"><div class="card-head-left"><span class="card-tag">Muster</span><div class="card-title">Akut vs. kompensiert</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <table><thead><tr><th>Störung</th><th>pH</th><th>pCO₂</th><th>HCO₃⁻</th></tr></thead><tbody>
+          <tr><td>Resp. Azidose, akut</td><td>↓</td><td>↑</td><td>norm</td></tr>
+          <tr><td>Resp. Azidose, kompens.</td><td>fast norm</td><td>↑</td><td>↑</td></tr>
+          <tr><td>Resp. Alkalose, akut</td><td>↑</td><td>↓</td><td>norm</td></tr>
+          <tr><td>Resp. Alkalose, kompens.</td><td>fast norm</td><td>↓</td><td>↓</td></tr>
+        </tbody></table>
+        <div class="callout key"><span class="callout-label">★ Merke</span>Respiratorische Störung → <strong>Niere kompensiert über HCO₃⁻</strong> (langsam, Tage). Kompensiert = pCO₂ und HCO₃⁻ zeigen in <em>dieselbe</em> Richtung, pH fast normal.</div>
+      </div></div>
+    </div>
+</section>
+
 
 <div class="weekpanel" id="memo">
   <iframe src="02-bga-normalwerte-memorize.html" style="width:100%;height:80vh;border:1px solid var(--rule);border-radius:12px;background:#fff"></iframe>
