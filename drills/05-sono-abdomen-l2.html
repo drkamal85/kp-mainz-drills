@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sono Abdomen · US-Drill</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F7F4EE; --paper: #FFFFFF; --ink: #1A1A1A;
+    --ink-muted: #5C5C5C; --ink-soft: #8A8A8A; --rule: #E8E2D6;
+    --leber: #C0392B; --leber-soft: #FBEAE7;
+    --galle: #D97706;     --galle-soft: #FDF2E2;
+    --niere: #1E5F9E; --niere-soft: #E5EEF7;
+    --aorta: #2D7A3E;   --aorta-soft: #E3F1E6;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--ink); font-family: 'Fraunces', Georgia, serif; font-size: 16.5px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .container { max-width: 860px; margin: 0 auto; padding: 40px 24px 70px; }
+  .back { display: inline-block; font-family: 'Manrope', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-muted); text-decoration: none; margin-bottom: 22px; }
+  .back:hover { color: var(--ink); }
+  .eyebrow { font-family: 'Manrope', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 12px; }
+  .eyebrow::before { content: "— "; }
+  h1 { font-family: 'Fraunces', serif; font-weight: 600; font-size: clamp(30px, 5vw, 44px); line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 12px; }
+  h1 .accent { font-style: italic; color: var(--niere); }
+  .subtitle { font-family: 'Fraunces', serif; font-style: italic; font-size: 17px; color: var(--ink-muted); margin-bottom: 18px; max-width: 640px; }
+  .meta { font-family: 'Manrope', sans-serif; font-size: 12.5px; color: var(--ink-soft); display: flex; flex-wrap: wrap; gap: 0; align-items: center; margin-bottom: 30px; }
+  .meta span + span::before { content: "•"; margin: 0 12px; }
+  .tabs { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 28px; background: var(--paper); padding: 5px; border-radius: 50px; border: 1px solid var(--rule); }
+  .tab { flex: 1; min-width: 95px; padding: 10px 8px; font-family: 'Manrope', sans-serif; font-size: 11.5px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink-muted); background: transparent; border: none; border-radius: 50px; cursor: pointer; text-align: center; transition: all 0.2s ease; }
+  .tab:hover { color: var(--ink); }
+  .tab.active { color: white; }
+  .tab[data-s="1"].active { background: var(--leber); }
+  .tab[data-s="2"].active { background: var(--galle); }
+  .tab[data-s="3"].active { background: var(--niere); }
+  .tab[data-s="4"].active { background: var(--aorta); }
+  .station { display: none; animation: fadeIn 0.25s ease; }
+  .station.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+  .station-header { display: flex; justify-content: space-between; align-items: flex-end; padding-bottom: 12px; margin-bottom: 22px; border-bottom: 2px solid; gap: 16px; }
+  .station-eyebrow { font-family: 'Fraunces', serif; font-style: italic; font-size: 13px; color: var(--ink-muted); margin-bottom: 4px; }
+  .station-title { font-family: 'Fraunces', serif; font-weight: 600; font-size: 26px; line-height: 1.1; letter-spacing: -0.01em; }
+  .station-tagline { font-family: 'Fraunces', serif; font-style: italic; font-size: 13.5px; color: var(--ink-muted); text-align: right; max-width: 220px; }
+  #s1 .station-header { border-bottom-color: var(--leber); } #s1 .station-title { color: var(--leber); }
+  #s2 .station-header { border-bottom-color: var(--galle); }     #s2 .station-title { color: var(--galle); }
+  #s3 .station-header { border-bottom-color: var(--niere); } #s3 .station-title { color: var(--niere); }
+  #s4 .station-header { border-bottom-color: var(--aorta); }   #s4 .station-title { color: var(--aorta); }
+  .card { background: var(--paper); border: 1px solid var(--rule); border-radius: 12px; margin-bottom: 14px; overflow: hidden; }
+  .card-head { display: flex; justify-content: space-between; align-items: center; padding: 14px 18px; cursor: pointer; gap: 12px; }
+  .card-tag { display: inline-block; font-family: 'Manrope', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; padding: 3px 8px; border-radius: 3px; margin-bottom: 4px; }
+  #s1 .card-tag { background: var(--leber-soft); color: var(--leber); }
+  #s2 .card-tag { background: var(--galle-soft); color: var(--galle); }
+  #s3 .card-tag { background: var(--niere-soft); color: var(--niere); }
+  #s4 .card-tag { background: var(--aorta-soft); color: var(--aorta); }
+  .card-title { font-family: 'Fraunces', serif; font-weight: 500; font-size: 17.5px; line-height: 1.3; }
+  .toggle { font-family: 'Manrope', sans-serif; font-size: 22px; font-weight: 300; color: var(--ink-muted); transition: transform 0.25s ease; flex-shrink: 0; }
+  .card.open .toggle { transform: rotate(45deg); }
+  .card-body { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+  .card.open .card-body { max-height: 4000px; }
+  .card-body-inner { padding: 2px 18px 18px; }
+  h4 { font-family: 'Manrope', sans-serif; font-size: 10.5px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-muted); margin: 14px 0 8px; }
+  .card-body-inner > h4:first-child { margin-top: 4px; }
+  ul { list-style: none; padding-left: 2px; margin-bottom: 10px; }
+  li { position: relative; padding-left: 20px; margin-bottom: 5px; line-height: 1.5; font-size: 15.5px; }
+  li::before { content: ""; position: absolute; left: 5px; top: 9px; width: 6px; height: 6px; border-radius: 50%; }
+  #s1 li::before { background: var(--leber); }
+  #s2 li::before { background: var(--galle); }
+  #s3 li::before { background: var(--niere); }
+  #s4 li::before { background: var(--aorta); }
+  li ul { margin-top: 5px; margin-bottom: 6px; }
+  li ul li::before { width: 5px; height: 5px; border-radius: 0; transform: rotate(45deg); background: var(--ink-soft) !important; top: 11px; }
+  strong { font-weight: 600; }
+  em.h { font-style: normal; background-image: linear-gradient(to top, var(--niere-soft) 60%, transparent 60%); padding: 0 2px; font-weight: 500; }
+  table { width: 100%; border-collapse: collapse; font-family: 'Manrope', sans-serif; font-size: 13.5px; margin: 8px 0 12px; }
+  th { background: #F0EBE0; text-transform: uppercase; font-size: 10px; letter-spacing: 0.12em; color: var(--ink-muted); text-align: left; padding: 8px 10px; font-weight: 700; border-bottom: 1px solid var(--rule); }
+  td { padding: 8px 10px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  .callout { border-left: 3px solid; padding: 12px 16px; margin: 12px 0; border-radius: 0 8px 8px 0; font-family: 'Fraunces', serif; font-style: italic; font-size: 14.5px; line-height: 1.5; }
+  .callout-label { font-family: 'Manrope', sans-serif; font-style: normal; font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; display: block; margin-bottom: 5px; }
+  .callout.critical { border-color: var(--leber); background: var(--leber-soft); } .callout.critical .callout-label { color: var(--leber); }
+  .callout.warning { border-color: var(--galle); background: var(--galle-soft); } .callout.warning .callout-label { color: var(--galle); }
+  .callout.fact { border-color: var(--niere); background: var(--niere-soft); } .callout.fact .callout-label { color: var(--niere); }
+  .qa { background: var(--niere-soft); border-left: 4px solid var(--niere); border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 12px 0; }
+  .qa .q { font-family: 'Manrope', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--niere); display: block; margin-bottom: 5px; }
+  .qa .q-text { font-family: 'Fraunces', serif; font-style: italic; font-size: 15px; margin-bottom: 8px; }
+  .qa .a { border-top: 1px dashed var(--rule); padding-top: 8px; font-size: 14.5px; }
+  .qa .a-label { font-family: 'Manrope', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); display: block; margin-bottom: 4px; }
+  footer { margin-top: 50px; padding-top: 20px; border-top: 1px solid var(--rule); font-family: 'Manrope', sans-serif; font-size: 11.5px; color: var(--ink-soft); text-align: center; }
+  @media (max-width: 600px) { .container { padding: 28px 16px 50px; } .station-header { flex-direction: column; align-items: flex-start; } .station-tagline { text-align: left; max-width: none; } .tab { font-size: 10.5px; padding: 9px 6px; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <a href="../index.html" class="back">← Zurück zur Library</a>
+  <header>
+    <div class="eyebrow">Sono / US-Drill · Abdomen</div>
+    <h1>Sono Abdomen<span class="accent"> · Organübersicht</span></h1>
+    <p class="subtitle">Leber · Gallenblase · Milz · Niere · Pankreas · Aorta. Normalbefunde, Messwerte und die Pathologien, die in Mainz gefragt werden.</p>
+    <div class="meta"><span>~ 15 min</span><span>4 Stationen</span><span>Wk2 · L2</span></div>
+  </header>
+  <nav class="tabs">
+    <button class="tab active" data-s="1">01 · Leber/Milz</button>
+    <button class="tab" data-s="2">02 · Galle</button>
+    <button class="tab" data-s="3">03 · Niere/Pankreas</button>
+    <button class="tab" data-s="4">04 · Aorta</button>
+  </nav>
+
+  <!-- STATION 1: LEBER & MILZ -->
+  <section class="station active" id="s1">
+    <div class="station-header"><div><div class="station-eyebrow">Station 01</div><div class="station-title">Leber & Milz</div></div><div class="station-tagline">Maße, Echo, freie Flüssigkeit.</div></div>
+
+    <div class="card open">
+      <div class="card-head"><div><span class="card-tag">Normalbefund</span><div class="card-title">Leber — Schallkopf, Maße, Echo</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <ul>
+          <li><strong>Schallkopf:</strong> Konvexsonde 3,5–5 MHz, subkostal/interkostal rechts, Patient in tiefer Inspiration</li>
+          <li><strong>Maße:</strong> MCL-Durchmesser &lt; <strong>13 cm</strong>; Winkel des linken Leberlappens &lt; 45°, rechter Lappen kaudaler Winkel &lt; 75°</li>
+          <li><strong>Echo:</strong> homogen, mittlere Echogenität — <em class="h">geringgradig echoreicher als die Nierenrinde</em></li>
+          <li><strong>Pfortader:</strong> &lt; 13 mm; <strong>Ductus hepatocholedochus (DHC):</strong> &lt; 7 mm (postcholezystektomie bis 10 mm)</li>
+        </ul>
+        <div class="callout fact">
+          <span class="callout-label">⚙ Steatosis hepatis (Fettleber)</span>
+          Diffus <strong>echoreich („weiße Leber")</strong>, Schallabschwächung nach dorsal, verminderte Darstellbarkeit der Gefäße. Leber deutlich heller als die Niere.
+        </div>
+      </div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div><span class="card-tag">Pathologie</span><div class="card-title">Herdbefunde + Zirrhose</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <table>
+          <thead><tr><th>Befund</th><th>Sono-Bild</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Zyste</strong></td><td>echofrei, glatt begrenzt, dorsale Schallverstärkung</td></tr>
+            <tr><td><strong>Hämangiom</strong></td><td>echoreich, scharf begrenzt (häufigster benigner Tumor)</td></tr>
+            <tr><td><strong>Metastasen</strong></td><td>oft echoarm, „Halo", multipel</td></tr>
+            <tr><td><strong>Zirrhose</strong></td><td>höckrige Oberfläche, inhomogen, Rarefizierung Lebervenen</td></tr>
+          </tbody>
+        </table>
+        <ul>
+          <li><strong>Zirrhose-Zeichen:</strong> verplumpter Leberrand, Aszites, Splenomegalie, rekanalisierte V. umbilicalis (portale Hypertension)</li>
+        </ul>
+      </div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div><span class="card-tag">Milz</span><div class="card-title">Maße + freie Flüssigkeit</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <ul>
+          <li><strong>Normmaße (4-7-11-Regel):</strong> 4 cm dick × 7 cm breit × 11 cm lang</li>
+          <li><strong>Splenomegalie</strong> ab &gt; 12 cm Länge — portale Hypertension, hämatolog. Erkrankungen, Infektionen</li>
+          <li><strong>Koller-Pouch</strong> (subphrenisch links) + <strong>Morrison-Pouch</strong> (hepatorenal rechts) = tiefste Punkte für freie Flüssigkeit im Liegen</li>
+        </ul>
+        <div class="qa">
+          <span class="q">Prüfer-Frage</span>
+          <div class="q-text">Wo sammelt sich freie Flüssigkeit im Abdomen zuerst?</div>
+          <div class="a"><span class="a-label">Ideale Antwort</span>Im Liegen im <strong>Morrison-Pouch</strong> (hepatorenaler Raum, rechts) und im <strong>Douglas-Raum</strong> (kleines Becken, tiefster Punkt). FAST-relevant beim Trauma.</div>
+        </div>
+      </div></div>
+    </div>
+  </section>
+
+  <!-- STATION 2: GALLENBLASE & GALLENWEGE -->
+  <section class="station" id="s2">
+    <div class="station-header"><div><div class="station-eyebrow">Station 02</div><div class="station-title">Gallenblase & Wege</div></div><div class="station-tagline">Steine, Wandverdickung, Stau.</div></div>
+
+    <div class="card open">
+      <div class="card-head"><div><span class="card-tag">Normalbefund</span><div class="card-title">Gallenblase nüchtern</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <ul>
+          <li>Nüchtern gefüllt, echofreies Lumen, <strong>Wand &lt; 3 mm</strong>, Länge &lt; 10 cm</li>
+          <li>Untersuchung <strong>nüchtern</strong> (≥ 6 h) — postprandial kontrahiert, nicht beurteilbar</li>
+        </ul>
+      </div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div><span class="card-tag">Konkremente</span><div class="card-title">Gallenstein — die Trias</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <ul>
+          <li><strong>Echoreiches Binnenreflex</strong> + <strong>dorsale Schallauslöschung (Schallschatten)</strong> + <strong>Lageabhängigkeit</strong> (beweglich)</li>
+        </ul>
+        <div class="callout warning">
+          <span class="callout-label">⚠ Akute Cholezystitis</span>
+          <strong>Wandverdickung &gt; 3 mm</strong>, Dreischichtung der Wand, perivesikale Flüssigkeit, <strong>sonografisches Murphy-Zeichen</strong> (Schmerz beim Aufsetzen des Schallkopfs auf die GB).
+        </div>
+      </div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div><span class="card-tag">Cholestase</span><div class="card-title">Gestaute Gallenwege</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <ul>
+          <li><strong>DHC &gt; 7 mm</strong> = Stau (z.B. Choledocholithiasis, Tumor)</li>
+          <li><strong>Doppelflintenphänomen:</strong> erweiterte intrahepatische Gallenwege liegen parallel zur Pfortader → „double-barrel shotgun"</li>
+        </ul>
+        <div class="qa">
+          <span class="q">Prüfer-Frage</span>
+          <div class="q-text">Was bedeutet das Doppelflintenphänomen?</div>
+          <div class="a"><span class="a-label">Ideale Antwort</span>Erweiterte intrahepatische Gallengänge verlaufen <strong>parallel zum Pfortaderast</strong> → zwei echoarme Tubuli nebeneinander = <strong>intrahepatische Cholestase</strong>. Hinweis auf Abflussstörung distal.</div>
+        </div>
+      </div></div>
+    </div>
+  </section>
+
+  <!-- STATION 3: NIERE & PANKREAS -->
+  <section class="station" id="s3">
+    <div class="station-header"><div><div class="station-eyebrow">Station 03</div><div class="station-title">Niere & Pankreas</div></div><div class="station-tagline">Stau, Steine, Verquellung.</div></div>
+
+    <div class="card open">
+      <div class="card-head"><div><span class="card-tag">Niere</span><div class="card-title">Normalbefund + Maße</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <ul>
+          <li><strong>Maße:</strong> ~10–12 cm lang, Parenchymsaum &gt; 13 mm</li>
+          <li><strong>Echo:</strong> Rinde echoärmer als Leber/Milz; <em class="h">echoreiches zentrales Pyelon (Sinus renalis)</em></li>
+          <li>Atemverschieblich, glatte Kontur</li>
+        </ul>
+      </div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div><span class="card-tag">Pathologie</span><div class="card-title">Stauung + Steine</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <h4>Harnstau (Hydronephrose) — Gradeinteilung</h4>
+        <ul>
+          <li><strong>Grad I:</strong> erweitertes Nierenbecken</li>
+          <li><strong>Grad II:</strong> + erweiterte Kelche, Papillen erhalten</li>
+          <li><strong>Grad III:</strong> ballonierte Kelche, Papillen verstrichen</li>
+          <li><strong>Grad IV:</strong> + Parenchymverschmälerung</li>
+        </ul>
+        <ul>
+          <li><strong>Konkrement:</strong> echoreich + dorsaler Schallschatten; indirekt: gestautes System</li>
+          <li><strong>Zyste:</strong> echofrei, dorsale Schallverstärkung (Bosniak-Klassifikation für Komplexität)</li>
+        </ul>
+      </div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div><span class="card-tag">Pankreas</span><div class="card-title">Schwer einsehbar — Leitstrukturen</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <ul>
+          <li>Quer-Schnitt im Epigastrium; <strong>Leitgefäße: V. lienalis</strong> (dorsal des Pankreas), A. mesenterica superior, Aorta</li>
+          <li>Echo normal: <strong>etwas echoreicher als die Leber</strong>; oft durch Darmgas überlagert</li>
+        </ul>
+        <div class="callout warning">
+          <span class="callout-label">⚠ Akute Pankreatitis</span>
+          Organ <strong>vergrößert, echoarm (Ödem)</strong>, unscharf begrenzt, ggf. freie Flüssigkeit/Nekrosestraßen. CT bei Komplikationsverdacht überlegen.
+        </div>
+        <div class="qa">
+          <span class="q">Prüfer-Frage</span>
+          <div class="q-text">Warum ist das Pankreas sonografisch oft schlecht beurteilbar?</div>
+          <div class="a"><span class="a-label">Ideale Antwort</span><strong>Überlagerung durch Darmgas</strong> (retroperitoneale Lage hinter Magen/Querkolon). Abhilfe: nüchtern untersuchen, Wasser trinken lassen, an Leitgefäßen orientieren.</div>
+        </div>
+      </div></div>
+    </div>
+  </section>
+
+  <!-- STATION 4: AORTA -->
+  <section class="station" id="s4">
+    <div class="station-header"><div><div class="station-eyebrow">Station 04</div><div class="station-title">Aorta abdominalis</div></div><div class="station-tagline">Aneurysma ab 3 cm.</div></div>
+
+    <div class="card open">
+      <div class="card-head"><div><span class="card-tag">Normalbefund</span><div class="card-title">Messen im Querschnitt</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <ul>
+          <li>Längs- + Querschnitt epigastrisch/paraumbilikal, <strong>Außenwand-zu-Außenwand</strong> messen</li>
+          <li><strong>Normaler Durchmesser &lt; 2,5 cm</strong> (infrarenal); pulsatil, echofreies Lumen</li>
+          <li>Verlauf: links der V. cava inferior, Aufzweigung in die Aa. iliacae bei L4</li>
+        </ul>
+      </div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div><span class="card-tag">Aneurysma</span><div class="card-title">AAA — Schwellenwerte</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <ul>
+          <li><strong>Aneurysma: Durchmesser &gt; 3 cm</strong></li>
+          <li>OP-Indikation (elektiv): <strong>&gt; 5,5 cm</strong>, Wachstum &gt; 1 cm/Jahr oder Symptome</li>
+          <li>Oft <strong>randständiges hypodenses Thrombusmaterial</strong> im erweiterten Lumen</li>
+        </ul>
+        <div class="callout critical">
+          <span class="callout-label">▲ Ruptur</span>
+          Vernichtungsschmerz + hypovolämischer Schock + pulsierender Tumor → <strong>Notfall</strong>. Freie Flüssigkeit retroperitoneal. Keine Zeit verlieren.
+        </div>
+        <div class="qa">
+          <span class="q">Prüfer-Frage</span>
+          <div class="q-text">Ab welchem Durchmesser sprechen Sie von einem Bauchaortenaneurysma, und ab wann wird operiert?</div>
+          <div class="a"><span class="a-label">Ideale Antwort</span>Aneurysma ab <strong>&gt; 3 cm</strong>. Elektive OP/EVAR ab <strong>5,5 cm</strong>, bei Wachstum &gt; 1 cm/Jahr oder Symptomen — sonst sonografische Verlaufskontrolle.</div>
+        </div>
+      </div></div>
+    </div>
+  </section>
+
+  <footer>KP-Mainz Drills · Sono Abdomen (Wk2 · L2) · Leber/Galle/Milz/Niere/Pankreas/Aorta · Stex Lernkarten + Mainz-Protokolle</footer>
+</div>
+<script>
+  const tabs = document.querySelectorAll('.tab');
+  const stations = document.querySelectorAll('.station');
+  tabs.forEach(tab => { tab.addEventListener('click', () => {
+    tabs.forEach(t => t.classList.remove('active'));
+    stations.forEach(s => s.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('s' + tab.dataset.s).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }); });
+  document.querySelectorAll('.card-head').forEach(head => { head.addEventListener('click', () => head.closest('.card').classList.toggle('open')); });
+</script>
+</body>
+</html>
