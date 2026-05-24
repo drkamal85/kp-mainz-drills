@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BGA Drill Wk1 · L1 — Systematische Auswertung + Normalwerte</title>
+<title>BGA Komplett · Blutgasanalyse</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -556,21 +556,20 @@
 
   <header>
     <div class="eyebrow">BGA Drill · Woche 1 · Level 1</div>
-    <h1>Systematische <span class="accent">Auswertung</span><br>+ Normalwerte</h1>
-    <p class="subtitle">Der saubere 5-Schritt-Algorithmus, die Normalwerte aus dem Kopf, und Mustererkennung an realen Konstellationen — die Grundlage für jede klinische BGA-Frage in der Prüfung.</p>
-    <div class="meta">
-      <span>~ 15 min</span>
-      <span>4 Stationen</span>
-      <span>Inkl. 6 Mini-Cases</span>
-      <span>KP Mainz</span>
-    </div>
+    <h1>Blutgas<span class="accent">analyse</span><br>Komplettskript</h1>
+    <p class="subtitle">Von Probenahme und Normalwerten bis zu den respiratorischen Störungen. Alles auf einer Seite, 8 Stationen.</p>
+    <div class="meta"><span>~ 25 min</span><span>8 Stationen</span><span>Wk1 + Wk2</span></div>
   </header>
 
   <nav class="tabs">
-    <button class="tab active" data-station="1">01 · Grundlagen</button>
+    <button class="tab active" data-station="1">01 · Probenahme</button>
     <button class="tab" data-station="2">02 · Parameter</button>
-    <button class="tab" data-station="3">03 · Auswertung</button>
-    <button class="tab" data-station="4">04 · Anwendung</button>
+    <button class="tab" data-station="3">03 · Algorithmus</button>
+    <button class="tab" data-station="4">04 · Mini-Cases</button>
+    <button class="tab" data-station="5">05 · Resp. Grundlagen</button>
+    <button class="tab" data-station="6">06 · Resp. Azidose</button>
+    <button class="tab" data-station="7">07 · Resp. Alkalose</button>
+    <button class="tab" data-station="8">08 · Kompensation</button>
   </nav>
 
   <!-- STATION 1: GRUNDLAGEN -->
@@ -676,8 +675,7 @@
     </div>
   </section>
 
-  <!-- STATION 2: PARAMETER -->
-  <section class="station" id="s2">
+<section class="station" id="s2">
     <div class="station-header">
       <div class="station-header-left">
         <div class="station-eyebrow">Station 02</div>
@@ -817,8 +815,7 @@
     </div>
   </section>
 
-  <!-- STATION 3: AUSWERTUNG -->
-  <section class="station" id="s3">
+<section class="station" id="s3">
     <div class="station-header">
       <div class="station-header-left">
         <div class="station-eyebrow">Station 03</div>
@@ -932,8 +929,7 @@
     </div>
   </section>
 
-  <!-- STATION 4: ANWENDUNG -->
-  <section class="station" id="s4">
+<section class="station" id="s4">
     <div class="station-header">
       <div class="station-header-left">
         <div class="station-eyebrow">Station 04</div>
@@ -1026,6 +1022,171 @@
         <div class="callout pearl">
           <span class="callout-label">★ Prüfer-Perle</span>
           In Mainz ist die <strong>BGA-Auswertung am Patientenbett</strong> Standardstoff. Wer den 5-Schritt-Algorithmus laut und in dieser Reihenfolge abspult, signalisiert sofort klinische Sicherheit — auch wenn der Fall am Ende komplex wird. <em>Reihenfolge schlägt Geschwindigkeit.</em>
+        </div>
+      </div></div>
+    </div>
+  </section>
+
+<section class="station" id="s5">
+    <div class="station-header"><div><div class="station-eyebrow">Station 01</div><div class="station-title">Grundlagen</div></div><div class="station-tagline">Normwerte + die Logik.</div></div>
+
+    <div class="card open">
+      <div class="card-head"><div><span class="card-tag">Normwerte</span><div class="card-title">Die vier Schlüsselwerte</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <table>
+          <thead><tr><th>Parameter</th><th>Normbereich</th></tr></thead>
+          <tbody>
+            <tr><td><strong>pH</strong></td><td>7,36 – 7,44</td></tr>
+            <tr><td><strong>pCO₂</strong></td><td>35 – 45 mmHg</td></tr>
+            <tr><td><strong>HCO₃⁻</strong></td><td>22 – 26 mmol/l</td></tr>
+            <tr><td><strong>BE (Base Excess)</strong></td><td>−2 bis +2 mmol/l</td></tr>
+          </tbody>
+        </table>
+        <div class="callout fact">
+          <span class="callout-label">⚙ Wer ist wer</span>
+          <strong>pCO₂ = respiratorisch</strong> (Lunge). <strong>HCO₃⁻ / BE = metabolisch</strong> (Niere/Stoffwechsel). Diese Zuordnung trägt die ganze BGA-Interpretation.
+        </div>
+      </div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div><span class="card-tag">Kernlogik</span><div class="card-title">Wie pCO₂ den pH bestimmt</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <ul>
+          <li>CO₂ + H₂O ⇌ H₂CO₃ ⇌ H⁺ + HCO₃⁻ (Kohlensäure-Bicarbonat-Puffer)</li>
+          <li><strong>pCO₂ ↑ → mehr H⁺ → pH ↓ (Azidose)</strong></li>
+          <li><strong>pCO₂ ↓ → weniger H⁺ → pH ↑ (Alkalose)</strong></li>
+        </ul>
+        <div class="callout fact">
+          <span class="callout-label">⚙ Eselsbrücke</span>
+          <strong>Respiratorisch: pH und pCO₂ laufen gegensätzlich</strong> (pH↓/pCO₂↑ = Azidose). Bei metabolischen Störungen laufen pH und HCO₃⁻ <em>gleichsinnig</em>.
+        </div>
+      </div></div>
+    </div>
+  </section>
+
+<section class="station" id="s6">
+    <div class="station-header"><div><div class="station-eyebrow">Station 02</div><div class="station-title">Respiratorische Azidose</div></div><div class="station-tagline">Hypoventilation → pCO₂ ↑.</div></div>
+
+    <div class="card open">
+      <div class="card-head"><div><span class="card-tag">Definition</span><div class="card-title">pH ↓ · pCO₂ ↑</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <ul>
+          <li><strong>pH &lt; 7,36 + pCO₂ &gt; 45 mmHg</strong></li>
+          <li>Grundmechanismus: <strong>alveoläre Hypoventilation</strong> → CO₂ wird nicht abgeatmet (Hyperkapnie)</li>
+        </ul>
+      </div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div><span class="card-tag">Ursachen</span><div class="card-title">Wo die Ventilation versagt</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <table>
+          <thead><tr><th>Ebene</th><th>Beispiele</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Lunge/Atemwege</strong></td><td>COPD (häufigste!), schweres Asthma, Lungenödem, Pneumonie</td></tr>
+            <tr><td><strong>Atemantrieb (zentral)</strong></td><td>Opioide/Sedativa, Hirnstammläsion, O₂-Gabe bei chron. Hyperkapnie</td></tr>
+            <tr><td><strong>Atempumpe</strong></td><td>Thoraxtrauma, Kyphoskoliose, neuromuskulär (Guillain-Barré, Myasthenie)</td></tr>
+          </tbody>
+        </table>
+        <div class="callout warning">
+          <span class="callout-label">⚠ COPD & O₂</span>
+          Bei chronischer Hyperkapnie wirkt der niedrige O₂ als Atemantrieb → <strong>unkontrollierte O₂-Gabe (&gt;2 l/min) kann den Antrieb dämpfen</strong> → CO₂-Narkose. Ziel-SpO₂ 88–92 %.
+        </div>
+        <div class="qa">
+          <span class="q">Prüfer-Frage</span>
+          <div class="q-text">BGA: pH 7,28 · pCO₂ 60 · HCO₃⁻ 26. Wie lautet die Diagnose?</div>
+          <div class="a"><span class="a-label">Ideale Antwort</span><strong>Akute (nicht-kompensierte) respiratorische Azidose</strong> — pH↓, pCO₂↑, HCO₃⁻ noch normal (Niere hatte keine Zeit zu kompensieren). Typisch bei akuter Hypoventilation, z.B. Opioidüberdosis.</div>
+        </div>
+      </div></div>
+    </div>
+  </section>
+
+<section class="station" id="s7">
+    <div class="station-header"><div><div class="station-eyebrow">Station 03</div><div class="station-title">Respiratorische Alkalose</div></div><div class="station-tagline">Hyperventilation → pCO₂ ↓.</div></div>
+
+    <div class="card open">
+      <div class="card-head"><div><span class="card-tag">Definition</span><div class="card-title">pH ↑ · pCO₂ ↓</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <ul>
+          <li><strong>pH &gt; 7,44 + pCO₂ &lt; 35 mmHg</strong></li>
+          <li>Grundmechanismus: <strong>alveoläre Hyperventilation</strong> → zu viel CO₂ abgeatmet (Hypokapnie)</li>
+        </ul>
+      </div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div><span class="card-tag">Ursachen</span><div class="card-title">Was zum Hyperventilieren treibt</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <ul>
+          <li><strong>Psychogen:</strong> Angst, Panik, Schmerz (häufigste Ursache)</li>
+          <li><strong>Hypoxämie-Antwort:</strong> Lungenembolie, Pneumonie, Höhe, beginnendes Lungenödem</li>
+          <li><strong>Zentral:</strong> Fieber, Sepsis, SHT, Enzephalitis, Salicylat-Intoxikation (frühe Phase)</li>
+          <li><strong>Iatrogen:</strong> übermäßige maschinelle Beatmung</li>
+        </ul>
+        <div class="callout fact">
+          <span class="callout-label">⚙ Hyperventilationstetanie</span>
+          Akute resp. Alkalose → ionisiertes Ca²⁺ ↓ → <strong>Parästhesien, Pfötchenstellung</strong>. Therapie: Beruhigung, CO₂-Rückatmung (Tüte). DD beachten — erst LAE ausschließen!
+        </div>
+        <div class="qa">
+          <span class="q">Prüfer-Frage</span>
+          <div class="q-text">Junge Patientin, akute Dyspnoe, Kribbeln in den Händen. BGA: pH 7,50 · pCO₂ 28 · HCO₃⁻ 23. Was steckt dahinter — und was dürfen Sie nicht übersehen?</div>
+          <div class="a"><span class="a-label">Ideale Antwort</span><strong>Akute respiratorische Alkalose</strong>, am ehesten Hyperventilation. Aber: <strong>Lungenembolie zuerst ausschließen</strong> (Wells-Score, D-Dimer) — die LAE macht ebenfalls Hyperventilation + Hypokapnie.</div>
+        </div>
+      </div></div>
+    </div>
+  </section>
+
+<section class="station" id="s8">
+    <div class="station-header"><div><div class="station-eyebrow">Station 04</div><div class="station-title">Kompensation</div></div><div class="station-tagline">Die Niere antwortet — langsam.</div></div>
+
+    <div class="card open">
+      <div class="card-head"><div><span class="card-tag">Prinzip</span><div class="card-title">Wer kompensiert wen?</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <ul>
+          <li><strong>Respiratorische Störung → renale Kompensation</strong> über HCO₃⁻ (langsam, Stunden–Tage)</li>
+          <li><strong>Azidose:</strong> Niere <em>retiniert</em> HCO₃⁻ → HCO₃⁻ ↑ hebt pH zurück</li>
+          <li><strong>Alkalose:</strong> Niere <em>scheidet</em> HCO₃⁻ aus → HCO₃⁻ ↓ senkt pH zurück</li>
+        </ul>
+        <div class="callout fact">
+          <span class="callout-label">⚙ Faustregel akut vs. chronisch</span>
+          <strong>Akut:</strong> HCO₃⁻ noch normal, pH deutlich entgleist. <strong>Chronisch (kompensiert):</strong> HCO₃⁻ gleichsinnig verschoben, pH (fast) normalisiert. Kompensation normalisiert den pH nie ganz.
+        </div>
+      </div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div><span class="card-tag">★ Befundmuster</span><div class="card-title">Die Tabelle zum Auswendiglernen</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <table>
+          <thead><tr><th>Störung</th><th>pH</th><th>pCO₂</th><th>HCO₃⁻</th></tr></thead>
+          <tbody>
+            <tr><td>Resp. Azidose, akut</td><td>↓</td><td><strong>↑</strong></td><td>normal</td></tr>
+            <tr><td>Resp. Azidose, kompensiert</td><td>(fast) normal</td><td><strong>↑</strong></td><td>↑</td></tr>
+            <tr><td>Resp. Alkalose, akut</td><td>↑</td><td><strong>↓</strong></td><td>normal</td></tr>
+            <tr><td>Resp. Alkalose, kompensiert</td><td>(fast) normal</td><td><strong>↓</strong></td><td>↓</td></tr>
+          </tbody>
+        </table>
+        <div class="callout fact">
+          <span class="callout-label">⚙ Trick</span>
+          Bei <strong>respiratorischen</strong> Störungen zeigen pCO₂ und HCO₃⁻ in <em>dieselbe</em> Richtung, sobald kompensiert wird (beide ↑ oder beide ↓). Gegensätzliche Richtung → gemischte Störung.
+        </div>
+      </div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div><span class="card-tag">4-Schritt</span><div class="card-title">Jede BGA systematisch ablesen</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <ul>
+          <li><strong>1. pH?</strong> &lt;7,36 Azidose · &gt;7,44 Alkalose</li>
+          <li><strong>2. pCO₂?</strong> passt es zum pH (gegensätzlich) → respiratorisch</li>
+          <li><strong>3. HCO₃⁻/BE?</strong> passt es zum pH (gleichsinnig) → metabolisch</li>
+          <li><strong>4. Kompensation?</strong> der „andere" Wert verschoben → kompensiert/gemischt</li>
+        </ul>
+        <div class="qa">
+          <span class="q">Prüfer-Frage</span>
+          <div class="q-text">COPD-Patient. BGA: pH 7,35 · pCO₂ 60 · HCO₃⁻ 32. Interpretation?</div>
+          <div class="a"><span class="a-label">Ideale Antwort</span><strong>Chronische, (teil-)kompensierte respiratorische Azidose</strong>: pCO₂↑ (resp. Azidose), HCO₃⁻↑ als renale Kompensation, pH nahezu normalisiert. Typisch für die chronische CO₂-Retention bei COPD.</div>
         </div>
       </div></div>
     </div>
