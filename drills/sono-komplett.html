@@ -28,11 +28,13 @@
   .subtitle { font-family: 'Fraunces', serif; font-style: italic; font-size: 17px; color: var(--ink-muted); margin-bottom: 18px; max-width: 600px; }
   .meta { font-family: 'Manrope', sans-serif; font-size: 12.5px; color: var(--ink-soft); display: flex; flex-wrap: wrap; gap: 0; align-items: center; margin-bottom: 28px; }
   .meta span + span::before { content: "•"; margin: 0 12px; }
-  /* sticky chapter nav */
-  .toc { position: sticky; top: 0; z-index: 10; background: rgba(247,244,238,0.92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); padding: 10px 0; margin-bottom: 8px; border-bottom: 1px solid var(--rule); display: flex; flex-wrap: wrap; gap: 6px; }
-  .toc a { font-family: 'Manrope', sans-serif; font-size: 11.5px; font-weight: 600; letter-spacing: 0.03em; color: var(--ink-muted); text-decoration: none; padding: 5px 11px; border-radius: 50px; border: 1px solid var(--rule); background: var(--paper); transition: all 0.15s; }
-  .toc a:hover { color: white; background: var(--accent); border-color: var(--accent); }
-  .chapter { margin-top: 44px; scroll-margin-top: 60px; }
+  .tabs { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 28px; background: var(--paper); padding: 5px; border-radius: 50px; border: 1px solid var(--rule); }
+  .tab { flex: 1; min-width: 120px; padding: 11px 8px; font-family: 'Manrope', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink-muted); background: transparent; border: none; border-radius: 50px; cursor: pointer; text-align: center; transition: all 0.2s ease; }
+  .tab:hover { color: var(--ink); }
+  .tab.active { color: white; background: var(--accent); }
+  .chapter { display: none; animation: fadeIn 0.25s ease; }
+  .chapter.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
   .chapter-head { display: flex; align-items: baseline; gap: 12px; padding-bottom: 10px; margin-bottom: 18px; border-bottom: 2px solid var(--accent); }
   .chapter-num { font-family: 'Manrope', sans-serif; font-size: 12px; font-weight: 800; letter-spacing: 0.1em; color: white; background: var(--accent); padding: 3px 9px; border-radius: 5px; }
   .chapter-title { font-family: 'Fraunces', serif; font-weight: 600; font-size: 25px; color: var(--accent); }
@@ -80,13 +82,13 @@
     <div class="meta"><span>Wächst laufend</span><span>aktuell 2 Kapitel</span></div>
   </header>
 
-  <nav class="toc">
-    <a href="#k1">1 · Grundlagen</a>
-    <a href="#k2">2 · Systematik</a>
+  <nav class="tabs">
+    <button class="tab active" data-k="k1">1 · Grundlagen</button>
+    <button class="tab" data-k="k2">2 · Systematik</button>
   </nav>
 
   <!-- KAPITEL 1: GRUNDLAGEN -->
-  <section class="chapter" id="k1">
+  <section class="chapter active" id="k1">
     <div class="chapter-head"><span class="chapter-num">1</span><span class="chapter-title">Grundlagen — Knobology & Bild</span></div>
 
     <div class="card open">
@@ -221,6 +223,15 @@
   <footer>KP-Mainz Drills · Sono Komplettskript · wächst Kapitel für Kapitel · Grundlagen + Systematik</footer>
 </div>
 <script>
+  const tabs = document.querySelectorAll('.tab');
+  const chapters = document.querySelectorAll('.chapter');
+  tabs.forEach(tab => { tab.addEventListener('click', () => {
+    tabs.forEach(t => t.classList.remove('active'));
+    chapters.forEach(c => c.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById(tab.dataset.k).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }); });
   document.querySelectorAll('.card-head').forEach(head => { head.addEventListener('click', () => head.closest('.card').classList.toggle('open')); });
 </script>
 </body>
