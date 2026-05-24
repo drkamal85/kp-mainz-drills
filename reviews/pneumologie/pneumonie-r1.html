@@ -246,50 +246,69 @@
 
   <!-- STATION 4: THERAPIE -->
   <section class="station" id="s4">
-    <div class="station-header"><div><div class="station-eyebrow">Station 04</div><div class="station-title">Therapie</div></div><div class="station-tagline">Kalkulierte Antibiose nach Schwere.</div></div>
+    <div class="station-header"><div><div class="station-eyebrow">Station 04</div><div class="station-title">Therapie</div></div><div class="station-tagline">Eine Tabelle, drei Merksätze.</div></div>
 
     <div class="card open">
-      <div class="card-head"><div><span class="card-tag">Supportiv</span><div class="card-title">Allgemeinmaßnahmen</div></div><span class="toggle">+</span></div>
+      <div class="card-head"><div><span class="card-tag">★ Kerntabelle</span><div class="card-title">CAP-Antibiose nach Schweregrad — auswendig</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <table>
+          <thead><tr><th>Schwere</th><th>Setting</th><th>1. Wahl</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Leicht</strong><br><span style="color:var(--ink-soft);font-size:12px">CRB-65 = 0</span></td><td>ambulant</td><td><strong>Amoxicillin</strong> p.o.<br><span style="color:var(--ink-soft);font-size:12px">+ Clavulansäure bei Risiko</span></td></tr>
+            <tr><td><strong>Mittel</strong><br><span style="color:var(--ink-soft);font-size:12px">CRB-65 = 1–2</span></td><td>stationär</td><td><strong>Ampicillin/Sulbactam</strong> i.v.<br><span style="color:var(--ink-soft);font-size:12px">+ Makrolid</span></td></tr>
+            <tr><td><strong>Schwer</strong><br><span style="color:var(--ink-soft);font-size:12px">CRB-65 ≥ 3 / Schock</span></td><td>Intensiv</td><td><strong>Piperacillin/Tazobactam</strong><br><span style="color:var(--ink-soft);font-size:12px">+ immer Makrolid</span></td></tr>
+          </tbody>
+        </table>
+        <div class="callout fact">
+          <span class="callout-label">✦ Memo-Treppe</span>
+          <strong>Amoxi → Ampi/Sulbactam → Pip/Tazo.</strong> Mit jeder Stufe breiter — und ab „mittel" <strong>immer ein Makrolid</strong> dazu (deckt atypische Erreger: Legionellen, Mykoplasmen).
+        </div>
+      </div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div><span class="card-tag">Sonderfälle</span><div class="card-title">3 Situationen, 3 Antworten</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <table>
+          <thead><tr><th>Situation</th><th>Antibiose</th></tr></thead>
+          <tbody>
+            <tr><td><strong>HAP / Pseudomonas</strong></td><td>Pip/Tazo <em>oder</em> Cefepim/Ceftazidim <em>oder</em> Meropenem</td></tr>
+            <tr><td><strong>MRSA-Verdacht</strong></td><td>+ <strong>Linezolid</strong> oder <strong>Vancomycin</strong></td></tr>
+            <tr><td><strong>Aspiration</strong></td><td>Absaugen + <strong>Ceftriaxon + Clindamycin</strong></td></tr>
+          </tbody>
+        </table>
+        <div class="callout fact">
+          <span class="callout-label">✦ Penicillinallergie</span>
+          Immer Ausweichoption: <strong>Fluorchinolon</strong> (Levofloxacin/Moxifloxacin). Bei leichter CAP auch Makrolid oder Doxycyclin.
+        </div>
+      </div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div><span class="card-tag">Merksätze</span><div class="card-title">Die 3 Sätze, die alles tragen</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <div class="callout critical">
+          <span class="callout-label">▲ 1 · Dauer & Deeskalation</span>
+          Kalkuliert <strong>7–10 Tage</strong> starten → nach Antibiogramm <strong>deeskalieren</strong>.
+        </div>
+        <div class="callout warning">
+          <span class="callout-label">⚠ 2 · Makrolid-Grenze</span>
+          Ab <strong>mittelschwer</strong> kommt <strong>immer ein Makrolid</strong> dazu — gegen atypische Erreger.
+        </div>
+        <div class="callout fact">
+          <span class="callout-label">✦ 3 · Penicillinallergie</span>
+          Antwort ist <strong>fast immer Fluorchinolon</strong>.
+        </div>
+      </div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div><span class="card-tag">Supportiv</span><div class="card-title">Begleitmaßnahmen</div></div><span class="toggle">+</span></div>
       <div class="card-body"><div class="card-body-inner">
         <ul>
           <li>Körperliche Schonung (keine strenge Bettruhe), <strong>Frühmobilisierung + Atemtherapie</strong></li>
-          <li>Ausreichende Flüssigkeit, O₂ bei Hypoxie, Antipyretika (Paracetamol/Ibuprofen)</li>
+          <li>Ausreichend Flüssigkeit, O₂ bei Hypoxie, Antipyretika (Paracetamol/Ibuprofen)</li>
         </ul>
-      </div></div>
-    </div>
-
-    <div class="card">
-      <div class="card-head"><div><span class="card-tag">CAP-Antibiose</span><div class="card-title">Ambulant vs. stationär</div></div><span class="toggle">+</span></div>
-      <div class="card-body"><div class="card-body-inner">
-        <h4>Leicht / ambulant (CRB-65 = 0)</h4>
-        <ul>
-          <li>Ohne Risikofaktoren: <strong>Amoxicillin</strong> p.o. 5–7 Tage</li>
-          <li>Mit Risikofaktoren: <strong>Amoxicillin/Clavulansäure</strong>, ggf. + Makrolid (atypische Erreger)</li>
-          <li>Penicillinallergie: Fluorchinolon (Levofloxacin), Makrolid oder Doxycyclin</li>
-        </ul>
-        <h4>Mittelschwer / stationär</h4>
-        <ul>
-          <li><strong>Ampicillin/Sulbactam</strong> i.v. oder Ceftriaxon/Cefuroxim <strong>+ Makrolid</strong></li>
-        </ul>
-        <h4>Schwer (resp. Insuffizienz / septischer Schock)</h4>
-        <ul>
-          <li><strong>Piperacillin/Tazobactam</strong> oder Ceftriaxon <strong>+ immer Makrolid</strong></li>
-        </ul>
-      </div></div>
-    </div>
-
-    <div class="card">
-      <div class="card-head"><div><span class="card-tag">HAP & Sonderfälle</span><div class="card-title">Pseudomonas, MRSA, Aspiration</div></div><span class="toggle">+</span></div>
-      <div class="card-body"><div class="card-body-inner">
-        <ul>
-          <li><strong>HAP/MRE-Risiko:</strong> pseudomonaswirksames Beta-Lactam (Pip/Tazo, Cefepim/Ceftazidim, Meropenem), ggf. + Fluorchinolon/Aminoglykosid</li>
-          <li><strong>MRSA-Verdacht:</strong> + Linezolid oder Vancomycin</li>
-          <li><strong>Aspirationspneumonie:</strong> Absaugen + Ceftriaxon + Clindamycin</li>
-        </ul>
-        <div class="callout critical">
-          <span class="callout-label">▲ Merke</span>
-          Kalkulierte Antibiose 7–10 Tage starten, nach <strong>Antibiogramm anpassen (Deeskalation)</strong>.
-        </div>
       </div></div>
     </div>
 
