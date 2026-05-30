@@ -104,6 +104,7 @@
   <nav class="tabs">
     <button class="tab active" data-k="k1">Woche 1 · Grundlagen</button>
     <button class="tab" data-k="k2">Woche 2 · Respiratorisch</button>
+    <button class="tab" data-k="k3">Woche 3 · Metabolisch</button>
   </nav>
 
   <!-- KAPITEL 1 -->
@@ -227,7 +228,58 @@
     </div>
   </section>
 
-  <footer>KP-Mainz Drills · BGA Komplettskript · Wk1 Grundlagen + Wk2 Respiratorisch</footer>
+  <!-- KAPITEL 3 -->
+  <section class="chapter" id="k3">
+    <div class="chapter-head"><span class="chapter-num">W3</span><span class="chapter-title">Metabolische Störungen</span></div>
+
+    <div class="card open"><div class="card-head"><div><span class="card-tag">Kernlogik</span><div class="card-title">HCO3- steuert den pH</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <ul>
+          <li><strong>HCO3- down → pH down (Azidose)</strong></li>
+          <li><strong>HCO3- up → pH up (Alkalose)</strong></li>
+        </ul>
+        <div class="callout fact"><span class="callout-label">Kompensation</span>Metabolische Störung → <strong>Lunge kompensiert schnell (Minuten)</strong> über die Atmung. Azidose → Hyperventilation (pCO2 down, Kussmaul-Atmung). Alkalose → Hypoventilation (pCO2 up).</div>
+      </div></div>
+    </div>
+
+    <div class="card open"><div class="card-head"><div><span class="card-tag">★ Anionenlücke</span><div class="card-title">Die AG teilt die Azidose</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <div class="callout fact"><span class="callout-label">★ Formel</span><strong>AG = Na+ − (Cl- + HCO3-). Normal 8–12 mmol/l.</strong> Die Lücke trennt die zwei Azidose-Typen.</div>
+        <table><thead><tr><th>AG erhöht (&gt;12)</th><th>AG normal (hyperchlorämisch)</th></tr></thead><tbody>
+          <tr><td>Säure kommt dazu</td><td>HCO3- geht verloren</td></tr>
+          <tr><td>Laktatazidose (Schock, Sepsis)</td><td>Diarrhö (HCO3--Verlust)</td></tr>
+          <tr><td>Ketoazidose (Diabetes, Hunger, Alkohol)</td><td>Renal-tubuläre Azidose (RTA)</td></tr>
+          <tr><td>Niereninsuffizienz (Urämie)</td><td>Azetazolamid</td></tr>
+          <tr><td>Intoxikation (Methanol, Ethylenglykol, ASS)</td><td></td></tr>
+        </tbody></table>
+        <div class="callout warning"><span class="callout-label">Merkhilfe AG hoch</span><strong>KUSSMAL</strong>: Ketone, Urämie, Salicylat, (S), Methanol, (A), Laktat. Klinik: <strong>Kussmaul-Atmung</strong> als respiratorische Kompensation.</div>
+      </div></div>
+    </div>
+
+    <div class="card open"><div class="card-head"><div><span class="card-tag">Alkalose</span><div class="card-title">Metabolische Alkalose — Ursachen</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <ul>
+          <li><strong>H+-Verlust:</strong> Erbrechen (Magensäure!), Magensonde</li>
+          <li><strong>Diuretika</strong> (Schleifen-/Thiazide) → „Kontraktionsalkalose"</li>
+          <li><strong>Hypokaliämie</strong>, Hyperaldosteronismus (Conn)</li>
+        </ul>
+        <div class="callout fact"><span class="callout-label">Merke</span>Häufigster Auslöser im Alltag: <strong>Erbrechen + Diuretika</strong>. Therapie: Ursache behandeln, Volumen + Kalium/Chlorid ausgleichen.</div>
+      </div></div>
+    </div>
+
+    <div class="card"><div class="card-head"><div><span class="card-tag">Mini-Cases</span><div class="card-title">Erkennen in 30 Sekunden</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <table><thead><tr><th>pH</th><th>HCO3-</th><th>AG</th><th>Diagnose</th></tr></thead><tbody>
+          <tr><td>down</td><td>down</td><td>hoch</td><td>metab. Azidose (Laktat/Keto/Urämie)</td></tr>
+          <tr><td>down</td><td>down</td><td>normal</td><td>metab. Azidose (Diarrhö/RTA)</td></tr>
+          <tr><td>up</td><td>up</td><td>—</td><td>metab. Alkalose (Erbrechen/Diuretika)</td></tr>
+        </tbody></table>
+        <div class="callout key"><span class="callout-label">★ Reflex</span>Metabolische Azidose erkannt → <strong>immer die Anionenlücke berechnen</strong> → hoch vs. normal entscheidet die Ursachensuche.</div>
+      </div></div>
+    </div>
+  </section>
+
+  <footer>KP-Mainz Drills · BGA Komplettskript · Wk1 Grundlagen + Wk2 Respiratorisch + Wk3 Metabolisch</footer>
 </div>
 <script>
   const tabs = document.querySelectorAll('.tab');
