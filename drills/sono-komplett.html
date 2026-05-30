@@ -85,6 +85,7 @@
   <nav class="tabs">
     <button class="tab active" data-k="k1">1 · Grundlagen</button>
     <button class="tab" data-k="k2">2 · Systematik</button>
+    <button class="tab" data-k="k3">3 · FAST</button>
   </nav>
 
   <!-- KAPITEL 1: GRUNDLAGEN -->
@@ -220,7 +221,58 @@
     </div>
   </section>
 
-  <footer>KP-Mainz Drills · Sono Komplettskript · wächst Kapitel für Kapitel · Grundlagen + Systematik</footer>
+  <!-- KAPITEL 3: FAST -->
+  <section class="chapter" id="k3">
+    <div class="chapter-head"><span class="chapter-num">3</span><span class="chapter-title">FAST — Notfallsono im Trauma</span></div>
+
+    <div class="card open"><div class="card-head"><div><span class="card-tag">★ Konzept</span><div class="card-title">Was FAST beantwortet</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <div class="callout key"><span class="callout-label">★ Merksatz</span><strong>FAST = Focused Assessment with Sonography for Trauma.</strong> Eine einzige Frage: <strong>freie Flüssigkeit (= Blut) im Bauch, Herzbeutel oder Thorax — ja oder nein?</strong></div>
+        <ul>
+          <li>Schnell, am Schockraum-Bett, beim instabilen Trauma-Patienten</li>
+          <li>Sucht <strong>freie Flüssigkeit</strong> (echofrei/schwarz), nicht einzelne Organverletzungen</li>
+          <li><strong>Positiv + instabil → sofort OP</strong> (keine Zeit fürs CT)</li>
+        </ul>
+        <div class="callout warn"><span class="callout-label">⚙ Grenze</span>Ein <strong>negatives FAST schließt nichts aus</strong> (Retroperitoneum, Hohlorgan, früh) → bei Verdacht trotzdem CT, wenn stabil.</div>
+      </div></div>
+    </div>
+
+    <div class="card open"><div class="card-head"><div><span class="card-tag">★ 4 Fenster</span><div class="card-title">Die 4 Schallpunkte</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <div class="callout key"><span class="callout-label">★ Merksatz</span><strong>RUQ (Morrison) · LUQ (Koller/perisplenisch) · suprapubisch (Douglas) · subxiphoidal (Perikard).</strong></div>
+        <table><thead><tr><th>Fenster</th><th>Tiefster Punkt / sucht</th></tr></thead><tbody>
+          <tr><td><strong>RUQ rechts</strong></td><td><strong>Morrison-Pouch</strong> (hepatorenal) — tiefster Punkt im Liegen, sammelt zuerst</td></tr>
+          <tr><td><strong>LUQ links</strong></td><td><strong>Koller-Pouch</strong> (perisplenisch/subphrenisch)</td></tr>
+          <tr><td><strong>Suprapubisch</strong></td><td><strong>Douglas-Raum</strong> (hinter Blase, tiefster Punkt Becken)</td></tr>
+          <tr><td><strong>Subxiphoidal</strong></td><td><strong>Perikarderguss</strong> (Herzbeutel)</td></tr>
+        </tbody></table>
+        <div class="callout fact"><span class="callout-label">⚙ Befund</span>Freie Flüssigkeit = <strong>echofreier (schwarzer) Saum</strong> zwischen den Organen. Im Morrison-Pouch zuerst sichtbar.</div>
+      </div></div>
+    </div>
+
+    <div class="card open"><div class="card-head"><div><span class="card-tag">eFAST</span><div class="card-title">+ Thorax (extended FAST)</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <div class="callout key"><span class="callout-label">★ Merksatz</span><strong>eFAST = FAST + Pleura beidseits.</strong> Sucht zusätzlich <strong>Pneumothorax</strong> (fehlendes Pleuragleiten) und <strong>Hämatothorax</strong> (Flüssigkeit über dem Zwerchfell).</div>
+        <ul>
+          <li><strong>Pneumothorax:</strong> aufgehobenes „Pleuragleiten", fehlende B-Linien; im M-Mode „Barcode-Zeichen" statt „Seashore"</li>
+          <li><strong>Hämato-/Pleuraerguss:</strong> echofreier Saum oberhalb des Zwerchfells</li>
+        </ul>
+        <div class="callout warn"><span class="callout-label">⚠ Perikardtamponade</span>Perikarderguss + Kreislaufinstabilität → <strong>Notfall</strong>; subxiphoidales Fenster ist hier lebensrettend.</div>
+      </div></div>
+    </div>
+
+    <div class="card"><div class="card-head"><div><span class="card-tag">KP-Frage</span><div class="card-title">Prüfer-Q&A</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <div class="qa">
+          <span class="q">Prüfer-Frage</span>
+          <div class="q-text">Polytrauma, instabil, FAST zeigt freie Flüssigkeit im Morrison-Pouch — was tun Sie?</div>
+          <div class="a"><span class="a-label">Ideale Antwort</span><strong>Positives FAST + instabiler Patient → sofortige Notfall-Laparotomie</strong>, kein CT abwarten. Parallel Schockraum-Versorgung (Volumen, Blut, Stillung). Stabil + positiv → CT zur Lokalisation.</div>
+        </div>
+      </div></div>
+    </div>
+  </section>
+
+  <footer>KP-Mainz Drills · Sono Komplettskript · wächst Kapitel für Kapitel · Grundlagen + Systematik + FAST</footer>
 </div>
 <script>
   const tabs = document.querySelectorAll('.tab');
