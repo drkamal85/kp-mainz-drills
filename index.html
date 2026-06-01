@@ -102,6 +102,22 @@
     }
     .tab.on .tab-ct { background: var(--blue-bg); color: var(--blue); }
 
+    /* ── Specialty filter pills ──────────────── */
+    .spe-nav {
+      display: flex; flex-wrap: wrap; gap: 8px;
+      margin-bottom: 32px;
+    }
+    .spe-pill {
+      padding: 7px 14px; font-size: 13px; font-weight: 500;
+      color: var(--t2); background: var(--surface-2);
+      border: 1px solid var(--border); border-radius: 999px;
+      cursor: pointer; white-space: nowrap; user-select: none;
+      transition: background 0.12s, color 0.12s, border-color 0.12s;
+    }
+    .spe-pill:hover { border-color: var(--blue); color: var(--blue); }
+    .spe-pill.on { background: var(--blue); color: #fff; border-color: var(--blue); }
+    .spe[hidden] { display: none !important; }
+
     /* ── Section ─────────────────────────────── */
     .sec { margin-bottom: 56px; }
     .sec[hidden] { display: none !important; }
@@ -358,8 +374,18 @@
   <section class="sec" data-s="reviews">
     <p class="sec-lbl">Themen-Reviews — 15 Einheiten</p>
 
+    <!-- Specialty filter buttons -->
+    <nav class="spe-nav" id="speNav">
+      <button class="spe-pill on" data-spe="all">Alle Fächer</button>
+      <button class="spe-pill" data-spe="kardio">Kardiologie</button>
+      <button class="spe-pill" data-spe="pneumo">Pneumologie</button>
+      <button class="spe-pill" data-spe="viszeral">Viszeralchirurgie</button>
+      <button class="spe-pill" data-spe="unfall">Unfallchirurgie</button>
+      <button class="spe-pill" data-spe="notfall">Notfall &amp; Gefäße</button>
+    </nav>
+
     <!-- Kardiologie -->
-    <div class="spe">
+    <div class="spe" data-spe="kardio">
       <div class="spe-hd">
         <span>Kardiologie</span>
         <span class="spe-ct">1 Thema</span>
@@ -381,7 +407,7 @@
     </div>
 
     <!-- Chirurgie -->
-    <div class="spe">
+    <div class="spe" data-spe="viszeral">
       <div class="spe-hd">
         <span>Allgemein- und Viszeralchirurgie</span>
         <span class="spe-ct">4 Themen</span>
@@ -436,7 +462,7 @@
     </div>
 
     <!-- Further specialties -->
-    <div class="spe">
+    <div class="spe" data-spe="pneumo">
       <div class="spe-hd">
         <span>Pneumologie</span>
         <span class="spe-ct">6 Themen</span>
@@ -512,7 +538,7 @@
       </div>
     </div>
 
-    <div class="spe">
+    <div class="spe" data-spe="unfall">
       <div class="spe-hd">
         <span>Unfallchirurgie / Orthopädie</span>
         <span class="spe-ct">1 Thema</span>
@@ -533,7 +559,7 @@
       </div>
     </div>
 
-    <div class="spe">
+    <div class="spe" data-spe="notfall">
       <div class="spe-hd">
         <span>Notfall- &amp; Gefäßchirurgie</span>
         <span class="spe-ct">3 Themen</span>
@@ -678,6 +704,17 @@
     document.querySelectorAll('.tab').forEach(function (t) { t.classList.toggle('on', t === tab); });
     document.querySelectorAll('.sec').forEach(function (s) {
       f === 'all' ? s.removeAttribute('hidden') : s.toggleAttribute('hidden', s.dataset.s !== f);
+    });
+  });
+
+  /* ── Specialty filter (within Reviews) ───────────────────── */
+  document.getElementById('speNav').addEventListener('click', function (e) {
+    var pill = e.target.closest('.spe-pill');
+    if (!pill) return;
+    var key = pill.dataset.spe;
+    document.querySelectorAll('.spe-pill').forEach(function (p) { p.classList.toggle('on', p === pill); });
+    document.querySelectorAll('.spe').forEach(function (g) {
+      key === 'all' ? g.removeAttribute('hidden') : g.toggleAttribute('hidden', g.dataset.spe !== key);
     });
   });
 
