@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rechtsmedizin — KP Mainz Drill</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Manrope',sans-serif;background:#F7F4EE;color:#2C2C2C;min-height:100vh}
+.back{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#9A9A9A;text-decoration:none;margin:0 0 4px}
+.back:hover{color:#C0392B}
+.rm-hdr{max-width:860px;margin:0 auto;padding:32px 24px 20px}
+.eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#999;font-weight:700;margin-bottom:10px}
+h1.title{font-family:'Fraunces',serif;font-size:42px;font-weight:700;color:#1a1a1a;line-height:1.05;margin-bottom:9px}
+h1.title em{font-style:italic;color:#C0392B}
+.sub{font-size:14px;color:#777;font-style:italic;margin-bottom:12px}
+.meta-row{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:11.5px;color:#999}
+.divider{max-width:860px;margin:0 auto;height:1px;background:rgba(0,0,0,.08)}
+.tabs{max-width:860px;margin:0 auto;padding:18px 24px 4px;display:flex;flex-wrap:wrap;gap:7px}
+.tab-btn{font-family:'Manrope',sans-serif;font-size:12.5px;font-weight:700;padding:8px 14px;border-radius:100px;border:none;cursor:pointer;transition:all .18s;background:#fff;color:#666;box-shadow:0 1px 3px rgba(0,0,0,.09);display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
+.tab-btn:hover{transform:translateY(-1px);box-shadow:0 3px 10px rgba(0,0,0,.12)}
+.rm-content{max-width:860px;margin:0 auto;padding:20px 24px 60px}
+.tab-panel{display:none}.tab-panel.active{display:block}
+.callout{border-radius:8px;padding:12px 16px;margin-bottom:14px;border-left:3px solid;line-height:1.6;font-size:14px}
+.clbl{font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:4px;opacity:.8}
+.c-red{background:#FEF2F2;border-color:#C0392B;color:#7f1d1d}
+.c-or{background:#FFFBEB;border-color:#D97706;color:#78350f}
+.c-bl{background:#EEF3FA;border-color:#1E5F9E;color:#1e3a5f}
+.c-gr{background:#EEF6F1;border-color:#2D7A3E;color:#14532d}
+.c-go{background:#FAF5E4;border-color:#B8860B;color:#78350f}
+.c-pu{background:#F5EEF9;border-color:#7B3F9E;color:#4a1772}
+.msatz{font-family:'Fraunces',serif;font-size:18px;font-style:italic;font-weight:600;line-height:1.35;color:inherit;margin-bottom:2px}
+.card{background:#fff;border-radius:12px;margin-bottom:12px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.card-hd{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;cursor:pointer;user-select:none;gap:12px}
+.card-l{flex:1;min-width:0}
+.card-tag{font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;margin-bottom:3px}
+.card-title{font-family:'Fraunces',serif;font-size:17px;font-weight:600;color:#1a1a1a}
+.tog{font-size:22px;font-weight:200;color:#bbb;transition:transform .2s;line-height:1;flex-shrink:0}
+.tog.open{transform:rotate(45deg);color:#777}
+.card-bd{padding:4px 20px 18px;border-top:1px solid #f5f5f5;display:none}
+.card-bd.open{display:block}
+.tbl{width:100%;border-collapse:collapse;font-size:13.5px;margin:12px 0}
+.tbl th{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:9px 13px;text-align:left;background:#f9f9f7}
+.tbl td{padding:9px 13px;border-top:1px solid #f0f0f0;vertical-align:top;line-height:1.55}
+.ul{list-style:none;margin:8px 0}
+.ul li{padding:3px 0 3px 16px;position:relative;font-size:13.5px;line-height:1.5;color:#333}
+.ul li::before{content:'•';position:absolute;left:3px;font-weight:700;color:#999}
+.steps{margin:12px 0}
+.step{display:flex;gap:13px;margin-bottom:12px;align-items:flex-start}
+.stepn{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff;flex-shrink:0}
+.stept{font-size:13.5px;line-height:1.6;color:#333;padding-top:4px}
+.tl-wrap{display:flex;position:relative;margin:18px 0 20px;padding-top:2px}
+.tl-wrap::before{content:'';position:absolute;top:20px;left:0;right:0;height:2px;background:#e8e5e0}
+.tl-i{flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;position:relative}
+.tl-dot{width:13px;height:13px;border-radius:50%;border:2px solid #F7F4EE;z-index:1;margin-bottom:7px;flex-shrink:0}
+.tl-time{font-size:11px;font-weight:700;color:#333;margin-bottom:2px}
+.tl-lbl{font-size:11px;color:#666;line-height:1.3;max-width:70px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:14px 0}
+.cmp-box{border-radius:9px;padding:14px;font-size:13px}
+.cmp-box h4{font-family:'Fraunces',serif;font-size:15px;font-weight:600;margin-bottom:9px;padding-bottom:7px;border-bottom:1px solid rgba(0,0,0,.08)}
+.qa-card{background:#fff;border-radius:10px;margin-bottom:12px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+.qa-q{padding:13px 17px;cursor:pointer;display:flex;justify-content:space-between;align-items:flex-start;gap:10px;user-select:none}
+.qa-qt{flex:1}
+.qa-qlbl{font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:3px}
+.qa-qtext{font-size:13.5px;font-weight:600;line-height:1.4;color:#1a1a1a}
+.qa-ans{padding:0 17px 15px;border-top:1px solid #f0f0f0;font-size:13.5px;line-height:1.6;color:#333;display:none}
+.qa-ans.open{display:block}
+.qa-meta{font-size:11px;color:#aaa;margin-top:9px;font-style:italic}
+.pearl{background:linear-gradient(135deg,#FFFBEB,#FAF5E4);border:1px solid rgba(184,134,11,.2);border-radius:10px;padding:13px 15px;margin-bottom:11px}
+.pearl-lbl{font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#B8860B;margin-bottom:5px}
+.pearl-txt{font-size:13.5px;line-height:1.5;color:#333;margin-bottom:7px}
+.pearl-mn{font-family:'Fraunces',serif;font-style:italic;font-size:14px;color:#78350f;background:rgba(184,134,11,.1);padding:5px 11px;border-radius:6px}
+.sec-lbl{font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;margin:18px 0 9px;color:#B8860B}
+.tag-r{color:#C0392B;background:#FEF2F2;padding:1px 7px;border-radius:4px;font-size:12px;font-weight:700;display:inline}
+.tag-g{color:#2D7A3E;background:#EEF6F1;padding:1px 7px;border-radius:4px;font-size:12px;font-weight:700;display:inline}
+.tag-o{color:#D97706;background:#FFFBEB;padding:1px 7px;border-radius:4px;font-size:12px;font-weight:700;display:inline}
+ol.steps-ol{padding-left:18px;margin:10px 0;line-height:1.7;font-size:13.5px}
+ol.steps-ol li{margin-bottom:6px}
+@media(max-width:640px){
+  h1.title{font-size:28px}
+  .tab-btn{font-size:11.5px;padding:7px 10px}
+  .grid2,.grid3{grid-template-columns:1fr}
+  .tl-wrap{flex-direction:column;gap:8px}
+  .tl-wrap::before{display:none}
+  .tl-i{flex-direction:row;align-items:center;gap:10px;justify-content:flex-start}
+  .tl-dot{margin-bottom:0}
+  .tl-lbl{max-width:none;text-align:left}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="rm-hdr">
+  <a href="../index.html" class="back">← Zurück zur Library</a>
+  <div class="eyebrow">KP Mainz 2027 &middot; Querschnittsthemen &middot; Drittes Fach &middot; Thema #143</div>
+  <h1 class="title">Rechts<em>medizin</em></h1>
+  <p class="sub">Leichenschau &middot; Todeszeichen &middot; Schweigepflicht &middot; Patientenrechte &mdash; Mainz-kalibriert</p>
+  <div class="meta-row">
+    <span>Amboss KP Lernplan</span>
+    <span style="color:#ccc">&middot;</span>
+    <span>Hauptpr&uuml;ferin: Dr. M&uuml;ller-Forell</span>
+    <span style="color:#ccc">&middot;</span>
+    <span>Protokolle 2023&ndash;2026</span>
+    <span style="color:#ccc">&middot;</span>
+    <span>Sanit&auml;tsrat Dr. Brill &middot; Hr. Roof</span>
+  </div>
+</div>
+<div class="divider"></div>
+
+<!-- TABS -->
+<div class="tabs">
+  <button class="tab-btn active" style="background:#C0392B;color:#fff" onclick="switchTab(0)" id="tabBtn0">&#9888;&#65039; Todeszeichen</button>
+  <button class="tab-btn" onclick="switchTab(1)" id="tabBtn1">&#128203; Leichenschau</button>
+  <button class="tab-btn" onclick="switchTab(2)" id="tabBtn2">&#9878;&#65039; Todesarten</button>
+  <button class="tab-btn" onclick="switchTab(3)" id="tabBtn3">&#128274; Schweigepflicht</button>
+  <button class="tab-btn" onclick="switchTab(4)" id="tabBtn4">&#128196; Patientenrechte</button>
+  <button class="tab-btn" onclick="switchTab(5)" id="tabBtn5">&#11088; KP-Fragen</button>
+</div>
+
+<div class="rm-content">
+
+<!-- ===== TAB 0: TODESZEICHEN ===== -->
+<div class="tab-panel active" id="panel0">
+
+  <div class="callout c-red">
+    <span class="clbl">&#9733; Merksatz</span>
+    <p class="msatz">4 SICHERE Zeichen &rarr; Tod best&auml;tigt &middot; Unsichere Zeichen d&uuml;rfen NIEMALS allein zur Todesfeststellung verwendet werden!</p>
+  </div>
+
+  <div class="card">
+    <div class="card-hd" onclick="toggleCard('tz1')">
+      <div class="card-l">
+        <div class="card-tag" style="color:#C0392B">DEFINITIV</div>
+        <div class="card-title">Sichere Todeszeichen + Timing</div>
+      </div>
+      <div class="tog" id="togtz1">+</div>
+    </div>
+    <div class="card-bd" id="tz1">
+      <div class="tl-wrap">
+        <div class="tl-i"><div class="tl-dot" style="background:#E74C3C"></div><div class="tl-time">20&ndash;30 min</div><div class="tl-lbl">Totenflecken erscheinen</div></div>
+        <div class="tl-i"><div class="tl-dot" style="background:#C0392B"></div><div class="tl-time">2&ndash;4 Std</div><div class="tl-lbl">Totenstarre beginnt</div></div>
+        <div class="tl-i"><div class="tl-dot" style="background:#922B21"></div><div class="tl-time">6&ndash;12 Std</div><div class="tl-lbl">Totenstarre vollst&auml;ndig</div></div>
+        <div class="tl-i"><div class="tl-dot" style="background:#7B241C"></div><div class="tl-time">24&ndash;48 Std</div><div class="tl-lbl">F&auml;ulnis erkennbar</div></div>
+        <div class="tl-i"><div class="tl-dot" style="background:#4A1012"></div><div class="tl-time">2&ndash;3 Tage</div><div class="tl-lbl">Totenstarre l&ouml;st sich</div></div>
+      </div>
+      <table class="tbl">
+        <thead><tr><th style="color:#C0392B">Sicheres Zeichen</th><th>Timing</th><th>Details</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Totenflecken (Livores)</strong></td><td>20&ndash;30 min &rarr; max 6&ndash;12 h</td><td><span class="tag-r">ERSTES sicheres Zeichen!</span> Hb-Abbau &rarr; Biliverdin &rarr; gr&uuml;n-braune Verf&auml;rbung</td></tr>
+          <tr><td><strong>Totenstarre (Rigor mortis)</strong></td><td>Beginn 2&ndash;4 h &middot; voll 6&ndash;12 h &middot; L&ouml;sung 2&ndash;3 Tage</td><td>Beginnt in kleinen Muskeln (Kiefer, H&auml;nde)</td></tr>
+          <tr><td><strong>F&auml;ulnis / Verwesung</strong></td><td>24&ndash;48 h erkennbar</td><td>Beginnt typisch am Abdomen</td></tr>
+          <tr><td><strong>Mit dem Leben unvereinbare Verletzungen</strong></td><td>Sofort</td><td>z. B. Dekapitation, totale Zertr&uuml;mmerung</td></tr>
+        </tbody>
+      </table>
+      <div class="callout c-red"><span class="clbl">&#11088; KP-Perle</span>Totenflecken = ERSTES sicheres Todeszeichen (20 min). Pr&uuml;fer fragen oft nach Reihenfolge! Merksatz: <strong>ToFaStUn</strong> = <strong>To</strong>tenflecken &rarr; <strong>F</strong>&auml;ulnis &rarr; Tot<strong>St</strong>arre &rarr; <strong>Un</strong>vereinbare Verletzungen</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-hd" onclick="toggleCard('tz2')">
+      <div class="card-l">
+        <div class="card-tag" style="color:#D97706">ACHTUNG</div>
+        <div class="card-title">Unsichere Todeszeichen &mdash; niemals zur Todesfeststellung!</div>
+      </div>
+      <div class="tog" id="togtz2">+</div>
+    </div>
+    <div class="card-bd" id="tz2">
+      <div class="callout c-or" style="margin-top:12px"><span class="clbl">Wichtig</span>Diese Zeichen k&ouml;nnen auch beim <strong>Scheintod</strong> vorliegen. Weder einzeln noch kombiniert zul&auml;ssig!</div>
+      <div class="grid2">
+        <div class="cmp-box" style="background:#FFFBEB;border:1px solid rgba(217,119,6,.2)">
+          <h4 style="color:#D97706">Kreislauf / Atmung</h4>
+          <ul class="ul"><li>Atemstillstand</li><li>Pulslosigkeit</li><li>Herztons nicht wahrnehmbar</li></ul>
+        </div>
+        <div class="cmp-box" style="background:#FFFBEB;border:1px solid rgba(217,119,6,.2)">
+          <h4 style="color:#D97706">Neurologisch</h4>
+          <ul class="ul"><li>Bewusstlosigkeit / Koma</li><li>Weite, lichtstarre Pupillen</li><li>Areflexie</li><li>Schlaffer Muskeltonus</li><li>Bl&auml;sse (Palor mortis)</li><li>Abk&uuml;hlung (Algor mortis)</li></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout c-red"><span class="clbl">&#9940; Kritisch</span><strong>Totenschein NIEMALS ausf&uuml;llen</strong> vor Best&auml;tigung sicherer Todeszeichen! Strafrechtlich relevant. Keine sicheren Zeichen erkennbar? &rarr; Reanimation!</div>
+
+</div><!-- /panel0 -->
+
+<!-- ===== TAB 1: LEICHENSCHAU ===== -->
+<div class="tab-panel" id="panel1">
+
+  <div class="callout c-bl">
+    <span class="clbl">&#9733; Merksatz</span>
+    <p class="msatz">Jeder Todesfall in Deutschland &rarr; Leichenschau gesetzlich verpflichtend!</p>
+    <p style="margin-top:8px;font-size:14px">Aufgaben: Tod feststellen &middot; Identit&auml;t &middot; Todeszeit &middot; Todesursache &middot; Todesart &middot; Infektionen?</p>
+  </div>
+
+  <div class="card">
+    <div class="card-hd" onclick="toggleCard('ls1')">
+      <div class="card-l"><div class="card-tag" style="color:#1E5F9E">PROZEDUR</div><div class="card-title">Vorgehen bei der Leichenschau &mdash; Schritt f&uuml;r Schritt</div></div>
+      <div class="tog" id="togls1">+</div>
+    </div>
+    <div class="card-bd" id="ls1">
+      <div class="callout c-go" style="margin-top:12px"><span class="clbl">&#11088; Perle &mdash; oft vergessen!</span><strong>ZUERST AUSKLEIDEN!</strong> Patient komplett entkleiden vor der Untersuchung. Pr&uuml;fer fangen oft damit an und wollen genau das hören.</div>
+      <div class="steps">
+        <div class="step"><div class="stepn" style="background:#1E5F9E">1</div><div class="stept">Patient <strong>vollst&auml;ndig auskleiden</strong> &mdash; erst dann Untersuchung beginnen</div></div>
+        <div class="step"><div class="stepn" style="background:#1E5F9E">2</div><div class="stept"><strong>Sicheres Todeszeichen</strong> feststellen (Livores / Rigor / F&auml;ulnis / unvereinbare Verletzungen)</div></div>
+        <div class="step"><div class="stepn" style="background:#1E5F9E">3</div><div class="stept"><strong>Identit&auml;t</strong> des Verstorbenen feststellen</div></div>
+        <div class="step"><div class="stepn" style="background:#1E5F9E">4</div><div class="stept"><strong>Todeszeit sch&auml;tzen</strong> &mdash; anhand Livores, Rigor, Umgebungstemperatur</div></div>
+        <div class="step"><div class="stepn" style="background:#1E5F9E">5</div><div class="stept"><strong>Todesart bestimmen</strong> &mdash; nat&uuml;rlich / nicht-nat&uuml;rlich / ungekl&auml;rt</div></div>
+        <div class="step"><div class="stepn" style="background:#1E5F9E">6</div><div class="stept"><strong>Totenschein ausf&uuml;llen</strong> (nach &auml;u&szlig;erer Leichenschau) &rarr; an Standesamt</div></div>
+        <div class="step"><div class="stepn" style="background:#C0392B">7</div><div class="stept">Bei nicht-nat&uuml;rlichem / ungekl&auml;rtem Tod &rarr; <strong style="color:#C0392B">sofort Polizei informieren!</strong></div></div>
+      </div>
+      <div class="callout c-or"><span class="clbl">Vor Abtransport</span>Vor Abtransport der Leiche: <strong>zweite Todesfeststellung</strong> durchf&uuml;hren!</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-hd" onclick="toggleCard('ls2')">
+      <div class="card-l"><div class="card-tag" style="color:#1E5F9E">DOKUMENT</div><div class="card-title">Totenschein &mdash; Inhalt und Form</div></div>
+      <div class="tog" id="togls2">+</div>
+    </div>
+    <div class="card-bd" id="ls2">
+      <div class="callout c-bl" style="margin-top:12px"><span class="clbl">Wann?</span>Erst <strong>NACH</strong> der &auml;u&szlig;eren Leichenschau ausf&uuml;llen. Weiterleitung an das zust&auml;ndige <strong>Standesamt</strong>.</div>
+      <table class="tbl">
+        <thead><tr><th style="color:#1E5F9E">Angabe</th><th>Details</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Personalien</strong></td><td>Name, Geburtsdatum, Geburtsort, Wohnadresse</td></tr>
+          <tr><td><strong>Sterbezeitpunkt</strong></td><td>Datum + Uhrzeit der Todesfeststellung</td></tr>
+          <tr><td><strong>Sterbeort</strong></td><td>Genaue Adresse / Einrichtung</td></tr>
+          <tr><td><strong>Todesursache</strong></td><td>Unmittelbare + ggf. zugrunde liegende Erkrankung</td></tr>
+          <tr><td><strong>Todesart</strong></td><td>Nat&uuml;rlich &middot; Nicht-nat&uuml;rlich &middot; Ungekl&auml;rt</td></tr>
+          <tr><td><strong>Zuletzt behandelnder Arzt</strong></td><td>Name + Kontakt</td></tr>
+          <tr><td><strong>Ansteckende Erkrankungen?</strong></td><td>Ja / Nein &mdash; relevant f&uuml;r Bestattung + Meldepflicht</td></tr>
+        </tbody>
+      </table>
+      <div class="callout c-or"><span class="clbl">Ungekl&auml;rte Todesursache</span>Kann Ursache nicht zweifelsfrei festgestellt werden &rarr; Todesart als <strong>"ungekl&auml;rt"</strong> eintragen &rarr; Polizei informieren!</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-hd" onclick="toggleCard('ls3')">
+      <div class="card-l"><div class="card-tag" style="color:#C0392B">MELDEPFLICHT</div><div class="card-title">Wann Polizei informieren?</div></div>
+      <div class="tog" id="togls3">+</div>
+    </div>
+    <div class="card-bd" id="ls3">
+      <div class="grid2" style="margin-top:12px">
+        <div class="cmp-box" style="background:#FEF2F2;border:1px solid rgba(192,57,43,.2)">
+          <h4 style="color:#C0392B">Obligat &rarr; Polizei!</h4>
+          <ul class="ul">
+            <li>Verdacht auf nicht-nat&uuml;rlichen Tod</li>
+            <li>Unfall (Sturz, Vergiftung, Verkehr)</li>
+            <li>Suizid</li>
+            <li>T&ouml;tungsdelikt</li>
+            <li>Post-operativer Tod</li>
+            <li>Iatrogener Tod</li>
+            <li>Tod in Psychiatrie / Gef&auml;ngnis</li>
+            <li>Pl&ouml;tzlicher S&auml;uglingstod (SIDS)</li>
+          </ul>
+        </div>
+        <div class="cmp-box" style="background:#FFFBEB;border:1px solid rgba(217,119,6,.2)">
+          <h4 style="color:#D97706">Ungekl&auml;rter Tod</h4>
+          <ul class="ul">
+            <li>Pl&ouml;tzlicher Tod ohne Vorerkrankung</li>
+            <li>Unbekannte Person</li>
+            <li>Fehlende Identit&auml;t</li>
+            <li>Unklare Umst&auml;nde</li>
+          </ul>
+          <div style="margin-top:10px;font-size:12px;color:#D97706;font-weight:700">Auch hier &rarr; Polizei!</div>
+        </div>
+      </div>
+      <div class="callout c-red"><span class="clbl">KP-Falle</span><strong>Patient nach H&uuml;ft-OP gestorben</strong> &rarr; Nicht-nat&uuml;rlich! Die OP = &auml;u&szlig;ere Einwirkung &rarr; Polizei anrufen. Gilt auch f&uuml;r Tod nach Magensonde, Katheter etc.</div>
+    </div>
+  </div>
+
+</div><!-- /panel1 -->
+
+<!-- ===== TAB 2: TODESARTEN ===== -->
+<div class="tab-panel" id="panel2">
+
+  <div class="callout c-or">
+    <span class="clbl">&#9733; Merksatz</span>
+    <p class="msatz">3 Todesarten: Nat&uuml;rlich &middot; Nicht-nat&uuml;rlich &middot; Ungekl&auml;rt</p>
+    <p style="margin-top:8px;font-size:14px">Nicht-nat&uuml;rlich &ne; Fremdverschulden! Post-OP-Tod, Unfall, Suizid = alle nicht-nat&uuml;rlich.</p>
+  </div>
+
+  <div class="grid3">
+    <div class="cmp-box" style="background:#EEF6F1;border:1px solid rgba(45,122,62,.2)">
+      <h4 style="color:#2D7A3E">&#10003; Nat&uuml;rlich</h4>
+      <ul class="ul">
+        <li>Tod durch Krankheit</li>
+        <li>Keine &auml;u&szlig;ere Einwirkung</li>
+        <li>Keine rechtlich relevanten Faktoren</li>
+        <li>Klare Kausalit&auml;t zur Grunderkrankung</li>
+      </ul>
+      <div style="margin-top:10px;font-size:12px;color:#555;font-style:italic">z. B. Herzinfarkt, Krebstod, Sepsis</div>
+    </div>
+    <div class="cmp-box" style="background:#FEF2F2;border:1px solid rgba(192,57,43,.2)">
+      <h4 style="color:#C0392B">&#9888; Nicht-nat&uuml;rlich</h4>
+      <ul class="ul">
+        <li>&Auml;u&szlig;eres Ereignis ist kausal</li>
+        <li>Unfall / Suizid / T&ouml;tungsdelikt</li>
+        <li>Post-operativer Tod</li>
+        <li>Iatrogener Tod</li>
+      </ul>
+      <div style="margin-top:10px;font-size:12px;color:#C0392B;font-weight:700">&rarr; Polizei informieren!</div>
+    </div>
+    <div class="cmp-box" style="background:#FFFBEB;border:1px solid rgba(217,119,6,.2)">
+      <h4 style="color:#D97706">? Ungekl&auml;rt</h4>
+      <ul class="ul">
+        <li>Todesursache unbekannt</li>
+        <li>Kein klares Krankheitsbild</li>
+        <li>Pl&ouml;tzlicher Tod ohne Vorerkrankung</li>
+      </ul>
+      <div style="margin-top:10px;font-size:12px;color:#D97706;font-weight:700">&rarr; Polizei informieren!</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-hd" onclick="toggleCard('ta1')">
+      <div class="card-l"><div class="card-tag" style="color:#D97706">PR&Uuml;FUNGSFALLEN</div><div class="card-title">Tricky Cases &mdash; welche Todesart?</div></div>
+      <div class="tog" id="togta1">+</div>
+    </div>
+    <div class="card-bd" id="ta1">
+      <table class="tbl" style="margin-top:12px">
+        <thead><tr><th style="color:#D97706">Situation</th><th>Todesart</th><th>Begr&uuml;ndung</th></tr></thead>
+        <tbody>
+          <tr><td>Patient, 4 Tage nach H&uuml;ft-OP tot</td><td><span class="tag-r">Nicht-nat&uuml;rlich</span></td><td>OP = &auml;u&szlig;ere Einwirkung &rarr; Polizei!</td></tr>
+          <tr><td>94j. nach H&uuml;ft-OP an Pneumonie gestorben</td><td><span class="tag-r">Nicht-nat&uuml;rlich</span></td><td>OP als Ausl&ouml;ser der Kausalkette</td></tr>
+          <tr><td>90j. Schenkelhalsfraktur &rarr; Pneumonie &rarr; Tod</td><td><span class="tag-r">Nicht-nat&uuml;rlich</span></td><td>Fraktur (Sturz) = &auml;u&szlig;ere Einwirkung</td></tr>
+          <tr><td>Herzinfarkt nach Unfall vor 3 Wochen</td><td><span class="tag-r">Nicht-nat&uuml;rlich</span></td><td>Unfall = Ausl&ouml;ser der Kausalkette</td></tr>
+          <tr><td>Tod nach Magensonde-Anlage in Psychiatrie</td><td><span class="tag-r">Nicht-nat&uuml;rlich</span></td><td>Iatrogene Ma&szlig;nahme = &auml;u&szlig;ere Einwirkung</td></tr>
+          <tr><td>Junger Patient pl&ouml;tzlich tot, keine Vorerkrankung</td><td><span class="tag-o">Ungekl&auml;rt</span></td><td>Keine klare Kausalit&auml;t &rarr; Polizei</td></tr>
+          <tr><td>80j. Patient an bekanntem Leberkarzinom gestorben</td><td><span class="tag-g">Nat&uuml;rlich</span></td><td>Krankheitstod ohne &auml;u&szlig;ere Einwirkung</td></tr>
+        </tbody>
+      </table>
+      <div class="callout c-or"><span class="clbl">Faustregel</span>Bei Zweifel: <strong>nicht-nat&uuml;rlich</strong> angeben. Besser Polizei einschalten als einen nicht-nat&uuml;rlichen Tod als nat&uuml;rlich einstufen!</div>
+    </div>
+  </div>
+
+</div><!-- /panel2 -->
+
+<!-- ===== TAB 3: SCHWEIGEPFLICHT ===== -->
+<div class="tab-panel" id="panel3">
+
+  <div class="callout c-gr">
+    <span class="clbl">&#9733; Merksatz</span>
+    <p class="msatz">&sect; 203 StGB: Schweigepflicht gilt gegen&uuml;ber ALLEN &mdash; auch Familienangeh&ouml;rigen!</p>
+    <p style="margin-top:8px;font-size:14px">Nur der Patient selbst kann entbinden. Gilt auch nach dem Tod des Patienten.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-hd" onclick="toggleCard('sp1')">
+      <div class="card-l"><div class="card-tag" style="color:#2D7A3E">GRUNDREGEL</div><div class="card-title">Was umfasst die Schweigepflicht?</div></div>
+      <div class="tog" id="togsp1">+</div>
+    </div>
+    <div class="card-bd" id="sp1">
+      <ul class="ul" style="margin-top:12px">
+        <li>Alle m&uuml;ndlichen und schriftlichen Patientenmitteilungen</li>
+        <li>Diagnosen, Laborbefunde, Apparate-Daten, R&ouml;ntgenbilder</li>
+        <li><strong>Die Tatsache, dass der Patient &uuml;berhaupt in Behandlung ist</strong></li>
+        <li>Gilt auch au&szlig;erhalb der beruflichen T&auml;tigkeit</li>
+        <li>Gilt auch <strong>nach dem Tod</strong> des Patienten</li>
+        <li>Verletzung = Antragsdelikt (&sect; 203 StGB)</li>
+      </ul>
+      <div class="callout c-bl" style="margin-top:12px"><span class="clbl">GKV vs. PKV</span><strong>GKV:</strong> Gesetzliche Auskunftspflicht bei Fragen zur Leistungspflicht<br><strong>PKV:</strong> Immer Entbindung durch den Patienten erforderlich</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-hd" onclick="toggleCard('sp2')">
+      <div class="card-l"><div class="card-tag" style="color:#2D7A3E">AUSNAHMEN</div><div class="card-title">Durchbrechung der Schweigepflicht</div></div>
+      <div class="tog" id="togsp2">+</div>
+    </div>
+    <div class="card-bd" id="sp2">
+      <div style="font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#2D7A3E;margin:12px 0 8px">Obligat &mdash; Offenbarungspflicht (muss)</div>
+      <ul class="ul">
+        <li>Ausdr&uuml;ckliche <strong>Einwilligung des Patienten</strong></li>
+        <li><strong>Meldepflicht</strong> nach IfSG (Infektionskrankheiten, Geburten, Todesf&auml;lle)</li>
+        <li><strong>Verdacht auf nicht-nat&uuml;rlichen Tod</strong> &rarr; Polizei</li>
+        <li>Unmittelbare Gef&auml;hrdung der Allgemeinheit (geplante Straftaten)</li>
+        <li>Berufskrankheiten &rarr; Berufsgenossenschaft</li>
+      </ul>
+      <div style="font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#7B3F9E;margin:14px 0 8px">Fakultativ &mdash; Offenbarungsbefugnis (darf)</div>
+      <ul class="ul">
+        <li>Schutz h&ouml;herwertiger rechtlicher Interessen</li>
+        <li>Schwere Taten gegen Leib, Leben, Freiheit &mdash; mit <strong>Wiederholungsgefahr</strong></li>
+        <li>Arzt muss zuvor versucht haben, Patient von der Tat abzuhalten</li>
+      </ul>
+      <div class="callout c-or"><span class="clbl">Klassisches Beispiel</span>Patient f&auml;hrt Auto trotz Fahrunf&auml;higkeit &mdash; Arzt droht Meldung an &mdash; Patient f&auml;hrt weiter &rarr; <strong>Schweigepflicht darf gebrochen werden</strong> &rarr; F&uuml;hrerscheinbeh&ouml;rde!</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-hd" onclick="toggleCard('sp3')">
+      <div class="card-l"><div class="card-tag" style="color:#2D7A3E">KP-F&Auml;LLE</div><div class="card-title">Schweigepflicht &mdash; Sonderf&auml;lle</div></div>
+      <div class="tog" id="togsp3">+</div>
+    </div>
+    <div class="card-bd" id="sp3">
+      <table class="tbl" style="margin-top:12px">
+        <thead><tr><th style="color:#2D7A3E">Situation</th><th>Schweigepflicht?</th><th>Grund</th></tr></thead>
+        <tbody>
+          <tr><td>17j. M&auml;dchen, Gonorrhoe. Mutter fragt.</td><td style="color:#C0392B;font-weight:700">JA &mdash; kein Erz&auml;hlen</td><td>&gt;14J + einwilligungsf&auml;hig &rarr; gilt</td></tr>
+          <tr><td>Arbeitgeber fragt nach Diagnose</td><td style="color:#C0392B;font-weight:700">JA &mdash; kein Erz&auml;hlen</td><td>Arbeitgeber = Dritte Person</td></tr>
+          <tr><td>Polizei fragt nach Patientendaten</td><td style="color:#2D7A3E;font-weight:700">Nur mit Einwilligung</td><td>Au&szlig;er: nicht-nat&uuml;rlicher Tod / Meldepflicht</td></tr>
+          <tr><td>Patient verstorben, Familie fragt</td><td style="color:#C0392B;font-weight:700">JA &mdash; gilt weiter</td><td>Schweigepflicht gilt auch nach Tod</td></tr>
+          <tr><td>GKV fragt nach Diagnose</td><td style="color:#2D7A3E;font-weight:700">Auskunftspflicht</td><td>Gesetzliche Ausnahme f&uuml;r Leistungspr&uuml;fung</td></tr>
+          <tr><td>Kindesmisshandlungs-Verdacht</td><td style="color:#D97706;font-weight:700">Darf gebrochen werden</td><td>Schutz des Kindes = h&ouml;herwertiges Rechtsgut</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div><!-- /panel3 -->
+
+<!-- ===== TAB 4: PATIENTENRECHTE ===== -->
+<div class="tab-panel" id="panel4">
+
+  <div class="callout c-pu">
+    <span class="clbl">&#9733; Merksatz</span>
+    <p class="msatz">Eingriff ohne informierte Einwilligung = rechtswidrige K&ouml;rperverletzung!</p>
+    <p style="margin-top:8px;font-size:14px">Selbst wenn technisch korrekt &mdash; fehlende Aufkl&auml;rung macht den Eingriff rechtswidrig.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-hd" onclick="toggleCard('pr1')">
+      <div class="card-l"><div class="card-tag" style="color:#7B3F9E">AUFKL&Auml;RUNGSPFLICHT</div><div class="card-title">Inhalt und Form der Aufkl&auml;rung</div></div>
+      <div class="tog" id="togpr1">+</div>
+    </div>
+    <div class="card-bd" id="pr1">
+      <table class="tbl" style="margin-top:12px">
+        <thead><tr><th style="color:#7B3F9E">Aspekt</th><th>Details</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Was aufkl&auml;ren?</strong></td><td>Diagnose &middot; Geplantes Vorgehen &middot; Risiken &middot; Alternativen &middot; Prognose &middot; Folgen der Nicht-Behandlung</td></tr>
+          <tr><td><strong>Wann?</strong></td><td>Rechtzeitig vor dem Eingriff &mdash; mind. am Vortag; nicht direkt vor OP!</td></tr>
+          <tr><td><strong>Wer?</strong></td><td>Behandelnder Arzt (kann delegiert werden)</td></tr>
+          <tr><td><strong>Form</strong></td><td>M&uuml;ndlich ausreichend &mdash; schriftliche Dokumentation erforderlich!</td></tr>
+          <tr><td><strong>Notfall</strong></td><td>Einwilligung nicht erforderlich bei unmittelbarer Lebensgefahr</td></tr>
+          <tr><td><strong>Fehler-Folge</strong></td><td>Aufkl&auml;rungsfehler &rarr; rechtswidrige K&ouml;rperverletzung!</td></tr>
+        </tbody>
+      </table>
+      <div class="callout c-red"><span class="clbl">Aufkl&auml;rungsfehler</span>Fehlende Aufkl&auml;rung = <strong>"Aufkl&auml;rungsfehler"</strong> / <strong>"unterlassene Aufkl&auml;rung"</strong> &rarr; Der Eingriff gilt als rechtswidrige K&ouml;rperverletzung!</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-hd" onclick="toggleCard('pr2')">
+      <div class="card-l"><div class="card-tag" style="color:#7B3F9E">ALTER</div><div class="card-title">Einwilligungsf&auml;higkeit nach Alter</div></div>
+      <div class="tog" id="togpr2">+</div>
+    </div>
+    <div class="card-bd" id="pr2">
+      <div class="callout c-pu" style="margin-top:12px"><span class="clbl">Grundprinzip</span>Entscheidend ist immer die <strong>pers&ouml;nliche Reife</strong> &mdash; nicht allein das Alter!</div>
+      <table class="tbl">
+        <thead><tr><th style="color:#7B3F9E">Alter</th><th>Einwilligungsf&auml;higkeit</th><th>Beispiel</th></tr></thead>
+        <tbody>
+          <tr><td><strong>&lt; 14 Jahre</strong></td><td>Eltern entscheiden</td><td>Alle Eingriffe: elterliche Einwilligung n&ouml;tig</td></tr>
+          <tr><td><strong>14&ndash;15 Jahre</strong></td><td>Einfachere Entscheidungen selbst</td><td>Kleinere, risikoarme Eingriffe</td></tr>
+          <tr><td><strong>16&ndash;17 Jahre</strong></td><td>Schwerwiegendere Entscheidungen</td><td>Komplexere Eingriffe bei ausreichender Reife</td></tr>
+          <tr><td><strong>&ge; 18 Jahre</strong></td><td>Volle Einwilligungsf&auml;higkeit</td><td>Alle Entscheidungen eigenst&auml;ndig</td></tr>
+        </tbody>
+      </table>
+      <div class="callout c-or"><span class="clbl">Klassischer KP-Fall</span><strong>17j. M&auml;dchen, Gonorrhoe:</strong> Ist &gt;14J und einwilligungsf&auml;hig &rarr; Schweigepflicht gilt vollst&auml;ndig &rarr; Mutter darf NICHT informiert werden!</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-hd" onclick="toggleCard('pr3')">
+      <div class="card-l"><div class="card-tag" style="color:#7B3F9E">VORAUSVERF&Uuml;GUNG</div><div class="card-title">Patientenverf&uuml;gung</div></div>
+      <div class="tog" id="togpr3">+</div>
+    </div>
+    <div class="card-bd" id="pr3">
+      <div class="callout c-pu" style="margin-top:12px"><span class="clbl">Definition</span>Schriftliches Dokument &mdash; legt medizinische W&uuml;nsche des Patienten f&uuml;r den Fall der Einwilligungsunf&auml;higkeit fest. <strong>Bindend</strong> f&uuml;r das medizinische Team!</div>
+      <table class="tbl">
+        <tbody>
+          <tr><td style="width:30%"><strong>Form</strong></td><td>Schriftlich &middot; datiert &middot; unterschrieben</td></tr>
+          <tr><td><strong>Inhalt</strong></td><td>Behandlungsw&uuml;nsche &middot; Ablehnung von Ma&szlig;nahmen &middot; Reanimationswunsch &middot; k&uuml;nstliche Ern&auml;hrung</td></tr>
+          <tr><td><strong>Wirkung</strong></td><td>Bindend &mdash; Patient kann Eingriff ablehnen; Arzt kann ebenfalls ablehnen</td></tr>
+          <tr><td><strong>KP-Praxis</strong></td><td>Patient atmet nicht &rarr; ERST Akte &ouml;ffnen, Patientenverf&uuml;gung pr&uuml;fen &rarr; dann entscheiden!</td></tr>
+        </tbody>
+      </table>
+      <div class="callout c-go"><span class="clbl">&#11088; Perle</span>Pr&uuml;fer m&ouml;chten h&ouml;ren: <strong>"Ich sehe zuerst in die Akte &mdash; Patientenverf&uuml;gung vorhanden?"</strong> &mdash; bevor Reanimation automatisch begonnen wird!</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-hd" onclick="toggleCard('pr4')">
+      <div class="card-l"><div class="card-tag" style="color:#7B3F9E">RECHTLICH</div><div class="card-title">Behandlungsvertrag + DRG + Leitlinien</div></div>
+      <div class="tog" id="togpr4">+</div>
+    </div>
+    <div class="card-bd" id="pr4">
+      <table class="tbl" style="margin-top:12px">
+        <tbody>
+          <tr><td style="width:30%"><strong>Behandlungsvertrag</strong></td><td>Bei Terminvergabe, Behandlungsbeginn oder telefonischer Beratung</td></tr>
+          <tr><td><strong>&Auml;rztliche Pflichten</strong></td><td>Behandlungspflicht &middot; Dokumentationspflicht &middot; Aufkl&auml;rungspflicht &middot; Schweigepflicht</td></tr>
+          <tr><td><strong>DRG-System</strong></td><td>Diagnosis-Related Groups: Krankenkassen finanzieren Betriebskosten, Bundesl&auml;nder Investitionskosten (duale Finanzierung)</td></tr>
+          <tr><td><strong>Leitlinien</strong></td><td>S1 = Expertenkonsens &middot; S2 = Systematischer Konsens &middot; S3 = Evidenzbasiert &middot; Herausgabe durch Fachgesellschaften</td></tr>
+          <tr><td><strong>Evidenzbasierte Medizin</strong></td><td>Integration von: beste wissenschaftliche Evidenz + klinische Erfahrung + Patientenwerte</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div><!-- /panel4 -->
+
+<!-- ===== TAB 5: KP-FRAGEN ===== -->
+<div class="tab-panel" id="panel5">
+
+  <div class="callout c-go">
+    <span class="clbl">&#11088; KP-Fragen Rechtsmedizin &mdash; Mainz 2023&ndash;2026</span>
+    <p class="msatz">Echte Pr&uuml;ferfragen aus den Mainz-Protokollen</p>
+    <p style="margin-top:8px;font-size:14px">Hauptpr&uuml;ferin: <strong>Fr. Dr. Wibke M&uuml;ller-Forell</strong> &middot; Weitere: Sanit&auml;tsrat Dr. Brill &middot; Hr. Roof</p>
+  </div>
+
+  <div class="qa-card">
+    <div class="qa-q" onclick="toggleQA('qa1')">
+      <div class="qa-qt">
+        <span class="qa-qlbl" style="color:#B8860B">Mainz &middot; Dr. M&uuml;ller-Forell &middot; H&auml;ufigste Er&ouml;ffnung</span>
+        <span class="qa-qtext">Sie sind Notarzt. Anruf: "Mein Mann liegt zu Hause, ich glaube er ist tot." Was machen Sie?</span>
+      </div>
+      <div class="tog" id="togqa1">+</div>
+    </div>
+    <div class="qa-ans" id="qa1">
+      <ol class="steps-ol" style="padding-left:18px;margin-top:8px">
+        <li>Zum Patienten fahren</li>
+        <li>Sichere Todeszeichen feststellen (Livores / Rigor / F&auml;ulnis)</li>
+        <li>Todesart bestimmen: <strong>nat&uuml;rlich / nicht-nat&uuml;rlich / ungekl&auml;rt?</strong></li>
+        <li>Bei nicht-nat&uuml;rlichem oder ungekl&auml;rtem Tod &rarr; <strong style="color:#C0392B">Polizei informieren</strong></li>
+        <li>Totenschein ausf&uuml;llen (nach Leichenschau) &rarr; an Standesamt</li>
+      </ol>
+      <div class="callout c-go" style="margin-top:10px"><span class="clbl">Typische Folgefrage</span>"Was wenn der Tod unnat&uuml;rlich war?" &rarr; Kriminalpolizei hinzurufen, Tatort nicht ver&auml;ndern, Totenschein als "nicht-nat&uuml;rlich" ausf&uuml;llen.</div>
+      <div class="qa-meta">Mainz KP &middot; Dr. Wibke M&uuml;ller-Forell &middot; Drittes Fach</div>
+    </div>
+  </div>
+
+  <div class="qa-card">
+    <div class="qa-q" onclick="toggleQA('qa2')">
+      <div class="qa-qt">
+        <span class="qa-qlbl" style="color:#B8860B">Mainz &middot; Post-OP Tod &middot; Klassische Falle</span>
+        <span class="qa-qtext">Patient, 4 Tage nach H&uuml;ft-OP, auf Station tot gefunden. Nat&uuml;rlicher oder nicht-nat&uuml;rlicher Tod?</span>
+      </div>
+      <div class="tog" id="togqa2">+</div>
+    </div>
+    <div class="qa-ans" id="qa2">
+      <div class="callout c-red" style="margin-top:8px"><span class="clbl">Antwort</span><strong>Nicht-nat&uuml;rlicher Tod!</strong> &mdash; Die OP ist eine &auml;u&szlig;ere Einwirkung, kausal f&uuml;r den Tod. &rarr; Polizei informieren!</div>
+      <p>Begr&uuml;ndung: Tod durch &auml;u&szlig;ere Einwirkung = nicht-nat&uuml;rlich. Kein Fremdverschulden n&ouml;tig &mdash; die Kausalit&auml;tskette beginnt mit dem Eingriff.</p>
+      <p style="margin-top:8px">Gilt auch f&uuml;r: Tod nach Magensonde, Katheteranlage, anderen iatrogenen Ma&szlig;nahmen.</p>
+      <div class="qa-meta">Mainz KP &middot; Verschiedene Pr&uuml;fer &middot; H&auml;ufig gefragt</div>
+    </div>
+  </div>
+
+  <div class="qa-card">
+    <div class="qa-q" onclick="toggleQA('qa3')">
+      <div class="qa-qt">
+        <span class="qa-qlbl" style="color:#B8860B">Mainz &middot; Dr. Brill &middot; Prozedur</span>
+        <span class="qa-qtext">Nachtschwester ruft an: 94-j&auml;hrige Patientin, 4 Tage post-OP, tot gefunden. Was machen Sie als Erstes?</span>
+      </div>
+      <div class="tog" id="togqa3">+</div>
+    </div>
+    <div class="qa-ans" id="qa3">
+      <div class="callout c-go" style="margin-top:8px"><span class="clbl">&#11088; Schl&uuml;sselantwort &mdash; oft vergessen!</span><strong>ZUERST: Patient auskleiden!</strong> Viele Kandidaten denken zu weit und &uuml;berspringen diesen simplen ersten Schritt.</div>
+      <ul class="ul">
+        <li>Patient komplett entkleiden</li>
+        <li>Sichere Todeszeichen feststellen</li>
+        <li>Todesart: <strong>nicht-nat&uuml;rlich</strong> (post-OP)</li>
+        <li>Polizei informieren</li>
+        <li>Vor Abtransport: <strong>zweite Todesfeststellung</strong> durchf&uuml;hren</li>
+      </ul>
+      <div class="qa-meta">Mainz KP &middot; Sanit&auml;tsrat Dr. Brill &middot; Drittes Fach</div>
+    </div>
+  </div>
+
+  <div class="qa-card">
+    <div class="qa-q" onclick="toggleQA('qa4')">
+      <div class="qa-qt">
+        <span class="qa-qlbl" style="color:#B8860B">Mainz &middot; Schweigepflicht Teenager</span>
+        <span class="qa-qtext">17-j&auml;hriges M&auml;dchen kommt mit Gonorrhoe. Mutter wartet drau&szlig;en und fragt die Diagnose. Was tun Sie?</span>
+      </div>
+      <div class="tog" id="togqa4">+</div>
+    </div>
+    <div class="qa-ans" id="qa4">
+      <div class="callout c-gr" style="margin-top:8px"><span class="clbl">Antwort</span><strong>Nein</strong> &mdash; Schweigepflicht gilt! Das M&auml;dchen ist &gt;14 Jahre und einwilligungsf&auml;hig. Sie kann das Arztgespr&auml;ch eigenst&auml;ndig f&uuml;hren und es verbieten, die Mutter zu informieren.</div>
+      <p>Grundsatz: Ab 14 Jahren k&ouml;nnen Patienten bei ausreichender Reife einfachere Entscheidungen selbst treffen. Die Gonorrhoe-Diagnose liegt klar in diesem Bereich.</p>
+      <div class="qa-meta">Mainz KP &middot; Verschiedene Pr&uuml;fer</div>
+    </div>
+  </div>
+
+  <div class="qa-card">
+    <div class="qa-q" onclick="toggleQA('qa5')">
+      <div class="qa-qt">
+        <span class="qa-qlbl" style="color:#B8860B">Mainz &middot; Patientenverf&uuml;gung</span>
+        <span class="qa-qtext">Schwester ruft an: Patient auf Station atmet nicht mehr. Was machen Sie?</span>
+      </div>
+      <div class="tog" id="togqa5">+</div>
+    </div>
+    <div class="qa-ans" id="qa5">
+      <div class="callout c-bl" style="margin-top:8px"><span class="clbl">Richtige Reihenfolge</span><strong>Erst Akte ansehen</strong> &rarr; Patientenverf&uuml;gung vorhanden? &rarr; Wenn ja: Patientenwillen respektieren (ggf. keine Reanimation!)</div>
+      <p>Wenn keine Patientenverf&uuml;gung oder Patient k&uuml;rzlich noch gesund war: ABC &rarr; Reanimation sofort beginnen.</p>
+      <p style="margin-top:8px;font-size:13px;color:#888">Pr&uuml;fer wollen h&ouml;ren: "Ich sehe zuerst in die Akte" &mdash; klinische Reflexion, kein reflexartiger Reanimations-Start.</p>
+      <div class="qa-meta">Mainz KP &middot; Verschiedene Pr&uuml;fer</div>
+    </div>
+  </div>
+
+  <div class="qa-card">
+    <div class="qa-q" onclick="toggleQA('qa6')">
+      <div class="qa-qt">
+        <span class="qa-qlbl" style="color:#B8860B">Mainz &middot; Kausalit&auml;tskette</span>
+        <span class="qa-qtext">90-j&auml;hrige Patientin: Schenkelhalsfraktur &rarr; Pneumonie &rarr; Tod. Was kreuzen Sie im Totenschein bei Todesart an?</span>
+      </div>
+      <div class="tog" id="togqa6">+</div>
+    </div>
+    <div class="qa-ans" id="qa6">
+      <div class="callout c-red" style="margin-top:8px"><span class="clbl">Antwort</span><strong>Nicht-nat&uuml;rlich</strong> &mdash; Schenkelhalsfraktur (durch Sturz = &auml;u&szlig;ere Einwirkung) ist urs&auml;chlich f&uuml;r Pneumonie und Tod. &rarr; Polizei informieren!</div>
+      <p>Kausalit&auml;tskette: <strong>Sturz &rarr; Fraktur &rarr; OP &rarr; Immobilisierung &rarr; Pneumonie &rarr; Tod</strong></p>
+      <p style="margin-top:8px;color:#C0392B">Das &auml;u&szlig;ere Ereignis (Sturz) leitet die gesamte Kausalkette ein &rarr; nicht-nat&uuml;rlich!</p>
+      <div class="qa-meta">Mainz KP &middot; H&auml;ufig &middot; Protokoll-Klassiker</div>
+    </div>
+  </div>
+
+  <div class="qa-card">
+    <div class="qa-q" onclick="toggleQA('qa7')">
+      <div class="qa-qt">
+        <span class="qa-qlbl" style="color:#B8860B">Mainz &middot; Hr. Roof &middot; Klinische Studien + DRG</span>
+        <span class="qa-qtext">Was sind klinische Studien? Welche Typen? Arztpflichten? DRG-System?</span>
+      </div>
+      <div class="tog" id="togqa7">+</div>
+    </div>
+    <div class="qa-ans" id="qa7">
+      <table class="tbl" style="margin-top:8px">
+        <tbody>
+          <tr><td style="width:30%"><strong>Studientypen</strong></td><td>Randomisiert &middot; kontrolliert &middot; verblindet (einfach/doppel) &middot; Placebo-kontrolliert</td></tr>
+          <tr><td><strong>Arztpflichten</strong></td><td>Aufkl&auml;rung der Teilnehmer &middot; Einwilligung einholen &middot; Datenschutz &middot; Schweigepflicht &middot; Unabh&auml;ngigkeit von finanziellen Interessen</td></tr>
+          <tr><td><strong>Datenschutz</strong></td><td>Pseudonymisierung / Anonymisierung &middot; Ethikkommission &middot; gute klinische Praxis (GCP)</td></tr>
+          <tr><td><strong>DRG-System</strong></td><td>Diagnosis-Related Groups: Krankenkassen &rarr; Betriebskosten; Bundesl&auml;nder &rarr; Investitionskosten (duale Finanzierung)</td></tr>
+          <tr><td><strong>Leitlinien</strong></td><td>S1 = Expertenkonsens &middot; S2 = Systematisch &middot; S3 = Evidenzbasiert</td></tr>
+        </tbody>
+      </table>
+      <div class="callout c-or"><span class="clbl">Hr. Roof Tipp</span>Hr. Roof fragt besonders gerne nach <strong>Datenschutz bei klinischen Studien</strong> und dem <strong>DRG-System</strong>. Beide Themen einzel vorbereiten!</div>
+      <div class="qa-meta">Mainz KP &middot; Hr. Roof &middot; Drittes Fach</div>
+    </div>
+  </div>
+
+  <div class="qa-card">
+    <div class="qa-q" onclick="toggleQA('qa8')">
+      <div class="qa-qt">
+        <span class="qa-qlbl" style="color:#B8860B">Mainz &middot; Timing-Frage</span>
+        <span class="qa-qtext">Wann beginnen Totenflecken? Wann die Totenstarre? Wann l&ouml;st sie sich?</span>
+      </div>
+      <div class="tog" id="togqa8">+</div>
+    </div>
+    <div class="qa-ans" id="qa8">
+      <table class="tbl" style="margin-top:8px">
+        <thead><tr><th style="color:#B8860B">Zeichen</th><th>Beginn</th><th>Maximum</th><th>L&ouml;sung</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Totenflecken (Livores)</strong></td><td>20&ndash;30 min</td><td>6&ndash;12 h</td><td>&mdash;</td></tr>
+          <tr><td><strong>Totenstarre (Rigor mortis)</strong></td><td>2&ndash;4 h</td><td>6&ndash;12 h</td><td>2&ndash;3 Tage</td></tr>
+          <tr><td><strong>F&auml;ulnis</strong></td><td>24&ndash;48 h</td><td>&mdash;</td><td>&mdash;</td></tr>
+        </tbody>
+      </table>
+      <div class="callout c-go"><span class="clbl">Merksatz</span>Totenflecken = ERSTES sicheres Zeichen (20 min). Hb-Abbauprozess &rarr; gr&uuml;n-braune Verf&auml;rbung bei fortgeschrittener F&auml;ulnis.</div>
+      <div class="qa-meta">Mainz KP &middot; Dr. M&uuml;ller-Forell &middot; H&auml;ufig gefragt</div>
+    </div>
+  </div>
+
+  <!-- Pearls -->
+  <div class="sec-lbl">&#11088; KP-Perlen &mdash; Rechtsmedizin</div>
+
+  <div class="pearl">
+    <div class="pearl-lbl">&#11088; Perle 1 &middot; Leichenschau</div>
+    <div class="pearl-txt">Pr&uuml;fer fragt "Was machen Sie zuerst?" bei Todesfall auf Station &rarr; PATIENT AUSKLEIDEN vor der Untersuchung. Viele Kandidaten denken zu komplex und &uuml;berspringen diesen simplen ersten Schritt.</div>
+    <div class="pearl-mn">"Erst auskleiden, dann untersuchen!"</div>
+  </div>
+
+  <div class="pearl">
+    <div class="pearl-lbl">&#11088; Perle 2 &middot; Totenflecken-Timing</div>
+    <div class="pearl-txt">Totenflecken = das ERSTE sichere Todeszeichen. Beginn nach 20&ndash;30 Minuten. Hb-Abbau &rarr; Biliverdin/Bilirubin &rarr; gr&uuml;n-braune Verf&auml;rbung. Reihenfolge: Livores &rarr; Rigor &rarr; F&auml;ulnis.</div>
+    <div class="pearl-mn">"20 min &rarr; Totenflecken erscheinen!"</div>
+  </div>
+
+  <div class="pearl">
+    <div class="pearl-lbl">&#11088; Perle 3 &middot; Post-OP Tod</div>
+    <div class="pearl-txt">Jeder post-operative Tod ist nicht-nat&uuml;rlich. Kein Fremdverschulden n&ouml;tig. Die Operation ist die &auml;u&szlig;ere Einwirkung. Polizei informieren &mdash; immer!</div>
+    <div class="pearl-mn">"Nach OP = immer nicht-nat&uuml;rlich!"</div>
+  </div>
+
+  <div class="pearl">
+    <div class="pearl-lbl">&#11088; Perle 4 &middot; Patientenverf&uuml;gung</div>
+    <div class="pearl-txt">Bewusstloser Patient, Atmung fehlt &rarr; ERST Akte &ouml;ffnen, Patientenverf&uuml;gung pr&uuml;fen. Pr&uuml;fer wollen sehen: klinische Reflexion, kein reflexartiger Reanimations-Start ohne PV-Pr&uuml;fung.</div>
+    <div class="pearl-mn">"Akte lesen, bevor Reanimation!"</div>
+  </div>
+
+  <div class="pearl">
+    <div class="pearl-lbl">&#11088; Perle 5 &middot; Teenager + Schweigepflicht</div>
+    <div class="pearl-txt">Bei Jugendlichen &ge;14 Jahre und einwilligungsf&auml;hig (z. B. 17j. Gonorrhoe-Patientin): Schweigepflicht gilt vollst&auml;ndig. Eltern d&uuml;rfen NICHT informiert werden &mdash; auch nicht auf Nachdruck!</div>
+    <div class="pearl-mn">"&ge; 14J + reif = Schweigepflicht gilt!"</div>
+  </div>
+
+  <div class="pearl">
+    <div class="pearl-lbl">&#11088; Perle 6 &middot; Kausalit&auml;tskette</div>
+    <div class="pearl-txt">Wenn die Kausalkette mit einem Unfall oder Eingriff beginnt, ist der Tod nicht-nat&uuml;rlich &mdash; egal wie viele Zwischenstationen es gibt. Schenkelhalsfraktur &rarr; Pneumonie &rarr; Tod = nicht-nat&uuml;rlich!</div>
+    <div class="pearl-mn">"Sturz &rarr; Fraktur &rarr; Tod = nicht-nat&uuml;rlich!"</div>
+  </div>
+
+</div><!-- /panel5 -->
+
+</div><!-- rm-content -->
+
+<script>
+const TAB_COLORS = ["#C0392B","#1E5F9E","#D97706","#2D7A3E","#7B3F9E","#B8860B"];
+
+function switchTab(n) {
+  document.querySelectorAll('.tab-panel').forEach(function(p,i){ p.classList.toggle('active', i===n); });
+  document.querySelectorAll('.tab-btn').forEach(function(b,i){
+    b.classList.toggle('active', i===n);
+    b.style.background = i===n ? TAB_COLORS[i] : '';
+    b.style.color = i===n ? '#fff' : '';
+  });
+}
+
+function toggleCard(id) {
+  var bd = document.getElementById(id);
+  var tog = document.getElementById('tog'+id);
+  var open = bd.classList.toggle('open');
+  tog.classList.toggle('open', open);
+}
+
+function toggleQA(id) {
+  var ans = document.getElementById(id);
+  var tog = document.getElementById('tog'+id);
+  var open = ans.classList.toggle('open');
+  tog.classList.toggle('open', open);
+}
+</script>
+</body>
+</html>
