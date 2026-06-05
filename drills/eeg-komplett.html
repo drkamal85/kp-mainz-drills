@@ -83,7 +83,8 @@
   </header>
 
   <nav class="tabs">
-    <button class="tab active" data-k="k1">Grundlagen</button>
+    <button class="tab active" data-k="k1">L1 · Grundlagen</button>
+    <button class="tab" data-k="k2">L2 · Epilepsie-Muster</button>
   </nav>
 
   <section class="chapter active" id="k1">
@@ -132,7 +133,55 @@
     </div>
   </section>
 
-  <footer>KP-Mainz Drills · EEG Komplettskript · Grundlagen</footer>
+  <!-- KAPITEL 2: EPILEPSIETYPISCHE MUSTER -->
+  <section class="chapter" id="k2">
+    <div class="chapter-head"><span class="chapter-num">L2</span><span class="chapter-title">Epilepsietypische Muster</span></div>
+
+    <div class="card open"><div class="card-head"><div><span class="card-tag">★ Anker</span><div class="card-title">Die drei ETP-Grundformen</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <div class="callout key"><span class="callout-label">★ Merksatz</span><strong>Spitze (spike) &lt; 70 ms · scharfe Welle (sharp wave) 70–200 ms · Spitze + nachfolgende langsame Welle = Spike-Wave-Komplex.</strong> Alles &gt; 200 ms ist keine Spitze mehr.</div>
+        <table><thead><tr><th>Muster</th><th>Dauer</th><th>Bedeutung</th></tr></thead><tbody>
+          <tr><td><strong>Spike (Spitze)</strong></td><td>&lt; 70 ms</td><td>steile, kurze transiente Potenzialspitze</td></tr>
+          <tr><td><strong>Sharp Wave</strong></td><td>70–200 ms</td><td>breiter als Spike, ebenfalls epilepsietypisch</td></tr>
+          <tr><td><strong>Spike-Wave</strong></td><td>Spike + langsame Welle</td><td>klassischer epilepsietypischer Komplex</td></tr>
+          <tr><td><strong>Polyspike(-Wave)</strong></td><td>≥ 2 Spikes + Welle</td><td>v. a. bei generalisierter (myoklonischer) Epilepsie</td></tr>
+        </tbody></table>
+        <div class="callout warn"><span class="callout-label">⚙ Begriff</span><strong>ETP = epilepsietypische Potenziale.</strong> Sie stützen die Diagnose, ein normales EEG schließt eine Epilepsie aber NICHT aus.</div>
+      </div></div>
+    </div>
+
+    <div class="card open"><div class="card-head"><div><span class="card-tag">★ Klassiker</span><div class="card-title">3-Hz-Spike-Wave & Co — Muster zuordnen</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <div class="callout key"><span class="callout-label">★ Merksatz</span><strong>3-Hz-Spike-Wave generalisiert = Absence (Petit Mal). Polyspike-Wave = juvenile myoklonische Epilepsie. Fokale Sharp Waves (temporal) = Herd.</strong></div>
+        <table><thead><tr><th>Muster</th><th>typische Zuordnung</th></tr></thead><tbody>
+          <tr><td><strong>3-Hz-Spike-Wave, generalisiert</strong></td><td>Absence-Epilepsie (Kind, Petit Mal)</td></tr>
+          <tr><td><strong>Polyspike-Wave</strong></td><td>juvenile myoklonische Epilepsie (Janz)</td></tr>
+          <tr><td><strong>fokale Spikes/Sharp Waves</strong></td><td>fokale Epilepsie (z. B. Temporallappen)</td></tr>
+          <tr><td><strong>Hypsarrhythmie</strong></td><td>West-Syndrom (Säugling, BNS-Anfälle)</td></tr>
+        </tbody></table>
+        <div class="callout fact"><span class="callout-label">⚙ Provokation</span>Aktivierung epilepsietypischer Muster durch <strong>Hyperventilation</strong> (v. a. Absencen) und <strong>Fotostimulation</strong> (v. a. JME).</div>
+      </div></div>
+    </div>
+
+    <div class="card open"><div class="card-head"><div><span class="card-tag">DD</span><div class="card-title">Befund-Reflex + Abgrenzung</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <ul>
+          <li><strong>Lokalisation?</strong> generalisiert (beidseits synchron) vs. fokal (umschriebener Herd)</li>
+          <li><strong>Frequenz?</strong> z. B. 3 Hz bei Absence</li>
+          <li><strong>Provozierbar?</strong> durch Hyperventilation / Fotostimulation</li>
+          <li><strong>Klinischer Korrelat?</strong> Anfallssemiologie passend</li>
+        </ul>
+        <div class="callout warn"><span class="callout-label">⚠ Status epilepticus</span>Anhaltende epileptische Aktivität im EEG &rarr; Notfall &rarr; <strong>Benzodiazepin (Lorazepam/Diazepam i.v.)</strong>, dann Levetiracetam/Phenytoin.</div>
+        <div class="qa">
+          <span class="q">Prüfer-Frage</span>
+          <div class="q-text">Welches EEG-Muster erwarten Sie bei einer Absence-Epilepsie?</div>
+          <div class="a"><span class="a-label">Ideale Antwort</span><strong>Generalisierte 3-Hz-Spike-Wave-Komplexe</strong>, typischerweise durch <strong>Hyperventilation</strong> provozierbar. Klinik: kurze Bewusstseinspausen beim Kind (Petit Mal). Therapie: Ethosuximid (oder Valproat).</div>
+        </div>
+      </div></div>
+    </div>
+  </section>
+
+  <footer>KP-Mainz Drills · EEG Komplettskript · L1 Grundlagen + L2 Epilepsie-Muster</footer>
 </div>
 <script>
   const tabs = document.querySelectorAll('.tab');
