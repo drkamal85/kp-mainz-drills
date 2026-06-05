@@ -79,6 +79,19 @@ h1.title em{font-style:italic;color:#C0392B}
 .tag-o{color:#D97706;background:#FFFBEB;padding:1px 7px;border-radius:4px;font-size:12px;font-weight:700;display:inline}
 ol.steps-ol{padding-left:18px;margin:10px 0;line-height:1.7;font-size:13.5px}
 ol.steps-ol li{margin-bottom:6px}
+.new-badge{display:inline-flex;align-items:center;background:#2D7A3E;color:#fff;font-size:9px;font-weight:800;letter-spacing:.1em;padding:2px 7px;border-radius:100px;vertical-align:middle;margin-left:7px;text-transform:uppercase}
+.card.new-card{border-left:3px solid #2D7A3E}
+.new-card .card-hd{background:rgba(45,122,62,.03)}
+.new-row td{background:rgba(45,122,62,.05)!important}
+.new-legend{font-size:11.5px;color:#2D7A3E;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.new-legend span{background:#2D7A3E;color:#fff;font-size:9px;font-weight:800;padding:2px 7px;border-radius:100px;letter-spacing:.1em}
+.hier{display:flex;flex-direction:column;gap:0;margin:14px 0}
+.hier-step{display:flex;align-items:stretch;gap:0}
+.hier-num{width:32px;display:flex;flex-direction:column;align-items:center;flex-shrink:0}
+.hier-circle{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;flex-shrink:0;z-index:1}
+.hier-line{width:2px;background:#e0e0e0;flex:1;margin:0 auto}
+.hier-content{flex:1;padding:2px 0 16px 12px;font-size:13.5px;line-height:1.55;color:#333}
+.hier-content strong{display:block;color:#1a1a1a;margin-bottom:2px}
 @media(max-width:640px){
   h1.title{font-size:28px}
   .tab-btn{font-size:11.5px;padding:7px 10px}
@@ -417,6 +430,8 @@ ol.steps-ol li{margin-bottom:6px}
 <!-- ===== TAB 4: PATIENTENRECHTE ===== -->
 <div class="tab-panel" id="panel4">
 
+  <div class="new-legend"><span>NEU</span> Neue Inhalte: Aufklärungsarten · Beweislast · Betreuungsrecht · Einwilligung Sonderformen</div>
+
   <div class="callout c-pu">
     <span class="clbl">&#9733; Merksatz</span>
     <p class="msatz">Eingriff ohne informierte Einwilligung = rechtswidrige K&ouml;rperverletzung!</p>
@@ -425,7 +440,7 @@ ol.steps-ol li{margin-bottom:6px}
 
   <div class="card">
     <div class="card-hd" onclick="toggleCard('pr1')">
-      <div class="card-l"><div class="card-tag" style="color:#7B3F9E">AUFKL&Auml;RUNGSPFLICHT</div><div class="card-title">Inhalt und Form der Aufkl&auml;rung</div></div>
+      <div class="card-l"><div class="card-tag" style="color:#7B3F9E">AUFKL&Auml;RUNGSPFLICHT</div><div class="card-title">Inhalt, Arten und Form der Aufkl&auml;rung <span class="new-badge">NEU</span></div></div>
       <div class="tog" id="togpr1">+</div>
     </div>
     <div class="card-bd" id="pr1">
@@ -438,6 +453,17 @@ ol.steps-ol li{margin-bottom:6px}
           <tr><td><strong>Form</strong></td><td>M&uuml;ndlich ausreichend &mdash; schriftliche Dokumentation erforderlich!</td></tr>
           <tr><td><strong>Notfall</strong></td><td>Einwilligung nicht erforderlich bei unmittelbarer Lebensgefahr</td></tr>
           <tr><td><strong>Fehler-Folge</strong></td><td>Aufkl&auml;rungsfehler &rarr; rechtswidrige K&ouml;rperverletzung!</td></tr>
+          <tr class="new-row"><td><strong>&#9654; 3 Arten der Aufkl&auml;rung</strong></td><td>
+            <strong>1. Selbstbestimmungsaufkl&auml;rung</strong> &mdash; Patient soll eigenst&auml;ndig entscheiden k&ouml;nnen (Risiken, Alternativen, Prognose)<br>
+            <strong>2. Sicherungsaufkl&auml;rung</strong> &mdash; Was Patient nach Eingriff beachten muss (Verhalten, Medikamente, Warnsymptome)<br>
+            <strong>3. Diagnoseaufkl&auml;rung</strong> &mdash; &Uuml;ber die Diagnose selbst aufkl&auml;ren
+          </td></tr>
+          <tr class="new-row"><td><strong>&#9654; Beweislast</strong></td><td><strong>Arzt tr&auml;gt die Beweislast</strong> f&uuml;r ordnungsgem&auml;&szlig;e Aufkl&auml;rung! Bei Streit: Arzt muss beweisen, dass aufgekl&auml;rt wurde &mdash; nicht der Patient das Gegenteil.</td></tr>
+          <tr class="new-row"><td><strong>&#9654; Aktenaufbewahrung</strong></td><td>
+            <strong>10 Jahre</strong> &mdash; normale Patientenakten<br>
+            <strong>15 Jahre</strong> &mdash; Mutterpass, R&ouml;ntgenbilder (Strahlenschutz)<br>
+            <strong>30 Jahre</strong> &mdash; Akten mit CT, Chemotherapie, Radiologie / Strahlentherapie
+          </td></tr>
         </tbody>
       </table>
       <div class="callout c-red"><span class="clbl">Aufkl&auml;rungsfehler</span>Fehlende Aufkl&auml;rung = <strong>"Aufkl&auml;rungsfehler"</strong> / <strong>"unterlassene Aufkl&auml;rung"</strong> &rarr; Der Eingriff gilt als rechtswidrige K&ouml;rperverletzung!</div>
@@ -461,6 +487,83 @@ ol.steps-ol li{margin-bottom:6px}
         </tbody>
       </table>
       <div class="callout c-or"><span class="clbl">Klassischer KP-Fall</span><strong>17j. M&auml;dchen, Gonorrhoe:</strong> Ist &gt;14J und einwilligungsf&auml;hig &rarr; Schweigepflicht gilt vollst&auml;ndig &rarr; Mutter darf NICHT informiert werden!</div>
+    </div>
+  </div>
+
+  <!-- NEW: Einwilligung Sonderformen -->
+  <div class="card new-card">
+    <div class="card-hd" onclick="toggleCard('pr2b')">
+      <div class="card-l"><div class="card-tag" style="color:#7B3F9E">EINWILLIGUNG &mdash; SONDERFORMEN <span class="new-badge">NEU</span></div><div class="card-title">Mutma&szlig;liche Einwilligung + Einwilligungsunf&auml;higkeit</div></div>
+      <div class="tog" id="togpr2b">+</div>
+    </div>
+    <div class="card-bd" id="pr2b">
+      <table class="tbl" style="margin-top:12px">
+        <thead><tr><th style="color:#7B3F9E">Form</th><th>Wann?</th><th>Vorgehen</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Ausdr&uuml;ckliche Einwilligung</strong></td>
+            <td>Normalfall &mdash; Patient einwilligungsf&auml;hig</td>
+            <td>M&uuml;ndlich oder schriftlich nach Aufkl&auml;rung</td>
+          </tr>
+          <tr>
+            <td><strong>Mutma&szlig;liche Einwilligung</strong></td>
+            <td>Notfall &mdash; Patient bewusstlos / nicht ansprechbar, keine Patientenverf&uuml;gung, kein Bevollm&auml;chtigter erreichbar</td>
+            <td>Arzt handelt im mutma&szlig;lichen Interesse des Patienten &mdash; was w&uuml;rde er verm. wollen? Lebensrettung hat Vorrang. Alle Ma&szlig;nahmen dokumentieren!</td>
+          </tr>
+          <tr>
+            <td><strong>Einwilligung durch Vertreter</strong></td>
+            <td>Patient einwilligungsunf&auml;hig (Bewusstlos, Demenz, psych. Erkrankung)</td>
+            <td>Bevollm&auml;chtigter / Betreuer entscheidet &rarr; Betreuungsrecht (s. n&auml;chste Karte)</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="callout c-or"><span class="clbl">Notfall-Faustregel</span>Bei Lebensgefahr + kein Ansprechpartner erreichbar &rarr; <strong>mutma&szlig;liche Einwilligung annehmen</strong> &rarr; lebensrettend handeln &rarr; vollst&auml;ndig dokumentieren!</div>
+    </div>
+  </div>
+
+  <!-- NEW: Betreuungsrecht -->
+  <div class="card new-card">
+    <div class="card-hd" onclick="toggleCard('pr2c')">
+      <div class="card-l"><div class="card-tag" style="color:#7B3F9E">BETREUUNGSRECHT <span class="new-badge">NEU</span></div><div class="card-title">Entscheidungshierarchie bei Einwilligungsunf&auml;higkeit</div></div>
+      <div class="tog" id="togpr2c">+</div>
+    </div>
+    <div class="card-bd" id="pr2c">
+      <div class="callout c-pu" style="margin-top:12px"><span class="clbl">Kernfrage</span>Patient ist einwilligungsunf&auml;hig (Demenz, Bewusstlosigkeit, psych. Erkrankung) &mdash; wer entscheidet?</div>
+
+      <div class="hier">
+        <div class="hier-step">
+          <div class="hier-num"><div class="hier-circle" style="background:#7B3F9E">1</div><div class="hier-line"></div></div>
+          <div class="hier-content"><strong>Patientenverf&uuml;gung vorhanden?</strong>Bindend &mdash; Inhalt gilt direkt, kein Betreuer n&ouml;tig. Gilt auch f&uuml;r Ablehnung lebenserhaltender Ma&szlig;nahmen.</div>
+        </div>
+        <div class="hier-step">
+          <div class="hier-num"><div class="hier-circle" style="background:#7B3F9E">2</div><div class="hier-line"></div></div>
+          <div class="hier-content"><strong>Vorsorgevollmacht vorhanden?</strong>Bevollm&auml;chtigter entscheidet &mdash; in dem Umfang, den die Vollmacht vorsieht. Hat dieselbe Bindungswirkung wie die eigene Einwilligung.</div>
+        </div>
+        <div class="hier-step">
+          <div class="hier-num"><div class="hier-circle" style="background:#C0392B">3</div><div class="hier-line"></div></div>
+          <div class="hier-content"><strong>Kein Dokument, aber Ehepartner vorhanden?</strong><span class="new-badge" style="margin-left:0;margin-bottom:4px;display:inline-flex">NEU 2023</span> Neues Gesetz: Ehepartner / eingetragene Lebenspartner d&uuml;rfen bei pl&ouml;tzlicher Einwilligungsunf&auml;higkeit ohne Gericht f&uuml;r <strong>max. 6 Monate</strong> entscheiden. Danach: Betreuungsgericht.</div>
+        </div>
+        <div class="hier-step">
+          <div class="hier-num"><div class="hier-circle" style="background:#C0392B">4</div><div class="hier-line"></div></div>
+          <div class="hier-content"><strong>Gesetzlicher Betreuer &mdash; Betreuungsgericht</strong>Gericht bestellt einen Betreuer (Familienangeh&ouml;riger oder Berufsbetreuer). Betreuer entscheidet im Wohl des Patienten. Bei schwerwiegenden Entscheidungen (z. B. Abbruch lebenserhaltender Ma&szlig;nahmen) &rarr; Betreuungsgericht einschalten!</div>
+        </div>
+        <div class="hier-step">
+          <div class="hier-num"><div class="hier-circle" style="background:#1E5F9E">5</div></div>
+          <div class="hier-content"><strong>Notfall ohne erreichbaren Vertreter</strong>Mutma&szlig;liche Einwilligung &rarr; Arzt handelt lebensrettend im mutma&szlig;lichen Patientenwillen &rarr; vollst&auml;ndig dokumentieren.</div>
+        </div>
+      </div>
+
+      <table class="tbl">
+        <thead><tr><th style="color:#7B3F9E">Begriff</th><th>Definition</th><th>Unterschied</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Patientenverf&uuml;gung</strong></td><td>Selbst erstellt &mdash; eigene Entscheidung im Voraus</td><td>Bindend ohne Betreuer</td></tr>
+          <tr><td><strong>Vorsorgevollmacht</strong></td><td>Benennt bevollm&auml;chtigte Person</td><td>Bevollm&auml;chtigter entscheidet</td></tr>
+          <tr><td><strong>Gesetzl. Betreuung</strong></td><td>Gerichtlich bestellter Betreuer</td><td>Nur wenn kein Dokument vorhanden</td></tr>
+          <tr><td><strong>PsychKG</strong></td><td>Landesgesetz &mdash; Unterbringung bei Selbst- / Fremdgef&auml;hrdung</td><td>Zwangsma&szlig;nahme bei psychiatr. Notfall</td></tr>
+        </tbody>
+      </table>
+
+      <div class="callout c-red"><span class="clbl">KP-Frage aus Protokollen</span>"Was machen Sie wenn Patient nicht entscheidungsf&auml;hig ist?" &rarr; Stufenweise antworten: <strong>Patientenverf&uuml;gung &rarr; Vorsorgevollmacht &rarr; Ehepartner (6 Monate) &rarr; Betreuer &rarr; Betreuungsgericht &rarr; mutma&szlig;l. Einwilligung</strong></div>
     </div>
   </div>
 
@@ -662,6 +765,53 @@ ol.steps-ol li{margin-bottom:6px}
     </div>
   </div>
 
+  <!-- NEW QA -->
+  <div class="new-legend" style="margin-top:20px"><span>NEU</span> 2 neue KP-Fragen hinzugef&uuml;gt &mdash; Betreuungsrecht &amp; Einwilligungsunf&auml;higkeit</div>
+
+  <div class="qa-card" style="border-left:3px solid #2D7A3E">
+    <div class="qa-q" onclick="toggleQA('qa9')">
+      <div class="qa-qt">
+        <span class="qa-qlbl" style="color:#2D7A3E">NEU &middot; Mainz &middot; Betreuungsrecht &middot; Protokoll-Klassiker</span>
+        <span class="qa-qtext">Was machen Sie, wenn der Patient nicht entscheidungsf&auml;hig ist und keine Patientenverf&uuml;gung vorliegt?</span>
+      </div>
+      <div class="tog" id="togqa9">+</div>
+    </div>
+    <div class="qa-ans" id="qa9">
+      <div class="callout c-pu" style="margin-top:8px"><span class="clbl">Stufenweise Antwort</span>Diese Reihenfolge vollst&auml;ndig nennen &mdash; Prüfer wollen die Hierarchie h&ouml;ren!</div>
+      <ol class="steps-ol">
+        <li><strong>Patientenverf&uuml;gung</strong> vorhanden? &rarr; Inhalt gilt bindend</li>
+        <li><strong>Vorsorgevollmacht</strong> vorhanden? &rarr; Bevollm&auml;chtigter entscheidet</li>
+        <li><strong>Ehepartner</strong> vorhanden? &rarr; Neues Gesetz 2023: darf f&uuml;r max. <strong>6 Monate</strong> ohne Gericht entscheiden</li>
+        <li><strong>Gesetzlicher Betreuer</strong> vorhanden? &rarr; vom Betreuungsgericht bestellt</li>
+        <li>Kein Vertreter erreichbar + Notfall? &rarr; <strong>Mutma&szlig;liche Einwilligung</strong> &rarr; lebensrettend handeln &rarr; dokumentieren</li>
+      </ol>
+      <div class="callout c-go"><span class="clbl">&#11088; Perle</span>Das <strong>neue Gesetz 2023 (Ehepartner 6 Monate)</strong> erscheint explizit in den Mainz-Protokollen &mdash; unbedingt merken!</div>
+      <div class="qa-meta">Mainz KP &middot; Aus den Protokollen explizit dokumentiert</div>
+    </div>
+  </div>
+
+  <div class="qa-card" style="border-left:3px solid #2D7A3E">
+    <div class="qa-q" onclick="toggleQA('qa10')">
+      <div class="qa-qt">
+        <span class="qa-qlbl" style="color:#2D7A3E">NEU &middot; Mainz &middot; Selbstbestimmung vs. Betreuung</span>
+        <span class="qa-qtext">95-j&auml;hrige Patientin mit akuter arterieller Verschlusskrankheit. Sie w&uuml;nscht keine OP, keinen invasiven Eingriff. Was machen Sie?</span>
+      </div>
+      <div class="tog" id="togqa10">+</div>
+    </div>
+    <div class="qa-ans" id="qa10">
+      <div class="callout c-gr" style="margin-top:8px"><span class="clbl">Antwort</span>Wenn die Patientin <strong>wach, orientiert und einwilligungsf&auml;hig</strong> ist &rarr; <strong>Willen respektieren!</strong> Konservative Therapie + Analgesie. Vollst&auml;ndig dokumentieren.</div>
+      <ul class="ul">
+        <li>Einwilligungsf&auml;higkeit pr&uuml;fen: Versteht sie die Konsequenzen ihrer Ablehnung?</li>
+        <li>Aufkl&auml;rung vollst&auml;ndig dokumentieren (Risiken der Nicht-Behandlung erkl&auml;rt)</li>
+        <li>Patientenwille dokumentieren &mdash; von Patientin unterschreiben lassen</li>
+        <li>Konservative Symptomkontrolle: <strong>Analgesie</strong>, Lagerung, Palliativmaßnahmen</li>
+        <li>Kein Eingriff gegen den Willen der einwilligungsf&auml;higen Patientin!</li>
+      </ul>
+      <div class="callout c-or"><span class="clbl">Schl&uuml;sselprinzip</span>Selbstbestimmung &uuml;berwiegt das &auml;rztliche Behandlungsgebot &mdash; auch wenn die Entscheidung medizinisch suboptimal erscheint. Dokumentation ist hier kritisch!</div>
+      <div class="qa-meta">Mainz KP &middot; Fadi Jarbouh Protokoll</div>
+    </div>
+  </div>
+
   <!-- Pearls -->
   <div class="sec-lbl">&#11088; KP-Perlen &mdash; Rechtsmedizin</div>
 
@@ -699,6 +849,24 @@ ol.steps-ol li{margin-bottom:6px}
     <div class="pearl-lbl">&#11088; Perle 6 &middot; Kausalit&auml;tskette</div>
     <div class="pearl-txt">Wenn die Kausalkette mit einem Unfall oder Eingriff beginnt, ist der Tod nicht-nat&uuml;rlich &mdash; egal wie viele Zwischenstationen es gibt. Schenkelhalsfraktur &rarr; Pneumonie &rarr; Tod = nicht-nat&uuml;rlich!</div>
     <div class="pearl-mn">"Sturz &rarr; Fraktur &rarr; Tod = nicht-nat&uuml;rlich!"</div>
+  </div>
+
+  <div class="pearl" style="border:1px solid rgba(45,122,62,.35)">
+    <div class="pearl-lbl">&#11088; Perle 7 &middot; Betreuungshierarchie <span class="new-badge">NEU</span></div>
+    <div class="pearl-txt">Einwilligungsunf&auml;higer Patient &rarr; Hierarchie: <strong>Patientenverf&uuml;gung &rarr; Vorsorgevollmacht &rarr; Ehepartner (6 Mon.) &rarr; gesetzl. Betreuer &rarr; mutma&szlig;l. Einwilligung.</strong> Diese Reihenfolge m&uuml;ssen Sie im Examen spontan abrufen k&ouml;nnen.</div>
+    <div class="pearl-mn">"PV &rarr; VV &rarr; Ehe &rarr; Betreuer &rarr; mutma&szlig;lich"</div>
+  </div>
+
+  <div class="pearl" style="border:1px solid rgba(45,122,62,.35)">
+    <div class="pearl-lbl">&#11088; Perle 8 &middot; Neues Gesetz 2023 &mdash; Ehepartner <span class="new-badge">NEU</span></div>
+    <div class="pearl-txt">Seit 2023 neues Gesetz: Bei pl&ouml;tzlicher Einwilligungsunf&auml;higkeit darf der <strong>Ehepartner / eingetragene Lebenspartner ohne Betreuungsgericht f&uuml;r maximal 6 Monate</strong> medizinische Entscheidungen treffen. Diese Tatsache wurde in den Mainz-Protokollen explizit als Pr&uuml;fungswissen dokumentiert!</div>
+    <div class="pearl-mn">"Ehepartner = 6 Monate ohne Gericht"</div>
+  </div>
+
+  <div class="pearl" style="border:1px solid rgba(45,122,62,.35)">
+    <div class="pearl-lbl">&#11088; Perle 9 &middot; Beweislast Aufkl&auml;rung <span class="new-badge">NEU</span></div>
+    <div class="pearl-txt">Der <strong>Arzt tr&auml;gt die Beweislast</strong> f&uuml;r ordnungsgem&auml;&szlig;e Aufkl&auml;rung &mdash; nicht der Patient. Bei Klage muss der Arzt beweisen, dass er aufgekl&auml;rt hat. Deshalb: schriftliche Dokumentation + Unterschrift des Patienten unverzichtbar.</div>
+    <div class="pearl-mn">"Arzt muss Aufkl&auml;rung beweisen!"</div>
   </div>
 
 </div><!-- /panel5 -->
