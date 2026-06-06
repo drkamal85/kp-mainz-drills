@@ -105,6 +105,7 @@
     <button class="tab active" data-k="k1">Woche 1 · Grundlagen</button>
     <button class="tab" data-k="k2">Woche 2 · Respiratorisch</button>
     <button class="tab" data-k="k3">Woche 3 · Metabolisch</button>
+    <button class="tab" data-k="k4">Woche 4 · Gemischt + O₂</button>
   </nav>
 
   <!-- KAPITEL 1 -->
@@ -279,7 +280,64 @@
     </div>
   </section>
 
-  <footer>KP-Mainz Drills · BGA Komplettskript · Wk1 Grundlagen + Wk2 Respiratorisch + Wk3 Metabolisch</footer>
+  <section class="chapter" id="k4">
+    <div class="chapter-head"><span class="chapter-num">W4</span><span class="chapter-title">Gemischte Störungen & Oxygenierung</span></div>
+
+    <div class="card open"><div class="card-head"><div><span class="card-tag">★ Anker</span><div class="card-title">Kompensation vs. gemischte Störung</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <div class="callout key"><span class="callout-label">★ Merksatz</span><strong>Kompensation: pCO₂ und HCO₃⁻ bewegen sich in die GLEICHE Richtung (beide hoch oder beide niedrig). Gemischte (kombinierte) Störung: sie bewegen sich in ENTGEGENGESETZTE Richtung — beide treiben den pH in dieselbe Richtung.</strong></div>
+        <table><thead><tr><th></th><th>pCO₂</th><th>HCO₃⁻</th><th>pH</th></tr></thead><tbody>
+          <tr><td><strong>Kompensiert</strong></td><td colspan="2">gleiche Richtung</td><td>normal / grenzwertig</td></tr>
+          <tr><td><strong>Gemischt</strong></td><td>↑</td><td>↓</td><td>↓↓ schwere Azidose</td></tr>
+          <tr><td><strong>Gemischt</strong></td><td>↓</td><td>↑</td><td>↑↑ schwere Alkalose</td></tr>
+        </tbody></table>
+        <div class="callout warn"><span class="callout-label">⚠ Faustregel</span>Eine echte Kompensation ist <strong>nie vollständig über die Norm hinaus</strong> — der pH bleibt auf der Seite der Primärstörung. Schießt der pH „zu weit", liegt eine zweite (gemischte) Störung vor.</div>
+        <div class="callout fact"><span class="callout-label">⚙ Klassiker</span><strong>Reanimation/Schock:</strong> respiratorische Azidose (pCO₂↑ durch Minderventilation) + metabolische Laktatazidose (HCO₃⁻↓) = kombinierte Azidose, pH stürzt ab.</div>
+      </div></div>
+    </div>
+
+    <div class="card open"><div class="card-head"><div><span class="card-tag">★ Oxygenierung</span><div class="card-title">PaO₂, SaO₂ & FiO₂</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <div class="callout key"><span class="callout-label">★ Merksatz</span><strong>PaO₂↓ allein = respiratorische Partialinsuffizienz (hypoxämisch). PaO₂↓ UND pCO₂↑ = respiratorische Globalinsuffizienz (hyperkapnisch).</strong></div>
+        <table><thead><tr><th>SaO₂</th><th>≈ PaO₂</th><th>Bewertung</th></tr></thead><tbody>
+          <tr><td>95–99 %</td><td>~100 mmHg</td><td>normal</td></tr>
+          <tr><td>90–94 %</td><td>~80 mmHg</td><td>mäßige Hypoxämie</td></tr>
+          <tr><td>85–89 %</td><td>~60 mmHg</td><td>mittelgradig</td></tr>
+          <tr><td>&lt; 85 %</td><td>&lt; 50 mmHg</td><td>hochgradig</td></tr>
+        </tbody></table>
+        <div class="callout fact"><span class="callout-label">⚙ FiO₂ & O₂-Gabe</span>Raumluft = <strong>0,21 (21 %)</strong>. Nasenbrille 1–5 L/min → FiO₂ bis 40 % &middot; Maske 5–10 L/min → bis 60 % &middot; High-Flow 20–60 L/min → bis 100 %. Ziel-SaO₂ 92–96 % — <strong>bei COPD 88–92 %</strong> (Hyperkapnie/Atemantrieb!).</div>
+      </div></div>
+    </div>
+
+    <div class="card open"><div class="card-head"><div><span class="card-tag">★ Horovitz</span><div class="card-title">Horovitz-Index & ARDS</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <div class="callout key"><span class="callout-label">★ Formel</span><strong>Horovitz-Index = PaO₂ / FiO₂</strong> (FiO₂ als Dezimalzahl). Beispiel: PaO₂ 120 mmHg bei FiO₂ 60 % → 120 / 0,6 = <strong>200 mmHg</strong>. Physiologisch 350–500 mmHg.</div>
+        <table><thead><tr><th>ARDS (Berlin)</th><th>PaO₂/FiO₂</th></tr></thead><tbody>
+          <tr><td><strong>Mild</strong></td><td>201–300 mmHg</td></tr>
+          <tr><td><strong>Moderat</strong></td><td>101–200 mmHg</td></tr>
+          <tr><td><strong>Schwer</strong></td><td>≤ 100 mmHg</td></tr>
+        </tbody></table>
+        <div class="callout warn"><span class="callout-label">⚠ Voraussetzung</span>ARDS-Diagnose nur bei <strong>PEEP ≥ 5 cmH₂O</strong>, akutem Beginn (&lt; 1 Woche), bilateralen Infiltraten und nicht kardial erklärbar (Berlin-Kriterien, alle 4). Horovitz ist auch die <strong>Lungen-Komponente im SOFA-Score</strong>.</div>
+      </div></div>
+    </div>
+
+    <div class="card"><div class="card-head"><div><span class="card-tag">KP-Fragen</span><div class="card-title">Erkennen & rechnen</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <div class="qa">
+          <span class="q">Prüfer-Frage</span>
+          <div class="q-text">PaO₂ 90 mmHg unter 45 % O₂ — wie hoch ist der Horovitz-Index, und was bedeutet er?</div>
+          <div class="a"><span class="a-label">Ideale Antwort</span>90 / 0,45 = <strong>200 mmHg</strong> → entspricht einem <strong>moderaten ARDS</strong> (101–200), sofern Berlin-Kriterien + PEEP ≥ 5 erfüllt sind.</div>
+        </div>
+        <div class="qa">
+          <span class="q">Prüfer-Frage</span>
+          <div class="q-text">pH 7,18 · pCO₂ 55 mmHg · HCO₃⁻ 15 mmol/l — was liegt vor?</div>
+          <div class="a"><span class="a-label">Ideale Antwort</span>pCO₂ erhöht (→ Azidose) UND HCO₃⁻ erniedrigt (→ Azidose) = <strong>kombinierte respiratorische + metabolische Azidose</strong> (gegenläufig, beide treiben den pH nach unten) — z. B. bei Reanimation/Schock.</div>
+        </div>
+      </div></div>
+    </div>
+  </section>
+
+  <footer>KP-Mainz Drills · BGA Komplettskript · Wk1 Grundlagen + Wk2 Respiratorisch + Wk3 Metabolisch + Wk4 Gemischt + O₂</footer>
 </div>
 <script>
   const tabs = document.querySelectorAll('.tab');
