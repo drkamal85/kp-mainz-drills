@@ -167,6 +167,11 @@
   .pk-q ul{list-style:none;padding:0}
   .pk-q li{position:relative;padding-left:18px;margin-bottom:7px;font-size:14.5px;line-height:1.5}
   .pk-q li::before{content:"–";position:absolute;left:0;color:var(--protokoll);font-weight:700}
+  .pq{border-top:1px solid var(--line);padding:10px 0}
+  .pq-frage{position:relative;padding-left:18px;font-size:14.5px;font-weight:600;line-height:1.5}
+  .pq-frage::before{content:"–";position:absolute;left:0;color:var(--protokoll);font-weight:700}
+  .pq .reveal{margin-top:5px;border-top:none;padding-top:0}
+  .pq .reveal>summary{padding:5px 0 0}
 
   .pearl{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--perlen);border-radius:12px;padding:16px 18px;margin-bottom:13px}
   .pearl .ph{font-weight:800;font-size:13px;color:var(--perlen);margin-bottom:7px}
@@ -378,20 +383,25 @@
 
   <!-- ============ PROTOKOLLE (Pass 2 · Capstone) ============ -->
   <section class="panel" data-panel="protokoll">
-    <p class="panel-intro">Generalprobe an zwei echten Mainz-Fällen. Fragen laut beantworten, dann Lösungsweg aufdecken.</p>
+    <p class="panel-intro">Generalprobe an zwei echten Mainz-Fällen. Jede Frage einzeln laut beantworten, dann die Antwort aufdecken.</p>
 
     <div class="pk">
       <div class="pk-meta"><span>Fall 54 · 18.10.2023</span><span>Dr. Laakmann (Innere)</span><span class="pk-badge">Bestanden</span></div>
       <div class="pk-akte"><span class="lab">Fall</span>60-jährige Patientin mit Palpitationen, Tremor, Gewichtsverlust und Struma nodosa. Labor: TSH↓, T3/T4↑. EKG: Tachyarrhythmia absoluta bei Vorhofflimmern.</div>
-      <div class="pk-q"><span class="lab">Gefragt wurde</span><ul><li>Vorgehen in der Notaufnahme bei Vorhofflimmern?</li><li>Nebenwirkungen von Amiodaron?</li><li>Ursachen und Therapie der Hyperthyreose?</li></ul></div>
-      <details class="reveal"><summary>Lösungsweg aufdecken</summary><div class="ans">VHF: EKG, Frequenz-/Rhythmuskontrolle, Antikoagulation nach CHA₂DS₂-VASc. Amiodaron: Schilddrüsendysfunktion, Lungenfibrose, QT-Verlängerung. Therapie: <b>Thiamazol</b>; bei Jod-/KM-Exposition zusätzlich <b>Perchlorat</b>.</div></details>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">Vorgehen in der Notaufnahme bei Vorhofflimmern?</div><details class="reveal"><summary>Antwort</summary><div class="ans">EKG und Monitoring, Frequenz- vs. Rhythmuskontrolle, Antikoagulation nach CHA₂DS₂-VASc; bei Instabilität elektrische Kardioversion.</div></details></div>
+      <div class="pq"><div class="pq-frage">Nebenwirkungen von Amiodaron?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Schilddrüsendysfunktion (Hypo- und Hyperthyreose), Lungenfibrose, QT-Verlängerung; daneben Korneaablagerungen, Photosensibilität.</div></details></div>
+      <div class="pq"><div class="pq-frage">Ursachen und Therapie der Hyperthyreose?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ursachen: M. Basedow, Autonomie, iatrogen (Amiodaron/Jod). Therapie: <b>Thiamazol</b>; bei Jod-/KM-Exposition zusätzlich <b>Perchlorat</b>; symptomatisch Propranolol.</div></details></div>
     </div>
 
     <div class="pk">
       <div class="pk-meta"><span>„Alles von der Schilddrüse" · 2024</span><span>Dr. Kirdorf (Chirurgie)</span></div>
       <div class="pk-akte"><span class="lab">Fall</span>Struma mit Knoten rechts. Die Prüfung läuft vom Funktionsstatus bis zum Karzinom-Pfad — der typische Mainz-Verlauf.</div>
-      <div class="pk-q"><span class="lab">Gefragt wurde</span><ul><li>TSH-Normwert; Hypo-, Hyper-, Euthyreose laborchemisch?</li><li>Welche Bildgebung — und was bedeutet ein kalter Knoten?</li><li>OP bei Knoten rechts → welcher Eingriff, dann Schnellschnitt?</li><li>Bei papillärem bzw. follikulärem Karzinom — wie weiter?</li></ul></div>
-      <details class="reveal"><summary>Lösungsweg aufdecken</summary><div class="ans">Sono (echoarm) → Szintigraphie; kalter Knoten = malignitätsverdächtig → FNP/OP. Knoten rechts → <b>Hemithyreoidektomie</b> + Schnellschnitt. Karzinom (papillär oder follikulär) → <b>totale Thyreoidektomie + Radiojod + L-Thyroxin</b>; bei mitbetroffenen Nebenschilddrüsen Parathormon/Calcium.</div></details>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">TSH-Normwert; Hypo-, Hyper-, Euthyreose laborchemisch?</div><details class="reveal"><summary>Antwort</summary><div class="ans">TSH ca. 0,4–4,0 mU/l. Hyper: TSH↓, fT3/fT4↑. Primäre Hypo: TSH↑, fT4↓. Euthyreose: alles normwertig.</div></details></div>
+      <div class="pq"><div class="pq-frage">Welche Bildgebung — und was bedeutet ein kalter Knoten?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Sonographie (echoarm) → Szintigraphie. Kalter Knoten = nicht speichernd, malignitätsverdächtig → FNP/OP. Heißer Knoten = autonom, meist benigne.</div></details></div>
+      <div class="pq"><div class="pq-frage">OP bei Knoten rechts → welcher Eingriff, dann Schnellschnitt?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Hemithyreoidektomie rechts mit intraoperativem Schnellschnitt zur Dignitätsklärung.</div></details></div>
+      <div class="pq"><div class="pq-frage">Bei papillärem bzw. follikulärem Karzinom — wie weiter?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Totale Thyreoidektomie + Radiojodtherapie + L-Thyroxin; papillär zusätzlich Lymphadenektomie. Bei mitbetroffenen Nebenschilddrüsen Parathormon/Calcium.</div></details></div>
     </div>
   </section>
 
