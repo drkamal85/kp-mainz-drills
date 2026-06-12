@@ -69,11 +69,6 @@
   .tally i::before{content:"";width:9px;height:9px;border-radius:50%}
   .tally .t-ok::before{background:var(--ok)} .tally .t-gap::before{background:var(--gap)} .tally .t-miss::before{background:var(--miss)}
   .spacer{flex:1 1 auto}
-  .switch{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;color:var(--muted);cursor:pointer;user-select:none}
-  .switch input{appearance:none;width:34px;height:19px;background:var(--line);border-radius:999px;position:relative;cursor:pointer;transition:.18s;flex:none}
-  .switch input::after{content:"";position:absolute;top:2px;left:2px;width:15px;height:15px;background:#fff;border-radius:50%;transition:.18s;box-shadow:0 1px 2px rgba(0,0,0,.2)}
-  .switch input:checked{background:var(--retrieval)}
-  .switch input:checked::after{transform:translateX(15px)}
   .btn{font-family:'Manrope';font-size:12.5px;font-weight:700;border:none;border-radius:999px;padding:9px 16px;cursor:pointer;transition:.15s}
   .btn-primary{background:var(--retrieval);color:#fff}
   .btn-primary:hover{filter:brightness(1.06)}
@@ -91,9 +86,6 @@
   .rt-right{display:flex;align-items:center;gap:10px;white-space:nowrap}
   .rt-ptr{font-size:11px;font-weight:600;color:var(--muted)}
   .rt-q{font-size:15.5px;line-height:1.55}
-  .timer{display:none;font-size:12px;font-weight:800;font-variant-numeric:tabular-nums;color:var(--retrieval);border:1px solid #BFE0DC;border-radius:999px;padding:2px 9px;cursor:pointer}
-  .timer.run{color:#0c5d57}.timer.low{color:var(--miss);border-color:var(--miss)}
-  body.timed .timer{display:inline-block}
   .reveal{margin-top:12px;border-top:1px dashed var(--line);padding-top:0}
   .reveal>summary{list-style:none;cursor:pointer;font-size:12.5px;font-weight:800;letter-spacing:.04em;color:var(--retrieval);padding:11px 0 0;user-select:none;display:inline-flex;align-items:center;gap:6px}
   .reveal>summary::-webkit-details-marker{display:none}
@@ -200,7 +192,7 @@
   <div class="howto">
     <h4>So läuft diese R3 — in zwei Pässen</h4>
     <ol>
-      <li><strong>Pass 1 — Test (kalt):</strong> Retrieval-Test laut auf Deutsch beantworten, <em>dann</em> aufdecken und ehrlich bewerten — <em>sicher / Lücke / gefehlt</em>. Optional Zeitdruck an.</li>
+      <li><strong>Pass 1 — Test (kalt):</strong> Retrieval-Test laut auf Deutsch beantworten, <em>dann</em> aufdecken und ehrlich bewerten — <em>sicher / Lücke / gefehlt</em>.</li>
       <li><strong>Nur Lücken öffnen:</strong> Der Knopf springt zu genau den Stationen, die du als Lücke markiert hast. Den Rest überspringst du.</li>
       <li><strong>Pass 2 — Protokolle:</strong> echte Mainz-Fälle als Generalprobe kalt durchspielen.</li>
     </ol>
@@ -226,7 +218,6 @@
       <div class="ctrl-row">
         <div class="tally"><i class="t-ok">Sicher <span id="n-ok">0</span></i><i class="t-gap">Lücke <span id="n-gap">0</span></i><i class="t-miss">Gefehlt <span id="n-miss">0</span></i><i style="color:var(--muted)">/ 6 bewertet: <span id="n-done">0</span></i></div>
         <div class="spacer"></div>
-        <label class="switch"><input type="checkbox" id="timed-toggle"> Zeitdruck (90 s)</label>
         <button class="btn btn-primary" id="open-gaps">Nur Lücken öffnen →</button>
         <button class="btn btn-ghost" id="reset">Zurücksetzen</button>
       </div>
@@ -234,42 +225,42 @@
     </div>
 
     <div class="rt" data-id="p1" data-stations="grundlagen">
-      <div class="rt-h"><span class="rt-n">Prompt 1 · Einteilung</span><span class="rt-right"><span class="timer" data-t="90">▶ 90 s</span><span class="rt-ptr">→ Grundlagen</span></span></div>
+      <div class="rt-h"><span class="rt-n">Prompt 1 · Einteilung</span><span class="rt-right"><span class="rt-ptr">→ Grundlagen</span></span></div>
       <div class="rt-q">Nenne die <strong>vier Schocktypen mit Subtypen</strong> und je eine typische Ursache.</div>
       <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><b>Hypovoläm</b> (Blutung, Verbrennung, Erbrechen/Diarrhö). <b>Kardiogen</b> (Myokardinfarkt, Arrhythmie). <b>Distributiv</b>: septisch (Infektion), anaphylaktisch (Allergie), neurogen (SHT/Rückenmark). <b>Obstruktiv</b> (Lungenembolie, Spannungspneumothorax, Perikardtamponade).</div></details>
       <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
     </div>
 
     <div class="rt" data-id="p2" data-stations="klinik">
-      <div class="rt-h"><span class="rt-n">Prompt 2 · Klinik-Differenzierung</span><span class="rt-right"><span class="timer" data-t="90">▶ 90 s</span><span class="rt-ptr">→ Klinik</span></span></div>
+      <div class="rt-h"><span class="rt-n">Prompt 2 · Klinik-Differenzierung</span><span class="rt-right"><span class="rt-ptr">→ Klinik</span></span></div>
       <div class="rt-q">Allgemeine Schockzeichen — und wie unterscheidest du klinisch <strong>kardiogen vs. hypovoläm vs. früh-septisch</strong> (Halsvenen, Hauttemperatur)?</div>
       <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans">Allgemein: Tachykardie, Hypotonie, blass/kaltschweißig/marmoriert, Oligurie, Vigilanzminderung. <b>Kardiogen:</b> Halsvenen gestaut, Dyspnoe/Lungenödem. <b>Hypovoläm:</b> Halsvenen kollabiert. <b>Früh-septisch (+ neurogen):</b> warme, rosige Haut („warmer Schock").</div></details>
       <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
     </div>
 
     <div class="rt" data-id="p3" data-stations="diagnostik">
-      <div class="rt-h"><span class="rt-n">Prompt 3 · Hämodynamik</span><span class="rt-right"><span class="timer" data-t="90">▶ 90 s</span><span class="rt-ptr">→ Diagnostik</span></span></div>
+      <div class="rt-h"><span class="rt-n">Prompt 3 · Hämodynamik</span><span class="rt-right"><span class="rt-ptr">→ Diagnostik</span></span></div>
       <div class="rt-q">Fülle die Hämodynamik-Tabelle: <strong>ZVD, HZV, SVR</strong> für hypovoläm / kardiogen / distributiv / obstruktiv — und die <strong>ZVD-Faustregel</strong>.</div>
       <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans">Hypovoläm: ZVD↓, HZV↓, SVR↑. Kardiogen: ZVD↑, HZV↓, SVR↑. Distributiv: ZVD↓, HZV↑ (früh), SVR↓. Obstruktiv: ZVD↑, HZV↓, SVR↑. <b>Faustregel: ZVD ist nur beim kardiogenen (und obstruktiven) Schock erhöht — bei allen anderen erniedrigt.</b></div></details>
       <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
     </div>
 
     <div class="rt" data-id="p4" data-stations="diagnostik">
-      <div class="rt-h"><span class="rt-n">Prompt 4 · Schockindex + Labor</span><span class="rt-right"><span class="timer" data-t="90">▶ 90 s</span><span class="rt-ptr">→ Diagnostik</span></span></div>
+      <div class="rt-h"><span class="rt-n">Prompt 4 · Schockindex + Labor</span><span class="rt-right"><span class="rt-ptr">→ Diagnostik</span></span></div>
       <div class="rt-q">Was ist der <strong>Schockindex</strong> (Formel + Grenze)? Welcher Laborwert zeigt <strong>Gewebehypoxie</strong>? Grenze der <strong>Rekapillarisierungszeit</strong>?</div>
       <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans">Schockindex = <b>HF / RR systolisch</b>; <b>&gt; 1</b> spricht für Schock. Gewebehypoxie → <b>Laktat↑</b> (+ metabolische Azidose in der BGA). Rekapillarisierungszeit <b>&gt; 2 s</b> ist pathologisch.</div></details>
       <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
     </div>
 
     <div class="rt" data-id="p5" data-stations="therapie">
-      <div class="rt-h"><span class="rt-n">Prompt 5 · Katecholamine</span><span class="rt-right"><span class="timer" data-t="90">▶ 90 s</span><span class="rt-ptr">→ Therapie</span></span></div>
+      <div class="rt-h"><span class="rt-n">Prompt 5 · Katecholamine</span><span class="rt-right"><span class="rt-ptr">→ Therapie</span></span></div>
       <div class="rt-q">Welches <strong>Katecholamin</strong> bei welchem Schock? Und die allgemeine <strong>Lagerung</strong> (mit Ausnahme)?</div>
       <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><b>Sepsis/distributiv → Noradrenalin.</b> <b>Anaphylaxie → Adrenalin.</b> <b>Kardiogen → Dobutamin</b> (dann ggf. Noradrenalin). CPR → Adrenalin. Lagerung: Beine hoch (~15°) — <b>Ausnahme kardiogen: Oberkörper hoch</b>; KI bei Hirndruck/Beckenverletzung.</div></details>
       <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
     </div>
 
     <div class="rt" data-id="p6" data-stations="therapie">
-      <div class="rt-h"><span class="rt-n">Prompt 6 · Anaphylaxie</span><span class="rt-right"><span class="timer" data-t="90">▶ 90 s</span><span class="rt-ptr">→ Therapie</span></span></div>
+      <div class="rt-h"><span class="rt-n">Prompt 6 · Anaphylaxie</span><span class="rt-right"><span class="rt-ptr">→ Therapie</span></span></div>
       <div class="rt-q">Anaphylaktischer Schock — <strong>Notfalltherapie Schritt für Schritt</strong> (Substanz, Dosis, Weg).</div>
       <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans">Allergenzufuhr stoppen, Schocklagerung, O2. <b>Adrenalin 0,5 mg i.m.</b> in den Oberschenkel (Wdh. nach 5–10 min). Volumen (Ringer). <b>H1-Antihistaminikum</b> (Dimetinden/Clemastin) + <b>Glukokortikoid</b> (Prednisolon 250–1000 mg i.v.).</div></details>
       <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
@@ -540,30 +531,6 @@
     document.querySelectorAll('.reveal[open]').forEach(d=>d.open=false);
     recompute();
     document.getElementById('status').textContent='Zurückgesetzt. Bewerte alle 6 Prompts, dann „Nur Lücken öffnen".';
-  });
-
-  // ---- timed mode (off by default) ----
-  const body=document.body;
-  document.getElementById('timed-toggle').addEventListener('change',e=>{
-    body.classList.toggle('timed', e.target.checked);
-    if(!e.target.checked) document.querySelectorAll('.timer').forEach(stopTimer);
-  });
-  function stopTimer(t){ if(t._iv){clearInterval(t._iv);t._iv=null;} t.classList.remove('run','low'); t.textContent='▶ '+t.dataset.t+' s'; }
-  document.querySelectorAll('.timer').forEach(t=>{
-    t.addEventListener('click',()=>{
-      if(t._iv){ stopTimer(t); return; }
-      let s = parseInt(t.dataset.t,10);
-      t.classList.add('run'); t.textContent=s+' s';
-      t._iv=setInterval(()=>{
-        s--; t.textContent=s+' s';
-        if(s<=15)t.classList.add('low');
-        if(s<=0){ clearInterval(t._iv); t._iv=null; t.textContent='Zeit!'; }
-      },1000);
-    });
-  });
-  // opening a prompt's answer stops its timer
-  document.querySelectorAll('.rt .reveal').forEach(r=>{
-    r.addEventListener('toggle',()=>{ if(r.open){ const t=r.closest('.rt').querySelector('.timer'); if(t)stopTimer(t);} });
   });
 
   recompute();

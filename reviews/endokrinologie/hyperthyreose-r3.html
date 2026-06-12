@@ -69,11 +69,6 @@
   .tally i::before{content:"";width:9px;height:9px;border-radius:50%}
   .tally .t-ok::before{background:var(--ok)} .tally .t-gap::before{background:var(--gap)} .tally .t-miss::before{background:var(--miss)}
   .spacer{flex:1 1 auto}
-  .switch{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;color:var(--muted);cursor:pointer;user-select:none}
-  .switch input{appearance:none;width:34px;height:19px;background:var(--line);border-radius:999px;position:relative;cursor:pointer;transition:.18s;flex:none}
-  .switch input::after{content:"";position:absolute;top:2px;left:2px;width:15px;height:15px;background:#fff;border-radius:50%;transition:.18s;box-shadow:0 1px 2px rgba(0,0,0,.2)}
-  .switch input:checked{background:var(--retrieval)}
-  .switch input:checked::after{transform:translateX(15px)}
   .btn{font-family:'Manrope';font-size:12.5px;font-weight:700;border:none;border-radius:999px;padding:9px 16px;cursor:pointer;transition:.15s}
   .btn-primary{background:var(--retrieval);color:#fff}
   .btn-primary:hover{filter:brightness(1.06)}
@@ -91,9 +86,6 @@
   .rt-right{display:flex;align-items:center;gap:10px;white-space:nowrap}
   .rt-ptr{font-size:11px;font-weight:600;color:var(--muted)}
   .rt-q{font-size:15.5px;line-height:1.55}
-  .timer{display:none;font-size:12px;font-weight:800;font-variant-numeric:tabular-nums;color:var(--retrieval);border:1px solid #BFE0DC;border-radius:999px;padding:2px 9px;cursor:pointer}
-  .timer.run{color:#0c5d57}.timer.low{color:var(--miss);border-color:var(--miss)}
-  body.timed .timer{display:inline-block}
   .reveal{margin-top:12px;border-top:1px dashed var(--line);padding-top:0}
   .reveal>summary{list-style:none;cursor:pointer;font-size:12.5px;font-weight:800;letter-spacing:.04em;color:var(--retrieval);padding:11px 0 0;user-select:none;display:inline-flex;align-items:center;gap:6px}
   .reveal>summary::-webkit-details-marker{display:none}
@@ -200,7 +192,7 @@
   <div class="howto">
     <h4>So läuft diese R3 — in zwei Pässen</h4>
     <ol>
-      <li><strong>Pass 1 — Test (kalt):</strong> Retrieval-Test laut auf Deutsch beantworten, <em>dann</em> aufdecken und ehrlich bewerten — <em>sicher / Lücke / gefehlt</em>. Optional Zeitdruck an.</li>
+      <li><strong>Pass 1 — Test (kalt):</strong> Retrieval-Test laut auf Deutsch beantworten, <em>dann</em> aufdecken und ehrlich bewerten — <em>sicher / Lücke / gefehlt</em>.</li>
       <li><strong>Nur Lücken öffnen:</strong> Der Knopf springt zu genau den Stationen, die du als Lücke markiert hast. Den Rest überspringst du.</li>
       <li><strong>Pass 2 — Protokolle:</strong> echte Mainz-Fälle als Generalprobe kalt durchspielen.</li>
     </ol>
@@ -226,7 +218,6 @@
       <div class="ctrl-row">
         <div class="tally"><i class="t-ok">Sicher <span id="n-ok">0</span></i><i class="t-gap">Lücke <span id="n-gap">0</span></i><i class="t-miss">Gefehlt <span id="n-miss">0</span></i><i style="color:var(--muted)">/ 6 bewertet: <span id="n-done">0</span></i></div>
         <div class="spacer"></div>
-        <label class="switch"><input type="checkbox" id="timed-toggle"> Zeitdruck (90 s)</label>
         <button class="btn btn-primary" id="open-gaps">Nur Lücken öffnen →</button>
         <button class="btn btn-ghost" id="reset">Zurücksetzen</button>
       </div>
@@ -234,42 +225,42 @@
     </div>
 
     <div class="rt" data-id="p1" data-stations="grundlagen klinik">
-      <div class="rt-h"><span class="rt-n">Prompt 1 · Fall-Eröffnung</span><span class="rt-right"><span class="timer" data-t="90">▶ 90 s</span><span class="rt-ptr">→ Grundlagen / Klinik</span></span></div>
+      <div class="rt-h"><span class="rt-n">Prompt 1 · Fall-Eröffnung</span><span class="rt-right"><span class="rt-ptr">→ Grundlagen / Klinik</span></span></div>
       <div class="rt-q">60-jährige Patientin: Belastungsdyspnoe, Gewichtsverlust trotz Heißhunger, Tremor, Palpitationen, HF 110/min, tastbare Struma. Halte deinen ersten Vortrag: <strong>Verdachtsdiagnose, drei häufigste Ursachen, wonach du klinisch suchst.</strong></div>
       <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><b>Manifeste Hyperthyreose.</b> Ursachen: M. Basedow → Autonomie → iatrogen (Amiodaron, Jod/KM). Klinisch: Merseburger Trias (Struma, Tachykardie, Exophthalmus), Wärmeintoleranz, Schwitzen, Hyperreflexie, Tremor, Diarrhö, Unruhe — Struma auf Knoten tasten.</div></details>
       <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
     </div>
 
     <div class="rt" data-id="p2" data-stations="diagnostik">
-      <div class="rt-h"><span class="rt-n">Prompt 2 · Labor</span><span class="rt-right"><span class="timer" data-t="90">▶ 90 s</span><span class="rt-ptr">→ Diagnostik</span></span></div>
+      <div class="rt-h"><span class="rt-n">Prompt 2 · Labor</span><span class="rt-right"><span class="rt-ptr">→ Diagnostik</span></span></div>
       <div class="rt-q">Nenne die Laborkonstellation für <strong>manifeste vs. latente</strong> Hyperthyreose und die <strong>zwei Antikörper</strong>, die M. Basedow sichern — mit ungefährer Häufigkeit.</div>
       <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans">Manifest: <b>TSH↓, fT3 und/oder fT4↑</b>. Latent: <b>TSH↓, fT3/fT4 normal</b>. Basedow: <b>TRAK >90 %</b>, <b>TPO-AK ~70 %</b>. Reine Autonomie → Antikörper negativ.</div></details>
       <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
     </div>
 
     <div class="rt" data-id="p3" data-stations="diagnostik">
-      <div class="rt-h"><span class="rt-n">Prompt 3 · Funktionsbildgebung</span><span class="rt-right"><span class="timer" data-t="90">▶ 90 s</span><span class="rt-ptr">→ Diagnostik</span></span></div>
+      <div class="rt-h"><span class="rt-n">Prompt 3 · Funktionsbildgebung</span><span class="rt-right"><span class="rt-ptr">→ Diagnostik</span></span></div>
       <div class="rt-q">Struma nodosa, Sono zeigt einen Knoten. Welche Funktionsdiagnostik schließt sich an, und was bedeutet ein <strong>„heißer" vs. „kalter"</strong> Knoten therapeutisch?</div>
       <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><b>Szintigraphie (99mTc-Uptake).</b> Heiß = autonom, mehrspeichernd, meist benigne → Radiojod/OP. Kalt = nicht speichernd, <b>malignitätsverdächtig</b> → FNP/OP.</div></details>
       <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
     </div>
 
     <div class="rt" data-id="p4" data-stations="therapie">
-      <div class="rt-h"><span class="rt-n">Prompt 4 · Therapie-Algorithmus</span><span class="rt-right"><span class="timer" data-t="90">▶ 90 s</span><span class="rt-ptr">→ Therapie</span></span></div>
+      <div class="rt-h"><span class="rt-n">Prompt 4 · Therapie-Algorithmus</span><span class="rt-right"><span class="rt-ptr">→ Therapie</span></span></div>
       <div class="rt-q">Erstdiagnose M. Basedow. Wie behandelst du <strong>initial</strong> (Substanz, Dosis, Begleitmedikation), <strong>wie lange</strong>, und <strong>wann definitiv</strong>?</div>
       <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans">Carbimazol 20–40 mg/d (3 ED) bzw. Thiamazol bis Euthyreose → Erhaltung. Symptomatisch <b>Propranolol</b> (hemmt T4→T3). Basedow thyreostatisch <b>12–18 Monate</b>, Remission ~50 %. TRAK nach 6 Mon. <b>>10 IU/L → definitiv</b> (Radiojod/OP).</div></details>
       <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
     </div>
 
     <div class="rt" data-id="p5" data-stations="therapie">
-      <div class="rt-h"><span class="rt-n">Prompt 5 · Notfall</span><span class="rt-right"><span class="timer" data-t="90">▶ 90 s</span><span class="rt-ptr">→ Therapie</span></span></div>
+      <div class="rt-h"><span class="rt-n">Prompt 5 · Notfall</span><span class="rt-right"><span class="rt-ptr">→ Therapie</span></span></div>
       <div class="rt-q">Was ist die <strong>thyreotoxische Krise</strong>, was triggert sie typischerweise, und was sind die Therapiesäulen?</div>
       <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans">Akute lebensbedrohliche Exazerbation. Trigger: <b>Jod (KM!)</b>, Infektion, OP, Amiodaron. Therapie: Thiamazol hochdosiert + Betablocker + Glukokortikoide + Perchlorat (bei Jod) + Kühlung/Volumen, Intensiv; ggf. Thyreoidektomie.</div></details>
       <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
     </div>
 
     <div class="rt" data-id="p6" data-stations="therapie">
-      <div class="rt-h"><span class="rt-n">Prompt 6 · Chirurgie-Übergang</span><span class="rt-right"><span class="timer" data-t="90">▶ 90 s</span><span class="rt-ptr">→ Therapie / Protokolle</span></span></div>
+      <div class="rt-h"><span class="rt-n">Prompt 6 · Chirurgie-Übergang</span><span class="rt-right"><span class="rt-ptr">→ Therapie / Protokolle</span></span></div>
       <div class="rt-q">Wann operierst du die Schilddrüse, und welche <strong>zwei Komplikationen</strong> klärst du immer auf?</div>
       <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans">OP bei großem Struma mit Mechanik, Malignitätsverdacht, Therapieversagen, Kinderwunsch. <b>Immer präoperativ euthyreot</b>. Aufklärung: <b>N. laryngeus recurrens</b> (Heiserkeit; bds → Tracheotomie) und <b>Hypoparathyreoidismus</b> (Hypokalzämie/Tetanie).</div></details>
       <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
@@ -497,30 +488,6 @@
     document.querySelectorAll('.reveal[open]').forEach(d=>d.open=false);
     recompute();
     document.getElementById('status').textContent='Zurückgesetzt. Bewerte alle 6 Prompts, dann „Nur Lücken öffnen".';
-  });
-
-  // ---- timed mode (off by default) ----
-  const body=document.body;
-  document.getElementById('timed-toggle').addEventListener('change',e=>{
-    body.classList.toggle('timed', e.target.checked);
-    if(!e.target.checked) document.querySelectorAll('.timer').forEach(stopTimer);
-  });
-  function stopTimer(t){ if(t._iv){clearInterval(t._iv);t._iv=null;} t.classList.remove('run','low'); t.textContent='▶ '+t.dataset.t+' s'; }
-  document.querySelectorAll('.timer').forEach(t=>{
-    t.addEventListener('click',()=>{
-      if(t._iv){ stopTimer(t); return; }
-      let s = parseInt(t.dataset.t,10);
-      t.classList.add('run'); t.textContent=s+' s';
-      t._iv=setInterval(()=>{
-        s--; t.textContent=s+' s';
-        if(s<=15)t.classList.add('low');
-        if(s<=0){ clearInterval(t._iv); t._iv=null; t.textContent='Zeit!'; }
-      },1000);
-    });
-  });
-  // opening a prompt's answer stops its timer
-  document.querySelectorAll('.rt .reveal').forEach(r=>{
-    r.addEventListener('toggle',()=>{ if(r.open){ const t=r.closest('.rt').querySelector('.timer'); if(t)stopTimer(t);} });
   });
 
   recompute();
