@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proximale Femurfraktur · R3 · Diagnostischer Durchlauf</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F7F4EE; --card:#FFFDF8; --ink:#2A2724; --muted:#6B6358; --line:#E7E0D4;
+    --grundlagen:#C0392B; --grundlagen-t:#F7E9E6;
+    --klinik:#D97706;     --klinik-t:#FBEEDD;
+    --diagnostik:#1E5F9E; --diagnostik-t:#E4EDF6;
+    --therapie:#2D7A3E;   --therapie-t:#E5F0E7;
+    --fragen:#7B3F9E;     --fragen-t:#F0E8F6;
+    --perlen:#B8860B;     --perlen-t:#F8F0D9;
+    --retrieval:#0F766E;  --retrieval-t:#E0F0EE;
+    --protokoll:#334155;  --protokoll-t:#E8EBF0;
+    --ok:#2D7A3E; --gap:#D97706; --miss:#C0392B;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:'Manrope',system-ui,sans-serif;
+    font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased;padding:0 18px 80px}
+  .wrap{max-width:860px;margin:0 auto}
+
+  header{padding:54px 0 22px}
+  .eyebrow{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--retrieval);margin-bottom:16px}
+  h1{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(34px,7vw,52px);line-height:1.04;letter-spacing:-.01em}
+  h1 .accent{font-style:italic;color:var(--grundlagen)}
+  .subtitle{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(17px,2.6vw,20px);color:var(--muted);margin-top:14px}
+  .meta{display:flex;flex-wrap:wrap;gap:6px 0;margin-top:20px;font-size:13px;color:var(--muted);font-weight:500}
+  .meta span:not(:last-child)::after{content:"•";margin:0 10px;color:var(--line);font-weight:700}
+
+  .howto{background:var(--retrieval-t);border:1px solid #BFE0DC;border-left:4px solid var(--retrieval);border-radius:12px;padding:18px 20px;margin:8px 0 26px}
+  .howto h4{font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--retrieval);margin-bottom:10px}
+  .howto ol{margin:0;padding-left:20px;font-size:14.5px;line-height:1.6}
+  .howto li{margin-bottom:5px}
+  .howto .kicker{margin-top:10px;font-size:13.5px;font-style:italic;color:#0c5d57}
+
+  .tabs{display:flex;flex-wrap:wrap;gap:8px;position:sticky;top:0;z-index:30;background:linear-gradient(var(--bg) 72%,rgba(247,244,238,0));padding:12px 0 14px;margin-bottom:6px}
+  .tab{position:relative;font-size:13px;font-weight:600;border:1px solid var(--line);background:var(--card);color:var(--muted);padding:8px 15px;border-radius:999px;cursor:pointer;transition:all .15s;white-space:nowrap}
+  .tab:hover{border-color:#cfc6b6}
+  .tab.active{color:#fff;border-color:transparent}
+  .tab[data-c=retrieval].active{background:var(--retrieval)}
+  .tab[data-c=grundlagen].active{background:var(--grundlagen)}
+  .tab[data-c=klinik].active{background:var(--klinik)}
+  .tab[data-c=diagnostik].active{background:var(--diagnostik)}
+  .tab[data-c=therapie].active{background:var(--therapie)}
+  .tab[data-c=fragen].active{background:var(--fragen)}
+  .tab[data-c=perlen].active{background:var(--perlen)}
+  .tab[data-c=protokoll].active{background:var(--protokoll)}
+  .tab .badge{display:none;margin-left:7px;font-size:10px;font-weight:800;padding:1px 6px;border-radius:999px;vertical-align:middle}
+  .tab.flag-gap .badge{display:inline-block;background:var(--gap);color:#fff}
+  .tab.flag-ok .badge{display:inline-block;background:var(--ok);color:#fff}
+  .tab.active .badge{background:rgba(255,255,255,.28)!important;color:#fff}
+
+  .panel{display:none;animation:fade .25s ease}
+  .panel.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+  .panel-intro{font-family:'Fraunces',serif;font-style:italic;font-size:17px;color:var(--muted);margin:6px 0 18px;line-height:1.5}
+
+  /* ---- control bar (Pass 1 instrument) ---- */
+  .ctrl{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:14px 16px;margin-bottom:20px}
+  .ctrl-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+  .tally{font-size:13px;font-weight:700;display:flex;gap:12px;flex-wrap:wrap}
+  .tally i{font-style:normal;display:inline-flex;align-items:center;gap:5px}
+  .tally i::before{content:"";width:9px;height:9px;border-radius:50%}
+  .tally .t-ok::before{background:var(--ok)} .tally .t-gap::before{background:var(--gap)} .tally .t-miss::before{background:var(--miss)}
+  .spacer{flex:1 1 auto}
+  .btn{font-family:'Manrope';font-size:12.5px;font-weight:700;border:none;border-radius:999px;padding:9px 16px;cursor:pointer;transition:.15s}
+  .btn-primary{background:var(--retrieval);color:#fff}
+  .btn-primary:hover{filter:brightness(1.06)}
+  .btn-ghost{background:transparent;color:var(--muted);border:1px solid var(--line)}
+  .btn-ghost:hover{border-color:#cfc6b6}
+  .ctrl-status{margin-top:11px;font-size:13px;font-style:italic;color:var(--retrieval);min-height:18px}
+
+  /* ---- retrieval prompt ---- */
+  .rt{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:14px;transition:border-color .2s}
+  .rt[data-score=sicher]{border-left-color:var(--ok)}
+  .rt[data-score=lueckenhaft]{border-left-color:var(--gap)}
+  .rt[data-score=gefehlt]{border-left-color:var(--miss)}
+  .rt-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:8px}
+  .rt-n{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--retrieval)}
+  .rt-right{display:flex;align-items:center;gap:10px;white-space:nowrap}
+  .rt-ptr{font-size:11px;font-weight:600;color:var(--muted)}
+  .rt-q{font-size:15.5px;line-height:1.55}
+  .reveal{margin-top:12px;border-top:1px dashed var(--line);padding-top:0}
+  .reveal>summary{list-style:none;cursor:pointer;font-size:12.5px;font-weight:800;letter-spacing:.04em;color:var(--retrieval);padding:11px 0 0;user-select:none;display:inline-flex;align-items:center;gap:6px}
+  .reveal>summary::-webkit-details-marker{display:none}
+  .reveal>summary::before{content:"▸";transition:transform .2s;display:inline-block}
+  .reveal[open]>summary::before{transform:rotate(90deg)}
+  .reveal .ans{font-size:14.5px;line-height:1.6;color:#3c372f;padding-top:10px}
+  .reveal .ans b{color:var(--ink)}
+  .score{display:flex;gap:7px;margin-top:12px;padding-top:11px;border-top:1px solid var(--line)}
+  .sbtn{flex:1;font-size:12px;font-weight:700;border:1px solid var(--line);background:var(--bg);color:var(--muted);border-radius:8px;padding:7px 4px;cursor:pointer;transition:.12s}
+  .sbtn:hover{border-color:#cfc6b6}
+  .sbtn[data-v=sicher].on{background:var(--ok);color:#fff;border-color:transparent}
+  .sbtn[data-v=lueckenhaft].on{background:var(--gap);color:#fff;border-color:transparent}
+  .sbtn[data-v=gefehlt].on{background:var(--miss);color:#fff;border-color:transparent}
+
+  /* ---- Schnellfragen ---- */
+  .sf-wrap{background:var(--retrieval-t);border:1px solid #BFE0DC;border-radius:13px;padding:18px 20px;margin-top:24px}
+  .sf-wrap h3{font-family:'Fraunces',serif;font-weight:500;font-size:20px;margin-bottom:3px}
+  .sf-wrap .sf-intro{font-size:13.5px;font-style:italic;color:#0c5d57;margin-bottom:14px}
+  .sf{border-bottom:1px solid #cfe4e1;padding:9px 0}
+  .sf:last-child{border-bottom:none}
+  .sf>summary{list-style:none;cursor:pointer;font-size:14.5px;font-weight:600;display:flex;justify-content:space-between;gap:10px;user-select:none}
+  .sf>summary::-webkit-details-marker{display:none}
+  .sf>summary::after{content:"+";color:var(--retrieval);font-weight:800}
+  .sf[open]>summary::after{content:"−"}
+  .sf .sfa{font-size:14px;color:#0c5d57;font-weight:700;padding-top:6px}
+
+  /* ---- content cards (v1) ---- */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:14px;overflow:hidden}
+  .card>summary{list-style:none;cursor:pointer;padding:18px 20px;display:flex;align-items:flex-start;gap:14px;user-select:none}
+  .card>summary::-webkit-details-marker{display:none}
+  .card .ct{flex:1}
+  .card .ctag{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:5px}
+  .card .ctitle{font-family:'Fraunces',serif;font-weight:500;font-size:17px;line-height:1.25}
+  .plus{flex:none;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:18px;line-height:1;transition:transform .2s;margin-top:2px}
+  .card[open] .plus{transform:rotate(45deg)}
+  .card .body{padding:0 20px 20px;border-top:1px solid var(--line);margin-top:-2px;padding-top:16px}
+  .card.grundlagen .ctag{color:var(--grundlagen)} .card.grundlagen .plus{background:var(--grundlagen-t);color:var(--grundlagen)}
+  .card.klinik .ctag{color:var(--klinik)} .card.klinik .plus{background:var(--klinik-t);color:var(--klinik)}
+  .card.diagnostik .ctag{color:var(--diagnostik)} .card.diagnostik .plus{background:var(--diagnostik-t);color:var(--diagnostik)}
+  .card.therapie .ctag{color:var(--therapie)} .card.therapie .plus{background:var(--therapie-t);color:var(--therapie)}
+  .card.fragen .ctag{color:var(--fragen)} .card.fragen .plus{background:var(--fragen-t);color:var(--fragen)}
+  .card.perlen .ctag{color:var(--perlen)} .card.perlen .plus{background:var(--perlen-t);color:var(--perlen)}
+
+  ul.b{list-style:none;padding-left:2px}
+  ul.b>li{position:relative;padding-left:20px;margin-bottom:8px;line-height:1.55}
+  ul.b>li::before{content:"";position:absolute;left:2px;top:9px;width:7px;height:7px;border-radius:50%}
+  .grundlagen ul.b>li::before{background:var(--grundlagen)} .klinik ul.b>li::before{background:var(--klinik)}
+  .diagnostik ul.b>li::before{background:var(--diagnostik)} .therapie ul.b>li::before{background:var(--therapie)}
+  ul.b ul{list-style:none;padding-left:18px;margin-top:7px}
+  ul.b ul>li{position:relative;padding-left:18px;margin-bottom:6px;font-size:15px;color:#4a443c}
+  ul.b ul>li::before{content:"";position:absolute;left:0;top:7px;width:6px;height:6px;transform:rotate(45deg);background:#b9b0a1}
+  strong{font-weight:700;color:var(--ink)}
+
+  .callout{border-radius:11px;padding:13px 16px;margin:14px 0;font-size:14.5px;line-height:1.55;border-left:4px solid}
+  .callout .lab{font-weight:800;font-size:11px;letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .critical{background:var(--grundlagen-t);border-color:var(--grundlagen)} .critical .lab{color:var(--grundlagen)}
+  .warning{background:var(--klinik-t);border-color:var(--klinik)} .warning .lab{color:var(--klinik)}
+  .fact{background:var(--diagnostik-t);border-color:var(--diagnostik)} .fact .lab{color:var(--diagnostik)}
+
+  .dd{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+  .dd th,.dd td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+  .dd th{background:var(--diagnostik-t);font-weight:700;color:var(--diagnostik);font-size:12px}
+  .dd td:first-child{font-weight:600}
+
+  .pk{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:16px}
+  .pk-meta{display:flex;flex-wrap:wrap;gap:6px 0;font-size:11.5px;font-weight:700;color:var(--protokoll);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+  .pk-meta span:not(:last-child)::after{content:"•";margin:0 8px;color:#c3c9d2}
+  .pk-badge{display:inline-block;background:var(--therapie-t);color:var(--therapie);font-size:10.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:2px 9px;border-radius:999px;margin-left:auto}
+  .pk-akte{font-size:14.5px;line-height:1.58;background:var(--protokoll-t);border-radius:9px;padding:12px 14px;margin-bottom:12px}
+  .pk-akte .lab,.pk-q .lab{font-weight:800;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--protokoll);display:block;margin-bottom:5px}
+  .pk-q ul{list-style:none;padding:0}
+  .pk-q li{position:relative;padding-left:18px;margin-bottom:7px;font-size:14.5px;line-height:1.5}
+  .pk-q li::before{content:"–";position:absolute;left:0;color:var(--protokoll);font-weight:700}
+  .pq{border-top:1px solid var(--line);padding:10px 0}
+  .pq-frage{position:relative;padding-left:18px;font-size:14.5px;font-weight:600;line-height:1.5}
+  .pq-frage::before{content:"–";position:absolute;left:0;color:var(--protokoll);font-weight:700}
+  .pq .reveal{margin-top:5px;border-top:none;padding-top:0}
+  .pq .reveal>summary{padding:5px 0 0}
+
+  .pearl{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--perlen);border-radius:12px;padding:16px 18px;margin-bottom:13px}
+  .pearl .ph{font-weight:800;font-size:13px;color:var(--perlen);margin-bottom:7px}
+  .pearl .pt{font-size:15px;line-height:1.55}
+  .pearl .mn{margin-top:9px;background:var(--perlen-t);border-radius:8px;padding:8px 12px;font-size:13.5px;font-style:italic;color:#7a5c08}
+  .pearl .mn b{font-style:normal;font-weight:800}
+
+  footer{margin-top:40px;padding-top:22px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted);line-height:1.6}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">Unfallchirurgie / Orthopädie · Themen-Review · R3 · Diagnostischer Durchlauf</div>
+    <h1>Proximale <span class="accent">Femurfraktur</span></h1>
+    <div class="subtitle">Zwei Pässe: kalt testen, bewerten — dann nur die Lücken öffnen.</div>
+    <div class="meta">
+      <span>R3 von 5 · Neuaufbau (kein R1/R2)</span>
+      <span>~15 Min</span>
+      <span>Stand 06/2026</span>
+      <span>Stex + Vorbereitung + Mainz-Protokolle</span>
+    </div>
+  </header>
+
+  <div class="howto">
+    <h4>So läuft diese R3 — in zwei Pässen</h4>
+    <ol>
+      <li><strong>Pass 1 — Test (kalt):</strong> Retrieval-Test laut auf Deutsch beantworten, <em>dann</em> aufdecken und ehrlich bewerten — <em>sicher / Lücke / gefehlt</em>.</li>
+      <li><strong>Nur Lücken öffnen:</strong> Der Knopf springt zu genau den Stationen, die du als Lücke markiert hast. Den Rest überspringst du.</li>
+      <li><strong>Pass 2 — Protokolle:</strong> echte Mainz-Fälle als Generalprobe kalt durchspielen.</li>
+    </ol>
+    <div class="kicker">„Leicht" ist die Warnung, nicht der Beweis. Laut sprechen ist Pflicht — R4/R5 verschärfen später noch.</div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" data-c="retrieval" data-tab="retrieval">Retrieval-Test</button>
+    <button class="tab" data-c="grundlagen" data-tab="grundlagen">Grundlagen<span class="badge"></span></button>
+    <button class="tab" data-c="klinik" data-tab="klinik">Klinik<span class="badge"></span></button>
+    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik<span class="badge"></span></button>
+    <button class="tab" data-c="therapie" data-tab="therapie">Therapie<span class="badge"></span></button>
+    <button class="tab" data-c="fragen" data-tab="fragen">KP-Fragen</button>
+    <button class="tab" data-c="perlen" data-tab="perlen">KP-Perlen</button>
+    <button class="tab" data-c="protokoll" data-tab="protokoll">Protokolle</button>
+  </div>
+
+  <!-- ============ RETRIEVAL-TEST ============ -->
+  <section class="panel active" data-panel="retrieval">
+    <p class="panel-intro">Kalt. Laut. Auf Deutsch. Seite zu. Erst formulieren, dann aufdecken — und ehrlich bewerten.</p>
+
+    <div class="ctrl">
+      <div class="ctrl-row">
+        <div class="tally"><i class="t-ok">Sicher <span id="n-ok">0</span></i><i class="t-gap">Lücke <span id="n-gap">0</span></i><i class="t-miss">Gefehlt <span id="n-miss">0</span></i><i style="color:var(--muted)">/ 6 bewertet: <span id="n-done">0</span></i></div>
+        <div class="spacer"></div>
+        <button class="btn btn-primary" id="open-gaps">Nur Lücken öffnen →</button>
+        <button class="btn btn-ghost" id="reset">Zurücksetzen</button>
+      </div>
+      <div class="ctrl-status" id="status">Bewerte alle 6 Prompts, dann „Nur Lücken öffnen".</div>
+    </div>
+
+    <div class="rt" data-id="p1" data-stations="grundlagen">
+      <div class="rt-h"><span class="rt-n">Prompt 1 · Einteilung + Klassifikation</span><span class="rt-right"><span class="rt-ptr">→ Grundlagen</span></span></div>
+      <div class="rt-q">Nenne die <strong>drei Hauptgruppen</strong> der proximalen Femurfraktur und erkläre <strong>Garden</strong> und <strong>Pauwels</strong> (Kernaussage).</div>
+      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans">Gruppen: <b>Schenkelhals</b> (medial intrakapsulär / lateral extrakapsulär), <b>pertrochantär</b>, <b>subtrochantär</b>. <b>Garden I–IV</b> = Dislokationsgrad (I/II stabil, III/IV instabil/disloziert). <b>Pauwels I–III</b> = Frakturwinkel zur Horizontalen (I &lt;30°, II 30–50°, III &gt;50°) — je steiler, desto mehr Scherkräfte → Pseudarthrose.</div></details>
+      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
+    </div>
+
+    <div class="rt" data-id="p2" data-stations="grundlagen">
+      <div class="rt-h"><span class="rt-n">Prompt 2 · Gefäße + Nekrose</span><span class="rt-right"><span class="rt-ptr">→ Grundlagen</span></span></div>
+      <div class="rt-q">Wie wird der Hüftkopf <strong>arteriell versorgt</strong>, und warum droht bei der <strong>medialen Schenkelhalsfraktur eine Femurkopfnekrose</strong>?</div>
+      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans">Hauptversorger: <b>A. circumflexa femoris medialis</b> (und lateralis, aus der A. profunda femoris); bei Kindern A. capitis femoris im Lig. capitis femoris. Die mediale (intrakapsuläre) Fraktur zerreißt die retinakulären Gefäße → Kopfnekrose (~20 %) und Pseudarthrose-Gefahr.</div></details>
+      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
+    </div>
+
+    <div class="rt" data-id="p3" data-stations="klinik">
+      <div class="rt-h"><span class="rt-n">Prompt 3 · Klinik</span><span class="rt-right"><span class="rt-ptr">→ Klinik</span></span></div>
+      <div class="rt-q">Welche <strong>klinische Fehlstellung</strong> bei dislozierter Schenkelhalsfraktur — und warum kann eine <strong>eingestauchte Garden-I-Fraktur</strong> unauffällig (gehfähig) sein?</div>
+      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans">Disloziert (Adduktions-/Varusfraktur): <b>Bein verkürzt und außenrotiert</b>, immobilisierende Schmerzen. Die eingestauchte <b>Abduktionsfraktur (Garden I)</b> ist stabil und zeigt <b>keine Beinfehlstellung</b> → Patient kann gehfähig bleiben (Cave: wird übersehen!).</div></details>
+      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
+    </div>
+
+    <div class="rt" data-id="p4" data-stations="diagnostik">
+      <div class="rt-h"><span class="rt-n">Prompt 4 · Diagnostik</span><span class="rt-right"><span class="rt-ptr">→ Diagnostik</span></span></div>
+      <div class="rt-q">Welche <strong>Bildgebung</strong> in welchen <strong>Ebenen</strong>, und was bei <strong>okkulter Fraktur</strong>?</div>
+      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><b>Röntgen Beckenübersicht + Hüfte in 2 Ebenen</b> (a.p. + axial/Lauenstein). Die Frakturlinie lokalisiert (Hüftkopf / Schenkelhals / per-/subtrochantär). Bei okkulter oder Trümmerfraktur <b>CT</b> (3D); MRT als sensitivster Nachweis okkulter Schenkelhalsfrakturen. Präop: Blutgruppe/Kreuzblut, Gerinnung, EKG.</div></details>
+      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
+    </div>
+
+    <div class="rt" data-id="p5" data-stations="therapie">
+      <div class="rt-h"><span class="rt-n">Prompt 5 · Therapie-Algorithmus SHF</span><span class="rt-right"><span class="rt-ptr">→ Therapie</span></span></div>
+      <div class="rt-q">Schenkelhalsfraktur — <strong>Therapie-Entscheidung</strong> nach Alter und Dislokation (kopferhaltend vs. Endoprothese; Duokopf vs. TEP)?</div>
+      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans">Stabil/eingestaucht (Garden I, Pauwels I) → konservativ oder Schraubenosteosynthese. Disloziert + <b>jung</b> → kopferhaltende Osteosynthese (DHS/Schrauben) <b>&lt; 6 h</b>. Disloziert + <b>alt</b> → Endoprothese: <b>Duokopf</b> (inaktiv, LE &lt; 5 J) bzw. <b>TEP</b> (aktiv / Coxarthrose / LE &gt; 5 J).</div></details>
+      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
+    </div>
+
+    <div class="rt" data-id="p6" data-stations="therapie">
+      <div class="rt-h"><span class="rt-n">Prompt 6 · Pertrochantär + Implantate</span><span class="rt-right"><span class="rt-ptr">→ Therapie</span></span></div>
+      <div class="rt-q">Wie versorgst du eine <strong>pertrochantäre</strong> Fraktur? Und der Unterschied <strong>DHS vs. Gamma-Nagel vs. Duokopf vs. TEP</strong> in je einem Satz.</div>
+      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans">Pertrochantär (extrakapsulär, gut durchblutet) → Osteosynthese: <b>DHS</b> bei stabilen, <b>Gamma-Nagel/PFN-A</b> bei instabilen. <b>DHS</b> = Schrauben-Platten-Osteosynthese (Gelenkerhalt). <b>Gamma-Nagel</b> = intramedullärer Nagel. <b>Duokopf</b> = Hemiprothese (nur Kopf). <b>TEP</b> = Kopf + Pfanne.</div></details>
+      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
+    </div>
+
+    <div class="callout fact"><span class="lab">Mainz-Muster</span>Proximale Femurfraktur ist ein <strong>Dauerbrenner</strong> (Dr. Tannert, Dr. Kirdorf, Herr Hake). Erwartet: Beckenübersicht → <strong>Garden + Pauwels</strong> → mediale vs. laterale SHF → Versorgungsalgorithmus (Osteosynthese / Duokopf / TEP / DHS) → <strong>A. circumflexa femoris medialis</strong> → Femurkopfnekrose. Oft kombiniert mit Anatomie (Muskeln/Nerven am Trochanter) und beim geriatrischen Sturz mit <strong>Patientenverfügung/Vorsorgevollmacht</strong>.</div>
+
+    <div class="sf-wrap">
+      <h3>Schnellfragen · Rapid-Fire</h3>
+      <div class="sf-intro">Ein-Wort-Abruf, keine Optionen. Laut, sofort, dann aufdecken.</div>
+      <details class="sf"><summary>Hauptversorger des Hüftkopfes?</summary><div class="sfa">A. circumflexa femoris medialis</div></details>
+      <details class="sf"><summary>Hüftkopf-Versorgung bei Kindern?</summary><div class="sfa">A. capitis femoris (im Lig. capitis femoris)</div></details>
+      <details class="sf"><summary>Garden I/II — stabil oder instabil?</summary><div class="sfa">stabil</div></details>
+      <details class="sf"><summary>Garden III/IV?</summary><div class="sfa">instabil (disloziert)</div></details>
+      <details class="sf"><summary>Pauwels — je steiler der Winkel…?</summary><div class="sfa">instabiler (Scherkräfte, Pseudarthrose)</div></details>
+      <details class="sf"><summary>Klinik der dislozierten SHF?</summary><div class="sfa">Bein verkürzt + außenrotiert</div></details>
+      <details class="sf"><summary>Mediale SHF disloziert beim Älteren →?</summary><div class="sfa">Endoprothese (Duokopf / TEP)</div></details>
+      <details class="sf"><summary>Pertrochantäre Fraktur →?</summary><div class="sfa">Gamma-Nagel oder DHS</div></details>
+      <details class="sf"><summary>Duokopfprothese — wann?</summary><div class="sfa">alt, inaktiv, Lebenserwartung &lt; 5 J</div></details>
+      <details class="sf"><summary>TEP — wann?</summary><div class="sfa">aktiv / Coxarthrose / LE &gt; 5 J</div></details>
+      <details class="sf"><summary>Junger Patient, disloziert — OP-Zeitpunkt?</summary><div class="sfa">&lt; 6 h (Nekroseprophylaxe)</div></details>
+      <details class="sf"><summary>Wichtigste Komplikation der medialen SHF?</summary><div class="sfa">Femurkopfnekrose (~20 %)</div></details>
+      <details class="sf"><summary>Muskeln am Trochanter major?</summary><div class="sfa">M. gluteus medius + minimus</div></details>
+      <details class="sf"><summary>pDMS — welcher Nerv?</summary><div class="sfa">N. ischiadicus</div></details>
+    </div>
+  </section>
+
+  <!-- ============ GRUNDLAGEN ============ -->
+  <section class="panel" data-panel="grundlagen">
+    <p class="panel-intro">Einteilung, Klassifikation, Gefäße. Erst laut, dann aufklappen.</p>
+    <details class="card grundlagen" open><summary><span class="ct"><span class="ctag">Einteilung</span><span class="ctitle">Drei Hauptgruppen</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b">
+        <li><strong>Schenkelhalsfraktur:</strong> medial = intrakapsulär (90 % Adduktionsfraktur, gefährdet); lateral = extrakapsulär</li>
+        <li><strong>Per-/Intertrochantäre Fraktur:</strong> extrakapsulär, zwischen Trochanter major und minor — gut durchblutet</li>
+        <li><strong>Subtrochantäre Fraktur:</strong> unterhalb Trochanter minor, hohe biomechanische Belastung</li>
+      </ul>
+        <div class="callout fact"><span class="lab">⚙ Risikofaktoren</span>Ältere Frau, Osteoporose, Sturz (Niedrigenergie); junger Patient → Hochrasanztrauma.</div>
+      </div>
+    </details>
+    <details class="card grundlagen"><summary><span class="ct"><span class="ctag">Klassifikation · meistgefragt</span><span class="ctitle">Garden + Pauwels</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <table class="dd"><tr><th>Garden (Dislokation)</th><th>Pauwels (Winkel)</th></tr>
+          <tr><td>I — inkomplett, Valgus (eingestaucht)</td><td>I — &lt; 30° (stabil)</td></tr>
+          <tr><td>II — komplett, nicht disloziert</td><td>II — 30–50°</td></tr>
+          <tr><td>III — komplett, teildisloziert (Varus)</td><td>III — &gt; 50° (instabil)</td></tr>
+          <tr><td>IV — komplett disloziert</td><td>→ je steiler, desto mehr Scherkraft</td></tr></table>
+        <div class="callout fact"><span class="lab">★ Merke</span><strong>Garden I/II = stabil</strong> (Abduktion/Valgus), <strong>III/IV = instabil</strong> (Adduktion/Varus). Pauwels: je steiler der Winkel, desto höher das Pseudarthrose-Risiko.</div>
+      </div>
+    </details>
+    <details class="card grundlagen"><summary><span class="ct"><span class="ctag">Gefäße · Nekrose</span><span class="ctitle">A. circumflexa femoris medialis</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b">
+        <li><strong>Hauptversorger Hüftkopf:</strong> A. circumflexa femoris medialis (+ lateralis), aus der A. profunda femoris</li>
+        <li>Bei Kindern zusätzlich A. capitis femoris im Lig. capitis femoris</li>
+        <li>Mediale (intrakapsuläre) SHF zerreißt die retinakulären Gefäße → <strong>Femurkopfnekrose (~20 %)</strong>, Pseudarthrose (~15 %)</li>
+      </ul></div>
+    </details>
+  </section>
+
+  <!-- ============ KLINIK ============ -->
+  <section class="panel" data-panel="klinik">
+    <p class="panel-intro">Verkürzt und außenrotiert — oder unauffällig. Erst laut, dann abgleichen.</p>
+    <details class="card klinik" open><summary><span class="ct"><span class="ctag">Leitsymptome</span><span class="ctitle">Fehlstellung + Schmerz</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b">
+        <li><strong>Disloziert:</strong> Bein <strong>verkürzt und außenrotiert</strong>, immobilisierende Hüft-/Leistenschmerzen, Stauchungsschmerz</li>
+        <li><strong>Eingestaucht (Garden I, Abduktionsfraktur):</strong> keine Fehlstellung — Patient ggf. gehfähig (Cave: übersehen!)</li>
+        <li>Hämatom/Schwellung, schmerzhafte Bewegungseinschränkung</li>
+      </ul>
+        <div class="callout fact"><span class="lab">⚙ pDMS</span>Immer prüfen — sensibel/motorisch <strong>N. ischiadicus</strong> (Sensibilität Unterschenkel/Fuß, Kniebeugung, Plantarflexion/Dorsalextension).</div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ DIAGNOSTIK ============ -->
+  <section class="panel" data-panel="diagnostik">
+    <p class="panel-intro">Beckenübersicht + 2 Ebenen; CT/MRT bei okkult. Den Ablauf laut durchsprechen.</p>
+    <details class="card diagnostik" open><summary><span class="ct"><span class="ctag">Bildgebung</span><span class="ctitle">Röntgen in 2 Ebenen</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b">
+        <li><strong>Röntgen Beckenübersicht + Hüfte in 2 Ebenen</strong> (a.p. + axial/Lauenstein: Rückenlage, 45° Flexion + Abduktion)</li>
+        <li>Frakturlinie lokalisieren: Hüftkopf / Schenkelhals / per- bzw. subtrochantär</li>
+        <li><strong>CT</strong> (3D) bei Trümmer-/Gelenkbeteiligung; <strong>MRT</strong> bei okkulter Schenkelhalsfraktur (sensitivster Nachweis)</li>
+      </ul>
+        <div class="callout fact"><span class="lab">⚙ Präoperativ</span>Labor, Blutgruppe + Kreuzblut, Gerinnung, EKG (geriatrischer Patient).</div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ THERAPIE ============ -->
+  <section class="panel" data-panel="therapie">
+    <p class="panel-intro">Kopferhalt vs. Endoprothese — der Entscheidungsbaum. Erst laut, dann abgleichen.</p>
+    <details class="card therapie" open><summary><span class="ct"><span class="ctag">★ Algorithmus</span><span class="ctitle">Schenkelhalsfraktur — wer bekommt was?</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b">
+        <li><strong>Stabil/eingestaucht</strong> (Garden I, Pauwels I): konservativ möglich oder Schraubenosteosynthese</li>
+        <li><strong>Disloziert + jung:</strong> kopferhaltende Osteosynthese (DHS/Großfragmentschrauben), <strong>OP &lt; 6 h</strong> (Nekroseprophylaxe)</li>
+        <li><strong>Disloziert + alt:</strong> Endoprothese — <strong>Duokopf</strong> (inaktiv, LE &lt; 5 J) bzw. <strong>TEP</strong> (aktiv / Coxarthrose / LE &gt; 5 J)</li>
+      </ul></div>
+    </details>
+    <details class="card therapie"><summary><span class="ct"><span class="ctag">★ Implantate</span><span class="ctitle">Duokopf vs. DHS vs. TEP vs. Nagel</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <table class="dd"><tr><th>Verfahren</th><th>Indikation</th><th>Knackpunkt</th></tr>
+          <tr><td><strong>Duokopfprothese</strong></td><td>alt, inaktiv, LE &lt; 5 J</td><td>nur Kopf ersetzt → Acetabulum-Arthrose</td></tr>
+          <tr><td><strong>TEP</strong></td><td>aktiv, Coxarthrose, LE &gt; 5 J</td><td>Kopf + Pfanne → Luxationsrisiko</td></tr>
+          <tr><td><strong>DHS</strong></td><td>stabile pertroch./SHF</td><td>Gelenkerhalt → Pseudarthrose bei Heilungsstörung</td></tr>
+          <tr><td><strong>Gamma-Nagel/PFN</strong></td><td>instabile pertroch./subtroch.</td><td>intramedullär, belastungsstabil</td></tr></table>
+        <div class="callout fact"><span class="lab">⚙ Pertrochantär</span>Extrakapsulär, gut durchblutet → heilt gut, <strong>keine Kopfnekrose-Gefahr</strong> → Osteosynthese (DHS/Gamma-Nagel), keine Prothese nötig.</div>
+      </div>
+    </details>
+    <details class="card therapie"><summary><span class="ct"><span class="ctag">Perioperativ</span><span class="ctitle">Frühe OP, Frühmobilisation, Geriatrie</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b">
+        <li><strong>OP zeitnah</strong> (&lt; 24 h) — hohe perioperative Letalität bei Verzögerung</li>
+        <li>Frühmobilisation (&lt; 24 h), Thromboseprophylaxe, Schmerztherapie, Dekubitus-/Delirprophylaxe</li>
+        <li><strong>Osteoporose-Abklärung + Therapie</strong>, geriatrisches Komanagement</li>
+      </ul>
+        <div class="callout critical"><span class="lab">▲ Komplikationen</span>Femurkopfnekrose, Pseudarthrose, Implantatlockerung/Cut-out, Luxation (Flexion &gt;90° + Innenrotation + Adduktion), TVT/LE, Pneumonie, hohe 1-Jahres-Letalität.</div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ KP-FRAGEN ============ -->
+  <section class="panel" data-panel="fragen">
+    <p class="panel-intro">Sechs Kernfragen aus dokumentierten Protokollen. Erst selbst laut beantworten.</p>
+    <details class="card fragen"><summary><span class="ct"><span class="ctag">Mainz · Dr. Tannert · Chirurgie</span><span class="ctitle">Garden-Klassifikation?</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b"><li><strong>I:</strong> unvollständig, Valgus (eingestaucht). <strong>II:</strong> vollständig, nicht disloziert. <strong>III:</strong> vollständig disloziert mit Varus. <strong>IV:</strong> vollständige Dislokation, keine Verbindung zum Femurkopf. I/II stabil, III/IV instabil.</li></ul></div>
+    </details>
+    <details class="card fragen"><summary><span class="ct"><span class="ctag">Mainz · Dr. Tannert · Chirurgie</span><span class="ctitle">Pauwels-Klassifikation und ihre Bedeutung?</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b"><li>Frakturwinkel zur Horizontalen: <strong>I &lt; 30°, II 30–50°, III &gt; 50°</strong>. Je steiler der Winkel, desto höher die Scherkräfte und das Pseudarthrose-Risiko. Valgus = stabile Abduktionsfraktur (Garden I/Pauwels I); Varus = instabile Adduktionsfraktur.</li></ul></div>
+    </details>
+    <details class="card fragen"><summary><span class="ct"><span class="ctag">Mainz · Herr Hake · Chirurgie</span><span class="ctitle">Duokopfprothese vs. DHS vs. TEP — Unterschied und Indikation?</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b"><li><strong>Duokopf</strong> (Hemiprothese, nur Kopf): alter, inaktiver Patient, LE &lt; 5 J → Risiko Acetabulum-Arthrose. <strong>TEP</strong> (Kopf + Pfanne): aktiver Patient / Coxarthrose / LE &gt; 5 J → Luxationsrisiko. <strong>DHS</strong> (Schrauben-Platten-Osteosynthese, Gelenkerhalt): stabile pertrochantäre Fraktur → Pseudarthrose bei Heilungsstörung.</li></ul></div>
+    </details>
+    <details class="card fragen"><summary><span class="ct"><span class="ctag">Mainz · Dr. Tannert / Dr. Kirdorf</span><span class="ctitle">Arterielle Versorgung des Hüftkopfes — und Folge bei medialer SHF?</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b"><li><strong>A. circumflexa femoris medialis</strong> (und lateralis), aus der A. profunda femoris; bei Kindern A. capitis femoris. Die mediale Schenkelhalsfraktur unterbricht die Durchblutung → <strong>Femurkopfnekrose</strong> → deshalb beim Älteren primär Endoprothese.</li></ul></div>
+    </details>
+    <details class="card fragen"><summary><span class="ct"><span class="ctag">Mainz · Dr. Kirdorf · Chirurgie</span><span class="ctitle">Klinik der dislozierten Schenkelhalsfraktur?</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b"><li><strong>Beinverkürzung und Außenrotation</strong> (Varusstellung), immobilisierende Schmerzen, Stauchungsschmerz. Die eingestauchte Abduktionsfraktur (Garden I) zeigt dagegen keine Fehlstellung.</li></ul></div>
+    </details>
+    <details class="card fragen"><summary><span class="ct"><span class="ctag">Mainz · Dr. Kirdorf · Chirurgie</span><span class="ctitle">Frakturversorgung: mediale SHF vs. intertrochantär vs. junger Patient?</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b"><li><strong>Mediale SHF (älterer Patient):</strong> Gelenkersatz (Hüft-TEP oder Duokopfprothese) wegen Femurkopfnekrose-Gefahr. <strong>Intertrochantär:</strong> Osteosynthese mit Gamma-Nagel. <strong>Junger Patient:</strong> kopferhaltende Osteosynthese <strong>innerhalb von 6 Stunden</strong>.</li></ul></div>
+    </details>
+  </section>
+
+  <!-- ============ KP-PERLEN ============ -->
+  <section class="panel" data-panel="perlen">
+    <p class="panel-intro">Acht Sätze, die in der Prüfung gewinnen.</p>
+    <div class="pearl"><div class="ph">⭐ Perle 1 · Garden stabil/instabil</div><div class="pt"><strong>Garden I/II = stabil</strong> (Valgus/Abduktion), <strong>III/IV = instabil</strong> (Varus/Adduktion, disloziert).</div><div class="mn"><b>Merke:</b> bis II brav, ab III instabil</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 2 · Pauwels = Winkel = Scherkraft</div><div class="pt">Je steiler der Frakturwinkel (Pauwels III &gt; 50°), desto mehr Scherkräfte → höheres Pseudarthrose-Risiko.</div><div class="mn"><b>Merke:</b> steiler Winkel, steiler Ärger</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 3 · A. circumflexa femoris medialis</div><div class="pt">Hauptversorger des Hüftkopfes — bei <strong>medialer SHF</strong> zerrissen → <strong>Femurkopfnekrose</strong>. Bei Kindern A. capitis femoris.</div><div class="mn"><b>Merke:</b> medial bricht → Kopf verhungert</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 4 · Bein verkürzt + außenrotiert</div><div class="pt">Die klassische Fehlstellung der dislozierten Fraktur. Eingestaucht (Garden I) = <strong>keine</strong> Fehlstellung → wird übersehen.</div><div class="mn"><b>Merke:</b> kurz und auswärts = gebrochen</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 5 · Mediale SHF alt → Prothese</div><div class="pt">Disloziert + alt → <strong>Endoprothese</strong> (Duokopf oder TEP) — die Osteosynthese würde an der Kopfnekrose scheitern.</div><div class="mn"><b>Merke:</b> alt + medial = neuer Kopf</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 6 · Pertrochantär heilt</div><div class="pt"><strong>Pertrochantär = extrakapsulär, gut durchblutet</strong> → Osteosynthese (DHS/Gamma-Nagel), keine Kopfnekrose-Gefahr, keine Prothese.</div><div class="mn"><b>Merke:</b> trochantär = Nagel, nicht Prothese</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 7 · Junger Patient → &lt; 6 h</div><div class="pt">Disloziert + jung → kopferhaltende Osteosynthese <strong>notfallmäßig innerhalb 6 Stunden</strong> zur Nekroseprophylaxe.</div><div class="mn"><b>Merke:</b> jung = Kopf retten, schnell</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 8 · Duokopf vs. TEP vs. DHS</div><div class="pt"><strong>Duokopf</strong> = alt/inaktiv. <strong>TEP</strong> = aktiv/Coxarthrose. <strong>DHS</strong> = stabile pertrochantäre Fraktur.</div><div class="mn"><b>Merke:</b> Aktivität entscheidet Duokopf vs. TEP</div></div>
+  </section>
+
+  <!-- ============ PROTOKOLLE ============ -->
+  <section class="panel" data-panel="protokoll">
+    <p class="panel-intro">Generalprobe an zwei echten Mainz-Fällen. Jede Frage einzeln laut beantworten, dann die Antwort aufdecken.</p>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mediale Schenkelhalsfraktur · Duokopfprothese</span><span>Dr. Tannert (Chirurgie)</span><span class="pk-badge">Bestanden</span></div>
+      <div class="pk-akte"><span class="lab">Fall</span>Ältere Patientin mit medialer Schenkelhalsfraktur, operativ mit Duokopfprothese versorgt. Inspektion: Beinlängendifferenz und Außenrotation.</div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">Garden-Klassifikation?</div><details class="reveal"><summary>Antwort</summary><div class="ans">I: unvollständig, Valgus (eingestaucht). II: vollständig, nicht disloziert. III: vollständig disloziert, Varus. IV: vollständige Dislokation ohne Verbindung zum Femurkopf. I/II stabil, III/IV instabil.</div></details></div>
+      <div class="pq"><div class="pq-frage">Therapie: Duokopf vs. TEP vs. Osteosynthese — wann was?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Duokopfprothese bei älteren, wenig mobilen Patienten (LE &lt; 5 J). TEP bei jüngeren/aktiveren Patienten oder Coxarthrose. Osteosynthese bei nicht dislozierten oder jungen Patienten.</div></details></div>
+      <div class="pq"><div class="pq-frage">Arterielle Versorgung des Hüftkopfes — und warum droht die Femurkopfnekrose?</div><details class="reveal"><summary>Antwort</summary><div class="ans">A. circumflexa femoris medialis (und lateralis) aus der A. profunda femoris. Die mediale, intrakapsuläre Fraktur zerreißt die retinakulären Gefäße → Hüftkopf wird minderdurchblutet → Femurkopfnekrose. (Biomechanische Belastung der Prothese ca. 2× Körpergewicht.)</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Schenkelhalsfraktur · Diagnostik &amp; Therapie</span><span>Dr. Kirdorf (Chirurgie)</span><span class="pk-badge">Bestanden</span></div>
+      <div class="pk-akte"><span class="lab">Fall</span>Beckenübersicht mit Schenkelhalsfraktur — vom klinischen Bild über die Bildgebung bis zum Versorgungsalgorithmus durchgefragt.</div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">Klinik der dislozierten Schenkelhalsfraktur?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Beinverkürzung und Außenrotation (Varusstellung), immobilisierende Schmerzen.</div></details></div>
+      <div class="pq"><div class="pq-frage">Welche Bildgebung?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Beckenübersicht + Axialaufnahme (Hüfte in 2 Ebenen); bei okkulter Fraktur CT/MRT.</div></details></div>
+      <div class="pq"><div class="pq-frage">Frakturversorgung: mediale SHF vs. intertrochantär vs. junger Patient?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Mediale SHF (älter): Gelenkersatz (Hüft-TEP/Duokopf) wegen Femurkopfnekrose. Intertrochantär: Osteosynthese mit Gamma-Nagel. Junger Patient: kopferhaltende Osteosynthese innerhalb 6 Stunden. Wichtige Arterie: A. circumflexa femoris medialis.</div></details></div>
+    </div>
+  </section>
+
+  <footer>
+    R3 · Proximale Femurfraktur · Diagnostischer Durchlauf (3 von 5). Neuaufbau ohne vorheriges R1/R2 — Inhalt aus Stex (Elsevier) + Vorbereitung zur KB + Mainz-Protokollen (Dr. Tannert, Dr. Kirdorf, Herr Hake — Chirurgie). Zwei-Pass-Logik: kalt testen + bewerten → nur Lücken öffnen → Protokolle als Generalprobe. R4 = adaptive Wiederholung der Lücken, R5 = Prüfungssimulation. Bewertung wird nicht gespeichert.
+  </footer>
+
+</div>
+<script>
+  const tabs = [...document.querySelectorAll('.tab')];
+  const panels = [...document.querySelectorAll('.panel')];
+  function showTab(name){
+    tabs.forEach(x=>x.classList.toggle('active', x.dataset.tab===name));
+    panels.forEach(p=>p.classList.toggle('active', p.dataset.panel===name));
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  tabs.forEach(t=>t.addEventListener('click',()=>showTab(t.dataset.tab)));
+
+  // ---- scoring state ----
+  const scores = {};                 // {p1:'sicher'|'lueckenhaft'|'gefehlt'}
+  const CONTENT = ['grundlagen','klinik','diagnostik','therapie'];
+  const promptStations = {};
+  document.querySelectorAll('.rt').forEach(rt=>{
+    promptStations[rt.dataset.id] = (rt.dataset.stations||'').split(' ').filter(Boolean);
+  });
+
+  function recompute(){
+    let ok=0,gap=0,miss=0;
+    Object.values(scores).forEach(v=>{ if(v==='sicher')ok++; else if(v==='lueckenhaft')gap++; else if(v==='gefehlt')miss++; });
+    document.getElementById('n-ok').textContent=ok;
+    document.getElementById('n-gap').textContent=gap;
+    document.getElementById('n-miss').textContent=miss;
+    document.getElementById('n-done').textContent=Object.keys(scores).length;
+    // station status
+    CONTENT.forEach(st=>{
+      const related = Object.keys(promptStations).filter(p=>promptStations[p].includes(st));
+      const scored = related.filter(p=>scores[p]);
+      const flagged = related.some(p=>scores[p]==='lueckenhaft'||scores[p]==='gefehlt');
+      const allOk = related.length && scored.length===related.length && !flagged;
+      const tab = tabs.find(t=>t.dataset.tab===st);
+      tab.classList.remove('flag-gap','flag-ok');
+      const b = tab.querySelector('.badge');
+      if(flagged){ tab.classList.add('flag-gap'); b.textContent='Lücke'; }
+      else if(allOk){ tab.classList.add('flag-ok'); b.textContent='✓'; }
+      else { b.textContent=''; }
+    });
+  }
+
+  document.querySelectorAll('.rt .score').forEach(scoreBox=>{
+    const rt = scoreBox.closest('.rt');
+    scoreBox.querySelectorAll('.sbtn').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        const v = btn.dataset.v;
+        scores[rt.dataset.id] = v;
+        rt.dataset.score = v;
+        scoreBox.querySelectorAll('.sbtn').forEach(b=>b.classList.toggle('on', b===btn));
+        recompute();
+        const status=document.getElementById('status');
+        const flaggedNow=tabs.filter(t=>t.classList.contains('flag-gap')).length;
+        if(Object.keys(scores).length===6){
+          status.textContent = flaggedNow ? 'Pass 1 fertig. „Nur Lücken öffnen" springt zu den '+flaggedNow+' markierten Stationen.' : 'Alles sicher in Pass 1 — direkt zur Generalprobe (Protokolle).';
+        } else {
+          status.textContent = (6-Object.keys(scores).length)+' Prompt(s) noch zu bewerten.';
+        }
+      });
+    });
+  });
+
+  // ---- two-pass: open only gaps ----
+  document.getElementById('open-gaps').addEventListener('click',()=>{
+    const flagged = CONTENT.filter(st=>tabs.find(t=>t.dataset.tab===st).classList.contains('flag-gap'));
+    const status=document.getElementById('status');
+    if(!Object.keys(scores).length){ status.textContent='Erst Pass 1 bewerten — dann zeige ich dir die Lücken.'; return; }
+    if(!flagged.length){
+      // all clear -> capstone
+      panels.forEach(p=>{ if(CONTENT.includes(p.dataset.panel)) p.querySelectorAll('.card').forEach(c=>c.open=false); });
+      showTab('protokoll'); status.textContent='Keine Lücken — auf zur Generalprobe.'; return;
+    }
+    // expand flagged stations, collapse the "sicher" ones
+    panels.forEach(p=>{
+      if(!CONTENT.includes(p.dataset.panel)) return;
+      const isGap = flagged.includes(p.dataset.panel);
+      p.querySelectorAll('.card').forEach(c=>{ c.open = isGap; });
+    });
+    showTab(flagged[0]);
+    status.textContent='Geöffnet: '+flagged.join(', ')+'. Der Rest bleibt zu.';
+  });
+
+  // ---- reset ----
+  document.getElementById('reset').addEventListener('click',()=>{
+    Object.keys(scores).forEach(k=>delete scores[k]);
+    document.querySelectorAll('.rt').forEach(rt=>{ rt.removeAttribute('data-score'); rt.querySelectorAll('.sbtn').forEach(b=>b.classList.remove('on')); });
+    document.querySelectorAll('.reveal[open]').forEach(d=>d.open=false);
+    recompute();
+    document.getElementById('status').textContent='Zurückgesetzt. Bewerte alle 6 Prompts, dann „Nur Lücken öffnen".';
+  });
+
+  recompute();
+</script>
+</body>
+</html>
