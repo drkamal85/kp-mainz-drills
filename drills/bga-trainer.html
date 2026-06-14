@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BGA-Trainer · Interaktiv</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F7F4EE; --paper:#FFFFFF; --ink:#1A1A1A; --muted:#5C5C5C; --soft:#8A8A8A; --rule:#E8E2D6;
+    --accent:#1E5F9E; --accent-soft:#E5EEF7;
+    --key:#2D7A3E; --key-soft:#E3F1E6;
+    --warn:#D97706; --warn-soft:#FDF2E2;
+    --red:#C0392B; --red-soft:#FBEAE7;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:'Fraunces',Georgia,serif;font-size:16.5px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:720px;margin:0 auto;padding:32px 20px 70px}
+  a.back{display:inline-block;font-family:'Manrope',sans-serif;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);text-decoration:none;margin-bottom:20px}
+  a.back:hover{color:var(--ink)}
+  .eyebrow{font-family:'Manrope',sans-serif;font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+  .eyebrow::before{content:"— "}
+  h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(30px,5.5vw,46px);line-height:1.04;letter-spacing:-.02em;margin-bottom:12px}
+  h1 .accent{font-style:italic;color:var(--accent)}
+  .lead{font-family:'Fraunces',serif;font-style:italic;font-size:17px;color:var(--muted);margin-bottom:24px;max-width:560px}
+  /* HUD */
+  .hud{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+  .chip{font-family:'Manrope',sans-serif;font-size:12px;font-weight:700;letter-spacing:.04em;background:var(--paper);border:1px solid var(--rule);border-radius:50px;padding:7px 13px;display:inline-flex;align-items:center;gap:6px}
+  .chip .big{font-size:15px;font-weight:800}
+  .chip.score .big{color:var(--accent)}
+  .chip.streak .big{color:var(--warn)}
+  .chip.rank{color:var(--key)}
+  .pbar{flex:1;min-width:120px;height:9px;background:var(--rule);border-radius:50px;overflow:hidden}
+  .pfill{height:100%;background:var(--accent);border-radius:50px;transition:width .35s ease}
+  .pcount{font-family:'Manrope',sans-serif;font-size:12px;font-weight:700;color:var(--soft)}
+  /* card */
+  .card{background:var(--paper);border:1px solid var(--rule);border-radius:16px;padding:22px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+  .scenario{font-family:'Fraunces',serif;font-style:italic;font-size:15.5px;color:var(--muted);margin-bottom:14px;padding-left:12px;border-left:3px solid var(--rule)}
+  /* monitor */
+  .monitor{display:grid;grid-template-columns:repeat(auto-fit,minmax(86px,1fr));gap:8px;background:#0f1722;border-radius:12px;padding:14px;margin-bottom:18px}
+  .val{text-align:center;padding:6px 4px;border-radius:8px;background:rgba(255,255,255,.04)}
+  .val .lbl{display:block;font-family:'Manrope',sans-serif;font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#7e8aa0;margin-bottom:3px}
+  .val .num{font-family:'JetBrains Mono',monospace;font-size:16px;font-weight:700;color:#dfe6f0}
+  .val.hi .num{color:#ffb27a} .val.lo .num{color:#7ec7ff}
+  .val .arr{font-size:11px}
+  /* question */
+  .qprompt{font-family:'Manrope',sans-serif;font-size:11px;font-weight:800;letter-spacing:.04em;color:var(--accent);margin-bottom:4px;text-transform:uppercase}
+  .qtext{font-family:'Fraunces',serif;font-size:20px;font-weight:500;margin-bottom:16px;line-height:1.3}
+  .opts{display:flex;flex-direction:column;gap:9px}
+  .opt{font-family:'Manrope',sans-serif;font-size:15px;font-weight:600;text-align:left;background:var(--paper);border:1.5px solid var(--rule);border-radius:11px;padding:13px 16px;cursor:pointer;transition:all .15s ease;color:var(--ink);display:flex;align-items:center;gap:10px}
+  .opt:hover:not(:disabled){border-color:var(--accent);background:var(--accent-soft)}
+  .opt:disabled{cursor:default}
+  .opt .mark{font-weight:800;font-size:16px;margin-left:auto}
+  .opt.correct{border-color:var(--key);background:var(--key-soft);color:#1c5a2b}
+  .opt.wrong{border-color:var(--red);background:var(--red-soft);color:#8e2c20}
+  .opt.dim{opacity:.5}
+  .fb{margin-top:16px;border-radius:11px;padding:14px 16px;font-family:'Fraunces',serif;font-size:15px;line-height:1.5;border-left:4px solid}
+  .fb .fhead{font-family:'Manrope',sans-serif;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:5px}
+  .fb.ok{background:var(--key-soft);border-color:var(--key)} .fb.ok .fhead{color:var(--key)}
+  .fb.no{background:var(--red-soft);border-color:var(--red)} .fb.no .fhead{color:var(--red)}
+  .btn{font-family:'Manrope',sans-serif;font-size:14px;font-weight:700;letter-spacing:.04em;border:none;border-radius:50px;padding:13px 26px;cursor:pointer;transition:transform .12s ease,filter .15s ease}
+  .btn:active{transform:scale(.97)}
+  .btn-primary{background:var(--accent);color:#fff}
+  .btn-primary:hover{filter:brightness(1.08)}
+  .btn-ghost{background:transparent;color:var(--muted);border:1.5px solid var(--rule)}
+  .btn-ghost:hover{color:var(--ink);border-color:var(--muted)}
+  .nextrow{margin-top:18px;display:flex;justify-content:flex-end}
+  /* start / end */
+  .panel{background:var(--paper);border:1px solid var(--rule);border-radius:16px;padding:26px 24px}
+  .panel ul{list-style:none;margin:14px 0 4px}
+  .panel li{position:relative;padding-left:22px;margin-bottom:8px;font-size:15.5px;line-height:1.5}
+  .panel li::before{content:"";position:absolute;left:5px;top:9px;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+  .startbtns{margin-top:22px;display:flex;gap:12px;flex-wrap:wrap}
+  .endhero{text-align:center;padding:8px 0 4px}
+  .endrank{font-size:54px;line-height:1;margin-bottom:6px}
+  .endrankname{font-family:'Fraunces',serif;font-style:italic;font-size:26px;color:var(--key);margin-bottom:18px}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0}
+  .stat{background:var(--bg);border:1px solid var(--rule);border-radius:12px;padding:14px 8px;text-align:center}
+  .stat .n{font-family:'JetBrains Mono',monospace;font-size:24px;font-weight:700;color:var(--accent)}
+  .stat .k{font-family:'Manrope',sans-serif;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--soft);margin-top:3px}
+  .pop{animation:pop .3s ease}
+  @keyframes pop{0%{transform:scale(.96);opacity:.4}100%{transform:scale(1);opacity:1}}
+  .shake{animation:shake .35s}
+  @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+  footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--rule);font-family:'Manrope',sans-serif;font-size:11.5px;color:var(--soft);text-align:center}
+</style>
+</head>
+<body>
+<div id="root" style="font-family:'Manrope',sans-serif;color:#8A8A8A;max-width:720px;margin:0 auto;padding:60px 20px">Lädt den BGA-Trainer …</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js" crossorigin></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js" crossorigin></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.5/babel.min.js" crossorigin></script>
+<script type="text/babel">
+const {useState} = React;
+
+// ---- Case bank ----------------------------------------------------------
+const CASES = [
+  {
+    scenario:"Opioid-Überdosierung, flache Atmung",
+    values:[["pH","7,28","lo"],["pCO₂","60","hi"],["HCO₃⁻","24",""]],
+    steps:[
+      {p:"Wie ist der pH?",o:["Azidose","Alkalose","Normal"],a:0,w:"pH 7,28 < 7,36 → Azidose."},
+      {p:"Primäre Störung?",o:["Respiratorisch","Metabolisch","Gemischt"],a:0,w:"pCO₂ ↑ bei Azidose → respiratorisch (pCO₂ läuft gegensätzlich zum pH)."},
+      {p:"Kompensation?",o:["Keine (akut)","Teilkompensiert","Vollständig"],a:0,w:"HCO₃⁻ normal → die Niere hat noch nicht kompensiert = akut."},
+      {p:"Diagnose?",o:["Akute respiratorische Azidose","Metabolische Azidose","Respiratorische Alkalose","Kompensierte resp. Azidose"],a:0,w:"pH↓ · pCO₂↑ · HCO₃⁻ normal = akute respiratorische Azidose (Hypoventilation)."}
+    ]
+  },
+  {
+    scenario:"Junge Patientin, Panikattacke, Kribbeln in den Fingern",
+    values:[["pH","7,50","hi"],["pCO₂","28","lo"],["HCO₃⁻","23",""]],
+    steps:[
+      {p:"Wie ist der pH?",o:["Azidose","Alkalose","Normal"],a:1,w:"pH 7,50 > 7,44 → Alkalose."},
+      {p:"Primäre Störung?",o:["Respiratorisch","Metabolisch","Gemischt"],a:0,w:"pCO₂ ↓ bei Alkalose → respiratorisch."},
+      {p:"Kompensation?",o:["Keine (akut)","Teilkompensiert","Vollständig"],a:0,w:"HCO₃⁻ normal → akut."},
+      {p:"Diagnose?",o:["Akute respiratorische Alkalose","Metabolische Alkalose","Respiratorische Azidose","Gemischte Störung"],a:0,w:"pH↑ · pCO₂↓ · HCO₃⁻ normal = akute respiratorische Alkalose (Hyperventilation)."}
+    ]
+  },
+  {
+    scenario:"Seit Tagen profuse Diarrhö",
+    values:[["pH","7,30","lo"],["pCO₂","36",""],["HCO₃⁻","16","lo"],["Na⁺","140",""],["Cl⁻","116","hi"]],
+    steps:[
+      {p:"Wie ist der pH?",o:["Azidose","Alkalose","Normal"],a:0,w:"pH 7,30 → Azidose."},
+      {p:"Primäre Störung?",o:["Respiratorisch","Metabolisch","Gemischt"],a:1,w:"HCO₃⁻ ↓ bei Azidose → metabolisch (HCO₃⁻ gleichsinnig zum pH)."},
+      {p:"Anionenlücke = Na⁺ − (Cl⁻ + HCO₃⁻)?",o:["Erhöht (> 12)","Normal (8–12)"],a:1,w:"AG = 140 − (116 + 16) = 8 → normal. Hyperchlorämisch (HCO₃⁻-Verlust)."},
+      {p:"Diagnose?",o:["Metab. Azidose, normale AG","Metab. Azidose, hohe AG","Metabolische Alkalose","Respiratorische Azidose"],a:0,w:"Normale AG + Diarrhö = hyperchlorämische metabolische Azidose (HCO₃⁻-Verlust)."}
+    ]
+  },
+  {
+    scenario:"Magenausgangsstenose, anhaltendes Erbrechen",
+    values:[["pH","7,52","hi"],["pCO₂","47","hi"],["HCO₃⁻","37","hi"],["Cl⁻","90","lo"]],
+    steps:[
+      {p:"Wie ist der pH?",o:["Azidose","Alkalose","Normal"],a:1,w:"pH 7,52 → Alkalose."},
+      {p:"Primäre Störung?",o:["Respiratorisch","Metabolisch","Gemischt"],a:1,w:"HCO₃⁻ ↑ bei Alkalose → metabolisch."},
+      {p:"Kompensation?",o:["Keine (akut)","Teilkompensiert","Vollständig"],a:1,w:"pCO₂ ↑ (Hypoventilation) zieht gegen — teilkompensiert."},
+      {p:"Diagnose?",o:["Metabolische Alkalose","Metabolische Azidose","Respiratorische Alkalose","Gemischte Störung"],a:0,w:"H⁺/Cl⁻-Verlust über Magensäure → Kontraktionsalkalose (metabolische Alkalose)."}
+    ]
+  },
+  {
+    scenario:"68 J., langjährige COPD, stabil",
+    values:[["pH","7,35","lo"],["pCO₂","62","hi"],["HCO₃⁻","33","hi"]],
+    steps:[
+      {p:"Wie ist der pH?",o:["Azidose-Hälfte","Alkalose-Hälfte","Glatt normal"],a:0,w:"7,35 liegt knapp in der sauren Hälfte (< 7,40) → der pH verrät den Treiber."},
+      {p:"Primäre Störung?",o:["Respiratorisch","Metabolisch","Gemischt"],a:0,w:"pCO₂↑ + HCO₃⁻↑ in gleicher Richtung; pH sauer → Treiber ist die respiratorische Azidose."},
+      {p:"Kompensation?",o:["Keine (akut)","Teilkompensiert","Vollständig"],a:2,w:"HCO₃⁻ deutlich ↑ und pH fast normal → vollständige (chronische) renale Kompensation."},
+      {p:"Diagnose?",o:["Kompensierte respiratorische Azidose","Akute respiratorische Azidose","Metabolische Alkalose","Gemischte Störung"],a:0,w:"Chronische COPD: voll kompensierte respiratorische Azidose (pCO₂↑, HCO₃⁻↑, pH grenzwertig sauer)."}
+    ]
+  },
+  {
+    scenario:"24 J., Typ-1-Diabetes, Kussmaul-Atmung, Azetongeruch",
+    values:[["pH","7,15","lo"],["pCO₂","24","lo"],["HCO₃⁻","9","lo"],["Na⁺","138",""],["Cl⁻","100",""]],
+    steps:[
+      {p:"Wie ist der pH?",o:["Azidose","Alkalose","Normal"],a:0,w:"pH 7,15 → schwere Azidose."},
+      {p:"Primäre Störung?",o:["Respiratorisch","Metabolisch","Gemischt"],a:1,w:"HCO₃⁻ ↓ → metabolisch. pCO₂ ↓ = respiratorische Kompensation (Kussmaul)."},
+      {p:"Anionenlücke = Na⁺ − (Cl⁻ + HCO₃⁻)?",o:["Erhöht (> 12)","Normal (8–12)"],a:0,w:"AG = 138 − (100 + 9) = 29 → erhöht. Säure dazu (Ketone)."},
+      {p:"Diagnose?",o:["Metab. Azidose, hohe AG (Ketoazidose)","Metab. Azidose, normale AG","Respiratorische Azidose","Metabolische Alkalose"],a:0,w:"Hohe AG + Diabetes + Kussmaul = diabetische Ketoazidose."}
+    ]
+  },
+  {
+    scenario:"Reanimation, Minderventilation + Schock",
+    values:[["pH","7,08","lo"],["pCO₂","62","hi"],["HCO₃⁻","13","lo"]],
+    steps:[
+      {p:"Wie ist der pH?",o:["Azidose","Alkalose","Normal"],a:0,w:"pH 7,08 → schwerste Azidose."},
+      {p:"pCO₂ ↑ UND HCO₃⁻ ↓ — was heißt das?",o:["Gemischte Störung","Normale Kompensation","Messfehler"],a:0,w:"Beide treiben den pH nach unten und laufen gegenläufig → keine Kompensation, sondern zwei Störungen."},
+      {p:"Diagnose?",o:["Kombinierte resp. + metab. Azidose","Reine respiratorische Azidose","Reine metabolische Azidose","Kompensierte Azidose"],a:0,w:"Reanimation: respiratorische Azidose (pCO₂↑) + metabolische Laktatazidose (HCO₃⁻↓) — der pH stürzt ab."}
+    ]
+  },
+  {
+    scenario:"V. a. Salicylat-Intoxikation: Tinnitus, Hyperventilation",
+    values:[["pH","7,41",""],["pCO₂","22","lo"],["HCO₃⁻","14","lo"],["Na⁺","140",""],["Cl⁻","102",""]],
+    steps:[
+      {p:"Wie ist der pH?",o:["Azidose","Alkalose","Normal / grenzwertig"],a:2,w:"pH 7,41 ist normal — trotzdem sind pCO₂ und HCO₃⁻ beide deutlich verändert. Achtung!"},
+      {p:"pCO₂ ↓ UND HCO₃⁻ ↓ bei normalem pH?",o:["Gemischte Störung","Voll kompensiert","Alles normal"],a:0,w:"Zwei gegenläufige Störungen heben den pH gegenseitig auf → gemischt."},
+      {p:"Anionenlücke = Na⁺ − (Cl⁻ + HCO₃⁻)?",o:["Erhöht (> 12)","Normal (8–12)"],a:0,w:"AG = 140 − (102 + 14) = 24 → erhöht → es liegt eine metabolische Azidose vor (trotz normalem pH)."},
+      {p:"Diagnose?",o:["Resp. Alkalose + metab. Azidose","Reine respiratorische Alkalose","Reine metabolische Azidose","Kompensierte resp. Azidose"],a:0,w:"Salicylat-Klassiker: zentrale Hyperventilation (resp. Alkalose) + metabolische Azidose mit hoher AG — pH oft normal."}
+    ]
+  },
+  {
+    scenario:"72 J., Pneumonie, RR 85/50, Verwirrtheit",
+    values:[["pH","7,29","lo"],["pCO₂","30","lo"],["HCO₃⁻","14","lo"],["Na⁺","138",""],["Cl⁻","104",""],["Laktat","6","hi"]],
+    steps:[
+      {p:"Wie ist der pH?",o:["Azidose","Alkalose","Normal"],a:0,w:"pH 7,29 → Azidose."},
+      {p:"Primäre Störung?",o:["Respiratorisch","Metabolisch","Gemischt"],a:1,w:"HCO₃⁻ ↓ → metabolisch; pCO₂ ↓ = respiratorische Teilkompensation."},
+      {p:"Anionenlücke = Na⁺ − (Cl⁻ + HCO₃⁻)?",o:["Erhöht (> 12)","Normal (8–12)"],a:0,w:"AG = 138 − (104 + 14) = 20 → erhöht (Laktat ↑)."},
+      {p:"Diagnose?",o:["Laktatazidose (hohe AG) bei Sepsis","Metab. Azidose, normale AG","Respiratorische Azidose","Metabolische Alkalose"],a:0,w:"Hypoperfusion → Laktatazidose mit hoher AG; Bild des septischen Schocks."}
+    ]
+  },
+  {
+    scenario:"60 J., 4 Tage post-OP, plötzliche Dyspnoe + Tachykardie",
+    values:[["pH","7,49","hi"],["pCO₂","28","lo"],["HCO₃⁻","22",""],["pO₂","58","lo"],["SaO₂","89","lo"]],
+    steps:[
+      {p:"Wie ist der pH?",o:["Azidose","Alkalose","Normal"],a:1,w:"pH 7,49 → Alkalose."},
+      {p:"Primäre Störung?",o:["Respiratorisch","Metabolisch","Gemischt"],a:0,w:"pCO₂ ↓, HCO₃⁻ normal → akute respiratorische Alkalose (Hyperventilation)."},
+      {p:"Was zeigt der pO₂?",o:["Hypoxämie (Partialinsuffizienz)","Normale Oxygenierung","Globalinsuffizienz"],a:0,w:"pO₂ 58 / SaO₂ 89 % bei niedrigem pCO₂ → Hypoxämie ohne CO₂-Anstieg = Partialinsuffizienz."},
+      {p:"Verdachtsdiagnose?",o:["Lungenembolie","Pneumothorax","COPD-Exazerbation","Panikattacke"],a:0,w:"Hypoxämie + Hypokapnie + plötzliche postoperative Dyspnoe → V. a. Lungenembolie."}
+    ]
+  }
+];
+
+const RANKS = [
+  {min:0,    e:"🩺", n:"Famulant"},
+  {min:0.5,  e:"📘", n:"PJ-Student"},
+  {min:0.7,  e:"🧑‍⚕️", n:"Assistenzarzt"},
+  {min:0.85, e:"🏅", n:"Facharzt"},
+  {min:0.95, e:"👑", n:"Oberarzt der BGA"}
+];
+function rankFor(acc){ let r=RANKS[0]; for(const x of RANKS){ if(acc>=x.min) r=x; } return r; }
+function shuffle(a){ const b=a.slice(); for(let i=b.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [b[i],b[j]]=[b[j],b[i]]; } return b; }
+
+function Monitor({values}){
+  return (
+    <div className="monitor">
+      {values.map((v,i)=>(
+        <div key={i} className={"val "+(v[2]||"")}>
+          <span className="lbl">{v[0]}</span>
+          <span className="num">{v[1]}{v[2]==="hi"?<span className="arr"> ▲</span>:v[2]==="lo"?<span className="arr"> ▼</span>:null}</span>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function App(){
+  const [screen,setScreen]=useState("start");
+  const [order,setOrder]=useState([]);
+  const [ci,setCi]=useState(0);
+  const [si,setSi]=useState(0);
+  const [score,setScore]=useState(0);
+  const [streak,setStreak]=useState(0);
+  const [best,setBest]=useState(0);
+  const [correct,setCorrect]=useState(0);
+  const [total,setTotal]=useState(0);
+  const [picked,setPicked]=useState(null);
+
+  function start(){
+    setOrder(shuffle(CASES.map((_,i)=>i)));
+    setCi(0);setSi(0);setScore(0);setStreak(0);setBest(0);setCorrect(0);setTotal(0);setPicked(null);
+    setScreen("play");
+  }
+
+  const cObj = screen==="play" ? CASES[order[ci]] : null;
+  const step = cObj ? cObj.steps[si] : null;
+
+  function choose(idx){
+    if(picked!==null) return;
+    setPicked(idx);
+    setTotal(t=>t+1);
+    if(idx===step.a){
+      setCorrect(c=>c+1);
+      const ns=streak+1;
+      setStreak(ns); setBest(b=>Math.max(b,ns));
+      setScore(v=>v+10+streak*2);
+    } else {
+      setStreak(0);
+    }
+  }
+  function next(){
+    setPicked(null);
+    if(si+1 < cObj.steps.length){ setSi(si+1); return; }
+    if(ci+1 < order.length){ setCi(ci+1); setSi(0); return; }
+    setScreen("end");
+  }
+
+  // ---- START ----
+  if(screen==="start"){
+    return (
+      <div className="wrap">
+        <a className="back" href="../index.html">← Zurück zur Library</a>
+        <div className="eyebrow">BGA · Interaktiver Trainer</div>
+        <h1>BGA-<span className="accent">Trainer</span></h1>
+        <p className="lead">Echte Blutgas-Befunde Schritt für Schritt interpretieren — pH, Primärstörung, Kompensation, Anionenlücke. Punkte, Serien und ein Rang am Ende.</p>
+        <div className="panel">
+          <strong style={{fontFamily:"'Manrope',sans-serif",fontSize:"13px",letterSpacing:".04em",textTransform:"uppercase",color:"var(--muted)"}}>So funktioniert's</strong>
+          <ul>
+            <li>{CASES.length} klinische Fälle in zufälliger Reihenfolge</li>
+            <li>Pro Fall führst du das <strong>4-Schritt-Ablesen</strong> durch</li>
+            <li>Richtig = Punkte + Serie 🔥 · jede Serie gibt Bonus</li>
+            <li>Nach jeder Antwort eine kurze Erklärung</li>
+          </ul>
+          <div className="startbtns">
+            <button className="btn btn-primary" onClick={start}>Spiel starten →</button>
+            <a className="btn btn-ghost" href="bga-komplett.html" style={{textDecoration:"none",display:"inline-block"}}>Komplettskript</a>
+          </div>
+        </div>
+        <footer>KP-Mainz Drills · BGA-Trainer · interaktiv</footer>
+      </div>
+    );
+  }
+
+  // ---- END ----
+  if(screen==="end"){
+    const acc = total? correct/total : 0;
+    const r = rankFor(acc);
+    return (
+      <div className="wrap">
+        <a className="back" href="../index.html">← Zurück zur Library</a>
+        <div className="panel pop">
+          <div className="endhero">
+            <div className="endrank">{r.e}</div>
+            <div className="endrankname">{r.n}</div>
+          </div>
+          <div className="stats">
+            <div className="stat"><div className="n">{score}</div><div className="k">Punkte</div></div>
+            <div className="stat"><div className="n">{Math.round(acc*100)}%</div><div className="k">Trefferquote</div></div>
+            <div className="stat"><div className="n">{best}🔥</div><div className="k">Beste Serie</div></div>
+          </div>
+          <p style={{fontStyle:"italic",color:"var(--muted)",textAlign:"center",marginTop:"4px"}}>{correct} von {total} Schritten richtig.</p>
+          <div className="startbtns" style={{justifyContent:"center"}}>
+            <button className="btn btn-primary" onClick={start}>Nochmal spielen</button>
+            <a className="btn btn-ghost" href="bga-komplett.html" style={{textDecoration:"none",display:"inline-block"}}>Komplettskript</a>
+          </div>
+        </div>
+        <footer>KP-Mainz Drills · BGA-Trainer · interaktiv</footer>
+      </div>
+    );
+  }
+
+  // ---- PLAY ----
+  const pct = Math.round(((ci) / order.length) * 100);
+  const answered = picked!==null;
+  const wasRight = answered && picked===step.a;
+  return (
+    <div className="wrap">
+      <a className="back" href="../index.html">← Zurück zur Library</a>
+      <div className="hud">
+        <span className="chip score">Punkte <span className="big">{score}</span></span>
+        <span className="chip streak">Serie <span className="big">{streak}🔥</span></span>
+        <div className="pbar"><div className="pfill" style={{width:pct+"%"}}></div></div>
+        <span className="pcount">Fall {ci+1}/{order.length}</span>
+      </div>
+
+      <div className={"card"+(answered && !wasRight?" shake":"")} key={ci+"-"+si}>
+        {cObj.scenario? <div className="scenario">{cObj.scenario}</div> : null}
+        <Monitor values={cObj.values} />
+        <div className="qprompt">Schritt {si+1} von {cObj.steps.length}</div>
+        <div className="qtext">{step.p}</div>
+        <div className="opts">
+          {step.o.map((opt,idx)=>{
+            let cls="opt";
+            if(answered){
+              if(idx===step.a) cls+=" correct";
+              else if(idx===picked) cls+=" wrong";
+              else cls+=" dim";
+            }
+            return (
+              <button key={idx} className={cls} disabled={answered} onClick={()=>choose(idx)}>
+                {opt}
+                {answered && idx===step.a? <span className="mark">✓</span> : null}
+                {answered && idx===picked && idx!==step.a? <span className="mark">✗</span> : null}
+              </button>
+            );
+          })}
+        </div>
+        {answered? (
+          <div className={"fb "+(wasRight?"ok":"no")}>
+            <span className="fhead">{wasRight?"Richtig":"Nicht ganz"}</span>
+            {step.w}
+          </div>
+        ) : null}
+        {answered? (
+          <div className="nextrow">
+            <button className="btn btn-primary" onClick={next}>
+              {(si+1<cObj.steps.length)?"Weiter →":(ci+1<order.length)?"Nächster Fall →":"Ergebnis →"}
+            </button>
+          </div>
+        ) : null}
+      </div>
+      <footer>KP-Mainz Drills · BGA-Trainer · interaktiv</footer>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
+</script>
+</body>
+</html>
