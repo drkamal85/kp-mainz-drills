@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cushing-Syndrom · R3 · Diagnostischer Durchlauf</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F7F4EE; --card:#FFFDF8; --ink:#2A2724; --muted:#6B6358; --line:#E7E0D4;
+    --grundlagen:#C0392B; --grundlagen-t:#F7E9E6;
+    --klinik:#D97706;     --klinik-t:#FBEEDD;
+    --diagnostik:#1E5F9E; --diagnostik-t:#E4EDF6;
+    --therapie:#2D7A3E;   --therapie-t:#E5F0E7;
+    --fragen:#7B3F9E;     --fragen-t:#F0E8F6;
+    --perlen:#B8860B;     --perlen-t:#F8F0D9;
+    --retrieval:#0F766E;  --retrieval-t:#E0F0EE;
+    --protokoll:#334155;  --protokoll-t:#E8EBF0;
+    --ok:#2D7A3E; --gap:#D97706; --miss:#C0392B;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:'Manrope',system-ui,sans-serif;
+    font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased;padding:0 18px 80px}
+  .wrap{max-width:860px;margin:0 auto}
+
+  header{padding:54px 0 22px}
+  .eyebrow{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--retrieval);margin-bottom:16px}
+  h1{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(34px,7vw,52px);line-height:1.04;letter-spacing:-.01em}
+  h1 .accent{font-style:italic;color:var(--grundlagen)}
+  .subtitle{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(17px,2.6vw,20px);color:var(--muted);margin-top:14px}
+  .meta{display:flex;flex-wrap:wrap;gap:6px 0;margin-top:20px;font-size:13px;color:var(--muted);font-weight:500}
+  .meta span:not(:last-child)::after{content:"•";margin:0 10px;color:var(--line);font-weight:700}
+
+
+  .tabs{display:flex;flex-wrap:wrap;gap:8px;position:sticky;top:0;z-index:30;background:linear-gradient(var(--bg) 72%,rgba(247,244,238,0));padding:12px 0 14px;margin-bottom:6px}
+  .tab{position:relative;font-size:13px;font-weight:600;border:1px solid var(--line);background:var(--card);color:var(--muted);padding:8px 15px;border-radius:999px;cursor:pointer;transition:all .15s;white-space:nowrap}
+  .tab:hover{border-color:#cfc6b6}
+  .tab.active{color:#fff;border-color:transparent}
+  .tab[data-c=retrieval].active{background:var(--retrieval)}
+  .tab[data-c=grundlagen].active{background:var(--grundlagen)}
+  .tab[data-c=klinik].active{background:var(--klinik)}
+  .tab[data-c=diagnostik].active{background:var(--diagnostik)}
+  .tab[data-c=therapie].active{background:var(--therapie)}
+  .tab[data-c=fragen].active{background:var(--fragen)}
+  .tab[data-c=perlen].active{background:var(--perlen)}
+  .tab[data-c=protokoll].active{background:var(--protokoll)}
+  .tab .badge{display:none;margin-left:7px;font-size:10px;font-weight:800;padding:1px 6px;border-radius:999px;vertical-align:middle}
+  .tab.flag-gap .badge{display:inline-block;background:var(--gap);color:#fff}
+  .tab.flag-ok .badge{display:inline-block;background:var(--ok);color:#fff}
+  .tab.active .badge{background:rgba(255,255,255,.28)!important;color:#fff}
+
+  .panel{display:none;animation:fade .25s ease}
+  .panel.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+  .panel-intro{font-family:'Fraunces',serif;font-style:italic;font-size:17px;color:var(--muted);margin:6px 0 18px;line-height:1.5}
+
+  /* ---- control bar (Pass 1 instrument) ---- */
+  .ctrl{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:14px 16px;margin-bottom:20px}
+  .ctrl-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+  .tally{font-size:13px;font-weight:700;display:flex;gap:12px;flex-wrap:wrap}
+  .tally i{font-style:normal;display:inline-flex;align-items:center;gap:5px}
+  .tally i::before{content:"";width:9px;height:9px;border-radius:50%}
+  .tally .t-ok::before{background:var(--ok)} .tally .t-gap::before{background:var(--gap)} .tally .t-miss::before{background:var(--miss)}
+  .spacer{flex:1 1 auto}
+  .btn{font-family:'Manrope';font-size:12.5px;font-weight:700;border:none;border-radius:999px;padding:9px 16px;cursor:pointer;transition:.15s}
+  .btn-primary{background:var(--retrieval);color:#fff}
+  .btn-primary:hover{filter:brightness(1.06)}
+  .btn-ghost{background:transparent;color:var(--muted);border:1px solid var(--line)}
+  .btn-ghost:hover{border-color:#cfc6b6}
+  .ctrl-status{margin-top:11px;font-size:13px;font-style:italic;color:var(--retrieval);min-height:18px}
+
+  /* ---- retrieval prompt ---- */
+  .rt{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:14px;transition:border-color .2s}
+  .rt[data-score=sicher]{border-left-color:var(--ok)}
+  .rt[data-score=lueckenhaft]{border-left-color:var(--gap)}
+  .rt[data-score=gefehlt]{border-left-color:var(--miss)}
+  .rt-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:8px}
+  .rt-n{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--retrieval)}
+  .rt-right{display:flex;align-items:center;gap:10px;white-space:nowrap}
+  .rt-ptr{font-size:11px;font-weight:600;color:var(--muted)}
+  .rt-q{font-size:15.5px;line-height:1.55}
+  .reveal{margin-top:12px;border-top:1px dashed var(--line);padding-top:0}
+  .reveal>summary{list-style:none;cursor:pointer;font-size:12.5px;font-weight:800;letter-spacing:.04em;color:var(--retrieval);padding:11px 0 0;user-select:none;display:inline-flex;align-items:center;gap:6px}
+  .reveal>summary::-webkit-details-marker{display:none}
+  .reveal>summary::before{content:"▸";transition:transform .2s;display:inline-block}
+  .reveal[open]>summary::before{transform:rotate(90deg)}
+  .reveal .ans{font-size:14.5px;line-height:1.6;color:#3c372f;padding-top:10px}
+  .reveal .ans b{color:var(--ink)}
+  .score{display:flex;gap:7px;margin-top:12px;padding-top:11px;border-top:1px solid var(--line)}
+  .sbtn{flex:1;font-size:12px;font-weight:700;border:1px solid var(--line);background:var(--bg);color:var(--muted);border-radius:8px;padding:7px 4px;cursor:pointer;transition:.12s}
+  .sbtn:hover{border-color:#cfc6b6}
+  .sbtn[data-v=sicher].on{background:var(--ok);color:#fff;border-color:transparent}
+  .sbtn[data-v=lueckenhaft].on{background:var(--gap);color:#fff;border-color:transparent}
+  .sbtn[data-v=gefehlt].on{background:var(--miss);color:#fff;border-color:transparent}
+
+  /* ---- Schnellfragen ---- */
+  .sf-wrap{background:var(--retrieval-t);border:1px solid #BFE0DC;border-radius:13px;padding:18px 20px;margin-top:24px}
+  .sf-wrap h3{font-family:'Fraunces',serif;font-weight:500;font-size:20px;margin-bottom:3px}
+  .sf-wrap .sf-intro{font-size:13.5px;font-style:italic;color:#0c5d57;margin-bottom:14px}
+  .sf{border-bottom:1px solid #cfe4e1;padding:9px 0}
+  .sf:last-child{border-bottom:none}
+  .sf>summary{list-style:none;cursor:pointer;font-size:14.5px;font-weight:600;display:flex;justify-content:space-between;gap:10px;user-select:none}
+  .sf>summary::-webkit-details-marker{display:none}
+  .sf>summary::after{content:"+";color:var(--retrieval);font-weight:800}
+  .sf[open]>summary::after{content:"−"}
+  .sf .sfa{font-size:14px;color:#0c5d57;font-weight:700;padding-top:6px}
+
+  /* ---- content cards (v1) ---- */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:14px;overflow:hidden}
+  .card>summary{list-style:none;cursor:pointer;padding:18px 20px;display:flex;align-items:flex-start;gap:14px;user-select:none}
+  .card>summary::-webkit-details-marker{display:none}
+  .card .ct{flex:1}
+  .card .ctag{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:5px}
+  .card .ctitle{font-family:'Fraunces',serif;font-weight:500;font-size:17px;line-height:1.25}
+  .plus{flex:none;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:18px;line-height:1;transition:transform .2s;margin-top:2px}
+  .card[open] .plus{transform:rotate(45deg)}
+  .card .body{padding:0 20px 20px;border-top:1px solid var(--line);margin-top:-2px;padding-top:16px}
+  .card.grundlagen .ctag{color:var(--grundlagen)} .card.grundlagen .plus{background:var(--grundlagen-t);color:var(--grundlagen)}
+  .card.klinik .ctag{color:var(--klinik)} .card.klinik .plus{background:var(--klinik-t);color:var(--klinik)}
+  .card.diagnostik .ctag{color:var(--diagnostik)} .card.diagnostik .plus{background:var(--diagnostik-t);color:var(--diagnostik)}
+  .card.therapie .ctag{color:var(--therapie)} .card.therapie .plus{background:var(--therapie-t);color:var(--therapie)}
+  .card.fragen .ctag{color:var(--fragen)} .card.fragen .plus{background:var(--fragen-t);color:var(--fragen)}
+  .card.perlen .ctag{color:var(--perlen)} .card.perlen .plus{background:var(--perlen-t);color:var(--perlen)}
+
+  ul.b{list-style:none;padding-left:2px}
+  ul.b>li{position:relative;padding-left:20px;margin-bottom:8px;line-height:1.55}
+  ul.b>li::before{content:"";position:absolute;left:2px;top:9px;width:7px;height:7px;border-radius:50%}
+  .grundlagen ul.b>li::before{background:var(--grundlagen)} .klinik ul.b>li::before{background:var(--klinik)}
+  .diagnostik ul.b>li::before{background:var(--diagnostik)} .therapie ul.b>li::before{background:var(--therapie)}
+  ul.b ul{list-style:none;padding-left:18px;margin-top:7px}
+  ul.b ul>li{position:relative;padding-left:18px;margin-bottom:6px;font-size:15px;color:#4a443c}
+  ul.b ul>li::before{content:"";position:absolute;left:0;top:7px;width:6px;height:6px;transform:rotate(45deg);background:#b9b0a1}
+  strong{font-weight:700;color:var(--ink)}
+
+  .callout{border-radius:11px;padding:13px 16px;margin:14px 0;font-size:14.5px;line-height:1.55;border-left:4px solid}
+  .callout .lab{font-weight:800;font-size:11px;letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .critical{background:var(--grundlagen-t);border-color:var(--grundlagen)} .critical .lab{color:var(--grundlagen)}
+  .warning{background:var(--klinik-t);border-color:var(--klinik)} .warning .lab{color:var(--klinik)}
+  .fact{background:var(--diagnostik-t);border-color:var(--diagnostik)} .fact .lab{color:var(--diagnostik)}
+
+  .dd{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+  .dd th,.dd td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+  .dd th{background:var(--diagnostik-t);font-weight:700;color:var(--diagnostik);font-size:12px}
+  .dd td:first-child{font-weight:600}
+
+  .pk{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:16px}
+  .pk-meta{display:flex;flex-wrap:wrap;gap:6px 0;font-size:11.5px;font-weight:700;color:var(--protokoll);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+  .pk-meta span:not(:last-child)::after{content:"•";margin:0 8px;color:#c3c9d2}
+  .pk-badge{display:inline-block;background:var(--therapie-t);color:var(--therapie);font-size:10.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:2px 9px;border-radius:999px;margin-left:auto}
+  .pk-akte{font-size:14.5px;line-height:1.58;background:var(--protokoll-t);border-radius:9px;padding:12px 14px;margin-bottom:12px}
+  .pk-akte .lab,.pk-q .lab{font-weight:800;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--protokoll);display:block;margin-bottom:5px}
+  .pk-q ul{list-style:none;padding:0}
+  .pk-q li{position:relative;padding-left:18px;margin-bottom:7px;font-size:14.5px;line-height:1.5}
+  .pk-q li::before{content:"–";position:absolute;left:0;color:var(--protokoll);font-weight:700}
+  .pq{border-top:1px solid var(--line);padding:10px 0}
+  .pq-frage{position:relative;padding-left:18px;font-size:14.5px;font-weight:600;line-height:1.5}
+  .pq-frage::before{content:"–";position:absolute;left:0;color:var(--protokoll);font-weight:700}
+  .pq .reveal{margin-top:5px;border-top:none;padding-top:0}
+  .pq .reveal>summary{padding:5px 0 0}
+
+  .pearl{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--perlen);border-radius:12px;padding:16px 18px;margin-bottom:13px}
+  .pearl .ph{font-weight:800;font-size:13px;color:var(--perlen);margin-bottom:7px}
+  .pearl .pt{font-size:15px;line-height:1.55}
+  .pearl .mn{margin-top:9px;background:var(--perlen-t);border-radius:8px;padding:8px 12px;font-size:13.5px;font-style:italic;color:#7a5c08}
+  .pearl .mn b{font-style:normal;font-weight:800}
+
+  footer{margin-top:40px;padding-top:22px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted);line-height:1.6}
+  .back{display:inline-block;font-family:Manrope,system-ui,sans-serif;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);text-decoration:none;margin-bottom:18px}
+  .back:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a href="../../index.html" class="back">← Zurück zur Library</a>
+
+  <header>
+    <div class="eyebrow">Endokrinologie · R3 · Diagnostischer Durchlauf</div>
+    <h1>Cushing-<span class="accent">Syndrom</span></h1>
+    <div class="subtitle">Zwei Pässe: kalt testen, bewerten — dann nur die Lücken öffnen.</div>
+    <div class="meta">
+      <span>R3 von 5 · Neuaufbau</span>
+      <span>~12–15 Min</span>
+      <span>Stand 06/2026</span>
+      <span>Stex Lernkarten + Mainz-Protokolle</span>
+    </div>
+  </header>
+
+  <div class="tabs">
+    <button class="tab active" data-c="retrieval" data-tab="retrieval">Retrieval-Test</button>
+    <button class="tab" data-c="grundlagen" data-tab="grundlagen">Grundlagen<span class="badge"></span></button>
+    <button class="tab" data-c="klinik" data-tab="klinik">Klinik<span class="badge"></span></button>
+    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik<span class="badge"></span></button>
+    <button class="tab" data-c="therapie" data-tab="therapie">Therapie<span class="badge"></span></button>
+    <button class="tab" data-c="perlen" data-tab="perlen">KP-Perlen</button>
+    <button class="tab" data-c="protokoll" data-tab="protokoll">Protokolle</button>
+  </div>
+
+  <!-- ============ RETRIEVAL-TEST ============ -->
+  <section class="panel active" data-panel="retrieval">
+    <p class="panel-intro">Kalt. Laut. Auf Deutsch. Diese Prompts fragen <strong>ganze Pfade und Entscheidungen</strong> (Synthese) — die Einzelfakten kommen darunter als Schnellfragen. Erst formulieren, dann aufdecken und ehrlich bewerten.</p>
+
+    <div class="ctrl">
+      <div class="ctrl-row">
+        <div class="tally"><i class="t-ok">Sicher <span id="n-ok">0</span></i><i class="t-gap">Lücke <span id="n-gap">0</span></i><i class="t-miss">Gefehlt <span id="n-miss">0</span></i><i style="color:var(--muted)">/ 5 bewertet: <span id="n-done">0</span></i></div>
+        <div class="spacer"></div>
+        <button class="btn btn-primary" id="open-gaps">Nur Lücken öffnen →</button>
+        <button class="btn btn-ghost" id="reset">Zurücksetzen</button>
+      </div>
+      <div class="ctrl-status" id="status">Bewerte alle 5 Prompts, dann „Nur Lücken öffnen".</div>
+    </div>
+
+    <div class="rt" data-id="p1" data-stations="grundlagen">
+      <div class="rt-h"><span class="rt-n">Prompt 1 · Ursachen einordnen</span><span class="rt-right"><span class="rt-ptr">→ Grundlagen</span></span></div>
+      <div class="rt-q">Ein Patient zeigt das klinische Vollbild eines Cushing-Syndroms. Ordne die <strong>Ursachen</strong> — exogen vs. endogen, und innerhalb endogen ACTH-abhängig vs. -unabhängig. Welche ist <strong>insgesamt</strong> am häufigsten, welche <strong>endogen</strong> am häufigsten? Und was unterscheidet <strong>Cushing-Syndrom von Morbus Cushing</strong>?</div>
+      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><b>Exogen (iatrogen)</b> = insgesamt häufigste Ursache (Glukokortikoid-Langzeittherapie, Cushing-Schwelle ~7,5 mg Prednisolon/Tag). <b>Endogen</b>: ACTH-abhängig (~80–85 %) — <b>Morbus Cushing</b> (häufigste endogene, ACTH-Mikroadenom des Hypophysenvorderlappens) oder ektope ACTH-Produktion (z. B. SCLC, Karzinoid); ACTH-unabhängig (~15–20 %) — adrenal (NNR-Adenom/-Karzinom, Hyperplasie).<br><b>Cushing-Syndrom</b> = klinisches Bild des Hyperkortisolismus (jede Ursache). <b>Morbus Cushing</b> = nur die zentrale, hypophysäre Form.</div></details>
+      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
+    </div>
+
+    <div class="rt" data-id="p2" data-stations="klinik">
+      <div class="rt-h"><span class="rt-n">Prompt 2 · Klinik erkennen</span><span class="rt-right"><span class="rt-ptr">→ Klinik</span></span></div>
+      <div class="rt-q">Welche klinischen Zeichen erwartest du (katabole + mineralokortikoide + diabetogene Wirkung)? Welche Zeichen sprechen für eine <strong>ACTH-abhängige</strong> Form? Und welche <strong>Pseudo-Cushing-DD</strong> musst du ausschließen?</div>
+      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><b>Katabol:</b> Stammfettsucht, Vollmondgesicht, Stiernacken, periphere Muskelatrophie/Adynamie, Osteoporose, Striae rubrae, Hautatrophie, Ekchymosen. <b>Mineralokortikoid:</b> arterielle Hypertonie (~90 %), Hypokaliämie. <b>Diabetogen:</b> gestörte Glukosetoleranz/Steroiddiabetes. Dazu psychische Veränderungen, Infektanfälligkeit.<br><b>ACTH-abhängig:</b> Hyperandrogenämie bei Frauen (Hirsutismus, Virilismus, Menstruationsstörungen) — ACTH stimuliert auch NNR-Androgene. <b>Pseudo-Cushing:</b> Alkohol, schwere Depression, ausgeprägte Adipositas.</div></details>
+      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
+    </div>
+
+    <div class="rt" data-id="p3" data-stations="diagnostik">
+      <div class="rt-h"><span class="rt-n">Prompt 3 · Diagnostik Schritt 1 + 2</span><span class="rt-right"><span class="rt-ptr">→ Diagnostik</span></span></div>
+      <div class="rt-q">Geh die Diagnostik durch: Wie <strong>sicherst du den Hyperkortisolismus</strong> (welche Screening-Tests), und wie ordnest du dann mit dem <strong>ACTH-Wert</strong> die Ursache ein?</div>
+      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><b>Schritt 1 — Liegt ein Cushing vor?</b> Niedrigdosierter <b>1-mg-Dexamethason-Hemmtest</b> (abends Dexamethason → morgens Kortisol; beim Cushing <em>keine Suppression</em>), <b>24-h-Urin freies Kortisol</b> ↑, <b>Mitternachtskortisol</b> (Serum/Speichel — aufgehobene zirkadiane Rhythmik). Mindestens zwei pathologisch.<br><b>Schritt 2 — ACTH messen:</b> ACTH <b>↓</b> → adrenal (ACTH-unabhängig); ACTH <b>↑/normal</b> → ACTH-abhängig (zentral oder ektop).</div></details>
+      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
+    </div>
+
+    <div class="rt" data-id="p4" data-stations="diagnostik">
+      <div class="rt-h"><span class="rt-n">Prompt 4 · Diagnostik Schritt 3</span><span class="rt-right"><span class="rt-ptr">→ Diagnostik</span></span></div>
+      <div class="rt-q">ACTH ist erhöht. Wie differenzierst du <strong>zentral (Morbus Cushing)</strong> von <strong>ektoper</strong> ACTH-Produktion — und <strong>wann</strong> kommt die Bildgebung?</div>
+      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><b>Hochdosierter 8-mg-Dexamethason-Hemmtest:</b> Kortisol-Suppression (≥ 50 %) bei <em>zentral</em> (Hypophyse noch rückkopplungsfähig), <em>keine</em> Suppression bei ektop. <b>CRH-Test:</b> ACTH + Kortisol steigen bei zentral, kein Anstieg bei ektop. Merke: zentral ist noch empfindlich — der ektope Tumor macht, was er will.<br><b>Bildgebung erst NACH hormoneller Sicherung:</b> MRT Hypophyse (zentral), CT Thorax/Abdomen (ektope Quelle), MRT/CT Nebennieren (adrenal); bei unklarem Hypophysen-MRT Sinus-petrosus-inferior-Katheter.</div></details>
+      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
+    </div>
+
+    <div class="rt" data-id="p5" data-stations="therapie">
+      <div class="rt-h"><span class="rt-n">Prompt 5 · Therapie + Notfall</span><span class="rt-right"><span class="rt-ptr">→ Therapie</span></span></div>
+      <div class="rt-q">Nenne die <strong>Therapie je nach Ursache</strong> (exogen, zentral, adrenal, ektop). Warum darfst du Glukokortikoide <strong>nie abrupt absetzen</strong>, und was substituierst du <strong>nach erfolgreicher OP</strong>?</div>
+      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><b>Exogen:</b> Glukokortikoide langsam ausschleichen. <b>Zentral (M. Cushing):</b> transsphenoidale Adenomentfernung (1. Wahl), alt. Bestrahlung. <b>Adrenal:</b> Adrenalektomie (± Mitotan/Ketoconazol). <b>Ektop:</b> Tumorresektion (± Kortisolsynthesehemmer).<br>Abruptes Absetzen ist gefährlich, weil die zugeführten Steroide die eigene HPA-Achse supprimiert haben → <b>NNR-Atrophie → Addison-Krise</b>. Nach erfolgreicher OP: <b>Hydrocortison-Substitution</b> (± Fludrocortison), bis sich die Achse erholt.</div></details>
+      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
+    </div>
+
+    <div class="callout fact"><span class="lab">Mainz-Muster</span>Cushing ist eine Endokrinologie-Standardfrage (Innere). Der Prüfer läuft meist: <strong>häufigste Ursache (exogen!) → Morbus vs. Syndrom → Diagnostik in Schritten</strong> (1-mg-Dexamethason → 24-h-Urin/Mitternachtskortisol → ACTH → 8-mg-Dexamethason/CRH) <strong>→ Bildgebung erst nach hormoneller Sicherung → Therapie</strong> (transsphenoidal bei M. Cushing).<br>Lieblingsfalle: Glukokortikoide nie abrupt absetzen (Addison-Krise). Häufig eingebettet als Ursache der <strong>sekundären Hypertonie</strong>.</div>
+
+    <div class="sf-wrap">
+      <h3>Schnellfragen · Rapid-Fire</h3>
+      <div class="sf-intro">Atomare Einzelfakten — Ein-Wort-Abruf, keine Optionen. Laut, sofort, dann aufdecken.</div>
+      <details class="sf"><summary>Häufigste Ursache überhaupt?</summary><div class="sfa">exogen (iatrogen, Glukokortikoidtherapie)</div></details>
+      <details class="sf"><summary>Cushing-Schwelle?</summary><div class="sfa">~ 7,5 mg Prednisolon / Tag</div></details>
+      <details class="sf"><summary>Häufigste endogene Ursache?</summary><div class="sfa">Morbus Cushing (ACTH-Hypophysenadenom)</div></details>
+      <details class="sf"><summary>Cushing-Syndrom vs. Morbus Cushing?</summary><div class="sfa">Syndrom = jede Ursache · Morbus = nur zentral</div></details>
+      <details class="sf"><summary>Screening-Test Nr. 1?</summary><div class="sfa">1-mg-Dexamethason-Hemmtest (keine Suppression)</div></details>
+      <details class="sf"><summary>Weitere Screening-Tests?</summary><div class="sfa">24-h-Urin-Kortisol · Mitternachtskortisol</div></details>
+      <details class="sf"><summary>ACTH niedrig → Ursache?</summary><div class="sfa">adrenal (ACTH-unabhängig)</div></details>
+      <details class="sf"><summary>ACTH hoch/normal → Ursache?</summary><div class="sfa">zentral oder ektop (ACTH-abhängig)</div></details>
+      <details class="sf"><summary>8-mg-Dexamethason — Suppression bei?</summary><div class="sfa">zentral (M. Cushing) · nicht bei ektop</div></details>
+      <details class="sf"><summary>CRH-Test — Anstieg bei?</summary><div class="sfa">zentral · kein Anstieg bei ektop</div></details>
+      <details class="sf"><summary>Wann Bildgebung?</summary><div class="sfa">erst NACH hormoneller Sicherung</div></details>
+      <details class="sf"><summary>Therapie Morbus Cushing?</summary><div class="sfa">transsphenoidale Adenomentfernung</div></details>
+      <details class="sf"><summary>Therapie adrenales Cushing?</summary><div class="sfa">Adrenalektomie</div></details>
+      <details class="sf"><summary>Kortisolsynthesehemmer?</summary><div class="sfa">Ketoconazol, Metyrapon (Mitotan bei NNR-Ca)</div></details>
+      <details class="sf"><summary>Glukokortikoide abrupt absetzen → Gefahr?</summary><div class="sfa">Addison-Krise (NNR-Insuffizienz)</div></details>
+      <details class="sf"><summary>Typische Hautzeichen?</summary><div class="sfa">Striae rubrae, Hautatrophie, Ekchymosen</div></details>
+    </div>
+  </section>
+
+  <!-- ============ GRUNDLAGEN ============ -->
+  <section class="panel" data-panel="grundlagen">
+    <p class="panel-intro">Definition und Ursachen-Systematik — erst laut, dann aufklappen.</p>
+    <details class="card grundlagen" open><summary><span class="ct"><span class="ctag">Definition</span><span class="ctitle">Syndrom vs. Morbus — sauber trennen</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">⚙ Merksatz</span><strong>Cushing-Syndrom = klinisches Bild eines Hyperkortisolismus (jede Ursache).<br>Morbus Cushing = nur die zentrale Form (ACTH-Mikroadenom des Hypophysenvorderlappens).</strong></div>
+        <ul class="b">
+          <li>Ursache des Vollbilds: chronisch erhöhtes <strong>Kortisol</strong> (katabole Wirkung)</li>
+          <li>HPA-Achse: Hypothalamus (CRH) → Hypophyse (ACTH) → NNR (Kortisol), mit negativer Rückkopplung</li>
+        </ul>
+      </div>
+    </details>
+    <details class="card grundlagen"><summary><span class="ct"><span class="ctag">Ätiologie</span><span class="ctitle">Exogen vs. endogen · ACTH-abhängig vs. -unabhängig</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <h4>Exogen (iatrogen) — am häufigsten</h4>
+        <ul class="b"><li>Glukokortikoid-Langzeittherapie · <strong>Cushing-Schwelle ~7,5 mg Prednisolon/Tag</strong></li></ul>
+        <h4>Endogen (selten)</h4>
+        <table class="dd"><tr><th>ACTH-abhängig (~80–85 %)</th><th>ACTH-unabhängig (~15–20 %)</th></tr>
+          <tr><td><strong>Morbus Cushing</strong> — ACTH-Mikroadenom HVL (häufigste endogene)</td><td>NNR-<strong>Adenom</strong> (Erwachsene)</td></tr>
+          <tr><td><strong>Ektop</strong> — paraneoplastisch (SCLC, Karzinoid)</td><td>NNR-<strong>Karzinom</strong>, bilaterale Hyperplasie</td></tr></table>
+        <div class="callout fact"><span class="lab">⚙ Logik</span>ACTH-abhängig: Tumor macht ACTH → NNR produziert Kortisol mit. ACTH-unabhängig: NNR produziert autonom Kortisol → ACTH per Rückkopplung supprimiert.</div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ KLINIK ============ -->
+  <section class="panel" data-panel="klinik">
+    <p class="panel-intro">Das katabole Vollbild plus die Mineralokortikoid-/Diabetes-Effekte. Erst laut, dann abgleichen.</p>
+    <details class="card klinik" open><summary><span class="ct"><span class="ctag">Leitsymptome</span><span class="ctitle">Kortisol wirkt katabol</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b">
+        <li><strong>Fettumverteilung:</strong> Stammfettsucht, Vollmondgesicht (Facies lunata), Stiernacken</li>
+        <li><strong>Katabol:</strong> periphere Muskelatrophie/Adynamie, Osteoporose</li>
+        <li><strong>Haut:</strong> Striae rubrae (&gt; 1 cm, purpurn), Hautatrophie, Ekchymosen, Plethora</li>
+        <li><strong>Mineralokortikoid:</strong> arterielle Hypertonie (~90 %), Hypokaliämie, ggf. Hypernatriämie</li>
+        <li><strong>Diabetogen:</strong> gestörte Glukosetoleranz / Steroiddiabetes</li>
+        <li><strong>Weiter:</strong> psychische Veränderungen (Depression/Euphorie), Infektanfälligkeit</li>
+      </ul>
+        <div class="callout fact"><span class="lab">⚙ Nur ACTH-abhängig</span>Hyperandrogenämie bei Frauen — <strong>Hirsutismus, Virilismus, Menstruationsstörungen</strong> — da ACTH neben Kortisol auch NNR-Androgene stimuliert.</div>
+      </div>
+    </details>
+    <details class="card klinik"><summary><span class="ct"><span class="ctag">DD &amp; Begleitbefunde</span><span class="ctitle">Pseudo-Cushing + Laborbild + Kontext</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b">
+        <li><strong>Pseudo-Cushing</strong> (verfälscht Tests): Alkohol, schwere Depression, ausgeprägte Adipositas</li>
+        <li><strong>Blutbild/Labor:</strong> Leukozytose, Thrombozytose, Lymphopenie, Hyperglykämie, Hypokaliämie, Hyperlipidämie</li>
+        <li><strong>Kontext:</strong> Cushing ist eine endokrine Ursache der <strong>sekundären Hypertonie</strong> (neben Conn-Syndrom und Phäochromozytom)</li>
+      </ul></div>
+    </details>
+  </section>
+
+  <!-- ============ DIAGNOSTIK ============ -->
+  <section class="panel" data-panel="diagnostik">
+    <p class="panel-intro">Drei Schritte: bestätigen → ACTH → zentral/ektop. Bildgebung zuletzt. Erst laut, dann abgleichen.</p>
+    <details class="card diagnostik" open><summary><span class="ct"><span class="ctag">Schritt 1</span><span class="ctitle">Liegt ein Cushing vor?</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b">
+        <li><strong>1-mg-Dexamethason-Hemmtest</strong> (abends Dexamethason → morgens Kortisol): beim Gesunden Suppression, beim Cushing <em>keine Suppression</em></li>
+        <li><strong>24-h-Urin freies Kortisol</strong> ↑</li>
+        <li><strong>Mitternachtskortisol</strong> (Serum/Speichel): aufgehobene zirkadiane Rhythmik</li>
+      </ul>
+        <div class="callout fact"><span class="lab">⚙ Regel</span>Mindestens <strong>zwei pathologische Tests</strong> sichern den Hyperkortisolismus, bevor die Ursache gesucht wird.</div>
+      </div>
+    </details>
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Schritt 2</span><span class="ctitle">ACTH messen — die Weiche</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <table class="dd"><tr><th>ACTH ↓ (supprimiert)</th><th>ACTH ↑ / normal</th></tr>
+          <tr><td><strong>ACTH-unabhängig</strong> = adrenal</td><td><strong>ACTH-abhängig</strong> = zentral oder ektop</td></tr>
+          <tr><td>NNR produziert autonom Kortisol</td><td>Hypophyse/Tumor treibt die NNR</td></tr></table>
+      </div>
+    </details>
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Schritt 3</span><span class="ctitle">Zentral vs. ektop + Bildgebung</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b">
+        <li><strong>8-mg-Dexamethason-Hemmtest:</strong> Suppression (≥ 50 %) bei <em>zentral</em>, keine bei ektop</li>
+        <li><strong>CRH-Test:</strong> ACTH + Kortisol steigen bei zentral, kein Anstieg bei ektop</li>
+        <li><strong>Sinus-petrosus-inferior-Katheter (IPSS)</strong> bei unklarem Hypophysen-MRT</li>
+      </ul>
+        <div class="callout fact"><span class="lab">⚙ Bildgebung zuletzt</span>Erst <strong>nach</strong> hormoneller Sicherung: MRT Hypophyse (zentral) · CT Thorax/Abdomen (ektop) · MRT/CT Nebennieren (adrenal). Sonst verwirren Inzidentalome.</div>
+        <div class="callout warning"><span class="lab">▲ Merke</span>Zentral ist <strong>noch empfindlich</strong> (supprimierbar/stimulierbar).<br>Ektop ist <strong>autonom</strong> — der Tumor macht, was er will.</div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ THERAPIE ============ -->
+  <section class="panel" data-panel="therapie">
+    <p class="panel-intro">Therapie nach Ursache — plus die Steroid-Falle. Erst laut, dann abgleichen.</p>
+    <details class="card therapie" open><summary><span class="ct"><span class="ctag">Exogen</span><span class="ctitle">Ausschleichen — nie abrupt</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b">
+        <li>Glukokortikoide <strong>langsam ausschleichen</strong>, kleinstmögliche Dosis</li>
+      </ul>
+        <div class="callout critical"><span class="lab">▲ Steroid-Falle</span>Abruptes Absetzen → die supprimierte HPA-Achse / atrophe NNR kann kein Kortisol liefern → <strong>Addison-Krise</strong> (Hypotonie, Schock, Hypoglykämie). Notfall: Hydrocortison i.v. + Volumen + Glukose.</div>
+      </div>
+    </details>
+    <details class="card therapie"><summary><span class="ct"><span class="ctag">Endogen · operativ</span><span class="ctitle">OP nach Ursache</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b">
+        <li><strong>Morbus Cushing (zentral):</strong> transsphenoidale/transnasale Adenomentfernung = 1. Wahl; bei Versagen Bestrahlung, ggf. bilaterale Adrenalektomie</li>
+        <li><strong>Adrenal:</strong> laparoskopische/offene Adrenalektomie; NNR-Karzinom + Mitotan</li>
+        <li><strong>Ektop:</strong> Tumorresektion</li>
+        <li><strong>Medikamentös (inoperabel/Überbrückung):</strong> Kortisolsynthesehemmer — Ketoconazol, Metyrapon</li>
+      </ul></div>
+    </details>
+    <details class="card therapie"><summary><span class="ct"><span class="ctag">Postoperativ</span><span class="ctitle">Substitution bis die Achse zurückkommt</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b">
+        <li>Nach erfolgreicher OP ist die eigene Achse durch den vorherigen Kortisolüberschuss supprimiert → <strong>Hydrocortison-Substitution</strong> (± Fludrocortison), bis sich die NNR erholt</li>
+        <li>Sonst Gefahr der <strong>Addison-Krise</strong></li>
+        <li>Begleitend: Osteoporose-, Diabetes-, Hypertonie-Management</li>
+      </ul></div>
+    </details>
+  </section>
+
+  <!-- ============ KP-PERLEN ============ -->
+  <section class="panel" data-panel="perlen">
+    <p class="panel-intro">Acht Sätze, die in der Prüfung gewinnen.</p>
+    <div class="pearl"><div class="ph">⭐ Perle 1 · Häufigste Ursache</div><div class="pt"><strong>Exogen (iatrogen) ist die häufigste Ursache überhaupt</strong> — Glukokortikoid-Langzeittherapie. Cushing-Schwelle ~7,5 mg Prednisolon/Tag.</div><div class="mn"><b>Merke:</b> Erst ans Kortison-Rezept denken, dann an Tumoren</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 2 · Häufigste endogene</div><div class="pt"><strong>Morbus Cushing = häufigste endogene Ursache</strong> (ACTH-Mikroadenom des Hypophysenvorderlappens, ~80 % der endogenen).</div><div class="mn"><b>Merke:</b> „Morbus" wohnt in der Hypophyse</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 3 · Syndrom ≠ Morbus</div><div class="pt"><strong>Cushing-Syndrom = jede Ursache.<br>Morbus Cushing = nur die zentrale (hypophysäre) Form.</strong> Nicht verwechseln.</div><div class="mn"><b>Merke:</b> Syndrom ist der Oberbegriff, Morbus die Unterform</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 4 · Screening</div><div class="pt"><strong>1-mg-Dexamethason-Hemmtest</strong> (keine Suppression) + <strong>24-h-Urin-Kortisol</strong> + <strong>Mitternachtskortisol</strong>. Mindestens zwei pathologisch.</div><div class="mn"><b>Merke:</b> Dexamethason bremst nicht → Cushing</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 5 · ACTH ist die Weiche</div><div class="pt"><strong>ACTH ↓ → adrenal</strong> (ACTH-unabhängig).<br><strong>ACTH ↑/normal → zentral oder ektop</strong> (ACTH-abhängig).</div><div class="mn"><b>Merke:</b> Niedriges ACTH zeigt nach unten — zur Nebenniere</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 6 · Zentral vs. ektop</div><div class="pt"><strong>Zentral:</strong> 8-mg-Dexamethason supprimiert (≥ 50 %), CRH stimuliert.<br><strong>Ektop:</strong> keine Suppression, keine Stimulation — der Tumor macht, was er will.</div><div class="mn"><b>Merke:</b> Zentral ist noch empfindlich</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 7 · Reihenfolge</div><div class="pt"><strong>Bildgebung erst NACH hormoneller Sicherung.</strong> Therapie des Morbus Cushing = <strong>transsphenoidale Adenomentfernung</strong>.</div><div class="mn"><b>Merke:</b> Erst Labor, dann Bild, dann OP</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 8 · Steroid-Falle</div><div class="pt"><strong>Glukokortikoide nie abrupt absetzen</strong> → Addison-Krise (NNR-Atrophie). Nach erfolgreicher OP Hydrocortison substituieren.</div><div class="mn"><b>Merke:</b> Plötzlich aus = Krise — immer ausschleichen</div></div>
+  </section>
+
+  <!-- ============ PROTOKOLLE ============ -->
+  <section class="panel" data-panel="protokoll">
+    <p class="panel-intro">Generalprobe an zwei dokumentierten Mainz-Arcs (Innere/Endokrinologie). Jede Frage einzeln laut beantworten, dann aufdecken.</p>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · dokumentiert</span><span>Innere / Endokrinologie</span><span class="pk-badge">Diagnostik</span></div>
+      <div class="pk-akte"><span class="lab">Fall</span>Patient mit Stammfettsucht, Vollmondgesicht, Striae rubrae, arterieller Hypertonie und neu aufgetretenem Diabetes. Der Prüfer führt durch die schrittweise Abklärung.</div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">Verdachtsdiagnose — und welche Ursachen kommen infrage?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Cushing-Syndrom. Ursachen: exogen (häufigste) vs. endogen — ACTH-abhängig (Morbus Cushing, ektop) oder ACTH-unabhängig (adrenal).</div></details></div>
+      <div class="pq"><div class="pq-frage">Wie sichern Sie den Hyperkortisolismus?</div><details class="reveal"><summary>Antwort</summary><div class="ans">1-mg-Dexamethason-Hemmtest (keine Suppression beim Cushing), freies Kortisol im 24-h-Urin, Mitternachtskortisol (Serum/Speichel) mit aufgehobener Rhythmik — mindestens zwei pathologisch.</div></details></div>
+      <div class="pq"><div class="pq-frage">Das Kortisol supprimiert nicht. Wie grenzen Sie die Ursache ein?</div><details class="reveal"><summary>Antwort</summary><div class="ans">ACTH messen: ↓ → adrenal; ↑/normal → ACTH-abhängig. Bei erhöhtem ACTH dann hochdosierter 8-mg-Dexamethason-Hemmtest (Suppression ≥ 50 % bei zentral) und CRH-Test (Anstieg bei zentral) zur Abgrenzung zentral vs. ektop.</div></details></div>
+      <div class="pq"><div class="pq-frage">Wann machen Sie die Bildgebung?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Erst nach hormoneller Sicherung: MRT Hypophyse bei zentralem, CT Thorax/Abdomen bei ektopem, MRT/CT der Nebennieren bei adrenalem Cushing.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · dokumentiert</span><span>Innere</span><span class="pk-badge">Klinik &amp; Therapie</span></div>
+      <div class="pk-akte"><span class="lab">Fall</span>Anschlussfragen zu klinischer Zuordnung, Therapie und Fallstricken — Cushing auch im Kontext der sekundären Hypertonie.</div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">Welche Zeichen sprechen für eine ACTH-abhängige Form?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Hyperandrogenämie bei Frauen — Hirsutismus, Virilismus, Menstruationsstörungen —, da ACTH auch die NNR-Androgene stimuliert; bei sehr hohem ACTH ggf. Hyperpigmentierung.</div></details></div>
+      <div class="pq"><div class="pq-frage">Therapie des Morbus Cushing?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Transsphenoidale (transnasale) Adenomentfernung als 1. Wahl; bei Versagen Bestrahlung, ggf. bilaterale Adrenalektomie oder Kortisolsynthesehemmer (Ketoconazol, Metyrapon).</div></details></div>
+      <div class="pq"><div class="pq-frage">Warum dürfen Sie Glukokortikoide nicht abrupt absetzen — und was geben Sie nach erfolgreicher OP?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Die zugeführten Steroide haben die eigene HPA-Achse supprimiert → NNR-Atrophie → bei abruptem Absetzen Addison-Krise. Daher langsam ausschleichen. Postoperativ Hydrocortison-Substitution (± Fludrocortison), bis sich die Achse erholt.</div></details></div>
+      <div class="pq"><div class="pq-frage">Nennen Sie endokrine Ursachen einer sekundären Hypertonie.</div><details class="reveal"><summary>Antwort</summary><div class="ans">Conn-Syndrom (Hyperaldosteronismus), Phäochromozytom, Cushing-Syndrom, Schilddrüsenerkrankungen (Hyper-/Hypothyreose); auch Akromegalie.</div></details></div>
+    </div>
+  </section>
+
+  <footer>
+    R3 · Cushing-Syndrom · Diagnostischer Durchlauf (3 von 5). Neuaufbau (kein R1/R2) — produce-only: Retrieval = Synthese, Schnellfragen = atomar, Protokolle = dokumentierte Mainz-Arcs. Quelle: Stex Lernkarten (Elsevier) + Vorbereitung zur KB + Mainz-Protokolle (Diagnostik-Algorithmus, sekundäre Hypertonie). Zwei-Pass-Logik: kalt testen + bewerten → nur Lücken öffnen → Protokolle als Generalprobe. R4 = adaptive Wiederholung der Lücken, R5 = Prüfungssimulation. Bewertung wird nicht gespeichert.
+  </footer>
+
+
+</div>
+<script>
+  const tabs = [...document.querySelectorAll('.tab')];
+  const panels = [...document.querySelectorAll('.panel')];
+  function showTab(name){
+    tabs.forEach(x=>x.classList.toggle('active', x.dataset.tab===name));
+    panels.forEach(p=>p.classList.toggle('active', p.dataset.panel===name));
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  tabs.forEach(t=>t.addEventListener('click',()=>showTab(t.dataset.tab)));
+
+  // ---- scoring state ----
+  const scores = {};                 // {p1:'sicher'|'lueckenhaft'|'gefehlt'}
+  const CONTENT = ['grundlagen','klinik','diagnostik','therapie'];
+  const promptStations = {};
+  document.querySelectorAll('.rt').forEach(rt=>{
+    promptStations[rt.dataset.id] = (rt.dataset.stations||'').split(' ').filter(Boolean);
+  });
+
+  function recompute(){
+    let ok=0,gap=0,miss=0;
+    Object.values(scores).forEach(v=>{ if(v==='sicher')ok++; else if(v==='lueckenhaft')gap++; else if(v==='gefehlt')miss++; });
+    document.getElementById('n-ok').textContent=ok;
+    document.getElementById('n-gap').textContent=gap;
+    document.getElementById('n-miss').textContent=miss;
+    document.getElementById('n-done').textContent=Object.keys(scores).length;
+    // station status
+    CONTENT.forEach(st=>{
+      const related = Object.keys(promptStations).filter(p=>promptStations[p].includes(st));
+      const scored = related.filter(p=>scores[p]);
+      const flagged = related.some(p=>scores[p]==='lueckenhaft'||scores[p]==='gefehlt');
+      const allOk = related.length && scored.length===related.length && !flagged;
+      const tab = tabs.find(t=>t.dataset.tab===st);
+      tab.classList.remove('flag-gap','flag-ok');
+      const b = tab.querySelector('.badge');
+      if(flagged){ tab.classList.add('flag-gap'); b.textContent='Lücke'; }
+      else if(allOk){ tab.classList.add('flag-ok'); b.textContent='✓'; }
+      else { b.textContent=''; }
+    });
+  }
+
+  document.querySelectorAll('.rt .score').forEach(scoreBox=>{
+    const rt = scoreBox.closest('.rt');
+    scoreBox.querySelectorAll('.sbtn').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        const v = btn.dataset.v;
+        scores[rt.dataset.id] = v;
+        rt.dataset.score = v;
+        scoreBox.querySelectorAll('.sbtn').forEach(b=>b.classList.toggle('on', b===btn));
+        recompute();
+        const status=document.getElementById('status');
+        const flaggedNow=tabs.filter(t=>t.classList.contains('flag-gap')).length;
+        if(Object.keys(scores).length===5){
+          status.textContent = flaggedNow ? 'Pass 1 fertig. „Nur Lücken öffnen" springt zu den '+flaggedNow+' markierten Stationen.' : 'Alles sicher in Pass 1 — direkt zur Generalprobe (Protokolle).';
+        } else {
+          status.textContent = (5-Object.keys(scores).length)+' Prompt(s) noch zu bewerten.';
+        }
+      });
+    });
+  });
+
+  // ---- two-pass: open only gaps ----
+  document.getElementById('open-gaps').addEventListener('click',()=>{
+    const flagged = CONTENT.filter(st=>tabs.find(t=>t.dataset.tab===st).classList.contains('flag-gap'));
+    const status=document.getElementById('status');
+    if(!Object.keys(scores).length){ status.textContent='Erst Pass 1 bewerten — dann zeige ich dir die Lücken.'; return; }
+    if(!flagged.length){
+      // all clear -> capstone
+      panels.forEach(p=>{ if(CONTENT.includes(p.dataset.panel)) p.querySelectorAll('.card').forEach(c=>c.open=false); });
+      showTab('protokoll'); status.textContent='Keine Lücken — auf zur Generalprobe.'; return;
+    }
+    // expand flagged stations, collapse the "sicher" ones
+    panels.forEach(p=>{
+      if(!CONTENT.includes(p.dataset.panel)) return;
+      const isGap = flagged.includes(p.dataset.panel);
+      p.querySelectorAll('.card').forEach(c=>{ c.open = isGap; });
+    });
+    showTab(flagged[0]);
+    status.textContent='Geöffnet: '+flagged.join(', ')+'. Der Rest bleibt zu.';
+  });
+
+  // ---- reset ----
+  document.getElementById('reset').addEventListener('click',()=>{
+    Object.keys(scores).forEach(k=>delete scores[k]);
+    document.querySelectorAll('.rt').forEach(rt=>{ rt.removeAttribute('data-score'); rt.querySelectorAll('.sbtn').forEach(b=>b.classList.remove('on')); });
+    document.querySelectorAll('.reveal[open]').forEach(d=>d.open=false);
+    recompute();
+    document.getElementById('status').textContent='Zurückgesetzt. Bewerte alle 5 Prompts, dann „Nur Lücken öffnen".';
+  });
+
+  recompute();
+</script>
+</body>
+</html>
