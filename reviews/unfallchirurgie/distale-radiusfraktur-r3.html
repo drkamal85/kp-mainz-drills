@@ -88,6 +88,12 @@
   .reveal[open]>summary::before{transform:rotate(90deg)}
   .reveal .ans{font-size:14.5px;line-height:1.6;color:#3c372f;padding-top:10px}
   .reveal .ans b{color:var(--ink)}
+  .reveal .ans ul{list-style:none;padding-left:2px;margin:2px 0 0}
+  .reveal .ans li{position:relative;padding-left:18px;margin-bottom:8px;line-height:1.5}
+  .reveal .ans>ul>li::before{content:"";position:absolute;left:2px;top:8px;width:6px;height:6px;border-radius:50%;background:var(--retrieval)}
+  .reveal .ans li ul{margin:7px 0 2px}
+  .reveal .ans li li{padding-left:16px;margin-bottom:5px;font-size:13.8px;color:#4a443c}
+  .reveal .ans li li::before{content:"";position:absolute;left:0;top:7px;width:5px;height:5px;transform:rotate(45deg);background:#b9b0a1}
   .score{display:flex;gap:7px;margin-top:12px;padding-top:11px;border-top:1px solid var(--line)}
   .sbtn{flex:1;font-size:12px;font-weight:700;border:1px solid var(--line);background:var(--bg);color:var(--muted);border-radius:8px;padding:7px 4px;cursor:pointer;transition:.12s}
   .sbtn:hover{border-color:#cfc6b6}
@@ -216,42 +222,42 @@
     <div class="rt" data-id="p1" data-stations="grundlagen">
       <div class="rt-h"><span class="rt-n">Prompt 1 · Colles vs. Smith</span><span class="rt-right"><span class="rt-ptr">→ Grundlagen</span></span></div>
       <div class="rt-q">Erkläre <strong>Colles vs. Smith</strong> (Mechanismus + Kipprichtung) und nenne zwei <strong>Sonderformen</strong>.</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><b>Colles</b> (häufiger): Sturz auf die dorsalextendierte Hand → Extensionsfraktur, Kippung <b>dorso-radial</b>. <b>Smith</b>: Sturz auf die palmarflektierte Hand → Flexionsfraktur, Kippung <b>palmar</b>. Sonderformen: Barton/Reversed Barton (partiell-artikulär), Chauffeur (Proc. styloideus radii).</div></details>
+      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>Colles</b> (häufiger): Sturz auf die dorsalextendierte Hand → Extensionsfraktur, Kippung dorso-radial</li><li><b>Smith:</b> Sturz auf die palmarflektierte Hand → Flexionsfraktur, Kippung palmar</li><li><b>Sonderformen:</b> Barton/Reversed Barton (partiell-artikulär) · Chauffeur (Proc. styloideus radii)</li></ul></div></details>
       <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
     </div>
 
     <div class="rt" data-id="p2" data-stations="klinik">
       <div class="rt-h"><span class="rt-n">Prompt 2 · Klinik + pDMS</span><span class="rt-right"><span class="rt-ptr">→ Klinik</span></span></div>
       <div class="rt-q">Klinische Fehlstellung bei Colles (<strong>zwei Begriffe</strong>) — und was prüfst/dokumentierst du <strong>vor UND nach</strong> jeder Reposition?</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans">Colles: <b>Fourchette-Stellung</b> (Gabelrücken, dorsale Abknickung) + <b>Bajonett-Stellung</b> (radiale Abknickung). Immer <b>pDMS</b> — periphere Durchblutung (A. radialis/ulnaris), Motorik, Sensibilität — besonders der <b>N. medianus</b> (Finger I–III), vor und nach Reposition.</div></details>
+      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>Colles-Fehlstellung:</b> Fourchette-Stellung (Gabelrücken, dorsale Abknickung) + Bajonett-Stellung (radiale Abknickung)</li><li><b>Immer pDMS — vor UND nach jeder Reposition:</b><ul><li>periphere Durchblutung (A. radialis/ulnaris)</li><li>Motorik, Sensibilität — besonders N. medianus (Finger I–III)</li></ul></li></ul></div></details>
       <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
     </div>
 
     <div class="rt" data-id="p3" data-stations="diagnostik">
       <div class="rt-h"><span class="rt-n">Prompt 3 · Röntgen-Systematik</span><span class="rt-right"><span class="rt-ptr">→ Diagnostik</span></span></div>
       <div class="rt-q">Wie beschreibst du das Röntgenbild <strong>systematisch</strong> (Reihenfolge)? Welche Ebenen?</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans">Reihenfolge: <b>1. Formalia</b> (Name, Datum, Seite, Aufnahmeart) → <b>2. Qualität + Vollständigkeit</b> → <b>3. Befund</b> (Frakturlinie, Lokalisation, Dislokation, Gelenkbeteiligung, Begleitfrakturen) → 4. Zusatz (Arthrose, Weichteile). Röntgen Handgelenk in <b>2 Ebenen</b>: p.a./a.p. + streng seitlich.</div></details>
+      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>1. Formalia:</b> Name, Datum, Seite, Aufnahmeart</li><li><b>2. Qualität + Vollständigkeit</b></li><li><b>3. Befund:</b> Frakturlinie, Lokalisation, Dislokation, Gelenkbeteiligung, Begleitfrakturen</li><li><b>4. Zusatz:</b> Arthrose, Weichteile</li><li><b>Ebenen:</b> Handgelenk in 2 Ebenen — p.a./a.p. + streng seitlich</li></ul></div></details>
       <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
     </div>
 
     <div class="rt" data-id="p4" data-stations="therapie">
       <div class="rt-h"><span class="rt-n">Prompt 4 · Konservativ + Gips</span><span class="rt-right"><span class="rt-ptr">→ Therapie</span></span></div>
       <div class="rt-q">Konservatives Vorgehen: Analgesie, Reposition, Gips (<strong>von wo bis wo</strong>) — und wann fixierst du den <strong>Ellenbogen mit</strong>?</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans">Analgesie per <b>Bruchspaltanästhesie</b> oder Piritramid i.v., <b>Reposition unter Längszug</b>, dann <b>dorsale Unterarmgipsschiene bis zum proximalen Unterarm — Ellenbogen frei</b>, 4–6 Wochen, Röntgenkontrolle. Ellenbogen <b>mit</b>fixieren nur bei <b>instabiler Fraktur oder DRUG-Beteiligung</b> (Rotation ausschalten).</div></details>
+      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>Analgesie:</b> Bruchspaltanästhesie oder Piritramid i.v.</li><li><b>Reposition</b> unter Längszug</li><li><b>Dorsale Unterarmgipsschiene bis zum proximalen Unterarm — Ellenbogen frei</b>, 4–6 Wochen, Röntgenkontrolle</li><li><b>Ellenbogen mitfixieren</b> nur bei instabiler Fraktur oder DRUG-Beteiligung (Rotation ausschalten)</li></ul></div></details>
       <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
     </div>
 
     <div class="rt" data-id="p5" data-stations="therapie">
       <div class="rt-h"><span class="rt-n">Prompt 5 · OP-Indikation + Verfahren</span><span class="rt-right"><span class="rt-ptr">→ Therapie</span></span></div>
       <div class="rt-q">Wann <strong>OP</strong>, welches <strong>Standardverfahren</strong> beim Erwachsenen — und warum ist <strong>Smith</strong> meist OP?</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans">OP bei dislozierter/instabiler Fraktur, Gelenkbeteiligung, offener Fraktur, Gefäß-/Nervenverletzung, konservativem Versagen. Standard beim Erwachsenen: <b>palmare Plattenosteosynthese</b> (K-Draht bei Kindern, Fixateur externe bei Trümmer). <b>Smith ist meist instabil → primär OP.</b></div></details>
+      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>OP-Indikation:</b> dislozierte/instabile Fraktur, Gelenkbeteiligung, offene Fraktur, Gefäß-/Nervenverletzung, konservatives Versagen</li><li><b>Standard (Erwachsener):</b> palmare Plattenosteosynthese<ul><li>K-Draht bei Kindern · Fixateur externe bei Trümmer</li></ul></li><li><b>Smith</b> meist instabil → primär OP</li></ul></div></details>
       <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
     </div>
 
     <div class="rt" data-id="p6" data-stations="therapie">
       <div class="rt-h"><span class="rt-n">Prompt 6 · N. medianus + Komplikationen</span><span class="rt-right"><span class="rt-ptr">→ Therapie</span></span></div>
       <div class="rt-q">Häufigster betroffener <strong>Nerv</strong> + Folge? Plus zwei weitere typische <strong>Komplikationen</strong>.</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><b>N. medianus</b> — Kompression im Karpaltunnel (Schwellung/Fehlstellung) → posttraumatisches Karpaltunnelsyndrom, bei Persistenz <b>Thenar-Atrophie</b>. Weitere: <b>CRPS (M. Sudeck, ~3 %)</b>, EPL-Sehnenruptur, sekundäre Dislokation/Pseudarthrose/Arthrose.</div></details>
+      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>N. medianus</b> — Kompression im Karpaltunnel (Schwellung/Fehlstellung) → posttraumatisches Karpaltunnelsyndrom<ul><li>bei Persistenz: Thenar-Atrophie</li></ul></li><li><b>Weitere:</b> CRPS (M. Sudeck, ~3 %), EPL-Sehnenruptur, sekundäre Dislokation/Pseudarthrose/Arthrose</li></ul></div></details>
       <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
     </div>
 

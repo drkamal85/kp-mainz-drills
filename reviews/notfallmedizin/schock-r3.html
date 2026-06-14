@@ -88,6 +88,12 @@
   .reveal[open]>summary::before{transform:rotate(90deg)}
   .reveal .ans{font-size:14.5px;line-height:1.6;color:#3c372f;padding-top:10px}
   .reveal .ans b{color:var(--ink)}
+  .reveal .ans ul{list-style:none;padding-left:2px;margin:2px 0 0}
+  .reveal .ans li{position:relative;padding-left:18px;margin-bottom:8px;line-height:1.5}
+  .reveal .ans>ul>li::before{content:"";position:absolute;left:2px;top:8px;width:6px;height:6px;border-radius:50%;background:var(--retrieval)}
+  .reveal .ans li ul{margin:7px 0 2px}
+  .reveal .ans li li{padding-left:16px;margin-bottom:5px;font-size:13.8px;color:#4a443c}
+  .reveal .ans li li::before{content:"";position:absolute;left:0;top:7px;width:5px;height:5px;transform:rotate(45deg);background:#b9b0a1}
   .score{display:flex;gap:7px;margin-top:12px;padding-top:11px;border-top:1px solid var(--line)}
   .sbtn{flex:1;font-size:12px;font-weight:700;border:1px solid var(--line);background:var(--bg);color:var(--muted);border-radius:8px;padding:7px 4px;cursor:pointer;transition:.12s}
   .sbtn:hover{border-color:#cfc6b6}
@@ -216,42 +222,42 @@
     <div class="rt" data-id="p1" data-stations="grundlagen">
       <div class="rt-h"><span class="rt-n">Prompt 1 · Einteilung</span><span class="rt-right"><span class="rt-ptr">→ Grundlagen</span></span></div>
       <div class="rt-q">Nenne die <strong>vier Schocktypen mit Subtypen</strong> und je eine typische Ursache.</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><b>Hypovoläm</b> (Blutung, Verbrennung, Erbrechen/Diarrhö). <b>Kardiogen</b> (Myokardinfarkt, Arrhythmie). <b>Distributiv</b>: septisch (Infektion), anaphylaktisch (Allergie), neurogen (SHT/Rückenmark). <b>Obstruktiv</b> (Lungenembolie, Spannungspneumothorax, Perikardtamponade).</div></details>
+      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>Hypovoläm:</b> Blutung, Verbrennung, Erbrechen/Diarrhö</li><li><b>Kardiogen:</b> Myokardinfarkt, Arrhythmie</li><li><b>Distributiv:</b><ul><li>septisch (Infektion)</li><li>anaphylaktisch (Allergie)</li><li>neurogen (SHT/Rückenmark)</li></ul></li><li><b>Obstruktiv:</b> Lungenembolie, Spannungspneumothorax, Perikardtamponade</li></ul></div></details>
       <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
     </div>
 
     <div class="rt" data-id="p2" data-stations="klinik">
       <div class="rt-h"><span class="rt-n">Prompt 2 · Klinik-Differenzierung</span><span class="rt-right"><span class="rt-ptr">→ Klinik</span></span></div>
       <div class="rt-q">Allgemeine Schockzeichen — und wie unterscheidest du klinisch <strong>kardiogen vs. hypovoläm vs. früh-septisch</strong> (Halsvenen, Hauttemperatur)?</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans">Allgemein: Tachykardie, Hypotonie, blass/kaltschweißig/marmoriert, Oligurie, Vigilanzminderung. <b>Kardiogen:</b> Halsvenen gestaut, Dyspnoe/Lungenödem. <b>Hypovoläm:</b> Halsvenen kollabiert. <b>Früh-septisch (+ neurogen):</b> warme, rosige Haut („warmer Schock").</div></details>
+      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>Allgemein:</b> Tachykardie, Hypotonie, blass/kaltschweißig/marmoriert, Oligurie, Vigilanzminderung</li><li><b>Kardiogen:</b> Halsvenen gestaut, Dyspnoe/Lungenödem</li><li><b>Hypovoläm:</b> Halsvenen kollabiert</li><li><b>Früh-septisch (+ neurogen):</b> warme, rosige Haut („warmer Schock“)</li></ul></div></details>
       <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
     </div>
 
     <div class="rt" data-id="p3" data-stations="diagnostik">
       <div class="rt-h"><span class="rt-n">Prompt 3 · Hämodynamik</span><span class="rt-right"><span class="rt-ptr">→ Diagnostik</span></span></div>
       <div class="rt-q">Fülle die Hämodynamik-Tabelle: <strong>ZVD, HZV, SVR</strong> für hypovoläm / kardiogen / distributiv / obstruktiv — und die <strong>ZVD-Faustregel</strong>.</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans">Hypovoläm: ZVD↓, HZV↓, SVR↑. Kardiogen: ZVD↑, HZV↓, SVR↑. Distributiv: ZVD↓, HZV↑ (früh), SVR↓. Obstruktiv: ZVD↑, HZV↓, SVR↑. <b>Faustregel: ZVD ist nur beim kardiogenen (und obstruktiven) Schock erhöht — bei allen anderen erniedrigt.</b></div></details>
+      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>Hypovoläm:</b> ZVD ↓ · HZV ↓ · SVR ↑</li><li><b>Kardiogen:</b> ZVD ↑ · HZV ↓ · SVR ↑</li><li><b>Distributiv:</b> ZVD ↓ · HZV ↑ (früh) · SVR ↓</li><li><b>Obstruktiv:</b> ZVD ↑ · HZV ↓ · SVR ↑</li><li><i>Faustregel:</i> ZVD nur bei kardiogenem (und obstruktivem) Schock erhöht — sonst erniedrigt</li></ul></div></details>
       <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
     </div>
 
     <div class="rt" data-id="p4" data-stations="diagnostik">
       <div class="rt-h"><span class="rt-n">Prompt 4 · Schockindex + Labor</span><span class="rt-right"><span class="rt-ptr">→ Diagnostik</span></span></div>
       <div class="rt-q">Was ist der <strong>Schockindex</strong> (Formel + Grenze)? Welcher Laborwert zeigt <strong>Gewebehypoxie</strong>? Grenze der <strong>Rekapillarisierungszeit</strong>?</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans">Schockindex = <b>HF / RR systolisch</b>; <b>&gt; 1</b> spricht für Schock. Gewebehypoxie → <b>Laktat↑</b> (+ metabolische Azidose in der BGA). Rekapillarisierungszeit <b>&gt; 2 s</b> ist pathologisch.</div></details>
+      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>Schockindex</b> = HF / RR systolisch · <b>&gt; 1</b> spricht für Schock</li><li><b>Gewebehypoxie</b> → Laktat ↑ (+ metabolische Azidose in der BGA)</li><li><b>Rekapillarisierungszeit &gt; 2 s</b> = pathologisch</li></ul></div></details>
       <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
     </div>
 
     <div class="rt" data-id="p5" data-stations="therapie">
       <div class="rt-h"><span class="rt-n">Prompt 5 · Katecholamine</span><span class="rt-right"><span class="rt-ptr">→ Therapie</span></span></div>
       <div class="rt-q">Welches <strong>Katecholamin</strong> bei welchem Schock? Und die allgemeine <strong>Lagerung</strong> (mit Ausnahme)?</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><b>Sepsis/distributiv → Noradrenalin.</b> <b>Anaphylaxie → Adrenalin.</b> <b>Kardiogen → Dobutamin</b> (dann ggf. Noradrenalin). CPR → Adrenalin. Lagerung: Beine hoch (~15°) — <b>Ausnahme kardiogen: Oberkörper hoch</b>; KI bei Hirndruck/Beckenverletzung.</div></details>
+      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>Sepsis/distributiv</b> → Noradrenalin</li><li><b>Anaphylaxie</b> → Adrenalin</li><li><b>Kardiogen</b> → Dobutamin (dann ggf. Noradrenalin)</li><li><b>CPR</b> → Adrenalin</li><li><b>Lagerung:</b> Beine hoch (~15°)<ul><li>Ausnahme kardiogen: Oberkörper hoch</li><li>KI bei Hirndruck/Beckenverletzung</li></ul></li></ul></div></details>
       <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
     </div>
 
     <div class="rt" data-id="p6" data-stations="therapie">
       <div class="rt-h"><span class="rt-n">Prompt 6 · Anaphylaxie</span><span class="rt-right"><span class="rt-ptr">→ Therapie</span></span></div>
       <div class="rt-q">Anaphylaktischer Schock — <strong>Notfalltherapie Schritt für Schritt</strong> (Substanz, Dosis, Weg).</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans">Allergenzufuhr stoppen, Schocklagerung, O2. <b>Adrenalin 0,5 mg i.m.</b> in den Oberschenkel (Wdh. nach 5–10 min). Volumen (Ringer). <b>H1-Antihistaminikum</b> (Dimetinden/Clemastin) + <b>Glukokortikoid</b> (Prednisolon 250–1000 mg i.v.).</div></details>
+      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li>Allergenzufuhr stoppen, Schocklagerung, O2</li><li><b>Adrenalin 0,5 mg i.m.</b> in den Oberschenkel (Wdh. nach 5–10 min)</li><li>Volumen (Ringer)</li><li><b>H1-Antihistaminikum</b> (Dimetinden/Clemastin)</li><li><b>Glukokortikoid</b> (Prednisolon 250–1000 mg i.v.)</li></ul></div></details>
       <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
     </div>
 

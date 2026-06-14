@@ -88,6 +88,12 @@
   .reveal[open]>summary::before{transform:rotate(90deg)}
   .reveal .ans{font-size:14.5px;line-height:1.6;color:#3c372f;padding-top:10px}
   .reveal .ans b{color:var(--ink)}
+  .reveal .ans ul{list-style:none;padding-left:2px;margin:2px 0 0}
+  .reveal .ans li{position:relative;padding-left:18px;margin-bottom:8px;line-height:1.5}
+  .reveal .ans>ul>li::before{content:"";position:absolute;left:2px;top:8px;width:6px;height:6px;border-radius:50%;background:var(--retrieval)}
+  .reveal .ans li ul{margin:7px 0 2px}
+  .reveal .ans li li{padding-left:16px;margin-bottom:5px;font-size:13.8px;color:#4a443c}
+  .reveal .ans li li::before{content:"";position:absolute;left:0;top:7px;width:5px;height:5px;transform:rotate(45deg);background:#b9b0a1}
   .score{display:flex;gap:7px;margin-top:12px;padding-top:11px;border-top:1px solid var(--line)}
   .sbtn{flex:1;font-size:12px;font-weight:700;border:1px solid var(--line);background:var(--bg);color:var(--muted);border-radius:8px;padding:7px 4px;cursor:pointer;transition:.12s}
   .sbtn:hover{border-color:#cfc6b6}
@@ -216,42 +222,42 @@
     <div class="rt" data-id="p1" data-stations="grundlagen klinik">
       <div class="rt-h"><span class="rt-n">Prompt 1 · Fall-Eröffnung</span><span class="rt-right"><span class="rt-ptr">→ Grundlagen / Klinik</span></span></div>
       <div class="rt-q">60-jährige Patientin: Belastungsdyspnoe, Gewichtsverlust trotz Heißhunger, Tremor, Palpitationen, HF 110/min, tastbare Struma. Halte deinen ersten Vortrag: <strong>Verdachtsdiagnose, drei häufigste Ursachen, wonach du klinisch suchst.</strong></div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><b>Manifeste Hyperthyreose.</b> Ursachen: M. Basedow → Autonomie → iatrogen (Amiodaron, Jod/KM). Klinisch: Merseburger Trias (Struma, Tachykardie, Exophthalmus), Wärmeintoleranz, Schwitzen, Hyperreflexie, Tremor, Diarrhö, Unruhe — Struma auf Knoten tasten.</div></details>
+      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>Verdacht:</b> manifeste Hyperthyreose</li><li><b>3 häufigste Ursachen:</b> M. Basedow → Schilddrüsenautonomie → iatrogen (Amiodaron, Jod/KM)</li><li><b>Klinik:</b> Merseburger Trias (Struma, Tachykardie, Exophthalmus)<ul><li>+ Wärmeintoleranz, Schwitzen, Hyperreflexie, Tremor, Diarrhö, Unruhe</li><li>Struma auf Knoten tasten</li></ul></li></ul></div></details>
       <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
     </div>
 
     <div class="rt" data-id="p2" data-stations="diagnostik">
       <div class="rt-h"><span class="rt-n">Prompt 2 · Labor</span><span class="rt-right"><span class="rt-ptr">→ Diagnostik</span></span></div>
       <div class="rt-q">Nenne die Laborkonstellation für <strong>manifeste vs. latente</strong> Hyperthyreose und die <strong>zwei Antikörper</strong>, die M. Basedow sichern — mit ungefährer Häufigkeit.</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans">Manifest: <b>TSH↓, fT3 und/oder fT4↑</b>. Latent: <b>TSH↓, fT3/fT4 normal</b>. Basedow: <b>TRAK >90 %</b>, <b>TPO-AK ~70 %</b>. Reine Autonomie → Antikörper negativ.</div></details>
+      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>Manifest:</b> TSH ↓ · fT3 und/oder fT4 ↑</li><li><b>Latent:</b> TSH ↓ · fT3/fT4 normal</li><li><b>M. Basedow:</b> TRAK &gt; 90 % · TPO-AK ~70 %</li><li><b>Reine Autonomie:</b> Antikörper negativ</li></ul></div></details>
       <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
     </div>
 
     <div class="rt" data-id="p3" data-stations="diagnostik">
       <div class="rt-h"><span class="rt-n">Prompt 3 · Funktionsbildgebung</span><span class="rt-right"><span class="rt-ptr">→ Diagnostik</span></span></div>
       <div class="rt-q">Struma nodosa, Sono zeigt einen Knoten. Welche Funktionsdiagnostik schließt sich an, und was bedeutet ein <strong>„heißer" vs. „kalter"</strong> Knoten therapeutisch?</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><b>Szintigraphie (99mTc-Uptake).</b> Heiß = autonom, mehrspeichernd, meist benigne → Radiojod/OP. Kalt = nicht speichernd, <b>malignitätsverdächtig</b> → FNP/OP.</div></details>
+      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>Funktionsdiagnostik:</b> Szintigraphie (99mTc-Uptake)</li><li><b>Heißer Knoten:</b> autonom, mehrspeichernd, meist benigne → Radiojod/OP</li><li><b>Kalter Knoten:</b> nicht speichernd, malignitätsverdächtig → FNP/OP</li></ul></div></details>
       <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
     </div>
 
     <div class="rt" data-id="p4" data-stations="therapie">
       <div class="rt-h"><span class="rt-n">Prompt 4 · Therapie-Algorithmus</span><span class="rt-right"><span class="rt-ptr">→ Therapie</span></span></div>
       <div class="rt-q">Erstdiagnose M. Basedow. Wie behandelst du <strong>initial</strong> (Substanz, Dosis, Begleitmedikation), <strong>wie lange</strong>, und <strong>wann definitiv</strong>?</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans">Carbimazol 20–40 mg/d (3 ED) bzw. Thiamazol bis Euthyreose → Erhaltung. Symptomatisch <b>Propranolol</b> (hemmt T4→T3). Basedow thyreostatisch <b>12–18 Monate</b>, Remission ~50 %. TRAK nach 6 Mon. <b>>10 IU/L → definitiv</b> (Radiojod/OP).</div></details>
+      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>Thyreostatikum:</b> Carbimazol 20–40 mg/d (3 ED) bzw. Thiamazol bis Euthyreose → Erhaltungsdosis</li><li><b>Symptomatisch:</b> Propranolol (hemmt T4→T3)</li><li><b>Dauer (Basedow):</b> 12–18 Monate · Remission ~50 %</li><li><b>TRAK nach 6 Mon. &gt; 10 IU/L</b> → definitiv (Radiojod/OP)</li></ul></div></details>
       <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
     </div>
 
     <div class="rt" data-id="p5" data-stations="therapie">
       <div class="rt-h"><span class="rt-n">Prompt 5 · Notfall</span><span class="rt-right"><span class="rt-ptr">→ Therapie</span></span></div>
       <div class="rt-q">Was ist die <strong>thyreotoxische Krise</strong>, was triggert sie typischerweise, und was sind die Therapiesäulen?</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans">Akute lebensbedrohliche Exazerbation. Trigger: <b>Jod (KM!)</b>, Infektion, OP, Amiodaron. Therapie: Thiamazol hochdosiert + Betablocker + Glukokortikoide + Perchlorat (bei Jod) + Kühlung/Volumen, Intensiv; ggf. Thyreoidektomie.</div></details>
+      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>Definition:</b> akute lebensbedrohliche Exazerbation</li><li><b>Trigger:</b> Jod (KM!), Infektion, OP, Amiodaron</li><li><b>Therapie (Intensiv):</b><ul><li>Thiamazol hochdosiert + Betablocker + Glukokortikoide</li><li>Perchlorat (bei Jod) + Kühlung/Volumen</li><li>ggf. Thyreoidektomie</li></ul></li></ul></div></details>
       <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
     </div>
 
     <div class="rt" data-id="p6" data-stations="therapie">
       <div class="rt-h"><span class="rt-n">Prompt 6 · Chirurgie-Übergang</span><span class="rt-right"><span class="rt-ptr">→ Therapie / Protokolle</span></span></div>
       <div class="rt-q">Wann operierst du die Schilddrüse, und welche <strong>zwei Komplikationen</strong> klärst du immer auf?</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans">OP bei großem Struma mit Mechanik, Malignitätsverdacht, Therapieversagen, Kinderwunsch. <b>Immer präoperativ euthyreot</b>. Aufklärung: <b>N. laryngeus recurrens</b> (Heiserkeit; bds → Tracheotomie) und <b>Hypoparathyreoidismus</b> (Hypokalzämie/Tetanie).</div></details>
+      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>OP-Indikation:</b> großes Struma mit Mechanik, Malignitätsverdacht, Therapieversagen, Kinderwunsch</li><li><b>Immer präoperativ euthyreot</b></li><li><b>Aufklärung — 2 Komplikationen:</b><ul><li>N. laryngeus recurrens (Heiserkeit; bds → Tracheotomie)</li><li>Hypoparathyreoidismus (Hypokalzämie/Tetanie)</li></ul></li></ul></div></details>
       <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
     </div>
 
