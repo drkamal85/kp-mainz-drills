@@ -88,6 +88,12 @@
   .reveal[open]>summary::before{transform:rotate(90deg)}
   .reveal .ans{font-size:14.5px;line-height:1.6;color:#3c372f;padding-top:10px}
   .reveal .ans b{color:var(--ink)}
+  .reveal .ans ul{list-style:none;padding-left:2px;margin:2px 0 0}
+  .reveal .ans li{position:relative;padding-left:18px;margin-bottom:8px;line-height:1.5}
+  .reveal .ans>ul>li::before{content:"";position:absolute;left:2px;top:8px;width:6px;height:6px;border-radius:50%;background:var(--retrieval)}
+  .reveal .ans li ul{margin:7px 0 2px}
+  .reveal .ans li li{padding-left:16px;margin-bottom:5px;font-size:13.8px;color:#4a443c}
+  .reveal .ans li li::before{content:"";position:absolute;left:0;top:7px;width:5px;height:5px;transform:rotate(45deg);background:#b9b0a1}
   .score{display:flex;gap:7px;margin-top:12px;padding-top:11px;border-top:1px solid var(--line)}
   .sbtn{flex:1;font-size:12px;font-weight:700;border:1px solid var(--line);background:var(--bg);color:var(--muted);border-radius:8px;padding:7px 4px;cursor:pointer;transition:.12s}
   .sbtn:hover{border-color:#cfc6b6}
@@ -215,35 +221,35 @@
     <div class="rt" data-id="p1" data-stations="grundlagen klinik">
       <div class="rt-h"><span class="rt-n">Prompt 1 · Drei Bilder + DD</span><span class="rt-right"><span class="rt-ptr">→ Grundlagen · Klinik</span></span></div>
       <div class="rt-q">Ein Patient hat <strong>rechtsseitige Oberbauchschmerzen und Fieber</strong> nach einer fettreichen Mahlzeit. Unterscheide die <strong>drei klinischen Bilder</strong> — Gallenkolik, Cholezystitis, Cholangitis — jeweils anhand von Schmerz, Fieber und Ikterus. Welche <strong>Differentialdiagnosen</strong> des akuten rechten Oberbauchs gibt es außerdem?</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><b>Gallenkolik:</b> Kolik &lt; 5 h, kein Fieber, kein Ikterus.<br><b>Cholezystitis:</b> Dauerschmerz + Fieber, (meist) kein Ikterus.<br><b>Cholangitis:</b> Dauerschmerz + hohes Fieber + Ikterus = Charcot-Trias. <b>DD:</b> Cholelithiasis, cholestatische Hepatitis, Leberabszess, Gastritis/Ulkusperforation, akute Pankreatitis, Appendizitis, Nephrolithiasis, Hinterwandinfarkt.</div></details>
+      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>Gallenkolik:</b> Kolik &lt; 5 h · kein Fieber · kein Ikterus</li><li><b>Cholezystitis:</b> Dauerschmerz + Fieber · meist kein Ikterus</li><li><b>Cholangitis:</b> Dauerschmerz + hohes Fieber + Ikterus = Charcot-Trias</li><li><b>DD rechter Oberbauch:</b> Cholelithiasis, cholestatische Hepatitis, Leberabszess, Ulkusperforation, Pankreatitis, Appendizitis, Nephrolithiasis, Hinterwandinfarkt</li></ul></div></details>
       <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
     </div>
 
     <div class="rt" data-id="p2" data-stations="klinik">
       <div class="rt-h"><span class="rt-n">Prompt 2 · Murphy + Courvoisier</span><span class="rt-right"><span class="rt-ptr">→ Klinik</span></span></div>
       <div class="rt-q">Welche <strong>körperlichen Untersuchungszeichen</strong> prüfst du? Erkläre das <strong>Murphy-Zeichen</strong> mit seinem Mechanismus. Und wie grenzt du es vom <strong>Courvoisier-Zeichen</strong> ab?</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><b>Murphy:</b> schmerzbedingter Abbruch der tiefen Inspiration bei Palpation unter dem rechten Rippenbogen — die Gallenblase wird in Inspiration nach kaudal gegen die palpierende Hand geschoben, bei Entzündung schmerzhaft.<br><b>Courvoisier:</b> schmerzlose, prall-elastische Gallenblase + Ikterus → Pankreaskopfkarzinom (nie mit Murphy verwechseln).</div></details>
+      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>Murphy-Zeichen:</b> schmerzbedingter Abbruch der tiefen Inspiration bei Palpation unter dem rechten Rippenbogen<ul><li>Mechanismus: Gallenblase wird in Inspiration nach kaudal gegen die Hand geschoben → bei Entzündung schmerzhaft</li></ul></li><li><b>Courvoisier-Zeichen:</b> schmerzlose, prall-elastische Gallenblase + Ikterus → Pankreaskopfkarzinom</li><li><i>Nie verwechseln:</i> Murphy = Entzündung · Courvoisier = Malignom</li></ul></div></details>
       <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
     </div>
 
     <div class="rt" data-id="p3" data-stations="diagnostik">
       <div class="rt-h"><span class="rt-n">Prompt 3 · Diagnostik-Pfad</span><span class="rt-right"><span class="rt-ptr">→ Diagnostik</span></span></div>
       <div class="rt-q">Beschreibe den <strong>diagnostischen Ablauf</strong>. Welche Laborwerte fragst du ab — Entzündung und Cholestase getrennt — und welche <strong>Bildgebung in welcher Reihenfolge</strong>? Welcher Befund unterscheidet eine <strong>Cholezystitis von einer Choledocholithiasis</strong>?</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><b>Labor:</b> Entzündung (Leuko, CRP) bei Cholezystitis + Cholangitis; Cholestase (Bili, AP, γ-GT) bei Choledocholithiasis + Cholangitis — bei <em>reiner Cholezystitis NORMAL</em>; Lipase zum Ausschluss biliärer Pankreatitis.<br><b>Bildgebung:</b> Sono 1. Wahl — <em>Wandverdickung &gt; 3 mm + Dreischichtung</em> = Cholezystitis; <em>DHC &gt; 7 mm + erweiterte Gallenwege</em> = Choledocholithiasis. Dann MRCP/Endosono, ERCP therapeutisch, CT nur bei Komplikationen.</div></details>
+      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>Labor — Entzündung:</b> Leuko, CRP ↑ (Cholezystitis + Cholangitis)</li><li><b>Labor — Cholestase:</b> Bili, AP, γ-GT ↑ (Choledocholithiasis + Cholangitis)<ul><li>bei reiner Cholezystitis NORMAL</li><li>Lipase: biliäre Pankreatitis ausschließen</li></ul></li><li><b>Sono (1. Wahl):</b><ul><li>Wandverdickung &gt; 3 mm + Dreischichtung = Cholezystitis</li><li>DHC &gt; 7 mm + erweiterte Gallenwege = Choledocholithiasis</li></ul></li><li><b>Weiter:</b> MRCP/Endosono → ERCP (therapeutisch) · CT nur bei Komplikationen</li></ul></div></details>
       <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
     </div>
 
     <div class="rt" data-id="p4" data-stations="therapie">
       <div class="rt-h"><span class="rt-n">Prompt 4 · Therapie-Entscheidung</span><span class="rt-right"><span class="rt-ptr">→ Therapie</span></span></div>
       <div class="rt-q">Eine akute kalkulöse Cholezystitis ist gesichert. Lege die <strong>komplette Therapie</strong> fest: den <strong>konservativen Block</strong> (mit Analgesie und Antibiose) und das <strong>OP-Timing</strong>. In welcher Situation kommt die <strong>ERCP zuerst</strong>?</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans">Nahrungskarenz, i.v.-Volumen, Spasmolyse (Buscopan), <b>Analgesie Metamizol — NICHT Morphin</b> (Sphincter-Oddi-Spasmus), <b>Antibiose Ceftriaxon 2 g + Metronidazol 500 mg</b> (Sepsis → Piperacillin/Tazobactam).<br><b>OP:</b> frühe laparoskopische Cholezystektomie <b>binnen 24 h</b>. Bei Choledocholithiasis/Cholangitis: <b>ERCP zuerst</b> (Steinextraktion), dann Cholezystektomie binnen 24 h–6 Wochen.</div></details>
+      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>Konservativ:</b> Nahrungskarenz, i.v.-Volumen, Spasmolyse (Buscopan)</li><li><b>Analgesie:</b> Metamizol — NICHT Morphin (Sphincter-Oddi-Spasmus)</li><li><b>Antibiose:</b> Ceftriaxon 2 g + Metronidazol 500 mg (Sepsis → Piperacillin/Tazobactam)</li><li><b>OP:</b> frühe laparoskopische Cholezystektomie binnen 24 h</li><li><b>ERCP zuerst</b> bei Choledocholithiasis/Cholangitis (Steinextraktion), dann CHE binnen 24 h–6 Wochen</li></ul></div></details>
       <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
     </div>
 
     <div class="rt" data-id="p5" data-stations="therapie">
       <div class="rt-h"><span class="rt-n">Prompt 5 · OP · Konversion · Komplikationen</span><span class="rt-right"><span class="rt-ptr">→ Therapie</span></span></div>
       <div class="rt-q">Beschreibe die <strong>laparoskopische Cholezystektomie</strong> und das <strong>Calot-Dreieck</strong>. Wann <strong>konvertierst</strong> du auf eine offene OP? Und welche sind die <strong>gefährlichsten Komplikationen</strong> — operativ und nach ERCP?</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><b>Calot-Dreieck</b> (Leberunterrand, D. cysticus, D. hepaticus communis) darstellen → A. cystica + D. cysticus identifizieren, clippen, durchtrennen, Gallenblase extrahieren. <b>Konversion</b> bei unklarer Anatomie, schwerer Entzündung mit Verwachsungen, Blutung, Gallenwegsverletzung.<br><b>OP-Komplikationen:</b> Verletzung D. hepaticus communis, Galleleck/biliäre Peritonitis, Blutung, Stumpfinsuffizienz. <b>ERCP:</b> Post-ERCP-Pankreatitis 5 %, Blutung 3 % (A. gastroduodenalis), Cholangitis 3 %, Perforation 1 %.</div></details>
+      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>Calot-Dreieck</b> (Leberunterrand, D. cysticus, D. hepaticus communis) darstellen → A. cystica + D. cysticus identifizieren, clippen, durchtrennen, extrahieren</li><li><b>Konversion offen</b> bei: unklarer Anatomie, schwerer Entzündung/Verwachsungen, Blutung, Gallenwegsverletzung</li><li><b>OP-Komplikationen:</b> Verletzung D. hepaticus communis, Galleleck/biliäre Peritonitis, Blutung, Stumpfinsuffizienz</li><li><b>ERCP-Komplikationen:</b> Pankreatitis 5 %, Blutung 3 % (A. gastroduodenalis), Cholangitis 3 %, Perforation 1 %</li></ul></div></details>
       <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
     </div>
 

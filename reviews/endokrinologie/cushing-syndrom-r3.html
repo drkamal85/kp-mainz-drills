@@ -88,6 +88,12 @@
   .reveal[open]>summary::before{transform:rotate(90deg)}
   .reveal .ans{font-size:14.5px;line-height:1.6;color:#3c372f;padding-top:10px}
   .reveal .ans b{color:var(--ink)}
+  .reveal .ans ul{list-style:none;padding-left:2px;margin:2px 0 0}
+  .reveal .ans li{position:relative;padding-left:18px;margin-bottom:8px;line-height:1.5}
+  .reveal .ans>ul>li::before{content:"";position:absolute;left:2px;top:8px;width:6px;height:6px;border-radius:50%;background:var(--retrieval)}
+  .reveal .ans li ul{margin:7px 0 2px}
+  .reveal .ans li li{padding-left:16px;margin-bottom:5px;font-size:13.8px;color:#4a443c}
+  .reveal .ans li li::before{content:"";position:absolute;left:0;top:7px;width:5px;height:5px;transform:rotate(45deg);background:#b9b0a1}
   .score{display:flex;gap:7px;margin-top:12px;padding-top:11px;border-top:1px solid var(--line)}
   .sbtn{flex:1;font-size:12px;font-weight:700;border:1px solid var(--line);background:var(--bg);color:var(--muted);border-radius:8px;padding:7px 4px;cursor:pointer;transition:.12s}
   .sbtn:hover{border-color:#cfc6b6}
@@ -215,35 +221,35 @@
     <div class="rt" data-id="p1" data-stations="grundlagen">
       <div class="rt-h"><span class="rt-n">Prompt 1 · Ursachen einordnen</span><span class="rt-right"><span class="rt-ptr">→ Grundlagen</span></span></div>
       <div class="rt-q">Ein Patient zeigt das klinische Vollbild eines Cushing-Syndroms. Ordne die <strong>Ursachen</strong> — exogen vs. endogen, und innerhalb endogen ACTH-abhängig vs. -unabhängig. Welche ist <strong>insgesamt</strong> am häufigsten, welche <strong>endogen</strong> am häufigsten? Und was unterscheidet <strong>Cushing-Syndrom von Morbus Cushing</strong>?</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><b>Exogen (iatrogen)</b> = insgesamt häufigste Ursache (Glukokortikoid-Langzeittherapie, Cushing-Schwelle ~7,5 mg Prednisolon/Tag). <b>Endogen</b>: ACTH-abhängig (~80–85 %) — <b>Morbus Cushing</b> (häufigste endogene, ACTH-Mikroadenom des Hypophysenvorderlappens) oder ektope ACTH-Produktion (z. B. SCLC, Karzinoid); ACTH-unabhängig (~15–20 %) — adrenal (NNR-Adenom/-Karzinom, Hyperplasie).<br><b>Cushing-Syndrom</b> = klinisches Bild des Hyperkortisolismus (jede Ursache). <b>Morbus Cushing</b> = nur die zentrale, hypophysäre Form.</div></details>
+      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>Häufigste überhaupt:</b> exogen (iatrogen) — Glukokortikoid-Langzeittherapie (Schwelle ~7,5 mg Prednisolon/Tag)</li><li><b>Endogen, ACTH-abhängig</b> (~80–85 %):<ul><li>Morbus Cushing — ACTH-Mikroadenom des HVL (häufigste endogene)</li><li>ektop — paraneoplastisch (SCLC, Karzinoid)</li></ul></li><li><b>Endogen, ACTH-unabhängig</b> (~15–20 %): adrenal — NNR-Adenom/-Karzinom, Hyperplasie</li><li><b>Begriffe:</b> Cushing-Syndrom = jede Ursache · Morbus Cushing = nur zentral</li></ul></div></details>
       <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
     </div>
 
     <div class="rt" data-id="p2" data-stations="klinik">
       <div class="rt-h"><span class="rt-n">Prompt 2 · Klinik erkennen</span><span class="rt-right"><span class="rt-ptr">→ Klinik</span></span></div>
       <div class="rt-q">Welche klinischen Zeichen erwartest du (katabole + mineralokortikoide + diabetogene Wirkung)? Welche Zeichen sprechen für eine <strong>ACTH-abhängige</strong> Form? Und welche <strong>Pseudo-Cushing-DD</strong> musst du ausschließen?</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><b>Katabol:</b> Stammfettsucht, Vollmondgesicht, Stiernacken, periphere Muskelatrophie/Adynamie, Osteoporose, Striae rubrae, Hautatrophie, Ekchymosen. <b>Mineralokortikoid:</b> arterielle Hypertonie (~90 %), Hypokaliämie. <b>Diabetogen:</b> gestörte Glukosetoleranz/Steroiddiabetes. Dazu psychische Veränderungen, Infektanfälligkeit.<br><b>ACTH-abhängig:</b> Hyperandrogenämie bei Frauen (Hirsutismus, Virilismus, Menstruationsstörungen) — ACTH stimuliert auch NNR-Androgene. <b>Pseudo-Cushing:</b> Alkohol, schwere Depression, ausgeprägte Adipositas.</div></details>
+      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>Katabol:</b> Stammfettsucht, Vollmondgesicht, Stiernacken, Muskelatrophie, Osteoporose, Striae rubrae, Ekchymosen</li><li><b>Mineralokortikoid:</b> Hypertonie (~90 %), Hypokaliämie</li><li><b>Diabetogen:</b> Steroiddiabetes / gestörte Glukosetoleranz</li><li><b>ACTH-abhängig (Frauen):</b> Hirsutismus, Virilismus, Menstruationsstörungen</li><li><b>Pseudo-Cushing ausschließen:</b> Alkohol, schwere Depression, Adipositas</li></ul></div></details>
       <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
     </div>
 
     <div class="rt" data-id="p3" data-stations="diagnostik">
       <div class="rt-h"><span class="rt-n">Prompt 3 · Diagnostik Schritt 1 + 2</span><span class="rt-right"><span class="rt-ptr">→ Diagnostik</span></span></div>
       <div class="rt-q">Geh die Diagnostik durch: Wie <strong>sicherst du den Hyperkortisolismus</strong> (welche Screening-Tests), und wie ordnest du dann mit dem <strong>ACTH-Wert</strong> die Ursache ein?</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><b>Schritt 1 — Liegt ein Cushing vor?</b> Niedrigdosierter <b>1-mg-Dexamethason-Hemmtest</b> (abends Dexamethason → morgens Kortisol; beim Cushing <em>keine Suppression</em>), <b>24-h-Urin freies Kortisol</b> ↑, <b>Mitternachtskortisol</b> (Serum/Speichel — aufgehobene zirkadiane Rhythmik). Mindestens zwei pathologisch.<br><b>Schritt 2 — ACTH messen:</b> ACTH <b>↓</b> → adrenal (ACTH-unabhängig); ACTH <b>↑/normal</b> → ACTH-abhängig (zentral oder ektop).</div></details>
+      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>Schritt 1 — Hyperkortisolismus sichern</b> (≥ 2 pathologisch):<ul><li>1-mg-Dexamethason-Hemmtest → keine Suppression</li><li>freies Kortisol im 24-h-Urin ↑</li><li>Mitternachtskortisol → Rhythmik aufgehoben</li></ul></li><li><b>Schritt 2 — ACTH messen:</b><ul><li>ACTH ↓ → adrenal (ACTH-unabhängig)</li><li>ACTH ↑/normal → zentral oder ektop (ACTH-abhängig)</li></ul></li></ul></div></details>
       <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
     </div>
 
     <div class="rt" data-id="p4" data-stations="diagnostik">
       <div class="rt-h"><span class="rt-n">Prompt 4 · Diagnostik Schritt 3</span><span class="rt-right"><span class="rt-ptr">→ Diagnostik</span></span></div>
       <div class="rt-q">ACTH ist erhöht. Wie differenzierst du <strong>zentral (Morbus Cushing)</strong> von <strong>ektoper</strong> ACTH-Produktion — und <strong>wann</strong> kommt die Bildgebung?</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><b>Hochdosierter 8-mg-Dexamethason-Hemmtest:</b> Kortisol-Suppression (≥ 50 %) bei <em>zentral</em> (Hypophyse noch rückkopplungsfähig), <em>keine</em> Suppression bei ektop. <b>CRH-Test:</b> ACTH + Kortisol steigen bei zentral, kein Anstieg bei ektop. Merke: zentral ist noch empfindlich — der ektope Tumor macht, was er will.<br><b>Bildgebung erst NACH hormoneller Sicherung:</b> MRT Hypophyse (zentral), CT Thorax/Abdomen (ektope Quelle), MRT/CT Nebennieren (adrenal); bei unklarem Hypophysen-MRT Sinus-petrosus-inferior-Katheter.</div></details>
+      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>8-mg-Dexamethason-Hemmtest:</b> Suppression ≥ 50 % bei zentral · keine bei ektop</li><li><b>CRH-Test:</b> Anstieg bei zentral · kein Anstieg bei ektop</li><li><i>Merke:</i> zentral noch empfindlich — ektop autonom</li><li><b>Bildgebung erst nach hormoneller Sicherung:</b><ul><li>MRT Hypophyse (zentral)</li><li>CT Thorax/Abdomen (ektop)</li><li>MRT/CT Nebennieren (adrenal)</li></ul></li></ul></div></details>
       <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
     </div>
 
     <div class="rt" data-id="p5" data-stations="therapie">
       <div class="rt-h"><span class="rt-n">Prompt 5 · Therapie + Notfall</span><span class="rt-right"><span class="rt-ptr">→ Therapie</span></span></div>
       <div class="rt-q">Nenne die <strong>Therapie je nach Ursache</strong> (exogen, zentral, adrenal, ektop). Warum darfst du Glukokortikoide <strong>nie abrupt absetzen</strong>, und was substituierst du <strong>nach erfolgreicher OP</strong>?</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><b>Exogen:</b> Glukokortikoide langsam ausschleichen. <b>Zentral (M. Cushing):</b> transsphenoidale Adenomentfernung (1. Wahl), alt. Bestrahlung. <b>Adrenal:</b> Adrenalektomie (± Mitotan/Ketoconazol). <b>Ektop:</b> Tumorresektion (± Kortisolsynthesehemmer).<br>Abruptes Absetzen ist gefährlich, weil die zugeführten Steroide die eigene HPA-Achse supprimiert haben → <b>NNR-Atrophie → Addison-Krise</b>. Nach erfolgreicher OP: <b>Hydrocortison-Substitution</b> (± Fludrocortison), bis sich die Achse erholt.</div></details>
+      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>Exogen:</b> Glukokortikoide langsam ausschleichen</li><li><b>Zentral (M. Cushing):</b> transsphenoidale Adenomentfernung (1. Wahl)</li><li><b>Adrenal:</b> Adrenalektomie</li><li><b>Ektop:</b> Tumorresektion</li><li><b>Nie abrupt absetzen</b> → NNR-Atrophie → Addison-Krise</li><li><b>Nach OP:</b> Hydrocortison-Substitution, bis die Achse zurückkommt</li></ul></div></details>
       <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
     </div>
 
