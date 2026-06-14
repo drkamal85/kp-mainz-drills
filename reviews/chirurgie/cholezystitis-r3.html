@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cholezystitis · R3 · Diagnostischer Durchlauf</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F7F4EE; --card:#FFFDF8; --ink:#2A2724; --muted:#6B6358; --line:#E7E0D4;
+    --grundlagen:#C0392B; --grundlagen-t:#F7E9E6;
+    --klinik:#D97706;     --klinik-t:#FBEEDD;
+    --diagnostik:#1E5F9E; --diagnostik-t:#E4EDF6;
+    --therapie:#2D7A3E;   --therapie-t:#E5F0E7;
+    --fragen:#7B3F9E;     --fragen-t:#F0E8F6;
+    --perlen:#B8860B;     --perlen-t:#F8F0D9;
+    --retrieval:#0F766E;  --retrieval-t:#E0F0EE;
+    --protokoll:#334155;  --protokoll-t:#E8EBF0;
+    --ok:#2D7A3E; --gap:#D97706; --miss:#C0392B;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:'Manrope',system-ui,sans-serif;
+    font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased;padding:0 18px 80px}
+  .wrap{max-width:860px;margin:0 auto}
+
+  header{padding:54px 0 22px}
+  .eyebrow{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--retrieval);margin-bottom:16px}
+  h1{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(34px,7vw,52px);line-height:1.04;letter-spacing:-.01em}
+  h1 .accent{font-style:italic;color:var(--grundlagen)}
+  .subtitle{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(17px,2.6vw,20px);color:var(--muted);margin-top:14px}
+  .meta{display:flex;flex-wrap:wrap;gap:6px 0;margin-top:20px;font-size:13px;color:var(--muted);font-weight:500}
+  .meta span:not(:last-child)::after{content:"•";margin:0 10px;color:var(--line);font-weight:700}
+
+  .howto{background:var(--retrieval-t);border:1px solid #BFE0DC;border-left:4px solid var(--retrieval);border-radius:12px;padding:18px 20px;margin:8px 0 26px}
+  .howto h4{font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--retrieval);margin-bottom:10px}
+  .howto ol{margin:0;padding-left:20px;font-size:14.5px;line-height:1.6}
+  .howto li{margin-bottom:5px}
+  .howto .kicker{margin-top:10px;font-size:13.5px;font-style:italic;color:#0c5d57}
+
+  .tabs{display:flex;flex-wrap:wrap;gap:8px;position:sticky;top:0;z-index:30;background:linear-gradient(var(--bg) 72%,rgba(247,244,238,0));padding:12px 0 14px;margin-bottom:6px}
+  .tab{position:relative;font-size:13px;font-weight:600;border:1px solid var(--line);background:var(--card);color:var(--muted);padding:8px 15px;border-radius:999px;cursor:pointer;transition:all .15s;white-space:nowrap}
+  .tab:hover{border-color:#cfc6b6}
+  .tab.active{color:#fff;border-color:transparent}
+  .tab[data-c=retrieval].active{background:var(--retrieval)}
+  .tab[data-c=grundlagen].active{background:var(--grundlagen)}
+  .tab[data-c=klinik].active{background:var(--klinik)}
+  .tab[data-c=diagnostik].active{background:var(--diagnostik)}
+  .tab[data-c=therapie].active{background:var(--therapie)}
+  .tab[data-c=fragen].active{background:var(--fragen)}
+  .tab[data-c=perlen].active{background:var(--perlen)}
+  .tab[data-c=protokoll].active{background:var(--protokoll)}
+  .tab .badge{display:none;margin-left:7px;font-size:10px;font-weight:800;padding:1px 6px;border-radius:999px;vertical-align:middle}
+  .tab.flag-gap .badge{display:inline-block;background:var(--gap);color:#fff}
+  .tab.flag-ok .badge{display:inline-block;background:var(--ok);color:#fff}
+  .tab.active .badge{background:rgba(255,255,255,.28)!important;color:#fff}
+
+  .panel{display:none;animation:fade .25s ease}
+  .panel.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+  .panel-intro{font-family:'Fraunces',serif;font-style:italic;font-size:17px;color:var(--muted);margin:6px 0 18px;line-height:1.5}
+
+  /* ---- control bar (Pass 1 instrument) ---- */
+  .ctrl{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:14px 16px;margin-bottom:20px}
+  .ctrl-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+  .tally{font-size:13px;font-weight:700;display:flex;gap:12px;flex-wrap:wrap}
+  .tally i{font-style:normal;display:inline-flex;align-items:center;gap:5px}
+  .tally i::before{content:"";width:9px;height:9px;border-radius:50%}
+  .tally .t-ok::before{background:var(--ok)} .tally .t-gap::before{background:var(--gap)} .tally .t-miss::before{background:var(--miss)}
+  .spacer{flex:1 1 auto}
+  .btn{font-family:'Manrope';font-size:12.5px;font-weight:700;border:none;border-radius:999px;padding:9px 16px;cursor:pointer;transition:.15s}
+  .btn-primary{background:var(--retrieval);color:#fff}
+  .btn-primary:hover{filter:brightness(1.06)}
+  .btn-ghost{background:transparent;color:var(--muted);border:1px solid var(--line)}
+  .btn-ghost:hover{border-color:#cfc6b6}
+  .ctrl-status{margin-top:11px;font-size:13px;font-style:italic;color:var(--retrieval);min-height:18px}
+
+  /* ---- retrieval prompt ---- */
+  .rt{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:14px;transition:border-color .2s}
+  .rt[data-score=sicher]{border-left-color:var(--ok)}
+  .rt[data-score=lueckenhaft]{border-left-color:var(--gap)}
+  .rt[data-score=gefehlt]{border-left-color:var(--miss)}
+  .rt-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:8px}
+  .rt-n{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--retrieval)}
+  .rt-right{display:flex;align-items:center;gap:10px;white-space:nowrap}
+  .rt-ptr{font-size:11px;font-weight:600;color:var(--muted)}
+  .rt-q{font-size:15.5px;line-height:1.55}
+  .reveal{margin-top:12px;border-top:1px dashed var(--line);padding-top:0}
+  .reveal>summary{list-style:none;cursor:pointer;font-size:12.5px;font-weight:800;letter-spacing:.04em;color:var(--retrieval);padding:11px 0 0;user-select:none;display:inline-flex;align-items:center;gap:6px}
+  .reveal>summary::-webkit-details-marker{display:none}
+  .reveal>summary::before{content:"▸";transition:transform .2s;display:inline-block}
+  .reveal[open]>summary::before{transform:rotate(90deg)}
+  .reveal .ans{font-size:14.5px;line-height:1.6;color:#3c372f;padding-top:10px}
+  .reveal .ans b{color:var(--ink)}
+  .score{display:flex;gap:7px;margin-top:12px;padding-top:11px;border-top:1px solid var(--line)}
+  .sbtn{flex:1;font-size:12px;font-weight:700;border:1px solid var(--line);background:var(--bg);color:var(--muted);border-radius:8px;padding:7px 4px;cursor:pointer;transition:.12s}
+  .sbtn:hover{border-color:#cfc6b6}
+  .sbtn[data-v=sicher].on{background:var(--ok);color:#fff;border-color:transparent}
+  .sbtn[data-v=lueckenhaft].on{background:var(--gap);color:#fff;border-color:transparent}
+  .sbtn[data-v=gefehlt].on{background:var(--miss);color:#fff;border-color:transparent}
+
+  /* ---- Schnellfragen ---- */
+  .sf-wrap{background:var(--retrieval-t);border:1px solid #BFE0DC;border-radius:13px;padding:18px 20px;margin-top:24px}
+  .sf-wrap h3{font-family:'Fraunces',serif;font-weight:500;font-size:20px;margin-bottom:3px}
+  .sf-wrap .sf-intro{font-size:13.5px;font-style:italic;color:#0c5d57;margin-bottom:14px}
+  .sf{border-bottom:1px solid #cfe4e1;padding:9px 0}
+  .sf:last-child{border-bottom:none}
+  .sf>summary{list-style:none;cursor:pointer;font-size:14.5px;font-weight:600;display:flex;justify-content:space-between;gap:10px;user-select:none}
+  .sf>summary::-webkit-details-marker{display:none}
+  .sf>summary::after{content:"+";color:var(--retrieval);font-weight:800}
+  .sf[open]>summary::after{content:"−"}
+  .sf .sfa{font-size:14px;color:#0c5d57;font-weight:700;padding-top:6px}
+
+  /* ---- content cards (v1) ---- */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:14px;overflow:hidden}
+  .card>summary{list-style:none;cursor:pointer;padding:18px 20px;display:flex;align-items:flex-start;gap:14px;user-select:none}
+  .card>summary::-webkit-details-marker{display:none}
+  .card .ct{flex:1}
+  .card .ctag{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:5px}
+  .card .ctitle{font-family:'Fraunces',serif;font-weight:500;font-size:17px;line-height:1.25}
+  .plus{flex:none;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:18px;line-height:1;transition:transform .2s;margin-top:2px}
+  .card[open] .plus{transform:rotate(45deg)}
+  .card .body{padding:0 20px 20px;border-top:1px solid var(--line);margin-top:-2px;padding-top:16px}
+  .card.grundlagen .ctag{color:var(--grundlagen)} .card.grundlagen .plus{background:var(--grundlagen-t);color:var(--grundlagen)}
+  .card.klinik .ctag{color:var(--klinik)} .card.klinik .plus{background:var(--klinik-t);color:var(--klinik)}
+  .card.diagnostik .ctag{color:var(--diagnostik)} .card.diagnostik .plus{background:var(--diagnostik-t);color:var(--diagnostik)}
+  .card.therapie .ctag{color:var(--therapie)} .card.therapie .plus{background:var(--therapie-t);color:var(--therapie)}
+  .card.fragen .ctag{color:var(--fragen)} .card.fragen .plus{background:var(--fragen-t);color:var(--fragen)}
+  .card.perlen .ctag{color:var(--perlen)} .card.perlen .plus{background:var(--perlen-t);color:var(--perlen)}
+
+  ul.b{list-style:none;padding-left:2px}
+  ul.b>li{position:relative;padding-left:20px;margin-bottom:8px;line-height:1.55}
+  ul.b>li::before{content:"";position:absolute;left:2px;top:9px;width:7px;height:7px;border-radius:50%}
+  .grundlagen ul.b>li::before{background:var(--grundlagen)} .klinik ul.b>li::before{background:var(--klinik)}
+  .diagnostik ul.b>li::before{background:var(--diagnostik)} .therapie ul.b>li::before{background:var(--therapie)}
+  ul.b ul{list-style:none;padding-left:18px;margin-top:7px}
+  ul.b ul>li{position:relative;padding-left:18px;margin-bottom:6px;font-size:15px;color:#4a443c}
+  ul.b ul>li::before{content:"";position:absolute;left:0;top:7px;width:6px;height:6px;transform:rotate(45deg);background:#b9b0a1}
+  strong{font-weight:700;color:var(--ink)}
+
+  .callout{border-radius:11px;padding:13px 16px;margin:14px 0;font-size:14.5px;line-height:1.55;border-left:4px solid}
+  .callout .lab{font-weight:800;font-size:11px;letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .critical{background:var(--grundlagen-t);border-color:var(--grundlagen)} .critical .lab{color:var(--grundlagen)}
+  .warning{background:var(--klinik-t);border-color:var(--klinik)} .warning .lab{color:var(--klinik)}
+  .fact{background:var(--diagnostik-t);border-color:var(--diagnostik)} .fact .lab{color:var(--diagnostik)}
+
+  .dd{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+  .dd th,.dd td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+  .dd th{background:var(--diagnostik-t);font-weight:700;color:var(--diagnostik);font-size:12px}
+  .dd td:first-child{font-weight:600}
+
+  .pk{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:16px}
+  .pk-meta{display:flex;flex-wrap:wrap;gap:6px 0;font-size:11.5px;font-weight:700;color:var(--protokoll);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+  .pk-meta span:not(:last-child)::after{content:"•";margin:0 8px;color:#c3c9d2}
+  .pk-badge{display:inline-block;background:var(--therapie-t);color:var(--therapie);font-size:10.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:2px 9px;border-radius:999px;margin-left:auto}
+  .pk-akte{font-size:14.5px;line-height:1.58;background:var(--protokoll-t);border-radius:9px;padding:12px 14px;margin-bottom:12px}
+  .pk-akte .lab,.pk-q .lab{font-weight:800;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--protokoll);display:block;margin-bottom:5px}
+  .pk-q ul{list-style:none;padding:0}
+  .pk-q li{position:relative;padding-left:18px;margin-bottom:7px;font-size:14.5px;line-height:1.5}
+  .pk-q li::before{content:"–";position:absolute;left:0;color:var(--protokoll);font-weight:700}
+  .pq{border-top:1px solid var(--line);padding:10px 0}
+  .pq-frage{position:relative;padding-left:18px;font-size:14.5px;font-weight:600;line-height:1.5}
+  .pq-frage::before{content:"–";position:absolute;left:0;color:var(--protokoll);font-weight:700}
+  .pq .reveal{margin-top:5px;border-top:none;padding-top:0}
+  .pq .reveal>summary{padding:5px 0 0}
+
+  .pearl{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--perlen);border-radius:12px;padding:16px 18px;margin-bottom:13px}
+  .pearl .ph{font-weight:800;font-size:13px;color:var(--perlen);margin-bottom:7px}
+  .pearl .pt{font-size:15px;line-height:1.55}
+  .pearl .mn{margin-top:9px;background:var(--perlen-t);border-radius:8px;padding:8px 12px;font-size:13.5px;font-style:italic;color:#7a5c08}
+  .pearl .mn b{font-style:normal;font-weight:800}
+
+  footer{margin-top:40px;padding-top:22px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted);line-height:1.6}
+  .back{display:inline-block;font-family:Manrope,system-ui,sans-serif;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);text-decoration:none;margin-bottom:18px}
+  .back:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a href="../../index.html" class="back">← Zurück zur Library</a>
+
+  <header>
+    <div class="eyebrow">Allgemein- und Viszeralchirurgie · R3 · Diagnostischer Durchlauf</div>
+    <h1>Cholez<span class="accent">ystitis</span></h1>
+    <div class="subtitle">Zwei Pässe: kalt testen, bewerten — dann nur die Lücken öffnen.</div>
+    <div class="meta">
+      <span>R3 von 5 · Superset von R2</span>
+      <span>~12–15 Min</span>
+      <span>Stand 06/2026</span>
+      <span>Stex Lernkarten + Mainz-Protokolle</span>
+    </div>
+  </header>
+
+  <div class="howto">
+    <h4>So läuft diese R3 — in zwei Pässen</h4>
+    <ol>
+      <li><strong>Pass 1 — Test (kalt):</strong> Retrieval-Test laut auf Deutsch beantworten (Synthese-Prompts: ganze Pfade &amp; Entscheidungen), <em>dann</em> aufdecken und ehrlich bewerten — <em>sicher / Lücke / gefehlt</em>. Die Einzelfakten kommen darunter als Schnellfragen.</li>
+      <li><strong>Nur Lücken öffnen:</strong> Der Knopf springt zu genau den Stationen, die du als Lücke markiert hast. Den Rest überspringst du.</li>
+      <li><strong>Pass 2 — Protokolle:</strong> die echten Mainz-Fälle als Generalprobe kalt durchspielen.</li>
+    </ol>
+    <div class="kicker">„Leicht" ist die Warnung, nicht der Beweis. Laut sprechen ist Pflicht — R4/R5 verschärfen später noch.</div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" data-c="retrieval" data-tab="retrieval">Retrieval-Test</button>
+    <button class="tab" data-c="grundlagen" data-tab="grundlagen">Grundlagen<span class="badge"></span></button>
+    <button class="tab" data-c="klinik" data-tab="klinik">Klinik<span class="badge"></span></button>
+    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik<span class="badge"></span></button>
+    <button class="tab" data-c="therapie" data-tab="therapie">Therapie<span class="badge"></span></button>
+    <button class="tab" data-c="perlen" data-tab="perlen">KP-Perlen</button>
+    <button class="tab" data-c="protokoll" data-tab="protokoll">Protokolle</button>
+  </div>
+
+  <!-- ============ RETRIEVAL-TEST ============ -->
+  <section class="panel active" data-panel="retrieval">
+    <p class="panel-intro">Kalt. Laut. Auf Deutsch. Diese Prompts fragen <strong>ganze Pfade und Entscheidungen</strong> (Synthese) — die Einzelfakten kommen darunter als Schnellfragen. Erst formulieren, dann aufdecken und ehrlich bewerten.</p>
+
+    <div class="ctrl">
+      <div class="ctrl-row">
+        <div class="tally"><i class="t-ok">Sicher <span id="n-ok">0</span></i><i class="t-gap">Lücke <span id="n-gap">0</span></i><i class="t-miss">Gefehlt <span id="n-miss">0</span></i><i style="color:var(--muted)">/ 5 bewertet: <span id="n-done">0</span></i></div>
+        <div class="spacer"></div>
+        <button class="btn btn-primary" id="open-gaps">Nur Lücken öffnen →</button>
+        <button class="btn btn-ghost" id="reset">Zurücksetzen</button>
+      </div>
+      <div class="ctrl-status" id="status">Bewerte alle 5 Prompts, dann „Nur Lücken öffnen".</div>
+    </div>
+
+    <div class="rt" data-id="p1" data-stations="grundlagen klinik">
+      <div class="rt-h"><span class="rt-n">Prompt 1 · Drei Bilder + DD</span><span class="rt-right"><span class="rt-ptr">→ Grundlagen · Klinik</span></span></div>
+      <div class="rt-q">Patient, rechtsseitiger Oberbauchschmerz + Fieber nach fettiger Mahlzeit. Grenze die <strong>drei Bilder</strong> ab — Gallenkolik vs. Cholezystitis vs. Cholangitis (Schmerz · Fieber · Ikterus) — und nenne die <strong>DD</strong> des akuten rechten Oberbauchs.</div>
+      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><b>Gallenkolik:</b> Kolik &lt; 5 h, kein Fieber, kein Ikterus.<br><b>Cholezystitis:</b> Dauerschmerz + Fieber, (meist) kein Ikterus.<br><b>Cholangitis:</b> Dauerschmerz + hohes Fieber + Ikterus = Charcot-Trias. <b>DD:</b> Cholelithiasis, cholestatische Hepatitis, Leberabszess, Gastritis/Ulkusperforation, akute Pankreatitis, Appendizitis, Nephrolithiasis, Hinterwandinfarkt.</div></details>
+      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
+    </div>
+
+    <div class="rt" data-id="p2" data-stations="klinik">
+      <div class="rt-h"><span class="rt-n">Prompt 2 · Murphy + Courvoisier</span><span class="rt-right"><span class="rt-ptr">→ Klinik</span></span></div>
+      <div class="rt-q">Welche körperlichen Zeichen sicherst du? Erkläre das <strong>Murphy-Zeichen</strong> mechanistisch — und grenze die DD-Falle <strong>Courvoisier</strong> ab.</div>
+      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><b>Murphy:</b> schmerzbedingter Abbruch der tiefen Inspiration bei Palpation unter dem rechten Rippenbogen — die Gallenblase wird in Inspiration nach kaudal gegen die palpierende Hand geschoben, bei Entzündung schmerzhaft.<br><b>Courvoisier:</b> schmerzlose, prall-elastische Gallenblase + Ikterus → Pankreaskopfkarzinom (nie mit Murphy verwechseln).</div></details>
+      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
+    </div>
+
+    <div class="rt" data-id="p3" data-stations="diagnostik">
+      <div class="rt-h"><span class="rt-n">Prompt 3 · Diagnostik-Pfad</span><span class="rt-right"><span class="rt-ptr">→ Diagnostik</span></span></div>
+      <div class="rt-q">Geh den diagnostischen Pfad: <strong>Labor</strong> (Entzündung vs. Cholestase) und <strong>Bildgebung</strong> in welcher Reihenfolge — und welcher Befund trennt Cholezystitis von Choledocholithiasis?</div>
+      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><b>Labor:</b> Entzündung (Leuko, CRP) bei Cholezystitis + Cholangitis; Cholestase (Bili, AP, γ-GT) bei Choledocholithiasis + Cholangitis — bei <em>reiner Cholezystitis NORMAL</em>; Lipase zum Ausschluss biliärer Pankreatitis.<br><b>Bildgebung:</b> Sono 1. Wahl — <em>Wandverdickung &gt; 3 mm + Dreischichtung</em> = Cholezystitis; <em>DHC &gt; 7 mm + erweiterte Gallenwege</em> = Choledocholithiasis. Dann MRCP/Endosono, ERCP therapeutisch, CT nur bei Komplikationen.</div></details>
+      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
+    </div>
+
+    <div class="rt" data-id="p4" data-stations="therapie">
+      <div class="rt-h"><span class="rt-n">Prompt 4 · Therapie-Entscheidung</span><span class="rt-right"><span class="rt-ptr">→ Therapie</span></span></div>
+      <div class="rt-q">Akute kalkulöse Cholezystitis — triff die Therapie komplett: <strong>konservativer Block</strong> (inkl. Analgesie-Falle + Antibiose), <strong>OP-Timing</strong>, und wann <strong>ERCP zuerst</strong>.</div>
+      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans">Nahrungskarenz, i.v.-Volumen, Spasmolyse (Buscopan), <b>Analgesie Metamizol — NICHT Morphin</b> (Sphincter-Oddi-Spasmus), <b>Antibiose Ceftriaxon 2 g + Metronidazol 500 mg</b> (Sepsis → Piperacillin/Tazobactam).<br><b>OP:</b> frühe laparoskopische Cholezystektomie <b>binnen 24 h</b>. Bei Choledocholithiasis/Cholangitis: <b>ERCP zuerst</b> (Steinextraktion), dann Cholezystektomie binnen 24 h–6 Wochen.</div></details>
+      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
+    </div>
+
+    <div class="rt" data-id="p5" data-stations="therapie">
+      <div class="rt-h"><span class="rt-n">Prompt 5 · OP · Konversion · Komplikationen</span><span class="rt-right"><span class="rt-ptr">→ Therapie</span></span></div>
+      <div class="rt-q">Beschreibe die <strong>laparoskopische Cholezystektomie</strong> (Calot-Dreieck) — wann <strong>konvertierst</strong> du auf offen — und die gefährlichsten <strong>Komplikationen</strong> (OP und ERCP).</div>
+      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><b>Calot-Dreieck</b> (Leberunterrand, D. cysticus, D. hepaticus communis) darstellen → A. cystica + D. cysticus identifizieren, clippen, durchtrennen, Gallenblase extrahieren. <b>Konversion</b> bei unklarer Anatomie, schwerer Entzündung mit Verwachsungen, Blutung, Gallenwegsverletzung.<br><b>OP-Komplikationen:</b> Verletzung D. hepaticus communis, Galleleck/biliäre Peritonitis, Blutung, Stumpfinsuffizienz. <b>ERCP:</b> Post-ERCP-Pankreatitis 5 %, Blutung 3 % (A. gastroduodenalis), Cholangitis 3 %, Perforation 1 %.</div></details>
+      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
+    </div>
+
+    <div class="callout fact"><span class="lab">Mainz-Muster</span>Cholezystitis ist ein Viszeralchirurgie-Klassiker (04/2024 &amp; 02/2026, mehrfach dokumentiert). Der Prüfer läuft fast immer: <strong>Murphy → Labor → Sono-Befunde → DHC-Weite → ERC</strong> (Endoskop-Weg + Antibiose davor) <strong>→ CHE binnen 24 h</strong> (nicht bis Montag warten!) <strong>→ A.-gastroduodenalis-Blutung</strong>.<br>Häufige Wendung: <strong>Ikterus OHNE Schmerz → Courvoisier → Pankreaskopfkarzinom</strong> (Whipple/Traverso).</div>
+
+    <div class="sf-wrap">
+      <h3>Schnellfragen · Rapid-Fire</h3>
+      <div class="sf-intro">Atomare Einzelfakten — Ein-Wort-Abruf, keine Optionen. Laut, sofort, dann aufdecken.</div>
+      <details class="sf"><summary>Murphy-Zeichen — was?</summary><div class="sfa">schmerzbedingter Atemabbruch bei tiefer Inspiration</div></details>
+      <details class="sf"><summary>Courvoisier-Zeichen?</summary><div class="sfa">schmerzlose pralle Gallenblase + Ikterus → Pankreaskopf-Ca</div></details>
+      <details class="sf"><summary>Cholezystitis vs. Cholangitis — Cholestase?</summary><div class="sfa">Cholezystitis OHNE · Cholangitis MIT</div></details>
+      <details class="sf"><summary>Charcot-Trias?</summary><div class="sfa">Oberbauchschmerz + Fieber + Ikterus</div></details>
+      <details class="sf"><summary>Reynolds-Pentade?</summary><div class="sfa">Charcot + Schock + Verwirrung</div></details>
+      <details class="sf"><summary>6-F-Regel?</summary><div class="sfa">Fat · Female · Forty · Fertile · Fair · Family</div></details>
+      <details class="sf"><summary>Sono-Leitbefund Cholezystitis?</summary><div class="sfa">Wandverdickung &gt; 3 mm + Dreischichtung</div></details>
+      <details class="sf"><summary>DHC erweitert ab?</summary><div class="sfa">&gt; 7 mm (mit GB) · &gt; 9 mm (nach CHE)</div></details>
+      <details class="sf"><summary>1.-Wahl-Bildgebung?</summary><div class="sfa">Sonografie</div></details>
+      <details class="sf"><summary>OP-Timing akute Cholezystitis?</summary><div class="sfa">lap. Cholezystektomie binnen 24 h</div></details>
+      <details class="sf"><summary>Antibiose-Schema?</summary><div class="sfa">Ceftriaxon 2 g + Metronidazol 500 mg (Sepsis: Pip/Tazo)</div></details>
+      <details class="sf"><summary>Analgesie — ja / nein?</summary><div class="sfa">Metamizol ja · Morphin nein (Sphincter-Oddi)</div></details>
+      <details class="sf"><summary>Blutung nach Papillotomie — Gefäß?</summary><div class="sfa">A. gastroduodenalis</div></details>
+      <details class="sf"><summary>Calot-Dreieck — Grenzen?</summary><div class="sfa">Leberunterrand · D. cysticus · D. hepaticus communis</div></details>
+      <details class="sf"><summary>Vor ERCP unbedingt?</summary><div class="sfa">Antibiose (Cephalosporin 3. Gen)</div></details>
+      <details class="sf"><summary>Akalkulöse Cholezystitis — wer?</summary><div class="sfa">Intensivpatienten / Sepsis / Trauma (Stressgallenblase)</div></details>
+    </div>
+  </section>
+
+  <!-- ============ GRUNDLAGEN ============ -->
+  <section class="panel" data-panel="grundlagen">
+    <p class="panel-intro">Definition, Ätiologie, Pathogenese — knapp. Erst laut, dann aufklappen.</p>
+    <details class="card grundlagen" open><summary><span class="ct"><span class="ctag">Definition</span><span class="ctitle">Was ist was — vier Begriffe sauber trennen</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b">
+        <li><strong>Cholezystolithiasis</strong> — Steine <em>in der Gallenblase</em></li>
+        <li><strong>Choledocholithiasis</strong> — Steine <em>im Ductus choledochus</em></li>
+        <li><strong>Cholezystitis</strong> — Entzündung der Gallenblase (meist sekundär bei Steinen, 90–95 %)</li>
+        <li><strong>Cholangitis</strong> — Entzündung der Gallenwege (bakteriell aufsteigend, Cholestase + Sepsis-Gefahr)</li>
+      </ul>
+        <div class="callout fact"><span class="lab">⚙ Merksatz</span><strong>Cholezystitis = Entzündung OHNE Cholestase.<br>Cholangitis = Entzündung MIT Cholestase.</strong> An diesem einen Satz hängen Labor, Klinik und Therapie.</div>
+      </div>
+    </details>
+    <details class="card grundlagen"><summary><span class="ct"><span class="ctag">Ätiologie</span><span class="ctitle">6-F-Regel + Pathogenese</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <h4>Risikofaktoren — die 6 F</h4>
+        <ul class="b"><li><strong>Fat</strong> · <strong>Female</strong> · <strong>Forty</strong> · <strong>Fertile</strong> · <strong>Fair</strong> · <strong>Family</strong></li></ul>
+        <h4>Pathogenese</h4>
+        <ul class="b">
+          <li>Ungleichgewicht in der Galle: <em class="h">Cholesterin/Bilirubin/Ca-Carbonat</em> ↑ vs. Gallensäuren ↓ → Steinbildung</li>
+          <li><strong>Steinarten:</strong> Cholesterin/gemischt 80 % · Pigment (Bilirubin) 10 % · Ca-Carbonat 10 %</li>
+          <li>Stein in Gallenblasenhals/D. cysticus → <strong>Sekretstau</strong> → <strong>Wandentzündung</strong> → bakterielle Superinfektion (E. coli, Klebsiella, Enterokokken)</li>
+        </ul>
+        <h4>Sonderform</h4>
+        <ul class="b"><li><strong>Akalkulöse Cholezystitis</strong> (5–10 %) — bei Intensivpatienten, Sepsis, Trauma, parenteraler Ernährung; höhere Mortalität</li></ul>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ KLINIK ============ -->
+  <section class="panel" data-panel="klinik">
+    <p class="panel-intro">Kolik vs. Cholezystitis vs. Cholangitis — drei Bilder unterscheiden. Erst laut, dann abgleichen.</p>
+    <details class="card klinik" open><summary><span class="ct"><span class="ctag">Leitsymptome</span><span class="ctitle">Klinische Trias + Trigger</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b">
+        <li><strong>Schmerz</strong> kolikartig rechter Oberbauch, Ausstrahlung in <em>rechte Schulter</em> (Head-Zone)</li>
+        <li><strong>Fieber</strong> + Übelkeit/Erbrechen</li>
+        <li><strong>Trigger</strong> oft postprandial nach fettreicher Mahlzeit (CCK-Ausschüttung)</li>
+      </ul>
+        <h4>Drei Bilder im Vergleich</h4>
+        <table class="dd"><tr><th>Bild</th><th>Schmerz</th><th>Fieber</th><th>Ikterus</th></tr>
+          <tr><td><strong>Gallenkolik</strong></td><td>Kolik, &lt; 5 h</td><td>—</td><td>—</td></tr>
+          <tr><td><strong>Cholezystitis</strong></td><td>Dauerschmerz</td><td>+</td><td>(meist) —</td></tr>
+          <tr><td><strong>Cholangitis</strong></td><td>Dauerschmerz</td><td>++</td><td>+ <em>(Charcot)</em></td></tr></table>
+        <div class="callout warning"><span class="lab">⚠ Charcot-Trias vs. Reynolds-Pentade</span><strong>Charcot:</strong> Oberbauchschmerz + Fieber + Ikterus = Cholangitis.<br><strong>Reynolds:</strong> + Schock + Verwirrung = septische Cholangitis → ITS + sofortige ERCP.</div>
+      </div>
+    </details>
+    <details class="card klinik"><summary><span class="ct"><span class="ctag">Körperliche Untersuchung</span><span class="ctitle">Murphy-Zeichen — erklären können!</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <ul class="b">
+          <li>Palpation des rechten Oberbauchs unter dem Rippenbogen → tiefe Inspiration → <strong>schmerzbedingter Atemabbruch</strong></li>
+          <li><strong>Mechanismus:</strong> die Gallenblase wird in Inspiration nach kaudal verlagert und trifft die palpierende Hand → bei Entzündung schmerzhaft</li>
+        </ul>
+        <div class="callout critical"><span class="lab">▲ DD — Courvoisier-Zeichen</span><strong>Schmerzlose, prall-elastisch tastbare Gallenblase + Ikterus</strong> → V. a. <em>Pankreaskopfkarzinom</em>. Niemals mit Murphy verwechseln — eines ist akut entzündlich, das andere malignomverdächtig.</div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ DIAGNOSTIK ============ -->
+  <section class="panel" data-panel="diagnostik">
+    <p class="panel-intro">Sono ist 1. Wahl — Reihenfolge sauber halten. Erst laut, dann abgleichen.</p>
+    <details class="card diagnostik" open><summary><span class="ct"><span class="ctag">Labor</span><span class="ctitle">Was bestelle ich — und warum?</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b">
+        <li><strong>Entzündung:</strong> Leukozytose, CRP ↑, PCT bei Sepsisverdacht</li>
+        <li><strong>Cholestase:</strong> direktes Bilirubin ↑, AP ↑, γ-GT ↑ — bei <em>Cholezystitis allein NORMAL</em>, bei Choledocholithiasis/Cholangitis pathologisch</li>
+        <li><strong>Transaminasen</strong> leicht ↑ (Rückstau in Leber)</li>
+        <li><strong>Lipase + Amylase</strong> — Ausschluss biliäre Pankreatitis</li>
+        <li>Gerinnung, BB, E'lyte, Kreatinin (präoperativ)</li>
+      </ul></div>
+    </details>
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Sono</span><span class="ctitle">Die Sono-Befunde — auswendig</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <h4>Cholezystitis</h4>
+        <ul class="b">
+          <li><strong>Wandverdickung &gt; 3 mm</strong> mit <em class="h">Dreischichtung</em> (Ödem zw. Außen- + Innenwand)</li>
+          <li>Gallenblasenhydrops, perifokale Flüssigkeit</li>
+          <li><strong>Sonographisches Murphy-Zeichen</strong> — Druckschmerz unter Schallkopf</li>
+          <li>Steine: <em>echogen mit dorsaler Schallauslöschung</em></li>
+        </ul>
+        <h4>Choledocholithiasis / Cholangitis</h4>
+        <ul class="b">
+          <li><strong>DHC &gt; 7 mm</strong> erweitert (z. n. Cholezystektomie: &gt; 9 mm)</li>
+          <li>Intrahepatische Gallenwegserweiterung (Doppelflintenphänomen)</li>
+          <li>Pankreas mitbeurteilen — biliäre Pankreatitis ausschließen</li>
+        </ul>
+        <div class="callout fact"><span class="lab">⚙ Faustregel DHC</span><strong>&gt; 7 mm</strong> bei Patient mit Gallenblase · <strong>&gt; 9 mm</strong> nach Cholezystektomie · <strong>+1 mm pro Lebensdekade ab 60 J.</strong></div>
+      </div>
+    </details>
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Erweitert</span><span class="ctitle">MRCP, ERCP, CT — wann?</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b">
+        <li><strong>MRCP</strong> — nicht-invasiv, bei V. a. Choledocholithiasis bei unklarem Sono-Befund</li>
+        <li><strong>ERCP</strong> — diagnostisch <em>UND</em> therapeutisch (Steinextraktion in einer Sitzung)</li>
+        <li><strong>CT</strong> — bei Komplikationen (Perforation, Abszess) oder unklarer Diagnose, NICHT als Erstdiagnostik</li>
+        <li><strong>Endosono</strong> — sehr sensitiv für kleine Choledochus-Steine</li>
+      </ul></div>
+    </details>
+  </section>
+
+  <!-- ============ THERAPIE ============ -->
+  <section class="panel" data-panel="therapie">
+    <p class="panel-intro">Antibiotika + OP binnen 24 h — das ist die Mainz-Antwort. Erst laut, dann abgleichen.</p>
+    <details class="card therapie" open><summary><span class="ct"><span class="ctag">Konservativ</span><span class="ctitle">Aufnahme-Standard — der Block</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b">
+        <li><strong>Nahrungskarenz</strong>, i.v.-Volumen, Thromboseprophylaxe</li>
+        <li><strong>Spasmolyse:</strong> Butylscopolamin (Buscopan)</li>
+        <li><strong>Analgesie:</strong> Metamizol — <em>NICHT</em> Morphin (Sphincter-Oddi-Spasmus)</li>
+        <li><strong>Antibiose:</strong> <em class="h">Ceftriaxon 2 g i.v. 1-0-0 + Metronidazol 500 mg i.v. 1-0-1</em></li>
+        <li>Bei Sepsis: <strong>Piperacillin/Tazobactam</strong>, alternativ Carbapenem</li>
+      </ul></div>
+    </details>
+    <details class="card therapie"><summary><span class="ct"><span class="ctag">Operativ</span><span class="ctitle">Cholezystektomie — Wann + Wie?</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <h4>Indikation</h4>
+        <ul class="b">
+          <li><strong>Akute Cholezystitis: laparoskopische Cholezystektomie binnen 24 h</strong> (früh-elektiv) — Standard!</li>
+          <li><strong>Symptomatische Cholezystolithiasis:</strong> elektive Cholezystektomie</li>
+          <li><strong>Asymptomatisch:</strong> in der Regel KEINE OP — Ausnahmen: Steine ≥ 3 cm, Polypen &gt; 1 cm, Porzellangallenblase, Schrumpfgallenblase</li>
+        </ul>
+        <h4>OP-Technik</h4>
+        <ul class="b">
+          <li>Laparoskopisch: <strong>Calot-Dreieck</strong> darstellen (begrenzt von Leberunterrand, D. cysticus, D. hepaticus communis) → A. cystica + D. cysticus identifizieren, clippen, durchtrennen</li>
+          <li><strong>Konversion auf offene OP</strong> bei: unklarer Anatomie, schwerer Entzündung mit Verwachsungen, Verletzung von Gallenwegen oder Gefäßen, Blutung</li>
+        </ul>
+        <div class="callout critical"><span class="lab">▲ Komplikationen</span>Verletzung D. hepaticus communis, Galleleckage / biliäre Peritonitis, Blutung (<strong>A. gastroduodenalis!</strong> bei Papillotomie), Wundheilungsstörung, Stumpfinsuffizienz D. cysticus, Trokarverletzung.</div>
+      </div>
+    </details>
+    <details class="card therapie"><summary><span class="ct"><span class="ctag">ERCP</span><span class="ctitle">Bei Choledocholithiasis / Cholangitis</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b">
+        <li><strong>Weg des Endoskops:</strong> Mund → Ösophagus → Magen → Duodenum → Papilla Vateri</li>
+        <li>Papillotomie (Sphincter Oddi spalten) + Steinextraktion mit Ballon oder Dormia-Körbchen</li>
+        <li><strong>Vor ERCP:</strong> Antibiose (Cephalosporin 3. Gen ± Metronidazol)</li>
+        <li>Anschließend <strong>Cholezystektomie binnen 24 h–6 Wochen</strong></li>
+      </ul>
+        <h4>Komplikationen ERCP (ca. 10 % gesamt)</h4>
+        <ul class="b"><li>Post-ERCP-Pankreatitis 5 % · Blutung 3 % (A. gastroduodenalis) · Cholangitis 3 % · Perforation 1 %</li></ul>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ KP-PERLEN ============ -->
+  <section class="panel" data-panel="perlen">
+    <p class="panel-intro">Acht Sätze, die in der Prüfung gewinnen.</p>
+    <div class="pearl"><div class="ph">⭐ Perle 1 · Trennung</div><div class="pt"><strong>Cholezystitis = Entzündung OHNE Cholestase.<br>Cholangitis = Entzündung MIT Cholestase.</strong> Damit hängt die Antwort auf Labor, Klinik und Therapie an einem einzigen Satz.</div><div class="mn"><b>Merke:</b> „zyst" (Bläschen) bleibt drin · „angi" (Gang) blockiert → Ikterus</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 2 · OP-Timing</div><div class="pt"><strong>Cholezystektomie binnen 24 h bei akuter Cholezystitis</strong> — früh-elektiv, NICHT abwarten. „Konservativ mit AB" als Antwort gilt als falsch.</div><div class="mn"><b>Merke:</b> 24-Stunden-Regel · jeder Tag mehr = mehr Komplikationen</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 3 · Murphy</div><div class="pt"><strong>Murphy = schmerzbedingter Atemabbruch</strong> bei Palpation unter dem Rippenbogen rechts. Nicht „Druckschmerz", sondern die <em>Atembewegung</em> erzeugt den Schmerz — das ist der Trick.</div><div class="mn"><b>Merke:</b> M wie „Mein Atem stockt" — bei Inspiration, nicht bei Palpation allein</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 4 · Courvoisier</div><div class="pt"><strong>Schmerzlose</strong> prall-elastische Gallenblase + Ikterus = <strong>Pankreaskopfkarzinom</strong> bis Beweis des Gegenteils. Murphy und Courvoisier dürfen nie verwechselt werden.</div><div class="mn"><b>Merke:</b> Schmerz = entzündlich · schmerzlos = malignomverdächtig</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 5 · DHC</div><div class="pt"><strong>DHC &gt; 7 mm = erweitert</strong> bei vorhandener Gallenblase. Nach Cholezystektomie &gt; 9 mm. Faustregel: +1 mm pro Dekade ab dem 60. Lebensjahr.</div><div class="mn"><b>Merke:</b> Sieben mit GB · neun ohne · zehn ab 70</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 6 · 6-F-Regel</div><div class="pt"><strong>Fat, Female, Forty, Fertile, Fair, Family</strong> — die klassischen Risikofaktoren. Wird in Mainz fast immer abgefragt; einfacher Punkt.</div><div class="mn"><b>Merke:</b> Sechs F — wie die sechs Fragen, die in der KP kommen</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 7 · AB-Schema</div><div class="pt"><strong>Ceftriaxon 2 g + Metronidazol 500 mg i.v.</strong> ist Standard. Bei Sepsis: <em>Piperacillin/Tazobactam</em>. Antibiose IMMER vor ERCP — Manipulation an der Papille lässt Cholangitis auflodern.</div><div class="mn"><b>Merke:</b> Cef + Metro · bei Sepsis Pip-Taz · vor ERCP Pflicht</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 8 · Analgesie-Falle</div><div class="pt"><strong>Metamizol ja.<br>Morphin nein.</strong> Morphin macht Sphincter-Oddi-Spasmus und verschlechtert die Galleabflussstörung. Buscopan zur Spasmolyse.</div><div class="mn"><b>Merke:</b> Morphin macht Oddi-Spasmus · Metamizol ist „der Galle-Freund"</div></div>
+  </section>
+
+  <!-- ============ PROTOKOLLE ============ -->
+  <section class="panel" data-panel="protokoll">
+    <p class="panel-intro">Generalprobe an zwei dokumentierten Mainz-Fällen. Jede Frage einzeln laut beantworten, dann die Antwort aufdecken.</p>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz 04/2024</span><span>Viszeralchirurgie</span><span class="pk-badge">Bestanden</span></div>
+      <div class="pk-akte"><span class="lab">Fall</span>Patient mit rechtsseitigem Oberbauchschmerz. Der Prüfer führt von der körperlichen Untersuchung über Labor und Sonografie bis zur ERC und Cholezystektomie — und hängt am Ende einen zweiten Fall an.</div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">„Das Murphy-Zeichen ist positiv. Was machen Sie als Nächstes?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Labordiagnostik — Entzündungszeichen, Leberwerte und Cholestaseparameter, sowie Lipase/Amylase zum Ausschluss einer begleitenden Pankreatitis.</div></details></div>
+      <div class="pq"><div class="pq-frage">„In der Sonografie sehen Sie eine verdickte Gallenblasenwand — und eine echogene Struktur mit dorsalem Schallschatten."</div><details class="reveal"><summary>Antwort</summary><div class="ans">Die verdickte Wand mit Dreischichtung spricht für eine Cholezystitis; die echogene Struktur mit dorsalem Schallschatten ist ein Konkrement → Cholezystolithiasis.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Der Ductus choledochus ist 9 mm weit." — Interpretation + nächster Schritt?</div><details class="reveal"><summary>Antwort</summary><div class="ans">&gt; 7 mm gilt als erweitert → spricht für eine Choledocholithiasis. Nächster Schritt: ERC (endoskopische retrograde Cholangiographie).</div></details></div>
+      <div class="pq"><div class="pq-frage">„Welchen Weg nimmt das Endoskop — und was geben Sie vorher unbedingt?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Durch das Duodenum zur Papilla Vateri, dann in den Ductus choledochus → Steinextraktion. Vorher unbedingt eine Antibiose: Cephalosporin der 3. Generation.</div></details></div>
+      <div class="pq"><div class="pq-frage">„16 Uhr, der Oberarzt fragt, ob man die Steinextraktion auch erst am Montag machen kann."</div><details class="reveal"><summary>Antwort</summary><div class="ans">Auf keinen Fall bis Montag warten — die Steinextraktion muss sofort erfolgen, und die Cholezystektomie innerhalb von 24 Stunden.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Komplikationen der Papillotomie — welche Gefäße könnten betroffen sein?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Blutung, typischerweise aus der <strong>A. gastroduodenalis</strong> (verläuft nahe der Papilla Vateri).</div></details></div>
+      <div class="pq"><div class="pq-frage">„Neuer Fall: Patient OHNE Schmerzen, aber mit Ikterus. Was denken Sie?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Schmerzloser Ikterus → V. a. Pankreaskopfkarzinom (Courvoisier-Zeichen). Therapie: Whipple-OP bzw. pyloruserhaltende Traverso-Operation.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · dokumentiert</span><span>Chirurgie · Prüfer 2</span><span class="pk-badge">Bestanden</span></div>
+      <div class="pk-akte"><span class="lab">Fall</span>Bildgestützter Chirurgie-Block: zunächst die Differentialdiagnose des rechten Oberbauchschmerzes, dann Diagnose und Therapie der Cholezystitis und eine Kurzbeschreibung der OP.</div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">Differentialdiagnosen bei Oberbauchschmerzen rechts?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Cholezystitis, Cholelithiasis, cholestatische Hepatitis, Leberabszess, Hepatomegalie, Gastritis, Ulkusperforation.</div></details></div>
+      <div class="pq"><div class="pq-frage">Cholezystitis — Diagnose und Therapie?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Klinik: Oberbauchschmerz, Murphy-Zeichen positiv, Übelkeit, Fieber, Leukozytose. Diagnostik: Sonografie (wandverdickte Gallenblase, Sludge, Steine), Labor (CRP, Leukozyten ↑). Therapie: Antibiotika (Ceftriaxon + Metronidazol) + laparoskopische Cholezystektomie.</div></details></div>
+      <div class="pq"><div class="pq-frage">Kurzbeschreibung der Cholezystektomie-OP?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Laparoskopische Entfernung der Gallenblase: Calot-Dreieck identifizieren (D. cysticus, A. cystica, D. hepaticus communis) → Absetzen von D. cysticus und A. cystica → Extraktion der Gallenblase.</div></details></div>
+    </div>
+  </section>
+
+  <footer>
+    R3 · Cholezystitis · Diagnostischer Durchlauf (3 von 5). Inhalt als Superset aus R2 (wortgleiche Stationen) — produce-only: Retrieval = Synthese, Schnellfragen = atomar, Protokolle = echter Fall (KP-Fragen-Modellantworten leben in R2 + in den Reveals). Quelle: Stex Lernkarten (Elsevier) + Vorbereitung zur KB + Mainz-Protokolle 04/2024 & 02/2026. Zwei-Pass-Logik: kalt testen + bewerten → nur Lücken öffnen → Protokolle als Generalprobe. R4 = adaptive Wiederholung der Lücken, R5 = Prüfungssimulation. Bewertung wird nicht gespeichert.
+  </footer>
+
+
+</div>
+<script>
+  const tabs = [...document.querySelectorAll('.tab')];
+  const panels = [...document.querySelectorAll('.panel')];
+  function showTab(name){
+    tabs.forEach(x=>x.classList.toggle('active', x.dataset.tab===name));
+    panels.forEach(p=>p.classList.toggle('active', p.dataset.panel===name));
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  tabs.forEach(t=>t.addEventListener('click',()=>showTab(t.dataset.tab)));
+
+  // ---- scoring state ----
+  const scores = {};                 // {p1:'sicher'|'lueckenhaft'|'gefehlt'}
+  const CONTENT = ['grundlagen','klinik','diagnostik','therapie'];
+  const promptStations = {};
+  document.querySelectorAll('.rt').forEach(rt=>{
+    promptStations[rt.dataset.id] = (rt.dataset.stations||'').split(' ').filter(Boolean);
+  });
+
+  function recompute(){
+    let ok=0,gap=0,miss=0;
+    Object.values(scores).forEach(v=>{ if(v==='sicher')ok++; else if(v==='lueckenhaft')gap++; else if(v==='gefehlt')miss++; });
+    document.getElementById('n-ok').textContent=ok;
+    document.getElementById('n-gap').textContent=gap;
+    document.getElementById('n-miss').textContent=miss;
+    document.getElementById('n-done').textContent=Object.keys(scores).length;
+    // station status
+    CONTENT.forEach(st=>{
+      const related = Object.keys(promptStations).filter(p=>promptStations[p].includes(st));
+      const scored = related.filter(p=>scores[p]);
+      const flagged = related.some(p=>scores[p]==='lueckenhaft'||scores[p]==='gefehlt');
+      const allOk = related.length && scored.length===related.length && !flagged;
+      const tab = tabs.find(t=>t.dataset.tab===st);
+      tab.classList.remove('flag-gap','flag-ok');
+      const b = tab.querySelector('.badge');
+      if(flagged){ tab.classList.add('flag-gap'); b.textContent='Lücke'; }
+      else if(allOk){ tab.classList.add('flag-ok'); b.textContent='✓'; }
+      else { b.textContent=''; }
+    });
+  }
+
+  document.querySelectorAll('.rt .score').forEach(scoreBox=>{
+    const rt = scoreBox.closest('.rt');
+    scoreBox.querySelectorAll('.sbtn').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        const v = btn.dataset.v;
+        scores[rt.dataset.id] = v;
+        rt.dataset.score = v;
+        scoreBox.querySelectorAll('.sbtn').forEach(b=>b.classList.toggle('on', b===btn));
+        recompute();
+        const status=document.getElementById('status');
+        const flaggedNow=tabs.filter(t=>t.classList.contains('flag-gap')).length;
+        if(Object.keys(scores).length===5){
+          status.textContent = flaggedNow ? 'Pass 1 fertig. „Nur Lücken öffnen" springt zu den '+flaggedNow+' markierten Stationen.' : 'Alles sicher in Pass 1 — direkt zur Generalprobe (Protokolle).';
+        } else {
+          status.textContent = (5-Object.keys(scores).length)+' Prompt(s) noch zu bewerten.';
+        }
+      });
+    });
+  });
+
+  // ---- two-pass: open only gaps ----
+  document.getElementById('open-gaps').addEventListener('click',()=>{
+    const flagged = CONTENT.filter(st=>tabs.find(t=>t.dataset.tab===st).classList.contains('flag-gap'));
+    const status=document.getElementById('status');
+    if(!Object.keys(scores).length){ status.textContent='Erst Pass 1 bewerten — dann zeige ich dir die Lücken.'; return; }
+    if(!flagged.length){
+      // all clear -> capstone
+      panels.forEach(p=>{ if(CONTENT.includes(p.dataset.panel)) p.querySelectorAll('.card').forEach(c=>c.open=false); });
+      showTab('protokoll'); status.textContent='Keine Lücken — auf zur Generalprobe.'; return;
+    }
+    // expand flagged stations, collapse the "sicher" ones
+    panels.forEach(p=>{
+      if(!CONTENT.includes(p.dataset.panel)) return;
+      const isGap = flagged.includes(p.dataset.panel);
+      p.querySelectorAll('.card').forEach(c=>{ c.open = isGap; });
+    });
+    showTab(flagged[0]);
+    status.textContent='Geöffnet: '+flagged.join(', ')+'. Der Rest bleibt zu.';
+  });
+
+  // ---- reset ----
+  document.getElementById('reset').addEventListener('click',()=>{
+    Object.keys(scores).forEach(k=>delete scores[k]);
+    document.querySelectorAll('.rt').forEach(rt=>{ rt.removeAttribute('data-score'); rt.querySelectorAll('.sbtn').forEach(b=>b.classList.remove('on')); });
+    document.querySelectorAll('.reveal[open]').forEach(d=>d.open=false);
+    recompute();
+    document.getElementById('status').textContent='Zurückgesetzt. Bewerte alle 5 Prompts, dann „Nur Lücken öffnen".';
+  });
+
+  recompute();
+</script>
+</body>
+</html>
