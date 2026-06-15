@@ -116,6 +116,12 @@
     }
     .spe-pill:hover { border-color: var(--blue); color: var(--blue); }
     .spe-pill.on { background: var(--blue); color: #fff; border-color: var(--blue); }
+    .spe-pill .pill-ct {
+      font-family: var(--m); font-size: 10px; font-weight: 600;
+      margin-left: 6px; padding: 1px 6px; border-radius: 999px;
+      background: rgba(0,0,0,0.06); color: inherit;
+    }
+    .spe-pill.on .pill-ct { background: rgba(255,255,255,0.25); }
     .spe[hidden] { display: none !important; }
 
     /* ── Section ─────────────────────────────── */
@@ -316,7 +322,7 @@
 
   <!-- Filter Tabs -->
   <nav class="tabs" id="tabs">
-    <button class="tab on" data-f="all">Alle <span class="tab-ct">42</span></button>
+    <button class="tab on" data-f="all">Alle <span class="tab-ct">43</span></button>
     <button class="tab" data-f="drills">Drills <span class="tab-ct">5</span></button>
     <button class="tab" data-f="reviews">Reviews <span class="tab-ct">35</span></button>
     <button class="tab" data-f="summaries">Summaries <span class="tab-ct">2</span></button>
@@ -388,16 +394,16 @@
     <!-- Specialty filter buttons -->
     <nav class="spe-nav" id="speNav">
       <button class="spe-pill on" data-spe="all">Alle Fächer</button>
-      <button class="spe-pill" data-spe="kardio">Kardiologie</button>
-      <button class="spe-pill" data-spe="pneumo">Pneumologie</button>
-      <button class="spe-pill" data-spe="viszeral">Viszeralchirurgie</button>
-      <button class="spe-pill" data-spe="gastro">Gastroenterologie</button>
-      <button class="spe-pill" data-spe="unfall">Unfallchirurgie</button>
-      <button class="spe-pill" data-spe="notfall">Drittes Fach</button>
-      <button class="spe-pill" data-spe="gefaess">Gefäßchirurgie</button>
-      <button class="spe-pill" data-spe="neuro">Neurologie</button>
-      <button class="spe-pill" data-spe="endokrin">Endokrinologie</button>
-      <button class="spe-pill" data-spe="haem">Hämatologie</button>
+      <button class="spe-pill" data-spe="kardio">Kardiologie <span class="pill-ct">7</span></button>
+      <button class="spe-pill" data-spe="pneumo">Pneumologie <span class="pill-ct">6</span></button>
+      <button class="spe-pill" data-spe="viszeral">Viszeralchirurgie <span class="pill-ct">4</span></button>
+      <button class="spe-pill" data-spe="gastro">Gastroenterologie <span class="pill-ct">1</span></button>
+      <button class="spe-pill" data-spe="unfall">Unfallchirurgie <span class="pill-ct">4</span></button>
+      <button class="spe-pill" data-spe="notfall">Drittes Fach <span class="pill-ct">6</span></button>
+      <button class="spe-pill" data-spe="gefaess">Gefäßchirurgie <span class="pill-ct">1</span></button>
+      <button class="spe-pill" data-spe="neuro">Neurologie <span class="pill-ct">1</span></button>
+      <button class="spe-pill" data-spe="endokrin">Endokrinologie <span class="pill-ct">3</span></button>
+      <button class="spe-pill" data-spe="haem">Hämatologie <span class="pill-ct">2</span></button>
     </nav>
 
     <!-- Kardiologie -->
