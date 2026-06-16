@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COPD · R3 · Diagnostischer Durchlauf</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F7F4EE; --card:#FFFDF8; --ink:#2A2724; --muted:#6B6358; --line:#E7E0D4;
+    --grundlagen:#C0392B; --grundlagen-t:#F7E9E6;
+    --klinik:#D97706;     --klinik-t:#FBEEDD;
+    --diagnostik:#1E5F9E; --diagnostik-t:#E4EDF6;
+    --therapie:#2D7A3E;   --therapie-t:#E5F0E7;
+    --fragen:#7B3F9E;     --fragen-t:#F0E8F6;
+    --perlen:#B8860B;     --perlen-t:#F8F0D9;
+    --retrieval:#0F766E;  --retrieval-t:#E0F0EE;
+    --protokoll:#334155;  --protokoll-t:#E8EBF0;
+    --ok:#2D7A3E; --gap:#D97706; --miss:#C0392B;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:'Manrope',system-ui,sans-serif;
+    font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased;padding:0 18px 80px}
+  .wrap{max-width:860px;margin:0 auto}
+
+  header{padding:54px 0 22px}
+  .eyebrow{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--retrieval);margin-bottom:16px}
+  h1{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(34px,7vw,52px);line-height:1.04;letter-spacing:-.01em}
+  h1 .accent{font-style:italic;color:var(--grundlagen)}
+  .subtitle{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(17px,2.6vw,20px);color:var(--muted);margin-top:14px}
+  .meta{display:flex;flex-wrap:wrap;gap:6px 0;margin-top:20px;font-size:13px;color:var(--muted);font-weight:500}
+  .meta span:not(:last-child)::after{content:"•";margin:0 10px;color:var(--line);font-weight:700}
+
+
+  .tabs{display:flex;flex-wrap:wrap;gap:8px;position:sticky;top:0;z-index:30;background:linear-gradient(var(--bg) 72%,rgba(247,244,238,0));padding:12px 0 14px;margin-bottom:6px}
+  .tab{position:relative;font-size:13px;font-weight:600;border:1px solid var(--line);background:var(--card);color:var(--muted);padding:8px 15px;border-radius:999px;cursor:pointer;transition:all .15s;white-space:nowrap}
+  .tab:hover{border-color:#cfc6b6}
+  .tab.active{color:#fff;border-color:transparent}
+  .tab[data-c=retrieval].active{background:var(--retrieval)}
+  .tab[data-c=grundlagen].active{background:var(--grundlagen)}
+  .tab[data-c=klinik].active{background:var(--klinik)}
+  .tab[data-c=diagnostik].active{background:var(--diagnostik)}
+  .tab[data-c=therapie].active{background:var(--therapie)}
+  .tab[data-c=fragen].active{background:var(--fragen)}
+  .tab[data-c=perlen].active{background:var(--perlen)}
+  .tab[data-c=protokoll].active{background:var(--protokoll)}
+  .tab .badge{display:none;margin-left:7px;font-size:10px;font-weight:800;padding:1px 6px;border-radius:999px;vertical-align:middle}
+  .tab.flag-gap .badge{display:inline-block;background:var(--gap);color:#fff}
+  .tab.flag-ok .badge{display:inline-block;background:var(--ok);color:#fff}
+  .tab.active .badge{background:rgba(255,255,255,.28)!important;color:#fff}
+
+  .panel{display:none;animation:fade .25s ease}
+  .panel.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+  .panel-intro{font-family:'Fraunces',serif;font-style:italic;font-size:17px;color:var(--muted);margin:6px 0 18px;line-height:1.5}
+
+  /* ---- control bar (Pass 1 instrument) ---- */
+  .ctrl{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:14px 16px;margin-bottom:20px}
+  .ctrl-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+  .tally{font-size:13px;font-weight:700;display:flex;gap:12px;flex-wrap:wrap}
+  .tally i{font-style:normal;display:inline-flex;align-items:center;gap:5px}
+  .tally i::before{content:"";width:9px;height:9px;border-radius:50%}
+  .tally .t-ok::before{background:var(--ok)} .tally .t-gap::before{background:var(--gap)} .tally .t-miss::before{background:var(--miss)}
+  .spacer{flex:1 1 auto}
+  .btn{font-family:'Manrope';font-size:12.5px;font-weight:700;border:none;border-radius:999px;padding:9px 16px;cursor:pointer;transition:.15s}
+  .btn-primary{background:var(--retrieval);color:#fff}
+  .btn-primary:hover{filter:brightness(1.06)}
+  .btn-ghost{background:transparent;color:var(--muted);border:1px solid var(--line)}
+  .btn-ghost:hover{border-color:#cfc6b6}
+  .ctrl-status{margin-top:11px;font-size:13px;font-style:italic;color:var(--retrieval);min-height:18px}
+
+  /* ---- retrieval prompt ---- */
+  .rt{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:14px;transition:border-color .2s}
+  .rt[data-score=sicher]{border-left-color:var(--ok)}
+  .rt[data-score=lueckenhaft]{border-left-color:var(--gap)}
+  .rt[data-score=gefehlt]{border-left-color:var(--miss)}
+  .rt-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:8px}
+  .rt-n{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--retrieval)}
+  .rt-right{display:flex;align-items:center;gap:10px;white-space:nowrap}
+  .rt-ptr{font-size:11px;font-weight:600;color:var(--muted)}
+  .rt-q{font-size:15.5px;line-height:1.55}
+  .reveal{margin-top:12px;border-top:1px dashed var(--line);padding-top:0}
+  .reveal>summary{list-style:none;cursor:pointer;font-size:12.5px;font-weight:800;letter-spacing:.04em;color:var(--retrieval);padding:11px 0 0;user-select:none;display:inline-flex;align-items:center;gap:6px}
+  .reveal>summary::-webkit-details-marker{display:none}
+  .reveal>summary::before{content:"▸";transition:transform .2s;display:inline-block}
+  .reveal[open]>summary::before{transform:rotate(90deg)}
+  .reveal .ans{font-size:14.5px;line-height:1.6;color:#3c372f;padding-top:10px}
+  .reveal .ans b{color:var(--ink)}
+  .reveal .ans ul{list-style:none;padding-left:2px;margin:2px 0 0}
+  .reveal .ans li{position:relative;padding-left:18px;margin-bottom:8px;line-height:1.5}
+  .reveal .ans>ul>li::before{content:"";position:absolute;left:2px;top:8px;width:6px;height:6px;border-radius:50%;background:var(--retrieval)}
+  .reveal .ans li ul{margin:7px 0 2px}
+  .reveal .ans li li{padding-left:16px;margin-bottom:5px;font-size:13.8px;color:#4a443c}
+  .reveal .ans li li::before{content:"";position:absolute;left:0;top:7px;width:5px;height:5px;transform:rotate(45deg);background:#b9b0a1}
+  .score{display:flex;gap:7px;margin-top:12px;padding-top:11px;border-top:1px solid var(--line)}
+  .sbtn{flex:1;font-size:12px;font-weight:700;border:1px solid var(--line);background:var(--bg);color:var(--muted);border-radius:8px;padding:7px 4px;cursor:pointer;transition:.12s}
+  .sbtn:hover{border-color:#cfc6b6}
+  .sbtn[data-v=sicher].on{background:var(--ok);color:#fff;border-color:transparent}
+  .sbtn[data-v=lueckenhaft].on{background:var(--gap);color:#fff;border-color:transparent}
+  .sbtn[data-v=gefehlt].on{background:var(--miss);color:#fff;border-color:transparent}
+
+  /* ---- Schnellfragen ---- */
+  .sf-wrap{background:var(--retrieval-t);border:1px solid #BFE0DC;border-radius:13px;padding:18px 20px;margin-top:24px}
+  .sf-wrap h3{font-family:'Fraunces',serif;font-weight:500;font-size:20px;margin-bottom:3px}
+  .sf-wrap .sf-intro{font-size:13.5px;font-style:italic;color:#0c5d57;margin-bottom:14px}
+  .sf{border-bottom:1px solid #cfe4e1;padding:9px 0}
+  .sf:last-child{border-bottom:none}
+  .sf>summary{list-style:none;cursor:pointer;font-size:14.5px;font-weight:600;display:flex;justify-content:space-between;gap:10px;user-select:none}
+  .sf>summary::-webkit-details-marker{display:none}
+  .sf>summary::after{content:"+";color:var(--retrieval);font-weight:800}
+  .sf[open]>summary::after{content:"−"}
+  .sf .sfa{font-size:14px;color:#0c5d57;font-weight:700;padding-top:6px}
+
+  /* ---- content cards (v1) ---- */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:14px;overflow:hidden}
+  .card>summary{list-style:none;cursor:pointer;padding:18px 20px;display:flex;align-items:flex-start;gap:14px;user-select:none}
+  .card>summary::-webkit-details-marker{display:none}
+  .card .ct{flex:1}
+  .card .ctag{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:5px}
+  .card .ctitle{font-family:'Fraunces',serif;font-weight:500;font-size:17px;line-height:1.25}
+  .plus{flex:none;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:18px;line-height:1;transition:transform .2s;margin-top:2px}
+  .card[open] .plus{transform:rotate(45deg)}
+  .card .body{padding:0 20px 20px;border-top:1px solid var(--line);margin-top:-2px;padding-top:16px}
+  .card.grundlagen .ctag{color:var(--grundlagen)} .card.grundlagen .plus{background:var(--grundlagen-t);color:var(--grundlagen)}
+  .card.klinik .ctag{color:var(--klinik)} .card.klinik .plus{background:var(--klinik-t);color:var(--klinik)}
+  .card.diagnostik .ctag{color:var(--diagnostik)} .card.diagnostik .plus{background:var(--diagnostik-t);color:var(--diagnostik)}
+  .card.therapie .ctag{color:var(--therapie)} .card.therapie .plus{background:var(--therapie-t);color:var(--therapie)}
+  .card.fragen .ctag{color:var(--fragen)} .card.fragen .plus{background:var(--fragen-t);color:var(--fragen)}
+  .card.perlen .ctag{color:var(--perlen)} .card.perlen .plus{background:var(--perlen-t);color:var(--perlen)}
+
+  ul.b{list-style:none;padding-left:2px}
+  ul.b>li{position:relative;padding-left:20px;margin-bottom:8px;line-height:1.55}
+  ul.b>li::before{content:"";position:absolute;left:2px;top:9px;width:7px;height:7px;border-radius:50%}
+  .grundlagen ul.b>li::before{background:var(--grundlagen)} .klinik ul.b>li::before{background:var(--klinik)}
+  .diagnostik ul.b>li::before{background:var(--diagnostik)} .therapie ul.b>li::before{background:var(--therapie)}
+  ul.b ul{list-style:none;padding-left:18px;margin-top:7px}
+  ul.b ul>li{position:relative;padding-left:18px;margin-bottom:6px;font-size:15px;color:#4a443c}
+  ul.b ul>li::before{content:"";position:absolute;left:0;top:7px;width:6px;height:6px;transform:rotate(45deg);background:#b9b0a1}
+  strong{font-weight:700;color:var(--ink)}
+
+  .callout{border-radius:11px;padding:13px 16px;margin:14px 0;font-size:14.5px;line-height:1.55;border-left:4px solid}
+  .callout .lab{font-weight:800;font-size:11px;letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .critical{background:var(--grundlagen-t);border-color:var(--grundlagen)} .critical .lab{color:var(--grundlagen)}
+  .warning{background:var(--klinik-t);border-color:var(--klinik)} .warning .lab{color:var(--klinik)}
+  .fact{background:var(--diagnostik-t);border-color:var(--diagnostik)} .fact .lab{color:var(--diagnostik)}
+
+  .dd{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+  .dd th,.dd td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+  .dd th{background:var(--diagnostik-t);font-weight:700;color:var(--diagnostik);font-size:12px}
+  .dd td:first-child{font-weight:600}
+
+  .pk{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:16px}
+  .pk-meta{display:flex;flex-wrap:wrap;gap:6px 0;font-size:11.5px;font-weight:700;color:var(--protokoll);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+  .pk-meta span:not(:last-child)::after{content:"•";margin:0 8px;color:#c3c9d2}
+  .pk-badge{display:inline-block;background:var(--therapie-t);color:var(--therapie);font-size:10.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:2px 9px;border-radius:999px;margin-left:auto}
+  .pk-akte{font-size:14.5px;line-height:1.58;background:var(--protokoll-t);border-radius:9px;padding:12px 14px;margin-bottom:12px}
+  .pk-akte .lab,.pk-q .lab{font-weight:800;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--protokoll);display:block;margin-bottom:5px}
+  .pk-q ul{list-style:none;padding:0}
+  .pk-q li{position:relative;padding-left:18px;margin-bottom:7px;font-size:14.5px;line-height:1.5}
+  .pk-q li::before{content:"–";position:absolute;left:0;color:var(--protokoll);font-weight:700}
+  .pq{border-top:1px solid var(--line);padding:10px 0}
+  .pq-frage{position:relative;padding-left:18px;font-size:14.5px;font-weight:600;line-height:1.5}
+  .pq-frage::before{content:"–";position:absolute;left:0;color:var(--protokoll);font-weight:700}
+  .pq .reveal{margin-top:5px;border-top:none;padding-top:0}
+  .pq .reveal>summary{padding:5px 0 0}
+
+  .pearl{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--perlen);border-radius:12px;padding:16px 18px;margin-bottom:13px}
+  .pearl .ph{font-weight:800;font-size:13px;color:var(--perlen);margin-bottom:7px}
+  .pearl .pt{font-size:15px;line-height:1.55}
+  .pearl .mn{margin-top:9px;background:var(--perlen-t);border-radius:8px;padding:8px 12px;font-size:13.5px;font-style:italic;color:#7a5c08}
+  .pearl .mn b{font-style:normal;font-weight:800}
+
+  footer{margin-top:40px;padding-top:22px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted);line-height:1.6}
+  .back{display:inline-block;font-family:Manrope,system-ui,sans-serif;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);text-decoration:none;margin-bottom:18px}
+  .back:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a href="../../index.html" class="back">← Zurück zur Library</a>
+
+  <header>
+    <div class="eyebrow">Pneumologie · R3 · Diagnostischer Durchlauf</div>
+    <h1>COPD<span class="accent"> · GOLD &amp; AECOPD</span></h1>
+    <div class="subtitle">Zwei Pässe: kalt testen, bewerten — dann nur die Lücken öffnen.</div>
+    <div class="meta">
+      <span>R3 von 5 · aus R2 aufgebaut</span>
+      <span>~15 Min</span>
+      <span>Stand 06/2026</span>
+      <span>Stex + Vorbereitung + Mainz-Protokolle</span>
+    </div>
+  </header>
+
+  <div class="tabs">
+    <button class="tab active" data-c="retrieval" data-tab="retrieval">Retrieval-Test</button>
+    <button class="tab" data-c="grundlagen" data-tab="grundlagen">Grundlagen<span class="badge"></span></button>
+    <button class="tab" data-c="klinik" data-tab="klinik">Klinik<span class="badge"></span></button>
+    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik<span class="badge"></span></button>
+    <button class="tab" data-c="therapie" data-tab="therapie">Therapie<span class="badge"></span></button>
+    <button class="tab" data-c="perlen" data-tab="perlen">KP-Perlen</button>
+    <button class="tab" data-c="protokoll" data-tab="protokoll">Protokolle</button>
+  </div>
+
+  <!-- ============ RETRIEVAL-TEST ============ -->
+  <section class="panel active" data-panel="retrieval">
+    <p class="panel-intro">Kalt. Laut. Auf Deutsch. Diese Prompts fragen <strong>ganze Pfade und Entscheidungen</strong> (Synthese) — die Einzelfakten kommen darunter als Schnellfragen. Erst formulieren, dann aufdecken und ehrlich bewerten.</p>
+
+    <div class="ctrl">
+      <div class="ctrl-row">
+        <div class="tally"><i class="t-ok">Sicher <span id="n-ok">0</span></i><i class="t-gap">Lücke <span id="n-gap">0</span></i><i class="t-miss">Gefehlt <span id="n-miss">0</span></i><i style="color:var(--muted)">/ 5 bewertet: <span id="n-done">0</span></i></div>
+        <div class="spacer"></div>
+        <button class="btn btn-primary" id="open-gaps">Nur Lücken öffnen →</button>
+        <button class="btn btn-ghost" id="reset">Zurücksetzen</button>
+      </div>
+      <div class="ctrl-status" id="status">Bewerte alle 5 Prompts, dann „Nur Lücken öffnen".</div>
+    </div>
+
+    <div class="rt" data-id="p1" data-stations="grundlagen">
+      <div class="rt-h"><span class="rt-n">Prompt 1 · Definition + Pathophysiologie</span><span class="rt-right"><span class="rt-ptr">→ Grundlagen</span></span></div>
+      <div class="rt-q">Definiere COPD (+ Abgrenzung Emphysem / chron. Bronchitis), erkläre den Weg von der Noxe zur Atemflusslimitierung und zum <strong>Cor pulmonale</strong>.</div>
+      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>COPD:</b> chronische, irreversible, progrediente Atemflusslimitierung</li><li><b>Emphysem:</b> irreversible Erweiterung + Zerstörung der Alveolen distal der Bronchioli terminales</li><li><b>Chron. Bronchitis (WHO):</b> Husten + Auswurf, meiste Tage, ≥ 3 Monate in 2 Folgejahren</li><li><b>Weg:</b> Noxe → Entzündung der kleinen Atemwege → Bronchialkollaps in Exspiration → FEV₁ ↓ → Überblähung (RV ↑) → Emphysem</li><li><b>Cor pulmonale:</b> Hypoxie → pulmonale Vasokonstriktion (Euler-Liljestrand) → pulmonale Hypertonie → Rechtsherzbelastung</li><li><b>Ätiologie:</b> Rauchen 90 % · α1-Antitrypsin-Mangel (Erstdiagnose &lt; 50 J. abklären)</li></ul></div></details>
+      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
+    </div>
+
+    <div class="rt" data-id="p2" data-stations="klinik">
+      <div class="rt-h"><span class="rt-n">Prompt 2 · Klinik + DD Asthma</span><span class="rt-right"><span class="rt-ptr">→ Klinik</span></span></div>
+      <div class="rt-q">Leitsymptome + Untersuchungsbefunde (was ist das <strong>Alarmzeichen</strong>?), und grenze COPD von <strong>Asthma</strong> ab.</div>
+      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>AHA-Trias:</b> Auswurf (morgens) · Husten (chronisch) · Atemnot (Belastung → Ruhe)</li><li><b>Zeichen:</b> Fassthorax, Uhrglasnägel/Trommelschlägelfinger, Zyanose; Cor pulmonale (Beinödeme, gestaute Halsvenen)</li><li><b>Auskultation:</b> verlängertes Exspirium, Giemen/Brummen → <b>Silent Chest = Alarmzeichen</b> (drohende Erschöpfung)</li><li><b>DD Asthma vs. COPD:</b><ul><li>Beginn: Kindheit / ab ~50 J.</li><li>Ursache: allergisch / Raucher</li><li>Verlauf: episodisch / progredient</li><li>Obstruktion: reversibel / irreversibel</li><li>Eosinophile: ↑ / normal</li></ul></li></ul></div></details>
+      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
+    </div>
+
+    <div class="rt" data-id="p3" data-stations="diagnostik">
+      <div class="rt-h"><span class="rt-n">Prompt 3 · Diagnostik + GOLD/ABE</span><span class="rt-right"><span class="rt-ptr">→ Diagnostik</span></span></div>
+      <div class="rt-q">Wie sichert die <strong>Lungenfunktion</strong> die Diagnose (Cave?), was zeigt die <strong>BGA</strong>, und erkläre <strong>GOLD vs. ABE</strong>.</div>
+      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>Lungenfunktion:</b> Tiffeneau (FEV₁/VC) &lt; 70 % = Obstruktion (irreversibel), FEV₁ ↓, Resistance ↑; Emphysem: RV ↑, DLCO ↓ — <b>keine LuFu in der Exazerbation!</b></li><li><b>BGA:</b> Hypoxämie, später Hyperkapnie (SaO₂ &lt; 94 % → BGA indiziert)</li><li><b>GOLD 1–4</b> nach FEV₁ % Soll: ≥ 80 / 50–79 / 30–49 / &lt; 30 %</li><li><b>ABE-Gruppen (therapieleitend):</b> A wenig symptomatisch · B stark symptomatisch (mMRC ≥ 2) · E ≥ 2 Exazerbationen oder ≥ 1 stationär</li></ul></div></details>
+      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
+    </div>
+
+    <div class="rt" data-id="p4" data-stations="therapie">
+      <div class="rt-h"><span class="rt-n">Prompt 4 · Dauertherapie + Basis</span><span class="rt-right"><span class="rt-ptr">→ Therapie</span></span></div>
+      <div class="rt-q"><strong>Basismaßnahmen</strong> (was senkt die Mortalität?) und das inhalative <strong>Stufenschema nach ABE</strong> — was ist der Unterschied zu Asthma?</div>
+      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>Basis:</b> Nikotinkarenz (wichtigste) + Impfungen + Lippenbremse + Reha</li><li><b>LTOT</b> bei chron. Hypoxämie (pO₂ &lt; 60 mmHg) ≥ 16 h/Tag → senkt die Mortalität</li><li><b>Stufenschema:</b><ul><li>A: LAMA oder LABA</li><li>B: LAMA + LABA</li><li>E: LAMA + LABA (+ ICS bei Eosinophilie)</li><li>Eskalation: Triple (LABA + LAMA + ICS); Bedarf SABA/SAMA</li></ul></li><li><b>Unterschied zu Asthma:</b> LAMA/LABA zuerst, ICS spät</li></ul></div></details>
+      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
+    </div>
+
+    <div class="rt" data-id="p5" data-stations="therapie">
+      <div class="rt-h"><span class="rt-n">Prompt 5 · AECOPD + NIV/CO₂-Narkose</span><span class="rt-right"><span class="rt-ptr">→ Therapie</span></span></div>
+      <div class="rt-q">Akute Exazerbation — <strong>Akutschema, O₂-Ziel</strong>, und wann <strong>NIV vs. Intubation</strong> (CO₂-Narkose-Falle)?</div>
+      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>AECOPD:</b> SABA + SAMA vernebelt (Salbutamol + Ipratropium) + Prednisolon 40 mg p.o. × 5 Tage + AB nur bei Infektzeichen (Amoxi/Clav; Pseudomonas → Pip/Tazo)</li><li><b>O₂ kontrolliert:</b> Ziel-SaO₂ 88–92 % (keine Hyperoxie)</li><li><b>NIV:</b> pH &lt; 7,35 + pCO₂ &gt; 45, GCS ≥ 8, keine KI</li><li><b>Intubation:</b> pH &lt; 7,25 trotz NIV, GCS &lt; 8, Atemmuskelermüdung, Instabilität</li><li><b>CO₂-Narkose:</b> zu viel O₂ dämpft den hypoxischen Atemantrieb → erst NIV, nicht reflexartig intubieren</li></ul></div></details>
+      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
+    </div>
+
+    <div class="callout fact"><span class="lab">Mainz-Muster</span>COPD ist ein Innere-/Notfall-Dauerbrenner in Mainz (Prüfer v. a. <strong>Dr. Lakmann</strong> 07/2024 und <strong>Dr. Linke</strong> 11/2023, oft als Fall mit Sepsis/Pneumonie). Typischer Lauf: <strong>respiratorische Azidose erklären → CO₂-Narkose-Management (pCO₂ 60, GCS 8 → erst NIV) → GOLD/ABE → AECOPD-Schema → NIV vs. Intubation → Pneumonie-Erreger.</strong><br>Die Lieblingsfalle: bei chronischer Hyperkapnie kein Vollgas-O₂ — Ziel 88–92 %.</div>
+
+    <div class="sf-wrap">
+      <h3>Schnellfragen · Rapid-Fire</h3>
+      <div class="sf-intro">Atomare Einzelfakten — Ein-Wort-Abruf, keine Optionen. Laut, sofort, dann aufdecken.</div>
+      <details class="sf"><summary>Definition COPD?</summary><div class="sfa">chronische, irreversible, progrediente Atemflusslimitierung</div></details>
+      <details class="sf"><summary>Chron. Bronchitis (WHO)?</summary><div class="sfa">Husten + Auswurf ≥ 3 Monate in 2 Folgejahren</div></details>
+      <details class="sf"><summary>Wichtigste Ursache?</summary><div class="sfa">Rauchen (90 %)</div></details>
+      <details class="sf"><summary>α1-Antitrypsin-Mangel abklären wann?</summary><div class="sfa">Erstdiagnose &lt; 50 Jahre</div></details>
+      <details class="sf"><summary>Obstruktion definiert durch?</summary><div class="sfa">Tiffeneau (FEV₁/VC) &lt; 70 %</div></details>
+      <details class="sf"><summary>Reversibel oder irreversibel?</summary><div class="sfa">irreversibel (kein Ansprechen im Bronchospasmolysetest)</div></details>
+      <details class="sf"><summary>LuFu während der Exazerbation?</summary><div class="sfa">nein — erst im stabilen Zustand</div></details>
+      <details class="sf"><summary>GOLD 1–4 basiert auf?</summary><div class="sfa">FEV₁ % Soll</div></details>
+      <details class="sf"><summary>GOLD 3?</summary><div class="sfa">FEV₁ 30–49 %</div></details>
+      <details class="sf"><summary>Therapieleitend heute?</summary><div class="sfa">ABE-Gruppen (Symptome + Exazerbationen)</div></details>
+      <details class="sf"><summary>AHA-Trias?</summary><div class="sfa">Auswurf, Husten, Atemnot</div></details>
+      <details class="sf"><summary>Silent Chest bedeutet?</summary><div class="sfa">Alarmzeichen (drohende Erschöpfung)</div></details>
+      <details class="sf"><summary>Cor pulmonale entsteht via?</summary><div class="sfa">Euler-Liljestrand (Hypoxie → pulmonale Vasokonstriktion)</div></details>
+      <details class="sf"><summary>O₂-Ziel bei AECOPD?</summary><div class="sfa">88–92 %</div></details>
+      <details class="sf"><summary>AECOPD-Trio?</summary><div class="sfa">SABA + SAMA + Prednisolon (40 mg × 5 d)</div></details>
+      <details class="sf"><summary>Antibiotika bei AECOPD wann?</summary><div class="sfa">nur bei Infektzeichen (eitriges Sputum, CRP ↑)</div></details>
+      <details class="sf"><summary>NIV-Indikation?</summary><div class="sfa">pH &lt; 7,35 + pCO₂ &gt; 45 (GCS ≥ 8)</div></details>
+      <details class="sf"><summary>Dauertherapie zuerst?</summary><div class="sfa">LAMA und/oder LABA (ICS spät)</div></details>
+      <details class="sf"><summary>Häufigste AECOPD-Erreger?</summary><div class="sfa">H. influenzae, S. pneumoniae, M. catarrhalis</div></details>
+    </div>
+  </section>
+
+  <!-- ============ GRUNDLAGEN ============ -->
+  <section class="panel" data-panel="grundlagen">
+    <p class="panel-intro">Definition, Ursache, Pathophysiologie — erst laut, dann aufklappen.</p>
+    <details class="card grundlagen" open><summary><span class="ct"><span class="ctag">Definition</span><span class="ctitle">COPD, Emphysem, chron. Bronchitis</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b">
+        <li><strong>COPD:</strong> chronische, irreversible Atemflusslimitierung, progredient</li>
+        <li><strong>Emphysem:</strong> irreversible Erweiterung + Zerstörung der Alveolen distal der Bronchioli terminales</li>
+        <li><strong>Chron. Bronchitis (WHO):</strong> Husten + Auswurf, meiste Tage, ≥ 3 Monate in 2 Folgejahren</li>
+      </ul>
+        <div class="callout fact"><span class="lab">⚙ Epidemiologie</span>♂ &gt; ♀ · weltweit <strong>3.-häufigste Todesursache</strong> · Erstdiagnose meist ab 50 J.</div>
+      </div>
+    </details>
+    <details class="card grundlagen"><summary><span class="ct"><span class="ctag">Ätiologie</span><span class="ctitle">Exogen + endogen</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b">
+        <li><strong>Rauchen (90 %)</strong> — dominanter Faktor; dazu Infekte, Feinstaub/Beruf, maternaler Nikotinabusus</li>
+        <li><strong>α1-Antitrypsin-Mangel</strong> — bei Erstdiagnose &lt; 50 J. immer abklären (auch IgA-Mangel)</li>
+      </ul></div>
+    </details>
+    <details class="card grundlagen"><summary><span class="ct"><span class="ctag">Pathophysiologie</span><span class="ctitle">Von der Noxe zum Cor pulmonale</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b">
+        <li>Noxe → chron. Entzündung der kleinen Atemwege → <strong>Bronchialkollaps in Exspiration</strong> → FEV₁ ↓</li>
+        <li>Gestörte Exspiration → <strong>Überblähung</strong> (Residualvolumen ↑) → Emphysem</li>
+      </ul>
+        <div class="callout fact"><span class="lab">⚙ Cor pulmonale</span>Hypoxie → pulmonale Vasokonstriktion (<strong>Euler-Liljestrand</strong>) → pulmonale Hypertonie → <strong>Rechtsherzbelastung</strong>.</div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ KLINIK ============ -->
+  <section class="panel" data-panel="klinik">
+    <p class="panel-intro">AHA-Trias, Untersuchungsbefunde und die DD zum Asthma. Erst laut, dann abgleichen.</p>
+    <details class="card klinik" open><summary><span class="ct"><span class="ctag">Leitsymptome</span><span class="ctitle">AHA-Trias + Zeichen</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b">
+        <li><strong>A</strong>uswurf (morgens) · <strong>H</strong>usten (chronisch) · <strong>A</strong>temnot (Belastung → Ruhe)</li>
+        <li>Hypoxie-Zeichen: Zyanose, Uhrglasnägel/Trommelschlägelfinger; <strong>Fassthorax</strong>, Kachexie</li>
+        <li>Cor pulmonale: Beinödeme, gestaute Halsvenen</li>
+      </ul></div>
+    </details>
+    <details class="card klinik"><summary><span class="ct"><span class="ctag">Untersuchung</span><span class="ctitle">Perkussion + Auskultation</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b">
+        <li><strong>Perkussion:</strong> hypersonor, tiefstehende Zwerchfelle</li>
+        <li><strong>Auskultation:</strong> verlängertes Exspirium, Giemen/Brummen; abgeschwächt bis Silent Chest</li>
+      </ul>
+        <div class="callout critical"><span class="lab">▲ Silent Chest</span>Kein Giemen mehr trotz schwerer Obstruktion = <strong>Alarmzeichen</strong> (drohende Erschöpfung).</div>
+      </div>
+    </details>
+    <details class="card klinik"><summary><span class="ct"><span class="ctag">DD</span><span class="ctitle">COPD vs. Asthma</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <table class="dd"><tr><th></th><th>Asthma</th><th>COPD</th></tr>
+          <tr><td><strong>Beginn</strong></td><td>Kindheit</td><td>ab ~50 J.</td></tr>
+          <tr><td><strong>Ursache</strong></td><td>allergisch</td><td>Raucher</td></tr>
+          <tr><td><strong>Verlauf</strong></td><td>episodisch</td><td>progredient</td></tr>
+          <tr><td><strong>Obstruktion</strong></td><td>reversibel</td><td>irreversibel</td></tr>
+          <tr><td><strong>Eosinophile</strong></td><td>↑</td><td>normal</td></tr></table>
+        <div class="callout fact"><span class="lab">⚙ Weitere DD</span>Bronchial-Ca, Asthma cardiale, Pneumothorax, Lungenembolie.</div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ DIAGNOSTIK ============ -->
+  <section class="panel" data-panel="diagnostik">
+    <p class="panel-intro">Lungenfunktion (Cave Exazerbation!), BGA, Bildgebung und die Klassifikation. Erst laut, dann abgleichen.</p>
+    <details class="card diagnostik" open><summary><span class="ct"><span class="ctag">Lungenfunktion</span><span class="ctitle">Spirometrie + Bodyplethysmografie</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b">
+        <li><strong>Obstruktion:</strong> FEV₁ ↓, Tiffeneau (FEV₁/VC) &lt; 70 %, Resistance ↑</li>
+        <li><strong>Emphysem:</strong> Residualvolumen ↑, Diffusionskapazität (CO) ↓</li>
+      </ul>
+        <div class="callout critical"><span class="lab">▲ Merke</span><strong>Keine LuFu während der Exazerbation</strong> — erst stabil. Tiffeneau &lt; 70 % = definierende Obstruktion.</div>
+      </div>
+    </details>
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Labor &amp; Bildgebung</span><span class="ctitle">BGA · α1-AT · Röntgen · EKG</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b">
+        <li><strong>BGA:</strong> Hypoxämie, später Hyperkapnie; SaO₂ &lt; 94 % → BGA indiziert</li>
+        <li><strong>α1-Antitrypsin</strong> bei Erstdiagnose &lt; 50 J.; CRP/Leukos bei Infekt</li>
+        <li><strong>Röntgen:</strong> Infiltrat-Ausschluss; Emphysem: abgeflachte Zwerchfelle, weite ICR, Transparenz ↑</li>
+        <li><strong>EKG:</strong> Rechtsherzhypertrophie (P pulmonale, Rechtstyp)</li>
+      </ul></div>
+    </details>
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Klassifikation</span><span class="ctitle">GOLD-Grade + ABE-Gruppen</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <table class="dd"><tr><th>GOLD (FEV₁ % Soll)</th><th>Schwere</th></tr>
+          <tr><td>GOLD 1 ≥ 80 %</td><td>leicht</td></tr>
+          <tr><td>GOLD 2 50–79 %</td><td>mittel</td></tr>
+          <tr><td>GOLD 3 30–49 %</td><td>schwer</td></tr>
+          <tr><td>GOLD 4 &lt; 30 %</td><td>sehr schwer</td></tr></table>
+        <h4>ABE-Gruppen (therapieleitend)</h4>
+        <ul class="b">
+          <li><strong>A:</strong> ≤ 1 Exazerbation, wenig Symptome</li>
+          <li><strong>B:</strong> ≤ 1 Exazerbation, viele Symptome (mMRC ≥ 2 / CAT ≥ 10)</li>
+          <li><strong>E:</strong> ≥ 2 Exazerbationen oder ≥ 1 stationär</li>
+        </ul>
+        <div class="callout fact"><span class="lab">⚙ Therapieentscheidung</span>Für die Therapie zählt die <strong>ABE-Gruppe</strong> (Klinik + Exazerbationen), nicht der GOLD-Grad.</div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ THERAPIE ============ -->
+  <section class="panel" data-panel="therapie">
+    <p class="panel-intro">Basis, Stufenschema, AECOPD und Beatmung. Erst laut, dann abgleichen.</p>
+    <details class="card therapie" open><summary><span class="ct"><span class="ctag">Basis</span><span class="ctitle">Allgemeinmaßnahmen</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b">
+        <li><strong>Nikotinkarenz</strong> (wichtigste Maßnahme) + Impfungen (Pneumokokken, Influenza, COVID)</li>
+        <li><strong>Lippenbremse</strong> (PEEP, verhindert Kollaps), Reha, Sekretmobilisation</li>
+        <li><strong>LTOT</strong> bei chron. Hypoxämie (pO₂ &lt; 60 mmHg) ≥ 16 h/Tag — senkt Mortalität</li>
+      </ul></div>
+    </details>
+    <details class="card therapie"><summary><span class="ct"><span class="ctag">Stufenschema</span><span class="ctitle">Inhalative Dauertherapie nach ABE</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <table class="dd"><tr><th>Gruppe</th><th>Therapie</th></tr>
+          <tr><td><strong>A</strong></td><td>LAMA <em>oder</em> LABA</td></tr>
+          <tr><td><strong>B</strong></td><td>LAMA + LABA</td></tr>
+          <tr><td><strong>E</strong></td><td>LAMA + LABA (+ ICS bei Eosinophilie)</td></tr></table>
+        <ul class="b"><li>Eskalation: <strong>Triple LABA + LAMA + ICS</strong>; Bedarf immer SABA/SAMA</li></ul>
+        <div class="callout fact"><span class="lab">⚙ Merke</span>COPD = <strong>LAMA/LABA zuerst, ICS spät</strong> (anders als Asthma!). GOLD 4 + chron. Bronchitis: + Roflumilast (PDE-4-Hemmer).</div>
+      </div>
+    </details>
+    <details class="card therapie"><summary><span class="ct"><span class="ctag">Exazerbation</span><span class="ctitle">AECOPD — Akutschema</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b">
+        <li><strong>1. SABA + SAMA</strong> vernebelt (Salbutamol + Ipratropium, synergistisch)</li>
+        <li><strong>2. Prednisolon</strong> 40 mg p.o. × 5 Tage</li>
+        <li><strong>3. Antibiotika nur bei Infektzeichen</strong> (eitriges Sputum, CRP ↑): Amoxi/Clav; Pseudomonas-Risiko → Pip/Tazo</li>
+        <li><strong>O₂ kontrolliert: Ziel-SaO₂ 88–92 %</strong> — keine Hyperoxie</li>
+      </ul>
+        <div class="callout critical"><span class="lab">▲ Erreger</span><strong>H. influenzae, S. pneumoniae, M. catarrhalis</strong>; schwere COPD: Pseudomonas, Klebsiella, S. aureus.</div>
+      </div>
+    </details>
+    <details class="card therapie"><summary><span class="ct"><span class="ctag">Beatmung</span><span class="ctitle">NIV vs. Intubation — CO₂-Narkose</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b">
+        <li><strong>NIV:</strong> pH &lt; 7,35 + pCO₂ &gt; 45, GCS ≥ 8, keine KI → CO₂ senken, Intubation vermeiden</li>
+        <li><strong>Intubation:</strong> pH &lt; 7,25 trotz NIV, GCS &lt; 8, Atemmuskelermüdung, Instabilität</li>
+      </ul>
+        <div class="callout critical"><span class="lab">▲ CO₂-Narkose (Mainz-Fall)</span>COPD, GCS 8 durch zu viel O₂, pCO₂ 60 → <strong>nicht reflexartig intubieren, erst NIV</strong>. Unkontrolliertes O₂ nimmt den hypoxischen Atemantrieb → CO₂ ↑.</div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ KP-PERLEN ============ -->
+  <section class="panel" data-panel="perlen">
+    <p class="panel-intro">Acht Sätze, die in der Prüfung gewinnen.</p>
+    <div class="pearl"><div class="ph">⭐ Perle 1 · CO₂-Narkose</div><div class="pt"><strong>Bei chronischer Hyperkapnie kein unkontrolliertes O₂</strong> — Ziel-SpO₂ 88–92 %. Zu viel O₂ dämpft den Atemantrieb → CO₂-Narkose. <em>Die</em> Mainz-Lieblingsfalle.</div><div class="mn"><b>Merke:</b> 88–92 — niemals Vollgas-Sauerstoff</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 2 · NIV vor Intubation</div><div class="pt">Hyperkapnische Azidose (pH &lt; 7,35, pCO₂ &gt; 45) → <strong>erst NIV</strong>. Intubation erst bei pH &lt; 7,25 oder GCS &lt; 8.</div><div class="mn"><b>Merke:</b> Maske vor Tubus</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 3 · Tiffeneau &lt; 70 %</div><div class="pt"><strong>Obstruktion = Tiffeneau-Index (FEV₁/VC) &lt; 70 %</strong>, irreversibel (kein Ansprechen im Bronchospasmolysetest — anders als Asthma).</div><div class="mn"><b>Merke:</b> Unter 70 = obstruktiv</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 4 · AECOPD-Trio</div><div class="pt"><strong>SABA + SAMA + Prednisolon</strong> ist die Basis jeder Exazerbation. Antibiotika nur bei Infektzeichen.</div><div class="mn"><b>Merke:</b> Inhalieren + Cortison, AB nur wenn eitrig</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 5 · ABE statt GOLD-Buchstaben</div><div class="pt">Therapie heute nach <strong>ABE-Gruppen</strong> (Symptome + Exazerbationen). GOLD 1–4 (FEV₁) nur noch zur Schwere-Beschreibung.</div><div class="mn"><b>Merke:</b> A wenig, B viel Symptom, E Exazerbationen</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 6 · LAMA/LABA-Basis</div><div class="pt">Dauertherapie: <strong>LAMA und/oder LABA</strong>. ICS erst bei häufigen Exazerbationen / Eosinophilie dazu — nicht primär (anders als Asthma!).</div><div class="mn"><b>Merke:</b> COPD = Anticholinergikum zuerst, ICS spät</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 7 · LTOT senkt Mortalität</div><div class="pt">Bei chronischer Hypoxämie (pO₂ &lt; 60 mmHg in Ruhe): <strong>Langzeit-O₂-Therapie ≥ 16 h/Tag</strong> — eine der wenigen mortalitätssenkenden Maßnahmen (neben Rauchstopp).</div><div class="mn"><b>Merke:</b> 16 Stunden O₂ verlängern das Leben</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 8 · Cor pulmonale</div><div class="pt">Hypoxie → pulmonale Vasokonstriktion (Euler-Liljestrand) → pulmonale Hypertonie → <strong>Rechtsherzbelastung (Cor pulmonale)</strong>. Klassische Spätkomplikation.</div><div class="mn"><b>Merke:</b> Lunge eng → rechtes Herz müde</div></div>
+  </section>
+
+  <!-- ============ PROTOKOLLE ============ -->
+  <section class="panel" data-panel="protokoll">
+    <p class="panel-intro">Generalprobe an zwei dokumentierten Mainz-Fällen (Innere/Notfall). Jede Frage einzeln laut beantworten, dann aufdecken.</p>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · Fall 74 · 27.07.2024</span><span>Dr. Lakmann (Innere)</span><span class="pk-badge">CO₂-Narkose</span></div>
+      <div class="pk-akte"><span class="lab">Fall</span>50-jähriger Patient mit COPD GOLD 4, dazu Pneumonie, Sepsis und Nierenversagen; Begleiterkrankungen Vorhofflimmern und Diabetes mellitus Typ 2.</div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">Erklären Sie die Pathophysiologie der respiratorischen Azidose bei COPD.</div><details class="reveal"><summary>Antwort</summary><div class="ans">Obstruktion + Lungenüberblähung → gestörte Ventilation → CO₂ wird nicht ausreichend abgeatmet (alveoläre Hypoventilation) → pCO₂ ↑ → pH ↓ = respiratorische Azidose. Chronisch kompensiert die Niere mit HCO₃⁻-Retention (pH fast normal, HCO₃⁻ ↑).</div></details></div>
+      <div class="pq"><div class="pq-frage">COPD-Patient mit CO₂-Narkose (pCO₂ 60, GCS 8) — was tun Sie?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Nicht sofort intubieren — zunächst nicht-invasive Beatmung (NIV) zur CO₂-Reduktion. Zu viel O₂ hat bei chronischer Hyperkapnie den hypoxischen Atemantrieb gedämpft. Ziel-SpO₂ 88–92 %, BGA-Kontrolle; Intubation erst bei NIV-Versagen (pH &lt; 7,25, anhaltend GCS &lt; 8, Erschöpfung).</div></details></div>
+      <div class="pq"><div class="pq-frage">Stadieneinteilung nach GOLD und Therapie bei GOLD 4?</div><details class="reveal"><summary>Antwort</summary><div class="ans">GOLD 1–4 nach FEV₁ (Tiffeneau immer &lt; 70 %): ≥ 80 / 50–79 / 30–49 / &lt; 30 %. Therapierelevant sind die ABE-Gruppen. GOLD 4: maximale inhalative Therapie (Triple LABA + LAMA + ICS), LTOT bei Hypoxämie, Reha, + Roflumilast bei chronischer Bronchitis.</div></details></div>
+      <div class="pq"><div class="pq-frage">Behandlung einer COPD-Exazerbation?</div><details class="reveal"><summary>Antwort</summary><div class="ans">SABA + SAMA inhalativ + Prednisolon 40 mg p.o. für 5 Tage + O₂ mit Ziel 88–92 %. Antibiotika nur bei Infektzeichen (1. Wahl Amoxicillin/Clavulansäure). Bei hyperkapnischer Azidose NIV.</div></details></div>
+      <div class="pq"><div class="pq-frage">Typische Pneumonie-Erreger beim COPD-Patienten?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Häufig Haemophilus influenzae, Streptococcus pneumoniae, Moraxella catarrhalis. Bei schwerer COPD auch Pseudomonas, Klebsiella, S. aureus. Nosokomial: MRSA, ESBL-Keime, Acinetobacter.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · Fall 63 · 25.11.2023</span><span>Dr. Linke (Innere, Vorsitz)</span><span class="pk-badge">AECOPD + NIV</span></div>
+      <div class="pk-akte"><span class="lab">Fall</span>Patientin mit exazerbierter COPD, respiratorischer Insuffizienz und Vigilanzminderung. CO₂-Narkose, NIV-Versuch ohne Erfolg → Intubation. Zusätzlich Sepsis mit zwei Quellen: respiratorisch (COPD-Exazerbation) und HWI mit ESBL-produzierenden E. coli.</div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">Wie behandeln Sie die akute Exazerbation (AECOPD)?</div><details class="reveal"><summary>Antwort</summary><div class="ans">ABCDE, SpO₂-Ziel 88–92 %, BGA + EKG + Röntgen. Bronchodilatatoren SABA + SAMA (Salbutamol 2,5 mg / Ipratropium 0,5 mg vernebelt) + systemische Glukokortikoide (Prednisolon 40 mg p.o. 5 Tage). Antibiotika nur bei Infektverdacht (Amoxi/Clav oder Doxycyclin; Pseudomonas → Pip/Tazo oder Levofloxacin). Bei Hyperkapnie NIV.</div></details></div>
+      <div class="pq"><div class="pq-frage">Wann NIV, wann Intubation?</div><details class="reveal"><summary>Antwort</summary><div class="ans">NIV bei hyperkapnischer respiratorischer Azidose: pH &lt; 7,35 + pCO₂ &gt; 45, GCS ≥ 8, keine Kontraindikationen. Intubation bei pH &lt; 7,25 trotz NIV, GCS &lt; 8 / CO₂-Narkose, Ermüdung der Atemmuskulatur, hämodynamischer Instabilität.</div></details></div>
+    </div>
+  </section>
+
+  <footer>
+    R3 · COPD · Diagnostischer Durchlauf (3 von 5). Aus R2 aufgebaut — produce-only: Retrieval = Synthese (Bullet-Format), Schnellfragen = atomar, Protokolle = dokumentierte Mainz-Fälle. Inhalt + Perlen wortgleich aus R2 (Stex Lernkarten + Vorbereitung zur KB). Protokolle: Fall 74 (Dr. Lakmann, 27.07.2024) + Fall 63 (Dr. Linke, 25.11.2023). Zwei-Pass-Logik: kalt testen + bewerten → nur Lücken öffnen → Protokolle als Generalprobe. R4 = adaptive Wiederholung der Lücken, R5 = Prüfungssimulation. Bewertung wird nicht gespeichert.
+  </footer>
+
+
+</div>
+<script>
+  const tabs = [...document.querySelectorAll('.tab')];
+  const panels = [...document.querySelectorAll('.panel')];
+  function showTab(name){
+    tabs.forEach(x=>x.classList.toggle('active', x.dataset.tab===name));
+    panels.forEach(p=>p.classList.toggle('active', p.dataset.panel===name));
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  tabs.forEach(t=>t.addEventListener('click',()=>showTab(t.dataset.tab)));
+
+  // ---- scoring state ----
+  const scores = {};                 // {p1:'sicher'|'lueckenhaft'|'gefehlt'}
+  const CONTENT = ['grundlagen','klinik','diagnostik','therapie'];
+  const promptStations = {};
+  document.querySelectorAll('.rt').forEach(rt=>{
+    promptStations[rt.dataset.id] = (rt.dataset.stations||'').split(' ').filter(Boolean);
+  });
+
+  function recompute(){
+    let ok=0,gap=0,miss=0;
+    Object.values(scores).forEach(v=>{ if(v==='sicher')ok++; else if(v==='lueckenhaft')gap++; else if(v==='gefehlt')miss++; });
+    document.getElementById('n-ok').textContent=ok;
+    document.getElementById('n-gap').textContent=gap;
+    document.getElementById('n-miss').textContent=miss;
+    document.getElementById('n-done').textContent=Object.keys(scores).length;
+    // station status
+    CONTENT.forEach(st=>{
+      const related = Object.keys(promptStations).filter(p=>promptStations[p].includes(st));
+      const scored = related.filter(p=>scores[p]);
+      const flagged = related.some(p=>scores[p]==='lueckenhaft'||scores[p]==='gefehlt');
+      const allOk = related.length && scored.length===related.length && !flagged;
+      const tab = tabs.find(t=>t.dataset.tab===st);
+      tab.classList.remove('flag-gap','flag-ok');
+      const b = tab.querySelector('.badge');
+      if(flagged){ tab.classList.add('flag-gap'); b.textContent='Lücke'; }
+      else if(allOk){ tab.classList.add('flag-ok'); b.textContent='✓'; }
+      else { b.textContent=''; }
+    });
+  }
+
+  document.querySelectorAll('.rt .score').forEach(scoreBox=>{
+    const rt = scoreBox.closest('.rt');
+    scoreBox.querySelectorAll('.sbtn').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        const v = btn.dataset.v;
+        scores[rt.dataset.id] = v;
+        rt.dataset.score = v;
+        scoreBox.querySelectorAll('.sbtn').forEach(b=>b.classList.toggle('on', b===btn));
+        recompute();
+        const status=document.getElementById('status');
+        const flaggedNow=tabs.filter(t=>t.classList.contains('flag-gap')).length;
+        if(Object.keys(scores).length===5){
+          status.textContent = flaggedNow ? 'Pass 1 fertig. „Nur Lücken öffnen" springt zu den '+flaggedNow+' markierten Stationen.' : 'Alles sicher in Pass 1 — direkt zur Generalprobe (Protokolle).';
+        } else {
+          status.textContent = (5-Object.keys(scores).length)+' Prompt(s) noch zu bewerten.';
+        }
+      });
+    });
+  });
+
+  // ---- two-pass: open only gaps ----
+  document.getElementById('open-gaps').addEventListener('click',()=>{
+    const flagged = CONTENT.filter(st=>tabs.find(t=>t.dataset.tab===st).classList.contains('flag-gap'));
+    const status=document.getElementById('status');
+    if(!Object.keys(scores).length){ status.textContent='Erst Pass 1 bewerten — dann zeige ich dir die Lücken.'; return; }
+    if(!flagged.length){
+      // all clear -> capstone
+      panels.forEach(p=>{ if(CONTENT.includes(p.dataset.panel)) p.querySelectorAll('.card').forEach(c=>c.open=false); });
+      showTab('protokoll'); status.textContent='Keine Lücken — auf zur Generalprobe.'; return;
+    }
+    // expand flagged stations, collapse the "sicher" ones
+    panels.forEach(p=>{
+      if(!CONTENT.includes(p.dataset.panel)) return;
+      const isGap = flagged.includes(p.dataset.panel);
+      p.querySelectorAll('.card').forEach(c=>{ c.open = isGap; });
+    });
+    showTab(flagged[0]);
+    status.textContent='Geöffnet: '+flagged.join(', ')+'. Der Rest bleibt zu.';
+  });
+
+  // ---- reset ----
+  document.getElementById('reset').addEventListener('click',()=>{
+    Object.keys(scores).forEach(k=>delete scores[k]);
+    document.querySelectorAll('.rt').forEach(rt=>{ rt.removeAttribute('data-score'); rt.querySelectorAll('.sbtn').forEach(b=>b.classList.remove('on')); });
+    document.querySelectorAll('.reveal[open]').forEach(d=>d.open=false);
+    recompute();
+    document.getElementById('status').textContent='Zurückgesetzt. Bewerte alle 5 Prompts, dann „Nur Lücken öffnen".';
+  });
+
+  recompute();
+</script>
+</body>
+</html>
