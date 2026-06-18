@@ -79,12 +79,13 @@
     <div class="eyebrow">EEG · Komplettskript</div>
     <h1>EEG<span class="accent">-Grundlagen</span></h1>
     <p class="subtitle">Die vier Wellen, der Grundrhythmus und der systematische Befund.</p>
-    <div class="meta"><span>~ 8 min</span><span>1 Kapitel</span></div>
+    <div class="meta"><span>~ 20 min</span><span>3 Kapitel</span></div>
   </header>
 
   <nav class="tabs">
     <button class="tab active" data-k="k1">L1 · Grundlagen</button>
     <button class="tab" data-k="k2">L2 · Epilepsie-Muster</button>
+    <button class="tab" data-k="k3">L3 · Anfallsmuster</button>
   </nav>
 
   <section class="chapter active" id="k1">
@@ -181,7 +182,64 @@
     </div>
   </section>
 
-  <footer>KP-Mainz Drills · EEG Komplettskript · L1 Grundlagen + L2 Epilepsie-Muster</footer>
+  <!-- KAPITEL 3: ANFALLSMUSTER -->
+  <section class="chapter" id="k3">
+    <div class="chapter-head"><span class="chapter-num">L3</span><span class="chapter-title">Generalisiert vs. fokal · Absencen</span></div>
+
+    <div class="card open"><div class="card-head"><div><span class="card-tag">★ Anker</span><div class="card-title">Anfallsklassifikation — der Beginn entscheidet</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <div class="callout key"><span class="callout-label">★ Merksatz</span><strong>Der Anfallsbeginn entscheidet: fokaler Beginn (eine Hemisphäre) vs. generalisierter Beginn (von Anfang an beide Hemisphären).</strong> Fokale Anfälle: mit oder ohne Bewusstseinsstörung; können sich ausbreiten.</div>
+        <table><thead><tr><th>Beginn</th><th>Beispiele</th><th>Bewusstsein</th></tr></thead><tbody>
+          <tr><td><strong>Fokal</strong></td><td>Temporallappen (Aura, Automatismen), motorisch fokal</td><td>erhalten oder gestört</td></tr>
+          <tr><td><strong>Generalisiert</strong></td><td>Absence, myoklonisch, tonisch-klonisch (Grand Mal)</td><td>meist gestört</td></tr>
+        </tbody></table>
+        <div class="callout fact"><span class="callout-label">⚙ Ausbreitung</span>Ein fokaler Anfall kann übergehen in einen <strong>fokal zu bilateral tonisch-klonischen Anfall</strong> (früher „sekundär generalisiert").</div>
+      </div></div>
+    </div>
+
+    <div class="card open"><div class="card-head"><div><span class="card-tag">★ EEG-Korrelat</span><div class="card-title">Generalisiert vs. fokal im EEG</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <div class="callout key"><span class="callout-label">★ Merksatz</span><strong>Generalisiert = bilateral synchrone Entladungen über beide Hemisphären. Fokal = umschriebene/regionale Spikes oder Sharp Waves</strong> (z. B. temporal), ggf. mit Ausbreitung.</div>
+        <table><thead><tr><th>Anfallstyp</th><th>EEG-Muster</th></tr></thead><tbody>
+          <tr><td><strong>Absence</strong></td><td>generalisierte <strong>3-Hz-Spike-Wave</strong></td></tr>
+          <tr><td><strong>Juvenile myoklonische Epilepsie</strong></td><td>generalisierte (Poly-)Spike-Wave, 4–6 Hz</td></tr>
+          <tr><td><strong>West-Syndrom (BNS)</strong></td><td>Hypsarrhythmie</td></tr>
+          <tr><td><strong>Lennox-Gastaut</strong></td><td>langsame Spike-Wave &lt; 2,5 Hz</td></tr>
+          <tr><td><strong>Fokal (Temporallappen)</strong></td><td>fokale Spikes/Sharp Waves temporal</td></tr>
+        </tbody></table>
+        <div class="callout warn"><span class="callout-label">⚙ iktal vs. interiktal</span>Zwischen den Anfällen (interiktal) können die ETP fehlen — ein normales Routine-EEG <strong>schließt eine Epilepsie nicht aus</strong>.</div>
+      </div></div>
+    </div>
+
+    <div class="card open"><div class="card-head"><div><span class="card-tag">★ Deep-Dive</span><div class="card-title">Absence — die 3-Hz-Spike-Wave</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <div class="callout key"><span class="callout-label">★ Merksatz</span><strong>Absence = generalisierte, bilateral synchrone, regelmäßige 3-Hz-Spike-Wave-Komplexe; abrupter Beginn und abruptes Ende, Dauer Sekunden.</strong> Klinik: kurze Bewusstseinspause (Innehalten, Lidflattern), kein Sturz, keine postiktale Phase.</div>
+        <ul>
+          <li><strong>Provokation:</strong> Hyperventilation (im EEG-Labor gezielt eingesetzt)</li>
+          <li>Kindliche Absence-Epilepsie (Peak 5–7 J.); DD juvenile Absence-Epilepsie</li>
+        </ul>
+        <div class="callout warn"><span class="callout-label">⚠ Therapie + Falle</span>Ethosuximid (1. Wahl bei reinen Absencen), alternativ Valproat (bei zusätzlich tonisch-klonischen Anfällen), Lamotrigin.<br>Cave: <strong>Carbamazepin, Phenytoin, Gabapentin können Absencen verschlechtern!</strong></div>
+      </div></div>
+    </div>
+
+    <div class="card open"><div class="card-head"><div><span class="card-tag">DD</span><div class="card-title">Abgrenzung + Prüfer-Reflex</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <div class="callout fact"><span class="callout-label">⚙ Absence vs. fokal-komplex</span><strong>Absence:</strong> kurz, abrupt, kein postiktales Defizit, 3-Hz-Spike-Wave.<br><strong>Fokal-komplex (Temporallappen):</strong> Aura, Automatismen, länger, postiktale Verwirrtheit, fokale Sharp Waves.</div>
+        <div class="qa">
+          <span class="q">Prüfer-Frage</span>
+          <div class="q-text">Wie unterscheiden Sie im EEG eine Absence von einem fokalen Anfall?</div>
+          <div class="a"><span class="a-label">Ideale Antwort</span><strong>Absence: generalisierte, bilateral synchrone 3-Hz-Spike-Wave.</strong> Fokaler Anfall: umschriebene/regionale Spikes oder Sharp Waves (z. B. temporal), ggf. mit Ausbreitung. Klinisch ist die Absence kurz und abrupt ohne postiktale Phase, der fokal-komplexe Anfall zeigt Aura, Automatismen und postiktale Verwirrtheit.</div>
+        </div>
+        <div class="qa">
+          <span class="q">Prüfer-Frage</span>
+          <div class="q-text">Welche Provokation nutzen Sie bei Verdacht auf Absencen, und welches Medikament wählen Sie?</div>
+          <div class="a"><span class="a-label">Ideale Antwort</span><strong>Hyperventilation</strong> provoziert die 3-Hz-Spike-Wave. <strong>Ethosuximid</strong> ist 1. Wahl bei reinen Absencen (sonst Valproat); Carbamazepin und Phenytoin meiden, da sie Absencen verschlechtern.</div>
+        </div>
+      </div></div>
+    </div>
+  </section>
+
+  <footer>KP-Mainz Drills · EEG Komplettskript · L1 Grundlagen + L2 Epilepsie-Muster + L3 Anfallsmuster</footer>
 </div>
 <script>
   const tabs = document.querySelectorAll('.tab');
