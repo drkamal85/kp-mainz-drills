@@ -68,6 +68,14 @@
   .qa .q-text { font-family: 'Fraunces', serif; font-style: italic; font-size: 15px; margin-bottom: 8px; }
   .qa .a { border-top: 1px dashed var(--rule); padding-top: 8px; font-size: 14.5px; }
   .qa .a-label { font-family: 'Manrope', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); display: block; margin-bottom: 4px; }
+  .bf-intro { font-family: 'Manrope', sans-serif; font-size: 13px; color: var(--ink-soft); margin-bottom: 10px; }
+  .bf { border: 1px solid var(--rule); border-radius: 8px; margin-bottom: 6px; background: var(--paper); }
+  .bf > summary { cursor: pointer; list-style: none; padding: 10px 14px; font-family: 'Manrope', sans-serif; font-size: 14.5px; font-weight: 600; color: var(--ink); }
+  .bf > summary::-webkit-details-marker { display: none; }
+  .bf > summary::before { content: "\25B8  "; color: var(--accent); font-weight: 700; }
+  .bf[open] > summary::before { content: "\25BE  "; }
+  .bf[open] > summary { border-bottom: 1px dashed var(--rule); }
+  .bf .bfa { padding: 9px 14px; font-family: 'Manrope', sans-serif; font-size: 14.5px; font-weight: 600; color: var(--key); }
   footer { margin-top: 50px; padding-top: 20px; border-top: 1px solid var(--rule); font-family: 'Manrope', sans-serif; font-size: 11.5px; color: var(--ink-soft); text-align: center; }
   @media (max-width: 600px) { .container { padding: 28px 16px 50px; } }
 </style>
@@ -79,7 +87,7 @@
     <div class="eyebrow">Echo · Komplettskript</div>
     <h1>Echo<span class="accent">kardiografie</span></h1>
     <p class="subtitle">Standardschnitte, dann die Herzinsuffizienz im Echo: EF, diastolische Dysfunktion, Wandbewegung.</p>
-    <div class="meta"><span>~ 15 min</span><span>2 Wochen</span></div>
+    <div class="meta"><span>~ 25 min</span><span>5 Wochen</span></div>
   </header>
 
   <nav class="tabs">
@@ -87,6 +95,7 @@
     <button class="tab" data-k="k2">Woche 2 · Herzinsuffizienz</button>
     <button class="tab" data-k="k3">Woche 3 · Klappenvitien</button>
     <button class="tab" data-k="k4">Woche 4 · Notfall-Echo</button>
+    <button class="tab" data-k="k5">Woche 5 · Vollintegration</button>
   </nav>
 
   <section class="chapter active" id="k1">
@@ -284,7 +293,78 @@
     </div>
   </section>
 
-  <footer>KP-Mainz Drills · Echo Komplettskript · Wk1 Schnitte + Wk2 Herzinsuffizienz + Wk3 Klappenvitien + Wk4 Notfall-Echo</footer>
+  <!-- WOCHE 5: VOLLINTEGRATION -->
+  <section class="chapter" id="k5">
+    <div class="chapter-head"><span class="chapter-num">W5</span><span class="chapter-title">Vollintegration — Fälle &amp; Befund</span></div>
+
+    <div class="card open"><div class="card-head"><div><span class="card-tag">★ Anker</span><div class="card-title">Strukturierte Befundbeschreibung</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <div class="callout key"><span class="callout-label">★ Merksatz</span><strong>Immer in derselben Reihenfolge befunden — von innen nach außen: LV → RV → Vorhöfe → Klappen → Perikard → große Gefäße → Beurteilung.</strong></div>
+        <table><thead><tr><th>Struktur</th><th>Was beschreiben</th></tr></thead><tbody>
+          <tr><td><strong>Linker Ventrikel</strong></td><td>Größe, Wanddicke, EF (global), regionale Wandbewegung, diastolische Funktion</td></tr>
+          <tr><td><strong>Rechter Ventrikel</strong></td><td>Größe, Funktion (TAPSE), geschätzter PAPsys</td></tr>
+          <tr><td><strong>Vorhöfe</strong></td><td>LA / RA Größe</td></tr>
+          <tr><td><strong>Klappen</strong></td><td>je Klappe: Morphologie + Stenose/Insuffizienz mit Schweregrad</td></tr>
+          <tr><td><strong>Perikard</strong></td><td>Erguss? (zirkulär, Tamponadezeichen)</td></tr>
+          <tr><td><strong>Große Gefäße / V. cava</strong></td><td>Aortenwurzel; V. cava inferior + Atemkollaps (Volumenstatus / RA-Druck)</td></tr>
+        </tbody></table>
+        <div class="callout fact"><span class="callout-label">⚙ Klappen immer mit Folge</span>Stenose = Klappe geht nicht auf → Druckbelastung.<br>Insuffizienz = Klappe schließt nicht → Volumenbelastung.</div>
+      </div></div>
+    </div>
+
+    <div class="card open"><div class="card-head"><div><span class="card-tag">★ Fall 1 · Dyspnoe + Ödeme</span><div class="card-title">Belastungsdyspnoe, gestaute Halsvenen</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <div class="callout key"><span class="callout-label">★ Befund</span><strong>LV dilatiert, global hypokinetisch, EF ~ 30 % (schwergradig reduziert); funktionelle Mitralinsuffizienz; V. cava gestaut, kein Atemkollaps.</strong></div>
+        <div class="callout fact"><span class="callout-label">⚙ Diagnose + Konsequenz</span>HFrEF (systolische Herzinsuffizienz).<br>EF ≤ 35 % trotz Therapie → ICD; zusätzlich LSB/breiter QRS → CRT.</div>
+      </div></div>
+    </div>
+
+    <div class="card open"><div class="card-head"><div><span class="card-tag">★ Fall 2 · Synkope</span><div class="card-title">Raues Systolikum, Belastungssynkope</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <div class="callout key"><span class="callout-label">★ Befund</span><strong>Verkalkte, schlecht öffnende Aortenklappe; hoher Druckgradient + kleine Klappenöffnungsfläche; konzentrische LV-Hypertrophie (Druckbelastung).</strong></div>
+        <div class="callout fact"><span class="callout-label">⚙ Diagnose + DD</span>Hochgradige Aortenklappenstenose (Trias: Angina, Synkope, Dyspnoe) → Klappenersatz/TAVI.<br>DD HOCM: dynamische Obstruktion + SAM statt verkalkter Klappe.</div>
+      </div></div>
+    </div>
+
+    <div class="card open"><div class="card-head"><div><span class="card-tag">★ Fall 3 · Hypotonie</span><div class="card-title">Dyspnoe + Schock</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <div class="callout key"><span class="callout-label">★ Befund</span><strong>Zirkulärer Perikarderguss; diastolischer Kollaps des rechten Vorhofs/Ventrikels; dilatierte, nicht atemkollabierende V. cava; „swinging heart".</strong></div>
+        <div class="callout warn"><span class="callout-label">⚠ Diagnose + Notfall</span>Perikardtamponade. Beck-Trias: Hypotonie, gestaute Halsvenen, leise Herztöne → <strong>sofortige Perikardpunktion</strong>.</div>
+      </div></div>
+    </div>
+
+    <div class="card open"><div class="card-head"><div><span class="card-tag">★ Fall 4 · akute Dyspnoe</span><div class="card-title">Tachykardie, V. a. Lungenembolie</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <div class="callout key"><span class="callout-label">★ Befund</span><strong>Dilatierter, hypokinetischer rechter Ventrikel; abgeflachtes Septum (D-Sign); TAPSE ↓; PAPsys ↑; spitzenschonende RV-Hypokinesie (McConnell-Zeichen).</strong></div>
+        <div class="callout fact"><span class="callout-label">⚙ Diagnose</span>Akute Rechtsherzbelastung — bei passender Klinik V. a. Lungenembolie (Echo stützt, CT-Angiografie sichert). Bei Instabilität → Lyse.</div>
+      </div></div>
+    </div>
+
+    <div class="card open"><div class="card-head"><div><span class="card-tag">★ Fall 5 · Fieber</span><div class="card-title">Neues Herzgeräusch</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <div class="callout key"><span class="callout-label">★ Befund</span><strong>Flottierende Vegetation an einer Klappe (meist Mitral-/Aortenklappe); neue/zunehmende Klappeninsuffizienz; ggf. paravalvulärer Abszess.</strong></div>
+        <div class="callout fact"><span class="callout-label">⚙ Diagnose</span>Infektiöse Endokarditis (Duke-Kriterien); TEE ist sensitiver als TTE. Blutkulturen + Antibiotika; OP bei Herzinsuffizienz, großer Vegetation oder Abszess.</div>
+      </div></div>
+    </div>
+
+    <div class="card"><div class="card-head"><div><span class="card-tag">★ Blitz · Rapid-Fire</span><div class="card-title">Echo-Befund → Diagnose</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <div class="bf-intro">Befund sehen, Diagnose laut sagen — dann aufdecken. Tempo.</div>
+        <details class="bf"><summary>LV global hypokinetisch, EF 30 %?</summary><div class="bfa">HFrEF (systolische Herzinsuffizienz)</div></details>
+        <details class="bf"><summary>Regionale Wandbewegungsstörung (einem Gefäß zuzuordnen)?</summary><div class="bfa">Z. n. Myokardinfarkt / KHK</div></details>
+        <details class="bf"><summary>EF normal + diastolische Dysfunktion + NT-proBNP ↑?</summary><div class="bfa">HFpEF (diastolische Herzinsuffizienz)</div></details>
+        <details class="bf"><summary>Verkalkte Aortenklappe + hoher Gradient + LV-Hypertrophie?</summary><div class="bfa">hochgradige Aortenklappenstenose</div></details>
+        <details class="bf"><summary>Septum &gt; 13 mm + SAM + dynamische Obstruktion?</summary><div class="bfa">HOCM</div></details>
+        <details class="bf"><summary>Zirkulärer Erguss + diastolischer RV-Kollaps?</summary><div class="bfa">Perikardtamponade</div></details>
+        <details class="bf"><summary>Dilatierter RV + D-Sign + TAPSE ↓?</summary><div class="bfa">akute Rechtsherzbelastung (Lungenembolie)</div></details>
+        <details class="bf"><summary>Flottierende Klappenvegetation + neue Insuffizienz?</summary><div class="bfa">infektiöse Endokarditis</div></details>
+        <details class="bf"><summary>V. cava dilatiert ohne Atemkollaps?</summary><div class="bfa">erhöhter RA-Druck / Rechtsherzstauung</div></details>
+        <details class="bf"><summary>Klappe geht nicht auf — bzw. schließt nicht?</summary><div class="bfa">Stenose (Druckbelastung) — bzw. Insuffizienz (Volumenbelastung)</div></details>
+      </div></div>
+    </div>
+  </section>
+
+  <footer>KP-Mainz Drills · Echo Komplettskript · Wk1 Schnitte + Wk2 Herzinsuffizienz + Wk3 Klappenvitien + Wk4 Notfall-Echo + Wk5 Vollintegration</footer>
 </div>
 <script>
   const tabs = document.querySelectorAll('.tab');
