@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pneumonie · R3 Review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F7F4EE; --card:#FFFDF8; --ink:#2A2724; --muted:#6B6358; --line:#E7E0D4;
+    --grundlagen:#C0392B; --grundlagen-t:#F7E9E6;
+    --klinik:#D97706;     --klinik-t:#FBEEDD;
+    --diagnostik:#1E5F9E; --diagnostik-t:#E4EDF6;
+    --therapie:#2D7A3E;   --therapie-t:#E5F0E7;
+    --fragen:#7B3F9E;     --fragen-t:#F0E8F6;
+    --perlen:#B8860B;     --perlen-t:#F8F0D9;
+    --retrieval:#0F766E;  --retrieval-t:#E0F0EE;
+    --protokoll:#334155;  --protokoll-t:#E8EBF0;
+    --ok:#2D7A3E; --gap:#D97706; --miss:#C0392B;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:'Manrope',system-ui,sans-serif;
+    font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased;padding:0 18px 80px}
+  .wrap{max-width:860px;margin:0 auto}
+
+  header{padding:54px 0 22px}
+  .eyebrow{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--retrieval);margin-bottom:16px}
+  h1{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(34px,7vw,52px);line-height:1.04;letter-spacing:-.01em}
+  h1 .accent{font-style:italic;color:var(--grundlagen)}
+  .subtitle{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(17px,2.6vw,20px);color:var(--muted);margin-top:14px}
+  .meta{display:flex;flex-wrap:wrap;gap:6px 0;margin-top:20px;font-size:13px;color:var(--muted);font-weight:500}
+  .meta span:not(:last-child)::after{content:"•";margin:0 10px;color:var(--line);font-weight:700}
+
+
+  .tabs{display:flex;flex-wrap:wrap;gap:8px;position:sticky;top:0;z-index:30;background:linear-gradient(var(--bg) 72%,rgba(247,244,238,0));padding:12px 0 14px;margin-bottom:6px}
+  .tab{position:relative;font-size:13px;font-weight:600;border:1px solid var(--line);background:var(--card);color:var(--muted);padding:8px 15px;border-radius:999px;cursor:pointer;transition:all .15s;white-space:nowrap}
+  .tab:hover{border-color:#cfc6b6}
+  .tab.active{color:#fff;border-color:transparent}
+  .tab[data-c=retrieval].active{background:var(--retrieval)}
+  .tab[data-c=grundlagen].active{background:var(--grundlagen)}
+  .tab[data-c=klinik].active{background:var(--klinik)}
+  .tab[data-c=diagnostik].active{background:var(--diagnostik)}
+  .tab[data-c=therapie].active{background:var(--therapie)}
+  .tab[data-c=fragen].active{background:var(--fragen)}
+  .tab[data-c=perlen].active{background:var(--perlen)}
+  .tab[data-c=protokoll].active{background:var(--protokoll)}
+  .tab .badge{display:none;margin-left:7px;font-size:10px;font-weight:800;padding:1px 6px;border-radius:999px;vertical-align:middle}
+  .tab.flag-gap .badge{display:inline-block;background:var(--gap);color:#fff}
+  .tab.flag-ok .badge{display:inline-block;background:var(--ok);color:#fff}
+  .tab.active .badge{background:rgba(255,255,255,.28)!important;color:#fff}
+
+  .panel{display:none;animation:fade .25s ease}
+  .panel.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+  .panel-intro{font-family:'Fraunces',serif;font-style:italic;font-size:17px;color:var(--muted);margin:6px 0 18px;line-height:1.5}
+
+  /* ---- control bar (Pass 1 instrument) ---- */
+  .ctrl{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:14px 16px;margin-bottom:20px}
+  .ctrl-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+  .tally{font-size:13px;font-weight:700;display:flex;gap:12px;flex-wrap:wrap}
+  .tally i{font-style:normal;display:inline-flex;align-items:center;gap:5px}
+  .tally i::before{content:"";width:9px;height:9px;border-radius:50%}
+  .tally .t-ok::before{background:var(--ok)} .tally .t-gap::before{background:var(--gap)} .tally .t-miss::before{background:var(--miss)}
+  .spacer{flex:1 1 auto}
+  .btn{font-family:'Manrope';font-size:12.5px;font-weight:700;border:none;border-radius:999px;padding:9px 16px;cursor:pointer;transition:.15s}
+  .btn-primary{background:var(--retrieval);color:#fff}
+  .btn-primary:hover{filter:brightness(1.06)}
+  .btn-ghost{background:transparent;color:var(--muted);border:1px solid var(--line)}
+  .btn-ghost:hover{border-color:#cfc6b6}
+  .ctrl-status{margin-top:11px;font-size:13px;font-style:italic;color:var(--retrieval);min-height:18px}
+
+  /* ---- retrieval prompt ---- */
+  .rt{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:14px;transition:border-color .2s}
+  .rt[data-score=sicher]{border-left-color:var(--ok)}
+  .rt[data-score=lueckenhaft]{border-left-color:var(--gap)}
+  .rt[data-score=gefehlt]{border-left-color:var(--miss)}
+  .rt-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:8px}
+  .rt-n{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--retrieval)}
+  .rt-right{display:flex;align-items:center;gap:10px;white-space:nowrap}
+  .rt-ptr{font-size:11px;font-weight:600;color:var(--muted)}
+  .rt-q{font-size:15.5px;line-height:1.55}
+  .reveal{margin-top:12px;border-top:1px dashed var(--line);padding-top:0}
+  .reveal>summary{list-style:none;cursor:pointer;font-size:12.5px;font-weight:800;letter-spacing:.04em;color:var(--retrieval);padding:11px 0 0;user-select:none;display:inline-flex;align-items:center;gap:6px}
+  .reveal>summary::-webkit-details-marker{display:none}
+  .reveal>summary::before{content:"▸";transition:transform .2s;display:inline-block}
+  .reveal[open]>summary::before{transform:rotate(90deg)}
+  .reveal .ans{font-size:14.5px;line-height:1.6;color:#3c372f;padding-top:10px}
+  .reveal .ans b{color:var(--ink)}
+  .reveal .ans ul{list-style:none;padding-left:2px;margin:2px 0 0}
+  .reveal .ans li{position:relative;padding-left:18px;margin-bottom:8px;line-height:1.5}
+  .reveal .ans>ul>li::before{content:"";position:absolute;left:2px;top:8px;width:6px;height:6px;border-radius:50%;background:var(--retrieval)}
+  .reveal .ans li ul{margin:7px 0 2px}
+  .reveal .ans li li{padding-left:16px;margin-bottom:5px;font-size:13.8px;color:#4a443c}
+  .reveal .ans li li::before{content:"";position:absolute;left:0;top:7px;width:5px;height:5px;transform:rotate(45deg);background:#b9b0a1}
+  .score{display:flex;gap:7px;margin-top:12px;padding-top:11px;border-top:1px solid var(--line)}
+  .sbtn{flex:1;font-size:12px;font-weight:700;border:1px solid var(--line);background:var(--bg);color:var(--muted);border-radius:8px;padding:7px 4px;cursor:pointer;transition:.12s}
+  .sbtn:hover{border-color:#cfc6b6}
+  .sbtn[data-v=sicher].on{background:var(--ok);color:#fff;border-color:transparent}
+  .sbtn[data-v=lueckenhaft].on{background:var(--gap);color:#fff;border-color:transparent}
+  .sbtn[data-v=gefehlt].on{background:var(--miss);color:#fff;border-color:transparent}
+
+  /* ---- Schnellfragen ---- */
+  .sf-wrap{background:var(--retrieval-t);border:1px solid #BFE0DC;border-radius:13px;padding:18px 20px;margin-top:24px}
+  .sf-wrap h3{font-family:'Fraunces',serif;font-weight:500;font-size:20px;margin-bottom:3px}
+  .sf-wrap .sf-intro{font-size:13.5px;font-style:italic;color:#0c5d57;margin-bottom:14px}
+  .sf{border-bottom:1px solid #cfe4e1;padding:9px 0}
+  .sf:last-child{border-bottom:none}
+  .sf>summary{list-style:none;cursor:pointer;font-size:14.5px;font-weight:600;display:flex;justify-content:space-between;gap:10px;user-select:none}
+  .sf>summary::-webkit-details-marker{display:none}
+  .sf>summary::after{content:"+";color:var(--retrieval);font-weight:800}
+  .sf[open]>summary::after{content:"−"}
+  .sf .sfa{font-size:14px;color:#0c5d57;font-weight:700;padding-top:6px}
+
+  /* ---- content cards (v1) ---- */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:14px;overflow:hidden}
+  .card>summary{list-style:none;cursor:pointer;padding:18px 20px;display:flex;align-items:flex-start;gap:14px;user-select:none}
+  .card>summary::-webkit-details-marker{display:none}
+  .card .ct{flex:1}
+  .card .ctag{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:5px}
+  .card .ctitle{font-family:'Fraunces',serif;font-weight:500;font-size:17px;line-height:1.25}
+  .plus{flex:none;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:18px;line-height:1;transition:transform .2s;margin-top:2px}
+  .card[open] .plus{transform:rotate(45deg)}
+  .card .body{padding:0 20px 20px;border-top:1px solid var(--line);margin-top:-2px;padding-top:16px}
+  .card.grundlagen .ctag{color:var(--grundlagen)} .card.grundlagen .plus{background:var(--grundlagen-t);color:var(--grundlagen)}
+  .card.klinik .ctag{color:var(--klinik)} .card.klinik .plus{background:var(--klinik-t);color:var(--klinik)}
+  .card.diagnostik .ctag{color:var(--diagnostik)} .card.diagnostik .plus{background:var(--diagnostik-t);color:var(--diagnostik)}
+  .card.therapie .ctag{color:var(--therapie)} .card.therapie .plus{background:var(--therapie-t);color:var(--therapie)}
+  .card.fragen .ctag{color:var(--fragen)} .card.fragen .plus{background:var(--fragen-t);color:var(--fragen)}
+  .card.perlen .ctag{color:var(--perlen)} .card.perlen .plus{background:var(--perlen-t);color:var(--perlen)}
+
+  ul.b{list-style:none;padding-left:2px}
+  ul.b>li{position:relative;padding-left:20px;margin-bottom:8px;line-height:1.55}
+  ul.b>li::before{content:"";position:absolute;left:2px;top:9px;width:7px;height:7px;border-radius:50%}
+  .grundlagen ul.b>li::before{background:var(--grundlagen)} .klinik ul.b>li::before{background:var(--klinik)}
+  .diagnostik ul.b>li::before{background:var(--diagnostik)} .therapie ul.b>li::before{background:var(--therapie)}
+  ul.b ul{list-style:none;padding-left:18px;margin-top:7px}
+  ul.b ul>li{position:relative;padding-left:18px;margin-bottom:6px;font-size:15px;color:#4a443c}
+  ul.b ul>li::before{content:"";position:absolute;left:0;top:7px;width:6px;height:6px;transform:rotate(45deg);background:#b9b0a1}
+  strong{font-weight:700;color:var(--ink)}
+
+  .callout{border-radius:11px;padding:13px 16px;margin:14px 0;font-size:14.5px;line-height:1.55;border-left:4px solid}
+  .callout .lab{font-weight:800;font-size:11px;letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .critical{background:var(--grundlagen-t);border-color:var(--grundlagen)} .critical .lab{color:var(--grundlagen)}
+  .warning{background:var(--klinik-t);border-color:var(--klinik)} .warning .lab{color:var(--klinik)}
+  .fact{background:var(--diagnostik-t);border-color:var(--diagnostik)} .fact .lab{color:var(--diagnostik)}
+
+  .dd{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+  .dd th,.dd td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+  .dd th{background:var(--diagnostik-t);font-weight:700;color:var(--diagnostik);font-size:12px}
+  .dd td:first-child{font-weight:600}
+
+  .pk{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:16px}
+  .pk-meta{display:flex;flex-wrap:wrap;gap:6px 0;font-size:11.5px;font-weight:700;color:var(--protokoll);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+  .pk-meta span:not(:last-child)::after{content:"•";margin:0 8px;color:#c3c9d2}
+  .pk-badge{display:inline-block;background:var(--therapie-t);color:var(--therapie);font-size:10.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:2px 9px;border-radius:999px;margin-left:auto}
+  .pk-akte{font-size:14.5px;line-height:1.58;background:var(--protokoll-t);border-radius:9px;padding:12px 14px;margin-bottom:12px}
+  .pk-akte .lab,.pk-q .lab{font-weight:800;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--protokoll);display:block;margin-bottom:5px}
+  .pk-q ul{list-style:none;padding:0}
+  .pk-q li{position:relative;padding-left:18px;margin-bottom:7px;font-size:14.5px;line-height:1.5}
+  .pk-q li::before{content:"–";position:absolute;left:0;color:var(--protokoll);font-weight:700}
+  .pq{border-top:1px solid var(--line);padding:10px 0}
+  .pq-frage{position:relative;padding-left:18px;font-size:14.5px;font-weight:600;line-height:1.5}
+  .pq-frage::before{content:"–";position:absolute;left:0;color:var(--protokoll);font-weight:700}
+  .pq .reveal{margin-top:5px;border-top:none;padding-top:0}
+  .pq .reveal>summary{padding:5px 0 0}
+
+  .pearl{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--perlen);border-radius:12px;padding:16px 18px;margin-bottom:13px}
+  .pearl .ph{font-weight:800;font-size:13px;color:var(--perlen);margin-bottom:7px}
+  .pearl .pt{font-size:15px;line-height:1.55}
+  .pearl .mn{margin-top:9px;background:var(--perlen-t);border-radius:8px;padding:8px 12px;font-size:13.5px;font-style:italic;color:#7a5c08}
+  .pearl .mn b{font-style:normal;font-weight:800}
+
+  footer{margin-top:40px;padding-top:22px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted);line-height:1.6}
+  .back{display:inline-block;font-family:Manrope,system-ui,sans-serif;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);text-decoration:none;margin-bottom:18px}
+  .back:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a href="../../index.html" class="back">← Zurück zur Library</a>
+
+  <header>
+    <div class="eyebrow">Pneumologie · R3 · Lesen &amp; laut üben</div>
+    <h1>Pneu<span class="accent">monie</span></h1>
+    <div class="subtitle">Vier Stationen, Perlen mit Rapid-Fire, echte Mainz-Fragen zum Sprechen.</div>
+    <div class="meta">
+      <span>R3 · Stationen + Perlen + echte Fragen</span>
+      <span>~12–15 Min</span>
+      <span>Stand 06/2026</span>
+      <span>Stex + Vorbereitung + Mainz-Protokolle</span>
+    </div>
+  </header>
+
+  <div class="tabs">
+    <button class="tab active" data-c="grundlagen" data-tab="grundlagen">Grundlagen<span class="badge"></span></button>
+    <button class="tab" data-c="klinik" data-tab="klinik">Klinik<span class="badge"></span></button>
+    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik<span class="badge"></span></button>
+    <button class="tab" data-c="therapie" data-tab="therapie">Therapie<span class="badge"></span></button>
+    <button class="tab" data-c="perlen" data-tab="perlen">KP-Perlen</button>
+    <button class="tab" data-c="protokoll" data-tab="protokoll">Fragen &amp; Protokolle</button>
+  </div>
+
+  <!-- ============ GRUNDLAGEN ============ -->
+  <section class="panel active" data-panel="grundlagen">
+    <p class="panel-intro">Lungenentzündung — die Einteilung nach Entstehungsort und Erreger trägt fast die ganze Prüfung. Erst laut, dann aufklappen.</p>
+    <details class="card grundlagen" open><summary><span class="ct"><span class="ctag">★ Anker</span><span class="ctitle">CAP vs. HAP</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <ul class="b"><li><strong>Pneumonie</strong> = Entzündung des Lungenparenchyms (Alveolen und/oder Interstitium)</li></ul>
+        <div class="callout fact"><span class="lab">★ Merksatz</span><strong>CAP</strong> = ambulant erworben.<br><strong>HAP</strong> = nosokomial, Symptombeginn ≥ 48 Stunden nach Krankenhausaufnahme.</div>
+      </div>
+    </details>
+    <details class="card grundlagen"><summary><span class="ct"><span class="ctag">★ Erreger</span><span class="ctitle">Wer macht welche Pneumonie</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <table class="dd"><tr><th>Gruppe</th><th>Erreger</th></tr>
+          <tr><td><strong>CAP typisch</strong></td><td>Pneumokokken (~50 %, häufigster), H. influenzae (COPD), Moraxella</td></tr>
+          <tr><td><strong>CAP atypisch</strong></td><td>Mykoplasmen (jung), Chlamydien, Legionellen; Viren</td></tr>
+          <tr><td><strong>HAP / nosokomial</strong></td><td>Pseudomonas, S. aureus (MRSA), Klebsiella</td></tr>
+          <tr><td><strong>Immunsupprimiert</strong></td><td>Pneumocystis jirovecii, Pilze</td></tr>
+        </table>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ KLINIK ============ -->
+  <section class="panel" data-panel="klinik">
+    <p class="panel-intro">Typisch oder atypisch — das Bild trennt die beiden schon klinisch.</p>
+    <details class="card klinik" open><summary><span class="ct"><span class="ctag">★ Anker</span><span class="ctitle">Typisch vs. atypisch</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <table class="dd"><tr><th></th><th>Typisch (Lobärpneumonie)</th><th>Atypisch (interstitiell)</th></tr>
+          <tr><td><strong>Erreger</strong></td><td>Pneumokokken</td><td>Mykoplasmen, Legionellen, Viren</td></tr>
+          <tr><td><strong>Beginn</strong></td><td>plötzlich</td><td>schleichend</td></tr>
+          <tr><td><strong>Fieber</strong></td><td>hoch</td><td>leicht</td></tr>
+          <tr><td><strong>Husten</strong></td><td>produktiv, gelblich</td><td>trocken</td></tr>
+        </table>
+      </div>
+    </details>
+    <details class="card klinik"><summary><span class="ct"><span class="ctag">Untersuchung</span><span class="ctitle">Perkussion + Auskultation</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">⚙ Befund über dem Infiltrat</span>Perkussion: <strong>gedämpfter (hyposonorer)</strong> Klopfschall.<br>Auskultation: <strong>feinblasige, klingende Rasselgeräusche</strong>, verstärkte Bronchophonie, Stimmfremitus ↑.</div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ DIAGNOSTIK ============ -->
+  <section class="panel" data-panel="diagnostik">
+    <p class="panel-intro">Das Infiltrat im Röntgen sichert die Diagnose, der CRB-65 lenkt die Aufnahme.</p>
+    <details class="card diagnostik" open><summary><span class="ct"><span class="ctag">★ Anker</span><span class="ctitle">Diagnose + Schweregrad</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Diagnosesicherung</span>Hauptkriterium: <strong>neues Infiltrat im Röntgen-Thorax (2 Ebenen)</strong>. Nebenkriterien: Fieber, Leukozytose, eitriger Auswurf, Erregernachweis.</div>
+        <div class="callout critical"><span class="lab">▲ CRB-65</span><strong>C</strong>onfusion · <strong>R</strong>espiratory rate ≥ 30 · <strong>B</strong>lood pressure &lt; 90/60 · <strong>65</strong> = Alter ≥ 65 (je 1 Punkt).<br>0 = ambulant · ≥ 1 = stationär · ≥ 2 = Komplikationsrisiko · ≥ 3 = Intensivstation.</div>
+      </div>
+    </details>
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Befunde</span><span class="ctitle">Röntgen + Erregersuche</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <ul class="b">
+          <li><strong>Röntgen:</strong> Lobärpneumonie (Flächenschatten + Aerobronchogramm) · Bronchopneumonie (fleckig) · interstitiell/retikulär (atypisch)</li>
+          <li><strong>Labor:</strong> Leukozytose, CRP ↑, PCT (bakteriell); BGA bei Dyspnoe</li>
+        </ul>
+        <div class="callout warning"><span class="lab">⚠ Vor der Antibiose</span><strong>Blutkulturen abnehmen</strong> (aerob + anaerob). Erregernachweis aus <strong>Sputum (nicht Speichel)</strong>; bei Verdacht Legionellen-Antigen im Urin.</div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ THERAPIE ============ -->
+  <section class="panel" data-panel="therapie">
+    <p class="panel-intro">Ambulant fängt mit Amoxicillin an; nach oben wird eskaliert. Sonderfälle separat.</p>
+    <details class="card therapie" open><summary><span class="ct"><span class="ctag">★ CAP-Antibiose</span><span class="ctitle">Die Memo-Treppe</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <table class="dd"><tr><th>Situation</th><th>Antibiotikum</th></tr>
+          <tr><td><strong>Ambulant, ohne Risiko</strong></td><td>Amoxicillin p.o.</td></tr>
+          <tr><td><strong>Ambulant, mit Risiko</strong></td><td>Amoxicillin/Clavulansäure (± Makrolid bei atypisch)</td></tr>
+          <tr><td><strong>Stationär, mittelschwer</strong></td><td>Ampicillin/Sulbactam i.v. + Makrolid</td></tr>
+          <tr><td><strong>Schwer</strong></td><td>Piperacillin/Tazobactam oder Ceftriaxon + Makrolid</td></tr>
+        </table>
+        <div class="callout fact"><span class="lab">⚙ Dauer</span>5–10 Tage. Penicillin-Allergie → Fluorchinolon (Levofloxacin). Nach <strong>Antibiogramm</strong> anpassen.</div>
+      </div>
+    </details>
+    <details class="card therapie"><summary><span class="ct"><span class="ctag">Sonderfälle</span><span class="ctitle">HAP · Aspiration · MRSA</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <ul class="b">
+          <li><strong>HAP / Pseudomonas:</strong> Piperacillin/Tazobactam (oder Meropenem)</li>
+          <li><strong>MRSA-Verdacht:</strong> zusätzlich Vancomycin oder Linezolid</li>
+          <li><strong>Aspiration:</strong> Ceftriaxon + <strong>Clindamycin</strong> (Anaerobier)</li>
+        </ul>
+        <div class="callout fact"><span class="lab">⚙ Begleitend + Prävention</span>Schonung, O₂ bei Hypoxie, Antipyretika, Flüssigkeit. Impfung: Pneumokokken + Influenza ab 60 J. Komplikationen: Begleiterguss/Pleuraempyem, Sepsis, respiratorische Insuffizienz.</div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ KP-PERLEN ============ -->
+  <section class="panel" data-panel="perlen">
+    <div class="pearl"><div class="ph">⭐ Perle 1 · 48-Stunden-Grenze</div><div class="pt"><strong>Tritt die Pneumonie ≥ 48 Stunden nach Krankenhausaufnahme auf, ist sie nosokomial (HAP)</strong> — sonst ambulant erworben (CAP). Das ändert die Antibiose komplett.</div><div class="mn"><b>Merke:</b> 48 h trennt ambulant von nosokomial</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 2 · Pneumokokken ~50 %</div><div class="pt"><strong>Häufigster CAP-Erreger sind Pneumokokken (ca. 50 %).</strong> Darum beginnt die ambulante Therapie mit einem Aminopenicillin.</div><div class="mn"><b>Merke:</b> CAP = Pneumokokken zuerst</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 3 · CRB-65 lenkt die Aufnahme</div><div class="pt"><strong>Der CRB-65 entscheidet ambulant vs. stationär:</strong> 0 Punkte ambulant, ab 1 Punkt stationär, ab 3 Intensivstation.</div><div class="mn"><b>Merke:</b> Score entscheidet ambulant vs. stationär</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 4 · Amoxicillin zuerst</div><div class="pt"><strong>Ambulante CAP ohne Risiko → Amoxicillin p.o.</strong> Mit Risiko Amoxicillin/Clavulansäure, bei atypischem Verdacht plus Makrolid.</div><div class="mn"><b>Merke:</b> Ambulant fängt mit Amoxi an</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 5 · Aspiration → Clindamycin</div><div class="pt"><strong>Bei einer Aspirationspneumonie an Anaerobier denken → Ceftriaxon plus Clindamycin.</strong></div><div class="mn"><b>Merke:</b> Aspiration = Anaerobier = Clindamycin</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 6 · typisch vs. atypisch</div><div class="pt"><strong>Typisch = Lobärpneumonie, plötzlich, produktiver Husten. Atypisch = interstitiell, schleichend, trockener Husten.</strong></div><div class="mn"><b>Merke:</b> Atypisch = trocken + interstitiell</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 7 · Legionellen im Urin</div><div class="pt"><strong>Bei Verdacht auf Legionellen (Hotel, Dusche, Whirlpool) das Legionellen-Antigen im Urin bestimmen.</strong></div><div class="mn"><b>Merke:</b> Hotel + Husten → Urin-Antigen</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 8 · Sputum, nicht Speichel</div><div class="pt"><strong>Erregernachweis aus echtem Sputum, nicht aus Speichel — und Blutkulturen vor der ersten Antibiotikagabe.</strong></div><div class="mn"><b>Merke:</b> Sputum sichern, dann anpassen</div></div>
+
+    <div class="sf-wrap">
+      <h3>Rapid-Fire</h3>
+      <div class="sf-intro">Atomare Einzelfakten — Ein-Wort-Abruf. Laut, sofort, dann aufdecken.</div>
+      <details class="sf"><summary>Pneumonie — was ist das?</summary><div class="sfa">Entzündung des Lungenparenchyms</div></details>
+      <details class="sf"><summary>CAP — Bedeutung?</summary><div class="sfa">ambulant erworbene Pneumonie</div></details>
+      <details class="sf"><summary>HAP — Bedeutung?</summary><div class="sfa">nosokomial, ≥ 48 h nach Aufnahme</div></details>
+      <details class="sf"><summary>Grenze CAP/HAP?</summary><div class="sfa">48 Stunden nach Aufnahme</div></details>
+      <details class="sf"><summary>Häufigster CAP-Erreger?</summary><div class="sfa">Pneumokokken (~50 %)</div></details>
+      <details class="sf"><summary>Atypische Erreger?</summary><div class="sfa">Mykoplasmen, Chlamydien, Legionellen</div></details>
+      <details class="sf"><summary>Typische Pneumonie — Husten?</summary><div class="sfa">produktiv, gelblicher Auswurf</div></details>
+      <details class="sf"><summary>Atypische — Husten?</summary><div class="sfa">trocken</div></details>
+      <details class="sf"><summary>Hauptkriterium der Diagnose?</summary><div class="sfa">neues Infiltrat im Röntgen (2 Ebenen)</div></details>
+      <details class="sf"><summary>Klopfschall über dem Infiltrat?</summary><div class="sfa">gedämpft (hyposonor)</div></details>
+      <details class="sf"><summary>Auskultation?</summary><div class="sfa">feinblasige, klingende Rasselgeräusche</div></details>
+      <details class="sf"><summary>Schweregrad-Score?</summary><div class="sfa">CRB-65</div></details>
+      <details class="sf"><summary>CRB-65 = 0?</summary><div class="sfa">ambulant</div></details>
+      <details class="sf"><summary>CRB-65 ≥ 1?</summary><div class="sfa">stationär</div></details>
+      <details class="sf"><summary>Vor der Antibiose unbedingt?</summary><div class="sfa">Blutkulturen abnehmen</div></details>
+      <details class="sf"><summary>Erregernachweis — Material?</summary><div class="sfa">Sputum (nicht Speichel)</div></details>
+      <details class="sf"><summary>Ambulante CAP — Antibiotikum?</summary><div class="sfa">Amoxicillin</div></details>
+      <details class="sf"><summary>Nosokomial / Pseudomonas?</summary><div class="sfa">Piperacillin/Tazobactam</div></details>
+      <details class="sf"><summary>Aspiration — Zusatz?</summary><div class="sfa">Clindamycin</div></details>
+    </div>
+  </section>
+
+  <!-- ============ FRAGEN & PROTOKOLLE ============ -->
+  <section class="panel" data-panel="protokoll">
+    <p class="panel-intro">Echte, dokumentierte Mainz-Prüfungsfragen. Die Antworten sind <strong>vollständige, einfache Sätze</strong> — genau so, wie du sie in der Prüfung laut sagst. Erst antworten, dann aufdecken; wiederholen, bis es sitzt.</p>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · Fall 36 · 05.07.2023</span><span>Dr. Regh (Innere, Vorsitz)</span><span class="pk-badge">Bestanden</span></div>
+      <div class="pk-akte"><span class="lab">Fall</span>Nosokomiale Pneumonie bei einem Patienten mit hochgradiger Aortenstenose, Hypertonie und Hypothyreose. Beidseitige Rasselgeräusche, CRP und Leukozyten erhöht, neues linksseitiges Infiltrat im Röntgen.</div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">Wie behandeln Sie eine nosokomiale Pneumonie?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich gebe ein Acylaminopenicillin mit einem Beta-Laktamase-Hemmer, zum Beispiel Piperacillin-Tazobactam, oder ein Cephalosporin der dritten Generation. Bei Verdacht auf MRSA kombiniere ich mit Vancomycin oder Linezolid.</div></details></div>
+      <div class="pq"><div class="pq-frage">Nennen Sie die qSOFA-Kriterien.</div><details class="reveal"><summary>Antwort</summary><div class="ans">Es sind drei Kriterien: getrübtes Bewusstsein, eine Atemfrequenz von mindestens 22 pro Minute und ein systolischer Blutdruck von höchstens 100. Ab zwei Punkten denke ich an eine Sepsis.</div></details></div>
+      <div class="pq"><div class="pq-frage">Wann nehmen Sie einen Patienten mit Pneumonie stationär auf?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Das richtet sich nach dem CRB-65-Score: Verwirrtheit, Atemfrequenz über 30, niedriger Blutdruck und Alter über 65. Schon ab einem Punkt nehme ich den Patienten stationär auf.</div></details></div>
+      <div class="pq"><div class="pq-frage">Ab wann antikoagulieren Sie bei Vorhofflimmern?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Das richtet sich nach dem CHA2DS2-VASc-Score: ab zwei Punkten beim Mann und ab drei Punkten bei der Frau.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · 06.03.2024</span><span>Dr. Laakmann (Innere)</span><span class="pk-badge">Bestanden</span></div>
+      <div class="pk-akte"><span class="lab">Fall</span>COPD-Patient, infekt-exazerbiert: Dyspnoe, Fieber seit fünf Tagen, Husten mit Auswurf, Sättigung 80 %, Vorhofflimmern im EKG, beidseits basale Infiltrate im Röntgen, Tiffeneau-Index 50 %.</div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">Was sehen Sie im Röntgen, und was bedeutet das?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich sehe beidseits basale Infiltrate. Zusammen mit Fieber, Husten und den hohen Entzündungswerten spricht das für eine Pneumonie.</div></details></div>
+      <div class="pq"><div class="pq-frage">Welche Erreger erwarten Sie, wenn der Patient zu Hause war?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Bei einer ambulant erworbenen Pneumonie vor allem Pneumokokken. Bei einem COPD-Patienten auch Haemophilus influenzae.</div></details></div>
+      <div class="pq"><div class="pq-frage">Ab wann spricht man von einer nosokomialen Pneumonie?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Wenn die Pneumonie mindestens 48 Stunden nach der Krankenhausaufnahme auftritt.</div></details></div>
+      <div class="pq"><div class="pq-frage">Was machen Sie unbedingt, bevor Sie Antibiotika geben?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich nehme Blutkulturen ab, aerob und anaerob.</div></details></div>
+      <div class="pq"><div class="pq-frage">Wonach richten Sie die Antibiotika dann?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Nach dem klinischen Zustand des Patienten und den Laborwerten, später nach dem Antibiogramm.</div></details></div>
+    </div>
+  </section>
+
+  <footer>
+    R3 · Pneumonie · Lesen &amp; laut üben. Stationen + KP-Perlen mit Rapid-Fire + echte, dokumentierte Mainz-Fragen (Fall 36 · Dr. Regh; 06.03.2024 · Dr. Laakmann). Antworten als vollständige, einfache Sätze zum Sprechen. Quelle: Stex Lernkarten (Elsevier) + Vorbereitung zur KB + Mainz-Protokolle.
+  </footer>
+
+
+
+</div>
+<script>
+  const tabs = [...document.querySelectorAll('.tab')];
+  const panels = [...document.querySelectorAll('.panel')];
+  function showTab(name){
+    tabs.forEach(x=>x.classList.toggle('active', x.dataset.tab===name));
+    panels.forEach(p=>p.classList.toggle('active', p.dataset.panel===name));
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  tabs.forEach(t=>t.addEventListener('click',()=>showTab(t.dataset.tab)));
+</script>
+</body>
+</html>
