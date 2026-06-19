@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pneumothorax · R3 Review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F7F4EE; --card:#FFFDF8; --ink:#2A2724; --muted:#6B6358; --line:#E7E0D4;
+    --grundlagen:#C0392B; --grundlagen-t:#F7E9E6;
+    --klinik:#D97706;     --klinik-t:#FBEEDD;
+    --diagnostik:#1E5F9E; --diagnostik-t:#E4EDF6;
+    --therapie:#2D7A3E;   --therapie-t:#E5F0E7;
+    --fragen:#7B3F9E;     --fragen-t:#F0E8F6;
+    --perlen:#B8860B;     --perlen-t:#F8F0D9;
+    --retrieval:#0F766E;  --retrieval-t:#E0F0EE;
+    --protokoll:#334155;  --protokoll-t:#E8EBF0;
+    --ok:#2D7A3E; --gap:#D97706; --miss:#C0392B;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:'Manrope',system-ui,sans-serif;
+    font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased;padding:0 18px 80px}
+  .wrap{max-width:860px;margin:0 auto}
+
+  header{padding:54px 0 22px}
+  .eyebrow{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--retrieval);margin-bottom:16px}
+  h1{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(34px,7vw,52px);line-height:1.04;letter-spacing:-.01em}
+  h1 .accent{font-style:italic;color:var(--grundlagen)}
+  .subtitle{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(17px,2.6vw,20px);color:var(--muted);margin-top:14px}
+  .meta{display:flex;flex-wrap:wrap;gap:6px 0;margin-top:20px;font-size:13px;color:var(--muted);font-weight:500}
+  .meta span:not(:last-child)::after{content:"•";margin:0 10px;color:var(--line);font-weight:700}
+
+
+  .tabs{display:flex;flex-wrap:wrap;gap:8px;position:sticky;top:0;z-index:30;background:linear-gradient(var(--bg) 72%,rgba(247,244,238,0));padding:12px 0 14px;margin-bottom:6px}
+  .tab{position:relative;font-size:13px;font-weight:600;border:1px solid var(--line);background:var(--card);color:var(--muted);padding:8px 15px;border-radius:999px;cursor:pointer;transition:all .15s;white-space:nowrap}
+  .tab:hover{border-color:#cfc6b6}
+  .tab.active{color:#fff;border-color:transparent}
+  .tab[data-c=retrieval].active{background:var(--retrieval)}
+  .tab[data-c=grundlagen].active{background:var(--grundlagen)}
+  .tab[data-c=klinik].active{background:var(--klinik)}
+  .tab[data-c=diagnostik].active{background:var(--diagnostik)}
+  .tab[data-c=therapie].active{background:var(--therapie)}
+  .tab[data-c=fragen].active{background:var(--fragen)}
+  .tab[data-c=perlen].active{background:var(--perlen)}
+  .tab[data-c=protokoll].active{background:var(--protokoll)}
+  .tab .badge{display:none;margin-left:7px;font-size:10px;font-weight:800;padding:1px 6px;border-radius:999px;vertical-align:middle}
+  .tab.flag-gap .badge{display:inline-block;background:var(--gap);color:#fff}
+  .tab.flag-ok .badge{display:inline-block;background:var(--ok);color:#fff}
+  .tab.active .badge{background:rgba(255,255,255,.28)!important;color:#fff}
+
+  .panel{display:none;animation:fade .25s ease}
+  .panel.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+  .panel-intro{font-family:'Fraunces',serif;font-style:italic;font-size:17px;color:var(--muted);margin:6px 0 18px;line-height:1.5}
+
+  /* ---- control bar (Pass 1 instrument) ---- */
+  .ctrl{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:14px 16px;margin-bottom:20px}
+  .ctrl-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+  .tally{font-size:13px;font-weight:700;display:flex;gap:12px;flex-wrap:wrap}
+  .tally i{font-style:normal;display:inline-flex;align-items:center;gap:5px}
+  .tally i::before{content:"";width:9px;height:9px;border-radius:50%}
+  .tally .t-ok::before{background:var(--ok)} .tally .t-gap::before{background:var(--gap)} .tally .t-miss::before{background:var(--miss)}
+  .spacer{flex:1 1 auto}
+  .btn{font-family:'Manrope';font-size:12.5px;font-weight:700;border:none;border-radius:999px;padding:9px 16px;cursor:pointer;transition:.15s}
+  .btn-primary{background:var(--retrieval);color:#fff}
+  .btn-primary:hover{filter:brightness(1.06)}
+  .btn-ghost{background:transparent;color:var(--muted);border:1px solid var(--line)}
+  .btn-ghost:hover{border-color:#cfc6b6}
+  .ctrl-status{margin-top:11px;font-size:13px;font-style:italic;color:var(--retrieval);min-height:18px}
+
+  /* ---- retrieval prompt ---- */
+  .rt{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:14px;transition:border-color .2s}
+  .rt[data-score=sicher]{border-left-color:var(--ok)}
+  .rt[data-score=lueckenhaft]{border-left-color:var(--gap)}
+  .rt[data-score=gefehlt]{border-left-color:var(--miss)}
+  .rt-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:8px}
+  .rt-n{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--retrieval)}
+  .rt-right{display:flex;align-items:center;gap:10px;white-space:nowrap}
+  .rt-ptr{font-size:11px;font-weight:600;color:var(--muted)}
+  .rt-q{font-size:15.5px;line-height:1.55}
+  .reveal{margin-top:12px;border-top:1px dashed var(--line);padding-top:0}
+  .reveal>summary{list-style:none;cursor:pointer;font-size:12.5px;font-weight:800;letter-spacing:.04em;color:var(--retrieval);padding:11px 0 0;user-select:none;display:inline-flex;align-items:center;gap:6px}
+  .reveal>summary::-webkit-details-marker{display:none}
+  .reveal>summary::before{content:"▸";transition:transform .2s;display:inline-block}
+  .reveal[open]>summary::before{transform:rotate(90deg)}
+  .reveal .ans{font-size:14.5px;line-height:1.6;color:#3c372f;padding-top:10px}
+  .reveal .ans b{color:var(--ink)}
+  .reveal .ans ul{list-style:none;padding-left:2px;margin:2px 0 0}
+  .reveal .ans li{position:relative;padding-left:18px;margin-bottom:8px;line-height:1.5}
+  .reveal .ans>ul>li::before{content:"";position:absolute;left:2px;top:8px;width:6px;height:6px;border-radius:50%;background:var(--retrieval)}
+  .reveal .ans li ul{margin:7px 0 2px}
+  .reveal .ans li li{padding-left:16px;margin-bottom:5px;font-size:13.8px;color:#4a443c}
+  .reveal .ans li li::before{content:"";position:absolute;left:0;top:7px;width:5px;height:5px;transform:rotate(45deg);background:#b9b0a1}
+  .score{display:flex;gap:7px;margin-top:12px;padding-top:11px;border-top:1px solid var(--line)}
+  .sbtn{flex:1;font-size:12px;font-weight:700;border:1px solid var(--line);background:var(--bg);color:var(--muted);border-radius:8px;padding:7px 4px;cursor:pointer;transition:.12s}
+  .sbtn:hover{border-color:#cfc6b6}
+  .sbtn[data-v=sicher].on{background:var(--ok);color:#fff;border-color:transparent}
+  .sbtn[data-v=lueckenhaft].on{background:var(--gap);color:#fff;border-color:transparent}
+  .sbtn[data-v=gefehlt].on{background:var(--miss);color:#fff;border-color:transparent}
+
+  /* ---- Schnellfragen ---- */
+  .sf-wrap{background:var(--retrieval-t);border:1px solid #BFE0DC;border-radius:13px;padding:18px 20px;margin-top:24px}
+  .sf-wrap h3{font-family:'Fraunces',serif;font-weight:500;font-size:20px;margin-bottom:3px}
+  .sf-wrap .sf-intro{font-size:13.5px;font-style:italic;color:#0c5d57;margin-bottom:14px}
+  .sf{border-bottom:1px solid #cfe4e1;padding:9px 0}
+  .sf:last-child{border-bottom:none}
+  .sf>summary{list-style:none;cursor:pointer;font-size:14.5px;font-weight:600;display:flex;justify-content:space-between;gap:10px;user-select:none}
+  .sf>summary::-webkit-details-marker{display:none}
+  .sf>summary::after{content:"+";color:var(--retrieval);font-weight:800}
+  .sf[open]>summary::after{content:"−"}
+  .sf .sfa{font-size:14px;color:#0c5d57;font-weight:700;padding-top:6px}
+
+  /* ---- content cards (v1) ---- */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:14px;overflow:hidden}
+  .card>summary{list-style:none;cursor:pointer;padding:18px 20px;display:flex;align-items:flex-start;gap:14px;user-select:none}
+  .card>summary::-webkit-details-marker{display:none}
+  .card .ct{flex:1}
+  .card .ctag{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:5px}
+  .card .ctitle{font-family:'Fraunces',serif;font-weight:500;font-size:17px;line-height:1.25}
+  .plus{flex:none;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:18px;line-height:1;transition:transform .2s;margin-top:2px}
+  .card[open] .plus{transform:rotate(45deg)}
+  .card .body{padding:0 20px 20px;border-top:1px solid var(--line);margin-top:-2px;padding-top:16px}
+  .card.grundlagen .ctag{color:var(--grundlagen)} .card.grundlagen .plus{background:var(--grundlagen-t);color:var(--grundlagen)}
+  .card.klinik .ctag{color:var(--klinik)} .card.klinik .plus{background:var(--klinik-t);color:var(--klinik)}
+  .card.diagnostik .ctag{color:var(--diagnostik)} .card.diagnostik .plus{background:var(--diagnostik-t);color:var(--diagnostik)}
+  .card.therapie .ctag{color:var(--therapie)} .card.therapie .plus{background:var(--therapie-t);color:var(--therapie)}
+  .card.fragen .ctag{color:var(--fragen)} .card.fragen .plus{background:var(--fragen-t);color:var(--fragen)}
+  .card.perlen .ctag{color:var(--perlen)} .card.perlen .plus{background:var(--perlen-t);color:var(--perlen)}
+
+  ul.b{list-style:none;padding-left:2px}
+  ul.b>li{position:relative;padding-left:20px;margin-bottom:8px;line-height:1.55}
+  ul.b>li::before{content:"";position:absolute;left:2px;top:9px;width:7px;height:7px;border-radius:50%}
+  .grundlagen ul.b>li::before{background:var(--grundlagen)} .klinik ul.b>li::before{background:var(--klinik)}
+  .diagnostik ul.b>li::before{background:var(--diagnostik)} .therapie ul.b>li::before{background:var(--therapie)}
+  ul.b ul{list-style:none;padding-left:18px;margin-top:7px}
+  ul.b ul>li{position:relative;padding-left:18px;margin-bottom:6px;font-size:15px;color:#4a443c}
+  ul.b ul>li::before{content:"";position:absolute;left:0;top:7px;width:6px;height:6px;transform:rotate(45deg);background:#b9b0a1}
+  strong{font-weight:700;color:var(--ink)}
+
+  .callout{border-radius:11px;padding:13px 16px;margin:14px 0;font-size:14.5px;line-height:1.55;border-left:4px solid}
+  .callout .lab{font-weight:800;font-size:11px;letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .critical{background:var(--grundlagen-t);border-color:var(--grundlagen)} .critical .lab{color:var(--grundlagen)}
+  .warning{background:var(--klinik-t);border-color:var(--klinik)} .warning .lab{color:var(--klinik)}
+  .fact{background:var(--diagnostik-t);border-color:var(--diagnostik)} .fact .lab{color:var(--diagnostik)}
+
+  .dd{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+  .dd th,.dd td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+  .dd th{background:var(--diagnostik-t);font-weight:700;color:var(--diagnostik);font-size:12px}
+  .dd td:first-child{font-weight:600}
+
+  .pk{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:16px}
+  .pk-meta{display:flex;flex-wrap:wrap;gap:6px 0;font-size:11.5px;font-weight:700;color:var(--protokoll);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+  .pk-meta span:not(:last-child)::after{content:"•";margin:0 8px;color:#c3c9d2}
+  .pk-badge{display:inline-block;background:var(--therapie-t);color:var(--therapie);font-size:10.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:2px 9px;border-radius:999px;margin-left:auto}
+  .pk-akte{font-size:14.5px;line-height:1.58;background:var(--protokoll-t);border-radius:9px;padding:12px 14px;margin-bottom:12px}
+  .pk-akte .lab,.pk-q .lab{font-weight:800;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--protokoll);display:block;margin-bottom:5px}
+  .pk-q ul{list-style:none;padding:0}
+  .pk-q li{position:relative;padding-left:18px;margin-bottom:7px;font-size:14.5px;line-height:1.5}
+  .pk-q li::before{content:"–";position:absolute;left:0;color:var(--protokoll);font-weight:700}
+  .pq{border-top:1px solid var(--line);padding:10px 0}
+  .pq-frage{position:relative;padding-left:18px;font-size:14.5px;font-weight:600;line-height:1.5}
+  .pq-frage::before{content:"–";position:absolute;left:0;color:var(--protokoll);font-weight:700}
+  .pq .reveal{margin-top:5px;border-top:none;padding-top:0}
+  .pq .reveal>summary{padding:5px 0 0}
+
+  .pearl{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--perlen);border-radius:12px;padding:16px 18px;margin-bottom:13px}
+  .pearl .ph{font-weight:800;font-size:13px;color:var(--perlen);margin-bottom:7px}
+  .pearl .pt{font-size:15px;line-height:1.55}
+  .pearl .mn{margin-top:9px;background:var(--perlen-t);border-radius:8px;padding:8px 12px;font-size:13.5px;font-style:italic;color:#7a5c08}
+  .pearl .mn b{font-style:normal;font-weight:800}
+
+  footer{margin-top:40px;padding-top:22px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted);line-height:1.6}
+  .back{display:inline-block;font-family:Manrope,system-ui,sans-serif;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);text-decoration:none;margin-bottom:18px}
+  .back:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a href="../../index.html" class="back">← Zurück zur Library</a>
+
+  <header>
+    <div class="eyebrow">Pneumologie · R3 · Diagnostischer Durchlauf</div>
+    <h1>Pneumo<span class="accent">thorax</span></h1>
+    <div class="subtitle">Zwei Pässe: kalt testen, bewerten — dann nur die Lücken öffnen.</div>
+    <div class="meta">
+      <span>R3 · Synthese + Schnellfragen + Protokolle</span>
+      <span>~12–15 Min</span>
+      <span>Stand 06/2026</span>
+      <span>Stex + Vorbereitung + Mainz-Protokolle</span>
+    </div>
+  </header>
+
+  <div class="tabs">
+    <button class="tab active" data-c="retrieval" data-tab="retrieval">Retrieval-Test</button>
+    <button class="tab" data-c="grundlagen" data-tab="grundlagen">Grundlagen<span class="badge"></span></button>
+    <button class="tab" data-c="klinik" data-tab="klinik">Klinik<span class="badge"></span></button>
+    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik<span class="badge"></span></button>
+    <button class="tab" data-c="therapie" data-tab="therapie">Therapie<span class="badge"></span></button>
+    <button class="tab" data-c="perlen" data-tab="perlen">KP-Perlen</button>
+    <button class="tab" data-c="protokoll" data-tab="protokoll">Protokolle</button>
+  </div>
+
+  <!-- ============ RETRIEVAL-TEST ============ -->
+  <section class="panel active" data-panel="retrieval">
+    <p class="panel-intro">Kalt. Laut. Auf Deutsch. Diese Prompts fragen <strong>ganze Pfade und Entscheidungen</strong> (Synthese) — die Einzelfakten kommen darunter als Schnellfragen. Erst formulieren, dann aufdecken und ehrlich bewerten.</p>
+
+    <div class="ctrl">
+      <div class="ctrl-row">
+        <div class="tally"><i class="t-ok">Sicher <span id="n-ok">0</span></i><i class="t-gap">Lücke <span id="n-gap">0</span></i><i class="t-miss">Gefehlt <span id="n-miss">0</span></i><i style="color:var(--muted)">/ 5 bewertet: <span id="n-done">0</span></i></div>
+        <div class="spacer"></div>
+        <button class="btn btn-primary" id="open-gaps">Nur Lücken öffnen →</button>
+        <button class="btn btn-ghost" id="reset">Zurücksetzen</button>
+      </div>
+      <div class="ctrl-status" id="status">Bewerte alle 5 Prompts, dann „Nur Lücken öffnen".</div>
+    </div>
+
+    <div class="rt" data-id="p1" data-stations="klinik diagnostik">
+      <div class="rt-h"><span class="rt-n">Prompt 1 · Erstkontakt-Pfad</span><span class="rt-right"><span class="rt-ptr">→ Klinik · Diagnostik</span></span></div>
+      <div class="rt-q">Junger Mann, plötzlicher stechender Thoraxschmerz + Atemnot. Geh den <strong>ganzen Weg</strong> laut durch: Anamnese-Fokus → klinische Untersuchung → Bildgebung → wie du den Röntgenbefund beschreibst.</div>
+      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul>
+        <li><strong>Anamnese:</strong> Beginn/Schmerzcharakter, Größe/Statur/Rauchen (primär spontan), Vorerkrankung COPD (sekundär), Eingriff/ZVK (iatrogen), Trauma</li>
+        <li><strong>Untersuchung:</strong> asymmetrische Thoraxexkursion, <strong>hypersonorer Klopfschall</strong>, abgeschwächtes Atemgeräusch, fehlender Stimmfremitus; Halsvenen/Hautemphysem prüfen</li>
+        <li><strong>Bildgebung:</strong> Röntgen-Thorax in 2 Ebenen (p.a. im Stehen); Sono in der Akutsituation; CT bei Unklarheit</li>
+        <li><strong>Befund:</strong> Abbruch der Gefäßzeichnung, vermehrte Strahlentransparenz, Pneulinie (viszerale Pleura als feine Linie)</li>
+      </ul></div></details>
+      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
+    </div>
+
+    <div class="rt" data-id="p2" data-stations="grundlagen">
+      <div class="rt-h"><span class="rt-n">Prompt 2 · Einteilung + Pathophysiologie</span><span class="rt-right"><span class="rt-ptr">→ Grundlagen</span></span></div>
+      <div class="rt-q">Ordne die ganze Landschaft: <strong>spontan</strong> (primär/sekundär) vs. <strong>traumatisch/iatrogen</strong> — und erkläre den <strong>Spannungspneumothorax</strong> (Mechanismus + warum lebensbedrohlich).</div>
+      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul>
+        <li><strong>Primärer Spontanpneu:</strong> Lungengesunde — junge, schlanke, große Männer, Raucher</li>
+        <li><strong>Sekundärer Spontanpneu:</strong> Lungenkranke (COPD, Emphysem)</li>
+        <li><strong>Traumatisch:</strong> offen/geschlossen; <strong>iatrogen</strong> (ZVK V. subclavia, Schrittmacher, Beatmung)</li>
+        <li><strong>Spannungspneu:</strong> Ventilmechanismus (Luft rein, nicht raus) → Überdruck → Mediastinalverlagerung + obere Einflussstauung → Kreislauf- und Ateminsuffizienz</li>
+      </ul></div></details>
+      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
+    </div>
+
+    <div class="rt" data-id="p3" data-stations="therapie">
+      <div class="rt-h"><span class="rt-n">Prompt 3 · Therapieentscheidung</span><span class="rt-right"><span class="rt-ptr">→ Therapie</span></span></div>
+      <div class="rt-q">Triff die Entscheidung <strong>konservativ vs. Drainage vs. OP</strong> und begründe — was genau kippt sie Richtung Drainage bzw. Richtung OP?</div>
+      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul>
+        <li><strong>Konservativ</strong> nur bei <strong>primärem</strong> Pneu mit kleinem Mantel-/Spitzenpneu + geringer/keiner Dyspnoe → O₂ + Beobachtung, Röntgen nach 24 h</li>
+        <li><strong>Thoraxdrainage</strong> bei größerem/symptomatischem Pneu, sekundärem Pneu, Hämato-/Serothorax; <strong>Spannungspneu und beidseitiger Pneu → sofort</strong></li>
+        <li><strong>OP (VATS)</strong> bei Rezidiv, nachgewiesenen Bullae, persistierender Fistel/fehlender Reexpansion, Spannungspneu (auch Erstereignis) → + Pleurodese zur Rezidivprophylaxe</li>
+      </ul></div></details>
+      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
+    </div>
+
+    <div class="rt" data-id="p4" data-stations="therapie">
+      <div class="rt-h"><span class="rt-n">Prompt 4 · Thoraxdrainage Schritt für Schritt</span><span class="rt-right"><span class="rt-ptr">→ Therapie</span></span></div>
+      <div class="rt-q">Lege eine <strong>Thoraxdrainage</strong> vor: welcher Zugang (Monaldi/Bülau), Technik (welcher Rippenrand?), wohin die Spitze, und was kommt danach?</div>
+      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul>
+        <li><strong>Monaldi:</strong> 2. ICR Medioklavikularlinie (Notfallposition, Luft)</li>
+        <li><strong>Bülau:</strong> 4.–5. ICR vordere–mittlere Axillarlinie (Safe Triangle, „B wie Brustwarze", auch Hämatothorax)</li>
+        <li><strong>Technik:</strong> Lokalanästhesie → Hautinzision → stumpfe Präparation am <strong>Rippenoberrand</strong> (Gefäße/Nerven am Unterrand) → Pleura eröffnen</li>
+        <li><strong>Spitze:</strong> bei Luft apikal, bei Flüssigkeit kaudal; <strong>Wasserschloss</strong>; danach <strong>Röntgen-Kontrolle</strong></li>
+      </ul></div></details>
+      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
+    </div>
+
+    <div class="rt" data-id="p5" data-stations="klinik therapie">
+      <div class="rt-h"><span class="rt-n">Prompt 5 · Spannungspneu erkennen + handeln</span><span class="rt-right"><span class="rt-ptr">→ Klinik · Therapie</span></span></div>
+      <div class="rt-q">Schwer dyspnoischer Patient, Hypotonie, gestaute Halsvenen, einseitig fehlendes Atemgeräusch. Benenne die <strong>Verdachtsdiagnose</strong> und dein <strong>sofortiges Vorgehen</strong> — und warum nicht erst röntgen?</div>
+      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul>
+        <li><strong>Spannungspneumothorax</strong> — klinische Diagnose (gestaute Halsvenen, Zyanose, Hypotonie + Tachykardie, hypersonorer Klopfschall, einseitig fehlendes Atemgeräusch)</li>
+        <li><strong>Sofortige Notentlastung:</strong> großlumige Kanüle im 2.–3. ICR Medioklavikularlinie am Rippenoberrand (Ventil)</li>
+        <li>Danach definitive <strong>Thoraxdrainage</strong>. <strong>Nicht erst röntgen</strong> — der Spannungspneu ist eine klinische Blickdiagnose und akut lebensbedrohlich</li>
+      </ul></div></details>
+      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
+    </div>
+
+    <div class="callout fact"><span class="lab">Mainz-Muster</span>Der Pneumothorax kommt fast immer als <strong>CT-/Röntgen-Bildfrage</strong> (Mendelssohn, Fischer). Erwartet: <strong>Röntgenbefund</strong> (Abbruch Gefäßzeichnung, Transparenz, Mediastinalshift), die <strong>Pathophysiologie</strong>, die <strong>Therapie nach Schweregrad</strong> (konservativ → Drainage Monaldi/Bülau → VATS) und sehr gern der <strong>Spannungspneu mit Notentlastung 2. ICR MCL</strong>. Häufig die Frage: „Ist ein Hautemphysem gefährlich?"</div>
+
+    <div class="sf-wrap">
+      <h3>Schnellfragen · Rapid-Fire</h3>
+      <div class="sf-intro">Atomare Einzelfakten — Ein-Wort-Abruf, keine Optionen. Laut, sofort, dann aufdecken.</div>
+      <details class="sf"><summary>Pneumothorax — Definition?</summary><div class="sfa">Luft im Pleuraspalt → Lungenkollaps</div></details>
+      <details class="sf"><summary>Spannungspneu — Mechanismus?</summary><div class="sfa">Ventilmechanismus (Luft rein, nicht raus) → Überdruck</div></details>
+      <details class="sf"><summary>Leitsymptom?</summary><div class="sfa">akuter stechender atemabhängiger Thoraxschmerz + Dyspnoe</div></details>
+      <details class="sf"><summary>Klopfschall betroffene Seite?</summary><div class="sfa">hypersonor</div></details>
+      <details class="sf"><summary>DD Hämatothorax — Klopfschall?</summary><div class="sfa">hyposonor (gedämpft)</div></details>
+      <details class="sf"><summary>Atemgeräusch betroffene Seite?</summary><div class="sfa">abgeschwächt / fehlend</div></details>
+      <details class="sf"><summary>Stimmfremitus?</summary><div class="sfa">aufgehoben</div></details>
+      <details class="sf"><summary>Primärer Spontanpneu — typischer Patient?</summary><div class="sfa">junger, schlanker, großer Mann, Raucher</div></details>
+      <details class="sf"><summary>Sekundärer Spontanpneu — Ursache?</summary><div class="sfa">COPD / Lungenemphysem</div></details>
+      <details class="sf"><summary>Häufigste iatrogene Ursache?</summary><div class="sfa">ZVK (V. subclavia)</div></details>
+      <details class="sf"><summary>Röntgen — Befund?</summary><div class="sfa">Abbruch der Gefäßzeichnung + vermehrte Transparenz + Pneulinie</div></details>
+      <details class="sf"><summary>Spannungspneu im Röntgen?</summary><div class="sfa">Mediastinalverlagerung kontralateral + Zwerchfelltiefstand</div></details>
+      <details class="sf"><summary>Sono-Zeichen?</summary><div class="sfa">fehlendes Lungengleiten (Pleuragleiten)</div></details>
+      <details class="sf"><summary>Spannungspneu — sofortige Maßnahme?</summary><div class="sfa">Notentlastung 2.–3. ICR Medioklavikularlinie</div></details>
+      <details class="sf"><summary>Monaldi — Lage?</summary><div class="sfa">2. ICR Medioklavikularlinie</div></details>
+      <details class="sf"><summary>Bülau — Lage?</summary><div class="sfa">4.–5. ICR vordere–mittlere Axillarlinie (Safe Triangle)</div></details>
+      <details class="sf"><summary>Drainage — welcher Rippenrand?</summary><div class="sfa">Oberrand (Gefäße/Nerven am Unterrand)</div></details>
+      <details class="sf"><summary>Drainagespitze bei Luft — wohin?</summary><div class="sfa">apikal (bei Flüssigkeit kaudal)</div></details>
+      <details class="sf"><summary>Rezidiv-Spontanpneu — Therapie?</summary><div class="sfa">VATS + Pleurodese</div></details>
+    </div>
+  </section>
+
+  <!-- ============ GRUNDLAGEN ============ -->
+  <section class="panel" data-panel="grundlagen">
+    <p class="panel-intro">Luft im Pleuraspalt hebt den Unterdruck auf — die Lunge kollabiert. Erst laut, dann aufklappen.</p>
+    <details class="card grundlagen" open><summary><span class="ct"><span class="ctag">★ Anker</span><span class="ctitle">Pneu vs. Spannungspneu</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <ul class="b">
+          <li><strong>Pneumothorax:</strong> Luft im Pleuraspalt → Verlust des Unterdrucks → Lungenkollaps → restriktive Ventilationsstörung mit Hypoxämie</li>
+        </ul>
+        <div class="callout critical"><span class="lab">▲ Spannungspneumothorax</span><strong>Ventilmechanismus</strong> (Luft strömt rein, kann nicht raus) → Überdruck → <strong>Mediastinalverlagerung</strong> + obere Einflussstauung (venöser Rückfluss ↓) → <strong>Kreislauf- und Ateminsuffizienz</strong>. Lebensbedrohlich.</div>
+      </div>
+    </details>
+    <details class="card grundlagen"><summary><span class="ct"><span class="ctag">★ Einteilung</span><span class="ctitle">Spontan vs. traumatisch vs. iatrogen</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <table class="dd"><tr><th>Form</th><th>Wer / wodurch</th></tr>
+          <tr><td><strong>Primär spontan</strong></td><td>Lungengesunde — junge, schlanke, große Männer, Raucher</td></tr>
+          <tr><td><strong>Sekundär spontan</strong></td><td>Lungenkranke (COPD, Emphysem)</td></tr>
+          <tr><td><strong>Traumatisch</strong></td><td>stumpfes/penetrierendes Trauma (offen oder geschlossen)</td></tr>
+          <tr><td><strong>Iatrogen</strong></td><td>ZVK (V. subclavia), Schrittmacher/Port, Beatmung</td></tr>
+        </table>
+        <div class="callout fact"><span class="lab">⚙ ♂ &gt; ♀</span>~3:1. Rezidivrisiko beim Spontanpneumothorax ca. <strong>20–30 %</strong>.</div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ KLINIK ============ -->
+  <section class="panel" data-panel="klinik">
+    <p class="panel-intro">Stechender atemabhängiger Schmerz + Dyspnoe — und die Frage: ist es schon ein Spannungspneu?</p>
+    <details class="card klinik" open><summary><span class="ct"><span class="ctag">★ Anker</span><span class="ctitle">Leitsymptom + Untersuchung</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <ul class="b">
+          <li><strong>Leitsymptom:</strong> akuter stechender atemabhängiger Thoraxschmerz, Dyspnoe, Tachykardie</li>
+          <li>Auch symptomarm möglich (v. a. primärer Spontanpneu)</li>
+          <li><strong>Untersuchung:</strong> asymmetrische Thoraxexkursion („hinkt nach"), fehlender Stimmfremitus, ggf. <strong>Hautemphysem</strong></li>
+        </ul>
+        <div class="callout fact"><span class="lab">⚙ Perkussion + Auskultation</span><strong>Hypersonorer Klopfschall</strong> + abgeschwächtes/fehlendes Atemgeräusch auf der betroffenen Seite.<br>DD Hämatothorax: <strong>hyposonorer</strong> (gedämpfter) Klopfschall.</div>
+        <div class="callout critical"><span class="lab">▲ Spannungspneu-Zeichen</span>Gestaute Halsvenen (obere Einflussstauung), Zyanose, Hypotonie + Tachykardie, schwere Dyspnoe, Unruhe/Panik → Schock.</div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ DIAGNOSTIK ============ -->
+  <section class="panel" data-panel="diagnostik">
+    <p class="panel-intro">Röntgen ist Standard — aber der Spannungspneu wird klinisch diagnostiziert und sofort entlastet.</p>
+    <details class="card diagnostik" open><summary><span class="ct"><span class="ctag">★ Anker</span><span class="ctitle">Was zeigt sich?</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Röntgen-Thorax (2 Ebenen, p.a. im Stehen)</span><strong>Abbruch der Gefäßzeichnung</strong>, vermehrte Strahlentransparenz (dunkler), <strong>Pneulinie</strong> (viszerale Pleura als feine Haarlinie). Spitzen- vs. Mantelpneumothorax.</div>
+        <div class="callout critical"><span class="lab">▲ Spannungspneu im Bild</span>Mediastinalverlagerung nach kontralateral + Zwerchfelltiefstand auf der betroffenen Seite.</div>
+        <ul class="b">
+          <li><strong>Sono:</strong> fehlendes Lungengleiten („Pleuragleiten") — schnelle Akutdiagnostik nach Trauma</li>
+          <li><strong>CT:</strong> bei Unklarheit Goldstandard — viszerale Pleuralinie sicher abgrenzbar; Bullae/Begleitverletzungen</li>
+          <li>Bei Trauma auf <strong>Rippenfrakturen + Hautemphysem</strong> achten</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ THERAPIE ============ -->
+  <section class="panel" data-panel="therapie">
+    <p class="panel-intro">Nach Schweregrad: O₂ + Beobachtung → Drainage → VATS. Spannungspneu = sofort entlasten.</p>
+    <details class="card therapie" open><summary><span class="ct"><span class="ctag">★ Anker</span><span class="ctitle">Spannungspneu = sofort entlasten</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">▲ Notentlastung</span>Großlumige Kanüle im <strong>2.–3. ICR Medioklavikularlinie</strong> am Rippenoberrand (Ventilmechanismus, z. B. Tiegel-Ventil) → danach definitive Thoraxdrainage.</div>
+        <div class="callout fact"><span class="lab">⚙ Basis</span>Immer: O₂ 4–6 l/min, Oberkörperhochlagerung, stationär. <strong>Konservativ</strong> nur bei kleinem primärem Mantel-/Spitzenpneu mit geringer Dyspnoe (Röntgen-Kontrolle nach 24 h).</div>
+      </div>
+    </details>
+    <details class="card therapie"><summary><span class="ct"><span class="ctag">★ Drainage</span><span class="ctitle">Bülau vs. Monaldi + OP</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <table class="dd"><tr><th>Zugang</th><th>Lage</th><th>Wofür</th></tr>
+          <tr><td><strong>Monaldi</strong></td><td>2. ICR Medioklavikularlinie</td><td>Notfallposition, Luft</td></tr>
+          <tr><td><strong>Bülau</strong></td><td>4.–5. ICR vordere–mittlere Axillarlinie (Safe Triangle)</td><td>Pneu + Hämatothorax („B wie Brustwarze")</td></tr>
+        </table>
+        <ul class="b">
+          <li>Präparation am <strong>Rippenoberrand</strong> (Gefäße/Nerven am Unterrand); Spitze bei Luft apikal, bei Flüssigkeit kaudal; <strong>Wasserschloss</strong>; Röntgen-Kontrolle nach Anlage und nach Zug</li>
+        </ul>
+        <div class="callout fact"><span class="lab">⚙ OP (VATS)</span>Bei Rezidiv, nachgewiesenen Bullae, persistierender Fistel/fehlender Reexpansion, Spannungspneu (auch Erstereignis) → + <strong>Pleurodese</strong> (Pleuraabrasio/Pleurektomie; medikamentös Bleomycin/Tetrazyklin).</div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ KP-PERLEN ============ -->
+  <section class="panel" data-panel="perlen">
+    <div class="pearl"><div class="ph">⭐ Perle 1 · Spannungspneu = klinisch</div><div class="pt"><strong>Der Spannungspneumothorax wird klinisch diagnostiziert und sofort entlastet — nicht erst geröntgt.</strong> Gestaute Halsvenen + Hypotonie + einseitig fehlendes Atemgeräusch = entlasten.</div><div class="mn"><b>Merke:</b> Erst die Nadel, dann das Bild</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 2 · 2. ICR MCL</div><div class="pt">Notentlastung im <strong>2.–3. ICR in der Medioklavikularlinie</strong>, am Rippenoberrand, mit großlumiger Kanüle.</div><div class="mn"><b>Merke:</b> Zwei Finger unter dem Schlüsselbein, mittig</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 3 · Hautemphysem</div><div class="pt">Ein ausgedehntes <strong>Hautemphysem</strong> kann auf einen Spannungspneu oder eine Mediastinalverlagerung hinweisen — potenziell lebensbedrohlich (häufige Mainz-Frage).</div><div class="mn"><b>Merke:</b> Knistern unter der Haut = Alarm, nicht harmlos</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 4 · Hyper- vs. hyposonor</div><div class="pt"><strong>Pneumothorax = hypersonor</strong> (Luft). <strong>Hämatothorax/Erguss = hyposonor</strong> (Flüssigkeit). Der Klopfschall trennt die beiden.</div><div class="mn"><b>Merke:</b> Luft klingt hohl, Blut klingt dumpf</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 5 · Bülau vs. Monaldi</div><div class="pt"><strong>Monaldi = 2. ICR MCL</strong> (Notfall, Luft). <strong>Bülau = 4.–5. ICR Axillarlinie</strong> (auch Hämatothorax).</div><div class="mn"><b>Merke:</b> „B wie Brustwarze" → Bülau seitlich auf Mamillenhöhe</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 6 · Junger schlanker Raucher</div><div class="pt"><strong>Primärer Spontanpneumothorax = junger, schlanker, großer Mann, Raucher.</strong> Sekundär dagegen bei COPD/Emphysem.</div><div class="mn"><b>Merke:</b> Groß, dünn, raucht → spontan kollabiert</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 7 · Rippenoberrand</div><div class="pt">Drainage/Punktion immer am <strong>Oberrand der Rippe</strong> — Gefäße und Nerven verlaufen am Unterrand.</div><div class="mn"><b>Merke:</b> Oben rein, unten liegt das Bündel</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 8 · Rezidiv → VATS</div><div class="pt"><strong>Rezidiv, Bullae oder persistierende Fistel → VATS + Pleurodese.</strong> Rezidivrisiko beim Spontanpneu ca. 20–30 %.</div><div class="mn"><b>Merke:</b> Zweites Mal Luft → operieren und verkleben</div></div>
+  </section>
+
+  <!-- ============ PROTOKOLLE ============ -->
+  <section class="panel" data-panel="protokoll">
+    <p class="panel-intro">Generalprobe an dokumentierten Mainz-Fällen. Jede Frage einzeln laut beantworten, dann die Antwort aufdecken.</p>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · Bildfall</span><span>Dr. Mendelssohn (Chirurgie / Traumatologie)</span><span class="pk-badge">Protokoll</span></div>
+      <div class="pk-akte"><span class="lab">Fall</span>Gezeigt: CT-Thorax mit Pneumothorax und ausgedehntem Hautemphysem.</div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">Pathophysiologie eines Pneumothorax?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Eindringen von Luft in den Pleuraraum → Verlust des Unterdrucks → Kollaps der Lunge → verminderte Ventilation und Sauerstoffaufnahme.</div></details></div>
+      <div class="pq"><div class="pq-frage">Symptome eines Pneumothorax?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Plötzlich auftretende Thoraxschmerzen, Dyspnoe, hypersonorer Klopfschall, abgeschwächtes Atemgeräusch.</div></details></div>
+      <div class="pq"><div class="pq-frage">Behandlung eines Pneumothorax?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Konservativ bei kleinen Pneumothoraces (Beobachtung + Sauerstoff). Interventionell: Pleuradrainage bei symptomatischem oder Spannungspneumothorax (Bülau- oder Monaldi-Position). Operativ: VATS bei rezidivierendem Pneumothorax.</div></details></div>
+      <div class="pq"><div class="pq-frage">Ist ein Hautemphysem gefährlich?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ein ausgedehntes Hautemphysem kann auf einen Spannungspneumothorax oder eine Mediastinalverlagerung hinweisen und ist potenziell lebensbedrohlich.</div></details></div>
+      <div class="pq"><div class="pq-frage">Maßnahmen im Schockraum bei Pneumothorax?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Sofortige Anlage einer Thoraxdrainage oder im Notfall Nadeldekompression im 2. ICR medioklavikulär.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · Bildfall</span><span>Dr. Fischer (Anästhesie)</span><span class="pk-badge">Protokoll</span></div>
+      <div class="pk-akte"><span class="lab">Fall</span>Schocktypen und ein Röntgen-Thorax mit Pneumothorax.</div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">Schocktypen und Pathophysiologie — wo ordnet sich der Spannungspneu ein?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Hypovolämisch (Volumenverlust), kardiogen (Pumpversagen), obstruktiv (Lungenembolie, Perikardtamponade, Spannungspneumothorax), distributiv (septisch, anaphylaktisch, neurogen). Der Spannungspneumothorax ist ein obstruktiver Schock.</div></details></div>
+      <div class="pq"><div class="pq-frage">Pneumothorax im Röntgen-Thorax — Befunde?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Fehlen der Gefäßzeichnung, vermehrte Strahlentransparenz, ggf. Mediastinalshift (beim Spannungspneumothorax).</div></details></div>
+      <div class="pq"><div class="pq-frage">Therapie des Pneumothorax?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Spannungspneumothorax: Notfall-Entlastungspunktion im 2. ICR medioklavikulär. Anschließend Thoraxdrainage nach Monaldi (2. ICR) oder Bülau (4.–5. ICR).</div></details></div>
+      <div class="pq"><div class="pq-frage">Was tun nach Anlage der Thoraxdrainage?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Röntgen-Kontrolle zur Lagebeurteilung der Drainage und zur Kontrolle der Lungenentfaltung.</div></details></div>
+    </div>
+  </section>
+
+  <footer>
+    R3 · Pneumothorax · Diagnostischer Durchlauf. Produce-only: Retrieval = Synthese, Schnellfragen = atomar, Protokolle = Fall (Modellantworten in R2 + in den Reveals). Quelle: Stex Lernkarten (Elsevier) + Vorbereitung zur KB + Mainz-Protokolle (Mendelssohn, Fischer). Zwei-Pass-Logik: kalt testen + bewerten → nur Lücken öffnen → Protokolle als Generalprobe. Bewertung wird nicht gespeichert.
+  </footer>
+
+
+</div>
+<script>
+  const tabs = [...document.querySelectorAll('.tab')];
+  const panels = [...document.querySelectorAll('.panel')];
+  function showTab(name){
+    tabs.forEach(x=>x.classList.toggle('active', x.dataset.tab===name));
+    panels.forEach(p=>p.classList.toggle('active', p.dataset.panel===name));
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  tabs.forEach(t=>t.addEventListener('click',()=>showTab(t.dataset.tab)));
+
+  // ---- scoring state ----
+  const scores = {};                 // {p1:'sicher'|'lueckenhaft'|'gefehlt'}
+  const CONTENT = ['grundlagen','klinik','diagnostik','therapie'];
+  const promptStations = {};
+  document.querySelectorAll('.rt').forEach(rt=>{
+    promptStations[rt.dataset.id] = (rt.dataset.stations||'').split(' ').filter(Boolean);
+  });
+
+  function recompute(){
+    let ok=0,gap=0,miss=0;
+    Object.values(scores).forEach(v=>{ if(v==='sicher')ok++; else if(v==='lueckenhaft')gap++; else if(v==='gefehlt')miss++; });
+    document.getElementById('n-ok').textContent=ok;
+    document.getElementById('n-gap').textContent=gap;
+    document.getElementById('n-miss').textContent=miss;
+    document.getElementById('n-done').textContent=Object.keys(scores).length;
+    // station status
+    CONTENT.forEach(st=>{
+      const related = Object.keys(promptStations).filter(p=>promptStations[p].includes(st));
+      const scored = related.filter(p=>scores[p]);
+      const flagged = related.some(p=>scores[p]==='lueckenhaft'||scores[p]==='gefehlt');
+      const allOk = related.length && scored.length===related.length && !flagged;
+      const tab = tabs.find(t=>t.dataset.tab===st);
+      tab.classList.remove('flag-gap','flag-ok');
+      const b = tab.querySelector('.badge');
+      if(flagged){ tab.classList.add('flag-gap'); b.textContent='Lücke'; }
+      else if(allOk){ tab.classList.add('flag-ok'); b.textContent='✓'; }
+      else { b.textContent=''; }
+    });
+  }
+
+  document.querySelectorAll('.rt .score').forEach(scoreBox=>{
+    const rt = scoreBox.closest('.rt');
+    scoreBox.querySelectorAll('.sbtn').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        const v = btn.dataset.v;
+        scores[rt.dataset.id] = v;
+        rt.dataset.score = v;
+        scoreBox.querySelectorAll('.sbtn').forEach(b=>b.classList.toggle('on', b===btn));
+        recompute();
+        const status=document.getElementById('status');
+        const flaggedNow=tabs.filter(t=>t.classList.contains('flag-gap')).length;
+        if(Object.keys(scores).length===5){
+          status.textContent = flaggedNow ? 'Pass 1 fertig. „Nur Lücken öffnen" springt zu den '+flaggedNow+' markierten Stationen.' : 'Alles sicher in Pass 1 — direkt zur Generalprobe (Protokolle).';
+        } else {
+          status.textContent = (5-Object.keys(scores).length)+' Prompt(s) noch zu bewerten.';
+        }
+      });
+    });
+  });
+
+  // ---- two-pass: open only gaps ----
+  document.getElementById('open-gaps').addEventListener('click',()=>{
+    const flagged = CONTENT.filter(st=>tabs.find(t=>t.dataset.tab===st).classList.contains('flag-gap'));
+    const status=document.getElementById('status');
+    if(!Object.keys(scores).length){ status.textContent='Erst Pass 1 bewerten — dann zeige ich dir die Lücken.'; return; }
+    if(!flagged.length){
+      // all clear -> capstone
+      panels.forEach(p=>{ if(CONTENT.includes(p.dataset.panel)) p.querySelectorAll('.card').forEach(c=>c.open=false); });
+      showTab('protokoll'); status.textContent='Keine Lücken — auf zur Generalprobe.'; return;
+    }
+    // expand flagged stations, collapse the "sicher" ones
+    panels.forEach(p=>{
+      if(!CONTENT.includes(p.dataset.panel)) return;
+      const isGap = flagged.includes(p.dataset.panel);
+      p.querySelectorAll('.card').forEach(c=>{ c.open = isGap; });
+    });
+    showTab(flagged[0]);
+    status.textContent='Geöffnet: '+flagged.join(', ')+'. Der Rest bleibt zu.';
+  });
+
+  // ---- reset ----
+  document.getElementById('reset').addEventListener('click',()=>{
+    Object.keys(scores).forEach(k=>delete scores[k]);
+    document.querySelectorAll('.rt').forEach(rt=>{ rt.removeAttribute('data-score'); rt.querySelectorAll('.sbtn').forEach(b=>b.classList.remove('on')); });
+    document.querySelectorAll('.reveal[open]').forEach(d=>d.open=false);
+    recompute();
+    document.getElementById('status').textContent='Zurückgesetzt. Bewerte alle 5 Prompts, dann „Nur Lücken öffnen".';
+  });
+
+  recompute();
+</script>
+</body>
+</html>
