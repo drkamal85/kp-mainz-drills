@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Asthma bronchiale · R3 Review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F7F4EE; --card:#FFFDF8; --ink:#2A2724; --muted:#6B6358; --line:#E7E0D4;
+    --grundlagen:#C0392B; --grundlagen-t:#F7E9E6;
+    --klinik:#D97706;     --klinik-t:#FBEEDD;
+    --diagnostik:#1E5F9E; --diagnostik-t:#E4EDF6;
+    --therapie:#2D7A3E;   --therapie-t:#E5F0E7;
+    --fragen:#7B3F9E;     --fragen-t:#F0E8F6;
+    --perlen:#B8860B;     --perlen-t:#F8F0D9;
+    --retrieval:#0F766E;  --retrieval-t:#E0F0EE;
+    --protokoll:#334155;  --protokoll-t:#E8EBF0;
+    --ok:#2D7A3E; --gap:#D97706; --miss:#C0392B;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:'Manrope',system-ui,sans-serif;
+    font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased;padding:0 18px 80px}
+  .wrap{max-width:860px;margin:0 auto}
+
+  header{padding:54px 0 22px}
+  .eyebrow{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--retrieval);margin-bottom:16px}
+  h1{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(34px,7vw,52px);line-height:1.04;letter-spacing:-.01em}
+  h1 .accent{font-style:italic;color:var(--grundlagen)}
+  .subtitle{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(17px,2.6vw,20px);color:var(--muted);margin-top:14px}
+  .meta{display:flex;flex-wrap:wrap;gap:6px 0;margin-top:20px;font-size:13px;color:var(--muted);font-weight:500}
+  .meta span:not(:last-child)::after{content:"•";margin:0 10px;color:var(--line);font-weight:700}
+
+
+  .tabs{display:flex;flex-wrap:wrap;gap:8px;position:sticky;top:0;z-index:30;background:linear-gradient(var(--bg) 72%,rgba(247,244,238,0));padding:12px 0 14px;margin-bottom:6px}
+  .tab{position:relative;font-size:13px;font-weight:600;border:1px solid var(--line);background:var(--card);color:var(--muted);padding:8px 15px;border-radius:999px;cursor:pointer;transition:all .15s;white-space:nowrap}
+  .tab:hover{border-color:#cfc6b6}
+  .tab.active{color:#fff;border-color:transparent}
+  .tab[data-c=retrieval].active{background:var(--retrieval)}
+  .tab[data-c=grundlagen].active{background:var(--grundlagen)}
+  .tab[data-c=klinik].active{background:var(--klinik)}
+  .tab[data-c=diagnostik].active{background:var(--diagnostik)}
+  .tab[data-c=therapie].active{background:var(--therapie)}
+  .tab[data-c=fragen].active{background:var(--fragen)}
+  .tab[data-c=perlen].active{background:var(--perlen)}
+  .tab[data-c=protokoll].active{background:var(--protokoll)}
+  .tab .badge{display:none;margin-left:7px;font-size:10px;font-weight:800;padding:1px 6px;border-radius:999px;vertical-align:middle}
+  .tab.flag-gap .badge{display:inline-block;background:var(--gap);color:#fff}
+  .tab.flag-ok .badge{display:inline-block;background:var(--ok);color:#fff}
+  .tab.active .badge{background:rgba(255,255,255,.28)!important;color:#fff}
+
+  .panel{display:none;animation:fade .25s ease}
+  .panel.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+  .panel-intro{font-family:'Fraunces',serif;font-style:italic;font-size:17px;color:var(--muted);margin:6px 0 18px;line-height:1.5}
+
+  /* ---- control bar (Pass 1 instrument) ---- */
+  .ctrl{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:14px 16px;margin-bottom:20px}
+  .ctrl-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+  .tally{font-size:13px;font-weight:700;display:flex;gap:12px;flex-wrap:wrap}
+  .tally i{font-style:normal;display:inline-flex;align-items:center;gap:5px}
+  .tally i::before{content:"";width:9px;height:9px;border-radius:50%}
+  .tally .t-ok::before{background:var(--ok)} .tally .t-gap::before{background:var(--gap)} .tally .t-miss::before{background:var(--miss)}
+  .spacer{flex:1 1 auto}
+  .btn{font-family:'Manrope';font-size:12.5px;font-weight:700;border:none;border-radius:999px;padding:9px 16px;cursor:pointer;transition:.15s}
+  .btn-primary{background:var(--retrieval);color:#fff}
+  .btn-primary:hover{filter:brightness(1.06)}
+  .btn-ghost{background:transparent;color:var(--muted);border:1px solid var(--line)}
+  .btn-ghost:hover{border-color:#cfc6b6}
+  .ctrl-status{margin-top:11px;font-size:13px;font-style:italic;color:var(--retrieval);min-height:18px}
+
+  /* ---- retrieval prompt ---- */
+  .rt{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:14px;transition:border-color .2s}
+  .rt[data-score=sicher]{border-left-color:var(--ok)}
+  .rt[data-score=lueckenhaft]{border-left-color:var(--gap)}
+  .rt[data-score=gefehlt]{border-left-color:var(--miss)}
+  .rt-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:8px}
+  .rt-n{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--retrieval)}
+  .rt-right{display:flex;align-items:center;gap:10px;white-space:nowrap}
+  .rt-ptr{font-size:11px;font-weight:600;color:var(--muted)}
+  .rt-q{font-size:15.5px;line-height:1.55}
+  .reveal{margin-top:12px;border-top:1px dashed var(--line);padding-top:0}
+  .reveal>summary{list-style:none;cursor:pointer;font-size:12.5px;font-weight:800;letter-spacing:.04em;color:var(--retrieval);padding:11px 0 0;user-select:none;display:inline-flex;align-items:center;gap:6px}
+  .reveal>summary::-webkit-details-marker{display:none}
+  .reveal>summary::before{content:"▸";transition:transform .2s;display:inline-block}
+  .reveal[open]>summary::before{transform:rotate(90deg)}
+  .reveal .ans{font-size:14.5px;line-height:1.6;color:#3c372f;padding-top:10px}
+  .reveal .ans b{color:var(--ink)}
+  .reveal .ans ul{list-style:none;padding-left:2px;margin:2px 0 0}
+  .reveal .ans li{position:relative;padding-left:18px;margin-bottom:8px;line-height:1.5}
+  .reveal .ans>ul>li::before{content:"";position:absolute;left:2px;top:8px;width:6px;height:6px;border-radius:50%;background:var(--retrieval)}
+  .reveal .ans li ul{margin:7px 0 2px}
+  .reveal .ans li li{padding-left:16px;margin-bottom:5px;font-size:13.8px;color:#4a443c}
+  .reveal .ans li li::before{content:"";position:absolute;left:0;top:7px;width:5px;height:5px;transform:rotate(45deg);background:#b9b0a1}
+  .score{display:flex;gap:7px;margin-top:12px;padding-top:11px;border-top:1px solid var(--line)}
+  .sbtn{flex:1;font-size:12px;font-weight:700;border:1px solid var(--line);background:var(--bg);color:var(--muted);border-radius:8px;padding:7px 4px;cursor:pointer;transition:.12s}
+  .sbtn:hover{border-color:#cfc6b6}
+  .sbtn[data-v=sicher].on{background:var(--ok);color:#fff;border-color:transparent}
+  .sbtn[data-v=lueckenhaft].on{background:var(--gap);color:#fff;border-color:transparent}
+  .sbtn[data-v=gefehlt].on{background:var(--miss);color:#fff;border-color:transparent}
+
+  /* ---- Schnellfragen ---- */
+  .sf-wrap{background:var(--retrieval-t);border:1px solid #BFE0DC;border-radius:13px;padding:18px 20px;margin-top:24px}
+  .sf-wrap h3{font-family:'Fraunces',serif;font-weight:500;font-size:20px;margin-bottom:3px}
+  .sf-wrap .sf-intro{font-size:13.5px;font-style:italic;color:#0c5d57;margin-bottom:14px}
+  .sf{border-bottom:1px solid #cfe4e1;padding:9px 0}
+  .sf:last-child{border-bottom:none}
+  .sf>summary{list-style:none;cursor:pointer;font-size:14.5px;font-weight:600;display:flex;justify-content:space-between;gap:10px;user-select:none}
+  .sf>summary::-webkit-details-marker{display:none}
+  .sf>summary::after{content:"+";color:var(--retrieval);font-weight:800}
+  .sf[open]>summary::after{content:"−"}
+  .sf .sfa{font-size:14px;color:#0c5d57;font-weight:700;padding-top:6px}
+
+  /* ---- content cards (v1) ---- */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:14px;overflow:hidden}
+  .card>summary{list-style:none;cursor:pointer;padding:18px 20px;display:flex;align-items:flex-start;gap:14px;user-select:none}
+  .card>summary::-webkit-details-marker{display:none}
+  .card .ct{flex:1}
+  .card .ctag{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:5px}
+  .card .ctitle{font-family:'Fraunces',serif;font-weight:500;font-size:17px;line-height:1.25}
+  .plus{flex:none;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:18px;line-height:1;transition:transform .2s;margin-top:2px}
+  .card[open] .plus{transform:rotate(45deg)}
+  .card .body{padding:0 20px 20px;border-top:1px solid var(--line);margin-top:-2px;padding-top:16px}
+  .card.grundlagen .ctag{color:var(--grundlagen)} .card.grundlagen .plus{background:var(--grundlagen-t);color:var(--grundlagen)}
+  .card.klinik .ctag{color:var(--klinik)} .card.klinik .plus{background:var(--klinik-t);color:var(--klinik)}
+  .card.diagnostik .ctag{color:var(--diagnostik)} .card.diagnostik .plus{background:var(--diagnostik-t);color:var(--diagnostik)}
+  .card.therapie .ctag{color:var(--therapie)} .card.therapie .plus{background:var(--therapie-t);color:var(--therapie)}
+  .card.fragen .ctag{color:var(--fragen)} .card.fragen .plus{background:var(--fragen-t);color:var(--fragen)}
+  .card.perlen .ctag{color:var(--perlen)} .card.perlen .plus{background:var(--perlen-t);color:var(--perlen)}
+
+  ul.b{list-style:none;padding-left:2px}
+  ul.b>li{position:relative;padding-left:20px;margin-bottom:8px;line-height:1.55}
+  ul.b>li::before{content:"";position:absolute;left:2px;top:9px;width:7px;height:7px;border-radius:50%}
+  .grundlagen ul.b>li::before{background:var(--grundlagen)} .klinik ul.b>li::before{background:var(--klinik)}
+  .diagnostik ul.b>li::before{background:var(--diagnostik)} .therapie ul.b>li::before{background:var(--therapie)}
+  ul.b ul{list-style:none;padding-left:18px;margin-top:7px}
+  ul.b ul>li{position:relative;padding-left:18px;margin-bottom:6px;font-size:15px;color:#4a443c}
+  ul.b ul>li::before{content:"";position:absolute;left:0;top:7px;width:6px;height:6px;transform:rotate(45deg);background:#b9b0a1}
+  strong{font-weight:700;color:var(--ink)}
+
+  .callout{border-radius:11px;padding:13px 16px;margin:14px 0;font-size:14.5px;line-height:1.55;border-left:4px solid}
+  .callout .lab{font-weight:800;font-size:11px;letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .critical{background:var(--grundlagen-t);border-color:var(--grundlagen)} .critical .lab{color:var(--grundlagen)}
+  .warning{background:var(--klinik-t);border-color:var(--klinik)} .warning .lab{color:var(--klinik)}
+  .fact{background:var(--diagnostik-t);border-color:var(--diagnostik)} .fact .lab{color:var(--diagnostik)}
+
+  .dd{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+  .dd th,.dd td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+  .dd th{background:var(--diagnostik-t);font-weight:700;color:var(--diagnostik);font-size:12px}
+  .dd td:first-child{font-weight:600}
+
+  .pk{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:16px}
+  .pk-meta{display:flex;flex-wrap:wrap;gap:6px 0;font-size:11.5px;font-weight:700;color:var(--protokoll);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+  .pk-meta span:not(:last-child)::after{content:"•";margin:0 8px;color:#c3c9d2}
+  .pk-badge{display:inline-block;background:var(--therapie-t);color:var(--therapie);font-size:10.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:2px 9px;border-radius:999px;margin-left:auto}
+  .pk-akte{font-size:14.5px;line-height:1.58;background:var(--protokoll-t);border-radius:9px;padding:12px 14px;margin-bottom:12px}
+  .pk-akte .lab,.pk-q .lab{font-weight:800;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--protokoll);display:block;margin-bottom:5px}
+  .pk-q ul{list-style:none;padding:0}
+  .pk-q li{position:relative;padding-left:18px;margin-bottom:7px;font-size:14.5px;line-height:1.5}
+  .pk-q li::before{content:"–";position:absolute;left:0;color:var(--protokoll);font-weight:700}
+  .pq{border-top:1px solid var(--line);padding:10px 0}
+  .pq-frage{position:relative;padding-left:18px;font-size:14.5px;font-weight:600;line-height:1.5}
+  .pq-frage::before{content:"–";position:absolute;left:0;color:var(--protokoll);font-weight:700}
+  .pq .reveal{margin-top:5px;border-top:none;padding-top:0}
+  .pq .reveal>summary{padding:5px 0 0}
+
+  .pearl{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--perlen);border-radius:12px;padding:16px 18px;margin-bottom:13px}
+  .pearl .ph{font-weight:800;font-size:13px;color:var(--perlen);margin-bottom:7px}
+  .pearl .pt{font-size:15px;line-height:1.55}
+  .pearl .mn{margin-top:9px;background:var(--perlen-t);border-radius:8px;padding:8px 12px;font-size:13.5px;font-style:italic;color:#7a5c08}
+  .pearl .mn b{font-style:normal;font-weight:800}
+
+  footer{margin-top:40px;padding-top:22px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted);line-height:1.6}
+  .back{display:inline-block;font-family:Manrope,system-ui,sans-serif;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);text-decoration:none;margin-bottom:18px}
+  .back:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a href="../../index.html" class="back">← Zurück zur Library</a>
+
+  <header>
+    <div class="eyebrow">Pneumologie · R3 · Diagnostischer Durchlauf</div>
+    <h1>Asthma <span class="accent">bronchiale</span></h1>
+    <div class="subtitle">Zwei Pässe: kalt testen, bewerten — dann nur die Lücken öffnen.</div>
+    <div class="meta">
+      <span>R3 · Synthese + Schnellfragen + Protokolle</span>
+      <span>~12–15 Min</span>
+      <span>Stand 06/2026</span>
+      <span>Stex + Vorbereitung + Mainz-Prüfungsstoff</span>
+    </div>
+  </header>
+
+  <div class="tabs">
+    <button class="tab active" data-c="retrieval" data-tab="retrieval">Retrieval-Test</button>
+    <button class="tab" data-c="grundlagen" data-tab="grundlagen">Grundlagen<span class="badge"></span></button>
+    <button class="tab" data-c="klinik" data-tab="klinik">Klinik<span class="badge"></span></button>
+    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik<span class="badge"></span></button>
+    <button class="tab" data-c="therapie" data-tab="therapie">Therapie<span class="badge"></span></button>
+    <button class="tab" data-c="perlen" data-tab="perlen">KP-Perlen</button>
+    <button class="tab" data-c="protokoll" data-tab="protokoll">Protokolle</button>
+  </div>
+
+  <!-- ============ RETRIEVAL-TEST ============ -->
+  <section class="panel active" data-panel="retrieval">
+    <p class="panel-intro">Kalt. Laut. Auf Deutsch. Diese Prompts fragen <strong>ganze Pfade und Entscheidungen</strong> (Synthese) — die Einzelfakten kommen darunter als Schnellfragen. Erst formulieren, dann aufdecken und ehrlich bewerten.</p>
+
+    <div class="ctrl">
+      <div class="ctrl-row">
+        <div class="tally"><i class="t-ok">Sicher <span id="n-ok">0</span></i><i class="t-gap">Lücke <span id="n-gap">0</span></i><i class="t-miss">Gefehlt <span id="n-miss">0</span></i><i style="color:var(--muted)">/ 5 bewertet: <span id="n-done">0</span></i></div>
+        <div class="spacer"></div>
+        <button class="btn btn-primary" id="open-gaps">Nur Lücken öffnen →</button>
+        <button class="btn btn-ghost" id="reset">Zurücksetzen</button>
+      </div>
+      <div class="ctrl-status" id="status">Bewerte alle 5 Prompts, dann „Nur Lücken öffnen".</div>
+    </div>
+
+    <div class="rt" data-id="p1" data-stations="klinik diagnostik">
+      <div class="rt-h"><span class="rt-n">Prompt 1 · Erstkontakt-Pfad</span><span class="rt-right"><span class="rt-ptr">→ Klinik · Diagnostik</span></span></div>
+      <div class="rt-q">Junger Patient, anfallsartige Atemnot mit pfeifender Ausatmung, nachts schlimmer. Geh den <strong>ganzen Weg</strong> laut durch: Anamnese-Fokus → Untersuchung → wie du die Diagnose <strong>sicherst</strong>.</div>
+      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul>
+        <li><strong>Anamnese:</strong> Trigger (Allergene, Infekt, Anstrengung, kalte Luft), Atopie/Familienanamnese, episodischer Verlauf, nächtliche Symptome</li>
+        <li><strong>Untersuchung:</strong> exspiratorisches Giemen/Brummen/Pfeifen, verlängertes Exspirium, hypersonorer Klopfschall</li>
+        <li><strong>Sicherung:</strong> Spirometrie → obstruktive Ventilationsstörung (Tiffeneau &lt; 70 %, FEV₁ ↓) + <strong>komplette Reversibilität</strong> im Bronchospasmolysetest</li>
+        <li>Allergiediagnostik (Prick, spez. IgE), Eosinophilie, Peak-Flow zur Verlaufskontrolle</li>
+      </ul></div></details>
+      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
+    </div>
+
+    <div class="rt" data-id="p2" data-stations="grundlagen klinik">
+      <div class="rt-h"><span class="rt-n">Prompt 2 · Asthma vs. COPD</span><span class="rt-right"><span class="rt-ptr">→ Grundlagen · Klinik</span></span></div>
+      <div class="rt-q">Grenze <strong>Asthma und COPD</strong> vollständig ab — Alter, Ursache, Verlauf, Obstruktion, Eosinophilie. Was ist der eine entscheidende Unterschied?</div>
+      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul>
+        <li><strong>Asthma:</strong> Beginn Kindheit/Jugend, allergisch, episodisch mit symptomfreien Phasen, <strong>reversible</strong> Obstruktion, Eosinophilie ↑</li>
+        <li><strong>COPD:</strong> Beginn ab ~50 J., Raucher, schleichend progredient, <strong>irreversible</strong> Obstruktion, Eosinophilie normal</li>
+        <li><strong>Der Unterschied:</strong> die Reversibilität — Asthma reversibel, COPD nicht</li>
+      </ul></div></details>
+      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
+    </div>
+
+    <div class="rt" data-id="p3" data-stations="diagnostik">
+      <div class="rt-h"><span class="rt-n">Prompt 3 · Diagnostik im Detail</span><span class="rt-right"><span class="rt-ptr">→ Diagnostik</span></span></div>
+      <div class="rt-q">Erkläre den <strong>Bronchospasmolyse-</strong> und den <strong>Metacholintest</strong> (jeweils Schwelle) — und was machst du, wenn die Lungenfunktion im Intervall <strong>normal</strong> ist?</div>
+      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul>
+        <li><strong>Bronchospasmolyse:</strong> reversibel bei FEV₁-Anstieg <strong>≥ 15 %</strong> nach Salbutamol</li>
+        <li><strong>Normale LuFu im Intervall → Metacholin-Provokation:</strong> positiv bei FEV₁-Abfall <strong>≥ 20 %</strong> — nur im symptomfreien Intervall, danach Salbutamol</li>
+        <li>Ergänzend: Allergiediagnostik, Eosinophilie; BGA im Anfall = respiratorische Alkalose (pH ↑, pO₂ ↓, pCO₂ ↓)</li>
+      </ul></div></details>
+      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
+    </div>
+
+    <div class="rt" data-id="p4" data-stations="therapie">
+      <div class="rt-h"><span class="rt-n">Prompt 4 · Stufentherapie</span><span class="rt-right"><span class="rt-ptr">→ Therapie</span></span></div>
+      <div class="rt-q">Geh die <strong>Stufentherapie</strong> durch (1–5) und das Prinzip dahinter. Was ist Reliever, was Controller — und warum ist ein ICS keine Bedarfsmedikation?</div>
+      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul>
+        <li><strong>Prinzip:</strong> eskalieren bis zur Kontrolle, nach ≥ 3 Monaten Kontrolle deeskalieren</li>
+        <li><strong>Stufen:</strong> 1 nur SABA b. Bedarf · 2 ICS niedrig · 3 ICS niedrig + LABA · 4 ICS hoch + LABA (± LAMA) · 5 + Biologikum (Anti-IgE/IL-5) / orale Steroide</li>
+        <li><strong>Reliever</strong> = SABA (Bedarf); <strong>Controller</strong> = ICS (Dauer)</li>
+        <li><strong>ICS wirkt erst nach ~1 Woche</strong> → antiinflammatorische Dauermedikation, nicht für den Akutbedarf</li>
+      </ul></div></details>
+      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
+    </div>
+
+    <div class="rt" data-id="p5" data-stations="klinik therapie">
+      <div class="rt-h"><span class="rt-n">Prompt 5 · Asthmaanfall eskalieren</span><span class="rt-right"><span class="rt-ptr">→ Klinik · Therapie</span></span></div>
+      <div class="rt-q">Akuter Asthmaanfall. Eskaliere von <strong>leicht über schwer bis lebensbedrohlich</strong> — Zeichen + Therapie je Stufe. Welches Medikament ist <strong>verboten</strong>, und was bedeutet eine „silent lung"?</div>
+      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul>
+        <li><strong>Leicht–mittel:</strong> SABA inhalativ (Wiederholung), Prednisolon 20–25 mg p.o.</li>
+        <li><strong>Schwer</strong> (Sprechdyspnoe, AF ≥ 25, HF ≥ 110, PEF &lt; 50 %): + O₂, Prednisolon 1–2 mg/kg, ggf. Ipratropium</li>
+        <li><strong>Lebensbedrohlich</strong> („silent lung", SaO₂ &lt; 92 %, PaCO₂ &gt; 45): β2 parenteral (Reproterol/Terbutalin), Magnesiumsulfat 2 g i.v., Intubation/ITS</li>
+        <li><strong>Verboten: Betablocker.</strong> „Silent lung" = kein Atemgeräusch = lebensbedrohlich</li>
+      </ul></div></details>
+      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
+    </div>
+
+    <div class="callout fact"><span class="lab">Mainz-Muster</span>Asthma kommt als <strong>DD-Dyspnoe-Fall</strong> und im Doppel mit der COPD. Erwartet: die <strong>Abgrenzung Asthma/COPD</strong> (Reversibilität!), die <strong>Diagnosesicherung</strong> (Spirometrie + Bronchospasmolyse, Metacholin bei normaler LuFu), die <strong>Stufentherapie</strong>, das <strong>Anfallsmanagement</strong> mit Eskalation — und die garantierte Frage nach dem <strong>verbotenen Betablocker</strong>.</div>
+
+    <div class="sf-wrap">
+      <h3>Schnellfragen · Rapid-Fire</h3>
+      <div class="sf-intro">Atomare Einzelfakten — Ein-Wort-Abruf, keine Optionen. Laut, sofort, dann aufdecken.</div>
+      <details class="sf"><summary>Asthma — Obstruktion reversibel oder irreversibel?</summary><div class="sfa">reversibel</div></details>
+      <details class="sf"><summary>COPD — reversibel?</summary><div class="sfa">irreversibel</div></details>
+      <details class="sf"><summary>Tiffeneau-Index pathologisch?</summary><div class="sfa">&lt; 70 %</div></details>
+      <details class="sf"><summary>Bronchospasmolyse positiv ab?</summary><div class="sfa">FEV₁ +15 % nach Salbutamol</div></details>
+      <details class="sf"><summary>Metacholin-Test positiv ab?</summary><div class="sfa">FEV₁ −20 %</div></details>
+      <details class="sf"><summary>Metacholin — wann durchführen?</summary><div class="sfa">nur im symptomfreien Intervall</div></details>
+      <details class="sf"><summary>Allergisches Asthma — Labor?</summary><div class="sfa">IgE ↑ + Eosinophilie</div></details>
+      <details class="sf"><summary>BGA im Anfall?</summary><div class="sfa">respiratorische Alkalose (pH ↑, pO₂ ↓, pCO₂ ↓)</div></details>
+      <details class="sf"><summary>Steigendes pCO₂ im Anfall — bedeutet?</summary><div class="sfa">Erschöpfung = Alarm</div></details>
+      <details class="sf"><summary>Reliever (Bedarf)?</summary><div class="sfa">SABA (Salbutamol)</div></details>
+      <details class="sf"><summary>Controller-Basis?</summary><div class="sfa">inhalatives Kortikosteroid (ICS)</div></details>
+      <details class="sf"><summary>ICS — Wirkungseintritt?</summary><div class="sfa">erst nach ~1 Woche (nicht als Bedarf)</div></details>
+      <details class="sf"><summary>Stufe 3?</summary><div class="sfa">ICS niedrig + LABA</div></details>
+      <details class="sf"><summary>Stufe 5 — Biologika?</summary><div class="sfa">Anti-IgE (Omalizumab) / Anti-IL-5</div></details>
+      <details class="sf"><summary>Asthmaanfall — verbotenes Medikament?</summary><div class="sfa">Betablocker</div></details>
+      <details class="sf"><summary>„Silent Lung" — bedeutet?</summary><div class="sfa">lebensbedrohlich (kein Atemgeräusch)</div></details>
+      <details class="sf"><summary>Schwerer Anfall — Magnesium?</summary><div class="sfa">Magnesiumsulfat 2 g i.v.</div></details>
+      <details class="sf"><summary>Status asthmaticus — Definition?</summary><div class="sfa">Anfall &gt; 24 h trotz adäquater Therapie</div></details>
+      <details class="sf"><summary>ICS-Nebenwirkung — Prophylaxe?</summary><div class="sfa">Mund spülen (Soor/Heiserkeit)</div></details>
+    </div>
+  </section>
+
+  <!-- ============ GRUNDLAGEN ============ -->
+  <section class="panel" data-panel="grundlagen">
+    <p class="panel-intro">Chronisch-entzündlich, hyperreagibel, reversibel — das ist die DNA des Asthmas. Erst laut, dann aufklappen.</p>
+    <details class="card grundlagen" open><summary><span class="ct"><span class="ctag">★ Anker</span><span class="ctitle">Was ist Asthma?</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Merksatz</span><strong>Chronisch-entzündliche Atemwegserkrankung mit bronchialer Hyperreagibilität und variabler, reversibler Atemwegsobstruktion.</strong> Pathophysiologie: Bronchospasmus + Schleimhautödem + zäher Schleim (Dyskrinie).</div>
+        <div class="callout critical"><span class="lab">⚠ Trigger</span>Allergene, Infekte, körperliche Anstrengung, kalte Luft, <strong>ASS/NSAR und Betablocker</strong>, chemisch-toxische Reize.</div>
+      </div>
+    </details>
+    <details class="card grundlagen"><summary><span class="ct"><span class="ctag">★ Formen</span><span class="ctitle">Allergisch · nicht-allergisch · Misch</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <table class="dd"><tr><th>Form</th><th>Merkmal</th></tr>
+          <tr><td><strong>Allergisch (30 %)</strong></td><td>IgE+, Allergenbezug, oft Atopie</td></tr>
+          <tr><td><strong>Nicht-allergisch (30 %)</strong></td><td>kein spez. IgE, v. a. Atemwegsinfekte</td></tr>
+          <tr><td><strong>Mischform (40 %)</strong></td><td>beides</td></tr>
+        </table>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ KLINIK ============ -->
+  <section class="panel" data-panel="klinik">
+    <p class="panel-intro">Anfallsartig, exspiratorisch, reversibel — und die saubere Abgrenzung zur COPD.</p>
+    <details class="card klinik" open><summary><span class="ct"><span class="ctag">★ Anker</span><span class="ctitle">Leitsymptome</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <ul class="b">
+          <li><strong>Anfallsartige Luftnot</strong> mit exspiratorischem Giemen/Brummen/Pfeifen</li>
+          <li>Trockener Husten (v. a. nachts/früh morgens), Brustenge, verlängertes Exspirium</li>
+          <li>Episodisch — häufig symptomfreie Intervalle</li>
+        </ul>
+        <div class="callout critical"><span class="lab">▲ Silent Lung</span>Im schweren Anfall <strong>kein hörbares Atemgeräusch</strong> („silent lung") — keine Besserung, sondern lebensbedrohlich.</div>
+      </div>
+    </details>
+    <details class="card klinik"><summary><span class="ct"><span class="ctag">★ DD</span><span class="ctitle">Asthma vs. COPD</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <table class="dd"><tr><th></th><th>Asthma</th><th>COPD</th></tr>
+          <tr><td><strong>Beginn</strong></td><td>Kindheit/Jugend</td><td>ab ~50 J.</td></tr>
+          <tr><td><strong>Ursache</strong></td><td>allergisch</td><td>Raucher</td></tr>
+          <tr><td><strong>Verlauf</strong></td><td>episodisch</td><td>progredient</td></tr>
+          <tr><td><strong>Obstruktion</strong></td><td>reversibel</td><td>irreversibel</td></tr>
+          <tr><td><strong>Eosinophilie</strong></td><td>↑</td><td>normal</td></tr>
+        </table>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ DIAGNOSTIK ============ -->
+  <section class="panel" data-panel="diagnostik">
+    <p class="panel-intro">Obstruktion zeigen, Reversibilität beweisen — und bei normaler LuFu provozieren.</p>
+    <details class="card diagnostik" open><summary><span class="ct"><span class="ctag">★ Anker</span><span class="ctitle">Diagnose-Trias</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Merksatz</span><strong>Typische Klinik/Anamnese + obstruktive Ventilationsstörung (Tiffeneau &lt; 70 %, FEV₁ ↓) + komplette Reversibilität</strong> = Asthma gesichert.</div>
+      </div>
+    </details>
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">★ Tests</span><span class="ctitle">Bronchospasmolyse + Provokation</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <table class="dd"><tr><th>Test</th><th>Positiv</th></tr>
+          <tr><td><strong>Bronchospasmolyse</strong></td><td>FEV₁ <strong>+15 %</strong> nach Salbutamol</td></tr>
+          <tr><td><strong>Metacholin-Provokation</strong></td><td>FEV₁ <strong>−20 %</strong> (nur im symptomfreien Intervall!)</td></tr>
+          <tr><td><strong>Peak-Flow</strong></td><td>Eigenmessung PEF im Verlauf (Variabilität)</td></tr>
+        </table>
+        <div class="callout fact"><span class="lab">⚙ Merke</span>Im anfallsfreien Intervall ist die Lungenfunktion oft unauffällig — aber der <strong>Metacholintest fällt pathologisch aus</strong>.</div>
+      </div>
+    </details>
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Labor</span><span class="ctitle">IgE, Eosinophilie, BGA</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <ul class="b">
+          <li><strong>Allergiediagnostik:</strong> Prick-Test, Gesamt-IgE + spezifisches IgE; <strong>Eosinophilie</strong> im Differenzialblutbild</li>
+        </ul>
+        <div class="callout critical"><span class="lab">▲ BGA im Anfall</span>Hypoxämie mit <strong>respiratorischer Alkalose</strong> (pH ↑, pO₂ ↓, pCO₂ ↓).<br>Ein <strong>steigendes pCO₂</strong> ist ein Erschöpfungs- und Alarmzeichen.</div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ THERAPIE ============ -->
+  <section class="panel" data-panel="therapie">
+    <p class="panel-intro">Eine Leiter (Controller) + ein Reliever — und die Eskalation im Anfall. Niemals Betablocker.</p>
+    <details class="card therapie" open><summary><span class="ct"><span class="ctag">★ Stufentherapie</span><span class="ctitle">Eine Leiter — ein Satz</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Prinzip</span>Eskalieren bis zur Kontrolle, nach <strong>≥ 3 Monaten</strong> Kontrolle deeskalieren. <strong>Bei Bedarf immer SABA.</strong></div>
+        <table class="dd"><tr><th>Stufe</th><th>Dauertherapie</th></tr>
+          <tr><td><strong>1</strong></td><td>nur SABA b. Bedarf</td></tr>
+          <tr><td><strong>2</strong></td><td>ICS niedrig</td></tr>
+          <tr><td><strong>3</strong></td><td>ICS niedrig + LABA</td></tr>
+          <tr><td><strong>4</strong></td><td>ICS hoch + LABA (± LAMA)</td></tr>
+          <tr><td><strong>5</strong></td><td>+ Biologikum (Anti-IgE/IL-5) / orale Steroide</td></tr>
+        </table>
+        <div class="callout fact"><span class="lab">⚙ Eselsbrücke</span><strong>Inhalatives Kortison wirkt erst nach ~1 Woche</strong> — Dauermedikation, nicht für den Notfall.</div>
+      </div>
+    </details>
+    <details class="card therapie"><summary><span class="ct"><span class="ctag">Wirkstoffe</span><span class="ctitle">5 Gruppen — je 1 Name</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <table class="dd"><tr><th>Gruppe</th><th>Beispiel</th></tr>
+          <tr><td><strong>SABA</strong> (Akut)</td><td>Salbutamol</td></tr>
+          <tr><td><strong>ICS</strong> (Basis)</td><td>Budesonid</td></tr>
+          <tr><td><strong>LABA</strong> (Dauer)</td><td>Formoterol</td></tr>
+          <tr><td><strong>LAMA</strong> (Add-on)</td><td>Tiotropium</td></tr>
+          <tr><td><strong>LTRA</strong> (Alternative, Kinder)</td><td>Montelukast</td></tr>
+        </table>
+      </div>
+    </details>
+    <details class="card therapie"><summary><span class="ct"><span class="ctag">★ Anfall</span><span class="ctitle">Eskalation nach Schwere</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <table class="dd"><tr><th>Schwere</th><th>Therapie</th></tr>
+          <tr><td><strong>Leicht–mittel</strong></td><td>SABA inhalativ (Wdh. nach 10 min) + Prednisolon 20–25 mg p.o.</td></tr>
+          <tr><td><strong>Schwer</strong> (PEF &lt; 50 %)</td><td>+ O₂, Prednisolon 1–2 mg/kg, ggf. Ipratropium</td></tr>
+          <tr><td><strong>Lebensbedrohlich</strong></td><td>β2 parenteral (Reproterol/Terbutalin), Magnesium 2 g i.v., Intubation/ITS</td></tr>
+        </table>
+        <div class="callout critical"><span class="lab">▲ Niemals Betablocker!</span>Bei jedem Asthmaanfall kontraindiziert (Bronchospasmus). „Silent lung", SaO₂ &lt; 92 % oder PaCO₂ &gt; 45 mmHg = lebensbedrohlich → Intensiv.</div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ KP-PERLEN ============ -->
+  <section class="panel" data-panel="perlen">
+    <div class="pearl"><div class="ph">⭐ Perle 1 · Reversibel</div><div class="pt"><strong>Asthma = reversible Obstruktion, COPD = irreversibel.</strong> Das ist der entscheidende Unterschied und die häufigste Prüfungsfrage.</div><div class="mn"><b>Merke:</b> Reversibel = Asthma, irreversibel = COPD</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 2 · +15 % / −20 %</div><div class="pt"><strong>Bronchospasmolyse positiv bei FEV₁ +15 % nach Salbutamol; Metacholin positiv bei FEV₁ −20 %</strong> (nur im symptomfreien Intervall).</div><div class="mn"><b>Merke:</b> Salbutamol rauf 15, Metacholin runter 20</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 3 · SABA immer</div><div class="pt">Auf jeder Stufe gilt: <strong>Bedarfsmedikation = SABA</strong> (Salbutamol). Die Controller-Leiter darüber wird je nach Kontrolle angepasst.</div><div class="mn"><b>Merke:</b> Bedarf = immer SABA</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 4 · ICS wirkt verzögert</div><div class="pt"><strong>Inhalative Kortikosteroide wirken erst nach ~1 Woche</strong> — Dauer-/Controller-Medikation, nicht für den Akutanfall.</div><div class="mn"><b>Merke:</b> Cortison-Spray ist Dauer, nicht Notfall</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 5 · Anfall-Basis</div><div class="pt">Akutanfall: <strong>Sauerstoff, SABA, systemisches Steroid</strong> — die drei S. Eskalation bei Schwere: Ipratropium, Magnesium, β2 parenteral.</div><div class="mn"><b>Merke:</b> Sauerstoff, Spray, Steroid</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 6 · Niemals Betablocker</div><div class="pt"><strong>Betablocker sind bei jedem Asthma(anfall) kontraindiziert</strong> (Bronchospasmus). Auch ASS/NSAR können triggern.</div><div class="mn"><b>Merke:</b> Betablocker blockt die Bronchien zu</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 7 · BGA = resp. Alkalose</div><div class="pt">Im Anfall zunächst <strong>respiratorische Alkalose</strong> (Hyperventilation, pCO₂ ↓). Ein <strong>steigendes pCO₂</strong> bedeutet Erschöpfung — Gefahr.</div><div class="mn"><b>Merke:</b> Steigendes CO₂ heißt Gefahr</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 8 · Status asthmaticus</div><div class="pt"><strong>Status asthmaticus = Anfall, der trotz adäquater Therapie ≥ 24 h andauert</strong> — vital bedrohlich, intensivpflichtig.</div><div class="mn"><b>Merke:</b> 24 Stunden = Status = ITS</div></div>
+  </section>
+
+  <!-- ============ PROTOKOLLE ============ -->
+  <section class="panel" data-panel="protokoll">
+    <p class="panel-intro">Für das Asthma bronchiale liegt kein einzelnes datiertes Mainz-Protokoll vor — hier die <strong>wiederkehrenden Prüfungsfragen</strong> aus den dokumentierten Materialien (Stex + Vorbereitung), als Generalprobe gebündelt. Jede Frage einzeln laut beantworten, dann aufdecken.</p>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · Pneumologie</span><span>Prüfungsschwerpunkt — Diagnose &amp; DD</span><span class="pk-badge">Lernstoff</span></div>
+      <div class="pk-akte"><span class="lab">Szenario</span>Patient mit anfallsartiger Dyspnoe und pfeifender Ausatmung in der DD-Dyspnoe-Prüfung.</div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">Wie grenzen Sie Asthma und COPD ab?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Asthma: Beginn in Kindheit/Jugend, allergische Genese, episodisch mit symptomfreien Phasen, reversible Obstruktion, Eosinophilie erhöht. COPD: Beginn ab ~50 J., Raucher, schleichend progredient, irreversible Obstruktion, Eosinophilie normal. Entscheidend ist die Reversibilität.</div></details></div>
+      <div class="pq"><div class="pq-frage">Wie sichern Sie die Diagnose Asthma?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Typische Klinik/Anamnese plus obstruktive Ventilationsstörung in der Spirometrie (Tiffeneau &lt; 70 %, FEV₁ ↓) plus komplette Reversibilität im Bronchospasmolysetest (FEV₁ +15 % nach Salbutamol).</div></details></div>
+      <div class="pq"><div class="pq-frage">Die Lungenfunktion ist im Intervall normal — was tun Sie?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Metacholin-Provokationstest zum Nachweis der bronchialen Hyperreagibilität: positiv bei FEV₁-Abfall ≥ 20 %. Nur im symptomfreien Intervall durchführen, anschließend Salbutamol geben.</div></details></div>
+      <div class="pq"><div class="pq-frage">Was zeigt die BGA im Anfall?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Hypoxämie mit hyperventilationsbedingter respiratorischer Alkalose (pH ↑, pO₂ ↓, pCO₂ ↓). Ein steigendes pCO₂ ist ein Erschöpfungs- und Alarmzeichen.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · Pneumologie</span><span>Prüfungsschwerpunkt — Therapie &amp; Anfall</span><span class="pk-badge">Lernstoff</span></div>
+      <div class="pk-akte"><span class="lab">Szenario</span>Dauertherapie und der akute Asthmaanfall in der Notaufnahme.</div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">Erklären Sie die Stufentherapie.</div><details class="reveal"><summary>Antwort</summary><div class="ans">Bei Bedarf immer SABA. Stufe 1 nur SABA; Stufe 2 ICS niedrig; Stufe 3 ICS niedrig + LABA; Stufe 4 ICS hoch + LABA (± LAMA); Stufe 5 zusätzlich Biologikum (Anti-IgE/Anti-IL-5) oder orale Steroide. Eskalation bis zur Kontrolle, Deeskalation nach ≥ 3 Monaten.</div></details></div>
+      <div class="pq"><div class="pq-frage">Warum ist das inhalative Kortikosteroid keine Bedarfsmedikation?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Weil es erst nach etwa einer Woche antiinflammatorisch wirkt. Es ist die Controller-/Dauermedikation; den akuten Bronchospasmus löst der schnell wirksame SABA.</div></details></div>
+      <div class="pq"><div class="pq-frage">Behandeln Sie einen akuten Asthmaanfall — und wann wird es lebensbedrohlich?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Sauerstoff, SABA inhalativ (wiederholt), systemisches Glukokortikoid (Prednisolon). Bei Schwere zusätzlich Ipratropium, Magnesiumsulfat i.v. und β2 parenteral (Reproterol/Terbutalin). Lebensbedrohlich bei „silent lung", SaO₂ &lt; 92 % oder PaCO₂ &gt; 45 mmHg → Intensivmedizin, ggf. Intubation.</div></details></div>
+      <div class="pq"><div class="pq-frage">Welches Medikament dürfen Sie nicht geben?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Betablocker — sie sind bei jedem Asthmaanfall kontraindiziert (Gefahr des Bronchospasmus). Auch ASS/NSAR können einen Anfall triggern.</div></details></div>
+    </div>
+  </section>
+
+  <footer>
+    R3 · Asthma bronchiale · Diagnostischer Durchlauf. Produce-only: Retrieval = Synthese, Schnellfragen = atomar, Protokolle = gebündelter Prüfungsstoff (Modellantworten in R2 + in den Reveals). Quelle: Stex Lernkarten (Elsevier) + Vorbereitung zur KB. Kein einzelnes datiertes Asthma-Protokoll dokumentiert — Protokoll-Tab bündelt die wiederkehrenden Prüfungsfragen. Zwei-Pass-Logik: kalt testen + bewerten → nur Lücken öffnen. Bewertung wird nicht gespeichert.
+  </footer>
+
+
+</div>
+<script>
+  const tabs = [...document.querySelectorAll('.tab')];
+  const panels = [...document.querySelectorAll('.panel')];
+  function showTab(name){
+    tabs.forEach(x=>x.classList.toggle('active', x.dataset.tab===name));
+    panels.forEach(p=>p.classList.toggle('active', p.dataset.panel===name));
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  tabs.forEach(t=>t.addEventListener('click',()=>showTab(t.dataset.tab)));
+
+  // ---- scoring state ----
+  const scores = {};                 // {p1:'sicher'|'lueckenhaft'|'gefehlt'}
+  const CONTENT = ['grundlagen','klinik','diagnostik','therapie'];
+  const promptStations = {};
+  document.querySelectorAll('.rt').forEach(rt=>{
+    promptStations[rt.dataset.id] = (rt.dataset.stations||'').split(' ').filter(Boolean);
+  });
+
+  function recompute(){
+    let ok=0,gap=0,miss=0;
+    Object.values(scores).forEach(v=>{ if(v==='sicher')ok++; else if(v==='lueckenhaft')gap++; else if(v==='gefehlt')miss++; });
+    document.getElementById('n-ok').textContent=ok;
+    document.getElementById('n-gap').textContent=gap;
+    document.getElementById('n-miss').textContent=miss;
+    document.getElementById('n-done').textContent=Object.keys(scores).length;
+    // station status
+    CONTENT.forEach(st=>{
+      const related = Object.keys(promptStations).filter(p=>promptStations[p].includes(st));
+      const scored = related.filter(p=>scores[p]);
+      const flagged = related.some(p=>scores[p]==='lueckenhaft'||scores[p]==='gefehlt');
+      const allOk = related.length && scored.length===related.length && !flagged;
+      const tab = tabs.find(t=>t.dataset.tab===st);
+      tab.classList.remove('flag-gap','flag-ok');
+      const b = tab.querySelector('.badge');
+      if(flagged){ tab.classList.add('flag-gap'); b.textContent='Lücke'; }
+      else if(allOk){ tab.classList.add('flag-ok'); b.textContent='✓'; }
+      else { b.textContent=''; }
+    });
+  }
+
+  document.querySelectorAll('.rt .score').forEach(scoreBox=>{
+    const rt = scoreBox.closest('.rt');
+    scoreBox.querySelectorAll('.sbtn').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        const v = btn.dataset.v;
+        scores[rt.dataset.id] = v;
+        rt.dataset.score = v;
+        scoreBox.querySelectorAll('.sbtn').forEach(b=>b.classList.toggle('on', b===btn));
+        recompute();
+        const status=document.getElementById('status');
+        const flaggedNow=tabs.filter(t=>t.classList.contains('flag-gap')).length;
+        if(Object.keys(scores).length===5){
+          status.textContent = flaggedNow ? 'Pass 1 fertig. „Nur Lücken öffnen" springt zu den '+flaggedNow+' markierten Stationen.' : 'Alles sicher in Pass 1 — direkt zur Generalprobe (Protokolle).';
+        } else {
+          status.textContent = (5-Object.keys(scores).length)+' Prompt(s) noch zu bewerten.';
+        }
+      });
+    });
+  });
+
+  // ---- two-pass: open only gaps ----
+  document.getElementById('open-gaps').addEventListener('click',()=>{
+    const flagged = CONTENT.filter(st=>tabs.find(t=>t.dataset.tab===st).classList.contains('flag-gap'));
+    const status=document.getElementById('status');
+    if(!Object.keys(scores).length){ status.textContent='Erst Pass 1 bewerten — dann zeige ich dir die Lücken.'; return; }
+    if(!flagged.length){
+      // all clear -> capstone
+      panels.forEach(p=>{ if(CONTENT.includes(p.dataset.panel)) p.querySelectorAll('.card').forEach(c=>c.open=false); });
+      showTab('protokoll'); status.textContent='Keine Lücken — auf zur Generalprobe.'; return;
+    }
+    // expand flagged stations, collapse the "sicher" ones
+    panels.forEach(p=>{
+      if(!CONTENT.includes(p.dataset.panel)) return;
+      const isGap = flagged.includes(p.dataset.panel);
+      p.querySelectorAll('.card').forEach(c=>{ c.open = isGap; });
+    });
+    showTab(flagged[0]);
+    status.textContent='Geöffnet: '+flagged.join(', ')+'. Der Rest bleibt zu.';
+  });
+
+  // ---- reset ----
+  document.getElementById('reset').addEventListener('click',()=>{
+    Object.keys(scores).forEach(k=>delete scores[k]);
+    document.querySelectorAll('.rt').forEach(rt=>{ rt.removeAttribute('data-score'); rt.querySelectorAll('.sbtn').forEach(b=>b.classList.remove('on')); });
+    document.querySelectorAll('.reveal[open]').forEach(d=>d.open=false);
+    recompute();
+    document.getElementById('status').textContent='Zurückgesetzt. Bewerte alle 5 Prompts, dann „Nur Lücken öffnen".';
+  });
+
+  recompute();
+</script>
+</body>
+</html>
