@@ -195,7 +195,7 @@
   </header>
 
   <div class="tabs">
-    <button class="tab active" data-c="retrieval" data-tab="retrieval">Retrieval-Test</button>
+    <button class="tab active" data-c="gespraech" data-tab="gespraech">Prüfungsgespräch</button>
     <button class="tab" data-c="grundlagen" data-tab="grundlagen">Grundlagen<span class="badge"></span></button>
     <button class="tab" data-c="klinik" data-tab="klinik">Klinik<span class="badge"></span></button>
     <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik<span class="badge"></span></button>
@@ -204,102 +204,28 @@
     <button class="tab" data-c="protokoll" data-tab="protokoll">Protokolle</button>
   </div>
 
-  <!-- ============ RETRIEVAL-TEST ============ -->
-  <section class="panel active" data-panel="retrieval">
-    <p class="panel-intro">Kalt. Laut. Auf Deutsch. Diese Prompts fragen <strong>ganze Pfade und Entscheidungen</strong> (Synthese) — die Einzelfakten kommen darunter als Schnellfragen. Erst formulieren, dann aufdecken und ehrlich bewerten.</p>
+  <!-- ============ PRÜFUNGSGESPRÄCH ============ -->
+  <section class="panel active" data-panel="gespraech">
+    <p class="panel-intro">Wie in der echten Prüfung: eine Frage führt zur nächsten. Erst <strong>laut auf Deutsch</strong> antworten, dann aufdecken — und mitdenken, wohin der Prüfer steuert.</p>
 
-    <div class="ctrl">
-      <div class="ctrl-row">
-        <div class="tally"><i class="t-ok">Sicher <span id="n-ok">0</span></i><i class="t-gap">Lücke <span id="n-gap">0</span></i><i class="t-miss">Gefehlt <span id="n-miss">0</span></i><i style="color:var(--muted)">/ 5 bewertet: <span id="n-done">0</span></i></div>
-        <div class="spacer"></div>
-        <button class="btn btn-primary" id="open-gaps">Nur Lücken öffnen →</button>
-        <button class="btn btn-ghost" id="reset">Zurücksetzen</button>
-      </div>
-      <div class="ctrl-status" id="status">Bewerte alle 5 Prompts, dann „Nur Lücken öffnen".</div>
-    </div>
+    <div class="pk">
+      <div class="pk-meta"><span>Prüfungsgespräch · ein Fall, eskalierend</span><span>+ Transfer-Frage am Ende</span><span class="pk-badge">Mündlich</span></div>
+      <div class="pk-akte"><span class="lab">Der Fall</span>28-jähriger, schlanker Mann — plötzlicher rechtsseitiger Thoraxschmerz und Atemnot, aufgetreten beim Sport. Der Prüfer beginnt.</div>
+      <div class="pk-q"><span class="lab">Frage für Frage — erst laut, dann aufdecken</span></div>
 
-    <div class="rt" data-id="p1" data-stations="klinik diagnostik">
-      <div class="rt-h"><span class="rt-n">Prompt 1 · Erstkontakt-Pfad</span><span class="rt-right"><span class="rt-ptr">→ Klinik · Diagnostik</span></span></div>
-      <div class="rt-q">Junger Mann, plötzlicher stechender Thoraxschmerz + Atemnot. Geh den <strong>ganzen Weg</strong> laut durch: Anamnese-Fokus → klinische Untersuchung → Bildgebung → wie du den Röntgenbefund beschreibst.</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul>
-        <li><strong>Anamnese:</strong> Beginn/Schmerzcharakter, Größe/Statur/Rauchen (primär spontan), Vorerkrankung COPD (sekundär), Eingriff/ZVK (iatrogen), Trauma</li>
-        <li><strong>Untersuchung:</strong> asymmetrische Thoraxexkursion, <strong>hypersonorer Klopfschall</strong>, abgeschwächtes Atemgeräusch, fehlender Stimmfremitus; Halsvenen/Hautemphysem prüfen</li>
-        <li><strong>Bildgebung:</strong> Röntgen-Thorax in 2 Ebenen (p.a. im Stehen); Sono in der Akutsituation; CT bei Unklarheit</li>
-        <li><strong>Befund:</strong> Abbruch der Gefäßzeichnung, vermehrte Strahlentransparenz, Pneulinie (viszerale Pleura als feine Linie)</li>
-      </ul></div></details>
-      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
-    </div>
+      <div class="pq"><div class="pq-frage"><b>Prüfer:</b> Stellen Sie den Patienten vor — was ist Ihre Verdachtsdiagnose, und warum?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Verdacht auf <b>primären Spontanpneumothorax</b>: typischer Patient (junger, schlanker, großer Mann, oft Raucher), plötzlicher atemabhängiger stechender Thoraxschmerz mit Dyspnoe. Differenzialdiagnostisch Lungenembolie, Pleuritis, kardiale oder ösophageale Ursachen.</div></details></div>
 
-    <div class="rt" data-id="p2" data-stations="grundlagen">
-      <div class="rt-h"><span class="rt-n">Prompt 2 · Einteilung + Pathophysiologie</span><span class="rt-right"><span class="rt-ptr">→ Grundlagen</span></span></div>
-      <div class="rt-q">Ordne die ganze Landschaft: <strong>spontan</strong> (primär/sekundär) vs. <strong>traumatisch/iatrogen</strong> — und erkläre den <strong>Spannungspneumothorax</strong> (Mechanismus + warum lebensbedrohlich).</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul>
-        <li><strong>Primärer Spontanpneu:</strong> Lungengesunde — junge, schlanke, große Männer, Raucher</li>
-        <li><strong>Sekundärer Spontanpneu:</strong> Lungenkranke (COPD, Emphysem)</li>
-        <li><strong>Traumatisch:</strong> offen/geschlossen; <strong>iatrogen</strong> (ZVK V. subclavia, Schrittmacher, Beatmung)</li>
-        <li><strong>Spannungspneu:</strong> Ventilmechanismus (Luft rein, nicht raus) → Überdruck → Mediastinalverlagerung + obere Einflussstauung → Kreislauf- und Ateminsuffizienz</li>
-      </ul></div></details>
-      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
-    </div>
+      <div class="pq"><div class="pq-frage"><b>Prüfer:</b> Was erwarten Sie bei der körperlichen Untersuchung?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Auf der betroffenen Seite <b>hypersonorer Klopfschall</b>, abgeschwächtes bis fehlendes Atemgeräusch, aufgehobener Stimmfremitus, asymmetrische Thoraxexkursion. Halsvenen und Hautemphysem mitbeurteilen.</div></details></div>
 
-    <div class="rt" data-id="p3" data-stations="therapie">
-      <div class="rt-h"><span class="rt-n">Prompt 3 · Therapieentscheidung</span><span class="rt-right"><span class="rt-ptr">→ Therapie</span></span></div>
-      <div class="rt-q">Triff die Entscheidung <strong>konservativ vs. Drainage vs. OP</strong> und begründe — was genau kippt sie Richtung Drainage bzw. Richtung OP?</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul>
-        <li><strong>Konservativ</strong> nur bei <strong>primärem</strong> Pneu mit kleinem Mantel-/Spitzenpneu + geringer/keiner Dyspnoe → O₂ + Beobachtung, Röntgen nach 24 h</li>
-        <li><strong>Thoraxdrainage</strong> bei größerem/symptomatischem Pneu, sekundärem Pneu, Hämato-/Serothorax; <strong>Spannungspneu und beidseitiger Pneu → sofort</strong></li>
-        <li><strong>OP (VATS)</strong> bei Rezidiv, nachgewiesenen Bullae, persistierender Fistel/fehlender Reexpansion, Spannungspneu (auch Erstereignis) → + Pleurodese zur Rezidivprophylaxe</li>
-      </ul></div></details>
-      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
-    </div>
+      <div class="pq"><div class="pq-frage"><b>Prüfer:</b> Wie sichern Sie die Diagnose?</div><details class="reveal"><summary>Antwort</summary><div class="ans"><b>Röntgen-Thorax in 2 Ebenen</b> (Abbruch der Gefäßzeichnung, vermehrte Strahlentransparenz, Pneulinie). In der Akutsituation Sonografie (fehlendes Lungengleiten). CT bei Unklarheit oder zur OP-Planung.</div></details></div>
 
-    <div class="rt" data-id="p4" data-stations="therapie">
-      <div class="rt-h"><span class="rt-n">Prompt 4 · Thoraxdrainage Schritt für Schritt</span><span class="rt-right"><span class="rt-ptr">→ Therapie</span></span></div>
-      <div class="rt-q">Lege eine <strong>Thoraxdrainage</strong> vor: welcher Zugang (Monaldi/Bülau), Technik (welcher Rippenrand?), wohin die Spitze, und was kommt danach?</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul>
-        <li><strong>Monaldi:</strong> 2. ICR Medioklavikularlinie (Notfallposition, Luft)</li>
-        <li><strong>Bülau:</strong> 4.–5. ICR vordere–mittlere Axillarlinie (Safe Triangle, „B wie Brustwarze", auch Hämatothorax)</li>
-        <li><strong>Technik:</strong> Lokalanästhesie → Hautinzision → stumpfe Präparation am <strong>Rippenoberrand</strong> (Gefäße/Nerven am Unterrand) → Pleura eröffnen</li>
-        <li><strong>Spitze:</strong> bei Luft apikal, bei Flüssigkeit kaudal; <strong>Wasserschloss</strong>; danach <strong>Röntgen-Kontrolle</strong></li>
-      </ul></div></details>
-      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
-    </div>
+      <div class="pq"><div class="pq-frage">↳ <b>Es eskaliert:</b> Noch vor dem Röntgen wird der Patient zunehmend dyspnoisch und hypoton, die Halsvenen stauen sich. Was ist passiert — und was tun Sie <b>jetzt</b>?</div><details class="reveal"><summary>Antwort</summary><div class="ans"><b>Spannungspneumothorax</b> (Ventilmechanismus → Mediastinalverlagerung + obere Einflussstauung). Klinische Diagnose — <b>nicht erst röntgen</b>: sofortige <b>Notentlastung im 2.–3. ICR Medioklavikularlinie</b> (großlumige Kanüle, Rippenoberrand), danach definitive Thoraxdrainage.</div></details></div>
 
-    <div class="rt" data-id="p5" data-stations="klinik therapie">
-      <div class="rt-h"><span class="rt-n">Prompt 5 · Spannungspneu erkennen + handeln</span><span class="rt-right"><span class="rt-ptr">→ Klinik · Therapie</span></span></div>
-      <div class="rt-q">Schwer dyspnoischer Patient, Hypotonie, gestaute Halsvenen, einseitig fehlendes Atemgeräusch. Benenne die <strong>Verdachtsdiagnose</strong> und dein <strong>sofortiges Vorgehen</strong> — und warum nicht erst röntgen?</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul>
-        <li><strong>Spannungspneumothorax</strong> — klinische Diagnose (gestaute Halsvenen, Zyanose, Hypotonie + Tachykardie, hypersonorer Klopfschall, einseitig fehlendes Atemgeräusch)</li>
-        <li><strong>Sofortige Notentlastung:</strong> großlumige Kanüle im 2.–3. ICR Medioklavikularlinie am Rippenoberrand (Ventil)</li>
-        <li>Danach definitive <strong>Thoraxdrainage</strong>. <strong>Nicht erst röntgen</strong> — der Spannungspneu ist eine klinische Blickdiagnose und akut lebensbedrohlich</li>
-      </ul></div></details>
-      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
-    </div>
+      <div class="pq"><div class="pq-frage"><b>Prüfer:</b> Sie legen die Thoraxdrainage. Wo, und worauf achten Sie technisch?</div><details class="reveal"><summary>Antwort</summary><div class="ans"><b>Bülau</b> (4.–5. ICR, vordere–mittlere Axillarlinie, Safe Triangle) oder <b>Monaldi</b> (2. ICR MCL). Präparation am <b>Rippenoberrand</b> (Gefäße/Nerven am Unterrand), Spitze bei Luft apikal, <b>Wasserschloss</b>, anschließend Röntgen-Kontrolle.</div></details></div>
 
-    <div class="callout fact"><span class="lab">Mainz-Muster</span>Der Pneumothorax kommt fast immer als <strong>CT-/Röntgen-Bildfrage</strong> (Mendelssohn, Fischer). Erwartet: <strong>Röntgenbefund</strong> (Abbruch Gefäßzeichnung, Transparenz, Mediastinalshift), die <strong>Pathophysiologie</strong>, die <strong>Therapie nach Schweregrad</strong> (konservativ → Drainage Monaldi/Bülau → VATS) und sehr gern der <strong>Spannungspneu mit Notentlastung 2. ICR MCL</strong>. Häufig die Frage: „Ist ein Hautemphysem gefährlich?"</div>
+      <div class="pq"><div class="pq-frage">↳ <b>Anschluss:</b> Der Patient fragt, ob das wieder passieren kann. Was sagen Sie — und was bieten Sie an?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Das <b>Rezidivrisiko beim Spontanpneumothorax liegt bei ~20–30 %</b>. Bei Rezidiv, nachgewiesenen Bullae oder persistierender Fistel: <b>VATS mit Pleurodese</b> zur Rezidivprophylaxe.</div></details></div>
 
-    <div class="sf-wrap">
-      <h3>Schnellfragen · Rapid-Fire</h3>
-      <div class="sf-intro">Atomare Einzelfakten — Ein-Wort-Abruf, keine Optionen. Laut, sofort, dann aufdecken.</div>
-      <details class="sf"><summary>Pneumothorax — Definition?</summary><div class="sfa">Luft im Pleuraspalt → Lungenkollaps</div></details>
-      <details class="sf"><summary>Spannungspneu — Mechanismus?</summary><div class="sfa">Ventilmechanismus (Luft rein, nicht raus) → Überdruck</div></details>
-      <details class="sf"><summary>Leitsymptom?</summary><div class="sfa">akuter stechender atemabhängiger Thoraxschmerz + Dyspnoe</div></details>
-      <details class="sf"><summary>Klopfschall betroffene Seite?</summary><div class="sfa">hypersonor</div></details>
-      <details class="sf"><summary>DD Hämatothorax — Klopfschall?</summary><div class="sfa">hyposonor (gedämpft)</div></details>
-      <details class="sf"><summary>Atemgeräusch betroffene Seite?</summary><div class="sfa">abgeschwächt / fehlend</div></details>
-      <details class="sf"><summary>Stimmfremitus?</summary><div class="sfa">aufgehoben</div></details>
-      <details class="sf"><summary>Primärer Spontanpneu — typischer Patient?</summary><div class="sfa">junger, schlanker, großer Mann, Raucher</div></details>
-      <details class="sf"><summary>Sekundärer Spontanpneu — Ursache?</summary><div class="sfa">COPD / Lungenemphysem</div></details>
-      <details class="sf"><summary>Häufigste iatrogene Ursache?</summary><div class="sfa">ZVK (V. subclavia)</div></details>
-      <details class="sf"><summary>Röntgen — Befund?</summary><div class="sfa">Abbruch der Gefäßzeichnung + vermehrte Transparenz + Pneulinie</div></details>
-      <details class="sf"><summary>Spannungspneu im Röntgen?</summary><div class="sfa">Mediastinalverlagerung kontralateral + Zwerchfelltiefstand</div></details>
-      <details class="sf"><summary>Sono-Zeichen?</summary><div class="sfa">fehlendes Lungengleiten (Pleuragleiten)</div></details>
-      <details class="sf"><summary>Spannungspneu — sofortige Maßnahme?</summary><div class="sfa">Notentlastung 2.–3. ICR Medioklavikularlinie</div></details>
-      <details class="sf"><summary>Monaldi — Lage?</summary><div class="sfa">2. ICR Medioklavikularlinie</div></details>
-      <details class="sf"><summary>Bülau — Lage?</summary><div class="sfa">4.–5. ICR vordere–mittlere Axillarlinie (Safe Triangle)</div></details>
-      <details class="sf"><summary>Drainage — welcher Rippenrand?</summary><div class="sfa">Oberrand (Gefäße/Nerven am Unterrand)</div></details>
-      <details class="sf"><summary>Drainagespitze bei Luft — wohin?</summary><div class="sfa">apikal (bei Flüssigkeit kaudal)</div></details>
-      <details class="sf"><summary>Rezidiv-Spontanpneu — Therapie?</summary><div class="sfa">VATS + Pleurodese</div></details>
+      <div class="pq"><div class="pq-frage">↳ <b>Transfer-Frage:</b> Ein anderer Patient bekommt unmittelbar nach Anlage eines zentralen Venenkatheters plötzlich Atemnot. Woran denken Sie?</div><details class="reveal"><summary>Antwort</summary><div class="ans"><b>Iatrogener Pneumothorax</b> (Punktion der V. subclavia). Klinik + Röntgen-Kontrolle, bei relevantem Pneumothorax Thoraxdrainage. Immer an die iatrogene Ursache denken — ZVK, Schrittmacher, Beatmung.</div></details></div>
     </div>
   </section>
 
@@ -435,87 +361,6 @@
     window.scrollTo({top:0,behavior:'smooth'});
   }
   tabs.forEach(t=>t.addEventListener('click',()=>showTab(t.dataset.tab)));
-
-  // ---- scoring state ----
-  const scores = {};                 // {p1:'sicher'|'lueckenhaft'|'gefehlt'}
-  const CONTENT = ['grundlagen','klinik','diagnostik','therapie'];
-  const promptStations = {};
-  document.querySelectorAll('.rt').forEach(rt=>{
-    promptStations[rt.dataset.id] = (rt.dataset.stations||'').split(' ').filter(Boolean);
-  });
-
-  function recompute(){
-    let ok=0,gap=0,miss=0;
-    Object.values(scores).forEach(v=>{ if(v==='sicher')ok++; else if(v==='lueckenhaft')gap++; else if(v==='gefehlt')miss++; });
-    document.getElementById('n-ok').textContent=ok;
-    document.getElementById('n-gap').textContent=gap;
-    document.getElementById('n-miss').textContent=miss;
-    document.getElementById('n-done').textContent=Object.keys(scores).length;
-    // station status
-    CONTENT.forEach(st=>{
-      const related = Object.keys(promptStations).filter(p=>promptStations[p].includes(st));
-      const scored = related.filter(p=>scores[p]);
-      const flagged = related.some(p=>scores[p]==='lueckenhaft'||scores[p]==='gefehlt');
-      const allOk = related.length && scored.length===related.length && !flagged;
-      const tab = tabs.find(t=>t.dataset.tab===st);
-      tab.classList.remove('flag-gap','flag-ok');
-      const b = tab.querySelector('.badge');
-      if(flagged){ tab.classList.add('flag-gap'); b.textContent='Lücke'; }
-      else if(allOk){ tab.classList.add('flag-ok'); b.textContent='✓'; }
-      else { b.textContent=''; }
-    });
-  }
-
-  document.querySelectorAll('.rt .score').forEach(scoreBox=>{
-    const rt = scoreBox.closest('.rt');
-    scoreBox.querySelectorAll('.sbtn').forEach(btn=>{
-      btn.addEventListener('click',()=>{
-        const v = btn.dataset.v;
-        scores[rt.dataset.id] = v;
-        rt.dataset.score = v;
-        scoreBox.querySelectorAll('.sbtn').forEach(b=>b.classList.toggle('on', b===btn));
-        recompute();
-        const status=document.getElementById('status');
-        const flaggedNow=tabs.filter(t=>t.classList.contains('flag-gap')).length;
-        if(Object.keys(scores).length===5){
-          status.textContent = flaggedNow ? 'Pass 1 fertig. „Nur Lücken öffnen" springt zu den '+flaggedNow+' markierten Stationen.' : 'Alles sicher in Pass 1 — direkt zur Generalprobe (Protokolle).';
-        } else {
-          status.textContent = (5-Object.keys(scores).length)+' Prompt(s) noch zu bewerten.';
-        }
-      });
-    });
-  });
-
-  // ---- two-pass: open only gaps ----
-  document.getElementById('open-gaps').addEventListener('click',()=>{
-    const flagged = CONTENT.filter(st=>tabs.find(t=>t.dataset.tab===st).classList.contains('flag-gap'));
-    const status=document.getElementById('status');
-    if(!Object.keys(scores).length){ status.textContent='Erst Pass 1 bewerten — dann zeige ich dir die Lücken.'; return; }
-    if(!flagged.length){
-      // all clear -> capstone
-      panels.forEach(p=>{ if(CONTENT.includes(p.dataset.panel)) p.querySelectorAll('.card').forEach(c=>c.open=false); });
-      showTab('protokoll'); status.textContent='Keine Lücken — auf zur Generalprobe.'; return;
-    }
-    // expand flagged stations, collapse the "sicher" ones
-    panels.forEach(p=>{
-      if(!CONTENT.includes(p.dataset.panel)) return;
-      const isGap = flagged.includes(p.dataset.panel);
-      p.querySelectorAll('.card').forEach(c=>{ c.open = isGap; });
-    });
-    showTab(flagged[0]);
-    status.textContent='Geöffnet: '+flagged.join(', ')+'. Der Rest bleibt zu.';
-  });
-
-  // ---- reset ----
-  document.getElementById('reset').addEventListener('click',()=>{
-    Object.keys(scores).forEach(k=>delete scores[k]);
-    document.querySelectorAll('.rt').forEach(rt=>{ rt.removeAttribute('data-score'); rt.querySelectorAll('.sbtn').forEach(b=>b.classList.remove('on')); });
-    document.querySelectorAll('.reveal[open]').forEach(d=>d.open=false);
-    recompute();
-    document.getElementById('status').textContent='Zurückgesetzt. Bewerte alle 5 Prompts, dann „Nur Lücken öffnen".';
-  });
-
-  recompute();
 </script>
 </body>
 </html>
