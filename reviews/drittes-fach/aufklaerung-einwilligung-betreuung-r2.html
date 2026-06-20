@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aufklärung, Einwilligung & Betreuung · R2 Review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F7F4EE; --card:#FFFDF8; --ink:#2A2724; --muted:#6B6358; --line:#E7E0D4;
+    --grundlagen:#C0392B; --grundlagen-t:#F7E9E6;
+    --klinik:#D97706;     --klinik-t:#FBEEDD;
+    --diagnostik:#1E5F9E; --diagnostik-t:#E4EDF6;
+    --therapie:#2D7A3E;   --therapie-t:#E5F0E7;
+    --fragen:#7B3F9E;     --fragen-t:#F0E8F6;
+    --perlen:#B8860B;     --perlen-t:#F8F0D9;
+    --retrieval:#0F766E;  --retrieval-t:#E0F0EE;
+    --protokoll:#334155;  --protokoll-t:#E8EBF0;
+    --ok:#2D7A3E; --gap:#D97706; --miss:#C0392B;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:'Manrope',system-ui,sans-serif;
+    font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased;padding:0 18px 80px}
+  .wrap{max-width:860px;margin:0 auto}
+
+  header{padding:54px 0 22px}
+  .eyebrow{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--retrieval);margin-bottom:16px}
+  h1{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(34px,7vw,52px);line-height:1.04;letter-spacing:-.01em}
+  h1 .accent{font-style:italic;color:var(--grundlagen)}
+  .subtitle{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(17px,2.6vw,20px);color:var(--muted);margin-top:14px}
+  .meta{display:flex;flex-wrap:wrap;gap:6px 0;margin-top:20px;font-size:13px;color:var(--muted);font-weight:500}
+  .meta span:not(:last-child)::after{content:"•";margin:0 10px;color:var(--line);font-weight:700}
+
+
+  .tabs{display:flex;flex-wrap:wrap;gap:8px;position:sticky;top:0;z-index:30;background:linear-gradient(var(--bg) 72%,rgba(247,244,238,0));padding:12px 0 14px;margin-bottom:6px}
+  .tab{position:relative;font-size:13px;font-weight:600;border:1px solid var(--line);background:var(--card);color:var(--muted);padding:8px 15px;border-radius:999px;cursor:pointer;transition:all .15s;white-space:nowrap}
+  .tab:hover{border-color:#cfc6b6}
+  .tab.active{color:#fff;border-color:transparent}
+  .tab[data-c=retrieval].active{background:var(--retrieval)}
+  .tab[data-c=grundlagen].active{background:var(--grundlagen)}
+  .tab[data-c=klinik].active{background:var(--klinik)}
+  .tab[data-c=diagnostik].active{background:var(--diagnostik)}
+  .tab[data-c=therapie].active{background:var(--therapie)}
+  .tab[data-c=fragen].active{background:var(--fragen)}
+  .tab[data-c=perlen].active{background:var(--perlen)}
+  .tab[data-c=protokoll].active{background:var(--protokoll)}
+  .tab .badge{display:none;margin-left:7px;font-size:10px;font-weight:800;padding:1px 6px;border-radius:999px;vertical-align:middle}
+  .tab.flag-gap .badge{display:inline-block;background:var(--gap);color:#fff}
+  .tab.flag-ok .badge{display:inline-block;background:var(--ok);color:#fff}
+  .tab.active .badge{background:rgba(255,255,255,.28)!important;color:#fff}
+
+  .panel{display:none;animation:fade .25s ease}
+  .panel.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+  .panel-intro{font-family:'Fraunces',serif;font-style:italic;font-size:17px;color:var(--muted);margin:6px 0 18px;line-height:1.5}
+
+  /* ---- control bar (Pass 1 instrument) ---- */
+  .ctrl{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:14px 16px;margin-bottom:20px}
+  .ctrl-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+  .tally{font-size:13px;font-weight:700;display:flex;gap:12px;flex-wrap:wrap}
+  .tally i{font-style:normal;display:inline-flex;align-items:center;gap:5px}
+  .tally i::before{content:"";width:9px;height:9px;border-radius:50%}
+  .tally .t-ok::before{background:var(--ok)} .tally .t-gap::before{background:var(--gap)} .tally .t-miss::before{background:var(--miss)}
+  .spacer{flex:1 1 auto}
+  .btn{font-family:'Manrope';font-size:12.5px;font-weight:700;border:none;border-radius:999px;padding:9px 16px;cursor:pointer;transition:.15s}
+  .btn-primary{background:var(--retrieval);color:#fff}
+  .btn-primary:hover{filter:brightness(1.06)}
+  .btn-ghost{background:transparent;color:var(--muted);border:1px solid var(--line)}
+  .btn-ghost:hover{border-color:#cfc6b6}
+  .ctrl-status{margin-top:11px;font-size:13px;font-style:italic;color:var(--retrieval);min-height:18px}
+
+  /* ---- retrieval prompt ---- */
+  .rt{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:14px;transition:border-color .2s}
+  .rt[data-score=sicher]{border-left-color:var(--ok)}
+  .rt[data-score=lueckenhaft]{border-left-color:var(--gap)}
+  .rt[data-score=gefehlt]{border-left-color:var(--miss)}
+  .rt-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:8px}
+  .rt-n{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--retrieval)}
+  .rt-right{display:flex;align-items:center;gap:10px;white-space:nowrap}
+  .rt-ptr{font-size:11px;font-weight:600;color:var(--muted)}
+  .rt-q{font-size:15.5px;line-height:1.55}
+  .reveal{margin-top:12px;border-top:1px dashed var(--line);padding-top:0}
+  .reveal>summary{list-style:none;cursor:pointer;font-size:12.5px;font-weight:800;letter-spacing:.04em;color:var(--retrieval);padding:11px 0 0;user-select:none;display:inline-flex;align-items:center;gap:6px}
+  .reveal>summary::-webkit-details-marker{display:none}
+  .reveal>summary::before{content:"▸";transition:transform .2s;display:inline-block}
+  .reveal[open]>summary::before{transform:rotate(90deg)}
+  .reveal .ans{font-size:14.5px;line-height:1.6;color:#3c372f;padding-top:10px}
+  .reveal .ans b{color:var(--ink)}
+  .reveal .ans ul{list-style:none;padding-left:2px;margin:2px 0 0}
+  .reveal .ans li{position:relative;padding-left:18px;margin-bottom:8px;line-height:1.5}
+  .reveal .ans>ul>li::before{content:"";position:absolute;left:2px;top:8px;width:6px;height:6px;border-radius:50%;background:var(--retrieval)}
+  .reveal .ans li ul{margin:7px 0 2px}
+  .reveal .ans li li{padding-left:16px;margin-bottom:5px;font-size:13.8px;color:#4a443c}
+  .reveal .ans li li::before{content:"";position:absolute;left:0;top:7px;width:5px;height:5px;transform:rotate(45deg);background:#b9b0a1}
+  .score{display:flex;gap:7px;margin-top:12px;padding-top:11px;border-top:1px solid var(--line)}
+  .sbtn{flex:1;font-size:12px;font-weight:700;border:1px solid var(--line);background:var(--bg);color:var(--muted);border-radius:8px;padding:7px 4px;cursor:pointer;transition:.12s}
+  .sbtn:hover{border-color:#cfc6b6}
+  .sbtn[data-v=sicher].on{background:var(--ok);color:#fff;border-color:transparent}
+  .sbtn[data-v=lueckenhaft].on{background:var(--gap);color:#fff;border-color:transparent}
+  .sbtn[data-v=gefehlt].on{background:var(--miss);color:#fff;border-color:transparent}
+
+  /* ---- Schnellfragen ---- */
+  .sf-wrap{background:var(--retrieval-t);border:1px solid #BFE0DC;border-radius:13px;padding:18px 20px;margin-top:24px}
+  .sf-wrap h3{font-family:'Fraunces',serif;font-weight:500;font-size:20px;margin-bottom:3px}
+  .sf-wrap .sf-intro{font-size:13.5px;font-style:italic;color:#0c5d57;margin-bottom:14px}
+  .sf{border-bottom:1px solid #cfe4e1;padding:9px 0}
+  .sf:last-child{border-bottom:none}
+  .sf>summary{list-style:none;cursor:pointer;font-size:14.5px;font-weight:600;display:flex;justify-content:space-between;gap:10px;user-select:none}
+  .sf>summary::-webkit-details-marker{display:none}
+  .sf>summary::after{content:"+";color:var(--retrieval);font-weight:800}
+  .sf[open]>summary::after{content:"−"}
+  .sf .sfa{font-size:14px;color:#0c5d57;font-weight:700;padding-top:6px}
+
+  /* ---- content cards (v1) ---- */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:14px;overflow:hidden}
+  .card>summary{list-style:none;cursor:pointer;padding:18px 20px;display:flex;align-items:flex-start;gap:14px;user-select:none}
+  .card>summary::-webkit-details-marker{display:none}
+  .card .ct{flex:1}
+  .card .ctag{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:5px}
+  .card .ctitle{font-family:'Fraunces',serif;font-weight:500;font-size:17px;line-height:1.25}
+  .plus{flex:none;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:18px;line-height:1;transition:transform .2s;margin-top:2px}
+  .card[open] .plus{transform:rotate(45deg)}
+  .card .body{padding:0 20px 20px;border-top:1px solid var(--line);margin-top:-2px;padding-top:16px}
+  .card.grundlagen .ctag{color:var(--grundlagen)} .card.grundlagen .plus{background:var(--grundlagen-t);color:var(--grundlagen)}
+  .card.klinik .ctag{color:var(--klinik)} .card.klinik .plus{background:var(--klinik-t);color:var(--klinik)}
+  .card.diagnostik .ctag{color:var(--diagnostik)} .card.diagnostik .plus{background:var(--diagnostik-t);color:var(--diagnostik)}
+  .card.therapie .ctag{color:var(--therapie)} .card.therapie .plus{background:var(--therapie-t);color:var(--therapie)}
+  .card.fragen .ctag{color:var(--fragen)} .card.fragen .plus{background:var(--fragen-t);color:var(--fragen)}
+  .card.perlen .ctag{color:var(--perlen)} .card.perlen .plus{background:var(--perlen-t);color:var(--perlen)}
+
+  ul.b{list-style:none;padding-left:2px}
+  ul.b>li{position:relative;padding-left:20px;margin-bottom:8px;line-height:1.55}
+  ul.b>li::before{content:"";position:absolute;left:2px;top:9px;width:7px;height:7px;border-radius:50%}
+  .grundlagen ul.b>li::before{background:var(--grundlagen)} .klinik ul.b>li::before{background:var(--klinik)}
+  .diagnostik ul.b>li::before{background:var(--diagnostik)} .therapie ul.b>li::before{background:var(--therapie)}
+  ul.b ul{list-style:none;padding-left:18px;margin-top:7px}
+  ul.b ul>li{position:relative;padding-left:18px;margin-bottom:6px;font-size:15px;color:#4a443c}
+  ul.b ul>li::before{content:"";position:absolute;left:0;top:7px;width:6px;height:6px;transform:rotate(45deg);background:#b9b0a1}
+  strong{font-weight:700;color:var(--ink)}
+
+  .callout{border-radius:11px;padding:13px 16px;margin:14px 0;font-size:14.5px;line-height:1.55;border-left:4px solid}
+  .callout .lab{font-weight:800;font-size:11px;letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .critical{background:var(--grundlagen-t);border-color:var(--grundlagen)} .critical .lab{color:var(--grundlagen)}
+  .warning{background:var(--klinik-t);border-color:var(--klinik)} .warning .lab{color:var(--klinik)}
+  .fact{background:var(--diagnostik-t);border-color:var(--diagnostik)} .fact .lab{color:var(--diagnostik)}
+
+  .dd{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+  .dd th,.dd td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+  .dd th{background:var(--diagnostik-t);font-weight:700;color:var(--diagnostik);font-size:12px}
+  .dd td:first-child{font-weight:600}
+
+  .pk{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:16px}
+  .pk-meta{display:flex;flex-wrap:wrap;gap:6px 0;font-size:11.5px;font-weight:700;color:var(--protokoll);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+  .pk-meta span:not(:last-child)::after{content:"•";margin:0 8px;color:#c3c9d2}
+  .pk-badge{display:inline-block;background:var(--therapie-t);color:var(--therapie);font-size:10.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:2px 9px;border-radius:999px;margin-left:auto}
+  .pk-akte{font-size:14.5px;line-height:1.58;background:var(--protokoll-t);border-radius:9px;padding:12px 14px;margin-bottom:12px}
+  .pk-akte .lab,.pk-q .lab{font-weight:800;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--protokoll);display:block;margin-bottom:5px}
+  .pk-q ul{list-style:none;padding:0}
+  .pk-q li{position:relative;padding-left:18px;margin-bottom:7px;font-size:14.5px;line-height:1.5}
+  .pk-q li::before{content:"–";position:absolute;left:0;color:var(--protokoll);font-weight:700}
+  .pq{border-top:1px solid var(--line);padding:10px 0}
+  .pq-frage{position:relative;padding-left:18px;font-size:14.5px;font-weight:600;line-height:1.5}
+  .pq-frage::before{content:"–";position:absolute;left:0;color:var(--protokoll);font-weight:700}
+  .pq .reveal{margin-top:5px;border-top:none;padding-top:0}
+  .pq .reveal>summary{padding:5px 0 0}
+
+  .pearl{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--perlen);border-radius:12px;padding:16px 18px;margin-bottom:13px}
+  .pearl .ph{font-weight:800;font-size:13px;color:var(--perlen);margin-bottom:7px}
+  .pearl .pt{font-size:15px;line-height:1.55}
+  .pearl .mn{margin-top:9px;background:var(--perlen-t);border-radius:8px;padding:8px 12px;font-size:13.5px;font-style:italic;color:#7a5c08}
+  .pearl .mn b{font-style:normal;font-weight:800}
+
+  footer{margin-top:40px;padding-top:22px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted);line-height:1.6}
+  .back{display:inline-block;font-family:Manrope,system-ui,sans-serif;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);text-decoration:none;margin-bottom:18px}
+  .back:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a href="../../index.html" class="back">← Zurück zur Library</a>
+
+  <header>
+    <div class="eyebrow">Drittes Fach · R2 · Kurz + KP-Perlen</div>
+    <h1>Aufklärung, Einwilligung &amp; <span class="accent">Betreuung</span></h1>
+    <div class="subtitle">Ohne Einwilligung ist jeder Eingriff Körperverletzung — Aufklärung, Einwilligungsfähigkeit, Vollmacht vor Betreuung und die Patientenverfügung. Drittes-Fach-Dauerbrenner, protokoll-deckend.</div>
+    <div class="meta"><span>R2 · 5 Tabs · Kurz + KP-Perlen</span><span>~15 Min</span><span>Stand 06/2026</span><span>Stex + Vorbereitung + Mainz-Protokolle</span></div>
+  </header>
+
+  <div class="tabs">
+    <button class="tab active" data-c="grundlagen" data-tab="grundlagen">Aufklärung</button>
+    <button class="tab" data-c="klinik" data-tab="klinik">Einwilligung</button>
+    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Betreuung</button>
+    <button class="tab" data-c="therapie" data-tab="therapie">Sonderfälle</button>
+    <button class="tab" data-c="perlen" data-tab="perlen">KP-Perlen</button>
+  </div>
+
+  <section class="panel active" data-panel="grundlagen">
+    <p class="panel-intro">Ohne sie ist der Eingriff Körperverletzung.</p>
+    <details class="card grundlagen" open><summary><span class="ct"><span class="ctag">★ Anker</span><span class="ctitle">Warum + was</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Jeder ärztliche Eingriff erfüllt den Tatbestand der Körperverletzung (§ 223 StGB).</strong> Gerechtfertigt wird er nur durch zwei Dinge: eine wirksame Einwilligung (nach Aufklärung) UND eine lege artis durchgeführte Maßnahme.</div>
+        <p><strong>Inhalte der Aufklärung:</strong></p>
+        <ul class="b"><li>Diagnose</li><li>Art, Umfang und Ablauf des Eingriffs</li><li>Risiken und Komplikationen</li><li>Erfolgsaussichten / Nutzen</li><li>Behandlungsalternativen</li><li>Folgen bei Unterlassung</li></ul>
+        <div class="callout fact"><span class="lab">⚙ Arten</span>Diagnose-, Verlaufs- und Risikoaufklärung (= Selbstbestimmungsaufklärung)<br>therapeutische/Sicherungsaufklärung (Verhaltenshinweise)<br>wirtschaftliche Aufklärung (Kosten)</div>
+      </div>
+    </details>
+    <details class="card grundlagen"><summary><span class="ct"><span class="ctag">Wie · Wann · Wer</span><span class="ctitle">Form, Zeitpunkt, Person</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Mündlich im persönlichen Gespräch durch einen Arzt (nicht delegierbar an die Pflege), in verständlicher Sprache (ggf. Dolmetscher). Bei elektiven Eingriffen mindestens am Vortag (~24 h) — nicht erst unmittelbar vor der OP.</strong></div>
+        <ul class="b"><li>rechtzeitig, damit der Patient frei und wohlüberlegt entscheiden kann (BGH)</li><li>Umfang: je dringlicher der Eingriff, desto knapper · je elektiver, desto umfassender</li><li>schriftliche Aufklärungsbögen ergänzen das Gespräch, ersetzen es nicht</li><li>Dokumentation in der Patientenakte (§ 630f BGB)</li></ul>
+        <div class="callout fact"><span class="lab">⚙ Beweislast</span>Die Beweislast für die ordnungsgemäße Aufklärung trägt der <strong>Arzt</strong>. Fehlt sie, liegt ein <strong>Aufklärungsfehler</strong> vor → die Einwilligung ist unwirksam, der Eingriff rechtswidrig (Schadensersatz möglich).</div>
+      </div>
+    </details>
+  </section>
+
+  <section class="panel" data-panel="klinik">
+    <p class="panel-intro">Wirksam nur bei Einwilligungsfähigkeit.</p>
+    <details class="card klinik" open><summary><span class="ct"><span class="ctag">★ Anker</span><span class="ctitle">Wirksame Einwilligung</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz — 4 Voraussetzungen</span><strong>Einwilligungsfähigkeit<br>vorherige Aufklärung<br>Freiwilligkeit<br>vor dem Eingriff erteilt.</strong> Die Einwilligung ist jederzeit formlos widerrufbar.</div>
+        <div class="callout fact"><span class="lab">⚙ ≠ Geschäftsfähigkeit</span><strong>Einwilligungsfähigkeit</strong> = natürliche Einsichts- und Steuerungsfähigkeit (Wesen, Bedeutung, Tragweite verstehen), keine starre Altersgrenze.<br><strong>Geschäftsfähigkeit</strong> = starre Altersgrenze (18 J.) — für die Einwilligung NICHT maßgeblich.</div>
+      </div>
+    </details>
+    <details class="card klinik"><summary><span class="ct"><span class="ctag">Beurteilung</span><span class="ctitle">Einwilligungsfähigkeit prüfen</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Merksatz</span><strong>Kann der Patient Art, Bedeutung und Tragweite des Eingriffs verstehen und seinen Willen danach bestimmen? → einwilligungsfähig.</strong></div>
+        <p><strong>Nicht einwilligungsfähig (typisch):</strong></p>
+        <ul class="b"><li>Bewusstlose</li><li>schwere Demenz / Delir</li><li>akute Psychose mit fehlender Krankheitseinsicht</li><li>kleine Kinder</li></ul>
+        <div class="callout critical"><span class="lab">⚙ Wenn nicht einwilligungsfähig</span>Dann entscheidet ein Stellvertreter (Bevollmächtigter oder Betreuer) nach dem (mutmaßlichen) Patientenwillen. Bei Gefahr im Verzug → mutmaßliche Einwilligung (siehe Sonderfälle).</div>
+      </div>
+    </details>
+  </section>
+
+  <section class="panel" data-panel="diagnostik">
+    <p class="panel-intro">Vollmacht vor Betreuung — plus Patientenverfügung.</p>
+    <details class="card diagnostik" open><summary><span class="ct"><span class="ctag">★ Anker</span><span class="ctitle">Betreuung vs. Vorsorgevollmacht</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Die Vorsorgevollmacht hat Vorrang und macht eine Betreuung entbehrlich.</strong> Eine Betreuung wird nur bestellt, wenn keine (wirksame) Vollmacht vorliegt — sie ist subsidiär.</div>
+        <table class="dd"><tr><th>Begriff</th><th>Wer / Was</th></tr>
+          <tr><td><strong>Vorsorgevollmacht</strong></td><td>der Patient bevollmächtigt im Voraus (geschäftsfähig) eine Vertrauensperson → <strong>Vorrang</strong></td></tr>
+          <tr><td><strong>Betreuung</strong> (§ 1814 ff. BGB)</td><td>vom Betreuungsgericht bestellt, wenn ein Volljähriger seine Angelegenheiten krankheits-/behinderungsbedingt nicht besorgen kann und keine Vollmacht vorliegt; für definierte Aufgabenkreise (z. B. Gesundheitssorge)</td></tr>
+          <tr><td><strong>Betreuungsverfügung</strong></td><td>legt fest, WER ggf. Betreuer werden soll</td></tr>
+        </table>
+        <div class="callout fact"><span class="lab">⚙ Ehegatten-Notvertretung</span>Seit 2023: Ist ein Patient nicht entscheidungsfähig, kann der <strong>Ehepartner</strong> ihn in Gesundheitsangelegenheiten für bis zu <strong>6 Monate</strong> vertreten — ohne Vollmacht oder Betreuung.</div>
+      </div>
+    </details>
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">★ Verfügung</span><span class="ctitle">Genehmigung &amp; Patientenverfügung</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Patientenverfügung (§ 1827 BGB): schriftlich, im Voraus, einwilligungsfähig verfasst — BINDEND, wenn sie auf die konkrete Behandlungssituation zutrifft.</strong> Arzt und Betreuer müssen sie umsetzen.</div>
+        <ul class="b"><li>trifft die Patientenverfügung nicht zu / fehlt → Behandlungswünsche bzw. mutmaßlicher Wille</li><li>bei riskanten Eingriffen (Gefahr von Tod / schwerem Schaden) braucht der Betreuer/Bevollmächtigte die <strong>Genehmigung des Betreuungsgerichts</strong> (§ 1829 BGB) — außer im Eilfall</li></ul>
+        <div class="callout fact"><span class="lab">⚙ Reihenfolge des Willens</span>1. aktuell geäußerter Wille (einwilligungsfähig)<br>2. Patientenverfügung<br>3. Behandlungswünsche / mutmaßlicher Wille (über Bevollmächtigten/Betreuer)</div>
+      </div>
+    </details>
+  </section>
+
+  <section class="panel" data-panel="therapie">
+    <p class="panel-intro">Notfall, Minderjährige, Zwang, Schweigepflicht.</p>
+    <details class="card therapie" open><summary><span class="ct"><span class="ctag">★ Notfall</span><span class="ctitle">Mutmaßliche Einwilligung</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Im Notfall bei nicht einwilligungsfähigem Patienten ohne erreichbaren Vertreter → Behandlung nach mutmaßlicher Einwilligung</strong> (was der Patient vernünftigerweise gewollt hätte). Lebensrettende Maßnahmen sind im Zweifel indiziert.</div>
+        <ul class="b"><li>die Aufklärung kann akut entfallen, muss aber <strong>nachgeholt werden (Nachaufklärung)</strong></li><li>eine Patientenverfügung ist auch im Notfall zu beachten — vor der Reanimation an die PV denken!</li><li>nicht einwilligungsfähig + keine Angehörigen/Vollmacht → Antrag auf rechtliche Betreuung beim Betreuungsgericht</li></ul>
+        <div class="callout fact"><span class="lab">⚙ Mainz-Fälle</span>93-J. lehnt Gefäß-OP ab → sie ist entscheidungsfähig: Wunsch respektieren, konservativ + Analgesie — und alles dokumentieren.<br>95-J. mit Pneumonie: wenn wach, fragen; sonst Patientenverfügung anschauen.</div>
+      </div>
+    </details>
+    <details class="card therapie"><summary><span class="ct"><span class="ctag">Minderjährige · Zwang</span><span class="ctitle">Minderjährige · Unterbringung · Schweigepflicht</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Minderjährige</span>Einwilligung der Sorgeberechtigten; ein einsichtsfähiger Jugendlicher entscheidet zunehmend mit. Gefährdet eine Verweigerung der Eltern das Kindeswohl → Familiengericht (im Notfall lebensrettend behandeln).</div>
+        <div class="callout critical"><span class="lab">★ Unterbringung / Zwang</span>Gegen den Willen nur bei <strong>Eigen- oder Fremdgefährdung</strong>: öffentlich-rechtlich nach PsychKG (Länder) oder betreuungsrechtlich (§ 1831 BGB) — immer mit gerichtlicher Genehmigung.</div>
+        <div class="callout fact"><span class="lab">⚙ Schweigepflicht (§ 203 StGB)</span>Durchbrechung erlaubt bei:<br>Einwilligung des Patienten<br>gesetzliche Offenbarungspflicht (Meldepflicht IfSG, Geburt, Tod)<br>rechtfertigender Notstand (§ 34 StGB, z. B. Meldung eines fahruntüchtigen Patienten an die Behörde)</div>
+      </div>
+    </details>
+  </section>
+
+  <section class="panel" data-panel="perlen">
+    <div class="pearl"><div class="ph">⭐ Perle 1 · Ohne Einwilligung = Körperverletzung</div><div class="pt">Der Kernsatz des ganzen Themas: <strong>Jeder Eingriff ist tatbestandlich eine Körperverletzung</strong> (§ 223 StGB) und wird nur durch eine wirksame Einwilligung nach Aufklärung <em>und</em> ein lege artis durchgeführtes Vorgehen gerechtfertigt.</div><div class="mn"><b>Merke:</b> Ohne Aufklärung keine wirksame Einwilligung — und ohne die ist die OP Körperverletzung.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 2 · Einwilligungsfähigkeit ≠ Geschäftsfähigkeit</div><div class="pt">Dokumentierter Stolperstein: Die Einwilligungsfähigkeit hat <strong>keine starre Altersgrenze</strong> — es zählt die natürliche Einsichts- und Steuerungsfähigkeit. Ein einsichtsfähiger Jugendlicher kann einwilligen, ein 18-jähriger mit schwerer Demenz nicht.</div><div class="mn"><b>Merke:</b> Verstehen und Wollen entscheidet, nicht das Geburtsdatum.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 3 · Elektiv → am Vortag aufklären</div><div class="pt">Dokumentiert (oft gefragt: „wie viel Zeit nach der Aufklärung?"): Bei geplanten Eingriffen wird <strong>spätestens am Vortag</strong>, also etwa 24 Stunden vorher, aufgeklärt — nicht erst kurz vor der OP-Tür, damit der Patient frei entscheiden kann.</div><div class="mn"><b>Merke:</b> Elektiv = Aufklärung am Vortag; Notfall = so früh wie möglich.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 4 · Notfall → mutmaßliche Einwilligung</div><div class="pt">Dokumentierter Fall (dementer Patient, der eine Notfall-OP braucht — „ist eine Aufklärung erforderlich?"): Im Notfall bei nicht einwilligungsfähigem Patienten ohne Vertreter handelt man nach der <strong>mutmaßlichen Einwilligung</strong>; die Aufklärung wird nachgeholt.</div><div class="mn"><b>Merke:</b> Im echten Notfall rettet man zuerst — die Aufklärung kommt danach.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 5 · Vollmacht vor Betreuung</div><div class="pt">Dokumentiert: Die <strong>Vorsorgevollmacht hat Vorrang</strong> und macht eine Betreuung entbehrlich. Eine Betreuung bestellt das Betreuungsgericht nur, wenn keine wirksame Vollmacht vorliegt — sie ist subsidiär.</div><div class="mn"><b>Merke:</b> Erst Vollmacht, dann Betreuung — nie umgekehrt.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 6 · Patientenverfügung ist bindend</div><div class="pt">Dokumentiert: Eine Patientenverfügung ist <strong>bindend</strong>, wenn sie auf die konkrete Situation zutrifft — Arzt und Betreuer müssen sie umsetzen. <strong>Vor jeder Reanimation an die Patientenverfügung denken.</strong></div><div class="mn"><b>Merke:</b> Erst nach der Patientenverfügung schauen, dann reanimieren.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 7 · Die Reihenfolge des Willens</div><div class="pt">Dokumentiert (Patientenverfügung oder Bevollmächtigte suchen — „es ist eine medizinische Entscheidung"): Es gilt die Reihenfolge <strong>aktueller Wille → Patientenverfügung → mutmaßlicher Wille</strong> über den Bevollmächtigten oder Betreuer.</div><div class="mn"><b>Merke:</b> Aktuell gesagt schlägt aufgeschrieben, aufgeschrieben schlägt vermutet.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 8 · Einwilligungsfähiger lehnt ab → respektieren</div><div class="pt">Dokumentierter Fall (93-Jährige lehnt die Gefäß-OP ab): Lehnt ein einwilligungsfähiger Patient ab, wird das <strong>respektiert und dokumentiert</strong> (Patientenautonomie). Man gibt eine therapeutische Aufklärung und bietet eine konservative Alternative an.</div><div class="mn"><b>Merke:</b> Der einwilligungsfähige Patient darf „Nein" sagen — auch zu seinem Vorteil.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 9 · Der Drei-Söhne-Fall</div><div class="pt">Dokumentiert: Demente Patientin, drei Söhne mit Vollmacht, zwei wollen die OP, einer nicht. <strong>Ist es kein Notfall, wird nicht operiert</strong> — bei Uneinigkeit der Bevollmächtigten entscheidet das <strong>Betreuungsgericht</strong>.</div><div class="mn"><b>Merke:</b> Streit der Bevollmächtigten + kein Notfall → das Gericht klärt es.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 10 · Ehegatten-Notvertretung</div><div class="pt">Neuere Regelung (seit 2023): Ist ein Patient nicht entscheidungsfähig, darf der <strong>Ehepartner</strong> ihn in Gesundheitsangelegenheiten <strong>bis zu 6 Monate</strong> vertreten — auch ohne Vollmacht oder Betreuung.</div><div class="mn"><b>Merke:</b> Der Ehepartner darf sechs Monate einspringen — danach braucht es Vollmacht oder Betreuung.</div></div>
+    <div class="sf-wrap">
+      <h3>Rapid-Fire</h3>
+      <div class="sf-intro">Atomare Einzelfakten — Ein-Wort-Abruf. Laut, sofort, dann aufdecken.</div>
+      <details class="sf"><summary>Eingriff ohne Einwilligung — rechtlich?</summary><div class="sfa">Körperverletzung (§ 223 StGB)</div></details>
+      <details class="sf"><summary>Was rechtfertigt den Eingriff?</summary><div class="sfa">wirksame Einwilligung (nach Aufklärung) + lege artis</div></details>
+      <details class="sf"><summary>4 Voraussetzungen der Einwilligung?</summary><div class="sfa">Einwilligungsfähigkeit, Aufklärung, Freiwilligkeit, vor dem Eingriff</div></details>
+      <details class="sf"><summary>Einwilligung widerrufbar?</summary><div class="sfa">ja, jederzeit formlos</div></details>
+      <details class="sf"><summary>Einwilligungsfähigkeit = Geschäftsfähigkeit?</summary><div class="sfa">nein</div></details>
+      <details class="sf"><summary>Einwilligungsfähigkeit — Maßstab?</summary><div class="sfa">natürliche Einsichts- und Steuerungsfähigkeit (keine Altersgrenze)</div></details>
+      <details class="sf"><summary>Inhalte der Aufklärung?</summary><div class="sfa">Diagnose, Eingriff, Risiken, Erfolgsaussichten, Alternativen, Folgen bei Unterlassung</div></details>
+      <details class="sf"><summary>Aufklärung — Form + Person?</summary><div class="sfa">mündlich, persönlich, durch einen Arzt (nicht delegierbar)</div></details>
+      <details class="sf"><summary>Elektiv — wann aufklären?</summary><div class="sfa">spätestens am Vortag (~24 h)</div></details>
+      <details class="sf"><summary>Wer trägt die Beweislast?</summary><div class="sfa">der Arzt</div></details>
+      <details class="sf"><summary>Notfall + nicht einwilligungsfähig + kein Vertreter?</summary><div class="sfa">mutmaßliche Einwilligung</div></details>
+      <details class="sf"><summary>Aufklärung im Notfall entfallen?</summary><div class="sfa">ja, aber nachholen (Nachaufklärung)</div></details>
+      <details class="sf"><summary>Vorsorgevollmacht oder Betreuung — Vorrang?</summary><div class="sfa">Vorsorgevollmacht (Betreuung subsidiär)</div></details>
+      <details class="sf"><summary>Wer bestellt den Betreuer?</summary><div class="sfa">das Betreuungsgericht</div></details>
+      <details class="sf"><summary>Patientenverfügung — bindend?</summary><div class="sfa">ja, wenn sie auf die Situation zutrifft</div></details>
+      <details class="sf"><summary>Reihenfolge des Willens?</summary><div class="sfa">aktueller Wille → Patientenverfügung → mutmaßlicher Wille</div></details>
+      <details class="sf"><summary>Einwilligungsfähiger Patient lehnt ab?</summary><div class="sfa">respektieren + dokumentieren</div></details>
+      <details class="sf"><summary>Riskanter Eingriff durch Betreuer — was nötig?</summary><div class="sfa">Genehmigung des Betreuungsgerichts (außer Eilfall)</div></details>
+      <details class="sf"><summary>Ehegatten-Notvertretung — wie lange?</summary><div class="sfa">bis 6 Monate</div></details>
+      <details class="sf"><summary>Zwang/Unterbringung — Voraussetzung?</summary><div class="sfa">Eigen- oder Fremdgefährdung + gerichtliche Genehmigung</div></details>
+      <details class="sf"><summary>Minderjährige — wer willigt ein?</summary><div class="sfa">Sorgeberechtigte (einsichtsfähiger Jugendlicher entscheidet mit)</div></details>
+    </div>
+  </section>
+
+  <footer>
+    R2 · Aufklärung, Einwilligung &amp; Betreuungsrecht · Kurz + KP-Perlen. Vier Kernstationen (wortgleich mit R1) + KP-Perlen mit Rapid-Fire. Quelle: Stex + Vorbereitung + Mainz-Protokolle (Fadi Jarbouh Rechtsmedizin, Protokolle 2024–2026).
+  </footer>
+
+</div>
+<script>
+  const tabs = [...document.querySelectorAll('.tab')];
+  const panels = [...document.querySelectorAll('.panel')];
+  function showTab(name){
+    tabs.forEach(x=>x.classList.toggle('active', x.dataset.tab===name));
+    panels.forEach(p=>p.classList.toggle('active', p.dataset.panel===name));
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  tabs.forEach(t=>t.addEventListener('click',()=>showTab(t.dataset.tab)));
+</script>
+</body>
+</html>
