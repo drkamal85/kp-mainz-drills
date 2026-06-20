@@ -183,9 +183,9 @@
   <a href="../../index.html" class="back">← Zurück zur Library</a>
 
   <header>
-    <div class="eyebrow">Unfallchirurgie · R3 · Diagnostischer Durchlauf</div>
+    <div class="eyebrow">Unfallchirurgie · R3 · Kurz + KP-Perlen + Protokolle</div>
     <h1>Becken<span class="accent">ringfrakturen</span></h1>
-    <div class="subtitle">Zwei Pässe: kalt testen, bewerten — dann nur die Lücken öffnen.</div>
+    <div class="subtitle">Vier Stationen (wortgleich mit R2) + KP-Perlen + die echten Mainz-Fragen — zum lauten Üben.</div>
     <div class="meta">
       <span>R3 von 5 · Neuaufbau</span>
       <span>~12–15 Min</span>
@@ -195,91 +195,15 @@
   </header>
 
   <div class="tabs">
-    <button class="tab active" data-c="retrieval" data-tab="retrieval">Retrieval-Test</button>
-    <button class="tab" data-c="grundlagen" data-tab="grundlagen">Grundlagen<span class="badge"></span></button>
-    <button class="tab" data-c="klinik" data-tab="klinik">Klinik<span class="badge"></span></button>
-    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik<span class="badge"></span></button>
-    <button class="tab" data-c="therapie" data-tab="therapie">Therapie<span class="badge"></span></button>
+    <button class="tab active" data-c="grundlagen" data-tab="grundlagen">Grundlagen</button>
+    <button class="tab" data-c="klinik" data-tab="klinik">Klinik</button>
+    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik</button>
+    <button class="tab" data-c="therapie" data-tab="therapie">Therapie</button>
     <button class="tab" data-c="perlen" data-tab="perlen">KP-Perlen</button>
-    <button class="tab" data-c="protokoll" data-tab="protokoll">Protokolle</button>
+    <button class="tab" data-c="protokoll" data-tab="protokoll">Fragen &amp; Protokolle</button>
   </div>
 
-  <!-- ============ RETRIEVAL-TEST ============ -->
-  <section class="panel active" data-panel="retrieval">
-    <p class="panel-intro">Kalt. Laut. Auf Deutsch. Diese Prompts fragen <strong>ganze Pfade und Entscheidungen</strong> (Synthese) — die Einzelfakten kommen darunter als Schnellfragen. Erst formulieren, dann aufdecken und ehrlich bewerten.</p>
-
-    <div class="ctrl">
-      <div class="ctrl-row">
-        <div class="tally"><i class="t-ok">Sicher <span id="n-ok">0</span></i><i class="t-gap">Lücke <span id="n-gap">0</span></i><i class="t-miss">Gefehlt <span id="n-miss">0</span></i><i style="color:var(--muted)">/ 5 bewertet: <span id="n-done">0</span></i></div>
-        <div class="spacer"></div>
-        <button class="btn btn-primary" id="open-gaps">Nur Lücken öffnen →</button>
-        <button class="btn btn-ghost" id="reset">Zurücksetzen</button>
-      </div>
-      <div class="ctrl-status" id="status">Bewerte alle 5 Prompts, dann „Nur Lücken öffnen".</div>
-    </div>
-
-    <div class="rt" data-id="p1" data-stations="grundlagen">
-      <div class="rt-h"><span class="rt-n">Prompt 1 · Anatomie + Klassifikation</span><span class="rt-right"><span class="rt-ptr">→ Grundlagen</span></span></div>
-      <div class="rt-q">Was bildet den Beckenring, warum ist der <strong>hintere Ring</strong> entscheidend — und ordne die <strong>AO/Tile-Klassifikation A/B/C</strong> nach Stabilität, mit je einem Beispiel.</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>Ring:</b> Os sacrum + beide Ossa coxae — vorne durch die Symphyse, hinten durch die ISG verbunden</li><li><b>Hinterer Ring entscheidend:</b> trägt die Last (Wirbelsäule → Beine) + ist die Hauptblutungsquelle</li><li><b>Typ A — stabil:</b> hinterer Ring intakt (z. B. Beckenrandabriss, isolierte vordere Ringfraktur)</li><li><b>Typ B — rotationsinstabil, vertikal stabil:</b> hinterer Ring partiell (z. B. Open Book / B1)</li><li><b>Typ C — komplett instabil</b> (rotatorisch + vertikal): hinterer Ring durchtrennt (z. B. vertikale Scherfraktur / Malgaigne)</li></ul></div></details>
-      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
-    </div>
-
-    <div class="rt" data-id="p2" data-stations="klinik">
-      <div class="rt-h"><span class="rt-n">Prompt 2 · Begleitverletzungen + Schock</span><span class="rt-right"><span class="rt-ptr">→ Klinik</span></span></div>
-      <div class="rt-q">Welche <strong>lebensbedrohlichen Begleitverletzungen</strong> suchst du? Woher kommt die Blutung typischerweise, und wie viel Blut kann verloren gehen?</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>Blutung:</b> prä-/retroperitoneal, v. a. venöser <b>Plexus sacralis</b> → <b>bis 1,5–5 L</b> → hämorrhagischer Schock</li><li><b>Urogenital:</b> Harnröhrenabriss (Blut am Meatus, Prostatahochstand), Blasenruptur</li><li><b>Anorektal/vaginal:</b> Blutung aus Anus/Vagina = <b>offene Beckenfraktur</b> (hohe Letalität)</li><li><b>Neurologisch:</b> Plexus lumbosacralis, N. ischiadicus</li></ul></div></details>
-      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
-    </div>
-
-    <div class="rt" data-id="p3" data-stations="diagnostik">
-      <div class="rt-h"><span class="rt-n">Prompt 3 · Untersuchung + Bildgebung</span><span class="rt-right"><span class="rt-ptr">→ Diagnostik</span></span></div>
-      <div class="rt-q">Wie untersuchst du das Becken klinisch (inkl. der <strong>Stabilitätsprüfung</strong> und ihrer Gefahr), und welche <strong>Bildgebung</strong> in welcher Reihenfolge?</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>Klinik:</b><ul><li>Vitalparameter/Vigilanz (Schock?), bei Polytrauma ABCDE</li><li>Beckenstabilität: Hand auf die Spina iliaca ant. sup., Druck Richtung Unterlage → federnder Widerstand — <b>nur einmal/vorsichtig</b> (Gerinnsel nicht lösen)</li><li>pDMS, DRU (Blut am Fingerling), Genitale, Abdomen</li></ul></li><li><b>Bildgebung:</b><ul><li>Beckenübersicht a.p. zuerst (Schockraum)</li><li>CT mit 3D = Goldstandard → CT-Angio bei arterieller Blutung</li><li>E-FAST · MRT nur bei Geriatrie/Kindern</li></ul></li><li><b>Cave:</b> Blut am Meatus → KEIN blinder Katheter, erst retrograde Urethrographie</li></ul></div></details>
-      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
-    </div>
-
-    <div class="rt" data-id="p4" data-stations="therapie">
-      <div class="rt-h"><span class="rt-n">Prompt 4 · Notfalltherapie (instabil)</span><span class="rt-right"><span class="rt-ptr">→ Therapie</span></span></div>
-      <div class="rt-q">Hämodynamisch <strong>instabiles Becken</strong> im Schock — geh die Notfalltherapie durch (Ziel, mechanisch, interventionell).</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>Ziel:</b> Blutstillung innerhalb <b>&lt; 60 min</b></li><li><b>Allgemein:</b> ABCDE, 2 großlumige Zugänge, aggressive Volumengabe + Massivtransfusion, Tranexamsäure</li><li><b>Mechanisch:</b> Beckengurt (auf <b>Trochanter-Höhe</b>) präklinisch → Beckenzwinge (nach Ganz) / Fixateur externe bei persistierender Instabilität</li><li><b>Interventionell:</b><ul><li>Embolisation — arterielle Blutung</li><li>Pelvic Packing (Beckentamponade) — venöse/ossäre Blutung</li><li>ggf. REBOA</li></ul></li></ul></div></details>
-      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
-    </div>
-
-    <div class="rt" data-id="p5" data-stations="therapie">
-      <div class="rt-h"><span class="rt-n">Prompt 5 · Definitive Versorgung</span><span class="rt-right"><span class="rt-ptr">→ Therapie</span></span></div>
-      <div class="rt-q">Lege die <strong>definitive Versorgung nach Stabilität</strong> fest — wann konservativ, wann operativ, und was machst du operativ beim <strong>Open-Book</strong>?</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>Konservativ:</b> Typ A + stabile Typ-B1 (oder OP-KI) — Analgesie, Thromboseprophylaxe, frühfunktionelle Mobilisation</li><li><b>Operativ:</b> dislozierte Typ A, Typ B mit Instabilität, Typ C — Osteosynthese (Verschraubung/Verplattung), Zugang ventral/dorsal</li><li><b>Open-Book:</b> Symphysenfixation (Platte)</li><li><b>Typ C:</b> zusätzlich ISG-/sakroiliakale Verschraubung</li><li><b>Osteoporotische Insuffizienzfraktur (alt):</b> meist konservativ, Sakroplastie/Verschraubung bei Versagen</li></ul></div></details>
-      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
-    </div>
-
-    <div class="callout fact"><span class="lab">Mainz-Muster</span>Beckenring ist ein Unfallchirurgie-/Polytrauma-Klassiker (oft im Schockraum-Kontext; Prüfer z. B. Dr. Soll). Typischer Lauf: <strong>Tile A/B/C → „wie viel Blut?" (1,5–5 L) → Notfalltherapie</strong> (Beckengurt → Zwinge/Fixateur → Embolisation/Packing, Ziel &lt; 60 min) <strong>→ konservativ vs. operativ → Symphysenfixation beim Open-Book.</strong><br>Lieblingsfragen: die Blutverlust-Tabelle und die Beckengurt-Position.</div>
-
-    <div class="sf-wrap">
-      <h3>Schnellfragen · Rapid-Fire</h3>
-      <div class="sf-intro">Atomare Einzelfakten — Ein-Wort-Abruf, keine Optionen. Laut, sofort, dann aufdecken.</div>
-      <details class="sf"><summary>Beckenring — woraus?</summary><div class="sfa">Os sacrum + beide Ossa coxae</div></details>
-      <details class="sf"><summary>Vorne / hinten verbunden durch?</summary><div class="sfa">Symphyse (vorne) · ISG (hinten)</div></details>
-      <details class="sf"><summary>Welcher Ring biomechanisch entscheidend?</summary><div class="sfa">der hintere Ring</div></details>
-      <details class="sf"><summary>Tile Typ A?</summary><div class="sfa">stabil (hinterer Ring intakt)</div></details>
-      <details class="sf"><summary>Tile Typ B?</summary><div class="sfa">rotationsinstabil, vertikal stabil</div></details>
-      <details class="sf"><summary>Tile Typ C?</summary><div class="sfa">rotations- + vertikal instabil</div></details>
-      <details class="sf"><summary>Open Book = welcher Typ?</summary><div class="sfa">B1 (APC, Symphysensprengung)</div></details>
-      <details class="sf"><summary>Blutverlust bei instabiler Beckenfraktur?</summary><div class="sfa">bis 1,5–5 L (lebensbedrohlich)</div></details>
-      <details class="sf"><summary>Blutungsquelle meist?</summary><div class="sfa">venöser Plexus sacralis (venös/ossär)</div></details>
-      <details class="sf"><summary>Erste Bildgebung im Schockraum?</summary><div class="sfa">Beckenübersicht a.p.</div></details>
-      <details class="sf"><summary>Goldstandard-Bildgebung?</summary><div class="sfa">CT mit 3D-Rekonstruktion</div></details>
-      <details class="sf"><summary>Stabilitätstest — wie?</summary><div class="sfa">Druck auf Spina iliaca ant. sup. — nur einmal!</div></details>
-      <details class="sf"><summary>Präklinische mechanische Stabilisierung?</summary><div class="sfa">Beckengurt (auf Trochanter-Höhe)</div></details>
-      <details class="sf"><summary>Ziel-Zeit Blutstillung?</summary><div class="sfa">&lt; 60 min</div></details>
-      <details class="sf"><summary>Arterielle Blutung → Maßnahme?</summary><div class="sfa">Angio-Embolisation</div></details>
-      <details class="sf"><summary>Venöse/ossäre Blutung → Maßnahme?</summary><div class="sfa">Pelvic Packing (+ Fixateur/Zwinge)</div></details>
-      <details class="sf"><summary>Blut am Meatus → was NICHT tun?</summary><div class="sfa">kein blinder Blasenkatheter (erst Urethrographie)</div></details>
-    </div>
-  </section>
-
-  <!-- ============ GRUNDLAGEN ============ -->
-  <section class="panel" data-panel="grundlagen">
+  <section class="panel active" data-panel="grundlagen">
     <p class="panel-intro">Anatomie, Mechanismus und die Stabilitäts-Klassifikation — erst laut, dann aufklappen.</p>
     <details class="card grundlagen" open><summary><span class="ct"><span class="ctag">Definition</span><span class="ctitle">Der Beckenring — vorne und hinten</span></span><span class="plus">+</span></summary>
       <div class="body">
@@ -391,6 +315,28 @@
     <div class="pearl"><div class="ph">⭐ Perle 6 · Harnröhre</div><div class="pt"><strong>Blut am Meatus → KEIN blinder Katheter</strong>, erst retrograde Urethrographie (Harnröhrenabriss).</div><div class="mn"><b>Merke:</b> Erst röntgen, dann katheterisieren</div></div>
     <div class="pearl"><div class="ph">⭐ Perle 7 · Bildgebung</div><div class="pt"><strong>Beckenübersicht a.p. zuerst</strong> (Schockraum), dann <strong>CT mit 3D = Goldstandard</strong>.</div><div class="mn"><b>Merke:</b> Erst der Überblick, dann die 3D-Karte</div></div>
     <div class="pearl"><div class="ph">⭐ Perle 8 · Konservativ vs. operativ</div><div class="pt"><strong>Konservativ Typ A (+ stabile B1)<br>Operativ B-instabil + C.</strong> Stabilitätstest nur einmal vorsichtig.</div><div class="mn"><b>Merke:</b> A liegt, der Rest wird verschraubt</div></div>
+  
+    <div class="sf-wrap">
+      <h3>Schnellfragen · Rapid-Fire</h3>
+      <div class="sf-intro">Atomare Einzelfakten — Ein-Wort-Abruf, keine Optionen. Laut, sofort, dann aufdecken.</div>
+      <details class="sf"><summary>Beckenring — woraus?</summary><div class="sfa">Os sacrum + beide Ossa coxae</div></details>
+      <details class="sf"><summary>Vorne / hinten verbunden durch?</summary><div class="sfa">Symphyse (vorne) · ISG (hinten)</div></details>
+      <details class="sf"><summary>Welcher Ring biomechanisch entscheidend?</summary><div class="sfa">der hintere Ring</div></details>
+      <details class="sf"><summary>Tile Typ A?</summary><div class="sfa">stabil (hinterer Ring intakt)</div></details>
+      <details class="sf"><summary>Tile Typ B?</summary><div class="sfa">rotationsinstabil, vertikal stabil</div></details>
+      <details class="sf"><summary>Tile Typ C?</summary><div class="sfa">rotations- + vertikal instabil</div></details>
+      <details class="sf"><summary>Open Book = welcher Typ?</summary><div class="sfa">B1 (APC, Symphysensprengung)</div></details>
+      <details class="sf"><summary>Blutverlust bei instabiler Beckenfraktur?</summary><div class="sfa">bis 1,5–5 L (lebensbedrohlich)</div></details>
+      <details class="sf"><summary>Blutungsquelle meist?</summary><div class="sfa">venöser Plexus sacralis (venös/ossär)</div></details>
+      <details class="sf"><summary>Erste Bildgebung im Schockraum?</summary><div class="sfa">Beckenübersicht a.p.</div></details>
+      <details class="sf"><summary>Goldstandard-Bildgebung?</summary><div class="sfa">CT mit 3D-Rekonstruktion</div></details>
+      <details class="sf"><summary>Stabilitätstest — wie?</summary><div class="sfa">Druck auf Spina iliaca ant. sup. — nur einmal!</div></details>
+      <details class="sf"><summary>Präklinische mechanische Stabilisierung?</summary><div class="sfa">Beckengurt (auf Trochanter-Höhe)</div></details>
+      <details class="sf"><summary>Ziel-Zeit Blutstillung?</summary><div class="sfa">&lt; 60 min</div></details>
+      <details class="sf"><summary>Arterielle Blutung → Maßnahme?</summary><div class="sfa">Angio-Embolisation</div></details>
+      <details class="sf"><summary>Venöse/ossäre Blutung → Maßnahme?</summary><div class="sfa">Pelvic Packing (+ Fixateur/Zwinge)</div></details>
+      <details class="sf"><summary>Blut am Meatus → was NICHT tun?</summary><div class="sfa">kein blinder Blasenkatheter (erst Urethrographie)</div></details>
+    </div>
   </section>
 
   <!-- ============ PROTOKOLLE ============ -->
@@ -417,9 +363,8 @@
   </section>
 
   <footer>
-    R3 · Beckenringfrakturen · Diagnostischer Durchlauf (3 von 5). Neuaufbau (kein R1/R2) — produce-only: Retrieval = Synthese (Bullet-Format), Schnellfragen = atomar, Protokolle = dokumentierte Mainz-Arcs. Quelle: Stex Lernkarten (Elsevier) + Vorbereitung zur KB + Mainz-Protokolle (Tile-Klassifikation, Notfalltherapie, Blutverlust-Tabelle Fall 69). Zwei-Pass-Logik: kalt testen + bewerten → nur Lücken öffnen → Protokolle als Generalprobe. R4 = adaptive Wiederholung der Lücken, R5 = Prüfungssimulation. Bewertung wird nicht gespeichert.
+    R3 · Beckenringfrakturen · Fragen &amp; Protokolle. Vier Kernstationen (wortgleich mit R2) + KP-Perlen mit Rapid-Fire + die echten dokumentierten Mainz-Fragen.
   </footer>
-
 
 </div>
 <script>
@@ -431,87 +376,6 @@
     window.scrollTo({top:0,behavior:'smooth'});
   }
   tabs.forEach(t=>t.addEventListener('click',()=>showTab(t.dataset.tab)));
-
-  // ---- scoring state ----
-  const scores = {};                 // {p1:'sicher'|'lueckenhaft'|'gefehlt'}
-  const CONTENT = ['grundlagen','klinik','diagnostik','therapie'];
-  const promptStations = {};
-  document.querySelectorAll('.rt').forEach(rt=>{
-    promptStations[rt.dataset.id] = (rt.dataset.stations||'').split(' ').filter(Boolean);
-  });
-
-  function recompute(){
-    let ok=0,gap=0,miss=0;
-    Object.values(scores).forEach(v=>{ if(v==='sicher')ok++; else if(v==='lueckenhaft')gap++; else if(v==='gefehlt')miss++; });
-    document.getElementById('n-ok').textContent=ok;
-    document.getElementById('n-gap').textContent=gap;
-    document.getElementById('n-miss').textContent=miss;
-    document.getElementById('n-done').textContent=Object.keys(scores).length;
-    // station status
-    CONTENT.forEach(st=>{
-      const related = Object.keys(promptStations).filter(p=>promptStations[p].includes(st));
-      const scored = related.filter(p=>scores[p]);
-      const flagged = related.some(p=>scores[p]==='lueckenhaft'||scores[p]==='gefehlt');
-      const allOk = related.length && scored.length===related.length && !flagged;
-      const tab = tabs.find(t=>t.dataset.tab===st);
-      tab.classList.remove('flag-gap','flag-ok');
-      const b = tab.querySelector('.badge');
-      if(flagged){ tab.classList.add('flag-gap'); b.textContent='Lücke'; }
-      else if(allOk){ tab.classList.add('flag-ok'); b.textContent='✓'; }
-      else { b.textContent=''; }
-    });
-  }
-
-  document.querySelectorAll('.rt .score').forEach(scoreBox=>{
-    const rt = scoreBox.closest('.rt');
-    scoreBox.querySelectorAll('.sbtn').forEach(btn=>{
-      btn.addEventListener('click',()=>{
-        const v = btn.dataset.v;
-        scores[rt.dataset.id] = v;
-        rt.dataset.score = v;
-        scoreBox.querySelectorAll('.sbtn').forEach(b=>b.classList.toggle('on', b===btn));
-        recompute();
-        const status=document.getElementById('status');
-        const flaggedNow=tabs.filter(t=>t.classList.contains('flag-gap')).length;
-        if(Object.keys(scores).length===5){
-          status.textContent = flaggedNow ? 'Pass 1 fertig. „Nur Lücken öffnen" springt zu den '+flaggedNow+' markierten Stationen.' : 'Alles sicher in Pass 1 — direkt zur Generalprobe (Protokolle).';
-        } else {
-          status.textContent = (5-Object.keys(scores).length)+' Prompt(s) noch zu bewerten.';
-        }
-      });
-    });
-  });
-
-  // ---- two-pass: open only gaps ----
-  document.getElementById('open-gaps').addEventListener('click',()=>{
-    const flagged = CONTENT.filter(st=>tabs.find(t=>t.dataset.tab===st).classList.contains('flag-gap'));
-    const status=document.getElementById('status');
-    if(!Object.keys(scores).length){ status.textContent='Erst Pass 1 bewerten — dann zeige ich dir die Lücken.'; return; }
-    if(!flagged.length){
-      // all clear -> capstone
-      panels.forEach(p=>{ if(CONTENT.includes(p.dataset.panel)) p.querySelectorAll('.card').forEach(c=>c.open=false); });
-      showTab('protokoll'); status.textContent='Keine Lücken — auf zur Generalprobe.'; return;
-    }
-    // expand flagged stations, collapse the "sicher" ones
-    panels.forEach(p=>{
-      if(!CONTENT.includes(p.dataset.panel)) return;
-      const isGap = flagged.includes(p.dataset.panel);
-      p.querySelectorAll('.card').forEach(c=>{ c.open = isGap; });
-    });
-    showTab(flagged[0]);
-    status.textContent='Geöffnet: '+flagged.join(', ')+'. Der Rest bleibt zu.';
-  });
-
-  // ---- reset ----
-  document.getElementById('reset').addEventListener('click',()=>{
-    Object.keys(scores).forEach(k=>delete scores[k]);
-    document.querySelectorAll('.rt').forEach(rt=>{ rt.removeAttribute('data-score'); rt.querySelectorAll('.sbtn').forEach(b=>b.classList.remove('on')); });
-    document.querySelectorAll('.reveal[open]').forEach(d=>d.open=false);
-    recompute();
-    document.getElementById('status').textContent='Zurückgesetzt. Bewerte alle 5 Prompts, dann „Nur Lücken öffnen".';
-  });
-
-  recompute();
 </script>
 </body>
 </html>

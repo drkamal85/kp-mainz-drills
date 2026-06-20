@@ -183,9 +183,9 @@
   <a href="../../index.html" class="back">← Zurück zur Library</a>
 
   <header>
-    <div class="eyebrow">Allgemein- und Viszeralchirurgie · R3 · Diagnostischer Durchlauf</div>
+    <div class="eyebrow">Allgemein- und Viszeralchirurgie · R3 · Kurz + KP-Perlen + Protokolle</div>
     <h1>Cholez<span class="accent">ystitis</span></h1>
-    <div class="subtitle">Zwei Pässe: kalt testen, bewerten — dann nur die Lücken öffnen.</div>
+    <div class="subtitle">Vier Stationen (wortgleich mit R2) + KP-Perlen + die echten Mainz-Fragen — zum lauten Üben.</div>
     <div class="meta">
       <span>R3 von 5 · Superset von R2</span>
       <span>~12–15 Min</span>
@@ -195,90 +195,15 @@
   </header>
 
   <div class="tabs">
-    <button class="tab active" data-c="retrieval" data-tab="retrieval">Retrieval-Test</button>
-    <button class="tab" data-c="grundlagen" data-tab="grundlagen">Grundlagen<span class="badge"></span></button>
-    <button class="tab" data-c="klinik" data-tab="klinik">Klinik<span class="badge"></span></button>
-    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik<span class="badge"></span></button>
-    <button class="tab" data-c="therapie" data-tab="therapie">Therapie<span class="badge"></span></button>
+    <button class="tab active" data-c="grundlagen" data-tab="grundlagen">Grundlagen</button>
+    <button class="tab" data-c="klinik" data-tab="klinik">Klinik</button>
+    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik</button>
+    <button class="tab" data-c="therapie" data-tab="therapie">Therapie</button>
     <button class="tab" data-c="perlen" data-tab="perlen">KP-Perlen</button>
-    <button class="tab" data-c="protokoll" data-tab="protokoll">Protokolle</button>
+    <button class="tab" data-c="protokoll" data-tab="protokoll">Fragen &amp; Protokolle</button>
   </div>
 
-  <!-- ============ RETRIEVAL-TEST ============ -->
-  <section class="panel active" data-panel="retrieval">
-    <p class="panel-intro">Kalt. Laut. Auf Deutsch. Diese Prompts fragen <strong>ganze Pfade und Entscheidungen</strong> (Synthese) — die Einzelfakten kommen darunter als Schnellfragen. Erst formulieren, dann aufdecken und ehrlich bewerten.</p>
-
-    <div class="ctrl">
-      <div class="ctrl-row">
-        <div class="tally"><i class="t-ok">Sicher <span id="n-ok">0</span></i><i class="t-gap">Lücke <span id="n-gap">0</span></i><i class="t-miss">Gefehlt <span id="n-miss">0</span></i><i style="color:var(--muted)">/ 5 bewertet: <span id="n-done">0</span></i></div>
-        <div class="spacer"></div>
-        <button class="btn btn-primary" id="open-gaps">Nur Lücken öffnen →</button>
-        <button class="btn btn-ghost" id="reset">Zurücksetzen</button>
-      </div>
-      <div class="ctrl-status" id="status">Bewerte alle 5 Prompts, dann „Nur Lücken öffnen".</div>
-    </div>
-
-    <div class="rt" data-id="p1" data-stations="grundlagen klinik">
-      <div class="rt-h"><span class="rt-n">Prompt 1 · Drei Bilder + DD</span><span class="rt-right"><span class="rt-ptr">→ Grundlagen · Klinik</span></span></div>
-      <div class="rt-q">Ein Patient hat <strong>rechtsseitige Oberbauchschmerzen und Fieber</strong> nach einer fettreichen Mahlzeit. Unterscheide die <strong>drei klinischen Bilder</strong> — Gallenkolik, Cholezystitis, Cholangitis — jeweils anhand von Schmerz, Fieber und Ikterus. Welche <strong>Differentialdiagnosen</strong> des akuten rechten Oberbauchs gibt es außerdem?</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>Gallenkolik:</b> Kolik &lt; 5 h · kein Fieber · kein Ikterus</li><li><b>Cholezystitis:</b> Dauerschmerz + Fieber · meist kein Ikterus</li><li><b>Cholangitis:</b> Dauerschmerz + hohes Fieber + Ikterus = Charcot-Trias</li><li><b>DD rechter Oberbauch:</b> Cholelithiasis, cholestatische Hepatitis, Leberabszess, Ulkusperforation, Pankreatitis, Appendizitis, Nephrolithiasis, Hinterwandinfarkt</li></ul></div></details>
-      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
-    </div>
-
-    <div class="rt" data-id="p2" data-stations="klinik">
-      <div class="rt-h"><span class="rt-n">Prompt 2 · Murphy + Courvoisier</span><span class="rt-right"><span class="rt-ptr">→ Klinik</span></span></div>
-      <div class="rt-q">Welche <strong>körperlichen Untersuchungszeichen</strong> prüfst du? Erkläre das <strong>Murphy-Zeichen</strong> mit seinem Mechanismus. Und wie grenzt du es vom <strong>Courvoisier-Zeichen</strong> ab?</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>Murphy-Zeichen:</b> schmerzbedingter Abbruch der tiefen Inspiration bei Palpation unter dem rechten Rippenbogen<ul><li>Mechanismus: Gallenblase wird in Inspiration nach kaudal gegen die Hand geschoben → bei Entzündung schmerzhaft</li></ul></li><li><b>Courvoisier-Zeichen:</b> schmerzlose, prall-elastische Gallenblase + Ikterus → Pankreaskopfkarzinom</li><li><i>Nie verwechseln:</i> Murphy = Entzündung · Courvoisier = Malignom</li></ul></div></details>
-      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
-    </div>
-
-    <div class="rt" data-id="p3" data-stations="diagnostik">
-      <div class="rt-h"><span class="rt-n">Prompt 3 · Diagnostik-Pfad</span><span class="rt-right"><span class="rt-ptr">→ Diagnostik</span></span></div>
-      <div class="rt-q">Beschreibe den <strong>diagnostischen Ablauf</strong>. Welche Laborwerte fragst du ab — Entzündung und Cholestase getrennt — und welche <strong>Bildgebung in welcher Reihenfolge</strong>? Welcher Befund unterscheidet eine <strong>Cholezystitis von einer Choledocholithiasis</strong>?</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>Labor — Entzündung:</b> Leuko, CRP ↑ (Cholezystitis + Cholangitis)</li><li><b>Labor — Cholestase:</b> Bili, AP, γ-GT ↑ (Choledocholithiasis + Cholangitis)<ul><li>bei reiner Cholezystitis NORMAL</li><li>Lipase: biliäre Pankreatitis ausschließen</li></ul></li><li><b>Sono (1. Wahl):</b><ul><li>Wandverdickung &gt; 3 mm + Dreischichtung = Cholezystitis</li><li>DHC &gt; 7 mm + erweiterte Gallenwege = Choledocholithiasis</li></ul></li><li><b>Weiter:</b> MRCP/Endosono → ERCP (therapeutisch) · CT nur bei Komplikationen</li></ul></div></details>
-      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
-    </div>
-
-    <div class="rt" data-id="p4" data-stations="therapie">
-      <div class="rt-h"><span class="rt-n">Prompt 4 · Therapie-Entscheidung</span><span class="rt-right"><span class="rt-ptr">→ Therapie</span></span></div>
-      <div class="rt-q">Eine akute kalkulöse Cholezystitis ist gesichert. Lege die <strong>komplette Therapie</strong> fest: den <strong>konservativen Block</strong> (mit Analgesie und Antibiose) und das <strong>OP-Timing</strong>. In welcher Situation kommt die <strong>ERCP zuerst</strong>?</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>Konservativ:</b> Nahrungskarenz, i.v.-Volumen, Spasmolyse (Buscopan)</li><li><b>Analgesie:</b> Metamizol — NICHT Morphin (Sphincter-Oddi-Spasmus)</li><li><b>Antibiose:</b> Ceftriaxon 2 g + Metronidazol 500 mg (Sepsis → Piperacillin/Tazobactam)</li><li><b>OP:</b> frühe laparoskopische Cholezystektomie binnen 24 h</li><li><b>ERCP zuerst</b> bei Choledocholithiasis/Cholangitis (Steinextraktion), dann CHE binnen 24 h–6 Wochen</li></ul></div></details>
-      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
-    </div>
-
-    <div class="rt" data-id="p5" data-stations="therapie">
-      <div class="rt-h"><span class="rt-n">Prompt 5 · OP · Konversion · Komplikationen</span><span class="rt-right"><span class="rt-ptr">→ Therapie</span></span></div>
-      <div class="rt-q">Beschreibe die <strong>laparoskopische Cholezystektomie</strong> und das <strong>Calot-Dreieck</strong>. Wann <strong>konvertierst</strong> du auf eine offene OP? Und welche sind die <strong>gefährlichsten Komplikationen</strong> — operativ und nach ERCP?</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>Calot-Dreieck</b> (Leberunterrand, D. cysticus, D. hepaticus communis) darstellen → A. cystica + D. cysticus identifizieren, clippen, durchtrennen, extrahieren</li><li><b>Konversion offen</b> bei: unklarer Anatomie, schwerer Entzündung/Verwachsungen, Blutung, Gallenwegsverletzung</li><li><b>OP-Komplikationen:</b> Verletzung D. hepaticus communis, Galleleck/biliäre Peritonitis, Blutung, Stumpfinsuffizienz</li><li><b>ERCP-Komplikationen:</b> Pankreatitis 5 %, Blutung 3 % (A. gastroduodenalis), Cholangitis 3 %, Perforation 1 %</li></ul></div></details>
-      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
-    </div>
-
-    <div class="callout fact"><span class="lab">Mainz-Muster</span>Cholezystitis ist ein Viszeralchirurgie-Klassiker (04/2024 &amp; 02/2026, mehrfach dokumentiert). Der Prüfer läuft fast immer: <strong>Murphy → Labor → Sono-Befunde → DHC-Weite → ERC</strong> (Endoskop-Weg + Antibiose davor) <strong>→ CHE binnen 24 h</strong> (nicht bis Montag warten!) <strong>→ A.-gastroduodenalis-Blutung</strong>.<br>Häufige Wendung: <strong>Ikterus OHNE Schmerz → Courvoisier → Pankreaskopfkarzinom</strong> (Whipple/Traverso).</div>
-
-    <div class="sf-wrap">
-      <h3>Schnellfragen · Rapid-Fire</h3>
-      <div class="sf-intro">Atomare Einzelfakten — Ein-Wort-Abruf, keine Optionen. Laut, sofort, dann aufdecken.</div>
-      <details class="sf"><summary>Murphy-Zeichen — was?</summary><div class="sfa">schmerzbedingter Atemabbruch bei tiefer Inspiration</div></details>
-      <details class="sf"><summary>Courvoisier-Zeichen?</summary><div class="sfa">schmerzlose pralle Gallenblase + Ikterus → Pankreaskopf-Ca</div></details>
-      <details class="sf"><summary>Cholezystitis vs. Cholangitis — Cholestase?</summary><div class="sfa">Cholezystitis OHNE · Cholangitis MIT</div></details>
-      <details class="sf"><summary>Charcot-Trias?</summary><div class="sfa">Oberbauchschmerz + Fieber + Ikterus</div></details>
-      <details class="sf"><summary>Reynolds-Pentade?</summary><div class="sfa">Charcot + Schock + Verwirrung</div></details>
-      <details class="sf"><summary>6-F-Regel?</summary><div class="sfa">Fat · Female · Forty · Fertile · Fair · Family</div></details>
-      <details class="sf"><summary>Sono-Leitbefund Cholezystitis?</summary><div class="sfa">Wandverdickung &gt; 3 mm + Dreischichtung</div></details>
-      <details class="sf"><summary>DHC erweitert ab?</summary><div class="sfa">&gt; 7 mm (mit GB) · &gt; 9 mm (nach CHE)</div></details>
-      <details class="sf"><summary>1.-Wahl-Bildgebung?</summary><div class="sfa">Sonografie</div></details>
-      <details class="sf"><summary>OP-Timing akute Cholezystitis?</summary><div class="sfa">lap. Cholezystektomie binnen 24 h</div></details>
-      <details class="sf"><summary>Antibiose-Schema?</summary><div class="sfa">Ceftriaxon 2 g + Metronidazol 500 mg (Sepsis: Pip/Tazo)</div></details>
-      <details class="sf"><summary>Analgesie — ja / nein?</summary><div class="sfa">Metamizol ja · Morphin nein (Sphincter-Oddi)</div></details>
-      <details class="sf"><summary>Blutung nach Papillotomie — Gefäß?</summary><div class="sfa">A. gastroduodenalis</div></details>
-      <details class="sf"><summary>Calot-Dreieck — Grenzen?</summary><div class="sfa">Leberunterrand · D. cysticus · D. hepaticus communis</div></details>
-      <details class="sf"><summary>Vor ERCP unbedingt?</summary><div class="sfa">Antibiose (Cephalosporin 3. Gen)</div></details>
-      <details class="sf"><summary>Akalkulöse Cholezystitis — wer?</summary><div class="sfa">Intensivpatienten / Sepsis / Trauma (Stressgallenblase)</div></details>
-    </div>
-  </section>
-
-  <!-- ============ GRUNDLAGEN ============ -->
-  <section class="panel" data-panel="grundlagen">
+  <section class="panel active" data-panel="grundlagen">
     <p class="panel-intro">Definition, Ätiologie, Pathogenese — knapp. Erst laut, dann aufklappen.</p>
     <details class="card grundlagen" open><summary><span class="ct"><span class="ctag">Definition</span><span class="ctitle">Was ist was — vier Begriffe sauber trennen</span></span><span class="plus">+</span></summary>
       <div class="body"><ul class="b">
@@ -296,7 +221,7 @@
         <ul class="b"><li><strong>Fat</strong> · <strong>Female</strong> · <strong>Forty</strong> · <strong>Fertile</strong> · <strong>Fair</strong> · <strong>Family</strong></li></ul>
         <h4>Pathogenese</h4>
         <ul class="b">
-          <li>Ungleichgewicht in der Galle: <em class="h">Cholesterin/Bilirubin/Ca-Carbonat</em> ↑ vs. Gallensäuren ↓ → Steinbildung</li>
+          <li>Ungleichgewicht in der Galle: <em>Cholesterin/Bilirubin/Ca-Carbonat</em> ↑ vs. Gallensäuren ↓ → Steinbildung</li>
           <li><strong>Steinarten:</strong> Cholesterin/gemischt 80 % · Pigment (Bilirubin) 10 % · Ca-Carbonat 10 %</li>
           <li>Stein in Gallenblasenhals/D. cysticus → <strong>Sekretstau</strong> → <strong>Wandentzündung</strong> → bakterielle Superinfektion (E. coli, Klebsiella, Enterokokken)</li>
         </ul>
@@ -350,7 +275,7 @@
       <div class="body">
         <h4>Cholezystitis</h4>
         <ul class="b">
-          <li><strong>Wandverdickung &gt; 3 mm</strong> mit <em class="h">Dreischichtung</em> (Ödem zw. Außen- + Innenwand)</li>
+          <li><strong>Wandverdickung &gt; 3 mm</strong> mit <em>Dreischichtung</em> (Ödem zw. Außen- + Innenwand)</li>
           <li>Gallenblasenhydrops, perifokale Flüssigkeit</li>
           <li><strong>Sonographisches Murphy-Zeichen</strong> — Druckschmerz unter Schallkopf</li>
           <li>Steine: <em>echogen mit dorsaler Schallauslöschung</em></li>
@@ -382,7 +307,7 @@
         <li><strong>Nahrungskarenz</strong>, i.v.-Volumen, Thromboseprophylaxe</li>
         <li><strong>Spasmolyse:</strong> Butylscopolamin (Buscopan)</li>
         <li><strong>Analgesie:</strong> Metamizol — <em>NICHT</em> Morphin (Sphincter-Oddi-Spasmus)</li>
-        <li><strong>Antibiose:</strong> <em class="h">Ceftriaxon 2 g i.v. 1-0-0 + Metronidazol 500 mg i.v. 1-0-1</em></li>
+        <li><strong>Antibiose:</strong> <em>Ceftriaxon 2 g i.v. 1-0-0 + Metronidazol 500 mg i.v. 1-0-1</em></li>
         <li>Bei Sepsis: <strong>Piperacillin/Tazobactam</strong>, alternativ Carbapenem</li>
       </ul></div>
     </details>
@@ -426,6 +351,27 @@
     <div class="pearl"><div class="ph">⭐ Perle 6 · 6-F-Regel</div><div class="pt"><strong>Fat, Female, Forty, Fertile, Fair, Family</strong> — die klassischen Risikofaktoren. Wird in Mainz fast immer abgefragt; einfacher Punkt.</div><div class="mn"><b>Merke:</b> Sechs F — wie die sechs Fragen, die in der KP kommen</div></div>
     <div class="pearl"><div class="ph">⭐ Perle 7 · AB-Schema</div><div class="pt"><strong>Ceftriaxon 2 g + Metronidazol 500 mg i.v.</strong> ist Standard. Bei Sepsis: <em>Piperacillin/Tazobactam</em>. Antibiose IMMER vor ERCP — Manipulation an der Papille lässt Cholangitis auflodern.</div><div class="mn"><b>Merke:</b> Cef + Metro · bei Sepsis Pip-Taz · vor ERCP Pflicht</div></div>
     <div class="pearl"><div class="ph">⭐ Perle 8 · Analgesie-Falle</div><div class="pt"><strong>Metamizol ja.<br>Morphin nein.</strong> Morphin macht Sphincter-Oddi-Spasmus und verschlechtert die Galleabflussstörung. Buscopan zur Spasmolyse.</div><div class="mn"><b>Merke:</b> Morphin macht Oddi-Spasmus · Metamizol ist „der Galle-Freund"</div></div>
+  
+    <div class="sf-wrap">
+      <h3>Schnellfragen · Rapid-Fire</h3>
+      <div class="sf-intro">Atomare Einzelfakten — Ein-Wort-Abruf, keine Optionen. Laut, sofort, dann aufdecken.</div>
+      <details class="sf"><summary>Murphy-Zeichen — was?</summary><div class="sfa">schmerzbedingter Atemabbruch bei tiefer Inspiration</div></details>
+      <details class="sf"><summary>Courvoisier-Zeichen?</summary><div class="sfa">schmerzlose pralle Gallenblase + Ikterus → Pankreaskopf-Ca</div></details>
+      <details class="sf"><summary>Cholezystitis vs. Cholangitis — Cholestase?</summary><div class="sfa">Cholezystitis OHNE · Cholangitis MIT</div></details>
+      <details class="sf"><summary>Charcot-Trias?</summary><div class="sfa">Oberbauchschmerz + Fieber + Ikterus</div></details>
+      <details class="sf"><summary>Reynolds-Pentade?</summary><div class="sfa">Charcot + Schock + Verwirrung</div></details>
+      <details class="sf"><summary>6-F-Regel?</summary><div class="sfa">Fat · Female · Forty · Fertile · Fair · Family</div></details>
+      <details class="sf"><summary>Sono-Leitbefund Cholezystitis?</summary><div class="sfa">Wandverdickung &gt; 3 mm + Dreischichtung</div></details>
+      <details class="sf"><summary>DHC erweitert ab?</summary><div class="sfa">&gt; 7 mm (mit GB) · &gt; 9 mm (nach CHE)</div></details>
+      <details class="sf"><summary>1.-Wahl-Bildgebung?</summary><div class="sfa">Sonografie</div></details>
+      <details class="sf"><summary>OP-Timing akute Cholezystitis?</summary><div class="sfa">lap. Cholezystektomie binnen 24 h</div></details>
+      <details class="sf"><summary>Antibiose-Schema?</summary><div class="sfa">Ceftriaxon 2 g + Metronidazol 500 mg (Sepsis: Pip/Tazo)</div></details>
+      <details class="sf"><summary>Analgesie — ja / nein?</summary><div class="sfa">Metamizol ja · Morphin nein (Sphincter-Oddi)</div></details>
+      <details class="sf"><summary>Blutung nach Papillotomie — Gefäß?</summary><div class="sfa">A. gastroduodenalis</div></details>
+      <details class="sf"><summary>Calot-Dreieck — Grenzen?</summary><div class="sfa">Leberunterrand · D. cysticus · D. hepaticus communis</div></details>
+      <details class="sf"><summary>Vor ERCP unbedingt?</summary><div class="sfa">Antibiose (Cephalosporin 3. Gen)</div></details>
+      <details class="sf"><summary>Akalkulöse Cholezystitis — wer?</summary><div class="sfa">Intensivpatienten / Sepsis / Trauma (Stressgallenblase)</div></details>
+    </div>
   </section>
 
   <!-- ============ PROTOKOLLE ============ -->
@@ -456,9 +402,8 @@
   </section>
 
   <footer>
-    R3 · Cholezystitis · Diagnostischer Durchlauf (3 von 5). Inhalt als Superset aus R2 (wortgleiche Stationen) — produce-only: Retrieval = Synthese, Schnellfragen = atomar, Protokolle = echter Fall (KP-Fragen-Modellantworten leben in R2 + in den Reveals). Quelle: Stex Lernkarten (Elsevier) + Vorbereitung zur KB + Mainz-Protokolle 04/2024 & 02/2026. Zwei-Pass-Logik: kalt testen + bewerten → nur Lücken öffnen → Protokolle als Generalprobe. R4 = adaptive Wiederholung der Lücken, R5 = Prüfungssimulation. Bewertung wird nicht gespeichert.
+    R3 · Cholezystitis · Fragen &amp; Protokolle. Vier Kernstationen (wortgleich mit R2) + KP-Perlen mit Rapid-Fire + die echten dokumentierten Mainz-Fragen.
   </footer>
-
 
 </div>
 <script>
@@ -470,87 +415,6 @@
     window.scrollTo({top:0,behavior:'smooth'});
   }
   tabs.forEach(t=>t.addEventListener('click',()=>showTab(t.dataset.tab)));
-
-  // ---- scoring state ----
-  const scores = {};                 // {p1:'sicher'|'lueckenhaft'|'gefehlt'}
-  const CONTENT = ['grundlagen','klinik','diagnostik','therapie'];
-  const promptStations = {};
-  document.querySelectorAll('.rt').forEach(rt=>{
-    promptStations[rt.dataset.id] = (rt.dataset.stations||'').split(' ').filter(Boolean);
-  });
-
-  function recompute(){
-    let ok=0,gap=0,miss=0;
-    Object.values(scores).forEach(v=>{ if(v==='sicher')ok++; else if(v==='lueckenhaft')gap++; else if(v==='gefehlt')miss++; });
-    document.getElementById('n-ok').textContent=ok;
-    document.getElementById('n-gap').textContent=gap;
-    document.getElementById('n-miss').textContent=miss;
-    document.getElementById('n-done').textContent=Object.keys(scores).length;
-    // station status
-    CONTENT.forEach(st=>{
-      const related = Object.keys(promptStations).filter(p=>promptStations[p].includes(st));
-      const scored = related.filter(p=>scores[p]);
-      const flagged = related.some(p=>scores[p]==='lueckenhaft'||scores[p]==='gefehlt');
-      const allOk = related.length && scored.length===related.length && !flagged;
-      const tab = tabs.find(t=>t.dataset.tab===st);
-      tab.classList.remove('flag-gap','flag-ok');
-      const b = tab.querySelector('.badge');
-      if(flagged){ tab.classList.add('flag-gap'); b.textContent='Lücke'; }
-      else if(allOk){ tab.classList.add('flag-ok'); b.textContent='✓'; }
-      else { b.textContent=''; }
-    });
-  }
-
-  document.querySelectorAll('.rt .score').forEach(scoreBox=>{
-    const rt = scoreBox.closest('.rt');
-    scoreBox.querySelectorAll('.sbtn').forEach(btn=>{
-      btn.addEventListener('click',()=>{
-        const v = btn.dataset.v;
-        scores[rt.dataset.id] = v;
-        rt.dataset.score = v;
-        scoreBox.querySelectorAll('.sbtn').forEach(b=>b.classList.toggle('on', b===btn));
-        recompute();
-        const status=document.getElementById('status');
-        const flaggedNow=tabs.filter(t=>t.classList.contains('flag-gap')).length;
-        if(Object.keys(scores).length===5){
-          status.textContent = flaggedNow ? 'Pass 1 fertig. „Nur Lücken öffnen" springt zu den '+flaggedNow+' markierten Stationen.' : 'Alles sicher in Pass 1 — direkt zur Generalprobe (Protokolle).';
-        } else {
-          status.textContent = (5-Object.keys(scores).length)+' Prompt(s) noch zu bewerten.';
-        }
-      });
-    });
-  });
-
-  // ---- two-pass: open only gaps ----
-  document.getElementById('open-gaps').addEventListener('click',()=>{
-    const flagged = CONTENT.filter(st=>tabs.find(t=>t.dataset.tab===st).classList.contains('flag-gap'));
-    const status=document.getElementById('status');
-    if(!Object.keys(scores).length){ status.textContent='Erst Pass 1 bewerten — dann zeige ich dir die Lücken.'; return; }
-    if(!flagged.length){
-      // all clear -> capstone
-      panels.forEach(p=>{ if(CONTENT.includes(p.dataset.panel)) p.querySelectorAll('.card').forEach(c=>c.open=false); });
-      showTab('protokoll'); status.textContent='Keine Lücken — auf zur Generalprobe.'; return;
-    }
-    // expand flagged stations, collapse the "sicher" ones
-    panels.forEach(p=>{
-      if(!CONTENT.includes(p.dataset.panel)) return;
-      const isGap = flagged.includes(p.dataset.panel);
-      p.querySelectorAll('.card').forEach(c=>{ c.open = isGap; });
-    });
-    showTab(flagged[0]);
-    status.textContent='Geöffnet: '+flagged.join(', ')+'. Der Rest bleibt zu.';
-  });
-
-  // ---- reset ----
-  document.getElementById('reset').addEventListener('click',()=>{
-    Object.keys(scores).forEach(k=>delete scores[k]);
-    document.querySelectorAll('.rt').forEach(rt=>{ rt.removeAttribute('data-score'); rt.querySelectorAll('.sbtn').forEach(b=>b.classList.remove('on')); });
-    document.querySelectorAll('.reveal[open]').forEach(d=>d.open=false);
-    recompute();
-    document.getElementById('status').textContent='Zurückgesetzt. Bewerte alle 5 Prompts, dann „Nur Lücken öffnen".';
-  });
-
-  recompute();
 </script>
 </body>
 </html>

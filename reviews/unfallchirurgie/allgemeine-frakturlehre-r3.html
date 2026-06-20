@@ -183,9 +183,9 @@
   <a href="../../index.html" class="back">← Zurück zur Library</a>
 
   <header>
-    <div class="eyebrow">Unfallchirurgie · R3 · Diagnostischer Durchlauf</div>
+    <div class="eyebrow">Unfallchirurgie · R3 · Kurz + KP-Perlen + Protokolle</div>
     <h1>Allgemeine <span class="accent">Frakturlehre</span></h1>
-    <div class="subtitle">Zwei Pässe: kalt testen, bewerten — dann nur die Lücken öffnen.</div>
+    <div class="subtitle">Vier Stationen (wortgleich mit R2) + KP-Perlen + die echten Mainz-Fragen — zum lauten Üben.</div>
     <div class="meta">
       <span>R3 von 5 · Neuaufbau</span>
       <span>~15 Min</span>
@@ -195,93 +195,15 @@
   </header>
 
   <div class="tabs">
-    <button class="tab active" data-c="retrieval" data-tab="retrieval">Retrieval-Test</button>
-    <button class="tab" data-c="grundlagen" data-tab="grundlagen">Grundlagen<span class="badge"></span></button>
-    <button class="tab" data-c="klinik" data-tab="klinik">Klinik<span class="badge"></span></button>
-    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik<span class="badge"></span></button>
-    <button class="tab" data-c="therapie" data-tab="therapie">Therapie<span class="badge"></span></button>
+    <button class="tab active" data-c="grundlagen" data-tab="grundlagen">Grundlagen</button>
+    <button class="tab" data-c="klinik" data-tab="klinik">Klinik</button>
+    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik</button>
+    <button class="tab" data-c="therapie" data-tab="therapie">Therapie</button>
     <button class="tab" data-c="perlen" data-tab="perlen">KP-Perlen</button>
-    <button class="tab" data-c="protokoll" data-tab="protokoll">Protokolle</button>
+    <button class="tab" data-c="protokoll" data-tab="protokoll">Fragen &amp; Protokolle</button>
   </div>
 
-  <!-- ============ RETRIEVAL-TEST ============ -->
-  <section class="panel active" data-panel="retrieval">
-    <p class="panel-intro">Kalt. Laut. Auf Deutsch. Diese Prompts fragen <strong>ganze Pfade und Entscheidungen</strong> (Synthese) — die Einzelfakten kommen darunter als Schnellfragen. Erst formulieren, dann aufdecken und ehrlich bewerten.</p>
-
-    <div class="ctrl">
-      <div class="ctrl-row">
-        <div class="tally"><i class="t-ok">Sicher <span id="n-ok">0</span></i><i class="t-gap">Lücke <span id="n-gap">0</span></i><i class="t-miss">Gefehlt <span id="n-miss">0</span></i><i style="color:var(--muted)">/ 5 bewertet: <span id="n-done">0</span></i></div>
-        <div class="spacer"></div>
-        <button class="btn btn-primary" id="open-gaps">Nur Lücken öffnen →</button>
-        <button class="btn btn-ghost" id="reset">Zurücksetzen</button>
-      </div>
-      <div class="ctrl-status" id="status">Bewerte alle 5 Prompts, dann „Nur Lücken öffnen".</div>
-    </div>
-
-    <div class="rt" data-id="p1" data-stations="grundlagen">
-      <div class="rt-h"><span class="rt-n">Prompt 1 · Einteilung + Frakturheilung</span><span class="rt-right"><span class="rt-ptr">→ Grundlagen</span></span></div>
-      <div class="rt-q">Wie teilst du Frakturen ein (Ursache, Morphologie, Dislokation), und erkläre <strong>primäre vs. sekundäre Knochenheilung</strong>.</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>Ursache:</b> traumatisch · pathologisch (Tumor/Osteoporose, inadäquates Trauma) · Ermüdungs-/Stressfraktur</li><li><b>Morphologie:</b> Quer-, Schräg-, Spiral-, Trümmer-, Grünholz-, Abrissfraktur · offen vs. geschlossen</li><li><b>Dislokation:</b> ad latus (Seite) · ad axim (Achsknick) · ad longitudinem (Länge) · ad peripheriam (Rotation)</li><li><b>Primär (direkt):</b> absolute Stabilität + Kompression → <b>ohne Kallus</b></li><li><b>Sekundär (indirekt):</b> relative Stabilität → <b>mit Kallus</b> (Entzündung → weicher → harter Kallus → Remodeling)</li></ul></div></details>
-      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
-    </div>
-
-    <div class="rt" data-id="p2" data-stations="klinik">
-      <div class="rt-h"><span class="rt-n">Prompt 2 · Frakturzeichen + Untersuchung</span><span class="rt-right"><span class="rt-ptr">→ Klinik</span></span></div>
-      <div class="rt-q">Nenne die <strong>sicheren und unsicheren Frakturzeichen</strong> und was du klinisch nicht vergessen darfst.</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>Sichere Zeichen:</b> Achsenfehlstellung/Deformität, abnorme Beweglichkeit, Krepitation, sichtbare Knochenfragmente (offen), Röntgennachweis</li><li><b>Unsichere Zeichen:</b> Schmerz, Schwellung, Hämatom, Functio laesa</li><li><b>Untersuchung:</b> immer <b>pDMS</b> (Durchblutung/Motorik/Sensibilität), Weichteilstatus (offen?), die <b>2 angrenzenden Gelenke</b></li><li><b>Anamnese:</b> Unfallmechanismus — inadäquates Trauma → an pathologische Fraktur denken</li></ul></div></details>
-      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
-    </div>
-
-    <div class="rt" data-id="p3" data-stations="diagnostik">
-      <div class="rt-h"><span class="rt-n">Prompt 3 · Bildgebung + Klassifikation</span><span class="rt-right"><span class="rt-ptr">→ Diagnostik</span></span></div>
-      <div class="rt-q">Welche <strong>Bildgebung</strong> in welcher Reihenfolge, und wie ist die <strong>AO-Klassifikation</strong> aufgebaut?</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>Röntgen in 2 Ebenen</b> + die 2 angrenzenden Gelenke</li><li><b>CT</b> bei Gelenk-/Trümmer-/komplexen Frakturen (präoperativ)</li><li><b>MRT</b> bei okkulten/Haarnadel-Frakturen, Stressfrakturen, Bandverletzungen · Sono bei Kindern</li><li><b>AO-Klassifikation:</b> Knochen – Segment – Frakturtyp (<b>A</b> einfach, <b>B</b> Keil, <b>C</b> komplex)</li><li>jede Klassifikation dient <b>Therapie + Prognose</b></li></ul></div></details>
-      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
-    </div>
-
-    <div class="rt" data-id="p4" data-stations="therapie">
-      <div class="rt-h"><span class="rt-n">Prompt 4 · Therapieprinzipien + Osteosynthese</span><span class="rt-right"><span class="rt-ptr">→ Therapie</span></span></div>
-      <div class="rt-q">Geh die <strong>Therapieprinzipien</strong> durch (wann konservativ, wann operativ) und ordne die <strong>Osteosynthese-Verfahren nach Stabilität</strong>.</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>3 R:</b> Reposition → Retention → Rehabilitation</li><li><b>Konservativ:</b> nicht/gering disloziert, geschlossen, stabil (Gips über 2 angrenzende Gelenke)</li><li><b>Operativ:</b> disloziert, instabil, Gelenkfraktur (anatomisch!), offen, Polytrauma, Gefäß-/Nervenbeteiligung, Repositionshindernis</li><li><b>Absolute Stabilität</b> (Zugschraube, Kompressionsplatte) → primäre Heilung, übungsstabil</li><li><b>Relative Stabilität</b> (Marknagel, Fixateur externe, Überbrückungsplatte) → sekundäre Heilung; Marknagel belastungsstabil</li><li>Sonderfälle: Zuggurtung (Patella/Olecranon), K-Draht (kleine Röhrenknochen)</li></ul></div></details>
-      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
-    </div>
-
-    <div class="rt" data-id="p5" data-stations="therapie">
-      <div class="rt-h"><span class="rt-n">Prompt 5 · Offene Fraktur + Komplikationen</span><span class="rt-right"><span class="rt-ptr">→ Therapie</span></span></div>
-      <div class="rt-q">Versorge eine <strong>offene Fraktur</strong> (Notfall) und nenne die wichtigsten Komplikationen — was tust du beim <strong>Kompartmentsyndrom</strong>?</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>Offene Fraktur:</b> steril abdecken, grobe Reposition + Ruhigstellung, Tetanusschutz + frühzeitig Antibiotika → OP: Débridement + Spülung + Fixateur externe (Gustilo-abhängig, zweizeitig)</li><li><b>Frühkomplikationen:</b> Kompartmentsyndrom, Gefäß-/Nervenverletzung, Blutung/Schock, Fettembolie, Infekt</li><li><b>Kompartmentsyndrom</b> → <b>sofortige Fasziotomie</b></li><li><b>Spätkomplikationen:</b> Pseudarthrose (&gt; 6 Monate), Fehlstellung/Malunion, posttraumatische Arthrose, CRPS, Osteomyelitis</li></ul></div></details>
-      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
-    </div>
-
-    <div class="callout fact"><span class="lab">Mainz-Muster</span>Die Frakturlehre ist das Chirurgie-Grundgerüst in Mainz (Prüfer z. B. Dr. Tannert), oft mit einem Röntgenbild als Einstieg. Typischer Lauf: <strong>Bild zeigen → sichere/unsichere Frakturzeichen → radiologische Zeichen → Therapie (Reposition/Osteosynthese) → primäre vs. sekundäre Knochenheilung (ohne/mit Kallus) → Post-OP-Falle „geschwollenes Bein" = Kompartmentsyndrom → sofortige Fasziotomie.</strong><br>Auch beliebt: die Blutverlust-Tabelle und Gustilo/Tscherne.</div>
-
-    <div class="sf-wrap">
-      <h3>Schnellfragen · Rapid-Fire</h3>
-      <div class="sf-intro">Atomare Einzelfakten — Ein-Wort-Abruf, keine Optionen. Laut, sofort, dann aufdecken.</div>
-      <details class="sf"><summary>Fraktur = ?</summary><div class="sfa">Kontinuitätsunterbrechung eines Knochens</div></details>
-      <details class="sf"><summary>Pathologische Fraktur?</summary><div class="sfa">Fraktur bei inadäquatem Trauma (Tumor, Osteoporose, Metastase)</div></details>
-      <details class="sf"><summary>Sichere Frakturzeichen?</summary><div class="sfa">Achsenfehlstellung, abnorme Beweglichkeit, Krepitation, sichtbarer Knochen, Röntgen</div></details>
-      <details class="sf"><summary>Unsichere Frakturzeichen?</summary><div class="sfa">Schmerz, Schwellung, Hämatom, Functio laesa</div></details>
-      <details class="sf"><summary>Primäre Knochenheilung?</summary><div class="sfa">ohne Kallus (absolute Stabilität, Kompression)</div></details>
-      <details class="sf"><summary>Sekundäre Knochenheilung?</summary><div class="sfa">mit Kallus (relative Stabilität)</div></details>
-      <details class="sf"><summary>Klassifikation offene Fraktur?</summary><div class="sfa">Gustilo-Anderson I–III</div></details>
-      <details class="sf"><summary>Klassifikation geschlossener Weichteilschaden?</summary><div class="sfa">Tscherne G0–G3</div></details>
-      <details class="sf"><summary>Röntgen — Ebenen + Gelenke?</summary><div class="sfa">2 Ebenen + 2 angrenzende Gelenke</div></details>
-      <details class="sf"><summary>AO-Frakturtyp A/B/C?</summary><div class="sfa">A einfach · B Keil · C komplex</div></details>
-      <details class="sf"><summary>3 R der Frakturtherapie?</summary><div class="sfa">Reposition, Retention, Rehabilitation</div></details>
-      <details class="sf"><summary>Konservativ bei?</summary><div class="sfa">nicht disloziert, geschlossen, stabil</div></details>
-      <details class="sf"><summary>Operativ bei?</summary><div class="sfa">disloziert, instabil, Gelenk, offen, Polytrauma</div></details>
-      <details class="sf"><summary>Zugschraube bewirkt?</summary><div class="sfa">interfragmentäre Kompression (absolute Stabilität)</div></details>
-      <details class="sf"><summary>Marknagel — Knochen + Stabilität?</summary><div class="sfa">lange Röhrenknochen (Femur/Tibia/Humerus), relative Stabilität, belastungsstabil</div></details>
-      <details class="sf"><summary>Zuggurtung bei?</summary><div class="sfa">Patella, Olecranon (Zug → Druck)</div></details>
-      <details class="sf"><summary>Fixateur externe bei?</summary><div class="sfa">offene/Trümmerfraktur, Polytrauma, zweizeitig</div></details>
-      <details class="sf"><summary>Kompartmentsyndrom — Therapie?</summary><div class="sfa">sofortige Fasziotomie</div></details>
-      <details class="sf"><summary>Pseudarthrose-Definition?</summary><div class="sfa">ausbleibende Heilung nach 6 Monaten</div></details>
-    </div>
-  </section>
-
-  <!-- ============ GRUNDLAGEN ============ -->
-  <section class="panel" data-panel="grundlagen">
+  <section class="panel active" data-panel="grundlagen">
     <p class="panel-intro">Einteilung, Frakturheilung und die Weichteil-Klassifikationen — erst laut, dann aufklappen.</p>
     <details class="card grundlagen" open><summary><span class="ct"><span class="ctag">Definition</span><span class="ctitle">Was eine Fraktur ist + wie man sie einteilt</span></span><span class="plus">+</span></summary>
       <div class="body"><ul class="b">
@@ -407,6 +329,30 @@
     <div class="pearl"><div class="ph">⭐ Perle 6 · Offene Fraktur</div><div class="pt">Notfall: <strong>steril abdecken, Antibiotika, Tetanus, Débridement + Spülung, Fixateur externe.</strong></div><div class="mn"><b>Merke:</b> Sauber machen, abdecken, überbrücken</div></div>
     <div class="pearl"><div class="ph">⭐ Perle 7 · Kompartmentsyndrom</div><div class="pt">Logendruck ↑ → <strong>Schmerz bei passiver Dehnung</strong>, pralle Schwellung → <strong>sofortige Fasziotomie</strong>. <em>(dokumentierte Post-OP-Falle)</em></div><div class="mn"><b>Merke:</b> Spannung + Dehnschmerz → aufschneiden</div></div>
     <div class="pearl"><div class="ph">⭐ Perle 8 · Pseudarthrose &amp; pDMS</div><div class="pt"><strong>Pseudarthrose</strong> = ausbleibende Heilung nach &gt; 6 Monaten. Und: bei jeder Fraktur <strong>pDMS prüfen + dokumentieren</strong>.</div><div class="mn"><b>Merke:</b> 6 Monate ohne Heilung = Pseudarthrose</div></div>
+  
+    <div class="sf-wrap">
+      <h3>Schnellfragen · Rapid-Fire</h3>
+      <div class="sf-intro">Atomare Einzelfakten — Ein-Wort-Abruf, keine Optionen. Laut, sofort, dann aufdecken.</div>
+      <details class="sf"><summary>Fraktur = ?</summary><div class="sfa">Kontinuitätsunterbrechung eines Knochens</div></details>
+      <details class="sf"><summary>Pathologische Fraktur?</summary><div class="sfa">Fraktur bei inadäquatem Trauma (Tumor, Osteoporose, Metastase)</div></details>
+      <details class="sf"><summary>Sichere Frakturzeichen?</summary><div class="sfa">Achsenfehlstellung, abnorme Beweglichkeit, Krepitation, sichtbarer Knochen, Röntgen</div></details>
+      <details class="sf"><summary>Unsichere Frakturzeichen?</summary><div class="sfa">Schmerz, Schwellung, Hämatom, Functio laesa</div></details>
+      <details class="sf"><summary>Primäre Knochenheilung?</summary><div class="sfa">ohne Kallus (absolute Stabilität, Kompression)</div></details>
+      <details class="sf"><summary>Sekundäre Knochenheilung?</summary><div class="sfa">mit Kallus (relative Stabilität)</div></details>
+      <details class="sf"><summary>Klassifikation offene Fraktur?</summary><div class="sfa">Gustilo-Anderson I–III</div></details>
+      <details class="sf"><summary>Klassifikation geschlossener Weichteilschaden?</summary><div class="sfa">Tscherne G0–G3</div></details>
+      <details class="sf"><summary>Röntgen — Ebenen + Gelenke?</summary><div class="sfa">2 Ebenen + 2 angrenzende Gelenke</div></details>
+      <details class="sf"><summary>AO-Frakturtyp A/B/C?</summary><div class="sfa">A einfach · B Keil · C komplex</div></details>
+      <details class="sf"><summary>3 R der Frakturtherapie?</summary><div class="sfa">Reposition, Retention, Rehabilitation</div></details>
+      <details class="sf"><summary>Konservativ bei?</summary><div class="sfa">nicht disloziert, geschlossen, stabil</div></details>
+      <details class="sf"><summary>Operativ bei?</summary><div class="sfa">disloziert, instabil, Gelenk, offen, Polytrauma</div></details>
+      <details class="sf"><summary>Zugschraube bewirkt?</summary><div class="sfa">interfragmentäre Kompression (absolute Stabilität)</div></details>
+      <details class="sf"><summary>Marknagel — Knochen + Stabilität?</summary><div class="sfa">lange Röhrenknochen (Femur/Tibia/Humerus), relative Stabilität, belastungsstabil</div></details>
+      <details class="sf"><summary>Zuggurtung bei?</summary><div class="sfa">Patella, Olecranon (Zug → Druck)</div></details>
+      <details class="sf"><summary>Fixateur externe bei?</summary><div class="sfa">offene/Trümmerfraktur, Polytrauma, zweizeitig</div></details>
+      <details class="sf"><summary>Kompartmentsyndrom — Therapie?</summary><div class="sfa">sofortige Fasziotomie</div></details>
+      <details class="sf"><summary>Pseudarthrose-Definition?</summary><div class="sfa">ausbleibende Heilung nach 6 Monaten</div></details>
+    </div>
   </section>
 
   <!-- ============ PROTOKOLLE ============ -->
@@ -435,9 +381,8 @@
   </section>
 
   <footer>
-    R3 · Allgemeine Frakturlehre · Diagnostischer Durchlauf (3 von 5). Neuaufbau (kein R1/R2) — produce-only: Retrieval = Synthese (Bullet-Format), Schnellfragen = atomar, Protokolle = dokumentierte Mainz-Arcs. Quelle: Stex Lernkarten (Elsevier, 4.6 Frakturlehre) + Vorbereitung zur KB + Mainz-Protokolle (Tibia/Fibula-Frakturzeichen → Kompartmentsyndrom, primäre/sekundäre Knochenheilung, Blutverlust-Tabelle Fall 69 Dr. Tannert). Zwei-Pass-Logik: kalt testen + bewerten → nur Lücken öffnen → Protokolle als Generalprobe. R4 = adaptive Wiederholung der Lücken, R5 = Prüfungssimulation. Bewertung wird nicht gespeichert.
+    R3 · Allgemeine Frakturlehre · Fragen &amp; Protokolle. Vier Kernstationen (wortgleich mit R2) + KP-Perlen mit Rapid-Fire + die echten dokumentierten Mainz-Fragen.
   </footer>
-
 
 </div>
 <script>
@@ -449,87 +394,6 @@
     window.scrollTo({top:0,behavior:'smooth'});
   }
   tabs.forEach(t=>t.addEventListener('click',()=>showTab(t.dataset.tab)));
-
-  // ---- scoring state ----
-  const scores = {};                 // {p1:'sicher'|'lueckenhaft'|'gefehlt'}
-  const CONTENT = ['grundlagen','klinik','diagnostik','therapie'];
-  const promptStations = {};
-  document.querySelectorAll('.rt').forEach(rt=>{
-    promptStations[rt.dataset.id] = (rt.dataset.stations||'').split(' ').filter(Boolean);
-  });
-
-  function recompute(){
-    let ok=0,gap=0,miss=0;
-    Object.values(scores).forEach(v=>{ if(v==='sicher')ok++; else if(v==='lueckenhaft')gap++; else if(v==='gefehlt')miss++; });
-    document.getElementById('n-ok').textContent=ok;
-    document.getElementById('n-gap').textContent=gap;
-    document.getElementById('n-miss').textContent=miss;
-    document.getElementById('n-done').textContent=Object.keys(scores).length;
-    // station status
-    CONTENT.forEach(st=>{
-      const related = Object.keys(promptStations).filter(p=>promptStations[p].includes(st));
-      const scored = related.filter(p=>scores[p]);
-      const flagged = related.some(p=>scores[p]==='lueckenhaft'||scores[p]==='gefehlt');
-      const allOk = related.length && scored.length===related.length && !flagged;
-      const tab = tabs.find(t=>t.dataset.tab===st);
-      tab.classList.remove('flag-gap','flag-ok');
-      const b = tab.querySelector('.badge');
-      if(flagged){ tab.classList.add('flag-gap'); b.textContent='Lücke'; }
-      else if(allOk){ tab.classList.add('flag-ok'); b.textContent='✓'; }
-      else { b.textContent=''; }
-    });
-  }
-
-  document.querySelectorAll('.rt .score').forEach(scoreBox=>{
-    const rt = scoreBox.closest('.rt');
-    scoreBox.querySelectorAll('.sbtn').forEach(btn=>{
-      btn.addEventListener('click',()=>{
-        const v = btn.dataset.v;
-        scores[rt.dataset.id] = v;
-        rt.dataset.score = v;
-        scoreBox.querySelectorAll('.sbtn').forEach(b=>b.classList.toggle('on', b===btn));
-        recompute();
-        const status=document.getElementById('status');
-        const flaggedNow=tabs.filter(t=>t.classList.contains('flag-gap')).length;
-        if(Object.keys(scores).length===5){
-          status.textContent = flaggedNow ? 'Pass 1 fertig. „Nur Lücken öffnen" springt zu den '+flaggedNow+' markierten Stationen.' : 'Alles sicher in Pass 1 — direkt zur Generalprobe (Protokolle).';
-        } else {
-          status.textContent = (5-Object.keys(scores).length)+' Prompt(s) noch zu bewerten.';
-        }
-      });
-    });
-  });
-
-  // ---- two-pass: open only gaps ----
-  document.getElementById('open-gaps').addEventListener('click',()=>{
-    const flagged = CONTENT.filter(st=>tabs.find(t=>t.dataset.tab===st).classList.contains('flag-gap'));
-    const status=document.getElementById('status');
-    if(!Object.keys(scores).length){ status.textContent='Erst Pass 1 bewerten — dann zeige ich dir die Lücken.'; return; }
-    if(!flagged.length){
-      // all clear -> capstone
-      panels.forEach(p=>{ if(CONTENT.includes(p.dataset.panel)) p.querySelectorAll('.card').forEach(c=>c.open=false); });
-      showTab('protokoll'); status.textContent='Keine Lücken — auf zur Generalprobe.'; return;
-    }
-    // expand flagged stations, collapse the "sicher" ones
-    panels.forEach(p=>{
-      if(!CONTENT.includes(p.dataset.panel)) return;
-      const isGap = flagged.includes(p.dataset.panel);
-      p.querySelectorAll('.card').forEach(c=>{ c.open = isGap; });
-    });
-    showTab(flagged[0]);
-    status.textContent='Geöffnet: '+flagged.join(', ')+'. Der Rest bleibt zu.';
-  });
-
-  // ---- reset ----
-  document.getElementById('reset').addEventListener('click',()=>{
-    Object.keys(scores).forEach(k=>delete scores[k]);
-    document.querySelectorAll('.rt').forEach(rt=>{ rt.removeAttribute('data-score'); rt.querySelectorAll('.sbtn').forEach(b=>b.classList.remove('on')); });
-    document.querySelectorAll('.reveal[open]').forEach(d=>d.open=false);
-    recompute();
-    document.getElementById('status').textContent='Zurückgesetzt. Bewerte alle 5 Prompts, dann „Nur Lücken öffnen".';
-  });
-
-  recompute();
 </script>
 </body>
 </html>

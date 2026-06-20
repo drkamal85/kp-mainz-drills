@@ -183,9 +183,9 @@
   <a href="../../index.html" class="back">← Zurück zur Library</a>
 
   <header>
-    <div class="eyebrow">Unfallchirurgie · R3 · Diagnostischer Durchlauf</div>
+    <div class="eyebrow">Unfallchirurgie · R3 · Kurz + KP-Perlen + Protokolle</div>
     <h1>Sprunggelenks<span class="accent">fraktur</span></h1>
-    <div class="subtitle">Zwei Pässe: kalt testen, bewerten — dann nur die Lücken öffnen.</div>
+    <div class="subtitle">Vier Stationen (wortgleich mit R2) + KP-Perlen + die echten Mainz-Fragen — zum lauten Üben.</div>
     <div class="meta">
       <span>R3 von 5 · Neuaufbau</span>
       <span>~12–15 Min</span>
@@ -195,91 +195,15 @@
   </header>
 
   <div class="tabs">
-    <button class="tab active" data-c="retrieval" data-tab="retrieval">Retrieval-Test</button>
-    <button class="tab" data-c="grundlagen" data-tab="grundlagen">Grundlagen<span class="badge"></span></button>
-    <button class="tab" data-c="klinik" data-tab="klinik">Klinik<span class="badge"></span></button>
-    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik<span class="badge"></span></button>
-    <button class="tab" data-c="therapie" data-tab="therapie">Therapie<span class="badge"></span></button>
+    <button class="tab active" data-c="grundlagen" data-tab="grundlagen">Grundlagen</button>
+    <button class="tab" data-c="klinik" data-tab="klinik">Klinik</button>
+    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik</button>
+    <button class="tab" data-c="therapie" data-tab="therapie">Therapie</button>
     <button class="tab" data-c="perlen" data-tab="perlen">KP-Perlen</button>
-    <button class="tab" data-c="protokoll" data-tab="protokoll">Protokolle</button>
+    <button class="tab" data-c="protokoll" data-tab="protokoll">Fragen &amp; Protokolle</button>
   </div>
 
-  <!-- ============ RETRIEVAL-TEST ============ -->
-  <section class="panel active" data-panel="retrieval">
-    <p class="panel-intro">Kalt. Laut. Auf Deutsch. Diese Prompts fragen <strong>ganze Pfade und Entscheidungen</strong> (Synthese) — die Einzelfakten kommen darunter als Schnellfragen. Erst formulieren, dann aufdecken und ehrlich bewerten.</p>
-
-    <div class="ctrl">
-      <div class="ctrl-row">
-        <div class="tally"><i class="t-ok">Sicher <span id="n-ok">0</span></i><i class="t-gap">Lücke <span id="n-gap">0</span></i><i class="t-miss">Gefehlt <span id="n-miss">0</span></i><i style="color:var(--muted)">/ 5 bewertet: <span id="n-done">0</span></i></div>
-        <div class="spacer"></div>
-        <button class="btn btn-primary" id="open-gaps">Nur Lücken öffnen →</button>
-        <button class="btn btn-ghost" id="reset">Zurücksetzen</button>
-      </div>
-      <div class="ctrl-status" id="status">Bewerte alle 5 Prompts, dann „Nur Lücken öffnen".</div>
-    </div>
-
-    <div class="rt" data-id="p1" data-stations="grundlagen">
-      <div class="rt-h"><span class="rt-n">Prompt 1 · Anatomie + Mechanismus</span><span class="rt-right"><span class="rt-ptr">→ Grundlagen</span></span></div>
-      <div class="rt-q">Beschreibe das OSG und die <strong>Syndesmose</strong> (wie viele Anteile, welcher wichtiger), und welcher <strong>Unfallmechanismus</strong> führt zu welchem Weber-Typ.</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>OSG (Art. talocruralis):</b> distale Tibia + Fibula bilden die Malleolengabel, darin der Talus</li><li><b>Knöchel:</b> Malleolus medialis (Tibia) · Malleolus lateralis (Fibula)</li><li><b>Syndesmose:</b> bindegewebige tibiofibuläre Verbindung, <b>2 Anteile</b> (vordere + hintere) — die <b>hintere</b> ist die wichtigere (stabiler)</li><li><b>Mechanismus:</b><ul><li>Supination (Umknicken nach außen) → eher Weber A</li><li>Pronation (Umknicken nach innen) → eher Weber B/C</li></ul></li></ul></div></details>
-      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
-    </div>
-
-    <div class="rt" data-id="p2" data-stations="grundlagen klinik">
-      <div class="rt-h"><span class="rt-n">Prompt 2 · Weber + Maisonneuve</span><span class="rt-right"><span class="rt-ptr">→ Grundlagen / Klinik</span></span></div>
-      <div class="rt-q">Ordne <strong>Weber A/B/C</strong> nach der Syndesmose mit der Therapie-Konsequenz — und was ist eine <strong>Maisonneuve-Fraktur</strong>?</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>Weber A:</b> Fibula unterhalb der Syndesmose → intakt → stabil → meist konservativ</li><li><b>Weber B:</b> auf Höhe der Syndesmose → Läsion möglich → Therapie nach Stabilität</li><li><b>Weber C:</b> oberhalb der Syndesmose → Syndesmose + Membrana interossea zerrissen → instabil → operativ</li><li><b>Maisonneuve:</b> hohe (proximale/subkapitale) Fibulafraktur + Syndesmosenruptur + Membrana-interossea-Zerreißung — Sonderform der Weber C (oft + Innenknöchel/Lig. deltoideum)</li></ul></div></details>
-      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
-    </div>
-
-    <div class="rt" data-id="p3" data-stations="diagnostik">
-      <div class="rt-h"><span class="rt-n">Prompt 3 · Untersuchung + Bildgebung</span><span class="rt-right"><span class="rt-ptr">→ Diagnostik</span></span></div>
-      <div class="rt-q">Wie untersuchst du klinisch (was darfst du <strong>nicht vergessen</strong>), welcher Test prüft die <strong>Syndesmose</strong>, und welche <strong>Bildgebung</strong>?</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>Klinik:</b><ul><li>pDMS (N. peroneus, A. dorsalis pedis/tibialis post.)</li><li>Druckschmerz Innen-/Außenknöchel + <b>ganze Fibula bis zum Köpfchen</b> (hohe Weber C / Maisonneuve!)</li><li>Hautmantel intakt? Tetanusschutz?</li></ul></li><li><b>Syndesmosentest:</b> Frick-Stresstest (Dorsalextension + Außenrotation) / Dorsiflexionstest (Druck gegen die Malleolengabel) → Schmerz = positiv</li><li><b>Bildgebung:</b><ul><li>Röntgen OSG in 2 Ebenen (a.p. + seitlich)</li><li>bei V. a. hohe Fibulafraktur ganze Fibula röntgen · Sono der Syndesmose</li><li>CT bei Volkmann-Dreieck / Pilon / komplex</li></ul></li></ul></div></details>
-      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
-    </div>
-
-    <div class="rt" data-id="p4" data-stations="therapie">
-      <div class="rt-h"><span class="rt-n">Prompt 4 · Notfall + konservativ</span><span class="rt-right"><span class="rt-ptr">→ Therapie</span></span></div>
-      <div class="rt-q"><strong>Luxationsfraktur</strong> in der Notaufnahme — was tust du sofort? Und wann/wie behandelst du <strong>konservativ</strong>?</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>Luxationsfraktur</b> (Fuß seitlich versetzt) → sofortige <b>grobe Reposition</b> (Weichteilnekrose/Durchblutung) + sterile Abdeckung bei offener Haut</li><li><b>Konservativ</b> bei Weber A + undislozierter Weber B → Unterschenkelgips in Neutralposition ~6 Wochen + Thromboseprophylaxe</li><li><b>Keine Fraktur (Distorsion):</b> symptomatisch — Kühlen, Hochlagern, NSAR (PECH)</li></ul></div></details>
-      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
-    </div>
-
-    <div class="rt" data-id="p5" data-stations="therapie">
-      <div class="rt-h"><span class="rt-n">Prompt 5 · Operative Versorgung</span><span class="rt-right"><span class="rt-ptr">→ Therapie</span></span></div>
-      <div class="rt-q">Wann operierst du, was machst du mit <strong>Fibula, Innenknöchel, Syndesmose und Volkmann-Dreieck</strong> — und wann <strong>zweizeitig</strong>?</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>OP-Indikation:</b> dislozierte Weber A, immer Weber B/C, Instabilität/Talusverschiebung</li><li><b>Fibula:</b> Plattenosteosynthese (± Zugschraube)</li><li><b>Innenknöchel:</b> Zugschrauben/Zuggurtung</li><li><b>Syndesmose:</b> Teilruptur → Naht · komplette Ruptur → Stellschraube (6 Wochen, Teilbelastung bis 20 kg)</li><li><b>Volkmann-Dreieck:</b> großes Fragment/Gelenkinkongruenz → Verschraubung</li><li><b>Zweizeitig (Fixateur externe):</b> starke Schwellung, offene Fraktur, Trümmerbruch → später definitiv; postop Unterschenkelgips ~6 Wochen + Physio</li></ul></div></details>
-      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
-    </div>
-
-    <div class="callout fact"><span class="lab">Mainz-Muster</span>Sprunggelenk ist ein Unfallchirurgie-Dauerbrenner (Prüfer v. a. Dr. Tannert, oft mit Röntgenbild). Typischer Lauf: <strong>Knochen benennen → Weber A/B/C + „worauf basiert Weber?" (Syndesmose; 2 Anteile, hintere wichtiger) → Sonderform Maisonneuve → konservativ vs. operativ → Syndesmose/Stellschraube → offene Fraktur.</strong><br>Häufige Zusatzfrage: primäre vs. sekundäre Knochenheilung (primär ohne Kallus, sekundär mit Kallus).</div>
-
-    <div class="sf-wrap">
-      <h3>Schnellfragen · Rapid-Fire</h3>
-      <div class="sf-intro">Atomare Einzelfakten — Ein-Wort-Abruf, keine Optionen. Laut, sofort, dann aufdecken.</div>
-      <details class="sf"><summary>Weber-Klassifikation basiert worauf?</summary><div class="sfa">Höhe der Fibulafraktur zur Syndesmose</div></details>
-      <details class="sf"><summary>Weber A?</summary><div class="sfa">Fibula unterhalb der Syndesmose (intakt)</div></details>
-      <details class="sf"><summary>Weber B?</summary><div class="sfa">auf Höhe der Syndesmose (Läsion möglich)</div></details>
-      <details class="sf"><summary>Weber C?</summary><div class="sfa">oberhalb der Syndesmose (Syndesmose + Membrana interossea zerrissen)</div></details>
-      <details class="sf"><summary>Wie viele Syndesmosen-Anteile?</summary><div class="sfa">2 (vordere + hintere)</div></details>
-      <details class="sf"><summary>Welcher Syndesmosenanteil wichtiger?</summary><div class="sfa">der hintere (stabiler)</div></details>
-      <details class="sf"><summary>Maisonneuve-Fraktur?</summary><div class="sfa">hohe proximale Fibulafraktur + Syndesmosenruptur</div></details>
-      <details class="sf"><summary>Bei V. a. Maisonneuve immer prüfen?</summary><div class="sfa">ganze Fibula bis zum Köpfchen</div></details>
-      <details class="sf"><summary>Innenknöchel = welcher Knochen?</summary><div class="sfa">Malleolus medialis (Tibia)</div></details>
-      <details class="sf"><summary>Außenknöchel = welcher Knochen?</summary><div class="sfa">Malleolus lateralis (Fibula)</div></details>
-      <details class="sf"><summary>Volkmann-Dreieck?</summary><div class="sfa">Abbruch der hinteren Tibiakante</div></details>
-      <details class="sf"><summary>Trimalleoläre Fraktur?</summary><div class="sfa">Fibula + Tibia + Volkmann-Dreieck</div></details>
-      <details class="sf"><summary>Syndesmosentest?</summary><div class="sfa">Frick-Stresstest / Dorsiflexionstest</div></details>
-      <details class="sf"><summary>Röntgen OSG — Ebenen?</summary><div class="sfa">2 Ebenen (a.p. + seitlich)</div></details>
-      <details class="sf"><summary>Konservativ bei welchem Typ?</summary><div class="sfa">Weber A (+ undislozierte Weber B), Gips ~6 Wochen</div></details>
-      <details class="sf"><summary>Komplette Syndesmosenruptur → OP?</summary><div class="sfa">Stellschraube (6 Wochen)</div></details>
-      <details class="sf"><summary>Peroneusparese-Folge?</summary><div class="sfa">Fußheberschwäche (bei hoher Fibulafraktur)</div></details>
-    </div>
-  </section>
-
-  <!-- ============ GRUNDLAGEN ============ -->
-  <section class="panel" data-panel="grundlagen">
+  <section class="panel active" data-panel="grundlagen">
     <p class="panel-intro">Anatomie, Syndesmose, Mechanismus und die Weber-Klassifikation — erst laut, dann aufklappen.</p>
     <details class="card grundlagen" open><summary><span class="ct"><span class="ctag">Definition</span><span class="ctitle">OSG, Syndesmose &amp; Mechanismus</span></span><span class="plus">+</span></summary>
       <div class="body"><ul class="b">
@@ -384,6 +308,28 @@
     <div class="pearl"><div class="ph">⭐ Perle 6 · Syndesmose operativ</div><div class="pt"><strong>Teilruptur → Naht.<br>Komplette Ruptur → Stellschraube</strong> (6 Wochen, Teilbelastung bis 20 kg, weil sie sonst bricht).</div><div class="mn"><b>Merke:</b> Stellschraube hält die Gabel, aber nur kurz</div></div>
     <div class="pearl"><div class="ph">⭐ Perle 7 · Volkmann-Dreieck</div><div class="pt"><strong>Volkmann-Dreieck</strong> = Abbruch der hinteren Tibiakante. Kleines Fragment bei guter Stellung konservativ, großes/Gelenkinkongruenz → Verschraubung.</div><div class="mn"><b>Merke:</b> Großes Stück = schrauben</div></div>
     <div class="pearl"><div class="ph">⭐ Perle 8 · Komplikationen</div><div class="pt"><strong>Peroneusparese</strong> (Fußheberschwäche) bei hoher Fibulafraktur, <strong>Kompartmentsyndrom</strong>, posttraumatische Arthrose.</div><div class="mn"><b>Merke:</b> Hohe Fibula → Fuß hängt</div></div>
+  
+    <div class="sf-wrap">
+      <h3>Schnellfragen · Rapid-Fire</h3>
+      <div class="sf-intro">Atomare Einzelfakten — Ein-Wort-Abruf, keine Optionen. Laut, sofort, dann aufdecken.</div>
+      <details class="sf"><summary>Weber-Klassifikation basiert worauf?</summary><div class="sfa">Höhe der Fibulafraktur zur Syndesmose</div></details>
+      <details class="sf"><summary>Weber A?</summary><div class="sfa">Fibula unterhalb der Syndesmose (intakt)</div></details>
+      <details class="sf"><summary>Weber B?</summary><div class="sfa">auf Höhe der Syndesmose (Läsion möglich)</div></details>
+      <details class="sf"><summary>Weber C?</summary><div class="sfa">oberhalb der Syndesmose (Syndesmose + Membrana interossea zerrissen)</div></details>
+      <details class="sf"><summary>Wie viele Syndesmosen-Anteile?</summary><div class="sfa">2 (vordere + hintere)</div></details>
+      <details class="sf"><summary>Welcher Syndesmosenanteil wichtiger?</summary><div class="sfa">der hintere (stabiler)</div></details>
+      <details class="sf"><summary>Maisonneuve-Fraktur?</summary><div class="sfa">hohe proximale Fibulafraktur + Syndesmosenruptur</div></details>
+      <details class="sf"><summary>Bei V. a. Maisonneuve immer prüfen?</summary><div class="sfa">ganze Fibula bis zum Köpfchen</div></details>
+      <details class="sf"><summary>Innenknöchel = welcher Knochen?</summary><div class="sfa">Malleolus medialis (Tibia)</div></details>
+      <details class="sf"><summary>Außenknöchel = welcher Knochen?</summary><div class="sfa">Malleolus lateralis (Fibula)</div></details>
+      <details class="sf"><summary>Volkmann-Dreieck?</summary><div class="sfa">Abbruch der hinteren Tibiakante</div></details>
+      <details class="sf"><summary>Trimalleoläre Fraktur?</summary><div class="sfa">Fibula + Tibia + Volkmann-Dreieck</div></details>
+      <details class="sf"><summary>Syndesmosentest?</summary><div class="sfa">Frick-Stresstest / Dorsiflexionstest</div></details>
+      <details class="sf"><summary>Röntgen OSG — Ebenen?</summary><div class="sfa">2 Ebenen (a.p. + seitlich)</div></details>
+      <details class="sf"><summary>Konservativ bei welchem Typ?</summary><div class="sfa">Weber A (+ undislozierte Weber B), Gips ~6 Wochen</div></details>
+      <details class="sf"><summary>Komplette Syndesmosenruptur → OP?</summary><div class="sfa">Stellschraube (6 Wochen)</div></details>
+      <details class="sf"><summary>Peroneusparese-Folge?</summary><div class="sfa">Fußheberschwäche (bei hoher Fibulafraktur)</div></details>
+    </div>
   </section>
 
   <!-- ============ PROTOKOLLE ============ -->
@@ -411,9 +357,8 @@
   </section>
 
   <footer>
-    R3 · Sprunggelenksfraktur · Diagnostischer Durchlauf (3 von 5). Neuaufbau (kein R1/R2) — produce-only: Retrieval = Synthese (Bullet-Format), Schnellfragen = atomar, Protokolle = dokumentierte Mainz-Arcs. Quelle: Stex Lernkarten (Elsevier) + Vorbereitung zur KB + Mainz-Protokolle (Fall 53 Maisonneuve, Tannert Röntgen/Weber/Syndesmose, Knochenheilung). Zwei-Pass-Logik: kalt testen + bewerten → nur Lücken öffnen → Protokolle als Generalprobe. R4 = adaptive Wiederholung der Lücken, R5 = Prüfungssimulation. Bewertung wird nicht gespeichert.
+    R3 · Sprunggelenksfraktur · Fragen &amp; Protokolle. Vier Kernstationen (wortgleich mit R2) + KP-Perlen mit Rapid-Fire + die echten dokumentierten Mainz-Fragen.
   </footer>
-
 
 </div>
 <script>
@@ -425,87 +370,6 @@
     window.scrollTo({top:0,behavior:'smooth'});
   }
   tabs.forEach(t=>t.addEventListener('click',()=>showTab(t.dataset.tab)));
-
-  // ---- scoring state ----
-  const scores = {};                 // {p1:'sicher'|'lueckenhaft'|'gefehlt'}
-  const CONTENT = ['grundlagen','klinik','diagnostik','therapie'];
-  const promptStations = {};
-  document.querySelectorAll('.rt').forEach(rt=>{
-    promptStations[rt.dataset.id] = (rt.dataset.stations||'').split(' ').filter(Boolean);
-  });
-
-  function recompute(){
-    let ok=0,gap=0,miss=0;
-    Object.values(scores).forEach(v=>{ if(v==='sicher')ok++; else if(v==='lueckenhaft')gap++; else if(v==='gefehlt')miss++; });
-    document.getElementById('n-ok').textContent=ok;
-    document.getElementById('n-gap').textContent=gap;
-    document.getElementById('n-miss').textContent=miss;
-    document.getElementById('n-done').textContent=Object.keys(scores).length;
-    // station status
-    CONTENT.forEach(st=>{
-      const related = Object.keys(promptStations).filter(p=>promptStations[p].includes(st));
-      const scored = related.filter(p=>scores[p]);
-      const flagged = related.some(p=>scores[p]==='lueckenhaft'||scores[p]==='gefehlt');
-      const allOk = related.length && scored.length===related.length && !flagged;
-      const tab = tabs.find(t=>t.dataset.tab===st);
-      tab.classList.remove('flag-gap','flag-ok');
-      const b = tab.querySelector('.badge');
-      if(flagged){ tab.classList.add('flag-gap'); b.textContent='Lücke'; }
-      else if(allOk){ tab.classList.add('flag-ok'); b.textContent='✓'; }
-      else { b.textContent=''; }
-    });
-  }
-
-  document.querySelectorAll('.rt .score').forEach(scoreBox=>{
-    const rt = scoreBox.closest('.rt');
-    scoreBox.querySelectorAll('.sbtn').forEach(btn=>{
-      btn.addEventListener('click',()=>{
-        const v = btn.dataset.v;
-        scores[rt.dataset.id] = v;
-        rt.dataset.score = v;
-        scoreBox.querySelectorAll('.sbtn').forEach(b=>b.classList.toggle('on', b===btn));
-        recompute();
-        const status=document.getElementById('status');
-        const flaggedNow=tabs.filter(t=>t.classList.contains('flag-gap')).length;
-        if(Object.keys(scores).length===5){
-          status.textContent = flaggedNow ? 'Pass 1 fertig. „Nur Lücken öffnen" springt zu den '+flaggedNow+' markierten Stationen.' : 'Alles sicher in Pass 1 — direkt zur Generalprobe (Protokolle).';
-        } else {
-          status.textContent = (5-Object.keys(scores).length)+' Prompt(s) noch zu bewerten.';
-        }
-      });
-    });
-  });
-
-  // ---- two-pass: open only gaps ----
-  document.getElementById('open-gaps').addEventListener('click',()=>{
-    const flagged = CONTENT.filter(st=>tabs.find(t=>t.dataset.tab===st).classList.contains('flag-gap'));
-    const status=document.getElementById('status');
-    if(!Object.keys(scores).length){ status.textContent='Erst Pass 1 bewerten — dann zeige ich dir die Lücken.'; return; }
-    if(!flagged.length){
-      // all clear -> capstone
-      panels.forEach(p=>{ if(CONTENT.includes(p.dataset.panel)) p.querySelectorAll('.card').forEach(c=>c.open=false); });
-      showTab('protokoll'); status.textContent='Keine Lücken — auf zur Generalprobe.'; return;
-    }
-    // expand flagged stations, collapse the "sicher" ones
-    panels.forEach(p=>{
-      if(!CONTENT.includes(p.dataset.panel)) return;
-      const isGap = flagged.includes(p.dataset.panel);
-      p.querySelectorAll('.card').forEach(c=>{ c.open = isGap; });
-    });
-    showTab(flagged[0]);
-    status.textContent='Geöffnet: '+flagged.join(', ')+'. Der Rest bleibt zu.';
-  });
-
-  // ---- reset ----
-  document.getElementById('reset').addEventListener('click',()=>{
-    Object.keys(scores).forEach(k=>delete scores[k]);
-    document.querySelectorAll('.rt').forEach(rt=>{ rt.removeAttribute('data-score'); rt.querySelectorAll('.sbtn').forEach(b=>b.classList.remove('on')); });
-    document.querySelectorAll('.reveal[open]').forEach(d=>d.open=false);
-    recompute();
-    document.getElementById('status').textContent='Zurückgesetzt. Bewerte alle 5 Prompts, dann „Nur Lücken öffnen".';
-  });
-
-  recompute();
 </script>
 </body>
 </html>
