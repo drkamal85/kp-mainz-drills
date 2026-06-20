@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sepsis · R3 Review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F7F4EE; --card:#FFFDF8; --ink:#2A2724; --muted:#6B6358; --line:#E7E0D4;
+    --grundlagen:#C0392B; --grundlagen-t:#F7E9E6;
+    --klinik:#D97706;     --klinik-t:#FBEEDD;
+    --diagnostik:#1E5F9E; --diagnostik-t:#E4EDF6;
+    --therapie:#2D7A3E;   --therapie-t:#E5F0E7;
+    --fragen:#7B3F9E;     --fragen-t:#F0E8F6;
+    --perlen:#B8860B;     --perlen-t:#F8F0D9;
+    --retrieval:#0F766E;  --retrieval-t:#E0F0EE;
+    --protokoll:#334155;  --protokoll-t:#E8EBF0;
+    --ok:#2D7A3E; --gap:#D97706; --miss:#C0392B;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:'Manrope',system-ui,sans-serif;
+    font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased;padding:0 18px 80px}
+  .wrap{max-width:860px;margin:0 auto}
+
+  header{padding:54px 0 22px}
+  .eyebrow{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--retrieval);margin-bottom:16px}
+  h1{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(34px,7vw,52px);line-height:1.04;letter-spacing:-.01em}
+  h1 .accent{font-style:italic;color:var(--grundlagen)}
+  .subtitle{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(17px,2.6vw,20px);color:var(--muted);margin-top:14px}
+  .meta{display:flex;flex-wrap:wrap;gap:6px 0;margin-top:20px;font-size:13px;color:var(--muted);font-weight:500}
+  .meta span:not(:last-child)::after{content:"•";margin:0 10px;color:var(--line);font-weight:700}
+
+
+  .tabs{display:flex;flex-wrap:wrap;gap:8px;position:sticky;top:0;z-index:30;background:linear-gradient(var(--bg) 72%,rgba(247,244,238,0));padding:12px 0 14px;margin-bottom:6px}
+  .tab{position:relative;font-size:13px;font-weight:600;border:1px solid var(--line);background:var(--card);color:var(--muted);padding:8px 15px;border-radius:999px;cursor:pointer;transition:all .15s;white-space:nowrap}
+  .tab:hover{border-color:#cfc6b6}
+  .tab.active{color:#fff;border-color:transparent}
+  .tab[data-c=retrieval].active{background:var(--retrieval)}
+  .tab[data-c=grundlagen].active{background:var(--grundlagen)}
+  .tab[data-c=klinik].active{background:var(--klinik)}
+  .tab[data-c=diagnostik].active{background:var(--diagnostik)}
+  .tab[data-c=therapie].active{background:var(--therapie)}
+  .tab[data-c=fragen].active{background:var(--fragen)}
+  .tab[data-c=perlen].active{background:var(--perlen)}
+  .tab[data-c=protokoll].active{background:var(--protokoll)}
+  .tab .badge{display:none;margin-left:7px;font-size:10px;font-weight:800;padding:1px 6px;border-radius:999px;vertical-align:middle}
+  .tab.flag-gap .badge{display:inline-block;background:var(--gap);color:#fff}
+  .tab.flag-ok .badge{display:inline-block;background:var(--ok);color:#fff}
+  .tab.active .badge{background:rgba(255,255,255,.28)!important;color:#fff}
+
+  .panel{display:none;animation:fade .25s ease}
+  .panel.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+  .panel-intro{font-family:'Fraunces',serif;font-style:italic;font-size:17px;color:var(--muted);margin:6px 0 18px;line-height:1.5}
+
+  /* ---- control bar (Pass 1 instrument) ---- */
+  .ctrl{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:14px 16px;margin-bottom:20px}
+  .ctrl-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+  .tally{font-size:13px;font-weight:700;display:flex;gap:12px;flex-wrap:wrap}
+  .tally i{font-style:normal;display:inline-flex;align-items:center;gap:5px}
+  .tally i::before{content:"";width:9px;height:9px;border-radius:50%}
+  .tally .t-ok::before{background:var(--ok)} .tally .t-gap::before{background:var(--gap)} .tally .t-miss::before{background:var(--miss)}
+  .spacer{flex:1 1 auto}
+  .btn{font-family:'Manrope';font-size:12.5px;font-weight:700;border:none;border-radius:999px;padding:9px 16px;cursor:pointer;transition:.15s}
+  .btn-primary{background:var(--retrieval);color:#fff}
+  .btn-primary:hover{filter:brightness(1.06)}
+  .btn-ghost{background:transparent;color:var(--muted);border:1px solid var(--line)}
+  .btn-ghost:hover{border-color:#cfc6b6}
+  .ctrl-status{margin-top:11px;font-size:13px;font-style:italic;color:var(--retrieval);min-height:18px}
+
+  /* ---- retrieval prompt ---- */
+  .rt{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:14px;transition:border-color .2s}
+  .rt[data-score=sicher]{border-left-color:var(--ok)}
+  .rt[data-score=lueckenhaft]{border-left-color:var(--gap)}
+  .rt[data-score=gefehlt]{border-left-color:var(--miss)}
+  .rt-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:8px}
+  .rt-n{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--retrieval)}
+  .rt-right{display:flex;align-items:center;gap:10px;white-space:nowrap}
+  .rt-ptr{font-size:11px;font-weight:600;color:var(--muted)}
+  .rt-q{font-size:15.5px;line-height:1.55}
+  .reveal{margin-top:12px;border-top:1px dashed var(--line);padding-top:0}
+  .reveal>summary{list-style:none;cursor:pointer;font-size:12.5px;font-weight:800;letter-spacing:.04em;color:var(--retrieval);padding:11px 0 0;user-select:none;display:inline-flex;align-items:center;gap:6px}
+  .reveal>summary::-webkit-details-marker{display:none}
+  .reveal>summary::before{content:"▸";transition:transform .2s;display:inline-block}
+  .reveal[open]>summary::before{transform:rotate(90deg)}
+  .reveal .ans{font-size:14.5px;line-height:1.6;color:#3c372f;padding-top:10px}
+  .reveal .ans b{color:var(--ink)}
+  .reveal .ans ul{list-style:none;padding-left:2px;margin:2px 0 0}
+  .reveal .ans li{position:relative;padding-left:18px;margin-bottom:8px;line-height:1.5}
+  .reveal .ans>ul>li::before{content:"";position:absolute;left:2px;top:8px;width:6px;height:6px;border-radius:50%;background:var(--retrieval)}
+  .reveal .ans li ul{margin:7px 0 2px}
+  .reveal .ans li li{padding-left:16px;margin-bottom:5px;font-size:13.8px;color:#4a443c}
+  .reveal .ans li li::before{content:"";position:absolute;left:0;top:7px;width:5px;height:5px;transform:rotate(45deg);background:#b9b0a1}
+  .score{display:flex;gap:7px;margin-top:12px;padding-top:11px;border-top:1px solid var(--line)}
+  .sbtn{flex:1;font-size:12px;font-weight:700;border:1px solid var(--line);background:var(--bg);color:var(--muted);border-radius:8px;padding:7px 4px;cursor:pointer;transition:.12s}
+  .sbtn:hover{border-color:#cfc6b6}
+  .sbtn[data-v=sicher].on{background:var(--ok);color:#fff;border-color:transparent}
+  .sbtn[data-v=lueckenhaft].on{background:var(--gap);color:#fff;border-color:transparent}
+  .sbtn[data-v=gefehlt].on{background:var(--miss);color:#fff;border-color:transparent}
+
+  /* ---- Schnellfragen ---- */
+  .sf-wrap{background:var(--retrieval-t);border:1px solid #BFE0DC;border-radius:13px;padding:18px 20px;margin-top:24px}
+  .sf-wrap h3{font-family:'Fraunces',serif;font-weight:500;font-size:20px;margin-bottom:3px}
+  .sf-wrap .sf-intro{font-size:13.5px;font-style:italic;color:#0c5d57;margin-bottom:14px}
+  .sf{border-bottom:1px solid #cfe4e1;padding:9px 0}
+  .sf:last-child{border-bottom:none}
+  .sf>summary{list-style:none;cursor:pointer;font-size:14.5px;font-weight:600;display:flex;justify-content:space-between;gap:10px;user-select:none}
+  .sf>summary::-webkit-details-marker{display:none}
+  .sf>summary::after{content:"+";color:var(--retrieval);font-weight:800}
+  .sf[open]>summary::after{content:"−"}
+  .sf .sfa{font-size:14px;color:#0c5d57;font-weight:700;padding-top:6px}
+
+  /* ---- content cards (v1) ---- */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:14px;overflow:hidden}
+  .card>summary{list-style:none;cursor:pointer;padding:18px 20px;display:flex;align-items:flex-start;gap:14px;user-select:none}
+  .card>summary::-webkit-details-marker{display:none}
+  .card .ct{flex:1}
+  .card .ctag{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:5px}
+  .card .ctitle{font-family:'Fraunces',serif;font-weight:500;font-size:17px;line-height:1.25}
+  .plus{flex:none;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:18px;line-height:1;transition:transform .2s;margin-top:2px}
+  .card[open] .plus{transform:rotate(45deg)}
+  .card .body{padding:0 20px 20px;border-top:1px solid var(--line);margin-top:-2px;padding-top:16px}
+  .card.grundlagen .ctag{color:var(--grundlagen)} .card.grundlagen .plus{background:var(--grundlagen-t);color:var(--grundlagen)}
+  .card.klinik .ctag{color:var(--klinik)} .card.klinik .plus{background:var(--klinik-t);color:var(--klinik)}
+  .card.diagnostik .ctag{color:var(--diagnostik)} .card.diagnostik .plus{background:var(--diagnostik-t);color:var(--diagnostik)}
+  .card.therapie .ctag{color:var(--therapie)} .card.therapie .plus{background:var(--therapie-t);color:var(--therapie)}
+  .card.fragen .ctag{color:var(--fragen)} .card.fragen .plus{background:var(--fragen-t);color:var(--fragen)}
+  .card.perlen .ctag{color:var(--perlen)} .card.perlen .plus{background:var(--perlen-t);color:var(--perlen)}
+
+  ul.b{list-style:none;padding-left:2px}
+  ul.b>li{position:relative;padding-left:20px;margin-bottom:8px;line-height:1.55}
+  ul.b>li::before{content:"";position:absolute;left:2px;top:9px;width:7px;height:7px;border-radius:50%}
+  .grundlagen ul.b>li::before{background:var(--grundlagen)} .klinik ul.b>li::before{background:var(--klinik)}
+  .diagnostik ul.b>li::before{background:var(--diagnostik)} .therapie ul.b>li::before{background:var(--therapie)}
+  ul.b ul{list-style:none;padding-left:18px;margin-top:7px}
+  ul.b ul>li{position:relative;padding-left:18px;margin-bottom:6px;font-size:15px;color:#4a443c}
+  ul.b ul>li::before{content:"";position:absolute;left:0;top:7px;width:6px;height:6px;transform:rotate(45deg);background:#b9b0a1}
+  strong{font-weight:700;color:var(--ink)}
+
+  .callout{border-radius:11px;padding:13px 16px;margin:14px 0;font-size:14.5px;line-height:1.55;border-left:4px solid}
+  .callout .lab{font-weight:800;font-size:11px;letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .critical{background:var(--grundlagen-t);border-color:var(--grundlagen)} .critical .lab{color:var(--grundlagen)}
+  .warning{background:var(--klinik-t);border-color:var(--klinik)} .warning .lab{color:var(--klinik)}
+  .fact{background:var(--diagnostik-t);border-color:var(--diagnostik)} .fact .lab{color:var(--diagnostik)}
+
+  .dd{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+  .dd th,.dd td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+  .dd th{background:var(--diagnostik-t);font-weight:700;color:var(--diagnostik);font-size:12px}
+  .dd td:first-child{font-weight:600}
+
+  .pk{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:16px}
+  .pk-meta{display:flex;flex-wrap:wrap;gap:6px 0;font-size:11.5px;font-weight:700;color:var(--protokoll);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+  .pk-meta span:not(:last-child)::after{content:"•";margin:0 8px;color:#c3c9d2}
+  .pk-badge{display:inline-block;background:var(--therapie-t);color:var(--therapie);font-size:10.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:2px 9px;border-radius:999px;margin-left:auto}
+  .pk-akte{font-size:14.5px;line-height:1.58;background:var(--protokoll-t);border-radius:9px;padding:12px 14px;margin-bottom:12px}
+  .pk-akte .lab,.pk-q .lab{font-weight:800;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--protokoll);display:block;margin-bottom:5px}
+  .pk-q ul{list-style:none;padding:0}
+  .pk-q li{position:relative;padding-left:18px;margin-bottom:7px;font-size:14.5px;line-height:1.5}
+  .pk-q li::before{content:"–";position:absolute;left:0;color:var(--protokoll);font-weight:700}
+  .pq{border-top:1px solid var(--line);padding:10px 0}
+  .pq-frage{position:relative;padding-left:18px;font-size:14.5px;font-weight:600;line-height:1.5}
+  .pq-frage::before{content:"–";position:absolute;left:0;color:var(--protokoll);font-weight:700}
+  .pq .reveal{margin-top:5px;border-top:none;padding-top:0}
+  .pq .reveal>summary{padding:5px 0 0}
+
+  .pearl{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--perlen);border-radius:12px;padding:16px 18px;margin-bottom:13px}
+  .pearl .ph{font-weight:800;font-size:13px;color:var(--perlen);margin-bottom:7px}
+  .pearl .pt{font-size:15px;line-height:1.55}
+  .pearl .mn{margin-top:9px;background:var(--perlen-t);border-radius:8px;padding:8px 12px;font-size:13.5px;font-style:italic;color:#7a5c08}
+  .pearl .mn b{font-style:normal;font-weight:800}
+
+  footer{margin-top:40px;padding-top:22px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted);line-height:1.6}
+  .back{display:inline-block;font-family:Manrope,system-ui,sans-serif;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);text-decoration:none;margin-bottom:18px}
+  .back:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a href="../../index.html" class="back">← Zurück zur Library</a>
+
+  <header>
+    <div class="eyebrow">Notfallmedizin · R3 · Synthese + Protokolle</div>
+    <h1>Sepsis &amp; septischer <span class="accent">Schock</span></h1>
+    <div class="subtitle">Sepsis-3, qSOFA/SOFA, das 1-Hour-Bundle — und die dokumentierten Mainz-Fälle (Deckers, Linke, Laakmann, Tannert, Fischer).</div>
+    <div class="meta">
+      <span>R3 · 6 Tabs · Synthese + Protokolle</span>
+      <span>~22 Min</span>
+      <span>Stand 06/2026</span>
+      <span>Stex + Vorbereitung + Mainz-Protokolle</span>
+    </div>
+  </header>
+
+  <div class="tabs">
+    <button class="tab active" data-c="grundlagen" data-tab="grundlagen">Grundlagen</button>
+    <button class="tab" data-c="klinik" data-tab="klinik">Klinik</button>
+    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik</button>
+    <button class="tab" data-c="therapie" data-tab="therapie">Therapie</button>
+    <button class="tab" data-c="perlen" data-tab="perlen">KP-Perlen</button>
+    <button class="tab" data-c="protokoll" data-tab="protokoll">Fragen &amp; Protokolle</button>
+  </div>
+
+  <!-- ============ GRUNDLAGEN ============ -->
+  <section class="panel active" data-panel="grundlagen">
+    <p class="panel-intro">Sepsis-3, die Abgrenzung von SIRS und Schock — und der Fokus, von dem alles ausgeht.</p>
+    <details class="card grundlagen" open><summary><span class="ct"><span class="ctag">★ Anker</span><span class="ctitle">Die drei Definitionen</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Merksatz (Sepsis-3)</span><strong>Sepsis = lebensbedrohliche Organdysfunktion durch eine dysregulierte Immunantwort auf eine Infektion.</strong> Organdysfunktion = SOFA-Anstieg ≥ 2.</div>
+        <table class="dd"><tr><th>Begriff</th><th>Definition</th></tr>
+          <tr><td><strong>SIRS</strong></td><td>systemische Entzündungsreaktion (auch ohne Infektion: Trauma, OP, Verbrennung)</td></tr>
+          <tr><td><strong>Sepsis</strong></td><td>Infektion + Organdysfunktion (SOFA ≥ 2)</td></tr>
+          <tr><td><strong>Septischer Schock</strong></td><td>Sepsis + Vasopressoren für MAP ≥ 65 + Laktat &gt; 2 (trotz Volumen)</td></tr>
+        </table>
+        <div class="callout fact"><span class="lab">⚙ Wichtig</span><strong>Ein Erregernachweis ist NICHT zwingend</strong> — der begründete Verdacht reicht für die Diagnose.</div>
+      </div>
+    </details>
+    <details class="card grundlagen"><summary><span class="ct"><span class="ctag">★ Ätiologie</span><span class="ctitle">Fokus + Erreger</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Merksatz</span><strong>Häufigste Fokusse:</strong> Lunge &gt; Harnwege &gt; Abdomen.<br><strong>Häufigste Erreger:</strong> E. coli, S. aureus, Streptokokken.</div>
+        <ul class="b">
+          <li>Pathophysiologie: Endotoxine → überschießende Zytokine (TNF-α, IL-6) → <strong>Vasodilatation + Kapillarleck</strong> → Schock → Mikrothromben → <strong>DIC</strong></li>
+        </ul>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ KLINIK ============ -->
+  <section class="panel" data-panel="klinik">
+    <p class="panel-intro">qSOFA am Bett — drei Zeichen, die sofort an eine Sepsis denken lassen.</p>
+    <details class="card klinik" open><summary><span class="ct"><span class="ctag">★ qSOFA</span><span class="ctitle">Schnellscreening — 3 Kriterien</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Merksatz</span><strong>qSOFA „22-100-Vigilanz".</strong> Ab ≥ 2 Punkten besteht Sepsisverdacht.</div>
+        <table class="dd"><tr><th>qSOFA — je 1 Punkt</th></tr>
+          <tr><td><strong>A</strong>temfrequenz ≥ 22/min</td></tr>
+          <tr><td><strong>RR</strong> systolisch ≤ 100 mmHg</td></tr>
+          <tr><td><strong>Vigilanz</strong>minderung (GCS &lt; 15)</td></tr>
+        </table>
+      </div>
+    </details>
+    <details class="card klinik"><summary><span class="ct"><span class="ctag">★ Symptome</span><span class="ctitle">Was man noch sieht</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <ul class="b">
+          <li><strong>Fieber/Schüttelfrost</strong> (oder Hypothermie), Tachykardie</li>
+          <li><strong>Zentralisation:</strong> kalte, marmorierte Akren, verlängerte Rekap-Zeit; später Ödeme</li>
+          <li><strong>Fokus-Symptome:</strong> Husten/Dyspnoe (Pneumonie), Dysurie/Flankenschmerz (Pyelonephritis), Bauchschmerz (Peritonitis)</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ DIAGNOSTIK ============ -->
+  <section class="panel" data-panel="diagnostik">
+    <p class="panel-intro">SOFA über sechs Organe, die Marker — und Blutkulturen, immer vor der Antibiose.</p>
+    <details class="card diagnostik" open><summary><span class="ct"><span class="ctag">★ SOFA</span><span class="ctitle">6 Organsysteme</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Merksatz — SOFA bewertet 6 Organe</span><strong>Lunge</strong> (Horovitz)<br><strong>Kreislauf</strong> (MAP / Katecholamine)<br><strong>Leber</strong> (Bilirubin)<br><strong>Niere</strong> (Kreatinin)<br><strong>Gerinnung</strong> (Thrombozyten)<br><strong>ZNS</strong> (GCS)</div>
+        <div class="callout fact"><span class="lab">⚙ Schwelle</span>Ein Anstieg um ≥ 2 Punkte = sepsisassoziierte Organdysfunktion.</div>
+      </div>
+    </details>
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">★ Labor</span><span class="ctitle">Marker + Blutkulturen</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Merksatz</span><strong>Procalcitonin</strong> = bester/spezifischster Sepsismarker.<br><strong>Laktat</strong> = Maß für die Schwere (Gewebehypoxie).<br><strong>Thrombozytenabfall</strong> = früher Schockhinweis.</div>
+        <ul class="b">
+          <li><strong>Blutkulturen VOR Antibiose</strong> — mind. 2 Paare (aerob + anaerob), aus 2 Orten</li>
+          <li>Weitere Marker: CRP (hinkt 6–12 h nach), IL-6 (schneller); Leukozytose/-penie</li>
+          <li><strong>Fokussuche:</strong> Urin-Status/-kultur, Röntgen-Thorax, Abdomensono; ggf. TEE (Endokarditis), Lumbalpunktion (Meningitis)</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ THERAPIE ============ -->
+  <section class="panel" data-panel="therapie">
+    <p class="panel-intro">Die goldene Stunde — und die kalkulierte Antibiose, von Standard bis ESBL.</p>
+    <details class="card therapie" open><summary><span class="ct"><span class="ctag">★ 1-Hour-Bundle</span><span class="ctitle">Was in der 1. Stunde passiert</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">▲ Die goldene Stunde — in dieser Reihenfolge</span><strong>1. Laktat messen</strong><br><strong>2. Blutkulturen abnehmen</strong><br><strong>3. Breitband-Antibiose sofort</strong> („hit hard and early")<br><strong>4. Volumen 30 ml/kg kristalloid</strong><br><strong>5. Noradrenalin,</strong> wenn MAP &lt; 65 trotz Volumen</div>
+        <ul class="b">
+          <li><strong>Fokussanierung:</strong> Drainage, Katheterentfernung, OP — die Herdkontrolle ist entscheidend</li>
+        </ul>
+      </div>
+    </details>
+    <details class="card therapie"><summary><span class="ct"><span class="ctag">★ Antibiose</span><span class="ctitle">Kalkulierte Ersttherapie</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <table class="dd"><tr><th>Situation</th><th>1. Wahl</th></tr>
+          <tr><td><strong>Standard breit</strong></td><td>Piperacillin/Tazobactam <em>oder</em> Cefepim <em>oder</em> Meropenem</td></tr>
+          <tr><td><strong>Im Schock (+ Kombi)</strong></td><td>+ Fluorchinolon (Cipro/Levo) o. Fosfomycin</td></tr>
+          <tr><td><strong>MRSA-Verdacht</strong></td><td>+ Linezolid o. Vancomycin</td></tr>
+          <tr><td><strong>ESBL (E. coli)</strong></td><td>Carbapenem (Meropenem)</td></tr>
+        </table>
+        <div class="callout fact"><span class="lab">⚙ Verlauf</span>Reevaluation alle <strong>48–72 h</strong>; bei Erregernachweis <strong>Deeskalation</strong>. Dauer meist 7–10 Tage. Ziel: Laktat-Clearance, MAP ≥ 65.</div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ KP-PERLEN ============ -->
+  <section class="panel" data-panel="perlen">
+    <div class="pearl"><div class="ph">⭐ Perle 1 · SOFA ≥ 2</div><div class="pt"><strong>Sepsis = Infektion + Organdysfunktion (SOFA-Anstieg ≥ 2).</strong> Der Kernsatz nach Sepsis-3, mit dem man die Prüfung eröffnet.</div><div class="mn"><b>Merke:</b> Infektion + 2 SOFA-Punkte = Sepsis.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 2 · Schock = Vasopressor + Laktat &gt; 2</div><div class="pt"><strong>Septischer Schock = Vasopressoren für MAP ≥ 65 + Laktat &gt; 2</strong> trotz Volumen. Beide Bedingungen muss man nennen.</div><div class="mn"><b>Merke:</b> Katecholamin + Laktat über zwei.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 3 · qSOFA „22-100-Vigilanz"</div><div class="pt"><strong>AF ≥ 22, RR ≤ 100, Vigilanzminderung.</strong> Schnellscreening am Bett, ab ≥ 2 Punkten Verdacht.</div><div class="mn"><b>Merke:</b> 22 – 100 – wach?</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 4 · Goldene Stunde</div><div class="pt"><strong>Laktat → Kulturen → Antibiose → Volumen 30 ml/kg → Noradrenalin.</strong> Das 1-Hour-Bundle in der richtigen Reihenfolge.</div><div class="mn"><b>Merke:</b> Messen, Kultur, Antibiose, Volumen, Pressor.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 5 · Kulturen vor Antibiose</div><div class="pt"><strong>Blutkulturen immer VOR der ersten Antibiotikagabe</strong> — aber die Antibiose niemals deswegen verzögern.</div><div class="mn"><b>Merke:</b> Erst Kultur, dann Antibiose — aber schnell.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 6 · Procalcitonin</div><div class="pt"><strong>Procalcitonin = bester Sepsismarker</strong> (spezifisch bakteriell, Verlaufssteuerung). Laktat zeigt dagegen die Schwere.</div><div class="mn"><b>Merke:</b> PCT sagt „bakteriell", Laktat sagt „schwer".</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 7 · Erregernachweis nicht zwingend</div><div class="pt"><strong>Negative Blutkulturen schließen eine Sepsis nicht aus</strong> — Verdacht plus Organdysfunktion genügen. Eine klassische Fangfrage.</div><div class="mn"><b>Merke:</b> Keine Kultur nötig zum Diagnostizieren.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 8 · ESBL → Carbapenem</div><div class="pt"><strong>ESBL-Bildner → Meropenem</strong> (Penicilline und Cephalosporine sind unwirksam). Fokus-Häufigkeit: Lunge &gt; Harnwege &gt; Abdomen.</div><div class="mn"><b>Merke:</b> ESBL frisst Cephalosporine → Carbapenem.</div></div>
+    <div class="sf-wrap">
+      <h3>Rapid-Fire</h3>
+      <div class="sf-intro">Atomare Einzelfakten — Ein-Wort-Abruf. Laut, sofort, dann aufdecken.</div>
+      <details class="sf"><summary>Sepsis — Definition (Sepsis-3)?</summary><div class="sfa">Infektion + Organdysfunktion (SOFA ≥ 2)</div></details>
+      <details class="sf"><summary>Septischer Schock — zwei Bedingungen?</summary><div class="sfa">Vasopressor für MAP ≥ 65 + Laktat &gt; 2 (trotz Volumen)</div></details>
+      <details class="sf"><summary>qSOFA — drei Kriterien?</summary><div class="sfa">AF ≥ 22, RR systolisch ≤ 100, Vigilanzminderung</div></details>
+      <details class="sf"><summary>qSOFA — ab wie vielen Punkten Verdacht?</summary><div class="sfa">≥ 2</div></details>
+      <details class="sf"><summary>SOFA — wie viele Organe?</summary><div class="sfa">6</div></details>
+      <details class="sf"><summary>SOFA-Anstieg ab wann relevant?</summary><div class="sfa">≥ 2 Punkte</div></details>
+      <details class="sf"><summary>Erregernachweis für die Diagnose nötig?</summary><div class="sfa">nein</div></details>
+      <details class="sf"><summary>Häufigster Fokus?</summary><div class="sfa">Lunge (dann Harnwege, Abdomen)</div></details>
+      <details class="sf"><summary>Bester Sepsismarker?</summary><div class="sfa">Procalcitonin (PCT)</div></details>
+      <details class="sf"><summary>Laktat — wofür?</summary><div class="sfa">Maß für die Schwere (Gewebehypoxie)</div></details>
+      <details class="sf"><summary>Früher Schockhinweis im Labor?</summary><div class="sfa">Thrombozytenabfall</div></details>
+      <details class="sf"><summary>Blutkulturen — wann?</summary><div class="sfa">vor der Antibiose</div></details>
+      <details class="sf"><summary>Blutkulturen — wie viele?</summary><div class="sfa">mind. 2 Paare (aerob + anaerob)</div></details>
+      <details class="sf"><summary>MAP-Ziel?</summary><div class="sfa">≥ 65 mmHg</div></details>
+      <details class="sf"><summary>Volumen initial?</summary><div class="sfa">30 ml/kg kristalloid</div></details>
+      <details class="sf"><summary>Vasopressor 1. Wahl?</summary><div class="sfa">Noradrenalin</div></details>
+      <details class="sf"><summary>ESBL → welches Antibiotikum?</summary><div class="sfa">Carbapenem (Meropenem)</div></details>
+      <details class="sf"><summary>MRSA-Verdacht → plus?</summary><div class="sfa">Vancomycin oder Linezolid</div></details>
+      <details class="sf"><summary>Wichtigste kausale Maßnahme?</summary><div class="sfa">Fokussanierung (Herdkontrolle)</div></details>
+    </div>
+  </section>
+
+  <!-- ============ FRAGEN & PROTOKOLLE ============ -->
+  <section class="panel" data-panel="protokoll">
+    <p class="panel-intro"><strong>Alle dokumentierten Mainz-Fragen</strong> zur Sepsis — vier ausführliche Fälle plus die wiederkehrenden Fragen aus weiteren Protokollen. Antworten als vollständige, einfache Sätze, genau so, wie du sie laut sagst. Erst antworten, dann aufdecken; wiederholen, bis es sitzt. Das ist das Deck für die Audio-Übung.</p>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · Fall 33 · 28.06.2023</span><span>Fr. Deckers (Vorsitz), Hr. Kirdorf, Hr. Wermer (Radiologie)</span><span class="pk-badge">Protokoll</span></div>
+      <div class="pk-akte"><span class="lab">Fall</span>Ältere Patientin (80 J.) mit Sepsis bei Pneumonie, dazu eine Synkope und ein akutes Nierenversagen im Rahmen einer Gastroenteritis. Lange Befunde, die zügig zusammenzufassen waren.</div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">Was bedeutet Sepsis?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Eine Sepsis ist eine lebensbedrohliche Organfunktionsstörung. Sie entsteht, weil der Körper auf eine Infektion mit einer überschießenden und fehlregulierten Abwehrreaktion antwortet.</div></details></div>
+      <div class="pq"><div class="pq-frage">Wie lauten die Sepsis-Diagnosekriterien?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Am Bett benutze ich den qSOFA. Ich achte auf eine Atemfrequenz von mindestens 22 pro Minute, einen systolischen Blutdruck von höchstens 100 und eine Bewusstseinsstörung. Auf der Intensivstation benutze ich den SOFA-Score. Ein Anstieg um mindestens 2 Punkte zeigt eine Organfunktionsstörung an.</div></details></div>
+      <div class="pq"><div class="pq-frage">Reicht ein SIRS für die Diagnose?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Nein, ein SIRS allein reicht nicht. Beim SIRS geht es nur um die Entzündungsreaktion. Für eine Sepsis brauche ich eine Infektion zusammen mit einer Organfunktionsstörung.</div></details></div>
+      <div class="pq"><div class="pq-frage">Was ist ein septischer Schock?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Der septische Schock ist die schwerste Form. Hier brauche ich trotz ausreichender Flüssigkeit Medikamente, die den Blutdruck anheben, damit der Mitteldruck mindestens 65 erreicht. Zusätzlich ist das Laktat über 2.</div></details></div>
+      <div class="pq"><div class="pq-frage">Wie fassen Sie diesen langen Fall zusammen?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich nenne nur das Wichtige: das Alter, die Hauptdiagnose Sepsis bei Pneumonie und die Organstörungen wie das Nierenversagen. Unwichtige Befunde lasse ich weg.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · Urosepsis</span><span>Dr. Linke (Innere Medizin)</span><span class="pk-badge">Protokoll</span></div>
+      <div class="pk-akte"><span class="lab">Fall</span>Patientin mit einer Sepsis. Es kamen zwei Fokusse in Frage: ein respiratorischer Fokus und ein Harnwegsinfekt mit einem ESBL-Bildner.</div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">Definition der Sepsis sowie SOFA und qSOFA und ihre Anwendung?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Die Sepsis ist eine Organfunktionsstörung durch eine fehlregulierte Antwort auf eine Infektion. Den qSOFA nutze ich schnell am Bett mit drei Zeichen. Den SOFA-Score nutze ich auf der Intensivstation, um die Organfunktion mit Laborwerten genauer zu bewerten.</div></details></div>
+      <div class="pq"><div class="pq-frage">Welcher Erreger wurde im Urikult gefunden?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Der häufigste Harnwegserreger ist Escherichia coli. In diesem Fall war es ein E. coli.</div></details></div>
+      <div class="pq"><div class="pq-frage">Was war das für ein Keim?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Es war ein ESBL-Bildner. ESBL bedeutet, dass der Keim ein Enzym bildet, das Penicilline und Cephalosporine unwirksam macht.</div></details></div>
+      <div class="pq"><div class="pq-frage">Wie behandeln Sie einen ESBL-Erreger?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Bei einem ESBL-Bildner gebe ich ein Carbapenem, zum Beispiel Meropenem. Penicilline und Cephalosporine wirken hier nicht.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · i.v.-Drogenkonsum</span><span>Dr. Tannert</span><span class="pk-badge">Protokoll</span></div>
+      <div class="pk-akte"><span class="lab">Fall</span>43-jährige Patientin mit schwerer Sepsis bei intravenösem Drogenkonsum. Sie stellte sich zuerst mit einer Rötung am Oberschenkel hinten-außen vor. Die Entzündungswerte waren deutlich erhöht (Procalcitonin um 40), daraufhin chirurgische Vorstellung.</div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">Warum hat die Patientin eine so schwere Sepsis?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Der Ausgangspunkt ist eine tiefe Weichteilinfektion am Oberschenkel, wahrscheinlich ein Abszess oder eine nekrotisierende Fasziitis. Von dort sind die Erreger und ihre Gifte in den Körper gestreut, und das hat die schwere Sepsis ausgelöst.</div></details></div>
+      <div class="pq"><div class="pq-frage">Wie wurde behandelt?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich beginne sofort mit einer breiten Antibiotikatherapie und gebe Flüssigkeit. Das Wichtigste ist aber die chirurgische Sanierung des Fokus, also die Eröffnung und Säuberung der Infektion. Die Patientin gehört auf die Intensivstation.</div></details></div>
+      <div class="pq"><div class="pq-frage">Was ist der Unterschied zwischen Erysipel und Phlegmone?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Das Erysipel ist eine scharf begrenzte Rötung in der oberen Haut, meist durch Streptokokken. Die Phlegmone ist eine unscharf begrenzte, tiefere Infektion, die sich im Gewebe ausbreitet.</div></details></div>
+      <div class="pq"><div class="pq-frage">Was machen Sie in der Notaufnahme bei einem Abszess?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich eröffne den Abszess und lasse den Eiter ab, das nennt man Inzision und Drainage. Eine reine Antibiotikatherapie reicht beim Abszess nicht aus.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · Fallzitat (ohne Akte)</span><span>Dr. Laakmann</span><span class="pk-badge">Protokoll</span></div>
+      <div class="pk-akte"><span class="lab">Fall</span>40-jähriger Patient mit septischem Schock bei einer Pneumonie, dazu eine Lungenembolie bei tiefer Beinvenenthrombose. (Bei Dr. Laakmann gibt es keine Akte, nur ein Fallzitat mit allen nötigen Informationen.)</div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">Was ist der Unterschied zwischen SOFA und qSOFA?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Der qSOFA ist ein schneller Test am Bett mit drei Punkten: Atmung, Blutdruck und Bewusstsein. Der SOFA-Score ist genauer und bewertet sechs Organsysteme mit Laborwerten.</div></details></div>
+      <div class="pq"><div class="pq-frage">Wie behandeln Sie den septischen Schock?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich messe das Laktat und nehme Blutkulturen ab. Dann gebe ich sofort eine breite Antibiotikatherapie und Flüssigkeit, etwa 30 Milliliter pro Kilogramm. Wenn der Blutdruck trotzdem niedrig bleibt, gebe ich Noradrenalin, damit der Mitteldruck mindestens 65 erreicht.</div></details></div>
+      <div class="pq"><div class="pq-frage">Was ist hier zusätzlich wichtig?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Der Fokus ist die Lunge, also behandle ich die Pneumonie gezielt. Wegen der Lungenembolie und der Beinvenenthrombose gebe ich zusätzlich eine Antikoagulation.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · weitere dokumentierte Fälle · 2023–2026</span><span>u. a. Dr. Fischer, Fr. Unglaub, Urosepsis-Fälle</span><span class="pk-badge">Protokoll</span></div>
+      <div class="pk-akte"><span class="lab">Quelle</span>Wiederkehrende Fragen aus mehreren dokumentierten Mainz-Protokollen (Urosepsis, Weichteilinfekt, septischer Schock). Dieselben Fragen, von verschiedenen Prüfern gestellt.</div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">Bei Verdacht auf Sepsis — was machen Sie zuerst?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich handle schnell. Ich nehme Blutkulturen ab und beginne so früh wie möglich mit einer breiten Antibiotikatherapie. Vorher untersuche ich den Patienten und suche den Infektionsherd.</div></details></div>
+      <div class="pq"><div class="pq-frage">Wie suchen Sie den Fokus, wenn die Anamnese nichts ergibt?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich untersuche den ganzen Körper und suche nach Zeichen einer Infektion, zum Beispiel nach einem Abszess oder einer Hautinfektion. Wenn ich nichts finde, mache ich eine Computertomographie von Kopf bis Becken, um die Quelle zu finden.</div></details></div>
+      <div class="pq"><div class="pq-frage">Welche Erkrankungen führen häufig zu einem septischen Schock?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Am häufigsten sind eine Lungenentzündung, ein Harnwegsinfekt, eine Infektion im Bauchraum und eine schwere Weichteilinfektion. Auch eine Hirnhautentzündung oder eine Herzklappenentzündung kommen in Frage.</div></details></div>
+      <div class="pq"><div class="pq-frage">Wie nehmen Sie Blutkulturen ab, und was beachten Sie?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich nehme mindestens zwei Paare ab, jeweils eine aerobe und eine anaerobe Flasche, und ich entnehme sie aus zwei verschiedenen Stellen. Wichtig ist die gründliche Hautdesinfektion und die Abnahme vor der ersten Antibiotikagabe. Die Flaschen schicke ich zügig ins Labor.</div></details></div>
+      <div class="pq"><div class="pq-frage">Welcher Laborwert weist auf eine bakterielle Infektion hin?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Das Procalcitonin. Es steigt bei einer bakteriellen Infektion an und hilft mir auch, den Verlauf und die Therapie zu steuern.</div></details></div>
+      <div class="pq"><div class="pq-frage">Was ist Laktat, wann ist es erhöht, und wie behandeln Sie das?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Laktat entsteht, wenn die Zellen zu wenig Sauerstoff bekommen und auf den anaeroben Stoffwechsel umschalten. Es ist beim Schock und bei der Sepsis erhöht und zeigt die Schwere an. Ich behandle die Ursache, gebe Flüssigkeit und Sauerstoff und verbessere so die Durchblutung.</div></details></div>
+      <div class="pq"><div class="pq-frage">Was ist eine Urosepsis und wie behandeln Sie sie?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Eine Urosepsis ist eine Sepsis, die von den Harnwegen ausgeht, zum Beispiel bei Fieber, schneller Atmung, schnellem Puls und trübem Urin. Ich nehme Urin- und Blutkulturen ab und beginne sofort eine breite Antibiotikatherapie, zum Beispiel mit Piperacillin-Tazobactam oder Meropenem.</div></details></div>
+    </div>
+  </section>
+
+  <footer>
+    R3 · Sepsis &amp; septischer Schock · Synthese + Protokolle. Vier Kernstationen (wortgleich mit R2) + KP-Perlen mit Rapid-Fire + dokumentierte Mainz-Fälle (Deckers, Linke, Laakmann, Tannert, Fischer). Tab „Fragen &amp; Protokolle" ist das Audio-Deck: laut antworten, dann aufdecken. Quelle: Stex + Vorbereitung + Mainz-Protokolle.
+  </footer>
+
+</div>
+<script>
+  const tabs = [...document.querySelectorAll('.tab')];
+  const panels = [...document.querySelectorAll('.panel')];
+  function showTab(name){
+    tabs.forEach(x=>x.classList.toggle('active', x.dataset.tab===name));
+    panels.forEach(p=>p.classList.toggle('active', p.dataset.panel===name));
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  tabs.forEach(t=>t.addEventListener('click',()=>showTab(t.dataset.tab)));
+</script>
+</body>
+</html>
