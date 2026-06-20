@@ -183,9 +183,9 @@
   <a href="../../index.html" class="back">← Zurück zur Library</a>
 
   <header>
-    <div class="eyebrow">Allgemein- und Viszeralchirurgie · Themen-Review · R3 · Diagnostischer Durchlauf</div>
+    <div class="eyebrow">Allgemein- und Viszeralchirurgie · R3 · Kurz + KP-Perlen + Protokolle</div>
     <h1>Leisten<span class="accent">hernie</span></h1>
-    <div class="subtitle">Zwei Pässe: kalt testen, bewerten — dann nur die Lücken öffnen.</div>
+    <div class="subtitle">Vier Stationen (wortgleich mit R2) + KP-Perlen + die echten Mainz-Fragen — zum lauten Üben.</div>
     <div class="meta">
       <span>R3 von 5 · Superset von R1 + R2</span>
       <span>~12–15 Min</span>
@@ -195,94 +195,15 @@
   </header>
 
   <div class="tabs">
-    <button class="tab active" data-c="retrieval" data-tab="retrieval">Retrieval-Test</button>
-    <button class="tab" data-c="grundlagen" data-tab="grundlagen">Grundlagen<span class="badge"></span></button>
-    <button class="tab" data-c="klinik" data-tab="klinik">Klinik<span class="badge"></span></button>
-    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik<span class="badge"></span></button>
-    <button class="tab" data-c="therapie" data-tab="therapie">Therapie<span class="badge"></span></button>
-    <button class="tab" data-c="fragen" data-tab="fragen">KP-Fragen</button>
+    <button class="tab active" data-c="grundlagen" data-tab="grundlagen">Grundlagen</button>
+    <button class="tab" data-c="klinik" data-tab="klinik">Klinik</button>
+    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik</button>
+    <button class="tab" data-c="therapie" data-tab="therapie">Therapie</button>
     <button class="tab" data-c="perlen" data-tab="perlen">KP-Perlen</button>
-    <button class="tab" data-c="protokoll" data-tab="protokoll">Protokolle</button>
+    <button class="tab" data-c="protokoll" data-tab="protokoll">Fragen &amp; Protokolle</button>
   </div>
 
-  <!-- ============ RETRIEVAL-TEST (Pass 1) ============ -->
-  <section class="panel active" data-panel="retrieval">
-    <p class="panel-intro">Kalt. Laut. Auf Deutsch. Seite zu. Erst formulieren, dann aufdecken — und ehrlich bewerten.</p>
-
-    <div class="ctrl">
-      <div class="ctrl-row">
-        <div class="tally"><i class="t-ok">Sicher <span id="n-ok">0</span></i><i class="t-gap">Lücke <span id="n-gap">0</span></i><i class="t-miss">Gefehlt <span id="n-miss">0</span></i><i style="color:var(--muted)">/ 6 bewertet: <span id="n-done">0</span></i></div>
-        <div class="spacer"></div>
-        <button class="btn btn-primary" id="open-gaps">Nur Lücken öffnen →</button>
-        <button class="btn btn-ghost" id="reset">Zurücksetzen</button>
-      </div>
-      <div class="ctrl-status" id="status">Bewerte alle 6 Prompts, dann „Nur Lücken öffnen".</div>
-    </div>
-
-    <div class="rt" data-id="p1" data-stations="grundlagen">
-      <div class="rt-h"><span class="rt-n">Prompt 1 · Einteilung</span><span class="rt-right"><span class="rt-ptr">→ Grundlagen</span></span></div>
-      <div class="rt-q">Patient mit Leistenschwellung. Erkläre <strong>indirekt vs. direkt</strong>: Lage zur A. epigastrica inferior, Bruchpforte, Genese — mit den beiden Merksätzen.</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>Indirekt — „LIA = Lateral, Indirekt, Angeboren“:</b><ul><li>lateral der A. epigastrica inferior</li><li>durch den inneren Leistenring in den Leistenkanal (im Funiculus), ggf. ins Skrotum</li></ul></li><li><b>Direkt — „DR MED WIRD ERWORBEN“:</b><ul><li>medial der A. epigastrica inferior</li><li>durch das Hesselbach-Dreieck, erworben</li></ul></li></ul></div></details>
-      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
-    </div>
-
-    <div class="rt" data-id="p2" data-stations="grundlagen">
-      <div class="rt-h"><span class="rt-n">Prompt 2 · Anatomie</span><span class="rt-right"><span class="rt-ptr">→ Grundlagen</span></span></div>
-      <div class="rt-q">Nenne die <strong>Bauchwandschichten von außen nach innen</strong>.</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li>Haut</li><li>subkutanes Fett (Camper-Faszie)</li><li>M. obliquus externus</li><li>M. obliquus internus</li><li>M. transversus abdominis</li><li>Fascia transversalis</li><li>Peritoneum parietale</li></ul></div></details>
-      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
-    </div>
-
-    <div class="rt" data-id="p3" data-stations="klinik">
-      <div class="rt-h"><span class="rt-n">Prompt 3 · Klinik / Notfall</span><span class="rt-right"><span class="rt-ptr">→ Klinik</span></span></div>
-      <div class="rt-q">Wie unterscheidest du eine <strong>reponible von einer inkarzerierten</strong> Hernie — und warum ist Letzteres ein Notfall?</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>Reponibel:</b> weich, wegdrückbar, Hustenanprall, gering schmerzhaft → elektive OP</li><li><b>Inkarzeriert:</b> irreponibel, hart, schmerzhaft + Rötung, Ileuszeichen<ul><li>→ Einklemmung → Darmischämie/Nekrose/Peritonitis (Letalität ~20 %)</li><li>→ Notfall-OP</li></ul></li></ul></div></details>
-      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
-    </div>
-
-    <div class="rt" data-id="p4" data-stations="diagnostik">
-      <div class="rt-h"><span class="rt-n">Prompt 4 · Diagnostik</span><span class="rt-right"><span class="rt-ptr">→ Diagnostik</span></span></div>
-      <div class="rt-q">Wie untersuchst du <strong>klinisch</strong>, welche <strong>Bildgebung</strong>, und drei wichtige <strong>DD</strong>?</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>Klinik:</b> Palpation stehend + liegend bis zum äußeren Leistenring, Hustenanprall, Repositionsversuch</li><li><b>Bildgebung:</b> Sonographie (immer beide Seiten) = 1. Wahl · MRT nur bei Unklarheit</li><li><b>DD:</b> Hydrozele, Varikozele, Hodentumor, Lymphom, Schenkelhernie</li></ul></div></details>
-      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
-    </div>
-
-    <div class="rt" data-id="p5" data-stations="therapie">
-      <div class="rt-h"><span class="rt-n">Prompt 5 · Indikation</span><span class="rt-right"><span class="rt-ptr">→ Therapie</span></span></div>
-      <div class="rt-q">Wann <strong>watchful waiting</strong>, wann <strong>OP</strong> — und der Zeitpunkt?</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>Watchful Waiting:</b> nur beim asymptomatischen, nicht-progredienten Mann</li><li><b>OP:</b> bei symptomatischen/progredienten Hernien sowie bei allen Frauen und Kindern</li><li><b>Timing:</b> reponibel → elektiv · inkarzeriert → Notfall-OP</li></ul></div></details>
-      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
-    </div>
-
-    <div class="rt" data-id="p6" data-stations="therapie">
-      <div class="rt-h"><span class="rt-n">Prompt 6 · OP-Verfahren</span><span class="rt-right"><span class="rt-ptr">→ Therapie</span></span></div>
-      <div class="rt-q">Nenne die <strong>vier OP-Verfahren</strong> und was jeweils gemacht wird.</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>Lichtenstein</b> (offen): spannungsfreie Netzplastik — Goldstandard offen</li><li><b>Shouldice</b> (offen): netzfrei, Doppelung der Fascia transversalis</li><li><b>TAPP</b> (MIC): transabdominell, Netz präperitoneal (Peritoneum eröffnet)</li><li><b>TEP</b> (MIC): total extraperitoneal (Peritoneum bleibt zu)</li></ul></div></details>
-      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
-    </div>
-
-    <div class="callout fact"><span class="lab">Mainz-Muster</span>Die Leistenhernie kommt fast nie isoliert — sie schließt an einen <strong>Ileus-/Appendizitis-/akutes-Abdomen-Fall</strong> an. Erwartet werden Einteilung (A. epigastrica), OP-Verfahren (Lichtenstein/Shouldice/TAPP/TEP) und DD beim Kind (Hydrozele). Oft folgt danach ein Unterarm-Röntgen (Monteggia/Galeazzi).</div>
-
-    <div class="sf-wrap">
-      <h3>Schnellfragen · Rapid-Fire</h3>
-      <div class="sf-intro">Ein-Wort-Abruf, keine Optionen. Laut, sofort, dann aufdecken.</div>
-      <details class="sf"><summary>A. epigastrica: lateral = ?</summary><div class="sfa">indirekt</div></details>
-      <details class="sf"><summary>A. epigastrica: medial = ?</summary><div class="sfa">direkt</div></details>
-      <details class="sf"><summary>Indirekt — angeboren oder erworben?</summary><div class="sfa">meist angeboren (offener Processus vaginalis)</div></details>
-      <details class="sf"><summary>Direkte Hernie — Bruchpforte?</summary><div class="sfa">Hesselbach-Dreieck</div></details>
-      <details class="sf"><summary>Offener Goldstandard?</summary><div class="sfa">Lichtenstein (Netzplastik)</div></details>
-      <details class="sf"><summary>Netzfreies Verfahren?</summary><div class="sfa">Shouldice (Doppelung Fascia transversalis)</div></details>
-      <details class="sf"><summary>TEP — Peritoneum eröffnet?</summary><div class="sfa">Nein, bleibt zu</div></details>
-      <details class="sf"><summary>Häufigste äußere Hernie?</summary><div class="sfa">Leistenhernie</div></details>
-      <details class="sf"><summary>Frau mit Leistenhernie — warum immer OP?</summary><div class="sfa">Schenkelhernie nicht ausschließbar (klemmt in 30 % ein)</div></details>
-      <details class="sf"><summary>Femoralhernie: ober- oder unterhalb Leistenband?</summary><div class="sfa">unterhalb, medial der V. femoralis</div></details>
-      <details class="sf"><summary>Inkarzeration — Letalität?</summary><div class="sfa">~20 %</div></details>
-      <details class="sf"><summary>DD Leistenschwellung beim Kind?</summary><div class="sfa">Hydrozele</div></details>
-    </div>
-  </section>
-
-  <!-- ============ GRUNDLAGEN ============ -->
-  <section class="panel" data-panel="grundlagen">
+  <section class="panel active" data-panel="grundlagen">
     <p class="panel-intro">Erst laut die Einteilung und Anatomie sagen — dann aufklappen.</p>
     <details class="card grundlagen" open><summary><span class="ct"><span class="ctag">★ Anker</span><span class="ctitle">LIA vs. DR MED</span></span><span class="plus">+</span></summary>
       <div class="body">
@@ -357,27 +278,7 @@
   </section>
 
   <!-- ============ KP-FRAGEN ============ -->
-  <section class="panel" data-panel="fragen">
-    <p class="panel-intro">Sechs Kernfragen aus dokumentierten Protokollen. Erst selbst laut beantworten.</p>
-    <details class="card fragen"><summary><span class="ct"><span class="ctag">Mainz · Protokoll · wörtlich gefragt</span><span class="ctitle">Welche Typen der Leistenhernie gibt es, und wie unterscheiden Sie sie?</span></span><span class="plus">+</span></summary>
-      <div class="body"><ul class="b"><li><strong>Indirekt (lateral):</strong> lateral der A. epigastrica inferior, durch den inneren Leistenring in den Leistenkanal (im Funiculus spermaticus), oft angeboren — „LIA: Lateral, Indirekt, Angeboren". <strong>Direkt (medial):</strong> medial der A. epigastrica durch das <strong>Hesselbach-Dreieck</strong>, immer erworben — „DR MED WIRD ERWORBEN".</li></ul></div>
-    </details>
-    <details class="card fragen"><summary><span class="ct"><span class="ctag">Mainz · Protokoll · Anatomie-Frage</span><span class="ctitle">Welche Blutgefäße sind zur Differenzierung wichtig?</span></span><span class="plus">+</span></summary>
-      <div class="body"><ul class="b"><li>Die <strong>A. epigastrica inferior</strong> ist die Leitstruktur: <strong>lateral davon = indirekt</strong>, <strong>medial davon = direkt</strong>.</li></ul></div>
-    </details>
-    <details class="card fragen"><summary><span class="ct"><span class="ctag">Mainz · Protokoll · Schichten gefragt</span><span class="ctitle">Nennen Sie die Bauchwandschichten von außen nach innen.</span></span><span class="plus">+</span></summary>
-      <div class="body"><ul class="b"><li>Haut → subkutanes Fett (<strong>Camper-Faszie</strong>) → M. obliquus externus → internus → transversus abdominis → <strong>Fascia transversalis</strong> → Peritoneum parietale.</li></ul></div>
-    </details>
-    <details class="card fragen"><summary><span class="ct"><span class="ctag">Mainz · Protokoll · OP-Verfahren</span><span class="ctitle">Welche OP-Verfahren gibt es — und was wird jeweils gemacht?</span></span><span class="plus">+</span></summary>
-      <div class="body"><ul class="b"><li><strong>Offen:</strong> Lichtenstein = spannungsfreie <strong>Netzplastik</strong> („kommt etwas rein"); Shouldice = netzfreie Naht, Doppelung der <strong>Fascia transversalis</strong> („twice"). <strong>Minimalinvasiv (immer Netz):</strong> TAPP = transabdominell präperitoneal (durch die Bauchhöhle); TEP = total extraperitoneal (Peritoneum bleibt zu).</li></ul></div>
-    </details>
-    <details class="card fragen"><summary><span class="ct"><span class="ctag">Mainz · Protokoll · Indikation</span><span class="ctitle">Wann konservativ, wann operieren — und der Zeitpunkt?</span></span><span class="plus">+</span></summary>
-      <div class="body"><ul class="b"><li><strong>Watchful Waiting</strong> nur bei asymptomatischer, nicht-progredienter Hernie beim Mann. <strong>OP</strong> bei allen symptomatischen/progredienten Hernien, bei allen Frauen und Kindern. Reponibel → elektiv; <strong>inkarzeriert → Notfall-OP</strong>.</li></ul></div>
-    </details>
-    <details class="card fragen"><summary><span class="ct"><span class="ctag">Mainz · Protokoll · Femoralhernie + Hydrozele</span><span class="ctitle">Femoralhernie — wo untersuchen, wo verläuft sie, und warum immer OP?</span></span><span class="plus">+</span></summary>
-      <div class="body"><ul class="b"><li><strong>Unterhalb des Leistenbandes</strong> im Canalis femoralis, innere Bruchpforte = Lacuna vasorum <strong>medial der V. femoralis</strong>. Vor allem ältere Frauen. <strong>Immer OP</strong> — Inkarzeration in ~30 % wegen enger Bruchpforte. DD bei Kindern: <strong>Hydrozele</strong>.</li></ul></div>
-    </details>
-  </section>
+  
 
   <!-- ============ KP-PERLEN ============ -->
   <section class="panel" data-panel="perlen">
@@ -390,6 +291,23 @@
     <div class="pearl"><div class="ph">⭐ Perle 6 · Frau &amp; Kind → immer OP</div><div class="pt"><strong>Bei Frauen und Kindern immer operieren</strong> — bei Frauen, weil eine Schenkelhernie (klemmt in 30 % ein) nicht sicher ausgeschlossen ist.</div><div class="mn"><b>Merke:</b> Watchful Waiting nur beim Mann</div></div>
     <div class="pearl"><div class="ph">⭐ Perle 7 · Inkarzeration = Notfall</div><div class="pt"><strong>Irreponible Schwellung + Schmerz + Ileuszeichen</strong> → Inkarzeration → <strong>Notfall-OP</strong> (Darmischämie/Nekrose, Letalität ~20 %).</div><div class="mn"><b>Merke:</b> Nicht reponibel = sofort schneiden</div></div>
     <div class="pearl"><div class="ph">⭐ Perle 8 · Femoralhernie</div><div class="pt"><strong>Unterhalb</strong> des Leistenbandes, medial der V. femoralis, ältere Frauen, <strong>immer OP</strong> (30 % Inkarzeration). DD Kind: Hydrozele.</div><div class="mn"><b>Merke:</b> Femoral = unter dem Band, immer OP</div></div>
+  
+    <div class="sf-wrap">
+      <h3>Schnellfragen · Rapid-Fire</h3>
+      <div class="sf-intro">Ein-Wort-Abruf, keine Optionen. Laut, sofort, dann aufdecken.</div>
+      <details class="sf"><summary>A. epigastrica: lateral = ?</summary><div class="sfa">indirekt</div></details>
+      <details class="sf"><summary>A. epigastrica: medial = ?</summary><div class="sfa">direkt</div></details>
+      <details class="sf"><summary>Indirekt — angeboren oder erworben?</summary><div class="sfa">meist angeboren (offener Processus vaginalis)</div></details>
+      <details class="sf"><summary>Direkte Hernie — Bruchpforte?</summary><div class="sfa">Hesselbach-Dreieck</div></details>
+      <details class="sf"><summary>Offener Goldstandard?</summary><div class="sfa">Lichtenstein (Netzplastik)</div></details>
+      <details class="sf"><summary>Netzfreies Verfahren?</summary><div class="sfa">Shouldice (Doppelung Fascia transversalis)</div></details>
+      <details class="sf"><summary>TEP — Peritoneum eröffnet?</summary><div class="sfa">Nein, bleibt zu</div></details>
+      <details class="sf"><summary>Häufigste äußere Hernie?</summary><div class="sfa">Leistenhernie</div></details>
+      <details class="sf"><summary>Frau mit Leistenhernie — warum immer OP?</summary><div class="sfa">Schenkelhernie nicht ausschließbar (klemmt in 30 % ein)</div></details>
+      <details class="sf"><summary>Femoralhernie: ober- oder unterhalb Leistenband?</summary><div class="sfa">unterhalb, medial der V. femoralis</div></details>
+      <details class="sf"><summary>Inkarzeration — Letalität?</summary><div class="sfa">~20 %</div></details>
+      <details class="sf"><summary>DD Leistenschwellung beim Kind?</summary><div class="sfa">Hydrozele</div></details>
+    </div>
   </section>
 
   <!-- ============ PROTOKOLLE (Pass 2 · Capstone) ============ -->
@@ -413,10 +331,30 @@
       <div class="pq"><div class="pq-frage">Leistenhernie — OP-Verfahren?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Offen: Lichtenstein (Netzplastik). Minimalinvasiv: TAPP (transabdominell präperitoneal) oder TEP (total extraperitoneal).</div></details></div>
       <div class="pq"><div class="pq-frage">TAPP vs. TEP — Vor- und Nachteile?</div><details class="reveal"><summary>Antwort</summary><div class="ans">TEP: kein Zugang zum Peritonealraum, weniger postoperativer Schmerz, kein Pneumoperitoneum — aber technisch anspruchsvoller, kontraindiziert bei Adhäsionen. TAPP: bessere Übersicht, einfacher bei Adhäsionen — aber höheres Risiko intraabdomineller Verletzungen.</div></details></div>
     </div>
+  
+    <div class="pk-q"><span class="lab">Weitere dokumentierte Prüferfragen</span></div>
+    <details class="card"><summary><span class="ct"><span class="ctag">Mainz · Protokoll · wörtlich gefragt</span><span class="ctitle">Welche Typen der Leistenhernie gibt es, und wie unterscheiden Sie sie?</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b"><li><strong>Indirekt (lateral):</strong> lateral der A. epigastrica inferior, durch den inneren Leistenring in den Leistenkanal (im Funiculus spermaticus), oft angeboren — „LIA: Lateral, Indirekt, Angeboren". <strong>Direkt (medial):</strong> medial der A. epigastrica durch das <strong>Hesselbach-Dreieck</strong>, immer erworben — „DR MED WIRD ERWORBEN".</li></ul></div>
+    </details>
+    <details class="card"><summary><span class="ct"><span class="ctag">Mainz · Protokoll · Anatomie-Frage</span><span class="ctitle">Welche Blutgefäße sind zur Differenzierung wichtig?</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b"><li>Die <strong>A. epigastrica inferior</strong> ist die Leitstruktur: <strong>lateral davon = indirekt</strong>, <strong>medial davon = direkt</strong>.</li></ul></div>
+    </details>
+    <details class="card"><summary><span class="ct"><span class="ctag">Mainz · Protokoll · Schichten gefragt</span><span class="ctitle">Nennen Sie die Bauchwandschichten von außen nach innen.</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b"><li>Haut → subkutanes Fett (<strong>Camper-Faszie</strong>) → M. obliquus externus → internus → transversus abdominis → <strong>Fascia transversalis</strong> → Peritoneum parietale.</li></ul></div>
+    </details>
+    <details class="card"><summary><span class="ct"><span class="ctag">Mainz · Protokoll · OP-Verfahren</span><span class="ctitle">Welche OP-Verfahren gibt es — und was wird jeweils gemacht?</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b"><li><strong>Offen:</strong> Lichtenstein = spannungsfreie <strong>Netzplastik</strong> („kommt etwas rein"); Shouldice = netzfreie Naht, Doppelung der <strong>Fascia transversalis</strong> („twice"). <strong>Minimalinvasiv (immer Netz):</strong> TAPP = transabdominell präperitoneal (durch die Bauchhöhle); TEP = total extraperitoneal (Peritoneum bleibt zu).</li></ul></div>
+    </details>
+    <details class="card"><summary><span class="ct"><span class="ctag">Mainz · Protokoll · Indikation</span><span class="ctitle">Wann konservativ, wann operieren — und der Zeitpunkt?</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b"><li><strong>Watchful Waiting</strong> nur bei asymptomatischer, nicht-progredienter Hernie beim Mann. <strong>OP</strong> bei allen symptomatischen/progredienten Hernien, bei allen Frauen und Kindern. Reponibel → elektiv; <strong>inkarzeriert → Notfall-OP</strong>.</li></ul></div>
+    </details>
+    <details class="card"><summary><span class="ct"><span class="ctag">Mainz · Protokoll · Femoralhernie + Hydrozele</span><span class="ctitle">Femoralhernie — wo untersuchen, wo verläuft sie, und warum immer OP?</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b"><li><strong>Unterhalb des Leistenbandes</strong> im Canalis femoralis, innere Bruchpforte = Lacuna vasorum <strong>medial der V. femoralis</strong>. Vor allem ältere Frauen. <strong>Immer OP</strong> — Inkarzeration in ~30 % wegen enger Bruchpforte. DD bei Kindern: <strong>Hydrozele</strong>.</li></ul></div>
+    </details>
   </section>
 
   <footer>
-    R3 · Leistenhernie · Diagnostischer Durchlauf (3 von 5). Inhalt als Superset aus R1/R2 (wortgleiche Stationen) plus Retrieval-Test und Protokolle. Quelle: Stex + Vorbereitung + Mainz-Protokolle (u. a. Lakmann 07/2024, Linke 11/2023, Bridenileus-Fall 05/2025). Zwei-Pass-Logik: kalt testen + bewerten → nur Lücken öffnen → Protokolle als Generalprobe. R4 = adaptive Wiederholung der Lücken, R5 = Prüfungssimulation. Bewertung wird nicht gespeichert.
+    R3 · Leistenhernie · Fragen &amp; Protokolle. Vier Kernstationen (wortgleich mit R2) + KP-Perlen mit Rapid-Fire + die echten dokumentierten Mainz-Fragen.
   </footer>
 
 </div>
@@ -429,87 +367,6 @@
     window.scrollTo({top:0,behavior:'smooth'});
   }
   tabs.forEach(t=>t.addEventListener('click',()=>showTab(t.dataset.tab)));
-
-  // ---- scoring state ----
-  const scores = {};                 // {p1:'sicher'|'lueckenhaft'|'gefehlt'}
-  const CONTENT = ['grundlagen','klinik','diagnostik','therapie'];
-  const promptStations = {};
-  document.querySelectorAll('.rt').forEach(rt=>{
-    promptStations[rt.dataset.id] = (rt.dataset.stations||'').split(' ').filter(Boolean);
-  });
-
-  function recompute(){
-    let ok=0,gap=0,miss=0;
-    Object.values(scores).forEach(v=>{ if(v==='sicher')ok++; else if(v==='lueckenhaft')gap++; else if(v==='gefehlt')miss++; });
-    document.getElementById('n-ok').textContent=ok;
-    document.getElementById('n-gap').textContent=gap;
-    document.getElementById('n-miss').textContent=miss;
-    document.getElementById('n-done').textContent=Object.keys(scores).length;
-    // station status
-    CONTENT.forEach(st=>{
-      const related = Object.keys(promptStations).filter(p=>promptStations[p].includes(st));
-      const scored = related.filter(p=>scores[p]);
-      const flagged = related.some(p=>scores[p]==='lueckenhaft'||scores[p]==='gefehlt');
-      const allOk = related.length && scored.length===related.length && !flagged;
-      const tab = tabs.find(t=>t.dataset.tab===st);
-      tab.classList.remove('flag-gap','flag-ok');
-      const b = tab.querySelector('.badge');
-      if(flagged){ tab.classList.add('flag-gap'); b.textContent='Lücke'; }
-      else if(allOk){ tab.classList.add('flag-ok'); b.textContent='✓'; }
-      else { b.textContent=''; }
-    });
-  }
-
-  document.querySelectorAll('.rt .score').forEach(scoreBox=>{
-    const rt = scoreBox.closest('.rt');
-    scoreBox.querySelectorAll('.sbtn').forEach(btn=>{
-      btn.addEventListener('click',()=>{
-        const v = btn.dataset.v;
-        scores[rt.dataset.id] = v;
-        rt.dataset.score = v;
-        scoreBox.querySelectorAll('.sbtn').forEach(b=>b.classList.toggle('on', b===btn));
-        recompute();
-        const status=document.getElementById('status');
-        const flaggedNow=tabs.filter(t=>t.classList.contains('flag-gap')).length;
-        if(Object.keys(scores).length===6){
-          status.textContent = flaggedNow ? 'Pass 1 fertig. „Nur Lücken öffnen" springt zu den '+flaggedNow+' markierten Stationen.' : 'Alles sicher in Pass 1 — direkt zur Generalprobe (Protokolle).';
-        } else {
-          status.textContent = (6-Object.keys(scores).length)+' Prompt(s) noch zu bewerten.';
-        }
-      });
-    });
-  });
-
-  // ---- two-pass: open only gaps ----
-  document.getElementById('open-gaps').addEventListener('click',()=>{
-    const flagged = CONTENT.filter(st=>tabs.find(t=>t.dataset.tab===st).classList.contains('flag-gap'));
-    const status=document.getElementById('status');
-    if(!Object.keys(scores).length){ status.textContent='Erst Pass 1 bewerten — dann zeige ich dir die Lücken.'; return; }
-    if(!flagged.length){
-      // all clear -> capstone
-      panels.forEach(p=>{ if(CONTENT.includes(p.dataset.panel)) p.querySelectorAll('.card').forEach(c=>c.open=false); });
-      showTab('protokoll'); status.textContent='Keine Lücken — auf zur Generalprobe.'; return;
-    }
-    // expand flagged stations, collapse the "sicher" ones
-    panels.forEach(p=>{
-      if(!CONTENT.includes(p.dataset.panel)) return;
-      const isGap = flagged.includes(p.dataset.panel);
-      p.querySelectorAll('.card').forEach(c=>{ c.open = isGap; });
-    });
-    showTab(flagged[0]);
-    status.textContent='Geöffnet: '+flagged.join(', ')+'. Der Rest bleibt zu.';
-  });
-
-  // ---- reset ----
-  document.getElementById('reset').addEventListener('click',()=>{
-    Object.keys(scores).forEach(k=>delete scores[k]);
-    document.querySelectorAll('.rt').forEach(rt=>{ rt.removeAttribute('data-score'); rt.querySelectorAll('.sbtn').forEach(b=>b.classList.remove('on')); });
-    document.querySelectorAll('.reveal[open]').forEach(d=>d.open=false);
-    recompute();
-    document.getElementById('status').textContent='Zurückgesetzt. Bewerte alle 6 Prompts, dann „Nur Lücken öffnen".';
-  });
-
-  recompute();
 </script>
 </body>
 </html>

@@ -183,9 +183,9 @@
   <a href="../../index.html" class="back">← Zurück zur Library</a>
 
   <header>
-    <div class="eyebrow">Pneumologie · Themen-Review · R3 · Diagnostischer Durchlauf</div>
+    <div class="eyebrow">Pneumologie · R3 · Kurz + KP-Perlen + Protokolle</div>
     <h1>Pleura<span class="accent">erguss</span></h1>
-    <div class="subtitle">Zwei Pässe: kalt testen, bewerten — dann nur die Lücken öffnen.</div>
+    <div class="subtitle">Vier Stationen (wortgleich mit R2) + KP-Perlen + die echten Mainz-Fragen — zum lauten Üben.</div>
     <div class="meta">
       <span>R3 von 5 · Superset von R1 + R2</span>
       <span>~12–15 Min</span>
@@ -195,95 +195,15 @@
   </header>
 
   <div class="tabs">
-    <button class="tab active" data-c="retrieval" data-tab="retrieval">Retrieval-Test</button>
-    <button class="tab" data-c="grundlagen" data-tab="grundlagen">Grundlagen<span class="badge"></span></button>
-    <button class="tab" data-c="klinik" data-tab="klinik">Klinik<span class="badge"></span></button>
-    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik<span class="badge"></span></button>
-    <button class="tab" data-c="therapie" data-tab="therapie">Therapie<span class="badge"></span></button>
-    <button class="tab" data-c="fragen" data-tab="fragen">KP-Fragen</button>
+    <button class="tab active" data-c="grundlagen" data-tab="grundlagen">Grundlagen</button>
+    <button class="tab" data-c="klinik" data-tab="klinik">Klinik</button>
+    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik</button>
+    <button class="tab" data-c="therapie" data-tab="therapie">Therapie</button>
     <button class="tab" data-c="perlen" data-tab="perlen">KP-Perlen</button>
-    <button class="tab" data-c="protokoll" data-tab="protokoll">Protokolle</button>
+    <button class="tab" data-c="protokoll" data-tab="protokoll">Fragen &amp; Protokolle</button>
   </div>
 
-  <!-- ============ RETRIEVAL-TEST (Pass 1) ============ -->
-  <section class="panel active" data-panel="retrieval">
-    <p class="panel-intro">Kalt. Laut. Auf Deutsch. Seite zu. Erst formulieren, dann aufdecken — und ehrlich bewerten.</p>
-
-    <div class="ctrl">
-      <div class="ctrl-row">
-        <div class="tally"><i class="t-ok">Sicher <span id="n-ok">0</span></i><i class="t-gap">Lücke <span id="n-gap">0</span></i><i class="t-miss">Gefehlt <span id="n-miss">0</span></i><i style="color:var(--muted)">/ 6 bewertet: <span id="n-done">0</span></i></div>
-        <div class="spacer"></div>
-        <button class="btn btn-primary" id="open-gaps">Nur Lücken öffnen →</button>
-        <button class="btn btn-ghost" id="reset">Zurücksetzen</button>
-      </div>
-      <div class="ctrl-status" id="status">Bewerte alle 6 Prompts, dann „Nur Lücken öffnen".</div>
-    </div>
-
-    <div class="rt" data-id="p1" data-stations="grundlagen">
-      <div class="rt-h"><span class="rt-n">Prompt 1 · Definition + Einteilung</span><span class="rt-right"><span class="rt-ptr">→ Grundlagen</span></span></div>
-      <div class="rt-q">Was ist ein Pleuraerguss, nach welchem Mechanismus teilst du ihn ein, und nenne je <strong>drei typische Ursachen</strong>.</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>Definition:</b> Flüssigkeitsansammlung im Pleuraspalt</li><li><b>Transsudat</b> (Druckproblem): Herzinsuffizienz, Leberzirrhose, nephrotisches Syndrom</li><li><b>Exsudat</b> (Entzündung/Tumor): Pneumonie, Malignom, Tuberkulose, Lungenembolie</li></ul></div></details>
-      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
-    </div>
-
-    <div class="rt" data-id="p2" data-stations="klinik">
-      <div class="rt-h"><span class="rt-n">Prompt 2 · Untersuchung</span><span class="rt-right"><span class="rt-ptr">→ Klinik</span></span></div>
-      <div class="rt-q">Patient mit Dyspnoe. Nenne die <strong>vier Untersuchungsbefunde</strong> (Inspektion → Auskultation) beim Erguss — und wie grenzt du zum Pneumothorax ab?</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>Inspektion:</b> asymmetrische Thoraxexkursion</li><li><b>Palpation:</b> Stimmfremitus vermindert</li><li><b>Perkussion:</b> gedämpfter Klopfschall</li><li><b>Auskultation:</b> abgeschwächtes AG (ab &gt; 300 mL)</li><li><b>Abgrenzung Pneumothorax:</b> hypersonorer Klopfschall (Luft)</li></ul></div></details>
-      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
-    </div>
-
-    <div class="rt" data-id="p3" data-stations="diagnostik">
-      <div class="rt-h"><span class="rt-n">Prompt 3 · Bildgebung</span><span class="rt-right"><span class="rt-ptr">→ Diagnostik</span></span></div>
-      <div class="rt-q">Welche Bildgebung in welcher <strong>Reihenfolge</strong>, und wie heißt das <strong>radiologische Zeichen</strong> im Röntgen?</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>Sono zuerst:</b> sensitivster Nachweis (ab ≥ 20 mL, Recessus costodiaphragmaticus)</li><li><b>Röntgen-Thorax:</b> homogene Verschattung mit nach lateral ansteigender Begrenzung = Meniskuszeichen / Ellis-Damoiseau-Linie</li><li><b>CT:</b> für kleine Mengen / Tumorsuche</li></ul></div></details>
-      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
-    </div>
-
-    <div class="rt" data-id="p4" data-stations="diagnostik">
-      <div class="rt-h"><span class="rt-n">Prompt 4 · Light-Kriterien</span><span class="rt-right"><span class="rt-ptr">→ Diagnostik</span></span></div>
-      <div class="rt-q">Wie unterscheidest du <strong>Transsudat von Exsudat</strong>? Nenne die drei Light-Kriterien.</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>Exsudat, wenn mindestens eines erfüllt:</b><ul><li>Protein Pleura/Serum &gt; 0,5</li><li>LDH Pleura/Serum &gt; 0,6</li><li>Pleura-LDH &gt; ⅔ des oberen Serum-LDH-Normwerts</li></ul></li><li><b>Alle drei negativ</b> → Transsudat</li></ul></div></details>
-      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
-    </div>
-
-    <div class="rt" data-id="p5" data-stations="diagnostik">
-      <div class="rt-h"><span class="rt-n">Prompt 5 · Pleurapunktion</span><span class="rt-right"><span class="rt-ptr">→ Diagnostik</span></span></div>
-      <div class="rt-q">Wie führst du eine <strong>Pleurapunktion</strong> durch — Position, Einstichstelle, Maximalmenge, und was danach?</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>Position:</b> Patient sitzend, Sono-Markierung, LA</li><li><b>Einstich am Rippenoberrand</b> (Gefäß-Nerven-Bündel am Unterrand!), dorsal/dorsolateral 4.–6. ICR</li><li><b>Max. 1,5 L</b> (sonst Reexpansionsödem), mind. 3 Röhrchen</li><li><b>Danach Röntgen-Thorax</b> (Pneumothorax-Ausschluss)</li></ul></div></details>
-      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
-    </div>
-
-    <div class="rt" data-id="p6" data-stations="therapie">
-      <div class="rt-h"><span class="rt-n">Prompt 6 · Therapie / Pleurodese</span><span class="rt-right"><span class="rt-ptr">→ Therapie</span></span></div>
-      <div class="rt-q">Therapieoptionen — inkl. Vorgehen beim <strong>malignen Rezidiverguss</strong>?</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>Kausal:</b> die Grunderkrankung behandeln</li><li><b>Symptomatisch:</b> Pleurapunktion → bei Rezidiv Pleuradrainage, VATS</li><li><b>Maligner Rezidiverguss:</b> chemische Pleurodese, meist Talkum (alt. Doxycyclin/Bleomycin)</li></ul></div></details>
-      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
-    </div>
-
-    <div class="callout fact"><span class="lab">Mainz-Muster</span>Der Pleuraerguss ist <strong>Dr.-Dahm-Domäne</strong> (Pneumologie). Der Bogen ist fast immer gleich: Definition → Transsudat vs. Exsudat → <strong>Light-Kriterien</strong> → Therapie/Pleurodese → <strong>Asbestose</strong>. Oft als Bildfrage (homogene Verschattung, Meniskuszeichen).</div>
-
-    <div class="sf-wrap">
-      <h3>Schnellfragen · Rapid-Fire</h3>
-      <div class="sf-intro">Ein-Wort-Abruf, keine Optionen. Laut, sofort, dann aufdecken.</div>
-      <details class="sf"><summary>Transsudat — drei Ursachen?</summary><div class="sfa">Herzinsuffizienz, Leberzirrhose, nephrotisches Syndrom</div></details>
-      <details class="sf"><summary>Exsudat — vier Ursachen?</summary><div class="sfa">Pneumonie, Malignom, Tuberkulose, Lungenembolie</div></details>
-      <details class="sf"><summary>Light-Kriterium Protein-Quotient?</summary><div class="sfa">&gt; 0,5</div></details>
-      <details class="sf"><summary>Light-Kriterium LDH-Quotient?</summary><div class="sfa">&gt; 0,6</div></details>
-      <details class="sf"><summary>Stimmfremitus beim Erguss?</summary><div class="sfa">vermindert</div></details>
-      <details class="sf"><summary>Klopfschall beim Erguss?</summary><div class="sfa">gedämpft (hyposonor)</div></details>
-      <details class="sf"><summary>Sono — ab welcher Menge nachweisbar?</summary><div class="sfa">≥ 20 mL</div></details>
-      <details class="sf"><summary>Röntgenzeichen?</summary><div class="sfa">Meniskuszeichen / Ellis-Damoiseau-Linie</div></details>
-      <details class="sf"><summary>Einstich ober- oder unterrand der Rippe?</summary><div class="sfa">Oberrand (Bündel am Unterrand)</div></details>
-      <details class="sf"><summary>Maximale Punktatmenge?</summary><div class="sfa">1,5 L (sonst Reexpansionsödem)</div></details>
-      <details class="sf"><summary>Nach jeder Punktion?</summary><div class="sfa">Röntgen-Thorax (Pneumothorax-Ausschluss)</div></details>
-      <details class="sf"><summary>Maligner Rezidiverguss?</summary><div class="sfa">Pleurodese (Talkum)</div></details>
-      <details class="sf"><summary>Asbestose-Latenz?</summary><div class="sfa">10–40 Jahre</div></details>
-    </div>
-  </section>
-
-  <!-- ============ GRUNDLAGEN ============ -->
-  <section class="panel" data-panel="grundlagen">
+  <section class="panel active" data-panel="grundlagen">
     <p class="panel-intro">Transsudat vs. Exsudat — der Kern. Erst laut, dann aufklappen.</p>
     <details class="card grundlagen" open><summary><span class="ct"><span class="ctag">Definition</span><span class="ctitle">Was ist ein Pleuraerguss?</span></span><span class="plus">+</span></summary>
       <div class="body"><ul class="b"><li><strong>Flüssigkeitsansammlung in der Pleurahöhle</strong> zwischen Lunge und Brustwand</li><li>Zwei Grundtypen nach Pathomechanismus: <strong>Transsudat</strong> (nicht-entzündlich) vs. <strong>Exsudat</strong> (entzündlich)</li></ul></div>
@@ -362,27 +282,7 @@
   </section>
 
   <!-- ============ KP-FRAGEN ============ -->
-  <section class="panel" data-panel="fragen">
-    <p class="panel-intro">Sechs Kernfragen — Dr. Dahm &amp; Protokolle. Erst selbst laut beantworten.</p>
-    <details class="card fragen"><summary><span class="ct"><span class="ctag">Mainz 07/2024 · Dr. Dahm</span><span class="ctitle">Definition und Ätiologie eines Pleuraergusses?</span></span><span class="plus">+</span></summary>
-      <div class="body"><ul class="b"><li>Flüssigkeitsansammlung im Pleuraspalt zwischen Lunge und Brustwand. Zwei Gruppen: <strong>Transsudat</strong> (nicht-entzündlich — Herzinsuffizienz, Leberzirrhose, nephrotisches Syndrom) und <strong>Exsudat</strong> (entzündlich/kapillär undicht — Pneumonie, Malignom, Tuberkulose, Lungenembolie).</li></ul></div>
-    </details>
-    <details class="card fragen"><summary><span class="ct"><span class="ctag">Mainz 07/2024 · Dr. Dahm · Light-Kriterien</span><span class="ctitle">Wie unterscheiden Sie Transsudat von Exsudat?</span></span><span class="plus">+</span></summary>
-      <div class="body"><ul class="b"><li>Über die <strong>Light-Kriterien</strong> — Exsudat, wenn mindestens eines erfüllt ist: <strong>Pleura/Serum-Protein &gt; 0,5</strong>; <strong>Pleura/Serum-LDH &gt; 0,6</strong>; <strong>Pleura-LDH &gt; ⅔ des oberen Serum-LDH-Normwerts</strong>. Grobe Marke: Gesamteiweiß Transsudat &lt; 30 g/L, Exsudat &gt; 30 g/L.</li></ul></div>
-    </details>
-    <details class="card fragen"><summary><span class="ct"><span class="ctag">Mainz · Protokoll · Durchführung gefragt</span><span class="ctitle">Wie führen Sie eine Pleurapunktion durch?</span></span><span class="plus">+</span></summary>
-      <div class="body"><ul class="b"><li>Patient sitzend, vorher <strong>Sono</strong> zur Lokalisation. LA, Einstich <strong>am Oberrand der Rippe</strong> (Gefäß-Nerven-Bündel am Unterrand!), dorsal/dorsolateral etwa 4.–6. ICR. <strong>Maximal 1,5 L</strong> auf einmal (sonst Reexpansionsödem), mind. 3 Röhrchen. Danach <strong>Röntgen-Thorax</strong> zum Pneumothorax-Ausschluss.</li></ul></div>
-    </details>
-    <details class="card fragen"><summary><span class="ct"><span class="ctag">Mainz 07/2024 · Dr. Dahm · Pleurodese</span><span class="ctitle">Welche Therapiemöglichkeiten gibt es — inkl. Pleurodese?</span></span><span class="plus">+</span></summary>
-      <div class="body"><ul class="b"><li><strong>Kausal</strong> die Grunderkrankung behandeln. <strong>Symptomatisch:</strong> Pleurapunktion, bei Rezidiv Pleuradrainage. Bei <strong>malignem Erguss: Pleurodese</strong> — Verkleben der Pleurablätter, meist mit <strong>Talkum</strong> (alternativ Doxycyclin/Bleomycin); ggf. VATS.</li></ul></div>
-    </details>
-    <details class="card fragen"><summary><span class="ct"><span class="ctag">Mainz · Komplikationsfrage</span><span class="ctitle">Was passiert, wenn man einen Erguss nicht punktiert?</span></span><span class="plus">+</span></summary>
-      <div class="body"><ul class="b"><li>Risiko von <strong>Pleuraempyem</strong> (Eiteransammlung), <strong>Pleuraschwarte</strong> (fibröse Verschwartung mit Restriktion), selten Pleuritis calcarea. Bei Infektzeichen ist die Entlastung daher auch therapeutisch wichtig.</li></ul></div>
-    </details>
-    <details class="card fragen"><summary><span class="ct"><span class="ctag">Mainz 07/2024 · Dr. Dahm · Asbestose</span><span class="ctitle">Kurze Fragen zur Asbestose?</span></span><span class="plus">+</span></summary>
-      <div class="body"><ul class="b"><li><strong>Latenz 10–40 Jahre</strong>. Erhöhtes Risiko für <strong>Lungenkarzinom</strong> und <strong>malignes Pleuramesotheliom</strong>. Als Berufskrankheit <strong>meldepflichtig</strong> → BK-Anzeige an die Berufsgenossenschaft/Unfallkasse.</li></ul></div>
-    </details>
-  </section>
+  
 
   <!-- ============ KP-PERLEN ============ -->
   <section class="panel" data-panel="perlen">
@@ -395,6 +295,24 @@
     <div class="pearl"><div class="ph">⭐ Perle 6 · Sono &gt; Röntgen</div><div class="pt"><strong>Sono ist sensitivster Erstnachweis</strong> (ab ~20 mL), Befund im <em>Recessus costodiaphragmaticus</em>. Röntgen: Meniskuszeichen / Ellis-Damoiseau-Linie.</div><div class="mn"><b>Merke:</b> Sono sieht den kleinsten Tropfen</div></div>
     <div class="pearl"><div class="ph">⭐ Perle 7 · Pleurodese</div><div class="pt">Bei <strong>malignem Rezidiverguss → Pleurodese mit Talkum</strong> (verklebt die Pleurablätter). Dahm-Lieblingsfrage.</div><div class="mn"><b>Merke:</b> Talkum klebt die Blätter</div></div>
     <div class="pearl"><div class="ph">⭐ Perle 8 · Asbest = BG</div><div class="pt">Asbestose: Latenz 10–40 J., Risiko Lungen-Ca + <strong>Mesotheliom</strong>; <strong>BK-Anzeige</strong> an die Berufsgenossenschaft.</div><div class="mn"><b>Merke:</b> Asbest → anzeigen (BG)</div></div>
+  
+    <div class="sf-wrap">
+      <h3>Schnellfragen · Rapid-Fire</h3>
+      <div class="sf-intro">Ein-Wort-Abruf, keine Optionen. Laut, sofort, dann aufdecken.</div>
+      <details class="sf"><summary>Transsudat — drei Ursachen?</summary><div class="sfa">Herzinsuffizienz, Leberzirrhose, nephrotisches Syndrom</div></details>
+      <details class="sf"><summary>Exsudat — vier Ursachen?</summary><div class="sfa">Pneumonie, Malignom, Tuberkulose, Lungenembolie</div></details>
+      <details class="sf"><summary>Light-Kriterium Protein-Quotient?</summary><div class="sfa">&gt; 0,5</div></details>
+      <details class="sf"><summary>Light-Kriterium LDH-Quotient?</summary><div class="sfa">&gt; 0,6</div></details>
+      <details class="sf"><summary>Stimmfremitus beim Erguss?</summary><div class="sfa">vermindert</div></details>
+      <details class="sf"><summary>Klopfschall beim Erguss?</summary><div class="sfa">gedämpft (hyposonor)</div></details>
+      <details class="sf"><summary>Sono — ab welcher Menge nachweisbar?</summary><div class="sfa">≥ 20 mL</div></details>
+      <details class="sf"><summary>Röntgenzeichen?</summary><div class="sfa">Meniskuszeichen / Ellis-Damoiseau-Linie</div></details>
+      <details class="sf"><summary>Einstich ober- oder unterrand der Rippe?</summary><div class="sfa">Oberrand (Bündel am Unterrand)</div></details>
+      <details class="sf"><summary>Maximale Punktatmenge?</summary><div class="sfa">1,5 L (sonst Reexpansionsödem)</div></details>
+      <details class="sf"><summary>Nach jeder Punktion?</summary><div class="sfa">Röntgen-Thorax (Pneumothorax-Ausschluss)</div></details>
+      <details class="sf"><summary>Maligner Rezidiverguss?</summary><div class="sfa">Pleurodese (Talkum)</div></details>
+      <details class="sf"><summary>Asbestose-Latenz?</summary><div class="sfa">10–40 Jahre</div></details>
+    </div>
   </section>
 
   <!-- ============ PROTOKOLLE (Pass 2 · Capstone) ============ -->
@@ -419,10 +337,30 @@
       <div class="pq"><div class="pq-frage">Wie sichern Sie das laborchemisch?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Pleurapunktion + Light-Kriterien; bei Herzinsuffizienz sind alle drei negativ → Transsudat bestätigt.</div></details></div>
       <div class="pq"><div class="pq-frage">Bildbefund im Röntgen-Thorax?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Homogene Verschattung mit nach lateral ansteigender Begrenzung = Meniskuszeichen / Ellis-Damoiseau-Linie; aufgehobene Zwerchfellkontur.</div></details></div>
     </div>
+  
+    <div class="pk-q"><span class="lab">Weitere dokumentierte Prüferfragen</span></div>
+    <details class="card"><summary><span class="ct"><span class="ctag">Mainz 07/2024 · Dr. Dahm</span><span class="ctitle">Definition und Ätiologie eines Pleuraergusses?</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b"><li>Flüssigkeitsansammlung im Pleuraspalt zwischen Lunge und Brustwand. Zwei Gruppen: <strong>Transsudat</strong> (nicht-entzündlich — Herzinsuffizienz, Leberzirrhose, nephrotisches Syndrom) und <strong>Exsudat</strong> (entzündlich/kapillär undicht — Pneumonie, Malignom, Tuberkulose, Lungenembolie).</li></ul></div>
+    </details>
+    <details class="card"><summary><span class="ct"><span class="ctag">Mainz 07/2024 · Dr. Dahm · Light-Kriterien</span><span class="ctitle">Wie unterscheiden Sie Transsudat von Exsudat?</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b"><li>Über die <strong>Light-Kriterien</strong> — Exsudat, wenn mindestens eines erfüllt ist: <strong>Pleura/Serum-Protein &gt; 0,5</strong>; <strong>Pleura/Serum-LDH &gt; 0,6</strong>; <strong>Pleura-LDH &gt; ⅔ des oberen Serum-LDH-Normwerts</strong>. Grobe Marke: Gesamteiweiß Transsudat &lt; 30 g/L, Exsudat &gt; 30 g/L.</li></ul></div>
+    </details>
+    <details class="card"><summary><span class="ct"><span class="ctag">Mainz · Protokoll · Durchführung gefragt</span><span class="ctitle">Wie führen Sie eine Pleurapunktion durch?</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b"><li>Patient sitzend, vorher <strong>Sono</strong> zur Lokalisation. LA, Einstich <strong>am Oberrand der Rippe</strong> (Gefäß-Nerven-Bündel am Unterrand!), dorsal/dorsolateral etwa 4.–6. ICR. <strong>Maximal 1,5 L</strong> auf einmal (sonst Reexpansionsödem), mind. 3 Röhrchen. Danach <strong>Röntgen-Thorax</strong> zum Pneumothorax-Ausschluss.</li></ul></div>
+    </details>
+    <details class="card"><summary><span class="ct"><span class="ctag">Mainz 07/2024 · Dr. Dahm · Pleurodese</span><span class="ctitle">Welche Therapiemöglichkeiten gibt es — inkl. Pleurodese?</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b"><li><strong>Kausal</strong> die Grunderkrankung behandeln. <strong>Symptomatisch:</strong> Pleurapunktion, bei Rezidiv Pleuradrainage. Bei <strong>malignem Erguss: Pleurodese</strong> — Verkleben der Pleurablätter, meist mit <strong>Talkum</strong> (alternativ Doxycyclin/Bleomycin); ggf. VATS.</li></ul></div>
+    </details>
+    <details class="card"><summary><span class="ct"><span class="ctag">Mainz · Komplikationsfrage</span><span class="ctitle">Was passiert, wenn man einen Erguss nicht punktiert?</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b"><li>Risiko von <strong>Pleuraempyem</strong> (Eiteransammlung), <strong>Pleuraschwarte</strong> (fibröse Verschwartung mit Restriktion), selten Pleuritis calcarea. Bei Infektzeichen ist die Entlastung daher auch therapeutisch wichtig.</li></ul></div>
+    </details>
+    <details class="card"><summary><span class="ct"><span class="ctag">Mainz 07/2024 · Dr. Dahm · Asbestose</span><span class="ctitle">Kurze Fragen zur Asbestose?</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b"><li><strong>Latenz 10–40 Jahre</strong>. Erhöhtes Risiko für <strong>Lungenkarzinom</strong> und <strong>malignes Pleuramesotheliom</strong>. Als Berufskrankheit <strong>meldepflichtig</strong> → BK-Anzeige an die Berufsgenossenschaft/Unfallkasse.</li></ul></div>
+    </details>
   </section>
 
   <footer>
-    R3 · Pleuraerguss · Diagnostischer Durchlauf (3 von 5). Inhalt als Superset aus R1/R2 (wortgleiche Stationen) plus Retrieval-Test und Protokolle. Quelle: Stex + Vorbereitung + Mainz-Protokolle (Dr. Dahm 07/2024). Zwei-Pass-Logik: kalt testen + bewerten → nur Lücken öffnen → Protokolle als Generalprobe. R4 = adaptive Wiederholung der Lücken, R5 = Prüfungssimulation. Bewertung wird nicht gespeichert.
+    R3 · Pleuraerguss · Fragen &amp; Protokolle. Vier Kernstationen (wortgleich mit R2) + KP-Perlen mit Rapid-Fire + die echten dokumentierten Mainz-Fragen.
   </footer>
 
 </div>
@@ -435,87 +373,6 @@
     window.scrollTo({top:0,behavior:'smooth'});
   }
   tabs.forEach(t=>t.addEventListener('click',()=>showTab(t.dataset.tab)));
-
-  // ---- scoring state ----
-  const scores = {};                 // {p1:'sicher'|'lueckenhaft'|'gefehlt'}
-  const CONTENT = ['grundlagen','klinik','diagnostik','therapie'];
-  const promptStations = {};
-  document.querySelectorAll('.rt').forEach(rt=>{
-    promptStations[rt.dataset.id] = (rt.dataset.stations||'').split(' ').filter(Boolean);
-  });
-
-  function recompute(){
-    let ok=0,gap=0,miss=0;
-    Object.values(scores).forEach(v=>{ if(v==='sicher')ok++; else if(v==='lueckenhaft')gap++; else if(v==='gefehlt')miss++; });
-    document.getElementById('n-ok').textContent=ok;
-    document.getElementById('n-gap').textContent=gap;
-    document.getElementById('n-miss').textContent=miss;
-    document.getElementById('n-done').textContent=Object.keys(scores).length;
-    // station status
-    CONTENT.forEach(st=>{
-      const related = Object.keys(promptStations).filter(p=>promptStations[p].includes(st));
-      const scored = related.filter(p=>scores[p]);
-      const flagged = related.some(p=>scores[p]==='lueckenhaft'||scores[p]==='gefehlt');
-      const allOk = related.length && scored.length===related.length && !flagged;
-      const tab = tabs.find(t=>t.dataset.tab===st);
-      tab.classList.remove('flag-gap','flag-ok');
-      const b = tab.querySelector('.badge');
-      if(flagged){ tab.classList.add('flag-gap'); b.textContent='Lücke'; }
-      else if(allOk){ tab.classList.add('flag-ok'); b.textContent='✓'; }
-      else { b.textContent=''; }
-    });
-  }
-
-  document.querySelectorAll('.rt .score').forEach(scoreBox=>{
-    const rt = scoreBox.closest('.rt');
-    scoreBox.querySelectorAll('.sbtn').forEach(btn=>{
-      btn.addEventListener('click',()=>{
-        const v = btn.dataset.v;
-        scores[rt.dataset.id] = v;
-        rt.dataset.score = v;
-        scoreBox.querySelectorAll('.sbtn').forEach(b=>b.classList.toggle('on', b===btn));
-        recompute();
-        const status=document.getElementById('status');
-        const flaggedNow=tabs.filter(t=>t.classList.contains('flag-gap')).length;
-        if(Object.keys(scores).length===6){
-          status.textContent = flaggedNow ? 'Pass 1 fertig. „Nur Lücken öffnen" springt zu den '+flaggedNow+' markierten Stationen.' : 'Alles sicher in Pass 1 — direkt zur Generalprobe (Protokolle).';
-        } else {
-          status.textContent = (6-Object.keys(scores).length)+' Prompt(s) noch zu bewerten.';
-        }
-      });
-    });
-  });
-
-  // ---- two-pass: open only gaps ----
-  document.getElementById('open-gaps').addEventListener('click',()=>{
-    const flagged = CONTENT.filter(st=>tabs.find(t=>t.dataset.tab===st).classList.contains('flag-gap'));
-    const status=document.getElementById('status');
-    if(!Object.keys(scores).length){ status.textContent='Erst Pass 1 bewerten — dann zeige ich dir die Lücken.'; return; }
-    if(!flagged.length){
-      // all clear -> capstone
-      panels.forEach(p=>{ if(CONTENT.includes(p.dataset.panel)) p.querySelectorAll('.card').forEach(c=>c.open=false); });
-      showTab('protokoll'); status.textContent='Keine Lücken — auf zur Generalprobe.'; return;
-    }
-    // expand flagged stations, collapse the "sicher" ones
-    panels.forEach(p=>{
-      if(!CONTENT.includes(p.dataset.panel)) return;
-      const isGap = flagged.includes(p.dataset.panel);
-      p.querySelectorAll('.card').forEach(c=>{ c.open = isGap; });
-    });
-    showTab(flagged[0]);
-    status.textContent='Geöffnet: '+flagged.join(', ')+'. Der Rest bleibt zu.';
-  });
-
-  // ---- reset ----
-  document.getElementById('reset').addEventListener('click',()=>{
-    Object.keys(scores).forEach(k=>delete scores[k]);
-    document.querySelectorAll('.rt').forEach(rt=>{ rt.removeAttribute('data-score'); rt.querySelectorAll('.sbtn').forEach(b=>b.classList.remove('on')); });
-    document.querySelectorAll('.reveal[open]').forEach(d=>d.open=false);
-    recompute();
-    document.getElementById('status').textContent='Zurückgesetzt. Bewerte alle 6 Prompts, dann „Nur Lücken öffnen".';
-  });
-
-  recompute();
 </script>
 </body>
 </html>

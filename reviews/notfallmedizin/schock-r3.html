@@ -183,9 +183,9 @@
   <a href="../../index.html" class="back">← Zurück zur Library</a>
 
   <header>
-    <div class="eyebrow">Notfall- &amp; Intensivmedizin · Themen-Review · R3 · Diagnostischer Durchlauf</div>
+    <div class="eyebrow">Notfall- &amp; Intensivmedizin · R3 · Kurz + KP-Perlen + Protokolle</div>
     <h1>Schock<span class="accent"> · alle Typen</span></h1>
-    <div class="subtitle">Zwei Pässe: kalt testen, bewerten — dann nur die Lücken öffnen.</div>
+    <div class="subtitle">Vier Stationen (wortgleich mit R2) + KP-Perlen + die echten Mainz-Fragen — zum lauten Üben.</div>
     <div class="meta">
       <span>R3 von 5 · Neuaufbau (kein R1/R2)</span>
       <span>~15 Min</span>
@@ -195,96 +195,15 @@
   </header>
 
   <div class="tabs">
-    <button class="tab active" data-c="retrieval" data-tab="retrieval">Retrieval-Test</button>
-    <button class="tab" data-c="grundlagen" data-tab="grundlagen">Grundlagen<span class="badge"></span></button>
-    <button class="tab" data-c="klinik" data-tab="klinik">Klinik<span class="badge"></span></button>
-    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik<span class="badge"></span></button>
-    <button class="tab" data-c="therapie" data-tab="therapie">Therapie<span class="badge"></span></button>
-    <button class="tab" data-c="fragen" data-tab="fragen">KP-Fragen</button>
+    <button class="tab active" data-c="grundlagen" data-tab="grundlagen">Grundlagen</button>
+    <button class="tab" data-c="klinik" data-tab="klinik">Klinik</button>
+    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik</button>
+    <button class="tab" data-c="therapie" data-tab="therapie">Therapie</button>
     <button class="tab" data-c="perlen" data-tab="perlen">KP-Perlen</button>
-    <button class="tab" data-c="protokoll" data-tab="protokoll">Protokolle</button>
+    <button class="tab" data-c="protokoll" data-tab="protokoll">Fragen &amp; Protokolle</button>
   </div>
 
-  <!-- ============ RETRIEVAL-TEST ============ -->
-  <section class="panel active" data-panel="retrieval">
-    <p class="panel-intro">Kalt. Laut. Auf Deutsch. Seite zu. Erst formulieren, dann aufdecken — und ehrlich bewerten.</p>
-
-    <div class="ctrl">
-      <div class="ctrl-row">
-        <div class="tally"><i class="t-ok">Sicher <span id="n-ok">0</span></i><i class="t-gap">Lücke <span id="n-gap">0</span></i><i class="t-miss">Gefehlt <span id="n-miss">0</span></i><i style="color:var(--muted)">/ 6 bewertet: <span id="n-done">0</span></i></div>
-        <div class="spacer"></div>
-        <button class="btn btn-primary" id="open-gaps">Nur Lücken öffnen →</button>
-        <button class="btn btn-ghost" id="reset">Zurücksetzen</button>
-      </div>
-      <div class="ctrl-status" id="status">Bewerte alle 6 Prompts, dann „Nur Lücken öffnen".</div>
-    </div>
-
-    <div class="rt" data-id="p1" data-stations="grundlagen">
-      <div class="rt-h"><span class="rt-n">Prompt 1 · Einteilung</span><span class="rt-right"><span class="rt-ptr">→ Grundlagen</span></span></div>
-      <div class="rt-q">Nenne die <strong>vier Schocktypen mit Subtypen</strong> und je eine typische Ursache.</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>Hypovoläm:</b> Blutung, Verbrennung, Erbrechen/Diarrhö</li><li><b>Kardiogen:</b> Myokardinfarkt, Arrhythmie</li><li><b>Distributiv:</b><ul><li>septisch (Infektion)</li><li>anaphylaktisch (Allergie)</li><li>neurogen (SHT/Rückenmark)</li></ul></li><li><b>Obstruktiv:</b> Lungenembolie, Spannungspneumothorax, Perikardtamponade</li></ul></div></details>
-      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
-    </div>
-
-    <div class="rt" data-id="p2" data-stations="klinik">
-      <div class="rt-h"><span class="rt-n">Prompt 2 · Klinik-Differenzierung</span><span class="rt-right"><span class="rt-ptr">→ Klinik</span></span></div>
-      <div class="rt-q">Allgemeine Schockzeichen — und wie unterscheidest du klinisch <strong>kardiogen vs. hypovoläm vs. früh-septisch</strong> (Halsvenen, Hauttemperatur)?</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>Allgemein:</b> Tachykardie, Hypotonie, blass/kaltschweißig/marmoriert, Oligurie, Vigilanzminderung</li><li><b>Kardiogen:</b> Halsvenen gestaut, Dyspnoe/Lungenödem</li><li><b>Hypovoläm:</b> Halsvenen kollabiert</li><li><b>Früh-septisch (+ neurogen):</b> warme, rosige Haut („warmer Schock“)</li></ul></div></details>
-      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
-    </div>
-
-    <div class="rt" data-id="p3" data-stations="diagnostik">
-      <div class="rt-h"><span class="rt-n">Prompt 3 · Hämodynamik</span><span class="rt-right"><span class="rt-ptr">→ Diagnostik</span></span></div>
-      <div class="rt-q">Fülle die Hämodynamik-Tabelle: <strong>ZVD, HZV, SVR</strong> für hypovoläm / kardiogen / distributiv / obstruktiv — und die <strong>ZVD-Faustregel</strong>.</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>Hypovoläm:</b> ZVD ↓ · HZV ↓ · SVR ↑</li><li><b>Kardiogen:</b> ZVD ↑ · HZV ↓ · SVR ↑</li><li><b>Distributiv:</b> ZVD ↓ · HZV ↑ (früh) · SVR ↓</li><li><b>Obstruktiv:</b> ZVD ↑ · HZV ↓ · SVR ↑</li><li><i>Faustregel:</i> ZVD nur bei kardiogenem (und obstruktivem) Schock erhöht — sonst erniedrigt</li></ul></div></details>
-      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
-    </div>
-
-    <div class="rt" data-id="p4" data-stations="diagnostik">
-      <div class="rt-h"><span class="rt-n">Prompt 4 · Schockindex + Labor</span><span class="rt-right"><span class="rt-ptr">→ Diagnostik</span></span></div>
-      <div class="rt-q">Was ist der <strong>Schockindex</strong> (Formel + Grenze)? Welcher Laborwert zeigt <strong>Gewebehypoxie</strong>? Grenze der <strong>Rekapillarisierungszeit</strong>?</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>Schockindex</b> = HF / RR systolisch · <b>&gt; 1</b> spricht für Schock</li><li><b>Gewebehypoxie</b> → Laktat ↑ (+ metabolische Azidose in der BGA)</li><li><b>Rekapillarisierungszeit &gt; 2 s</b> = pathologisch</li></ul></div></details>
-      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
-    </div>
-
-    <div class="rt" data-id="p5" data-stations="therapie">
-      <div class="rt-h"><span class="rt-n">Prompt 5 · Katecholamine</span><span class="rt-right"><span class="rt-ptr">→ Therapie</span></span></div>
-      <div class="rt-q">Welches <strong>Katecholamin</strong> bei welchem Schock? Und die allgemeine <strong>Lagerung</strong> (mit Ausnahme)?</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>Sepsis/distributiv</b> → Noradrenalin</li><li><b>Anaphylaxie</b> → Adrenalin</li><li><b>Kardiogen</b> → Dobutamin (dann ggf. Noradrenalin)</li><li><b>CPR</b> → Adrenalin</li><li><b>Lagerung:</b> Beine hoch (~15°)<ul><li>Ausnahme kardiogen: Oberkörper hoch</li><li>KI bei Hirndruck/Beckenverletzung</li></ul></li></ul></div></details>
-      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
-    </div>
-
-    <div class="rt" data-id="p6" data-stations="therapie">
-      <div class="rt-h"><span class="rt-n">Prompt 6 · Anaphylaxie</span><span class="rt-right"><span class="rt-ptr">→ Therapie</span></span></div>
-      <div class="rt-q">Anaphylaktischer Schock — <strong>Notfalltherapie Schritt für Schritt</strong> (Substanz, Dosis, Weg).</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li>Allergenzufuhr stoppen, Schocklagerung, O2</li><li><b>Adrenalin 0,5 mg i.m.</b> in den Oberschenkel (Wdh. nach 5–10 min)</li><li>Volumen (Ringer)</li><li><b>H1-Antihistaminikum</b> (Dimetinden/Clemastin)</li><li><b>Glukokortikoid</b> (Prednisolon 250–1000 mg i.v.)</li></ul></div></details>
-      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
-    </div>
-
-    <div class="callout fact"><span class="lab">Mainz-Muster</span>Schock ist eine <strong>Anästhesie-/Drittes-Fach-Domäne</strong> (Dr. Fischer, Dr. Duda). Fast immer: die vier Typen + Pathophysiologie, „Schock beim Autounfall?" (hypovoläm), anaphylaktischer Schock (Adrenalin), und der Schockraum (cABCDE, FAST-Sono, Perikardtamponade mit Beck-Trias).</div>
-
-    <div class="sf-wrap">
-      <h3>Schnellfragen · Rapid-Fire</h3>
-      <div class="sf-intro">Ein-Wort-Abruf, keine Optionen. Laut, sofort, dann aufdecken.</div>
-      <details class="sf"><summary>Schockindex — Formel?</summary><div class="sfa">HF / RR systolisch (&gt; 1 = Schock)</div></details>
-      <details class="sf"><summary>Distributiver Schock — drei Subtypen?</summary><div class="sfa">septisch, anaphylaktisch, neurogen</div></details>
-      <details class="sf"><summary>ZVD bei kardiogenem Schock?</summary><div class="sfa">erhöht (Blutstau)</div></details>
-      <details class="sf"><summary>ZVD bei allen anderen Schockformen?</summary><div class="sfa">erniedrigt</div></details>
-      <details class="sf"><summary>Laktat — wofür Marker?</summary><div class="sfa">Gewebehypoxie</div></details>
-      <details class="sf"><summary>Katecholamin bei Sepsis?</summary><div class="sfa">Noradrenalin</div></details>
-      <details class="sf"><summary>Katecholamin bei Anaphylaxie?</summary><div class="sfa">Adrenalin 0,5 mg i.m.</div></details>
-      <details class="sf"><summary>Katecholamin bei kardiogenem Schock?</summary><div class="sfa">Dobutamin</div></details>
-      <details class="sf"><summary>Lagerung bei kardiogenem Schock?</summary><div class="sfa">Oberkörper hoch (nicht Beine hoch)</div></details>
-      <details class="sf"><summary>Beck-Trias?</summary><div class="sfa">Hypotonie, gestaute Halsvenen, leiser Herzton</div></details>
-      <details class="sf"><summary>Septischer Schock — Definition?</summary><div class="sfa">Sepsis + Vasopressorbedarf + Laktat &gt; 2 mmol/L</div></details>
-      <details class="sf"><summary>Volumengabe bei Sepsis?</summary><div class="sfa">30 ml/kg kristalloid</div></details>
-      <details class="sf"><summary>Spannungspneu — Entlastung wo?</summary><div class="sfa">2. ICR Medioklavikularlinie</div></details>
-      <details class="sf"><summary>Schock beim Autounfall — welcher Typ?</summary><div class="sfa">hypovolämisch (Blutverlust)</div></details>
-    </div>
-  </section>
-
-  <!-- ============ GRUNDLAGEN ============ -->
-  <section class="panel" data-panel="grundlagen">
+  <section class="panel active" data-panel="grundlagen">
     <p class="panel-intro">Vier Typen, eine gemeinsame Endstrecke. Erst laut, dann aufklappen.</p>
     <details class="card grundlagen" open><summary><span class="ct"><span class="ctag">Definition</span><span class="ctitle">Was ist ein Schock?</span></span><span class="plus">+</span></summary>
       <div class="body"><ul class="b"><li><strong>Akute Minderdurchblutung</strong> mit Sauerstoffunterversorgung der Organe</li><li>Kern: <strong>Missverhältnis zwischen O₂-Angebot und O₂-Bedarf</strong> → Gewebehypoxie</li></ul></div>
@@ -376,27 +295,7 @@
   </section>
 
   <!-- ============ KP-FRAGEN ============ -->
-  <section class="panel" data-panel="fragen">
-    <p class="panel-intro">Sechs Kernfragen — Anästhesie/Drittes Fach. Erst selbst laut beantworten.</p>
-    <details class="card fragen"><summary><span class="ct"><span class="ctag">Mainz · Dr. Fischer / Dr. Duda · Anästhesie</span><span class="ctitle">Schocktypen und Pathophysiologie?</span></span><span class="plus">+</span></summary>
-      <div class="body"><ul class="b"><li><strong>Hypovoläm</strong> (Volumenmangel → ↓Vorlast → ↓HZV), <strong>kardiogen</strong> (Pumpversagen), <strong>distributiv</strong> (Vasodilatation/relative Hypovolämie — septisch, anaphylaktisch, neurogen), <strong>obstruktiv</strong> (mechanische Behinderung — LE, Spannungspneu, Tamponade). Gemeinsame Endstrecke: O₂-Mangel → Laktatazidose → Schockspirale.</li></ul></div>
-    </details>
-    <details class="card fragen"><summary><span class="ct"><span class="ctag">Mainz · Dr. Duda · Anästhesie</span><span class="ctitle">Schock bei einem Autounfall — Ursache?</span></span><span class="plus">+</span></summary>
-      <div class="body"><ul class="b"><li><strong>Hypovolämischer Schock durch Blutverlust</strong> (z. B. aus A. iliaca/A. femoralis, Becken- oder Femurfraktur). Eine instabile Beckenfraktur kann 1,5–5 L verlieren → Volumengabe + Beckenzwinge.</li></ul></div>
-    </details>
-    <details class="card fragen"><summary><span class="ct"><span class="ctag">Mainz · Dr. Duda · Anästhesie</span><span class="ctitle">Anaphylaktischer Schock — Pathophysiologie + Histaminrezeptoren?</span></span><span class="plus">+</span></summary>
-      <div class="body"><ul class="b"><li>Typ-I-Allergie → <strong>Histaminfreisetzung → Vasodilatation + erhöhte Gefäßpermeabilität</strong> → relative Hypovolämie/Hypotonie + Bronchokonstriktion. <strong>H1</strong>: Vasodilatation, Bronchokonstriktion. <strong>H2</strong>: Magensäureproduktion.</li></ul></div>
-    </details>
-    <details class="card fragen"><summary><span class="ct"><span class="ctag">Mainz · Anästhesie · Pharmakologie</span><span class="ctitle">Adrenalin vs. Noradrenalin — wann was?</span></span><span class="plus">+</span></summary>
-      <div class="body"><ul class="b"><li><strong>Adrenalin = Kardiopressor</strong> → Reanimation und Anaphylaxie. <strong>Noradrenalin = Vasopressor</strong> → Sepsis und distributiver Schock. <strong>Dobutamin</strong> → kardiogener Schock (positive Inotropie).</li></ul></div>
-    </details>
-    <details class="card fragen"><summary><span class="ct"><span class="ctag">Mainz · Schockraum</span><span class="ctitle">Perikardtamponade — Symptome und Therapie?</span></span><span class="plus">+</span></summary>
-      <div class="body"><ul class="b"><li><strong>Beck-Trias:</strong> Hypotonie, gestaute Halsvenen, leiser Herzton (→ obstruktiver Schock). Nachweis per FAST/Echo. Therapie: <strong>Perikardpunktion</strong> (Entlastung).</li></ul></div>
-    </details>
-    <details class="card fragen"><summary><span class="ct"><span class="ctag">Mainz · Anästhesie · Monitoring</span><span class="ctitle">Wie hilft der ZVD bei der Typdifferenzierung?</span></span><span class="plus">+</span></summary>
-      <div class="body"><ul class="b"><li>Der ZVD ist <strong>nur beim kardiogenen Schock erhöht</strong> (Blutstau vor dem versagenden Herzen) — bei allen anderen Formen <strong>erniedrigt</strong> (absolute oder relative Hypovolämie). Normwert 3–8 mmHg.</li></ul></div>
-    </details>
-  </section>
+  
 
   <!-- ============ KP-PERLEN ============ -->
   <section class="panel" data-panel="perlen">
@@ -409,6 +308,25 @@
     <div class="pearl"><div class="ph">⭐ Perle 6 · Anaphylaxie: Adrenalin zuerst</div><div class="pt"><strong>Adrenalin 0,5 mg i.m. ist die erste Maßnahme</strong> — nicht das Antihistaminikum. Danach Volumen, H1-Blocker, Glukokortikoid.</div><div class="mn"><b>Merke:</b> Erst Adrenalin, dann der Rest</div></div>
     <div class="pearl"><div class="ph">⭐ Perle 7 · Beck-Trias</div><div class="pt"><strong>Hypotonie + gestaute Halsvenen + leiser Herzton</strong> = Perikardtamponade → Perikardpunktion.</div><div class="mn"><b>Merke:</b> Leise, gestaut, hypoton → stechen</div></div>
     <div class="pearl"><div class="ph">⭐ Perle 8 · Warmer Schock</div><div class="pt">Nur <strong>früh-septisch und neurogen</strong> sind warm/rosig — alle anderen blass und kalt. Laktat + BGA zeigen den Schweregrad.</div><div class="mn"><b>Merke:</b> Warm = septisch/neurogen</div></div>
+  
+    <div class="sf-wrap">
+      <h3>Schnellfragen · Rapid-Fire</h3>
+      <div class="sf-intro">Ein-Wort-Abruf, keine Optionen. Laut, sofort, dann aufdecken.</div>
+      <details class="sf"><summary>Schockindex — Formel?</summary><div class="sfa">HF / RR systolisch (&gt; 1 = Schock)</div></details>
+      <details class="sf"><summary>Distributiver Schock — drei Subtypen?</summary><div class="sfa">septisch, anaphylaktisch, neurogen</div></details>
+      <details class="sf"><summary>ZVD bei kardiogenem Schock?</summary><div class="sfa">erhöht (Blutstau)</div></details>
+      <details class="sf"><summary>ZVD bei allen anderen Schockformen?</summary><div class="sfa">erniedrigt</div></details>
+      <details class="sf"><summary>Laktat — wofür Marker?</summary><div class="sfa">Gewebehypoxie</div></details>
+      <details class="sf"><summary>Katecholamin bei Sepsis?</summary><div class="sfa">Noradrenalin</div></details>
+      <details class="sf"><summary>Katecholamin bei Anaphylaxie?</summary><div class="sfa">Adrenalin 0,5 mg i.m.</div></details>
+      <details class="sf"><summary>Katecholamin bei kardiogenem Schock?</summary><div class="sfa">Dobutamin</div></details>
+      <details class="sf"><summary>Lagerung bei kardiogenem Schock?</summary><div class="sfa">Oberkörper hoch (nicht Beine hoch)</div></details>
+      <details class="sf"><summary>Beck-Trias?</summary><div class="sfa">Hypotonie, gestaute Halsvenen, leiser Herzton</div></details>
+      <details class="sf"><summary>Septischer Schock — Definition?</summary><div class="sfa">Sepsis + Vasopressorbedarf + Laktat &gt; 2 mmol/L</div></details>
+      <details class="sf"><summary>Volumengabe bei Sepsis?</summary><div class="sfa">30 ml/kg kristalloid</div></details>
+      <details class="sf"><summary>Spannungspneu — Entlastung wo?</summary><div class="sfa">2. ICR Medioklavikularlinie</div></details>
+      <details class="sf"><summary>Schock beim Autounfall — welcher Typ?</summary><div class="sfa">hypovolämisch (Blutverlust)</div></details>
+    </div>
   </section>
 
   <!-- ============ PROTOKOLLE ============ -->
@@ -432,10 +350,30 @@
       <div class="pq"><div class="pq-frage">Schock bei einem Autounfall — Ursache?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Hypovolämischer Schock durch Blutverlust (z. B. aus A. iliaca oder A. femoralis).</div></details></div>
       <div class="pq"><div class="pq-frage">Anaphylaktischer Schock — Pathophysiologie und Histaminrezeptoren?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Histaminfreisetzung → Vasodilatation und erhöhte Gefäßpermeabilität → Hypotonie. H1: Vasodilatation, Bronchokonstriktion. H2: Magensäureproduktion.</div></details></div>
     </div>
+  
+    <div class="pk-q"><span class="lab">Weitere dokumentierte Prüferfragen</span></div>
+    <details class="card"><summary><span class="ct"><span class="ctag">Mainz · Dr. Fischer / Dr. Duda · Anästhesie</span><span class="ctitle">Schocktypen und Pathophysiologie?</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b"><li><strong>Hypovoläm</strong> (Volumenmangel → ↓Vorlast → ↓HZV), <strong>kardiogen</strong> (Pumpversagen), <strong>distributiv</strong> (Vasodilatation/relative Hypovolämie — septisch, anaphylaktisch, neurogen), <strong>obstruktiv</strong> (mechanische Behinderung — LE, Spannungspneu, Tamponade). Gemeinsame Endstrecke: O₂-Mangel → Laktatazidose → Schockspirale.</li></ul></div>
+    </details>
+    <details class="card"><summary><span class="ct"><span class="ctag">Mainz · Dr. Duda · Anästhesie</span><span class="ctitle">Schock bei einem Autounfall — Ursache?</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b"><li><strong>Hypovolämischer Schock durch Blutverlust</strong> (z. B. aus A. iliaca/A. femoralis, Becken- oder Femurfraktur). Eine instabile Beckenfraktur kann 1,5–5 L verlieren → Volumengabe + Beckenzwinge.</li></ul></div>
+    </details>
+    <details class="card"><summary><span class="ct"><span class="ctag">Mainz · Dr. Duda · Anästhesie</span><span class="ctitle">Anaphylaktischer Schock — Pathophysiologie + Histaminrezeptoren?</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b"><li>Typ-I-Allergie → <strong>Histaminfreisetzung → Vasodilatation + erhöhte Gefäßpermeabilität</strong> → relative Hypovolämie/Hypotonie + Bronchokonstriktion. <strong>H1</strong>: Vasodilatation, Bronchokonstriktion. <strong>H2</strong>: Magensäureproduktion.</li></ul></div>
+    </details>
+    <details class="card"><summary><span class="ct"><span class="ctag">Mainz · Anästhesie · Pharmakologie</span><span class="ctitle">Adrenalin vs. Noradrenalin — wann was?</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b"><li><strong>Adrenalin = Kardiopressor</strong> → Reanimation und Anaphylaxie. <strong>Noradrenalin = Vasopressor</strong> → Sepsis und distributiver Schock. <strong>Dobutamin</strong> → kardiogener Schock (positive Inotropie).</li></ul></div>
+    </details>
+    <details class="card"><summary><span class="ct"><span class="ctag">Mainz · Schockraum</span><span class="ctitle">Perikardtamponade — Symptome und Therapie?</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b"><li><strong>Beck-Trias:</strong> Hypotonie, gestaute Halsvenen, leiser Herzton (→ obstruktiver Schock). Nachweis per FAST/Echo. Therapie: <strong>Perikardpunktion</strong> (Entlastung).</li></ul></div>
+    </details>
+    <details class="card"><summary><span class="ct"><span class="ctag">Mainz · Anästhesie · Monitoring</span><span class="ctitle">Wie hilft der ZVD bei der Typdifferenzierung?</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b"><li>Der ZVD ist <strong>nur beim kardiogenen Schock erhöht</strong> (Blutstau vor dem versagenden Herzen) — bei allen anderen Formen <strong>erniedrigt</strong> (absolute oder relative Hypovolämie). Normwert 3–8 mmHg.</li></ul></div>
+    </details>
   </section>
 
   <footer>
-    R3 · Schock (alle Typen) · Diagnostischer Durchlauf (3 von 5). Neuaufbau ohne vorheriges R1/R2 — Inhalt aus Stex (Elsevier) + Vorbereitung zur KB + Mainz-Protokollen (Dr. Fischer, Dr. Duda — Anästhesie). Zwei-Pass-Logik: kalt testen + bewerten → nur Lücken öffnen → Protokolle als Generalprobe. R4 = adaptive Wiederholung der Lücken, R5 = Prüfungssimulation. Bewertung wird nicht gespeichert.
+    R3 · Schock · alle Typen · Fragen &amp; Protokolle. Vier Kernstationen (wortgleich mit R2) + KP-Perlen mit Rapid-Fire + die echten dokumentierten Mainz-Fragen.
   </footer>
 
 </div>
@@ -448,87 +386,6 @@
     window.scrollTo({top:0,behavior:'smooth'});
   }
   tabs.forEach(t=>t.addEventListener('click',()=>showTab(t.dataset.tab)));
-
-  // ---- scoring state ----
-  const scores = {};                 // {p1:'sicher'|'lueckenhaft'|'gefehlt'}
-  const CONTENT = ['grundlagen','klinik','diagnostik','therapie'];
-  const promptStations = {};
-  document.querySelectorAll('.rt').forEach(rt=>{
-    promptStations[rt.dataset.id] = (rt.dataset.stations||'').split(' ').filter(Boolean);
-  });
-
-  function recompute(){
-    let ok=0,gap=0,miss=0;
-    Object.values(scores).forEach(v=>{ if(v==='sicher')ok++; else if(v==='lueckenhaft')gap++; else if(v==='gefehlt')miss++; });
-    document.getElementById('n-ok').textContent=ok;
-    document.getElementById('n-gap').textContent=gap;
-    document.getElementById('n-miss').textContent=miss;
-    document.getElementById('n-done').textContent=Object.keys(scores).length;
-    // station status
-    CONTENT.forEach(st=>{
-      const related = Object.keys(promptStations).filter(p=>promptStations[p].includes(st));
-      const scored = related.filter(p=>scores[p]);
-      const flagged = related.some(p=>scores[p]==='lueckenhaft'||scores[p]==='gefehlt');
-      const allOk = related.length && scored.length===related.length && !flagged;
-      const tab = tabs.find(t=>t.dataset.tab===st);
-      tab.classList.remove('flag-gap','flag-ok');
-      const b = tab.querySelector('.badge');
-      if(flagged){ tab.classList.add('flag-gap'); b.textContent='Lücke'; }
-      else if(allOk){ tab.classList.add('flag-ok'); b.textContent='✓'; }
-      else { b.textContent=''; }
-    });
-  }
-
-  document.querySelectorAll('.rt .score').forEach(scoreBox=>{
-    const rt = scoreBox.closest('.rt');
-    scoreBox.querySelectorAll('.sbtn').forEach(btn=>{
-      btn.addEventListener('click',()=>{
-        const v = btn.dataset.v;
-        scores[rt.dataset.id] = v;
-        rt.dataset.score = v;
-        scoreBox.querySelectorAll('.sbtn').forEach(b=>b.classList.toggle('on', b===btn));
-        recompute();
-        const status=document.getElementById('status');
-        const flaggedNow=tabs.filter(t=>t.classList.contains('flag-gap')).length;
-        if(Object.keys(scores).length===6){
-          status.textContent = flaggedNow ? 'Pass 1 fertig. „Nur Lücken öffnen" springt zu den '+flaggedNow+' markierten Stationen.' : 'Alles sicher in Pass 1 — direkt zur Generalprobe (Protokolle).';
-        } else {
-          status.textContent = (6-Object.keys(scores).length)+' Prompt(s) noch zu bewerten.';
-        }
-      });
-    });
-  });
-
-  // ---- two-pass: open only gaps ----
-  document.getElementById('open-gaps').addEventListener('click',()=>{
-    const flagged = CONTENT.filter(st=>tabs.find(t=>t.dataset.tab===st).classList.contains('flag-gap'));
-    const status=document.getElementById('status');
-    if(!Object.keys(scores).length){ status.textContent='Erst Pass 1 bewerten — dann zeige ich dir die Lücken.'; return; }
-    if(!flagged.length){
-      // all clear -> capstone
-      panels.forEach(p=>{ if(CONTENT.includes(p.dataset.panel)) p.querySelectorAll('.card').forEach(c=>c.open=false); });
-      showTab('protokoll'); status.textContent='Keine Lücken — auf zur Generalprobe.'; return;
-    }
-    // expand flagged stations, collapse the "sicher" ones
-    panels.forEach(p=>{
-      if(!CONTENT.includes(p.dataset.panel)) return;
-      const isGap = flagged.includes(p.dataset.panel);
-      p.querySelectorAll('.card').forEach(c=>{ c.open = isGap; });
-    });
-    showTab(flagged[0]);
-    status.textContent='Geöffnet: '+flagged.join(', ')+'. Der Rest bleibt zu.';
-  });
-
-  // ---- reset ----
-  document.getElementById('reset').addEventListener('click',()=>{
-    Object.keys(scores).forEach(k=>delete scores[k]);
-    document.querySelectorAll('.rt').forEach(rt=>{ rt.removeAttribute('data-score'); rt.querySelectorAll('.sbtn').forEach(b=>b.classList.remove('on')); });
-    document.querySelectorAll('.reveal[open]').forEach(d=>d.open=false);
-    recompute();
-    document.getElementById('status').textContent='Zurückgesetzt. Bewerte alle 6 Prompts, dann „Nur Lücken öffnen".';
-  });
-
-  recompute();
 </script>
 </body>
 </html>

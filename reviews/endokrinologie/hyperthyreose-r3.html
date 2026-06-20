@@ -183,9 +183,9 @@
   <a href="../../index.html" class="back">← Zurück zur Library</a>
 
   <header>
-    <div class="eyebrow">Endokrinologie · Themen-Review · R3 · Diagnostischer Durchlauf</div>
+    <div class="eyebrow">Endokrinologie · R3 · Kurz + KP-Perlen + Protokolle</div>
     <h1>Hyper<span class="accent">thyreose</span></h1>
-    <div class="subtitle">Zwei Pässe: kalt testen, bewerten — dann nur die Lücken öffnen.</div>
+    <div class="subtitle">Vier Stationen (wortgleich mit R2) + KP-Perlen + die echten Mainz-Fragen — zum lauten Üben.</div>
     <div class="meta">
       <span>R3 von 5 · Superset von R1 + R2</span>
       <span>~12–15 Min</span>
@@ -195,94 +195,15 @@
   </header>
 
   <div class="tabs">
-    <button class="tab active" data-c="retrieval" data-tab="retrieval">Retrieval-Test</button>
-    <button class="tab" data-c="grundlagen" data-tab="grundlagen">Grundlagen<span class="badge"></span></button>
-    <button class="tab" data-c="klinik" data-tab="klinik">Klinik<span class="badge"></span></button>
-    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik<span class="badge"></span></button>
-    <button class="tab" data-c="therapie" data-tab="therapie">Therapie<span class="badge"></span></button>
-    <button class="tab" data-c="fragen" data-tab="fragen">KP-Fragen</button>
+    <button class="tab active" data-c="grundlagen" data-tab="grundlagen">Grundlagen</button>
+    <button class="tab" data-c="klinik" data-tab="klinik">Klinik</button>
+    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik</button>
+    <button class="tab" data-c="therapie" data-tab="therapie">Therapie</button>
     <button class="tab" data-c="perlen" data-tab="perlen">KP-Perlen</button>
-    <button class="tab" data-c="protokoll" data-tab="protokoll">Protokolle</button>
+    <button class="tab" data-c="protokoll" data-tab="protokoll">Fragen &amp; Protokolle</button>
   </div>
 
-  <!-- ============ RETRIEVAL-TEST (Pass 1) ============ -->
-  <section class="panel active" data-panel="retrieval">
-    <p class="panel-intro">Kalt. Laut. Auf Deutsch. Seite zu. Erst formulieren, dann aufdecken — und ehrlich bewerten.</p>
-
-    <div class="ctrl">
-      <div class="ctrl-row">
-        <div class="tally"><i class="t-ok">Sicher <span id="n-ok">0</span></i><i class="t-gap">Lücke <span id="n-gap">0</span></i><i class="t-miss">Gefehlt <span id="n-miss">0</span></i><i style="color:var(--muted)">/ 6 bewertet: <span id="n-done">0</span></i></div>
-        <div class="spacer"></div>
-        <button class="btn btn-primary" id="open-gaps">Nur Lücken öffnen →</button>
-        <button class="btn btn-ghost" id="reset">Zurücksetzen</button>
-      </div>
-      <div class="ctrl-status" id="status">Bewerte alle 6 Prompts, dann „Nur Lücken öffnen".</div>
-    </div>
-
-    <div class="rt" data-id="p1" data-stations="grundlagen klinik">
-      <div class="rt-h"><span class="rt-n">Prompt 1 · Fall-Eröffnung</span><span class="rt-right"><span class="rt-ptr">→ Grundlagen / Klinik</span></span></div>
-      <div class="rt-q">60-jährige Patientin: Belastungsdyspnoe, Gewichtsverlust trotz Heißhunger, Tremor, Palpitationen, HF 110/min, tastbare Struma. Halte deinen ersten Vortrag: <strong>Verdachtsdiagnose, drei häufigste Ursachen, wonach du klinisch suchst.</strong></div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>Verdacht:</b> manifeste Hyperthyreose</li><li><b>3 häufigste Ursachen:</b> M. Basedow → Schilddrüsenautonomie → iatrogen (Amiodaron, Jod/KM)</li><li><b>Klinik:</b> Merseburger Trias (Struma, Tachykardie, Exophthalmus)<ul><li>+ Wärmeintoleranz, Schwitzen, Hyperreflexie, Tremor, Diarrhö, Unruhe</li><li>Struma auf Knoten tasten</li></ul></li></ul></div></details>
-      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
-    </div>
-
-    <div class="rt" data-id="p2" data-stations="diagnostik">
-      <div class="rt-h"><span class="rt-n">Prompt 2 · Labor</span><span class="rt-right"><span class="rt-ptr">→ Diagnostik</span></span></div>
-      <div class="rt-q">Nenne die Laborkonstellation für <strong>manifeste vs. latente</strong> Hyperthyreose und die <strong>zwei Antikörper</strong>, die M. Basedow sichern — mit ungefährer Häufigkeit.</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>Manifest:</b> TSH ↓ · fT3 und/oder fT4 ↑</li><li><b>Latent:</b> TSH ↓ · fT3/fT4 normal</li><li><b>M. Basedow:</b> TRAK &gt; 90 % · TPO-AK ~70 %</li><li><b>Reine Autonomie:</b> Antikörper negativ</li></ul></div></details>
-      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
-    </div>
-
-    <div class="rt" data-id="p3" data-stations="diagnostik">
-      <div class="rt-h"><span class="rt-n">Prompt 3 · Funktionsbildgebung</span><span class="rt-right"><span class="rt-ptr">→ Diagnostik</span></span></div>
-      <div class="rt-q">Struma nodosa, Sono zeigt einen Knoten. Welche Funktionsdiagnostik schließt sich an, und was bedeutet ein <strong>„heißer" vs. „kalter"</strong> Knoten therapeutisch?</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>Funktionsdiagnostik:</b> Szintigraphie (99mTc-Uptake)</li><li><b>Heißer Knoten:</b> autonom, mehrspeichernd, meist benigne → Radiojod/OP</li><li><b>Kalter Knoten:</b> nicht speichernd, malignitätsverdächtig → FNP/OP</li></ul></div></details>
-      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
-    </div>
-
-    <div class="rt" data-id="p4" data-stations="therapie">
-      <div class="rt-h"><span class="rt-n">Prompt 4 · Therapie-Algorithmus</span><span class="rt-right"><span class="rt-ptr">→ Therapie</span></span></div>
-      <div class="rt-q">Erstdiagnose M. Basedow. Wie behandelst du <strong>initial</strong> (Substanz, Dosis, Begleitmedikation), <strong>wie lange</strong>, und <strong>wann definitiv</strong>?</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>Thyreostatikum:</b> Carbimazol 20–40 mg/d (3 ED) bzw. Thiamazol bis Euthyreose → Erhaltungsdosis</li><li><b>Symptomatisch:</b> Propranolol (hemmt T4→T3)</li><li><b>Dauer (Basedow):</b> 12–18 Monate · Remission ~50 %</li><li><b>TRAK nach 6 Mon. &gt; 10 IU/L</b> → definitiv (Radiojod/OP)</li></ul></div></details>
-      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
-    </div>
-
-    <div class="rt" data-id="p5" data-stations="therapie">
-      <div class="rt-h"><span class="rt-n">Prompt 5 · Notfall</span><span class="rt-right"><span class="rt-ptr">→ Therapie</span></span></div>
-      <div class="rt-q">Was ist die <strong>thyreotoxische Krise</strong>, was triggert sie typischerweise, und was sind die Therapiesäulen?</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>Definition:</b> akute lebensbedrohliche Exazerbation</li><li><b>Trigger:</b> Jod (KM!), Infektion, OP, Amiodaron</li><li><b>Therapie (Intensiv):</b><ul><li>Thiamazol hochdosiert + Betablocker + Glukokortikoide</li><li>Perchlorat (bei Jod) + Kühlung/Volumen</li><li>ggf. Thyreoidektomie</li></ul></li></ul></div></details>
-      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
-    </div>
-
-    <div class="rt" data-id="p6" data-stations="therapie">
-      <div class="rt-h"><span class="rt-n">Prompt 6 · Chirurgie-Übergang</span><span class="rt-right"><span class="rt-ptr">→ Therapie / Protokolle</span></span></div>
-      <div class="rt-q">Wann operierst du die Schilddrüse, und welche <strong>zwei Komplikationen</strong> klärst du immer auf?</div>
-      <details class="reveal"><summary>Antwort aufdecken</summary><div class="ans"><ul><li><b>OP-Indikation:</b> großes Struma mit Mechanik, Malignitätsverdacht, Therapieversagen, Kinderwunsch</li><li><b>Immer präoperativ euthyreot</b></li><li><b>Aufklärung — 2 Komplikationen:</b><ul><li>N. laryngeus recurrens (Heiserkeit; bds → Tracheotomie)</li><li>Hypoparathyreoidismus (Hypokalzämie/Tetanie)</li></ul></li></ul></div></details>
-      <div class="score"><button class="sbtn" data-v="sicher">Sicher</button><button class="sbtn" data-v="lueckenhaft">Lücke</button><button class="sbtn" data-v="gefehlt">Gefehlt</button></div>
-    </div>
-
-    <div class="callout fact"><span class="lab">Mainz-Muster</span>Der „Hyperthyreose"-Fall kippt fast immer in den chirurgischen Pfad: Knoten → Sono → Szintigraphie → FNP → OP → Schilddrüsenkarzinom. Diese Verzweigung mit vorbereiten.</div>
-
-    <div class="sf-wrap">
-      <h3>Schnellfragen · Rapid-Fire</h3>
-      <div class="sf-intro">Ein-Wort-Abruf, keine Optionen. Laut, sofort, dann aufdecken.</div>
-      <details class="sf"><summary>Normwert TSH?</summary><div class="sfa">ca. 0,4–4,0 mU/l</div></details>
-      <details class="sf"><summary>Antikörper bei M. Basedow?</summary><div class="sfa">TRAK (>90 %), TPO-AK (~70 %)</div></details>
-      <details class="sf"><summary>Labor manifeste Hyperthyreose?</summary><div class="sfa">TSH↓, fT3/fT4↑</div></details>
-      <details class="sf"><summary>Häufigste Ursache?</summary><div class="sfa">Morbus Basedow</div></details>
-      <details class="sf"><summary>Merseburger Trias?</summary><div class="sfa">Struma, Tachykardie, Exophthalmus</div></details>
-      <details class="sf"><summary>Erstlinien-Thyreostatikum?</summary><div class="sfa">Thiamazol / Carbimazol</div></details>
-      <details class="sf"><summary>Betablocker der Wahl — warum?</summary><div class="sfa">Propranolol — hemmt periphere T4→T3-Konversion</div></details>
-      <details class="sf"><summary>Heißer Knoten = ?</summary><div class="sfa">autonom, meist benigne</div></details>
-      <details class="sf"><summary>Kalter Knoten = ?</summary><div class="sfa">malignitätsverdächtig → FNP/OP</div></details>
-      <details class="sf"><summary>Gefährlichste NW der Thyreostatika?</summary><div class="sfa">Agranulozytose</div></details>
-      <details class="sf"><summary>Trigger der thyreotoxischen Krise?</summary><div class="sfa">Jod (KM), Infektion, OP, Amiodaron</div></details>
-      <details class="sf"><summary>Zwei Hauptkomplikationen der Thyreoidektomie?</summary><div class="sfa">N. recurrens (Heiserkeit), Hypoparathyreoidismus (Hypokalzämie)</div></details>
-    </div>
-  </section>
-
-  <!-- ============ GRUNDLAGEN ============ -->
-  <section class="panel" data-panel="grundlagen">
+  <section class="panel active" data-panel="grundlagen">
     <p class="panel-intro">Erst laut Definition, Ursachen und Pathophysiologie sagen — dann aufklappen.</p>
     <details class="card grundlagen"><summary><span class="ct"><span class="ctag">Definition</span><span class="ctitle">Was ist eine Hyperthyreose?</span></span><span class="plus">+</span></summary>
       <div class="body"><ul class="b"><li>Übermäßige Produktion und Wirkung von Schilddrüsenhormonen.</li><li><strong>Manifest:</strong> TSH↓ mit erhöhtem fT3/fT4.</li><li><strong>Latent (subklinisch):</strong> TSH↓ bei normalem fT3/fT4.</li></ul></div></details>
@@ -338,21 +259,7 @@
   </section>
 
   <!-- ============ KP-FRAGEN ============ -->
-  <section class="panel" data-panel="fragen">
-    <p class="panel-intro">Sechs typische Prüferfragen mit Idealantwort. Erst selbst laut beantworten.</p>
-    <details class="card fragen"><summary><span class="ct"><span class="ctag">Prüfer: Dr. Laakmann · Innere</span><span class="ctitle">Amiodaron — welche Nebenwirkungen?</span></span><span class="plus">+</span></summary>
-      <div class="body"><ul class="b"><li><strong>Ideale Antwort:</strong> Schilddrüsendysfunktion (Hypo- <em>und</em> Hyperthyreose durch hohen Jodgehalt), Lungenfibrose, QT-Verlängerung; daneben Korneaablagerungen, Photosensibilität, Hepatotoxizität.</li></ul></div></details>
-    <details class="card fragen"><summary><span class="ct"><span class="ctag">Prüfer: Dr. Kirdorf</span><span class="ctitle">TSH-Normwert? Hypo/Hyper/Euthyreose laborchemisch?</span></span><span class="plus">+</span></summary>
-      <div class="body"><ul class="b"><li><strong>Ideale Antwort:</strong> TSH ca. 0,4–4,0 mU/l. Hyper: TSH↓, fT3/fT4↑. Primäre Hypo: TSH↑, fT4↓. Euthyreose: alles normwertig. TSH sensitivster Parameter.</li></ul></div></details>
-    <details class="card fragen"><summary><span class="ct"><span class="ctag">Prüfer: Innere</span><span class="ctitle">Vorgehen bei neuem Vorhofflimmern?</span></span><span class="plus">+</span></summary>
-      <div class="body"><ul class="b"><li><strong>Ideale Antwort:</strong> ABCDE, Monitoring, 12-Kanal-EKG. Frequenz- vs. Rhythmuskontrolle, Antikoagulation nach CHA₂DS₂-VASc, Ursachensuche inkl. <strong>TSH</strong>. Bei Instabilität elektrische Kardioversion.</li></ul></div></details>
-    <details class="card fragen"><summary><span class="ct"><span class="ctag">Prüferin: Dr. Petra Meier · Chirurgie</span><span class="ctitle">Sofort operieren bei Hyperthyreose?</span></span><span class="plus">+</span></summary>
-      <div class="body"><ul class="b"><li><strong>Ideale Antwort:</strong> Nein. Erst medikamentöse Vorbereitung zur Euthyreose, um eine intraoperative thyreotoxische Krise zu vermeiden — OP nur im euthyreoten Zustand.</li></ul></div></details>
-    <details class="card fragen"><summary><span class="ct"><span class="ctag">Prüferin: Y. Zorbach · Innere</span><span class="ctitle">DD bei schmerzhafter Struma?</span></span><span class="plus">+</span></summary>
-      <div class="body"><ul class="b"><li><strong>Ideale Antwort:</strong> Thyreoiditis de Quervain (subakut, BSG↑, schmerzhaft), Einblutung in eine Zyste, selten akute eitrige Thyreoiditis. Abzugrenzen vom schmerzlosen Basedow/Autonomie.</li></ul></div></details>
-    <details class="card fragen"><summary><span class="ct"><span class="ctag">Prüfer: Chirurgie</span><span class="ctitle">Komplikationen der Thyreoidektomie?</span></span><span class="plus">+</span></summary>
-      <div class="body"><ul class="b"><li><strong>Ideale Antwort:</strong> N.-laryngeus-recurrens-Läsion (Heiserkeit; bds → Tracheotomie), Hypoparathyreoidismus mit Hypokalzämie/Tetanie, Nachblutung mit Tracheomalazie, Hypothyreose, Wundinfektion.</li></ul></div></details>
-  </section>
+  
 
   <!-- ============ KP-PERLEN ============ -->
   <section class="panel" data-panel="perlen">
@@ -365,6 +272,23 @@
     <div class="pearl"><div class="ph">⭐ Perle 6 · Zwei Nerven, zwei Drüsen</div><div class="pt">Bei jeder Thyreoidektomie aufklären: N. laryngeus recurrens (Heiserkeit; bds → Tracheotomie) und Nebenschilddrüsen (Hypokalzämie/Tetanie).</div></div>
     <div class="pearl"><div class="ph">⭐ Perle 7 · TRAK steuert die Prognose</div><div class="pt">Basedow thyreostatisch 12–18 Monate; TRAK nach 6 Monaten >10 IU/L → Remission unwahrscheinlich → definitiv (Radiojod/OP).</div></div>
     <div class="pearl"><div class="ph">⭐ Perle 8 · Agranulozytose-Alarm</div><div class="pt">Unter Thiamazol/Carbimazol bei Fieber oder Halsschmerzen sofort Blutbild und Substanz pausieren.</div></div>
+  
+    <div class="sf-wrap">
+      <h3>Schnellfragen · Rapid-Fire</h3>
+      <div class="sf-intro">Ein-Wort-Abruf, keine Optionen. Laut, sofort, dann aufdecken.</div>
+      <details class="sf"><summary>Normwert TSH?</summary><div class="sfa">ca. 0,4–4,0 mU/l</div></details>
+      <details class="sf"><summary>Antikörper bei M. Basedow?</summary><div class="sfa">TRAK (>90 %), TPO-AK (~70 %)</div></details>
+      <details class="sf"><summary>Labor manifeste Hyperthyreose?</summary><div class="sfa">TSH↓, fT3/fT4↑</div></details>
+      <details class="sf"><summary>Häufigste Ursache?</summary><div class="sfa">Morbus Basedow</div></details>
+      <details class="sf"><summary>Merseburger Trias?</summary><div class="sfa">Struma, Tachykardie, Exophthalmus</div></details>
+      <details class="sf"><summary>Erstlinien-Thyreostatikum?</summary><div class="sfa">Thiamazol / Carbimazol</div></details>
+      <details class="sf"><summary>Betablocker der Wahl — warum?</summary><div class="sfa">Propranolol — hemmt periphere T4→T3-Konversion</div></details>
+      <details class="sf"><summary>Heißer Knoten = ?</summary><div class="sfa">autonom, meist benigne</div></details>
+      <details class="sf"><summary>Kalter Knoten = ?</summary><div class="sfa">malignitätsverdächtig → FNP/OP</div></details>
+      <details class="sf"><summary>Gefährlichste NW der Thyreostatika?</summary><div class="sfa">Agranulozytose</div></details>
+      <details class="sf"><summary>Trigger der thyreotoxischen Krise?</summary><div class="sfa">Jod (KM), Infektion, OP, Amiodaron</div></details>
+      <details class="sf"><summary>Zwei Hauptkomplikationen der Thyreoidektomie?</summary><div class="sfa">N. recurrens (Heiserkeit), Hypoparathyreoidismus (Hypokalzämie)</div></details>
+    </div>
   </section>
 
   <!-- ============ PROTOKOLLE (Pass 2 · Capstone) ============ -->
@@ -389,10 +313,24 @@
       <div class="pq"><div class="pq-frage">OP bei Knoten rechts → welcher Eingriff, dann Schnellschnitt?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Hemithyreoidektomie rechts mit intraoperativem Schnellschnitt zur Dignitätsklärung.</div></details></div>
       <div class="pq"><div class="pq-frage">Bei papillärem bzw. follikulärem Karzinom — wie weiter?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Totale Thyreoidektomie + Radiojodtherapie + L-Thyroxin; papillär zusätzlich Lymphadenektomie. Bei mitbetroffenen Nebenschilddrüsen Parathormon/Calcium.</div></details></div>
     </div>
+  
+    <div class="pk-q"><span class="lab">Weitere dokumentierte Prüferfragen</span></div>
+    <details class="card"><summary><span class="ct"><span class="ctag">Prüfer: Dr. Laakmann · Innere</span><span class="ctitle">Amiodaron — welche Nebenwirkungen?</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b"><li><strong>Ideale Antwort:</strong> Schilddrüsendysfunktion (Hypo- <em>und</em> Hyperthyreose durch hohen Jodgehalt), Lungenfibrose, QT-Verlängerung; daneben Korneaablagerungen, Photosensibilität, Hepatotoxizität.</li></ul></div></details>
+    <details class="card"><summary><span class="ct"><span class="ctag">Prüfer: Dr. Kirdorf</span><span class="ctitle">TSH-Normwert? Hypo/Hyper/Euthyreose laborchemisch?</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b"><li><strong>Ideale Antwort:</strong> TSH ca. 0,4–4,0 mU/l. Hyper: TSH↓, fT3/fT4↑. Primäre Hypo: TSH↑, fT4↓. Euthyreose: alles normwertig. TSH sensitivster Parameter.</li></ul></div></details>
+    <details class="card"><summary><span class="ct"><span class="ctag">Prüfer: Innere</span><span class="ctitle">Vorgehen bei neuem Vorhofflimmern?</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b"><li><strong>Ideale Antwort:</strong> ABCDE, Monitoring, 12-Kanal-EKG. Frequenz- vs. Rhythmuskontrolle, Antikoagulation nach CHA₂DS₂-VASc, Ursachensuche inkl. <strong>TSH</strong>. Bei Instabilität elektrische Kardioversion.</li></ul></div></details>
+    <details class="card"><summary><span class="ct"><span class="ctag">Prüferin: Dr. Petra Meier · Chirurgie</span><span class="ctitle">Sofort operieren bei Hyperthyreose?</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b"><li><strong>Ideale Antwort:</strong> Nein. Erst medikamentöse Vorbereitung zur Euthyreose, um eine intraoperative thyreotoxische Krise zu vermeiden — OP nur im euthyreoten Zustand.</li></ul></div></details>
+    <details class="card"><summary><span class="ct"><span class="ctag">Prüferin: Y. Zorbach · Innere</span><span class="ctitle">DD bei schmerzhafter Struma?</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b"><li><strong>Ideale Antwort:</strong> Thyreoiditis de Quervain (subakut, BSG↑, schmerzhaft), Einblutung in eine Zyste, selten akute eitrige Thyreoiditis. Abzugrenzen vom schmerzlosen Basedow/Autonomie.</li></ul></div></details>
+    <details class="card"><summary><span class="ct"><span class="ctag">Prüfer: Chirurgie</span><span class="ctitle">Komplikationen der Thyreoidektomie?</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b"><li><strong>Ideale Antwort:</strong> N.-laryngeus-recurrens-Läsion (Heiserkeit; bds → Tracheotomie), Hypoparathyreoidismus mit Hypokalzämie/Tetanie, Nachblutung mit Tracheomalazie, Hypothyreose, Wundinfektion.</li></ul></div></details>
   </section>
 
   <footer>
-    R3 · Hyperthyreose · Diagnostischer Durchlauf (3 von 5). Inhalt verifiziert gegen Amboss KP-Lernplan und Projekt-PDFs; Protokollfälle aus den Mainz-Protokollen 2023–2026. Zwei-Pass-Logik: kalt testen + bewerten → nur Lücken öffnen → Protokolle als Generalprobe. R4 = adaptive Wiederholung der Lücken, R5 = Prüfungssimulation. Bewertung wird nicht gespeichert — jede Sitzung startet kalt.
+    R3 · Hyperthyreose · Fragen &amp; Protokolle. Vier Kernstationen (wortgleich mit R2) + KP-Perlen mit Rapid-Fire + die echten dokumentierten Mainz-Fragen.
   </footer>
 
 </div>
@@ -405,87 +343,6 @@
     window.scrollTo({top:0,behavior:'smooth'});
   }
   tabs.forEach(t=>t.addEventListener('click',()=>showTab(t.dataset.tab)));
-
-  // ---- scoring state ----
-  const scores = {};                 // {p1:'sicher'|'lueckenhaft'|'gefehlt'}
-  const CONTENT = ['grundlagen','klinik','diagnostik','therapie'];
-  const promptStations = {};
-  document.querySelectorAll('.rt').forEach(rt=>{
-    promptStations[rt.dataset.id] = (rt.dataset.stations||'').split(' ').filter(Boolean);
-  });
-
-  function recompute(){
-    let ok=0,gap=0,miss=0;
-    Object.values(scores).forEach(v=>{ if(v==='sicher')ok++; else if(v==='lueckenhaft')gap++; else if(v==='gefehlt')miss++; });
-    document.getElementById('n-ok').textContent=ok;
-    document.getElementById('n-gap').textContent=gap;
-    document.getElementById('n-miss').textContent=miss;
-    document.getElementById('n-done').textContent=Object.keys(scores).length;
-    // station status
-    CONTENT.forEach(st=>{
-      const related = Object.keys(promptStations).filter(p=>promptStations[p].includes(st));
-      const scored = related.filter(p=>scores[p]);
-      const flagged = related.some(p=>scores[p]==='lueckenhaft'||scores[p]==='gefehlt');
-      const allOk = related.length && scored.length===related.length && !flagged;
-      const tab = tabs.find(t=>t.dataset.tab===st);
-      tab.classList.remove('flag-gap','flag-ok');
-      const b = tab.querySelector('.badge');
-      if(flagged){ tab.classList.add('flag-gap'); b.textContent='Lücke'; }
-      else if(allOk){ tab.classList.add('flag-ok'); b.textContent='✓'; }
-      else { b.textContent=''; }
-    });
-  }
-
-  document.querySelectorAll('.rt .score').forEach(scoreBox=>{
-    const rt = scoreBox.closest('.rt');
-    scoreBox.querySelectorAll('.sbtn').forEach(btn=>{
-      btn.addEventListener('click',()=>{
-        const v = btn.dataset.v;
-        scores[rt.dataset.id] = v;
-        rt.dataset.score = v;
-        scoreBox.querySelectorAll('.sbtn').forEach(b=>b.classList.toggle('on', b===btn));
-        recompute();
-        const status=document.getElementById('status');
-        const flaggedNow=tabs.filter(t=>t.classList.contains('flag-gap')).length;
-        if(Object.keys(scores).length===6){
-          status.textContent = flaggedNow ? 'Pass 1 fertig. „Nur Lücken öffnen" springt zu den '+flaggedNow+' markierten Stationen.' : 'Alles sicher in Pass 1 — direkt zur Generalprobe (Protokolle).';
-        } else {
-          status.textContent = (6-Object.keys(scores).length)+' Prompt(s) noch zu bewerten.';
-        }
-      });
-    });
-  });
-
-  // ---- two-pass: open only gaps ----
-  document.getElementById('open-gaps').addEventListener('click',()=>{
-    const flagged = CONTENT.filter(st=>tabs.find(t=>t.dataset.tab===st).classList.contains('flag-gap'));
-    const status=document.getElementById('status');
-    if(!Object.keys(scores).length){ status.textContent='Erst Pass 1 bewerten — dann zeige ich dir die Lücken.'; return; }
-    if(!flagged.length){
-      // all clear -> capstone
-      panels.forEach(p=>{ if(CONTENT.includes(p.dataset.panel)) p.querySelectorAll('.card').forEach(c=>c.open=false); });
-      showTab('protokoll'); status.textContent='Keine Lücken — auf zur Generalprobe.'; return;
-    }
-    // expand flagged stations, collapse the "sicher" ones
-    panels.forEach(p=>{
-      if(!CONTENT.includes(p.dataset.panel)) return;
-      const isGap = flagged.includes(p.dataset.panel);
-      p.querySelectorAll('.card').forEach(c=>{ c.open = isGap; });
-    });
-    showTab(flagged[0]);
-    status.textContent='Geöffnet: '+flagged.join(', ')+'. Der Rest bleibt zu.';
-  });
-
-  // ---- reset ----
-  document.getElementById('reset').addEventListener('click',()=>{
-    Object.keys(scores).forEach(k=>delete scores[k]);
-    document.querySelectorAll('.rt').forEach(rt=>{ rt.removeAttribute('data-score'); rt.querySelectorAll('.sbtn').forEach(b=>b.classList.remove('on')); });
-    document.querySelectorAll('.reveal[open]').forEach(d=>d.open=false);
-    recompute();
-    document.getElementById('status').textContent='Zurückgesetzt. Bewerte alle 6 Prompts, dann „Nur Lücken öffnen".';
-  });
-
-  recompute();
 </script>
 </body>
 </html>
