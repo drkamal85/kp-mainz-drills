@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GI-Blutung · R3 Review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F7F4EE; --card:#FFFDF8; --ink:#2A2724; --muted:#6B6358; --line:#E7E0D4;
+    --grundlagen:#C0392B; --grundlagen-t:#F7E9E6;
+    --klinik:#D97706;     --klinik-t:#FBEEDD;
+    --diagnostik:#1E5F9E; --diagnostik-t:#E4EDF6;
+    --therapie:#2D7A3E;   --therapie-t:#E5F0E7;
+    --fragen:#7B3F9E;     --fragen-t:#F0E8F6;
+    --perlen:#B8860B;     --perlen-t:#F8F0D9;
+    --retrieval:#0F766E;  --retrieval-t:#E0F0EE;
+    --protokoll:#334155;  --protokoll-t:#E8EBF0;
+    --ok:#2D7A3E; --gap:#D97706; --miss:#C0392B;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:'Manrope',system-ui,sans-serif;
+    font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased;padding:0 18px 80px}
+  .wrap{max-width:860px;margin:0 auto}
+
+  header{padding:54px 0 22px}
+  .eyebrow{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--retrieval);margin-bottom:16px}
+  h1{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(34px,7vw,52px);line-height:1.04;letter-spacing:-.01em}
+  h1 .accent{font-style:italic;color:var(--grundlagen)}
+  .subtitle{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(17px,2.6vw,20px);color:var(--muted);margin-top:14px}
+  .meta{display:flex;flex-wrap:wrap;gap:6px 0;margin-top:20px;font-size:13px;color:var(--muted);font-weight:500}
+  .meta span:not(:last-child)::after{content:"•";margin:0 10px;color:var(--line);font-weight:700}
+
+
+  .tabs{display:flex;flex-wrap:wrap;gap:8px;position:sticky;top:0;z-index:30;background:linear-gradient(var(--bg) 72%,rgba(247,244,238,0));padding:12px 0 14px;margin-bottom:6px}
+  .tab{position:relative;font-size:13px;font-weight:600;border:1px solid var(--line);background:var(--card);color:var(--muted);padding:8px 15px;border-radius:999px;cursor:pointer;transition:all .15s;white-space:nowrap}
+  .tab:hover{border-color:#cfc6b6}
+  .tab.active{color:#fff;border-color:transparent}
+  .tab[data-c=retrieval].active{background:var(--retrieval)}
+  .tab[data-c=grundlagen].active{background:var(--grundlagen)}
+  .tab[data-c=klinik].active{background:var(--klinik)}
+  .tab[data-c=diagnostik].active{background:var(--diagnostik)}
+  .tab[data-c=therapie].active{background:var(--therapie)}
+  .tab[data-c=fragen].active{background:var(--fragen)}
+  .tab[data-c=perlen].active{background:var(--perlen)}
+  .tab[data-c=protokoll].active{background:var(--protokoll)}
+  .tab .badge{display:none;margin-left:7px;font-size:10px;font-weight:800;padding:1px 6px;border-radius:999px;vertical-align:middle}
+  .tab.flag-gap .badge{display:inline-block;background:var(--gap);color:#fff}
+  .tab.flag-ok .badge{display:inline-block;background:var(--ok);color:#fff}
+  .tab.active .badge{background:rgba(255,255,255,.28)!important;color:#fff}
+
+  .panel{display:none;animation:fade .25s ease}
+  .panel.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+  .panel-intro{font-family:'Fraunces',serif;font-style:italic;font-size:17px;color:var(--muted);margin:6px 0 18px;line-height:1.5}
+
+  /* ---- control bar (Pass 1 instrument) ---- */
+  .ctrl{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:14px 16px;margin-bottom:20px}
+  .ctrl-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+  .tally{font-size:13px;font-weight:700;display:flex;gap:12px;flex-wrap:wrap}
+  .tally i{font-style:normal;display:inline-flex;align-items:center;gap:5px}
+  .tally i::before{content:"";width:9px;height:9px;border-radius:50%}
+  .tally .t-ok::before{background:var(--ok)} .tally .t-gap::before{background:var(--gap)} .tally .t-miss::before{background:var(--miss)}
+  .spacer{flex:1 1 auto}
+  .btn{font-family:'Manrope';font-size:12.5px;font-weight:700;border:none;border-radius:999px;padding:9px 16px;cursor:pointer;transition:.15s}
+  .btn-primary{background:var(--retrieval);color:#fff}
+  .btn-primary:hover{filter:brightness(1.06)}
+  .btn-ghost{background:transparent;color:var(--muted);border:1px solid var(--line)}
+  .btn-ghost:hover{border-color:#cfc6b6}
+  .ctrl-status{margin-top:11px;font-size:13px;font-style:italic;color:var(--retrieval);min-height:18px}
+
+  /* ---- retrieval prompt ---- */
+  .rt{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:14px;transition:border-color .2s}
+  .rt[data-score=sicher]{border-left-color:var(--ok)}
+  .rt[data-score=lueckenhaft]{border-left-color:var(--gap)}
+  .rt[data-score=gefehlt]{border-left-color:var(--miss)}
+  .rt-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:8px}
+  .rt-n{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--retrieval)}
+  .rt-right{display:flex;align-items:center;gap:10px;white-space:nowrap}
+  .rt-ptr{font-size:11px;font-weight:600;color:var(--muted)}
+  .rt-q{font-size:15.5px;line-height:1.55}
+  .reveal{margin-top:12px;border-top:1px dashed var(--line);padding-top:0}
+  .reveal>summary{list-style:none;cursor:pointer;font-size:12.5px;font-weight:800;letter-spacing:.04em;color:var(--retrieval);padding:11px 0 0;user-select:none;display:inline-flex;align-items:center;gap:6px}
+  .reveal>summary::-webkit-details-marker{display:none}
+  .reveal>summary::before{content:"▸";transition:transform .2s;display:inline-block}
+  .reveal[open]>summary::before{transform:rotate(90deg)}
+  .reveal .ans{font-size:14.5px;line-height:1.6;color:#3c372f;padding-top:10px}
+  .reveal .ans b{color:var(--ink)}
+  .reveal .ans ul{list-style:none;padding-left:2px;margin:2px 0 0}
+  .reveal .ans li{position:relative;padding-left:18px;margin-bottom:8px;line-height:1.5}
+  .reveal .ans>ul>li::before{content:"";position:absolute;left:2px;top:8px;width:6px;height:6px;border-radius:50%;background:var(--retrieval)}
+  .reveal .ans li ul{margin:7px 0 2px}
+  .reveal .ans li li{padding-left:16px;margin-bottom:5px;font-size:13.8px;color:#4a443c}
+  .reveal .ans li li::before{content:"";position:absolute;left:0;top:7px;width:5px;height:5px;transform:rotate(45deg);background:#b9b0a1}
+  .score{display:flex;gap:7px;margin-top:12px;padding-top:11px;border-top:1px solid var(--line)}
+  .sbtn{flex:1;font-size:12px;font-weight:700;border:1px solid var(--line);background:var(--bg);color:var(--muted);border-radius:8px;padding:7px 4px;cursor:pointer;transition:.12s}
+  .sbtn:hover{border-color:#cfc6b6}
+  .sbtn[data-v=sicher].on{background:var(--ok);color:#fff;border-color:transparent}
+  .sbtn[data-v=lueckenhaft].on{background:var(--gap);color:#fff;border-color:transparent}
+  .sbtn[data-v=gefehlt].on{background:var(--miss);color:#fff;border-color:transparent}
+
+  /* ---- Schnellfragen ---- */
+  .sf-wrap{background:var(--retrieval-t);border:1px solid #BFE0DC;border-radius:13px;padding:18px 20px;margin-top:24px}
+  .sf-wrap h3{font-family:'Fraunces',serif;font-weight:500;font-size:20px;margin-bottom:3px}
+  .sf-wrap .sf-intro{font-size:13.5px;font-style:italic;color:#0c5d57;margin-bottom:14px}
+  .sf{border-bottom:1px solid #cfe4e1;padding:9px 0}
+  .sf:last-child{border-bottom:none}
+  .sf>summary{list-style:none;cursor:pointer;font-size:14.5px;font-weight:600;display:flex;justify-content:space-between;gap:10px;user-select:none}
+  .sf>summary::-webkit-details-marker{display:none}
+  .sf>summary::after{content:"+";color:var(--retrieval);font-weight:800}
+  .sf[open]>summary::after{content:"−"}
+  .sf .sfa{font-size:14px;color:#0c5d57;font-weight:700;padding-top:6px}
+
+  /* ---- content cards (v1) ---- */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:14px;overflow:hidden}
+  .card>summary{list-style:none;cursor:pointer;padding:18px 20px;display:flex;align-items:flex-start;gap:14px;user-select:none}
+  .card>summary::-webkit-details-marker{display:none}
+  .card .ct{flex:1}
+  .card .ctag{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:5px}
+  .card .ctitle{font-family:'Fraunces',serif;font-weight:500;font-size:17px;line-height:1.25}
+  .plus{flex:none;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:18px;line-height:1;transition:transform .2s;margin-top:2px}
+  .card[open] .plus{transform:rotate(45deg)}
+  .card .body{padding:0 20px 20px;border-top:1px solid var(--line);margin-top:-2px;padding-top:16px}
+  .card.grundlagen .ctag{color:var(--grundlagen)} .card.grundlagen .plus{background:var(--grundlagen-t);color:var(--grundlagen)}
+  .card.klinik .ctag{color:var(--klinik)} .card.klinik .plus{background:var(--klinik-t);color:var(--klinik)}
+  .card.diagnostik .ctag{color:var(--diagnostik)} .card.diagnostik .plus{background:var(--diagnostik-t);color:var(--diagnostik)}
+  .card.therapie .ctag{color:var(--therapie)} .card.therapie .plus{background:var(--therapie-t);color:var(--therapie)}
+  .card.fragen .ctag{color:var(--fragen)} .card.fragen .plus{background:var(--fragen-t);color:var(--fragen)}
+  .card.perlen .ctag{color:var(--perlen)} .card.perlen .plus{background:var(--perlen-t);color:var(--perlen)}
+
+  ul.b{list-style:none;padding-left:2px}
+  ul.b>li{position:relative;padding-left:20px;margin-bottom:8px;line-height:1.55}
+  ul.b>li::before{content:"";position:absolute;left:2px;top:9px;width:7px;height:7px;border-radius:50%}
+  .grundlagen ul.b>li::before{background:var(--grundlagen)} .klinik ul.b>li::before{background:var(--klinik)}
+  .diagnostik ul.b>li::before{background:var(--diagnostik)} .therapie ul.b>li::before{background:var(--therapie)}
+  ul.b ul{list-style:none;padding-left:18px;margin-top:7px}
+  ul.b ul>li{position:relative;padding-left:18px;margin-bottom:6px;font-size:15px;color:#4a443c}
+  ul.b ul>li::before{content:"";position:absolute;left:0;top:7px;width:6px;height:6px;transform:rotate(45deg);background:#b9b0a1}
+  strong{font-weight:700;color:var(--ink)}
+
+  .callout{border-radius:11px;padding:13px 16px;margin:14px 0;font-size:14.5px;line-height:1.55;border-left:4px solid}
+  .callout .lab{font-weight:800;font-size:11px;letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .critical{background:var(--grundlagen-t);border-color:var(--grundlagen)} .critical .lab{color:var(--grundlagen)}
+  .warning{background:var(--klinik-t);border-color:var(--klinik)} .warning .lab{color:var(--klinik)}
+  .fact{background:var(--diagnostik-t);border-color:var(--diagnostik)} .fact .lab{color:var(--diagnostik)}
+
+  .dd{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+  .dd th,.dd td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+  .dd th{background:var(--diagnostik-t);font-weight:700;color:var(--diagnostik);font-size:12px}
+  .dd td:first-child{font-weight:600}
+
+  .pk{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:16px}
+  .pk-meta{display:flex;flex-wrap:wrap;gap:6px 0;font-size:11.5px;font-weight:700;color:var(--protokoll);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+  .pk-meta span:not(:last-child)::after{content:"•";margin:0 8px;color:#c3c9d2}
+  .pk-badge{display:inline-block;background:var(--therapie-t);color:var(--therapie);font-size:10.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:2px 9px;border-radius:999px;margin-left:auto}
+  .pk-akte{font-size:14.5px;line-height:1.58;background:var(--protokoll-t);border-radius:9px;padding:12px 14px;margin-bottom:12px}
+  .pk-akte .lab,.pk-q .lab{font-weight:800;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--protokoll);display:block;margin-bottom:5px}
+  .pk-q ul{list-style:none;padding:0}
+  .pk-q li{position:relative;padding-left:18px;margin-bottom:7px;font-size:14.5px;line-height:1.5}
+  .pk-q li::before{content:"–";position:absolute;left:0;color:var(--protokoll);font-weight:700}
+  .pq{border-top:1px solid var(--line);padding:10px 0}
+  .pq-frage{position:relative;padding-left:18px;font-size:14.5px;font-weight:600;line-height:1.5}
+  .pq-frage::before{content:"–";position:absolute;left:0;color:var(--protokoll);font-weight:700}
+  .pq .reveal{margin-top:5px;border-top:none;padding-top:0}
+  .pq .reveal>summary{padding:5px 0 0}
+
+  .pearl{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--perlen);border-radius:12px;padding:16px 18px;margin-bottom:13px}
+  .pearl .ph{font-weight:800;font-size:13px;color:var(--perlen);margin-bottom:7px}
+  .pearl .pt{font-size:15px;line-height:1.55}
+  .pearl .mn{margin-top:9px;background:var(--perlen-t);border-radius:8px;padding:8px 12px;font-size:13.5px;font-style:italic;color:#7a5c08}
+  .pearl .mn b{font-style:normal;font-weight:800}
+
+  footer{margin-top:40px;padding-top:22px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted);line-height:1.6}
+  .back{display:inline-block;font-family:Manrope,system-ui,sans-serif;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);text-decoration:none;margin-bottom:18px}
+  .back:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a href="../../index.html" class="back">← Zurück zur Library</a>
+
+  <header>
+    <div class="eyebrow">Gastroenterologie · R3 · Kurz + KP-Perlen + Protokolle</div>
+    <h1>GI-<span class="accent">Blutung</span></h1>
+    <div class="subtitle">Obere vs. untere Blutung, Forrest-Klassifikation, Ösophagusvarizen und die endoskopische Blutstillung — einer der häufigsten Mainz-Fälle. Vier Stationen + KP-Perlen + die echten Protokollfragen.</div>
+    <div class="meta"><span>R3 · 6 Tabs · Kurz + KP-Perlen + Protokolle</span><span>~25 Min</span><span>Stand 06/2026</span><span>Mainz-Protokolle 2024–2026</span></div>
+  </header>
+
+  <div class="tabs">
+    <button class="tab active" data-c="grundlagen" data-tab="grundlagen">Grundlagen</button>
+    <button class="tab" data-c="klinik" data-tab="klinik">Klinik</button>
+    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik</button>
+    <button class="tab" data-c="therapie" data-tab="therapie">Therapie</button>
+    <button class="tab" data-c="perlen" data-tab="perlen">KP-Perlen</button>
+    <button class="tab" data-c="protokoll" data-tab="protokoll">Fragen &amp; Protokolle</button>
+  </div>
+
+  <section class="panel active" data-panel="grundlagen">
+    <p class="panel-intro">Wo die Grenze liegt — und woher das Blut kommt.</p>
+    <details class="card grundlagen" open><summary><span class="ct"><span class="ctag">★ Anker</span><span class="ctitle">Definition &amp; Einteilung</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Grenze = Treitz-Band</span>Die Grenze zwischen oberer und unterer GI-Blutung ist das <strong>Treitz-Band</strong> (Flexura duodenojejunalis, am Übergang Duodenum → Jejunum).<br><strong>Obere GI-Blutung</strong> = proximal des Treitz-Bandes (Ösophagus, Magen, Duodenum)<br><strong>Untere GI-Blutung</strong> = distal davon (Jejunum, Ileum, Kolon, Rektum)</div>
+        <div class="callout fact"><span class="lab">⚙ Häufigkeit</span>Etwa 80–90 % aller GI-Blutungen sind <strong>obere</strong> Blutungen. Man unterscheidet die akute (sichtbare) von der chronisch-okkulten Blutung (Eisenmangelanämie, positiver Stuhltest).</div>
+      </div>
+    </details>
+    <details class="card grundlagen"><summary><span class="ct"><span class="ctag">Ursachen</span><span class="ctitle">Blutungsquellen oben &amp; unten</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Obere GI-Blutung</span><strong>Peptisches Ulkus</strong> (Ulcus ventriculi / duodeni) — häufigste Ursache<br>Ösophagus- und Magenfundusvarizen<br>erosive Gastritis / Stressläsionen<br>Mallory-Weiss-Syndrom<br>Refluxösophagitis und Tumoren</div>
+        <div class="callout fact"><span class="lab">★ Untere GI-Blutung</span><strong>Divertikelblutung</strong> — häufigste Ursache<br>Angiodysplasien<br>Kolonpolypen und kolorektales Karzinom<br>Hämorrhoiden und Analfissuren<br>ischämische Kolitis, Morbus Crohn, Meckel-Divertikel</div>
+      </div>
+    </details>
+    <details class="card grundlagen"><summary><span class="ct"><span class="ctag">★ Stolperstein</span><span class="ctitle">Ösophagusvarizen &amp; portale Hypertension</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Warum bei Leberzirrhose?</span>Bei der Leberzirrhose steigt der Druck in der Pfortader (<strong>portale Hypertension</strong>). Das Blut sucht sich Umgehungskreisläufe über portokavale Anastomosen — dort entstehen Varizen.</div>
+        <div class="callout fact"><span class="lab">⚙ Wo entstehen Varizen?</span>Ösophagus (am gastroösophagealen Übergang)<br>Magenfundus<br>periumbilikal → <strong>Caput medusae</strong><br>anorektal (Hämorrhoiden-ähnlich)</div>
+        <div class="callout fact"><span class="lab">⚙ Caput medusae</span>Sichtbar geschlängelte Bauchhautvenen um den Nabel — durch Rekanalisierung der Nabelvene bei portaler Hypertension.</div>
+      </div>
+    </details>
+  </section>
+
+  <section class="panel" data-panel="klinik">
+    <p class="panel-intro">Hämatemesis, Meläna, Hämatochezie — und was die Farbe verrät.</p>
+    <details class="card klinik" open><summary><span class="ct"><span class="ctag">★ Anker</span><span class="ctitle">Leitsymptome</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Die drei Leitsymptome</span><strong>Hämatemesis</strong> — Bluterbrechen (rot = frisch; kaffeesatzartig = mit Magensäure verändert) → obere Blutung<br><strong>Meläna</strong> — schwarzer Teerstuhl → meist obere Blutung<br><strong>Hämatochezie</strong> — frisches rotes Blut analwärts → meist untere Blutung</div>
+        <div class="callout fact"><span class="lab">⚙ Auslöser erfragen</span>NSAR (z. B. Diclofenac), ASS und duale Plättchenhemmung, Antikoagulation (DOAK / Marcumar), Alkohol, bekannte Leberzirrhose, Helicobacter-pylori-Anamnese.</div>
+      </div>
+    </details>
+    <details class="card klinik"><summary><span class="ct"><span class="ctag">★ Dauerbrenner</span><span class="ctitle">Warum ist der Stuhl schwarz?</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Meläna = Hämatin</span>Das Hämoglobin reagiert mit der <strong>Magensäure</strong> (HCl) zu <strong>Hämatin</strong> — dadurch wird der Stuhl schwarz und glänzend (Teerstuhl).</div>
+        <div class="callout warning"><span class="lab">⚠ Achtung</span>Auch eine langsame <strong>untere</strong> Blutung kann bei langer Passagezeit schwarz werden (bakterieller Abbau).<br>Umgekehrt kann eine <strong>massive obere</strong> Blutung als Hämatochezie imponieren — dann ist der Patient meist kreislaufinstabil.</div>
+      </div>
+    </details>
+    <details class="card klinik"><summary><span class="ct"><span class="ctag">Schweregrad</span><span class="ctitle">Hb-Abfall &amp; hämorrhagischer Schock</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Schockzeichen</span>Tachykardie, Hypotonie, Blässe, Kaltschweißigkeit, Hb-Abfall. Der <strong>Schockindex</strong> (Herzfrequenz / systolischer Blutdruck) über eins spricht für einen relevanten Volumenmangel.</div>
+        <div class="callout fact"><span class="lab">⚙ Frühphase</span>In der akuten Phase kann der Hb noch normal sein (Verdünnung folgt erst) — Kreislauf und Klinik nicht unterschätzen.</div>
+      </div>
+    </details>
+  </section>
+
+  <section class="panel" data-panel="diagnostik">
+    <p class="panel-intro">Forrest, Endoskopie — und was, wenn man nichts findet.</p>
+    <details class="card diagnostik" open><summary><span class="ct"><span class="ctag">★ Anker · Dauerbrenner</span><span class="ctitle">Forrest-Klassifikation</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Forrest (Ulkusblutung)</span><strong>Ia</strong> — arteriell spritzende Blutung<br><strong>Ib</strong> — sickernde (venöse) Blutung<br><strong>IIa</strong> — sichtbarer Gefäßstumpf<br><strong>IIb</strong> — anhaftendes Koagel<br><strong>IIc</strong> — Hämatin auf dem Ulkusgrund<br><strong>III</strong> — Läsion ohne Blutungszeichen (sauberer Grund)</div>
+        <div class="callout fact"><span class="lab">⚙ Wozu?</span>Forrest schätzt das <strong>Rezidivrisiko</strong> und steuert die Therapie: <strong>Ia–IIb → endoskopische Blutstillung</strong> indiziert; IIc und III → meist keine endoskopische Therapie nötig.</div>
+      </div>
+    </details>
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">★ Goldstandard</span><span class="ctitle">Endoskopie &amp; Labor</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ ÖGD</span>Die <strong>Ösophagogastroduodenoskopie</strong> ist bei oberer GI-Blutung Goldstandard — gleichzeitig diagnostisch und therapeutisch. Bei unterer Blutung folgt nach Stabilisierung die <strong>Koloskopie</strong>.</div>
+        <div class="callout fact"><span class="lab">⚙ Labor</span>Hb und Verlauf<br>Gerinnung (INR, Thrombozyten)<br>Blutgruppe und Kreuzblut<br>Harnstoff/Kreatinin (Harnstoff bei oberer Blutung oft erhöht)</div>
+        <div class="callout fact"><span class="lab">⚙ Scores</span>Glasgow-Blatchford-Score (Risiko/ambulant vs. stationär) und Rockall-Score (Rezidiv-/Mortalitätsrisiko).</div>
+      </div>
+    </details>
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Eskalation</span><span class="ctitle">Wenn die Endoskopie nichts findet</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Nächste Schritte</span><strong>CT-Angiographie</strong> zur Lokalisation<br><strong>Angiographie</strong> der interventionellen Radiologie → selektive Embolisation<br>Kapselendoskopie / Push-Enteroskopie für den Dünndarm<br>bei jungen Patienten an ein <strong>Meckel-Divertikel</strong> denken (Szintigraphie)</div>
+      </div>
+    </details>
+  </section>
+
+  <section class="panel" data-panel="therapie">
+    <p class="panel-intro">Stabilisieren, endoskopisch stillen, ursachenspezifisch behandeln.</p>
+    <details class="card therapie" open><summary><span class="ct"><span class="ctag">★ Anker · ZNA</span><span class="ctitle">Akutmanagement</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Erste Maßnahmen</span>Monitoring und Schocklage<br><strong>zwei großlumige periphere Zugänge</strong><br>Volumengabe (kristalloide Lösungen)<br>Blutkonserven bereitstellen — <strong>EK-Transfusion</strong> (Ziel-Hb &gt; 7 g/dl, bei KHK &gt; 8)<br>PPI intravenös (z. B. Pantoprazol)<br>Gerinnung optimieren, Antikoagulation pausieren/antagonisieren<br><strong>dringliche ÖGD anmelden</strong></div>
+      </div>
+    </details>
+    <details class="card therapie"><summary><span class="ct"><span class="ctag">Endoskopie</span><span class="ctitle">Endoskopische Blutstillung</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Drei Prinzipien</span><strong>Injektion</strong> — Unterspritzung mit verdünntem Adrenalin<br><strong>mechanisch</strong> — Clips (oder Gummibandligatur bei Varizen)<br><strong>thermisch</strong> — Argon-Plasma-Koagulation</div>
+        <div class="callout warning"><span class="lab">⚠ Merke</span>Adrenalin-Injektion immer mit einem zweiten Verfahren kombinieren (Clip oder thermisch) — die Injektion allein wirkt nur kurz.</div>
+      </div>
+    </details>
+    <details class="card therapie"><summary><span class="ct"><span class="ctag">★ Ursachenspezifisch</span><span class="ctitle">Varizen &amp; Ulkus</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Ösophagusvarizenblutung</span><strong>Terlipressin i.v.</strong> (senkt den Pfortaderdruck)<br><strong>ÖGD mit Gummibandligatur</strong><br>Antibiotikaprophylaxe (z. B. Ceftriaxon)<br>Sengstaken-Blakemore-Sonde nur als Überbrückung<br><strong>TIPS</strong> bei endoskopischem Versagen<br>Sekundärprophylaxe: Propranolol + Ligaturprogramm</div>
+        <div class="callout fact"><span class="lab">⚙ Ulkusblutung</span>PPI hochdosiert i.v., endoskopische Blutstillung nach Forrest, <strong>Helicobacter-Eradikation</strong> (Tripeltherapie: PPI + zwei Antibiotika), Re-ÖGD bei Rezidiv; bei Versagen Angiographie/Embolisation oder Operation.</div>
+      </div>
+    </details>
+  </section>
+
+  <section class="panel" data-panel="perlen">
+    <div class="pearl"><div class="ph">⭐ Perle 1 · Forrest steuert die Therapie</div><div class="pt">Die <strong>Forrest-Klassifikation</strong> ist die Lieblingsfrage. Sie schätzt das Rezidivrisiko und entscheidet, ob endoskopisch behandelt wird: <strong>Ia/Ib</strong> (aktiv) und <strong>IIa/IIb</strong> (Gefäßstumpf/Koagel) → Blutstillung; <strong>IIc</strong> (Hämatin) und <strong>III</strong> (sauber) → meist keine Therapie.</div><div class="mn"><b>Eselsbrücke:</b> I = es blutet jetzt, II = es hat geblutet (a→b→c absteigendes Risiko), III = Ruhe.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 2 · Treitz-Band ist die Grenze</div><div class="pt">Dokumentierter Dauerbrenner: Die Grenze zwischen oberer und unterer GI-Blutung ist das <strong>Treitz-Band</strong> an der Flexura duodenojejunalis. Proximal = obere, distal = untere Blutung.</div><div class="mn"><b>Merke:</b> „Über oder unter Treitz" entscheidet ÖGD vs. Koloskopie.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 3 · Schwarzer Stuhl = Hämatin</div><div class="pt">Dokumentiert („warum ist der Stuhl schwarz?"): Hämoglobin reagiert mit der <strong>Magensäure</strong> zu <strong>Hämatin</strong> → Teerstuhl. Hellrotes Blut analwärts (Hämatochezie) spricht dagegen für eine frische distale Blutung.</div><div class="mn"><b>Merke:</b> Schwarz = oben (Säurekontakt), hellrot = unten (frisch).</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 4 · Duodenalhinterwand → A. gastroduodenalis</div><div class="pt">Dokumentierte Lieblingsfrage: Ein Ulkus an der <strong>Hinterwand des Bulbus duodeni</strong> ist besonders gefährlich, weil dort die <strong>A. gastroduodenalis</strong> verläuft — es droht eine massive arterielle Blutung.</div><div class="mn"><b>Merke:</b> Hinterwand-Duodenum = gastroduodenalis = großer Ärger.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 5 · Varizenblutung — Terlipressin + Ligatur + Antibiotika</div><div class="pt">Dokumentiert (bis TIPS gefragt): Akute Ösophagusvarizenblutung → <strong>Terlipressin i.v.</strong>, <strong>endoskopische Gummibandligatur</strong> und <strong>Antibiotikaprophylaxe</strong>. Bei Versagen TIPS; Dauerprophylaxe mit <strong>Propranolol</strong>.</div><div class="mn"><b>Merke:</b> Drücken (Terlipressin), binden (Ligatur), schützen (Antibiotika).</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 6 · Mallory-Weiss vs. Boerhaave</div><div class="pt">Dokumentiert (typisch beim Alkoholiker): Das <strong>Mallory-Weiss-Syndrom</strong> ist ein <strong>Schleimhauteinriss</strong> am gastroösophagealen Übergang nach heftigem Erbrechen. Davon abzugrenzen ist das <strong>Boerhaave-Syndrom</strong> — die komplette transmurale Ösophagusruptur.</div><div class="mn"><b>Merke:</b> Mallory-Weiss reißt die Schleimhaut, Boerhaave die ganze Wand.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 7 · Portokavale Umgehungskreisläufe</div><div class="pt">Dokumentiert (Caput medusae): Bei portaler Hypertension staut sich das Blut in Umgehungsvenen — <strong>Ösophagus, Magenfundus, periumbilikal (Caput medusae) und anorektal</strong>. Deshalb bluten Zirrhosepatienten oben aus Varizen.</div><div class="mn"><b>Merke:</b> Vier Wege: Speiseröhre, Fundus, Bauchnabel, After.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 8 · Der ZNA-Reflex</div><div class="pt">Dokumentierter Standardablauf: V. a. obere GI-Blutung → <strong>Monitoring, zwei großlumige Zugänge, Volumen, ggf. EK, PPI i.v.</strong> und <strong>dringliche ÖGD anmelden</strong>. Erst stabilisieren, dann endoskopieren.</div><div class="mn"><b>Merke:</b> Zwei dicke Nadeln und ein Anruf beim Endoskopiedienst.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 9 · Therapieresistentes Ulkus → an Malignom denken</div><div class="pt">Dokumentiert: Wenn ein Helicobacter-assoziiertes Ulkus trotz Therapie nicht abheilt oder die Blutung nicht steht, muss man an ein <strong>Malignom</strong> denken — daher immer <strong>Biopsie und Kontroll-ÖGD</strong> beim Magenulkus.</div><div class="mn"><b>Merke:</b> Ein Ulkus, das nicht heilt, ist verdächtig — biopsieren.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 10 · Endoskopie findet nichts → Angiographie</div><div class="pt">Dokumentiert („wen rufen Sie an, wenn der Gastroenterologe die Quelle nicht findet?"): Dann übernimmt die <strong>interventionelle Radiologie</strong> — CT-Angiographie und selektive <strong>Embolisation</strong>; alternativ die Viszeralchirurgie.</div><div class="mn"><b>Merke:</b> Skop sieht nichts → Katheter und Kontrastmittel.</div></div>
+    <div class="sf-wrap">
+      <h3>Rapid-Fire</h3>
+      <div class="sf-intro">Atomare Einzelfakten — Ein-Wort-Abruf. Laut, sofort, dann aufdecken.</div>
+      <details class="sf"><summary>Grenze obere/untere GI-Blutung?</summary><div class="sfa">Treitz-Band (Flexura duodenojejunalis)</div></details>
+      <details class="sf"><summary>Häufigste Ursache obere GI-Blutung?</summary><div class="sfa">peptisches Ulkus</div></details>
+      <details class="sf"><summary>Häufigste Ursache untere GI-Blutung?</summary><div class="sfa">Divertikelblutung</div></details>
+      <details class="sf"><summary>Meläna — woher schwarz?</summary><div class="sfa">Hämatin (Hämoglobin + Magensäure)</div></details>
+      <details class="sf"><summary>Hämatochezie spricht für?</summary><div class="sfa">untere (distale) Blutung</div></details>
+      <details class="sf"><summary>Kaffeesatzerbrechen bedeutet?</summary><div class="sfa">obere Blutung (Blut + Magensäure)</div></details>
+      <details class="sf"><summary>Forrest Ia?</summary><div class="sfa">arteriell spritzende Blutung</div></details>
+      <details class="sf"><summary>Forrest IIa?</summary><div class="sfa">sichtbarer Gefäßstumpf</div></details>
+      <details class="sf"><summary>Forrest III?</summary><div class="sfa">Läsion ohne Blutungszeichen</div></details>
+      <details class="sf"><summary>Goldstandard obere GI-Blutung?</summary><div class="sfa">ÖGD</div></details>
+      <details class="sf"><summary>Ösophagusvarizen — Ursache?</summary><div class="sfa">portale Hypertension bei Leberzirrhose</div></details>
+      <details class="sf"><summary>Caput medusae?</summary><div class="sfa">periumbilikale Umgehungsvenen</div></details>
+      <details class="sf"><summary>Akute Varizenblutung — Medikament?</summary><div class="sfa">Terlipressin i.v.</div></details>
+      <details class="sf"><summary>Akute Varizenblutung — endoskopisch?</summary><div class="sfa">Gummibandligatur</div></details>
+      <details class="sf"><summary>Varizen — Dauerprophylaxe?</summary><div class="sfa">nicht-selektiver Betablocker (Propranolol)</div></details>
+      <details class="sf"><summary>Mallory-Weiss-Syndrom?</summary><div class="sfa">Schleimhauteinriss am gastroösophagealen Übergang nach Erbrechen</div></details>
+      <details class="sf"><summary>Ulkus Duodenalhinterwand — Gefäß?</summary><div class="sfa">A. gastroduodenalis</div></details>
+      <details class="sf"><summary>ZNA — erste Maßnahmen?</summary><div class="sfa">Monitoring, 2 großlumige Zugänge, Volumen, ÖGD anmelden</div></details>
+      <details class="sf"><summary>Medikament bei Ulkusblutung?</summary><div class="sfa">PPI i.v. (Pantoprazol)</div></details>
+      <details class="sf"><summary>Endoskopische Blutstillung Ulkus?</summary><div class="sfa">Adrenalin-Injektion + Clip oder thermisch</div></details>
+      <details class="sf"><summary>Endoskopie findet nichts — nächster Schritt?</summary><div class="sfa">CT-Angiographie / Angiographie mit Embolisation</div></details>
+    </div>
+  </section>
+
+  <section class="panel" data-panel="protokoll">
+    <p class="panel-intro">Echte, dokumentierte Mainz-Fragen zur GI-Blutung — laut beantworten, dann aufdecken.</p>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · Innere/Notfall</span><span>Meläna-Fall</span><span class="pk-badge">Protokoll</span></div>
+      <div class="pk-akte"><span class="lab">Akte</span>Älterer Patient stellt sich mit schwarzem Teerstuhl vor.</div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">Welche Verdachtsdiagnose stellen Sie bei Meläna?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Der schwarze Teerstuhl spricht für eine Meläna, also den Verdacht auf eine obere gastrointestinale Blutung.</div></details></div>
+      <div class="pq"><div class="pq-frage">Wo liegt die Grenze zwischen oberer und unterer GI-Blutung?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Die Grenze ist das Treitz-Band an der Flexura duodenojejunalis. Eine Blutung proximal davon ist eine obere, distal davon eine untere GI-Blutung.</div></details></div>
+      <div class="pq"><div class="pq-frage">Warum ist der Stuhl schwarz?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Das Hämoglobin reagiert mit der Magensäure zu Hämatin, und dadurch wird der Stuhl schwarz und glänzend.</div></details></div>
+      <div class="pq"><div class="pq-frage">Was verursacht hellrotes Blut im Stuhl?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Hellrotes Blut spricht für eine frische, distale Blutung im unteren Gastrointestinaltrakt. Eine massive obere Blutung kann allerdings auch hellrot imponieren, dann ist der Patient meist kreislaufinstabil.</div></details></div>
+      <div class="pq"><div class="pq-frage">Was machen Sie in der Notaufnahme bei Verdacht auf eine obere GI-Blutung?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich schließe ein Monitoring an, lege zwei großlumige Zugänge, gebe Volumen und stelle Blutkonserven bereit, gebe einen PPI intravenös und melde den Patienten dringlich zur Endoskopie an.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · Innere</span><span>Leberzirrhose / Varizen</span><span class="pk-badge">Protokoll</span></div>
+      <div class="pk-akte"><span class="lab">Akte</span>55-jähriger Patient, seit zwei Tagen Teerstuhl, heute blutiges Erbrechen; Alkoholkarenz abgebrochen, äthyltoxische Leberzirrhose, Zustand nach zwei GI-Blutungen mit Ligatur.</div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">Warum treten Ösophagusvarizen bei Leberzirrhose auf?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Bei der Leberzirrhose steigt der Druck in der Pfortader. Das Blut weicht über portokavale Umgehungskreisläufe aus, und dort bilden sich Varizen — unter anderem am Ösophagus.</div></details></div>
+      <div class="pq"><div class="pq-frage">Wo können außer am Ösophagus noch Varizen auftreten?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Am Magenfundus, periumbilikal als Caput medusae und anorektal.</div></details></div>
+      <div class="pq"><div class="pq-frage">Was versteht man unter einem Caput medusae?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Das sind sichtbar geschlängelte Bauchhautvenen rund um den Nabel, die durch die portale Hypertension über die wiedereröffnete Nabelvene entstehen.</div></details></div>
+      <div class="pq"><div class="pq-frage">Wie behandeln Sie eine akute Ösophagusvarizenblutung?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich stabilisiere den Kreislauf mit Volumen und Erythrozytenkonzentraten, gebe Terlipressin intravenös, führe eine Notfall-ÖGD mit Gummibandligatur durch und gebe eine Antibiotikaprophylaxe. Bei Versagen kommt ein TIPS in Frage, als Überbrückung eine Sengstaken-Sonde.</div></details></div>
+      <div class="pq"><div class="pq-frage">Was ist die Dauertherapie bei portaler Hypertension?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ein nicht-selektiver Betablocker wie Propranolol senkt den Pfortaderdruck, ergänzt durch ein endoskopisches Ligaturprogramm.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · Innere (u. a. Dr. Hock)</span><span>Forrest / Ulkus</span><span class="pk-badge">Protokoll</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">Erklären Sie die Forrest-Klassifikation.</div><details class="reveal"><summary>Antwort</summary><div class="ans">Forrest eins ist eine aktive Blutung, ein a arteriell spritzend, ein b sickernd. Forrest zwei sind Zeichen einer stattgehabten Blutung: zwei a ein sichtbarer Gefäßstumpf, zwei b ein anhaftendes Koagel, zwei c Hämatin auf dem Ulkusgrund. Forrest drei ist eine Läsion ohne Blutungszeichen.</div></details></div>
+      <div class="pq"><div class="pq-frage">Was ist der Unterschied zwischen Ulcus ventriculi und Ulcus duodeni?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Das Ulcus duodeni ist häufiger und macht eher Nüchternschmerz, der sich nach dem Essen bessert; das Ulcus ventriculi macht eher Schmerz direkt nach dem Essen. Wichtig ist: ein Magenulkus muss immer biopsiert und endoskopisch kontrolliert werden, um ein Malignom auszuschließen.</div></details></div>
+      <div class="pq"><div class="pq-frage">Warum ist ein Ulkus an der Hinterwand des Duodenums besonders gefährlich?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Weil dort die Arteria gastroduodenalis verläuft. Arrodiert das Ulkus dieses Gefäß, kommt es zu einer massiven arteriellen Blutung.</div></details></div>
+      <div class="pq"><div class="pq-frage">Wie behandeln Sie eine Helicobacter-pylori-Infektion?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Mit einer Eradikationstherapie über etwa eine Woche: einem Protonenpumpenhemmer zusammen mit zwei Antibiotika, also einer Tripeltherapie.</div></details></div>
+      <div class="pq"><div class="pq-frage">Ein Ulkus heilt trotz Therapie nicht ab und blutet weiter — woran denken Sie?</div><details class="reveal"><summary>Antwort</summary><div class="ans">An ein Malignom. Ein therapieresistentes Ulkus muss biopsiert und kontrolliert werden.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · Innere</span><span>Mallory-Weiss · Blutungsquellen</span><span class="pk-badge">Protokoll</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">Was ist das Mallory-Weiss-Syndrom, und bei welchen Patienten tritt es typischerweise auf?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Das Mallory-Weiss-Syndrom ist ein Schleimhauteinriss am Übergang von Speiseröhre und Magen nach heftigem Erbrechen oder Würgen. Typisch ist es bei Alkoholikern.</div></details></div>
+      <div class="pq"><div class="pq-frage">Nennen Sie mögliche Blutungsquellen von oben nach unten.</div><details class="reveal"><summary>Antwort</summary><div class="ans">Im Ösophagus Varizen oder Tumoren, im Magen Fundusvarizen, ein Ulkus oder ein Malignom, im Duodenum ein Ulkus. Weiter unten im terminalen Ileum ein Morbus Crohn, im Kolon Polypen oder ein Karzinom, im Sigma eine Divertikulitis und im Rektum Hämorrhoiden oder ein Rektumkarzinom.</div></details></div>
+      <div class="pq"><div class="pq-frage">Bei einer Blutung im terminalen Ileum — woran denken Sie?</div><details class="reveal"><summary>Antwort</summary><div class="ans">An einen Morbus Crohn, da dieser typischerweise das terminale Ileum befällt.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · Innere/Chirurgie</span><span>Untere GI-Blutung · Divertikel</span><span class="pk-badge">Protokoll</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">Was ist der Unterschied zwischen oberer und unterer GI-Blutung hinsichtlich der Ursachen?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Die obere Blutung wird meist durch ein peptisches Ulkus oder durch Ösophagusvarizen verursacht, die untere meist durch eine Divertikelblutung, Angiodysplasien, ein kolorektales Karzinom oder Hämorrhoiden.</div></details></div>
+      <div class="pq"><div class="pq-frage">Wie behandeln Sie eine Divertikelblutung?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Endoskopisch: ich stelle die Blutungsquelle dar und stille sie mit einer Adrenalin-Unterspritzung oder mit Clips.</div></details></div>
+      <div class="pq"><div class="pq-frage">Wen rufen Sie an, wenn der Gastroenterologe die Blutungsquelle nicht findet?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Die interventionelle Radiologie für eine Angiographie mit selektiver Embolisation; alternativ die Viszeralchirurgie.</div></details></div>
+      <div class="pq"><div class="pq-frage">Wie unterscheiden Sie ein kolorektales Karzinom von Hämorrhoiden?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Hämorrhoiden bluten typischerweise hellrot dem Stuhl aufgelagert ohne Allgemeinsymptome; beim Karzinom finden sich oft Blut im Stuhl, eine Stuhlunregelmäßigkeit, Gewichtsverlust und eine Anämie. Zur Abklärung gehört immer eine Koloskopie.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · Innere</span><span>NSAR-Ulkus / Antikoagulation</span><span class="pk-badge">Protokoll</span></div>
+      <div class="pk-akte"><span class="lab">Akte</span>87-jährige Patientin, Magenschmerzen und Kaffeesatzerbrechen, nimmt Diclofenac bei Bedarf; kreislaufstabil, Hb 11. Andernorts: GI-Blutung Forrest IIc unter Apixaban.</div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">Was ist die wahrscheinliche Ursache bei Kaffeesatzerbrechen unter Diclofenac?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ein NSAR-induziertes Ulkus oder eine erosive Gastritis mit oberer GI-Blutung. NSAR hemmen die schützenden Prostaglandine der Magenschleimhaut.</div></details></div>
+      <div class="pq"><div class="pq-frage">Die Patientin ist stabil — wann sollte die Endoskopie erfolgen?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Bei einem stabilen Patienten innerhalb von 24 Stunden; bei Kreislaufinstabilität oder Hinweis auf eine aktive Blutung sofort als Notfall.</div></details></div>
+      <div class="pq"><div class="pq-frage">Wie gehen Sie mit der Antikoagulation um?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Die Antikoagulation wird pausiert und die Gerinnung optimiert. Bei DOAK wie Apixaban kann je nach Situation ein spezifisches Antidot eingesetzt werden, und die Indikation wird nach der Blutung neu abgewogen.</div></details></div>
+    </div>
+  </section>
+
+  <footer>
+    R3 · GI-Blutung · Fragen &amp; Protokolle. Vier Kernstationen (wortgleich mit R2) + KP-Perlen mit Rapid-Fire + die echten dokumentierten Mainz-Fragen (Forrest, Treitz-Band, Ösophagusvarizen, Ulkus, Mallory-Weiss, untere GI-Blutung). Quelle: Mainz-Protokolle 2024–2026.
+  </footer>
+
+</div>
+<script>
+  const tabs = [...document.querySelectorAll('.tab')];
+  const panels = [...document.querySelectorAll('.panel')];
+  function showTab(name){
+    tabs.forEach(x=>x.classList.toggle('active', x.dataset.tab===name));
+    panels.forEach(p=>p.classList.toggle('active', p.dataset.panel===name));
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  tabs.forEach(t=>t.addEventListener('click',()=>showTab(t.dataset.tab)));
+</script>
+</body>
+</html>
