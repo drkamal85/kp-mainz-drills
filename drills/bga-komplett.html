@@ -97,8 +97,8 @@
   <header>
     <div class="eyebrow">BGA · Komplettskript</div>
     <h1>Blutgas<span class="accent">analyse</span></h1>
-    <p class="subtitle">Normalwerte, das 4-Schritt-Ablesen, respiratorische und metabolische Störungen, gemischte Bilder und klinische Fälle. Fünf Wochen auf einer Seite.</p>
-    <div class="meta"><span>~ 20 min</span><span>5 Wochen</span></div>
+    <p class="subtitle">Normalwerte, das 4-Schritt-Ablesen, respiratorische und metabolische Störungen, gemischte Bilder und klinische Fälle. Sechs Wochen auf einer Seite.</p>
+    <div class="meta"><span>~ 20 min</span><span>6 Wochen</span></div>
   </header>
 
   <a href="bga-trainer.html" style="display:inline-flex;align-items:center;gap:8px;font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;letter-spacing:.03em;text-decoration:none;color:#fff;background:var(--accent);padding:11px 20px;border-radius:50px;margin-bottom:24px">🎮 Interaktiver BGA-Trainer — Fälle spielen →</a>
@@ -109,6 +109,7 @@
     <button class="tab" data-k="k3">Woche 3 · Metabolisch</button>
     <button class="tab" data-k="k4">Woche 4 · Gemischt + O₂</button>
     <button class="tab" data-k="k5">Woche 5 · Vollintegration</button>
+    <button class="tab" data-k="k6l1">Woche 6 · L1 Auswertung</button>
   </nav>
 
   <!-- KAPITEL 1 -->
@@ -499,7 +500,72 @@
     </div>
   </section>
 
-  <footer>KP-Mainz Drills · BGA Komplettskript · Wk1 Grundlagen + Wk2 Respiratorisch + Wk3 Metabolisch + Wk4 Gemischt + O₂ + Wk5 Vollintegration</footer>
+  <section class="chapter" id="k6l1">
+    <div class="chapter-head"><span class="chapter-num">6.1</span><span class="chapter-title">Systematische Auswertung &amp; Normalwerte</span></div>
+
+    <div class="card open"><div class="card-head"><div><span class="card-tag">Normalwerte</span><div class="card-title">pH · pCO₂ · HCO₃⁻ · BE · SaO₂</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <table><thead><tr><th>Wert</th><th>Norm</th><th>Steht für</th></tr></thead><tbody>
+          <tr><td><strong>pH</strong></td><td>7,36 – 7,44</td><td>Säure-Basen-Status</td></tr>
+          <tr><td><strong>pCO₂</strong></td><td>35 – 45 mmHg</td><td>respiratorische Komponente</td></tr>
+          <tr><td><strong>HCO₃⁻</strong></td><td>22 – 26 mmol/l</td><td>metabolische Komponente</td></tr>
+          <tr><td><strong>BE</strong></td><td>−2 bis +2 mmol/l</td><td>metab. Basenüberschuss/-defizit</td></tr>
+          <tr><td><strong>SaO₂</strong></td><td>&gt; 95 %</td><td>Sauerstoffsättigung</td></tr>
+          <tr><td><strong>pO₂</strong></td><td>70 – 100 mmHg</td><td>Oxygenierung</td></tr>
+        </tbody></table>
+        <div class="callout fact"><span class="callout-label">Material</span><strong>Arteriell</strong> für die Oxygenierung (pO₂/SaO₂; Allen-Test vor Punktion der A. radialis).<br><strong>Venös</strong> genügt für pH, pCO₂ und HCO₃⁻ im Verlauf.</div>
+      </div></div>
+    </div>
+
+    <div class="card open"><div class="card-head"><div><span class="card-tag">Drei Achsen</span><div class="card-title">Atmung · Stoffwechsel · Oxygenierung</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <ul>
+          <li><strong>pCO₂ = respiratorisch</strong> (Lunge) — CO₂ ist ein Säureäquivalent: ↑ pCO₂ macht sauer</li>
+          <li><strong>HCO₃⁻ / BE = metabolisch</strong> (Niere/Stoffwechsel) — Bikarbonat ist die Base: ↓ HCO₃⁻ macht sauer</li>
+          <li><strong>pO₂ / SaO₂ = Oxygenierung</strong> — eine eigene Achse, unabhängig vom Säure-Basen-Status</li>
+        </ul>
+        <div class="callout fact"><span class="callout-label">BE — die reine metabolische Größe</span>Der <strong>Base Excess</strong> beschreibt den metabolischen Anteil <em>unabhängig</em> von der Atmung.<br>Negativ = Basendefizit (metab. Azidose)<br>Positiv = Basenüberschuss (metab. Alkalose)</div>
+      </div></div>
+    </div>
+
+    <div class="card open"><div class="card-head"><div><span class="card-tag">Algorithmus</span><div class="card-title">Systematische Auswertung — 5 Schritte</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <ul>
+          <li><strong>1. Oxygenierung</strong> — pO₂ / SaO₂: liegt eine Hypoxämie vor? (zuerst, weil unmittelbar bedrohlich)</li>
+          <li><strong>2. pH</strong> — &lt; 7,36 Azidose · &gt; 7,44 Alkalose (ein „normaler" pH kann eine kompensierte oder gemischte Störung verbergen)</li>
+          <li><strong>3. Primärstörung</strong> — welcher Wert zeigt in die Richtung des pH? pCO₂ gegensätzlich → respiratorisch; HCO₃⁻/BE gleichsinnig → metabolisch</li>
+          <li><strong>4. Kompensation</strong> — hat sich der jeweils andere Wert gegenläufig mitbewegt?</li>
+          <li><strong>5. Anionenlücke</strong> — bei jeder metabolischen Azidose berechnen</li>
+        </ul>
+        <div class="callout key"><span class="callout-label">Richtungsregel</span><strong>pCO₂ gegensätzlich zum pH = respiratorisch.</strong><br><strong>HCO₃⁻/BE gleichsinnig zum pH = metabolisch.</strong></div>
+      </div></div>
+    </div>
+
+    <div class="card open"><div class="card-head"><div><span class="card-tag">Stolperstein</span><div class="card-title">Primär vs. kompensatorisch</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <p>Der pH sagt, ob <strong>Azidose</strong> oder <strong>Alkalose</strong> vorliegt. Der Wert, der zu dieser Störung „passt", ist der <strong>Täter</strong> (Primärstörung) — der andere ist die <strong>Kompensation</strong>.</p>
+        <ul>
+          <li><strong>pH &lt; 7,40</strong> → wer ist sauer? ↑ pCO₂ (resp. Azidose) oder ↓ HCO₃⁻ (metab. Azidose)</li>
+          <li><strong>pH &gt; 7,40</strong> → wer ist basisch? ↓ pCO₂ (resp. Alkalose) oder ↑ HCO₃⁻ (metab. Alkalose)</li>
+        </ul>
+        <div class="callout warn"><span class="callout-label">⚠ Kompensationsregel</span>Die Kompensation bringt den pH <strong>nie ganz auf 7,40</strong> und <strong>nie auf die andere Seite</strong>. Kippt der pH doch — oder „passen" pCO₂ und HCO₃⁻ gegenläufig nicht zusammen — liegt eine <strong>gemischte Störung</strong> vor.</div>
+      </div></div>
+    </div>
+
+    <div class="card open"><div class="card-head"><div><span class="card-tag">Drill</span><div class="card-title">Die 4 Reinformen erkennen</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <table><thead><tr><th>pH</th><th>pCO₂</th><th>HCO₃⁻/BE</th><th>Primärstörung</th></tr></thead><tbody>
+          <tr><td>↓</td><td>↑</td><td>normal</td><td>respiratorische Azidose</td></tr>
+          <tr><td>↑</td><td>↓</td><td>normal</td><td>respiratorische Alkalose</td></tr>
+          <tr><td>↓</td><td>normal</td><td>↓</td><td>metabolische Azidose</td></tr>
+          <tr><td>↑</td><td>normal</td><td>↑</td><td>metabolische Alkalose</td></tr>
+        </tbody></table>
+        <div class="callout key"><span class="callout-label">Mit Kompensation</span>Sobald kompensiert wird, beginnt der „normale" Wert sich <strong>gegenläufig</strong> zu verschieben (z. B. resp. Azidose → HCO₃⁻ steigt langsam an).</div>
+      </div></div>
+    </div>
+  </section>
+
+  <footer>KP-Mainz Drills · BGA Komplettskript · Wk1 Grundlagen + Wk2 Respiratorisch + Wk3 Metabolisch + Wk4 Gemischt + O₂ + Wk5 Vollintegration + Wk6·L1 Systematische Auswertung</footer>
 </div>
 <script>
   const tabs = document.querySelectorAll('.tab');
