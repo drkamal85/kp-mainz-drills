@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Impfungen / STIKO · R3 Review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F7F4EE; --card:#FFFDF8; --ink:#2A2724; --muted:#6B6358; --line:#E7E0D4;
+    --grundlagen:#C0392B; --grundlagen-t:#F7E9E6;
+    --klinik:#D97706;     --klinik-t:#FBEEDD;
+    --diagnostik:#1E5F9E; --diagnostik-t:#E4EDF6;
+    --therapie:#2D7A3E;   --therapie-t:#E5F0E7;
+    --fragen:#7B3F9E;     --fragen-t:#F0E8F6;
+    --perlen:#B8860B;     --perlen-t:#F8F0D9;
+    --retrieval:#0F766E;  --retrieval-t:#E0F0EE;
+    --protokoll:#334155;  --protokoll-t:#E8EBF0;
+    --ok:#2D7A3E; --gap:#D97706; --miss:#C0392B;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:'Manrope',system-ui,sans-serif;
+    font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased;padding:0 18px 80px}
+  .wrap{max-width:860px;margin:0 auto}
+
+  header{padding:54px 0 22px}
+  .eyebrow{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--retrieval);margin-bottom:16px}
+  h1{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(34px,7vw,52px);line-height:1.04;letter-spacing:-.01em}
+  h1 .accent{font-style:italic;color:var(--grundlagen)}
+  .subtitle{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(17px,2.6vw,20px);color:var(--muted);margin-top:14px}
+  .meta{display:flex;flex-wrap:wrap;gap:6px 0;margin-top:20px;font-size:13px;color:var(--muted);font-weight:500}
+  .meta span:not(:last-child)::after{content:"•";margin:0 10px;color:var(--line);font-weight:700}
+
+
+  .tabs{display:flex;flex-wrap:wrap;gap:8px;position:sticky;top:0;z-index:30;background:linear-gradient(var(--bg) 72%,rgba(247,244,238,0));padding:12px 0 14px;margin-bottom:6px}
+  .tab{position:relative;font-size:13px;font-weight:600;border:1px solid var(--line);background:var(--card);color:var(--muted);padding:8px 15px;border-radius:999px;cursor:pointer;transition:all .15s;white-space:nowrap}
+  .tab:hover{border-color:#cfc6b6}
+  .tab.active{color:#fff;border-color:transparent}
+  .tab[data-c=retrieval].active{background:var(--retrieval)}
+  .tab[data-c=grundlagen].active{background:var(--grundlagen)}
+  .tab[data-c=klinik].active{background:var(--klinik)}
+  .tab[data-c=diagnostik].active{background:var(--diagnostik)}
+  .tab[data-c=therapie].active{background:var(--therapie)}
+  .tab[data-c=fragen].active{background:var(--fragen)}
+  .tab[data-c=perlen].active{background:var(--perlen)}
+  .tab[data-c=protokoll].active{background:var(--protokoll)}
+  .tab .badge{display:none;margin-left:7px;font-size:10px;font-weight:800;padding:1px 6px;border-radius:999px;vertical-align:middle}
+  .tab.flag-gap .badge{display:inline-block;background:var(--gap);color:#fff}
+  .tab.flag-ok .badge{display:inline-block;background:var(--ok);color:#fff}
+  .tab.active .badge{background:rgba(255,255,255,.28)!important;color:#fff}
+
+  .panel{display:none;animation:fade .25s ease}
+  .panel.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+  .panel-intro{font-family:'Fraunces',serif;font-style:italic;font-size:17px;color:var(--muted);margin:6px 0 18px;line-height:1.5}
+
+  /* ---- control bar (Pass 1 instrument) ---- */
+  .ctrl{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:14px 16px;margin-bottom:20px}
+  .ctrl-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+  .tally{font-size:13px;font-weight:700;display:flex;gap:12px;flex-wrap:wrap}
+  .tally i{font-style:normal;display:inline-flex;align-items:center;gap:5px}
+  .tally i::before{content:"";width:9px;height:9px;border-radius:50%}
+  .tally .t-ok::before{background:var(--ok)} .tally .t-gap::before{background:var(--gap)} .tally .t-miss::before{background:var(--miss)}
+  .spacer{flex:1 1 auto}
+  .btn{font-family:'Manrope';font-size:12.5px;font-weight:700;border:none;border-radius:999px;padding:9px 16px;cursor:pointer;transition:.15s}
+  .btn-primary{background:var(--retrieval);color:#fff}
+  .btn-primary:hover{filter:brightness(1.06)}
+  .btn-ghost{background:transparent;color:var(--muted);border:1px solid var(--line)}
+  .btn-ghost:hover{border-color:#cfc6b6}
+  .ctrl-status{margin-top:11px;font-size:13px;font-style:italic;color:var(--retrieval);min-height:18px}
+
+  /* ---- retrieval prompt ---- */
+  .rt{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:14px;transition:border-color .2s}
+  .rt[data-score=sicher]{border-left-color:var(--ok)}
+  .rt[data-score=lueckenhaft]{border-left-color:var(--gap)}
+  .rt[data-score=gefehlt]{border-left-color:var(--miss)}
+  .rt-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:8px}
+  .rt-n{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--retrieval)}
+  .rt-right{display:flex;align-items:center;gap:10px;white-space:nowrap}
+  .rt-ptr{font-size:11px;font-weight:600;color:var(--muted)}
+  .rt-q{font-size:15.5px;line-height:1.55}
+  .reveal{margin-top:12px;border-top:1px dashed var(--line);padding-top:0}
+  .reveal>summary{list-style:none;cursor:pointer;font-size:12.5px;font-weight:800;letter-spacing:.04em;color:var(--retrieval);padding:11px 0 0;user-select:none;display:inline-flex;align-items:center;gap:6px}
+  .reveal>summary::-webkit-details-marker{display:none}
+  .reveal>summary::before{content:"▸";transition:transform .2s;display:inline-block}
+  .reveal[open]>summary::before{transform:rotate(90deg)}
+  .reveal .ans{font-size:14.5px;line-height:1.6;color:#3c372f;padding-top:10px}
+  .reveal .ans b{color:var(--ink)}
+  .reveal .ans ul{list-style:none;padding-left:2px;margin:2px 0 0}
+  .reveal .ans li{position:relative;padding-left:18px;margin-bottom:8px;line-height:1.5}
+  .reveal .ans>ul>li::before{content:"";position:absolute;left:2px;top:8px;width:6px;height:6px;border-radius:50%;background:var(--retrieval)}
+  .reveal .ans li ul{margin:7px 0 2px}
+  .reveal .ans li li{padding-left:16px;margin-bottom:5px;font-size:13.8px;color:#4a443c}
+  .reveal .ans li li::before{content:"";position:absolute;left:0;top:7px;width:5px;height:5px;transform:rotate(45deg);background:#b9b0a1}
+  .score{display:flex;gap:7px;margin-top:12px;padding-top:11px;border-top:1px solid var(--line)}
+  .sbtn{flex:1;font-size:12px;font-weight:700;border:1px solid var(--line);background:var(--bg);color:var(--muted);border-radius:8px;padding:7px 4px;cursor:pointer;transition:.12s}
+  .sbtn:hover{border-color:#cfc6b6}
+  .sbtn[data-v=sicher].on{background:var(--ok);color:#fff;border-color:transparent}
+  .sbtn[data-v=lueckenhaft].on{background:var(--gap);color:#fff;border-color:transparent}
+  .sbtn[data-v=gefehlt].on{background:var(--miss);color:#fff;border-color:transparent}
+
+  /* ---- Schnellfragen ---- */
+  .sf-wrap{background:var(--retrieval-t);border:1px solid #BFE0DC;border-radius:13px;padding:18px 20px;margin-top:24px}
+  .sf-wrap h3{font-family:'Fraunces',serif;font-weight:500;font-size:20px;margin-bottom:3px}
+  .sf-wrap .sf-intro{font-size:13.5px;font-style:italic;color:#0c5d57;margin-bottom:14px}
+  .sf{border-bottom:1px solid #cfe4e1;padding:9px 0}
+  .sf:last-child{border-bottom:none}
+  .sf>summary{list-style:none;cursor:pointer;font-size:14.5px;font-weight:600;display:flex;justify-content:space-between;gap:10px;user-select:none}
+  .sf>summary::-webkit-details-marker{display:none}
+  .sf>summary::after{content:"+";color:var(--retrieval);font-weight:800}
+  .sf[open]>summary::after{content:"−"}
+  .sf .sfa{font-size:14px;color:#0c5d57;font-weight:700;padding-top:6px}
+
+  /* ---- content cards (v1) ---- */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:14px;overflow:hidden}
+  .card>summary{list-style:none;cursor:pointer;padding:18px 20px;display:flex;align-items:flex-start;gap:14px;user-select:none}
+  .card>summary::-webkit-details-marker{display:none}
+  .card .ct{flex:1}
+  .card .ctag{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:5px}
+  .card .ctitle{font-family:'Fraunces',serif;font-weight:500;font-size:17px;line-height:1.25}
+  .plus{flex:none;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:18px;line-height:1;transition:transform .2s;margin-top:2px}
+  .card[open] .plus{transform:rotate(45deg)}
+  .card .body{padding:0 20px 20px;border-top:1px solid var(--line);margin-top:-2px;padding-top:16px}
+  .card.grundlagen .ctag{color:var(--grundlagen)} .card.grundlagen .plus{background:var(--grundlagen-t);color:var(--grundlagen)}
+  .card.klinik .ctag{color:var(--klinik)} .card.klinik .plus{background:var(--klinik-t);color:var(--klinik)}
+  .card.diagnostik .ctag{color:var(--diagnostik)} .card.diagnostik .plus{background:var(--diagnostik-t);color:var(--diagnostik)}
+  .card.therapie .ctag{color:var(--therapie)} .card.therapie .plus{background:var(--therapie-t);color:var(--therapie)}
+  .card.fragen .ctag{color:var(--fragen)} .card.fragen .plus{background:var(--fragen-t);color:var(--fragen)}
+  .card.perlen .ctag{color:var(--perlen)} .card.perlen .plus{background:var(--perlen-t);color:var(--perlen)}
+
+  ul.b{list-style:none;padding-left:2px}
+  ul.b>li{position:relative;padding-left:20px;margin-bottom:8px;line-height:1.55}
+  ul.b>li::before{content:"";position:absolute;left:2px;top:9px;width:7px;height:7px;border-radius:50%}
+  .grundlagen ul.b>li::before{background:var(--grundlagen)} .klinik ul.b>li::before{background:var(--klinik)}
+  .diagnostik ul.b>li::before{background:var(--diagnostik)} .therapie ul.b>li::before{background:var(--therapie)}
+  ul.b ul{list-style:none;padding-left:18px;margin-top:7px}
+  ul.b ul>li{position:relative;padding-left:18px;margin-bottom:6px;font-size:15px;color:#4a443c}
+  ul.b ul>li::before{content:"";position:absolute;left:0;top:7px;width:6px;height:6px;transform:rotate(45deg);background:#b9b0a1}
+  strong{font-weight:700;color:var(--ink)}
+
+  .callout{border-radius:11px;padding:13px 16px;margin:14px 0;font-size:14.5px;line-height:1.55;border-left:4px solid}
+  .callout .lab{font-weight:800;font-size:11px;letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .critical{background:var(--grundlagen-t);border-color:var(--grundlagen)} .critical .lab{color:var(--grundlagen)}
+  .warning{background:var(--klinik-t);border-color:var(--klinik)} .warning .lab{color:var(--klinik)}
+  .fact{background:var(--diagnostik-t);border-color:var(--diagnostik)} .fact .lab{color:var(--diagnostik)}
+
+  .dd{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+  .dd th,.dd td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+  .dd th{background:var(--diagnostik-t);font-weight:700;color:var(--diagnostik);font-size:12px}
+  .dd td:first-child{font-weight:600}
+
+  .pk{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:16px}
+  .pk-meta{display:flex;flex-wrap:wrap;gap:6px 0;font-size:11.5px;font-weight:700;color:var(--protokoll);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+  .pk-meta span:not(:last-child)::after{content:"•";margin:0 8px;color:#c3c9d2}
+  .pk-badge{display:inline-block;background:var(--therapie-t);color:var(--therapie);font-size:10.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:2px 9px;border-radius:999px;margin-left:auto}
+  .pk-akte{font-size:14.5px;line-height:1.58;background:var(--protokoll-t);border-radius:9px;padding:12px 14px;margin-bottom:12px}
+  .pk-akte .lab,.pk-q .lab{font-weight:800;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--protokoll);display:block;margin-bottom:5px}
+  .pk-q ul{list-style:none;padding:0}
+  .pk-q li{position:relative;padding-left:18px;margin-bottom:7px;font-size:14.5px;line-height:1.5}
+  .pk-q li::before{content:"–";position:absolute;left:0;color:var(--protokoll);font-weight:700}
+  .pq{border-top:1px solid var(--line);padding:10px 0}
+  .pq-frage{position:relative;padding-left:18px;font-size:14.5px;font-weight:600;line-height:1.5}
+  .pq-frage::before{content:"–";position:absolute;left:0;color:var(--protokoll);font-weight:700}
+  .pq .reveal{margin-top:5px;border-top:none;padding-top:0}
+  .pq .reveal>summary{padding:5px 0 0}
+
+  .pearl{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--perlen);border-radius:12px;padding:16px 18px;margin-bottom:13px}
+  .pearl .ph{font-weight:800;font-size:13px;color:var(--perlen);margin-bottom:7px}
+  .pearl .pt{font-size:15px;line-height:1.55}
+  .pearl .mn{margin-top:9px;background:var(--perlen-t);border-radius:8px;padding:8px 12px;font-size:13.5px;font-style:italic;color:#7a5c08}
+  .pearl .mn b{font-style:normal;font-weight:800}
+
+  footer{margin-top:40px;padding-top:22px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted);line-height:1.6}
+  .back{display:inline-block;font-family:Manrope,system-ui,sans-serif;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);text-decoration:none;margin-bottom:18px}
+  .back:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a href="../../index.html" class="back">← Zurück zur Library</a>
+
+  <header>
+    <div class="eyebrow">Drittes Fach · R3 · Kurz + KP-Perlen + Protokolle</div>
+    <h1>Impfungen / <span class="accent">STIKO</span></h1>
+    <div class="subtitle">Wer empfiehlt, aktiv vs. passiv, der Impfkalender und die vier Stufen vom Impfschaden — plus das Tetanus-Schema bei Verletzung. Vier Stationen + KP-Perlen + die echten Mainz-Protokollfragen.</div>
+    <div class="meta"><span>R3 · 6 Tabs · Kurz + KP-Perlen + Protokolle</span><span>~22 Min</span><span>Stand 06/2026</span><span>Mainz-Protokolle 2024–2026</span></div>
+  </header>
+
+  <div class="tabs">
+    <button class="tab active" data-c="grundlagen" data-tab="grundlagen">STIKO</button>
+    <button class="tab" data-c="klinik" data-tab="klinik">Kalender</button>
+    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Schäden</button>
+    <button class="tab" data-c="therapie" data-tab="therapie">Recht</button>
+    <button class="tab" data-c="perlen" data-tab="perlen">KP-Perlen</button>
+    <button class="tab" data-c="protokoll" data-tab="protokoll">Fragen &amp; Protokolle</button>
+  </div>
+  <section class="panel active" data-panel="grundlagen">
+    <p class="panel-intro">Wer empfiehlt, welche Impfarten.</p>
+    <details class="card grundlagen" open><summary><span class="ct"><span class="ctag">&#9733; Anker</span><span class="ctitle">STIKO &mdash; und die Abgrenzung zum RKI</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">&#9733; Merksatz</span><strong>STIKO = unabh&auml;ngiges, gesetzlich verankertes Gremium am RKI, das die Impfempfehlungen erstellt.</strong> Ihre Empfehlungen sind medizinischer Standard und Grundlage der Kosten&uuml;bernahme durch die GKV. Aktualisierung etwa <em>jährlich</em>.</div>
+        <table class="dd">
+          <tr><th></th><th>RKI</th><th>STIKO</th></tr>
+          
+            <tr><td><strong>Was</strong></td><td>staatliche Bundesbeh&ouml;rde</td><td>unabh&auml;ngiges Expertengremium (am RKI)</td></tr>
+            <tr><td><strong>Aufgabe</strong></td><td>Krankheits&uuml;berwachung, Pr&auml;vention, Meldewesen (IfSG)</td><td>nur Impfempfehlungen + Impfkalender</td></tr>
+          
+        </table>
+        <div class="callout fact"><span class="lab">&#9881; Merke</span>Die <strong>SIKO</strong> (Sächsische Impfkommission) gibt eigene, teils weitergehende Empfehlungen f&uuml;r Sachsen.</div>
+      </div>
+    </details>
+    <details class="card grundlagen"><summary><span class="ct"><span class="ctag">&#9733; Impfarten</span><span class="ctitle">Aktiv &middot; passiv &middot; simultan &mdash; Lebend vs. Tot</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">&#9733; Merksatz</span><strong>Aktiv = Erreger(-teile) &rarr; eigene Antik&ouml;rper (l&auml;ngerfristig). Passiv = fertige Antik&ouml;rper (sofort, kurz). Simultan = beides gleichzeitig (z. B. Tetanus bei Verletzung).</strong></div>
+        <table class="dd">
+          <tr><th>Lebendimpfstoffe</th><th>Totimpfstoffe</th></tr>
+          
+            <tr><td>MMR (Masern, Mumps, R&ouml;teln)</td><td>Tetanus, Diphtherie, Pertussis</td></tr>
+            <tr><td>Varizellen, Rotavirus</td><td>Polio (IPV), Hib, Hepatitis A/B</td></tr>
+            <tr><td>Gelbfieber, Typhus (oral)</td><td>Influenza (i.m.), Pneumokokken, HPV</td></tr>
+          
+        </table>
+        <div class="callout warning"><span class="lab">&#9888; Lebendimpfstoff-Cave</span><strong>In der Schwangerschaft und bei schwerer Immunsuppression kontraindiziert.</strong> Zwei Lebendimpfungen: gleichzeitig oder im Abstand von &ge; 4 Wochen.</div>
+      </div>
+    </details>
+  </section>
+  <section class="panel" data-panel="klinik">
+    <p class="panel-intro">Kinder, Erwachsene, ab 60.</p>
+    <details class="card klinik" open><summary><span class="ct"><span class="ctag">&#9733; Anker</span><span class="ctitle">Grundimmunisierung (Kind)</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">&#9733; Merksatz</span><strong>6-fach-Impfstoff (Diphtherie, Tetanus, Pertussis, Polio, Hib, Hepatitis B) ab dem 2. Lebensmonat im 2+1-Schema (2, 4, 11 Monate).</strong></div>
+        <table class="dd">
+          <tr><th>Impfung</th><th>Alter</th></tr>
+          
+            <tr><td><strong>6-fach</strong> (D/T/aP/IPV/Hib/HepB)</td><td>2 &middot; 4 &middot; 11 Monate</td></tr>
+            <tr><td><strong>Pneumokokken</strong></td><td>2 &middot; 4 &middot; 11 Monate</td></tr>
+            <tr><td><strong>Rotavirus</strong> (oral, Lebend)</td><td>ab 6 Wochen</td></tr>
+            <tr><td><strong>MMR + Varizellen</strong> (Lebend)</td><td>11 &middot; 15 Monate</td></tr>
+            <tr><td><strong>Meningokokken C/B</strong></td><td>1. Lebensjahr</td></tr>
+            <tr><td><strong>HPV</strong></td><td>9&ndash;14 Jahre</td></tr>
+          
+        </table>
+      </div>
+    </details>
+    <details class="card klinik"><summary><span class="ct"><span class="ctag">&#9733; Erwachsene</span><span class="ctitle">Auffrischung + Impfungen ab 60</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">&#9733; Merksatz</span><strong>Tetanus/Diphtherie/Pertussis-Auffrischung alle 10 Jahre. Ab 60: Herpes zoster (Totimpfstoff, 2&times;), Pneumokokken, Influenza (jährlich), COVID-19 &mdash; RSV ab 75.</strong></div>
+        <ul class="b">
+          <li><strong>Td/Tdap:</strong> alle 10 Jahre; bei Verletzung ggf. Auffrischung + Simultanimpfung (Tetanus-Immunglobulin)</li>
+          <li><strong>Reiseimpfungen:</strong> Hepatitis A, Meningokokken (4-fach ACWY), Gelbfieber; + Malaria-Prophylaxe (keine Impfung)</li>
+          <li><strong>Titer</strong> bei unklarer Immunit&auml;t: Tetanus-AK, Diphtherie-AK, R&ouml;teln (HAH-Titer), HBs-AK</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+  <section class="panel" data-panel="diagnostik">
+    <p class="panel-intro">Die vier Stufen — der Klassiker.</p>
+    <details class="card diagnostik" open><summary><span class="ct"><span class="ctag">&#9733; Anker</span><span class="ctitle">Impfreaktion &middot; -krankheit &middot; -komplikation &middot; -schaden</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">&#9733; Merksatz</span><strong>Reaktion + Krankheit = NICHT meldepflichtig. Ab der Komplikation MELDEPFLICHTIG. Impfschaden = bleibende gesundheitliche UND wirtschaftliche Folge &rarr; Entsch&auml;digungsanspruch.</strong></div>
+        <table class="dd">
+          <tr><th>Stufe</th><th>Beispiel</th><th>Meldung?</th></tr>
+          
+            <tr><td><strong>Impfreaktion</strong></td><td>R&ouml;tung, Schwellung, Schmerz, leichtes Fieber</td><td><span style="color:#2D7A3E;font-weight:700">nein</span></td></tr>
+            <tr><td><strong>Impfkrankheit</strong></td><td>Impfmasern-Exanthem, Arthralgie nach MMR</td><td><span style="color:#2D7A3E;font-weight:700">nein</span></td></tr>
+            <tr><td><strong>Impfkomplikation</strong></td><td>Fieberkrampf, allergische Reaktion / Anaphylaxie</td><td><span style="color:#C0392B;font-weight:700">JA</span></td></tr>
+            <tr><td><strong>Impfschaden</strong></td><td>dauerhafte gesundheitl. + wirtschaftl. Folge</td><td><span style="color:#C0392B;font-weight:700">JA (namentlich)</span></td></tr>
+          
+        </table>
+        <div class="callout fact"><span class="lab">&#9881; Eselsbr&uuml;cke</span><strong>Reaktion</strong> = erwartet/harmlos &middot; <strong>Krankheit</strong> = abgeschw&auml;chte Form (v. a. Lebendimpfstoff) &middot; <strong>Komplikation</strong> = &uuml;ber das &uuml;bliche Ma&szlig; hinaus &middot; <strong>Schaden</strong> = bleibend.</div>
+      </div>
+    </details>
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">&#9733; Meldeweg</span><span class="ctitle">Wer meldet wohin?</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">&#9733; Merksatz</span><strong>Der impfende/feststellende Arzt meldet den Verdacht einer &uuml;ber das &uuml;bliche Ma&szlig; hinausgehenden Reaktion <em>namentlich</em> ans Gesundheitsamt (&sect; 6 IfSG); das Gesundheitsamt leitet an das Paul-Ehrlich-Institut (PEI) weiter.</strong></div>
+        <ul class="b">
+          <li>Meldefrist: unverz&uuml;glich, sp&auml;testens binnen 24 h</li>
+          <li>PEI = Bundesoberbeh&ouml;rde f&uuml;r Impfstoffe/Sera, sammelt + bewertet Verdachtsf&auml;lle</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+  <section class="panel" data-panel="therapie">
+    <p class="panel-intro">Wann nicht impfen, Entschädigung.</p>
+    <details class="card therapie" open><summary><span class="ct"><span class="ctag">&#9733; Anker</span><span class="ctitle">Kontraindikationen &mdash; wann NICHT impfen</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">&#9733; Merksatz</span><strong>Echte KI: akute behandlungsbed&uuml;rftige Erkrankung mit Fieber &gt; 38,5 &deg;C, Allergie gegen Impfstoffbestandteil, Lebendimpfstoff bei Schwangerschaft / schwerer Immunsuppression.</strong></div>
+        <div class="callout warning"><span class="lab">&#9888; KEINE Kontraindikation (h&auml;ufige Irrt&uuml;mer)</span>Banaler Infekt (auch mit subfebriler Temp.), Antibiotikatherapie, Stillzeit, Fr&uuml;hgeburtlichkeit, chronische Erkrankungen, Allergien (au&szlig;er gegen Bestandteil), Familienanamnese.</div>
+      </div>
+    </details>
+    <details class="card therapie"><summary><span class="ct"><span class="ctag">&#9733; Entsch&auml;digung</span><span class="ctitle">Anspruch bei Impfschaden</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">&#9733; Merksatz</span><strong>Bei einem Impfschaden nach &ouml;ffentlich empfohlener Impfung besteht Anspruch auf staatliche Versorgung (soziale Entsch&auml;digung).</strong> Antrag beim <em>Versorgungsamt</em>; Rechtsgrundlage seit 2024 das SGB XIV (zuvor BSeuchG/IfSG &sect; 60).</div>
+        <ul class="b">
+          <li>Grund: Der Staat hat die Impfung empfohlen &rarr; <strong>Staatshaftung / soziale Entsch&auml;digung</strong> (keine Verschuldenshaftung des Arztes n&ouml;tig)</li>
+          <li>Leistungen: Heilbehandlung, Rente, ggf. wirtschaftliche Ausgleichszahlungen</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+  <section class="panel" data-panel="perlen">
+    <div class="pearl"><div class="ph">⭐ Perle 1 · STIKO vs. RKI</div><div class="pt"><strong>STIKO empfiehlt, RKI &uuml;berwacht.</strong> Die STIKO ist ein unabh&auml;ngiges Gremium am RKI; ihre Empfehlungen sind Grundlage der GKV-Kosten&uuml;bernahme.</div><div class="mn"><b>Merke:</b> „STIKO sagt was, RKI z&auml;hlt mit“</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 2 · Vier Stufen</div><div class="pt"><strong>Reaktion &rarr; Krankheit &rarr; Komplikation &rarr; Schaden.</strong> Ab der Komplikation wird gemeldet; der Schaden ist bleibend + entsch&auml;digungspflichtig.</div><div class="mn"><b>Merke:</b> „Ab Komplikation meldepflichtig“</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 3 · Meldeweg</div><div class="pt">Verdacht &uuml;ber das &uuml;bliche Ma&szlig; hinaus &rarr; <strong>namentlich ans Gesundheitsamt</strong> (&sect; 6 IfSG), das an das <strong>PEI</strong> weiterleitet.</div><div class="mn"><b>Merke:</b> „Arzt &rarr; Gesundheitsamt &rarr; PEI“</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 4 · Lebendimpfstoff-Cave</div><div class="pt"><strong>Keine Lebendimpfung in der Schwangerschaft oder bei schwerer Immunsuppression.</strong> Zwei Lebendimpfungen gleichzeitig oder im Abstand &ge; 4 Wochen.</div><div class="mn"><b>Merke:</b> „Lebend nicht in SS, nicht bei Immunschw&auml;che“</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 5 · Keine KI</div><div class="pt"><strong>Banaler Infekt, Antibiotika, Stillzeit, chronische Erkrankung sind KEINE Kontraindikation.</strong> Echte KI: Fieber &gt; 38,5 &deg;C, Allergie gegen Bestandteil.</div><div class="mn"><b>Merke:</b> „Schnupfen ist kein Impfstopp“</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 6 · Ab 60</div><div class="pt"><strong>Herpes zoster (2&times;), Pneumokokken, Influenza, COVID-19</strong> &mdash; <strong>RSV ab 75</strong>.</div><div class="mn"><b>Merke:</b> „Zoster, Pneumo, Grippe, Corona &ndash; RSV erst ab 75“</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 7 · Grundimmunisierung</div><div class="pt"><strong>6-fach</strong> (D/T/aP/IPV/Hib/HepB) im 2+1-Schema mit 2, 4 und 11 Monaten; MMR + Varizellen mit 11 und 15 Monaten.</div><div class="mn"><b>Merke:</b> „6-fach: 2 &ndash; 4 &ndash; 11“</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 8 · Entsch&auml;digung</div><div class="pt">Impfschaden nach &ouml;ffentlich empfohlener Impfung &rarr; <strong>Versorgungsamt</strong>, soziale Entsch&auml;digung nach <strong>SGB XIV</strong> (Staatshaftung).</div><div class="mn"><b>Merke:</b> „Versorgungsamt zahlt den Impfschaden“</div></div>
+    <div class="sf-wrap">
+      <h3>Rapid-Fire</h3>
+      <div class="sf-intro">Atomare Einzelfakten — Ein-Wort-Abruf. Laut, sofort, dann aufdecken.</div>
+      <details class="sf"><summary>Zuständig für Impfempfehlungen?</summary><div class="sfa">STIKO (am RKI)</div></details>
+      <details class="sf"><summary>STIKO vs. RKI?</summary><div class="sfa">STIKO empfiehlt, RKI überwacht</div></details>
+      <details class="sf"><summary>Wie oft aktualisiert die STIKO?</summary><div class="sfa">etwa jährlich</div></details>
+      <details class="sf"><summary>Aktive Immunisierung?</summary><div class="sfa">Antigen → eigene Antikörper (langfristig)</div></details>
+      <details class="sf"><summary>Passive Immunisierung?</summary><div class="sfa">fertige Antikörper (sofort, kurz)</div></details>
+      <details class="sf"><summary>Simultanimpfung?</summary><div class="sfa">aktiv + passiv gleichzeitig (z. B. Tetanus bei Verletzung)</div></details>
+      <details class="sf"><summary>Lebendimpfstoffe — Beispiele?</summary><div class="sfa">MMR, Varizellen, Rotavirus, Gelbfieber</div></details>
+      <details class="sf"><summary>Totimpfstoffe — Beispiele?</summary><div class="sfa">Tetanus, Polio (IPV), Hepatitis B, HPV, Influenza i.m.</div></details>
+      <details class="sf"><summary>Lebendimpfstoff — Kontraindikation?</summary><div class="sfa">Schwangerschaft, schwere Immunsuppression</div></details>
+      <details class="sf"><summary>Abstand zweier Lebendimpfungen?</summary><div class="sfa">gleichzeitig oder ≥ 4 Wochen</div></details>
+      <details class="sf"><summary>6-fach-Impfstoff — welche?</summary><div class="sfa">Diphtherie, Tetanus, Pertussis, Polio, Hib, Hepatitis B</div></details>
+      <details class="sf"><summary>6-fach — Schema?</summary><div class="sfa">2, 4, 11 Monate (2+1)</div></details>
+      <details class="sf"><summary>Impfungen ab 60?</summary><div class="sfa">Herpes zoster, Pneumokokken, Influenza, COVID (RSV ab 75)</div></details>
+      <details class="sf"><summary>Td/Tdap-Auffrischung?</summary><div class="sfa">alle 10 Jahre</div></details>
+      <details class="sf"><summary>Ab welcher Stufe meldepflichtig?</summary><div class="sfa">ab der Impfkomplikation</div></details>
+      <details class="sf"><summary>Wer meldet wohin?</summary><div class="sfa">Arzt → Gesundheitsamt (§ 6 IfSG) → PEI</div></details>
+      <details class="sf"><summary>Echte Kontraindikation?</summary><div class="sfa">Fieber &gt; 38,5 °C, Allergie gegen Bestandteil, Lebend bei SS/Immunsuppression</div></details>
+      <details class="sf"><summary>Banaler Infekt — Kontraindikation?</summary><div class="sfa">nein</div></details>
+      <details class="sf"><summary>Impfschaden — wo Antrag?</summary><div class="sfa">Versorgungsamt (SGB XIV)</div></details>
+      <details class="sf"><summary>Tetanus-Immunglobulin — was ist das?</summary><div class="sfa">ein Blutprodukt (Aufklärung + Dokumentation)</div></details>
+      <details class="sf"><summary>Masernschutzgesetz?</summary><div class="sfa">Nachweispflicht für Kita/Schule/Einrichtungen</div></details>
+    </div>
+  </section>
+  <section class="panel" data-panel="protokoll">
+    <p class="panel-intro">Echte, dokumentierte Mainz-Fragen zu Impfungen — laut beantworten, dann aufdecken.</p>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · Pädiatrie / Innere</span><span>STIKO &amp; Impfarten</span><span class="pk-badge">Protokoll</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">Welche Behörde ist für Impfempfehlungen zuständig, und worin unterscheidet sie sich vom RKI?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Die STIKO, die Ständige Impfkommission, ein unabhängiges Gremium am Robert-Koch-Institut; sie erstellt die Impfempfehlungen und aktualisiert sie etwa jährlich. Das RKI selbst ist die staatliche Bundesbehörde für Krankheitsüberwachung und das Meldewesen.</div></details></div>
+      <div class="pq"><div class="pq-frage">Erklären Sie aktive, passive und Simultanimpfung sowie Lebend- und Totimpfstoff mit je einem Beispiel.</div><details class="reveal"><summary>Antwort</summary><div class="ans">Aktiv heißt, der Körper bildet nach Gabe von Erregerbestandteilen selbst Antikörper, zum Beispiel beim Tetanus-Toxoid. Passiv bedeutet die Gabe fertiger Antikörper, etwa Tetanus-Immunglobulin, sofort wirksam aber kurz. Simultan ist beides gleichzeitig, typisch bei der Verletzung. Lebendimpfstoffe sind zum Beispiel MMR und Varizellen, Totimpfstoffe Tetanus, Polio und Hepatitis B.</div></details></div>
+      <div class="pq"><div class="pq-frage">Gegen welche Hepatitiden gibt es eine Impfung, und wann wird gegen Hepatitis B geimpft?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Gegen Hepatitis A und Hepatitis B, und es gibt auch eine Kombinationsimpfung. Hepatitis B wird im Kindesalter als Teil des Sechsfach-Impfstoffs mit zwei, vier und elf Monaten geimpft.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · Chirurgie / Drittes Fach</span><span>Tetanus bei Verletzung — der Klassiker</span><span class="pk-badge">Protokoll</span></div>
+      <div class="pk-akte"><span class="lab">Akte</span>Ein Patient ist auf der Straße gestürzt und hat eine verschmutzte Schürfwunde; der Impfstatus ist unbekannt.</div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">Welche Impfung braucht dieser Patient, und was fragen Sie zuerst?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich frage nach dem Tetanus-Impfstatus. Bei unbekanntem oder unvollständigem Status und einer verschmutzten Wunde gebe ich eine Simultanimpfung: aktiv den Tetanus-Impfstoff und zusätzlich das Tetanus-Immunglobulin.</div></details></div>
+      <div class="pq"><div class="pq-frage">Was ist das Tetanus-Immunglobulin, und was müssen Sie dabei beachten?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Das Immunglobulin ist ein Blutprodukt. Deshalb muss ich den Patienten darüber aufklären und die Gabe dokumentieren.</div></details></div>
+      <div class="pq"><div class="pq-frage">Was fragen Sie außerdem, und was bedeutet das Stichwort Berufsgenossenschaft?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich frage, ob es ein Arbeitsunfall oder ein Wegeunfall war. Wenn ja, übernimmt die Berufsgenossenschaft über die gesetzliche Unfallversicherung die Kosten, und der Patient wird beim Durchgangsarzt vorgestellt.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · mehrfach gefragt</span><span>Impfungen ab 60</span><span class="pk-badge">Protokoll</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">Welche Impfungen empfehlen Sie für Menschen über 60?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Herpes zoster als Totimpfstoff zweimal, Pneumokokken, jährlich die Influenza und COVID-19; RSV ab 75. Dazu die Auffrischung gegen Tetanus, Diphtherie und Pertussis alle zehn Jahre.</div></details></div>
+      <div class="pq"><div class="pq-frage">Warum bekommt auch ein Erwachsener die Pertussis-Komponente mit?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Nach der Kokon-Strategie: Geimpfte Erwachsene und enge Kontaktpersonen schützen die noch nicht geimpften Säuglinge, für die Keuchhusten besonders gefährlich ist.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · der Klassiker</span><span>Reaktion → Schaden &amp; Meldung</span><span class="pk-badge">Protokoll</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">Unterscheiden Sie Impfreaktion, Impfkomplikation und Impfschaden — was ist meldepflichtig?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Die Impfreaktion mit Lokalreaktion und leichtem Fieber und die Impfkrankheit, also eine abgeschwächte Form, sind nicht meldepflichtig. Die Impfkomplikation wie ein Fieberkrampf oder eine Anaphylaxie und der bleibende Impfschaden sind dagegen namentlich meldepflichtig.</div></details></div>
+      <div class="pq"><div class="pq-frage">Wer meldet an wen?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Der feststellende Arzt meldet den Verdacht namentlich an das Gesundheitsamt nach Paragraph sechs des Infektionsschutzgesetzes, und das Gesundheitsamt leitet die Meldung an das Paul-Ehrlich-Institut weiter.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · Allgemeinmedizin / Recht</span><span>KI · Masernschutzgesetz · Entschädigung</span><span class="pk-badge">Protokoll</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">Wann dürfen Sie nicht impfen?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Bei einer akuten behandlungsbedürftigen Erkrankung mit Fieber über 38,5 Grad, bei einer Allergie gegen einen Impfstoffbestandteil und mit Lebendimpfstoffen in der Schwangerschaft oder bei schwerer Immunsuppression. Ein banaler Infekt ist keine Kontraindikation.</div></details></div>
+      <div class="pq"><div class="pq-frage">Was ist das Masernschutzgesetz?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Es schreibt einen Nachweis der Masernimmunität für Kinder und Personal in Gemeinschaftseinrichtungen wie Kitas und Schulen sowie in medizinischen Einrichtungen vor. Es ist die einzige praktisch relevante Impfpflicht in Deutschland.</div></details></div>
+      <div class="pq"><div class="pq-frage">Ein Patient hat einen bleibenden Impfschaden — welchen Anspruch hat er, wo stellt er den Antrag, und wer entscheidet über den Grad?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Nach einer öffentlich empfohlenen Impfung hat er Anspruch auf staatliche Versorgung, eine soziale Entschädigung nach dem SGB vierzehn. Den Antrag stellt er beim Versorgungsamt; das Amt fordert die Befunde von den behandelnden Ärzten an und entscheidet selbst über den Grad der Schädigung, nicht der Arzt.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · Pädiatrie</span><span>Masern-Komplikation</span><span class="pk-badge">Protokoll</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">Was ist die wichtigste Spätkomplikation der Masern, und ist sie heilbar?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Die subakute sklerosierende Panenzephalitis, eine seltene, erst Jahre später auftretende Gehirnentzündung. Sie ist nicht heilbar und verläuft tödlich — ein wichtiges Argument für die Masernimpfung.</div></details></div>
+    </div>
+  </section>
+
+  <footer>
+    R3 · Impfungen / STIKO · Fragen &amp; Protokolle. Vier Kernstationen (wortgleich mit R2) + KP-Perlen mit Rapid-Fire + die echten dokumentierten Mainz-Fragen (STIKO, Impfarten, Tetanus bei Verletzung, ab 60, Impfschaden-Stufen, Recht). Quelle: Mainz-Protokolle 2024–2026.
+  </footer>
+
+</div>
+<script>
+  const tabs = [...document.querySelectorAll('.tab')];
+  const panels = [...document.querySelectorAll('.panel')];
+  function showTab(name){
+    tabs.forEach(x=>x.classList.toggle('active', x.dataset.tab===name));
+    panels.forEach(p=>p.classList.toggle('active', p.dataset.panel===name));
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  tabs.forEach(t=>t.addEventListener('click',()=>showTab(t.dataset.tab)));
+</script>
+</body>
+</html>
