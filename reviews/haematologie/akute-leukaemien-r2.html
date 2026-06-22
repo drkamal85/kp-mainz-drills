@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Akute Leukämien · R2 Review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F7F4EE; --card:#FFFDF8; --ink:#2A2724; --muted:#6B6358; --line:#E7E0D4;
+    --grundlagen:#C0392B; --grundlagen-t:#F7E9E6;
+    --klinik:#D97706;     --klinik-t:#FBEEDD;
+    --diagnostik:#1E5F9E; --diagnostik-t:#E4EDF6;
+    --therapie:#2D7A3E;   --therapie-t:#E5F0E7;
+    --fragen:#7B3F9E;     --fragen-t:#F0E8F6;
+    --perlen:#B8860B;     --perlen-t:#F8F0D9;
+    --retrieval:#0F766E;  --retrieval-t:#E0F0EE;
+    --protokoll:#334155;  --protokoll-t:#E8EBF0;
+    --ok:#2D7A3E; --gap:#D97706; --miss:#C0392B;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:'Manrope',system-ui,sans-serif;
+    font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased;padding:0 18px 80px}
+  .wrap{max-width:860px;margin:0 auto}
+
+  header{padding:54px 0 22px}
+  .eyebrow{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--retrieval);margin-bottom:16px}
+  h1{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(34px,7vw,52px);line-height:1.04;letter-spacing:-.01em}
+  h1 .accent{font-style:italic;color:var(--grundlagen)}
+  .subtitle{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(17px,2.6vw,20px);color:var(--muted);margin-top:14px}
+  .meta{display:flex;flex-wrap:wrap;gap:6px 0;margin-top:20px;font-size:13px;color:var(--muted);font-weight:500}
+  .meta span:not(:last-child)::after{content:"•";margin:0 10px;color:var(--line);font-weight:700}
+
+
+  .tabs{display:flex;flex-wrap:wrap;gap:8px;position:sticky;top:0;z-index:30;background:linear-gradient(var(--bg) 72%,rgba(247,244,238,0));padding:12px 0 14px;margin-bottom:6px}
+  .tab{position:relative;font-size:13px;font-weight:600;border:1px solid var(--line);background:var(--card);color:var(--muted);padding:8px 15px;border-radius:999px;cursor:pointer;transition:all .15s;white-space:nowrap}
+  .tab:hover{border-color:#cfc6b6}
+  .tab.active{color:#fff;border-color:transparent}
+  .tab[data-c=retrieval].active{background:var(--retrieval)}
+  .tab[data-c=grundlagen].active{background:var(--grundlagen)}
+  .tab[data-c=klinik].active{background:var(--klinik)}
+  .tab[data-c=diagnostik].active{background:var(--diagnostik)}
+  .tab[data-c=therapie].active{background:var(--therapie)}
+  .tab[data-c=fragen].active{background:var(--fragen)}
+  .tab[data-c=perlen].active{background:var(--perlen)}
+  .tab[data-c=protokoll].active{background:var(--protokoll)}
+  .tab .badge{display:none;margin-left:7px;font-size:10px;font-weight:800;padding:1px 6px;border-radius:999px;vertical-align:middle}
+  .tab.flag-gap .badge{display:inline-block;background:var(--gap);color:#fff}
+  .tab.flag-ok .badge{display:inline-block;background:var(--ok);color:#fff}
+  .tab.active .badge{background:rgba(255,255,255,.28)!important;color:#fff}
+
+  .panel{display:none;animation:fade .25s ease}
+  .panel.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+  .panel-intro{font-family:'Fraunces',serif;font-style:italic;font-size:17px;color:var(--muted);margin:6px 0 18px;line-height:1.5}
+
+  /* ---- control bar (Pass 1 instrument) ---- */
+  .ctrl{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:14px 16px;margin-bottom:20px}
+  .ctrl-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+  .tally{font-size:13px;font-weight:700;display:flex;gap:12px;flex-wrap:wrap}
+  .tally i{font-style:normal;display:inline-flex;align-items:center;gap:5px}
+  .tally i::before{content:"";width:9px;height:9px;border-radius:50%}
+  .tally .t-ok::before{background:var(--ok)} .tally .t-gap::before{background:var(--gap)} .tally .t-miss::before{background:var(--miss)}
+  .spacer{flex:1 1 auto}
+  .btn{font-family:'Manrope';font-size:12.5px;font-weight:700;border:none;border-radius:999px;padding:9px 16px;cursor:pointer;transition:.15s}
+  .btn-primary{background:var(--retrieval);color:#fff}
+  .btn-primary:hover{filter:brightness(1.06)}
+  .btn-ghost{background:transparent;color:var(--muted);border:1px solid var(--line)}
+  .btn-ghost:hover{border-color:#cfc6b6}
+  .ctrl-status{margin-top:11px;font-size:13px;font-style:italic;color:var(--retrieval);min-height:18px}
+
+  /* ---- retrieval prompt ---- */
+  .rt{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:14px;transition:border-color .2s}
+  .rt[data-score=sicher]{border-left-color:var(--ok)}
+  .rt[data-score=lueckenhaft]{border-left-color:var(--gap)}
+  .rt[data-score=gefehlt]{border-left-color:var(--miss)}
+  .rt-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:8px}
+  .rt-n{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--retrieval)}
+  .rt-right{display:flex;align-items:center;gap:10px;white-space:nowrap}
+  .rt-ptr{font-size:11px;font-weight:600;color:var(--muted)}
+  .rt-q{font-size:15.5px;line-height:1.55}
+  .reveal{margin-top:12px;border-top:1px dashed var(--line);padding-top:0}
+  .reveal>summary{list-style:none;cursor:pointer;font-size:12.5px;font-weight:800;letter-spacing:.04em;color:var(--retrieval);padding:11px 0 0;user-select:none;display:inline-flex;align-items:center;gap:6px}
+  .reveal>summary::-webkit-details-marker{display:none}
+  .reveal>summary::before{content:"▸";transition:transform .2s;display:inline-block}
+  .reveal[open]>summary::before{transform:rotate(90deg)}
+  .reveal .ans{font-size:14.5px;line-height:1.6;color:#3c372f;padding-top:10px}
+  .reveal .ans b{color:var(--ink)}
+  .reveal .ans ul{list-style:none;padding-left:2px;margin:2px 0 0}
+  .reveal .ans li{position:relative;padding-left:18px;margin-bottom:8px;line-height:1.5}
+  .reveal .ans>ul>li::before{content:"";position:absolute;left:2px;top:8px;width:6px;height:6px;border-radius:50%;background:var(--retrieval)}
+  .reveal .ans li ul{margin:7px 0 2px}
+  .reveal .ans li li{padding-left:16px;margin-bottom:5px;font-size:13.8px;color:#4a443c}
+  .reveal .ans li li::before{content:"";position:absolute;left:0;top:7px;width:5px;height:5px;transform:rotate(45deg);background:#b9b0a1}
+  .score{display:flex;gap:7px;margin-top:12px;padding-top:11px;border-top:1px solid var(--line)}
+  .sbtn{flex:1;font-size:12px;font-weight:700;border:1px solid var(--line);background:var(--bg);color:var(--muted);border-radius:8px;padding:7px 4px;cursor:pointer;transition:.12s}
+  .sbtn:hover{border-color:#cfc6b6}
+  .sbtn[data-v=sicher].on{background:var(--ok);color:#fff;border-color:transparent}
+  .sbtn[data-v=lueckenhaft].on{background:var(--gap);color:#fff;border-color:transparent}
+  .sbtn[data-v=gefehlt].on{background:var(--miss);color:#fff;border-color:transparent}
+
+  /* ---- Schnellfragen ---- */
+  .sf-wrap{background:var(--retrieval-t);border:1px solid #BFE0DC;border-radius:13px;padding:18px 20px;margin-top:24px}
+  .sf-wrap h3{font-family:'Fraunces',serif;font-weight:500;font-size:20px;margin-bottom:3px}
+  .sf-wrap .sf-intro{font-size:13.5px;font-style:italic;color:#0c5d57;margin-bottom:14px}
+  .sf{border-bottom:1px solid #cfe4e1;padding:9px 0}
+  .sf:last-child{border-bottom:none}
+  .sf>summary{list-style:none;cursor:pointer;font-size:14.5px;font-weight:600;display:flex;justify-content:space-between;gap:10px;user-select:none}
+  .sf>summary::-webkit-details-marker{display:none}
+  .sf>summary::after{content:"+";color:var(--retrieval);font-weight:800}
+  .sf[open]>summary::after{content:"−"}
+  .sf .sfa{font-size:14px;color:#0c5d57;font-weight:700;padding-top:6px}
+
+  /* ---- content cards (v1) ---- */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:14px;overflow:hidden}
+  .card>summary{list-style:none;cursor:pointer;padding:18px 20px;display:flex;align-items:flex-start;gap:14px;user-select:none}
+  .card>summary::-webkit-details-marker{display:none}
+  .card .ct{flex:1}
+  .card .ctag{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:5px}
+  .card .ctitle{font-family:'Fraunces',serif;font-weight:500;font-size:17px;line-height:1.25}
+  .plus{flex:none;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:18px;line-height:1;transition:transform .2s;margin-top:2px}
+  .card[open] .plus{transform:rotate(45deg)}
+  .card .body{padding:0 20px 20px;border-top:1px solid var(--line);margin-top:-2px;padding-top:16px}
+  .card.grundlagen .ctag{color:var(--grundlagen)} .card.grundlagen .plus{background:var(--grundlagen-t);color:var(--grundlagen)}
+  .card.klinik .ctag{color:var(--klinik)} .card.klinik .plus{background:var(--klinik-t);color:var(--klinik)}
+  .card.diagnostik .ctag{color:var(--diagnostik)} .card.diagnostik .plus{background:var(--diagnostik-t);color:var(--diagnostik)}
+  .card.therapie .ctag{color:var(--therapie)} .card.therapie .plus{background:var(--therapie-t);color:var(--therapie)}
+  .card.fragen .ctag{color:var(--fragen)} .card.fragen .plus{background:var(--fragen-t);color:var(--fragen)}
+  .card.perlen .ctag{color:var(--perlen)} .card.perlen .plus{background:var(--perlen-t);color:var(--perlen)}
+
+  ul.b{list-style:none;padding-left:2px}
+  ul.b>li{position:relative;padding-left:20px;margin-bottom:8px;line-height:1.55}
+  ul.b>li::before{content:"";position:absolute;left:2px;top:9px;width:7px;height:7px;border-radius:50%}
+  .grundlagen ul.b>li::before{background:var(--grundlagen)} .klinik ul.b>li::before{background:var(--klinik)}
+  .diagnostik ul.b>li::before{background:var(--diagnostik)} .therapie ul.b>li::before{background:var(--therapie)}
+  ul.b ul{list-style:none;padding-left:18px;margin-top:7px}
+  ul.b ul>li{position:relative;padding-left:18px;margin-bottom:6px;font-size:15px;color:#4a443c}
+  ul.b ul>li::before{content:"";position:absolute;left:0;top:7px;width:6px;height:6px;transform:rotate(45deg);background:#b9b0a1}
+  strong{font-weight:700;color:var(--ink)}
+
+  .callout{border-radius:11px;padding:13px 16px;margin:14px 0;font-size:14.5px;line-height:1.55;border-left:4px solid}
+  .callout .lab{font-weight:800;font-size:11px;letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .critical{background:var(--grundlagen-t);border-color:var(--grundlagen)} .critical .lab{color:var(--grundlagen)}
+  .warning{background:var(--klinik-t);border-color:var(--klinik)} .warning .lab{color:var(--klinik)}
+  .fact{background:var(--diagnostik-t);border-color:var(--diagnostik)} .fact .lab{color:var(--diagnostik)}
+
+  .dd{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+  .dd th,.dd td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+  .dd th{background:var(--diagnostik-t);font-weight:700;color:var(--diagnostik);font-size:12px}
+  .dd td:first-child{font-weight:600}
+
+  .pk{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:16px}
+  .pk-meta{display:flex;flex-wrap:wrap;gap:6px 0;font-size:11.5px;font-weight:700;color:var(--protokoll);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+  .pk-meta span:not(:last-child)::after{content:"•";margin:0 8px;color:#c3c9d2}
+  .pk-badge{display:inline-block;background:var(--therapie-t);color:var(--therapie);font-size:10.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:2px 9px;border-radius:999px;margin-left:auto}
+  .pk-akte{font-size:14.5px;line-height:1.58;background:var(--protokoll-t);border-radius:9px;padding:12px 14px;margin-bottom:12px}
+  .pk-akte .lab,.pk-q .lab{font-weight:800;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--protokoll);display:block;margin-bottom:5px}
+  .pk-q ul{list-style:none;padding:0}
+  .pk-q li{position:relative;padding-left:18px;margin-bottom:7px;font-size:14.5px;line-height:1.5}
+  .pk-q li::before{content:"–";position:absolute;left:0;color:var(--protokoll);font-weight:700}
+  .pq{border-top:1px solid var(--line);padding:10px 0}
+  .pq-frage{position:relative;padding-left:18px;font-size:14.5px;font-weight:600;line-height:1.5}
+  .pq-frage::before{content:"–";position:absolute;left:0;color:var(--protokoll);font-weight:700}
+  .pq .reveal{margin-top:5px;border-top:none;padding-top:0}
+  .pq .reveal>summary{padding:5px 0 0}
+
+  .pearl{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--perlen);border-radius:12px;padding:16px 18px;margin-bottom:13px}
+  .pearl .ph{font-weight:800;font-size:13px;color:var(--perlen);margin-bottom:7px}
+  .pearl .pt{font-size:15px;line-height:1.55}
+  .pearl .mn{margin-top:9px;background:var(--perlen-t);border-radius:8px;padding:8px 12px;font-size:13.5px;font-style:italic;color:#7a5c08}
+  .pearl .mn b{font-style:normal;font-weight:800}
+
+  footer{margin-top:40px;padding-top:22px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted);line-height:1.6}
+  .back{display:inline-block;font-family:Manrope,system-ui,sans-serif;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);text-decoration:none;margin-bottom:18px}
+  .back:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a href="../../index.html" class="back">← Zurück zur Library</a>
+
+  <header>
+    <div class="eyebrow">Hämatologie · R2 · Kurz + KP-Perlen</div>
+    <h1>Akute <span class="accent">Leukämien</span></h1>
+    <div class="subtitle">Blasten überschwemmen das Mark — die Panzytopenie-Trias, ≥ 20 % Blasten als Diagnose, AML vs. ALL und die onkologischen Notfälle. Vier Stationen + KP-Perlen.</div>
+    <div class="meta"><span>R2 · 5 Tabs · Kurz + KP-Perlen</span><span>~15 Min</span><span>Stand 06/2026</span><span>Stex + Mainz-Vorbereitung</span></div>
+  </header>
+
+  <div class="tabs">
+    <button class="tab active" data-c="grundlagen" data-tab="grundlagen">Grundlagen</button>
+    <button class="tab" data-c="klinik" data-tab="klinik">Klinik</button>
+    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik</button>
+    <button class="tab" data-c="therapie" data-tab="therapie">Therapie</button>
+    <button class="tab" data-c="perlen" data-tab="perlen">KP-Perlen</button>
+  </div>
+
+  <section class="panel active" data-panel="grundlagen">
+    <p class="panel-intro">Blasten überschwemmen das Mark.</p>
+    <details class="card grundlagen" open><summary><span class="ct"><span class="ctag">★ Anker</span><span class="ctitle">Was sind akute Leukämien? + AML vs. ALL</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Merksatz</span><strong>Maligne, klonale Vermehrung unreifer Vorläuferzellen (Blasten) im Knochenmark → Verdrängung der normalen Blutbildung → Knochenmarkinsuffizienz (Panzytopenie).</strong> Unbehandelt rasch tödlich.</div>
+        <table class="dd"><tr><th></th><th>AML</th><th>ALL</th></tr>
+          <tr><td><strong>Eselsbrücke</strong></td><td>M wie „mature" → Erwachsene</td><td>L wie „little" → Kinder</td></tr>
+          <tr><td><strong>Typisch</strong></td><td>Auerstäbchen</td><td>ZNS-/Hoden-/Thymusbefall</td></tr>
+          <tr><td><strong>Sonderform</strong></td><td>APL t(15;17) → DIC, ATRA</td><td>Ph⁺ ALL → + TKI (Imatinib)</td></tr>
+        </table>
+        <div class="callout fact"><span class="lab">⚙ Risikofaktoren</span>Ionisierende Strahlung, Benzol, frühere Chemo/Radiatio, <strong>Trisomie 21</strong>; sekundäre AML aus MDS/MPN.</div>
+      </div>
+    </details>
+  </section>
+
+  <section class="panel" data-panel="klinik">
+    <p class="panel-intro">Drei Zelllinien fallen aus.</p>
+    <details class="card klinik" open><summary><span class="ct"><span class="ctag">★ Anker</span><span class="ctitle">Panzytopenie-Trias + Notfall</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Merksatz (die Trias)</span>Symptome = Folge der Panzytopenie:<br><strong>Anämie</strong> → Müdigkeit/Blässe<br><strong>Thrombopenie</strong> → Blutungen (Petechien)<br><strong>Neutropenie</strong> → Infekte/Fieber</div>
+        <ul class="b">
+          <li>B-Symptomatik; <strong>Knochenschmerzen</strong> (Kinder wollen getragen werden)</li>
+          <li>Organinfiltration: Hepatosplenomegalie, indolente Lymphadenopathie</li>
+          <li><strong>Eher ALL:</strong> Meningeosis leucaemica (ZNS), Thymusinfiltration (Stridor)<br><strong>Monozytäre AML (M4/M5):</strong> Gingivahyperplasie</li>
+        </ul>
+        <div class="callout critical"><span class="lab">⚠ Notfall</span><strong>Fieber bei Neutropenie = febrile Neutropenie = Notfall → sofort Breitband-Antibiotika.</strong> Cave Leukostase (Leuko &gt; 100.000) + Tumorlysesyndrom.</div>
+      </div>
+    </details>
+  </section>
+
+  <section class="panel" data-panel="diagnostik">
+    <p class="panel-intro">≥ 20 % Blasten = die Diagnose.</p>
+    <details class="card diagnostik" open><summary><span class="ct"><span class="ctag">★ Anker</span><span class="ctitle">Blut + Knochenmark</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Knochenmarkpunktion beweist: ≥ 20 % Blasten.</strong> Auerstäbchen = AML. <strong>Immunphänotypisierung</strong> trennt AML von ALL; Zytogenetik/Molekulargenetik für Prognose + Therapie.</div>
+        <ul class="b">
+          <li><strong>Blutbild:</strong> Anämie + Thrombopenie + Blasten; Leukozyten variabel (normal / ↑ / ↓)</li>
+          <li><strong>Hiatus leucaemicus:</strong> Blasten + reife Zellen, aber KEINE Zwischenstufen — anders als die CML (kontinuierliche Linksverschiebung)</li>
+          <li>LDH ↑ + Harnsäure ↑ (Zellzerfall); Gerinnung (<strong>DIC bei APL!</strong>)</li>
+          <li><strong>Liquorpunktion immer bei ALL</strong> (ZNS-Befall)</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+
+  <section class="panel" data-panel="therapie">
+    <p class="panel-intro">Chemo in Phasen — und die Notfälle.</p>
+    <details class="card therapie" open><summary><span class="ct"><span class="ctag">★ Anker</span><span class="ctitle">Chemo in Phasen + Notfälle</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Merksatz</span>Kurative Intention: <strong>Polychemotherapie in Phasen — Induktion → Konsolidierung → (ALL: Erhaltung + intrathekale ZNS-Prophylaxe).</strong> Ziel: &lt; 5 % Blasten. Allogene Stammzelltransplantation bei Hochrisiko/Rezidiv.</div>
+        <div class="callout fact"><span class="lab">⚙ Zielgerichtet</span><strong>APL (t(15;17)) → ATRA + Arsentrioxid</strong> (beste Prognose der AML!).<br><strong>Ph⁺ ALL → zusätzlich TKI</strong> (Imatinib).</div>
+        <div class="callout critical"><span class="lab">⚠ Supportiv + Notfälle</span><strong>Febrile Neutropenie</strong> → sofort Breitband-Antibiotika<br><strong>Tumorlysesyndrom</strong> (K ↑, Phosphat ↑, Harnsäure ↑, Ca ↓) → Hydrierung + Allopurinol/Rasburicase<br>Transfusionen (EK / TK)<br>DIC bei APL</div>
+      </div>
+    </details>
+  </section>
+
+  <section class="panel" data-panel="perlen">
+    <div class="pearl"><div class="ph">⭐ Perle 1 · Die Panzytopenie-Trias erklärt die Klinik</div><div class="pt">Fast alle Symptome folgen aus dem Ausfall der drei Reihen: <strong>Anämie</strong> (Müdigkeit, Blässe), <strong>Thrombopenie</strong> (Petechien, Blutungen) und <strong>Neutropenie</strong> (Infekte, Fieber). Wer die Trias kennt, kann die Klinik herleiten statt sie auswendig zu lernen.</div><div class="mn"><b>Merke:</b> Drei leere Reihen — müde, blutet, fiebert.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 2 · ≥ 20 % Blasten = Diagnose</div><div class="pt">Die akute Leukämie ist über die <strong>Knochenmarkpunktion</strong> definiert: ab <strong>20 % Blasten</strong> im Mark. Darunter (z. B. 10–19 %) spricht man von einem myelodysplastischen Syndrom — die Schwelle ist die Lieblingszahl.</div><div class="mn"><b>Merke:</b> 20 Prozent Blasten — drunter MDS, drüber akute Leukämie.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 3 · Auerstäbchen = AML</div><div class="pt">Auerstäbchen sind <strong>pathognomonisch für die AML</strong> und kommen bei der ALL nie vor. Sieht man sie im Ausstrich, ist die Linie geklärt.</div><div class="mn"><b>Merke:</b> Auer — „A" wie myeloisch (AML).</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 4 · APL ist ein Notfall (ATRA + DIC)</div><div class="pt">Die akute Promyelozytenleukämie (AML mit <strong>t(15;17)</strong>) hat die beste Prognose der AML — wird aber durch eine <strong>DIC</strong> früh lebensbedrohlich. Therapie: <strong>ATRA + Arsentrioxid</strong>, sofort beginnen, Gerinnung engmaschig.</div><div class="mn"><b>Merke:</b> APL — beste Prognose, aber die DIC tötet zuerst.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 5 · Fieber bei Neutropenie = sofort Antibiotika</div><div class="pt">Dokumentierter Reflex: <strong>febrile Neutropenie</strong> ist ein onkologischer Notfall. Nach Abnahme von Kulturen wird <strong>sofort breit kalkuliert antibiotisch</strong> behandelt — nicht auf den Erreger warten.</div><div class="mn"><b>Merke:</b> Neutropen + Fieber = Antibiose in der ersten Stunde.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 6 · Tumorlysesyndrom</div><div class="pt">Beim Zellzerfall (oft mit Chemostart) steigen <strong>Kalium, Phosphat und Harnsäure</strong>, das <strong>Calcium fällt</strong> — Gefahr von Rhythmusstörung und Nierenversagen. Prophylaxe: <strong>Hydrierung + Allopurinol oder Rasburicase</strong>.</div><div class="mn"><b>Merke:</b> Hoch: Kalium, Phosphat, Harnsäure — runter: Calcium.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 7 · AML = Erwachsene, ALL = Kinder</div><div class="pt">Eselsbrücke: <strong>AML</strong> — „mature" → Erwachsene (median ~65–70 J.); <strong>ALL</strong> — „little" → Kinder. Die ALL ist das <strong>häufigste Malignom im Kindesalter</strong>.</div><div class="mn"><b>Merke:</b> M wie mature/Erwachsen, L wie little/Kind.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 8 · Ph⁺ ALL → zusätzlich TKI</div><div class="pt">Findet sich bei der ALL ein <strong>Philadelphia-Chromosom</strong> (t(9;22), BCR-ABL), wird die Chemotherapie um einen <strong>Tyrosinkinaseinhibitor</strong> (Imatinib) ergänzt. Dasselbe Chromosom kennt man von der CML.</div><div class="mn"><b>Merke:</b> Philadelphia → BCR-ABL → TKI dazu.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 9 · Hiatus leucaemicus vs. CML</div><div class="pt">Im Differenzialblutbild der AML finden sich <strong>Blasten und reife Zellen, aber keine Zwischenstufen</strong> (Hiatus leucaemicus). Die CML zeigt dagegen eine <strong>kontinuierliche Linksverschiebung</strong> über alle Reifungsstufen — ein klassischer DD-Punkt.</div><div class="mn"><b>Merke:</b> Akut = Lücke (Hiatus), chronisch = lückenlos.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 10 · ALL → immer an den Liquor denken</div><div class="pt">Die ALL befällt gern das ZNS (Meningeosis leucaemica). Deshalb gehören <strong>Liquorpunktion und intrathekale ZNS-Prophylaxe</strong> fest zum ALL-Konzept — bei der AML in der Regel nicht.</div><div class="mn"><b>Merke:</b> ALL geht ins Hirn — Liquor und intrathekale Prophylaxe.</div></div>
+    <div class="sf-wrap">
+      <h3>Rapid-Fire</h3>
+      <div class="sf-intro">Atomare Einzelfakten — Ein-Wort-Abruf. Laut, sofort, dann aufdecken.</div>
+      <details class="sf"><summary>Akute Leukämie — Definition?</summary><div class="sfa">klonale Vermehrung unreifer Blasten im Knochenmark</div></details>
+      <details class="sf"><summary>Diagnose-Schwelle Blasten im Knochenmark?</summary><div class="sfa">≥ 20 %</div></details>
+      <details class="sf"><summary>Auerstäbchen — welche Leukämie?</summary><div class="sfa">AML</div></details>
+      <details class="sf"><summary>AML — typisches Alter?</summary><div class="sfa">Erwachsene (median ~65–70 J.)</div></details>
+      <details class="sf"><summary>ALL — typisches Alter?</summary><div class="sfa">Kinder</div></details>
+      <details class="sf"><summary>Häufigstes Malignom im Kindesalter?</summary><div class="sfa">ALL</div></details>
+      <details class="sf"><summary>Panzytopenie-Trias?</summary><div class="sfa">Anämie, Thrombopenie, Neutropenie</div></details>
+      <details class="sf"><summary>Petechien — welche Zytopenie?</summary><div class="sfa">Thrombozytopenie</div></details>
+      <details class="sf"><summary>Fieber bei Neutropenie — was tun?</summary><div class="sfa">sofort Breitband-Antibiotika (Notfall)</div></details>
+      <details class="sf"><summary>APL — Translokation?</summary><div class="sfa">t(15;17)</div></details>
+      <details class="sf"><summary>APL — Therapie?</summary><div class="sfa">ATRA + Arsentrioxid</div></details>
+      <details class="sf"><summary>APL — gefürchtete Komplikation?</summary><div class="sfa">DIC</div></details>
+      <details class="sf"><summary>Ph⁺ ALL — Zusatztherapie?</summary><div class="sfa">TKI (Imatinib)</div></details>
+      <details class="sf"><summary>Tumorlysesyndrom — Elektrolyte?</summary><div class="sfa">Kalium ↑, Phosphat ↑, Harnsäure ↑, Calcium ↓</div></details>
+      <details class="sf"><summary>Tumorlyse — Prophylaxe?</summary><div class="sfa">Hydrierung + Allopurinol/Rasburicase</div></details>
+      <details class="sf"><summary>Leukostase ab welcher Leukozytenzahl?</summary><div class="sfa">&gt; 100.000/µl</div></details>
+      <details class="sf"><summary>Gingivahyperplasie — welche AML?</summary><div class="sfa">monozytäre (M4/M5)</div></details>
+      <details class="sf"><summary>ZNS-Befall typisch bei?</summary><div class="sfa">ALL (Meningeosis leucaemica)</div></details>
+      <details class="sf"><summary>ALL — was immer punktieren?</summary><div class="sfa">Liquor (+ intrathekale Prophylaxe)</div></details>
+      <details class="sf"><summary>AML vs. CML im Differenzialblutbild?</summary><div class="sfa">AML Hiatus leucaemicus, CML kontinuierliche Linksverschiebung</div></details>
+      <details class="sf"><summary>Therapiephasen?</summary><div class="sfa">Induktion → Konsolidierung → (ALL) Erhaltung</div></details>
+    </div>
+  </section>
+
+  <footer>
+    R2 · Akute Leukämien · Kurz + KP-Perlen. Vier Kernstationen (wortgleich mit R1) + KP-Perlen mit Rapid-Fire. Quelle: Stex + Mainz-Vorbereitung.
+  </footer>
+
+</div>
+<script>
+  const tabs = [...document.querySelectorAll('.tab')];
+  const panels = [...document.querySelectorAll('.panel')];
+  function showTab(name){
+    tabs.forEach(x=>x.classList.toggle('active', x.dataset.tab===name));
+    panels.forEach(p=>p.classList.toggle('active', p.dataset.panel===name));
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  tabs.forEach(t=>t.addEventListener('click',()=>showTab(t.dataset.tab)));
+</script>
+</body>
+</html>
