@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Schädel-Hirn-Trauma · R3 Review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F7F4EE; --card:#FFFDF8; --ink:#2A2724; --muted:#6B6358; --line:#E7E0D4;
+    --grundlagen:#C0392B; --grundlagen-t:#F7E9E6;
+    --klinik:#D97706;     --klinik-t:#FBEEDD;
+    --diagnostik:#1E5F9E; --diagnostik-t:#E4EDF6;
+    --therapie:#2D7A3E;   --therapie-t:#E5F0E7;
+    --fragen:#7B3F9E;     --fragen-t:#F0E8F6;
+    --perlen:#B8860B;     --perlen-t:#F8F0D9;
+    --retrieval:#0F766E;  --retrieval-t:#E0F0EE;
+    --protokoll:#334155;  --protokoll-t:#E8EBF0;
+    --ok:#2D7A3E; --gap:#D97706; --miss:#C0392B;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:'Manrope',system-ui,sans-serif;
+    font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased;padding:0 18px 80px}
+  .wrap{max-width:860px;margin:0 auto}
+
+  header{padding:54px 0 22px}
+  .eyebrow{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--retrieval);margin-bottom:16px}
+  h1{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(34px,7vw,52px);line-height:1.04;letter-spacing:-.01em}
+  h1 .accent{font-style:italic;color:var(--grundlagen)}
+  .subtitle{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(17px,2.6vw,20px);color:var(--muted);margin-top:14px}
+  .meta{display:flex;flex-wrap:wrap;gap:6px 0;margin-top:20px;font-size:13px;color:var(--muted);font-weight:500}
+  .meta span:not(:last-child)::after{content:"•";margin:0 10px;color:var(--line);font-weight:700}
+
+
+  .tabs{display:flex;flex-wrap:wrap;gap:8px;position:sticky;top:0;z-index:30;background:linear-gradient(var(--bg) 72%,rgba(247,244,238,0));padding:12px 0 14px;margin-bottom:6px}
+  .tab{position:relative;font-size:13px;font-weight:600;border:1px solid var(--line);background:var(--card);color:var(--muted);padding:8px 15px;border-radius:999px;cursor:pointer;transition:all .15s;white-space:nowrap}
+  .tab:hover{border-color:#cfc6b6}
+  .tab.active{color:#fff;border-color:transparent}
+  .tab[data-c=retrieval].active{background:var(--retrieval)}
+  .tab[data-c=grundlagen].active{background:var(--grundlagen)}
+  .tab[data-c=klinik].active{background:var(--klinik)}
+  .tab[data-c=diagnostik].active{background:var(--diagnostik)}
+  .tab[data-c=therapie].active{background:var(--therapie)}
+  .tab[data-c=fragen].active{background:var(--fragen)}
+  .tab[data-c=perlen].active{background:var(--perlen)}
+  .tab[data-c=protokoll].active{background:var(--protokoll)}
+  .tab .badge{display:none;margin-left:7px;font-size:10px;font-weight:800;padding:1px 6px;border-radius:999px;vertical-align:middle}
+  .tab.flag-gap .badge{display:inline-block;background:var(--gap);color:#fff}
+  .tab.flag-ok .badge{display:inline-block;background:var(--ok);color:#fff}
+  .tab.active .badge{background:rgba(255,255,255,.28)!important;color:#fff}
+
+  .panel{display:none;animation:fade .25s ease}
+  .panel.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+  .panel-intro{font-family:'Fraunces',serif;font-style:italic;font-size:17px;color:var(--muted);margin:6px 0 18px;line-height:1.5}
+
+  /* ---- control bar (Pass 1 instrument) ---- */
+  .ctrl{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:14px 16px;margin-bottom:20px}
+  .ctrl-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+  .tally{font-size:13px;font-weight:700;display:flex;gap:12px;flex-wrap:wrap}
+  .tally i{font-style:normal;display:inline-flex;align-items:center;gap:5px}
+  .tally i::before{content:"";width:9px;height:9px;border-radius:50%}
+  .tally .t-ok::before{background:var(--ok)} .tally .t-gap::before{background:var(--gap)} .tally .t-miss::before{background:var(--miss)}
+  .spacer{flex:1 1 auto}
+  .btn{font-family:'Manrope';font-size:12.5px;font-weight:700;border:none;border-radius:999px;padding:9px 16px;cursor:pointer;transition:.15s}
+  .btn-primary{background:var(--retrieval);color:#fff}
+  .btn-primary:hover{filter:brightness(1.06)}
+  .btn-ghost{background:transparent;color:var(--muted);border:1px solid var(--line)}
+  .btn-ghost:hover{border-color:#cfc6b6}
+  .ctrl-status{margin-top:11px;font-size:13px;font-style:italic;color:var(--retrieval);min-height:18px}
+
+  /* ---- retrieval prompt ---- */
+  .rt{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:14px;transition:border-color .2s}
+  .rt[data-score=sicher]{border-left-color:var(--ok)}
+  .rt[data-score=lueckenhaft]{border-left-color:var(--gap)}
+  .rt[data-score=gefehlt]{border-left-color:var(--miss)}
+  .rt-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:8px}
+  .rt-n{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--retrieval)}
+  .rt-right{display:flex;align-items:center;gap:10px;white-space:nowrap}
+  .rt-ptr{font-size:11px;font-weight:600;color:var(--muted)}
+  .rt-q{font-size:15.5px;line-height:1.55}
+  .reveal{margin-top:12px;border-top:1px dashed var(--line);padding-top:0}
+  .reveal>summary{list-style:none;cursor:pointer;font-size:12.5px;font-weight:800;letter-spacing:.04em;color:var(--retrieval);padding:11px 0 0;user-select:none;display:inline-flex;align-items:center;gap:6px}
+  .reveal>summary::-webkit-details-marker{display:none}
+  .reveal>summary::before{content:"▸";transition:transform .2s;display:inline-block}
+  .reveal[open]>summary::before{transform:rotate(90deg)}
+  .reveal .ans{font-size:14.5px;line-height:1.6;color:#3c372f;padding-top:10px}
+  .reveal .ans b{color:var(--ink)}
+  .reveal .ans ul{list-style:none;padding-left:2px;margin:2px 0 0}
+  .reveal .ans li{position:relative;padding-left:18px;margin-bottom:8px;line-height:1.5}
+  .reveal .ans>ul>li::before{content:"";position:absolute;left:2px;top:8px;width:6px;height:6px;border-radius:50%;background:var(--retrieval)}
+  .reveal .ans li ul{margin:7px 0 2px}
+  .reveal .ans li li{padding-left:16px;margin-bottom:5px;font-size:13.8px;color:#4a443c}
+  .reveal .ans li li::before{content:"";position:absolute;left:0;top:7px;width:5px;height:5px;transform:rotate(45deg);background:#b9b0a1}
+  .score{display:flex;gap:7px;margin-top:12px;padding-top:11px;border-top:1px solid var(--line)}
+  .sbtn{flex:1;font-size:12px;font-weight:700;border:1px solid var(--line);background:var(--bg);color:var(--muted);border-radius:8px;padding:7px 4px;cursor:pointer;transition:.12s}
+  .sbtn:hover{border-color:#cfc6b6}
+  .sbtn[data-v=sicher].on{background:var(--ok);color:#fff;border-color:transparent}
+  .sbtn[data-v=lueckenhaft].on{background:var(--gap);color:#fff;border-color:transparent}
+  .sbtn[data-v=gefehlt].on{background:var(--miss);color:#fff;border-color:transparent}
+
+  /* ---- Schnellfragen ---- */
+  .sf-wrap{background:var(--retrieval-t);border:1px solid #BFE0DC;border-radius:13px;padding:18px 20px;margin-top:24px}
+  .sf-wrap h3{font-family:'Fraunces',serif;font-weight:500;font-size:20px;margin-bottom:3px}
+  .sf-wrap .sf-intro{font-size:13.5px;font-style:italic;color:#0c5d57;margin-bottom:14px}
+  .sf{border-bottom:1px solid #cfe4e1;padding:9px 0}
+  .sf:last-child{border-bottom:none}
+  .sf>summary{list-style:none;cursor:pointer;font-size:14.5px;font-weight:600;display:flex;justify-content:space-between;gap:10px;user-select:none}
+  .sf>summary::-webkit-details-marker{display:none}
+  .sf>summary::after{content:"+";color:var(--retrieval);font-weight:800}
+  .sf[open]>summary::after{content:"−"}
+  .sf .sfa{font-size:14px;color:#0c5d57;font-weight:700;padding-top:6px}
+
+  /* ---- content cards (v1) ---- */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:14px;overflow:hidden}
+  .card>summary{list-style:none;cursor:pointer;padding:18px 20px;display:flex;align-items:flex-start;gap:14px;user-select:none}
+  .card>summary::-webkit-details-marker{display:none}
+  .card .ct{flex:1}
+  .card .ctag{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:5px}
+  .card .ctitle{font-family:'Fraunces',serif;font-weight:500;font-size:17px;line-height:1.25}
+  .plus{flex:none;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:18px;line-height:1;transition:transform .2s;margin-top:2px}
+  .card[open] .plus{transform:rotate(45deg)}
+  .card .body{padding:0 20px 20px;border-top:1px solid var(--line);margin-top:-2px;padding-top:16px}
+  .card.grundlagen .ctag{color:var(--grundlagen)} .card.grundlagen .plus{background:var(--grundlagen-t);color:var(--grundlagen)}
+  .card.klinik .ctag{color:var(--klinik)} .card.klinik .plus{background:var(--klinik-t);color:var(--klinik)}
+  .card.diagnostik .ctag{color:var(--diagnostik)} .card.diagnostik .plus{background:var(--diagnostik-t);color:var(--diagnostik)}
+  .card.therapie .ctag{color:var(--therapie)} .card.therapie .plus{background:var(--therapie-t);color:var(--therapie)}
+  .card.fragen .ctag{color:var(--fragen)} .card.fragen .plus{background:var(--fragen-t);color:var(--fragen)}
+  .card.perlen .ctag{color:var(--perlen)} .card.perlen .plus{background:var(--perlen-t);color:var(--perlen)}
+
+  ul.b{list-style:none;padding-left:2px}
+  ul.b>li{position:relative;padding-left:20px;margin-bottom:8px;line-height:1.55}
+  ul.b>li::before{content:"";position:absolute;left:2px;top:9px;width:7px;height:7px;border-radius:50%}
+  .grundlagen ul.b>li::before{background:var(--grundlagen)} .klinik ul.b>li::before{background:var(--klinik)}
+  .diagnostik ul.b>li::before{background:var(--diagnostik)} .therapie ul.b>li::before{background:var(--therapie)}
+  ul.b ul{list-style:none;padding-left:18px;margin-top:7px}
+  ul.b ul>li{position:relative;padding-left:18px;margin-bottom:6px;font-size:15px;color:#4a443c}
+  ul.b ul>li::before{content:"";position:absolute;left:0;top:7px;width:6px;height:6px;transform:rotate(45deg);background:#b9b0a1}
+  strong{font-weight:700;color:var(--ink)}
+
+  .callout{border-radius:11px;padding:13px 16px;margin:14px 0;font-size:14.5px;line-height:1.55;border-left:4px solid}
+  .callout .lab{font-weight:800;font-size:11px;letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .critical{background:var(--grundlagen-t);border-color:var(--grundlagen)} .critical .lab{color:var(--grundlagen)}
+  .warning{background:var(--klinik-t);border-color:var(--klinik)} .warning .lab{color:var(--klinik)}
+  .fact{background:var(--diagnostik-t);border-color:var(--diagnostik)} .fact .lab{color:var(--diagnostik)}
+
+  .dd{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+  .dd th,.dd td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+  .dd th{background:var(--diagnostik-t);font-weight:700;color:var(--diagnostik);font-size:12px}
+  .dd td:first-child{font-weight:600}
+
+  .pk{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:16px}
+  .pk-meta{display:flex;flex-wrap:wrap;gap:6px 0;font-size:11.5px;font-weight:700;color:var(--protokoll);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+  .pk-meta span:not(:last-child)::after{content:"•";margin:0 8px;color:#c3c9d2}
+  .pk-badge{display:inline-block;background:var(--therapie-t);color:var(--therapie);font-size:10.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:2px 9px;border-radius:999px;margin-left:auto}
+  .pk-akte{font-size:14.5px;line-height:1.58;background:var(--protokoll-t);border-radius:9px;padding:12px 14px;margin-bottom:12px}
+  .pk-akte .lab,.pk-q .lab{font-weight:800;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--protokoll);display:block;margin-bottom:5px}
+  .pk-q ul{list-style:none;padding:0}
+  .pk-q li{position:relative;padding-left:18px;margin-bottom:7px;font-size:14.5px;line-height:1.5}
+  .pk-q li::before{content:"–";position:absolute;left:0;color:var(--protokoll);font-weight:700}
+  .pq{border-top:1px solid var(--line);padding:10px 0}
+  .pq-frage{position:relative;padding-left:18px;font-size:14.5px;font-weight:600;line-height:1.5}
+  .pq-frage::before{content:"–";position:absolute;left:0;color:var(--protokoll);font-weight:700}
+  .pq .reveal{margin-top:5px;border-top:none;padding-top:0}
+  .pq .reveal>summary{padding:5px 0 0}
+
+  .pearl{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--perlen);border-radius:12px;padding:16px 18px;margin-bottom:13px}
+  .pearl .ph{font-weight:800;font-size:13px;color:var(--perlen);margin-bottom:7px}
+  .pearl .pt{font-size:15px;line-height:1.55}
+  .pearl .mn{margin-top:9px;background:var(--perlen-t);border-radius:8px;padding:8px 12px;font-size:13.5px;font-style:italic;color:#7a5c08}
+  .pearl .mn b{font-style:normal;font-weight:800}
+
+  footer{margin-top:40px;padding-top:22px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted);line-height:1.6}
+  .back{display:inline-block;font-family:Manrope,system-ui,sans-serif;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);text-decoration:none;margin-bottom:18px}
+  .back:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a href="../../index.html" class="back">← Zurück zur Library</a>
+
+  <header>
+    <div class="eyebrow">Notfallmedizin · R3 · Kurz + KP-Perlen + Protokolle</div>
+    <h1>Schädel-Hirn-<span class="accent">Trauma</span></h1>
+    <div class="subtitle">GCS, die vier intrakraniellen Blutungen, epidural vs. subdural und das Hirndruckmanagement — plus die Schädelbasisfraktur. Vier Stationen + KP-Perlen + die echten Mainz-Protokollfragen.</div>
+    <div class="meta"><span>R3 · 6 Tabs · Kurz + KP-Perlen + Protokolle</span><span>~22 Min</span><span>Stand 06/2026</span><span>Mainz-Protokolle 2024–2026</span></div>
+  </header>
+
+  <div class="tabs">
+    <button class="tab active" data-c="grundlagen" data-tab="grundlagen">Grundlagen</button>
+    <button class="tab" data-c="klinik" data-tab="klinik">Klinik</button>
+    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik</button>
+    <button class="tab" data-c="therapie" data-tab="therapie">Therapie</button>
+    <button class="tab" data-c="perlen" data-tab="perlen">KP-Perlen</button>
+    <button class="tab" data-c="protokoll" data-tab="protokoll">Fragen &amp; Protokolle</button>
+  </div>
+
+  <section class="panel active" data-panel="grundlagen">
+    <p class="panel-intro">Offen/geschlossen, GCS, Hirndruck.</p>
+    <details class="card grundlagen" open><summary><span class="ct"><span class="ctag">★ Anker</span><span class="ctitle">Definition + offen vs. geschlossen</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Merksatz</span><strong>Offen = Dura verletzt</strong> (Luft im CT, Infektionsgefahr)<br><strong>Geschlossen = Dura intakt</strong><br>Geschlossen ist für den Patienten besser.</div>
+        <ul class="b">
+          <li>SHT = Traumaeinwirkung auf den Schädel ± Hirnverletzung; Haupttodesursache ♂ &lt; 45 J.</li>
+          <li>Ätiologie: Sturz (50 %), Verkehrsunfälle (25 %)</li>
+        </ul>
+      </div>
+    </details>
+    <details class="card grundlagen"><summary><span class="ct"><span class="ctag">★ Schweregrad</span><span class="ctitle">GCS-Einteilung</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Merksatz</span><strong>Leicht 13–15 · mittel 9–12 · schwer ≤ 8.</strong><br>GCS ≤ 8 → Intubation.</div>
+        <table class="dd"><tr><th>Schweregrad</th><th>GCS</th><th>Häufigkeit</th></tr>
+          <tr><td><strong>Leicht</strong></td><td>13–15</td><td>90 %</td></tr>
+          <tr><td><strong>Mittelschwer</strong></td><td>9–12</td><td>5 %</td></tr>
+          <tr><td><strong>Schwer</strong></td><td>≤ 8</td><td>5 %</td></tr>
+        </table>
+      </div>
+    </details>
+    <details class="card grundlagen"><summary><span class="ct"><span class="ctag">Hirndruck</span><span class="ctitle">Einklemmung oben vs. unten</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Merksatz</span><strong>Obere Einklemmung = ipsilaterale Mydriasis</strong> (N. oculomotorius)<br><strong>Untere Einklemmung = Kreislauf-/Ateminsuffizienz</strong> (Medulla oblongata)</div>
+        <ul class="b"><li>Normaler ICP 5–15 mmHg; Ziel bei SHT <strong>&lt; 20 mmHg</strong></li></ul>
+      </div>
+    </details>
+  </section>
+
+  <section class="panel" data-panel="klinik">
+    <p class="panel-intro">Hirndruckzeichen + die 4 Blutungen.</p>
+    <details class="card klinik" open><summary><span class="ct"><span class="ctag">★ Anker</span><span class="ctitle">Hirndruckzeichen</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Merksatz</span><strong>Kopfschmerz + Übelkeit/Schwallerbrechen + Vigilanzstörung.</strong> Vigilanz: wach → somnolent → soporös → komatös.</div>
+        <ul class="b"><li>Cushing-Reflex (späte Hirndruckzeichen): <strong>Bradykardie + Hypertonie</strong> + unregelmäßige Atmung</li></ul>
+      </div>
+    </details>
+    <details class="card klinik"><summary><span class="ct"><span class="ctag">★ Blutungen</span><span class="ctitle">Die 4 intrakraniellen Blutungen</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Merksatz</span><strong>Epidural = arteriell, bikonvex, freies Intervall</strong><br><strong>Subdural = venös (Brückenvenen), sichelförmig</strong><br><strong>SAB = Vernichtungskopfschmerz + Meningismus</strong></div>
+        <table class="dd"><tr><th>Blutung</th><th>Quelle</th><th>CCT-Form</th></tr>
+          <tr><td><strong>Epidural</strong></td><td>A. meningea media (arteriell)</td><td><strong>bikonvex</strong>, scharf, Naht-begrenzt</td></tr>
+          <tr><td><strong>Subdural</strong></td><td>Brückenvenen (venös)</td><td><strong>sichelförmig</strong>, naht-überschreitend</td></tr>
+          <tr><td><strong>SAB</strong></td><td>Aneurysma/Trauma</td><td>Blut in Zisternen/Sulci</td></tr>
+          <tr><td><strong>Intrazerebral</strong></td><td>Parenchymgefäße</td><td>Hyperdens im Hirngewebe</td></tr>
+        </table>
+        <div class="callout warning"><span class="lab">⚠ Freies Intervall</span><strong>Epidural:</strong> kurz bewusstlos → wacht auf (freies Intervall) → verschlechtert sich rapide<br><strong>Subdural chronisch:</strong> Wochen nach Bagatelltrauma (alt, Antikoagulation, Alkohol)</div>
+      </div>
+    </details>
+  </section>
+
+  <section class="panel" data-panel="diagnostik">
+    <p class="panel-intro">GCS + CCT nativ.</p>
+    <details class="card diagnostik" open><summary><span class="ct"><span class="ctag">★ GCS</span><span class="ctitle">Glasgow Coma Scale 3–15</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Merksatz</span><strong>Augen 4 + Sprache 5 + Motorik 6 = max. 15, min. 3.</strong> Merke „4-5-6".</div>
+        <table class="dd"><tr><th>Punkte</th><th>Augen (4)</th><th>Sprache (5)</th><th>Motorik (6)</th></tr>
+          <tr><td>6</td><td>—</td><td>—</td><td>befolgt Aufforderung</td></tr>
+          <tr><td>5</td><td>—</td><td>orientiert</td><td>gezielte Abwehr</td></tr>
+          <tr><td>4</td><td>spontan</td><td>desorientiert</td><td>ungezielte Abwehr</td></tr>
+          <tr><td>3</td><td>auf Aufforderung</td><td>Wortsalat</td><td>Beugesynergismen</td></tr>
+          <tr><td>2</td><td>auf Schmerz</td><td>Laute</td><td>Strecksynergismen</td></tr>
+          <tr><td>1</td><td>keine</td><td>keine</td><td>keine</td></tr>
+        </table>
+      </div>
+    </details>
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">★ Bildgebung</span><span class="ctitle">CCT nativ — Methode der Wahl</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Merksatz</span><strong>CCT nativ: akutes Blut ist hyperdens (hell).</strong> Sucht Blutung, Ödem (verstrichene Sulci, Mittellinienshift), Fraktur, Luft (bei offenem SHT).</div>
+        <ul class="b">
+          <li><strong>Kontrolle nach 4–8 h</strong> + bei klinischer Verschlechterung (verzögertes Ödem/Blutung)</li>
+          <li>MRT empfindlicher für kleine/ältere Blutungen; CT-HWS zum Frakturausschluss</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+
+  <section class="panel" data-panel="therapie">
+    <p class="panel-intro">Hirndruck senken, Blutung entlasten.</p>
+    <details class="card therapie" open><summary><span class="ct"><span class="ctag">★ Anker</span><span class="ctitle">Nach Schweregrad</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Merksatz</span><strong>Leicht = 24 h stationäre Beobachtung</strong><br><strong>Mittel/schwer = Intensivüberwachung + Hirndrucksenkung</strong> (ICP &lt; 20)<br><strong>GCS ≤ 8 = intubieren</strong></div>
+      </div>
+    </details>
+    <details class="card therapie"><summary><span class="ct"><span class="ctag">Hirndruck</span><span class="ctitle">Symptomatische Senkung</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <ul class="b">
+          <li><strong>Oberkörper 30° hoch</strong>, Analgosedierung</li>
+          <li><strong>Osmotherapie:</strong> Mannitol oder hypertone NaCl</li>
+          <li><strong>Milde Hyperventilation:</strong> CO₂↓ → Vasokonstriktion → ICP↓ (nur kurzfristig)</li>
+          <li>Normothermie/milde Hypothermie</li>
+        </ul>
+        <div class="callout critical"><span class="lab">▲ Kein Dexamethason beim SHT!</span>Steroide sind nur bei Hirntumor/Metastasen wirksam — beim SHT keine Prognoseverbesserung, mehr Komplikationen.</div>
+      </div>
+    </details>
+    <details class="card therapie"><summary><span class="ct"><span class="ctag">★ OP</span><span class="ctitle">Entlastung der Blutung</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Merksatz</span><strong>Epiduralhämatom = sofortige Trepanation</strong> (Notfall, ~70 % Überleben)<br><strong>Subdural:</strong> OP bei Raumforderung/Mittellinienshift, sonst Kontrolle + Gerinnung normalisieren</div>
+        <ul class="b">
+          <li>Bei Antikoagulation: Gerinnung normalisieren (z. B. Marcumar → <strong>PPSB + Vitamin K</strong>)</li>
+          <li>Chronisches Subdural: Bohrlochtrepanation + Drainage</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+
+  <section class="panel" data-panel="perlen">
+    <div class="pearl"><div class="ph">⭐ Perle 1 · GCS 13/9/8</div><div class="pt"><strong>Leicht 13–15, mittel 9–12, schwer ≤ 8.</strong> Bei <strong>≤ 8 intubieren.</strong> Aufbau „4-5-6" (Augen-Sprache-Motorik).</div><div class="mn"><b>Merke:</b> 8 oder weniger → Tubus.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 2 · Epidural = bikonvex</div><div class="pt"><strong>Epidural arteriell, bikonvex (Linse), freies Intervall.</strong> Sofortige Trepanation, ~70 % Überleben.</div><div class="mn"><b>Merke:</b> Epidural = Ei-Linse + arteriell.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 3 · Subdural = sichelförmig</div><div class="pt"><strong>Subdural venös (Brückenvenen), sichelförmig, naht-überschreitend.</strong> Chronisch beim alten/antikoagulierten Patienten.</div><div class="mn"><b>Merke:</b> Subdural = Sichel + venös.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 4 · Luft = offen</div><div class="pt"><strong>Luft intrakraniell im CT = offenes SHT</strong> (Dura verletzt) → Infektionsgefahr: Meningitis → Sepsis.</div><div class="mn"><b>Merke:</b> Luft im Kopf = Dura offen.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 5 · CCT nativ, Blut hyperdens</div><div class="pt"><strong>CCT ohne KM ist die Methode der Wahl</strong> — akutes Blut leuchtet hyperdens. Kontrolle nach 4–8 h.</div><div class="mn"><b>Merke:</b> Frisches Blut = hell im CT.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 6 · Ipsilaterale Mydriasis</div><div class="pt"><strong>Obere Einklemmung → weite Pupille auf der Blutungsseite</strong> (N. oculomotorius, komprimiert am Tentorium), kontralaterale Hemiparese.</div><div class="mn"><b>Merke:</b> Weite Pupille zeigt die Seite.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 7 · Kein Dexamethason</div><div class="pt"><strong>Steroide beim SHT NICHT wirksam</strong> (nur bei Tumorödem). Hirndruck mit Oberkörperhoch, Osmotherapie, kurzfristiger Hyperventilation.</div><div class="mn"><b>Merke:</b> Cortison nur bei Tumor, nicht SHT.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 8 · Liquorrhö = Schädelbasis</div><div class="pt"><strong>Liquor aus Nase/Ohr = Schädelbasisfraktur.</strong> Nachweis: Glukose-positiv / β2-Transferrin / Halo-Zeichen.</div><div class="mn"><b>Merke:</b> Klares Nasensekret + Zucker = Liquor.</div></div>
+    <div class="sf-wrap">
+      <h3>Rapid-Fire</h3>
+      <div class="sf-intro">Atomare Einzelfakten — Ein-Wort-Abruf. Laut, sofort, dann aufdecken.</div>
+      <details class="sf"><summary>SHT-Schweregrad nach GCS?</summary><div class="sfa">leicht 13–15, mittel 9–12, schwer ≤ 8</div></details>
+      <details class="sf"><summary>Ab welchem GCS intubieren?</summary><div class="sfa">≤ 8</div></details>
+      <details class="sf"><summary>GCS-Aufbau?</summary><div class="sfa">Augen 4 + Sprache 5 + Motorik 6 (max 15, min 3)</div></details>
+      <details class="sf"><summary>Epiduralhämatom — Gefäß?</summary><div class="sfa">A. meningea media (arteriell)</div></details>
+      <details class="sf"><summary>Epiduralhämatom — CT-Form?</summary><div class="sfa">bikonvex (linsenförmig)</div></details>
+      <details class="sf"><summary>Subduralhämatom — Quelle?</summary><div class="sfa">Brückenvenen (venös)</div></details>
+      <details class="sf"><summary>Subduralhämatom — CT-Form?</summary><div class="sfa">sichelförmig (konkav)</div></details>
+      <details class="sf"><summary>„Freies Intervall" — welche Blutung?</summary><div class="sfa">epidural</div></details>
+      <details class="sf"><summary>Chronisches Subdural — typischer Patient?</summary><div class="sfa">alt/antikoaguliert, nach Bagatelltrauma</div></details>
+      <details class="sf"><summary>Methode der Wahl bei SHT?</summary><div class="sfa">CCT nativ</div></details>
+      <details class="sf"><summary>Akutes Blut im CT?</summary><div class="sfa">hyperdens (hell)</div></details>
+      <details class="sf"><summary>Luft intrakraniell im CT?</summary><div class="sfa">offenes SHT (Dura verletzt)</div></details>
+      <details class="sf"><summary>Obere Einklemmung — Zeichen?</summary><div class="sfa">ipsilaterale Mydriasis (N. oculomotorius)</div></details>
+      <details class="sf"><summary>Welche Struktur komprimiert den N. oculomotorius?</summary><div class="sfa">der Tentoriumschlitz</div></details>
+      <details class="sf"><summary>Untere Einklemmung — Zeichen?</summary><div class="sfa">Kreislauf-/Atemstörung (Hirnstamm, Foramen magnum)</div></details>
+      <details class="sf"><summary>Cushing-Reflex?</summary><div class="sfa">Bradykardie + Hypertonie + unregelmäßige Atmung</div></details>
+      <details class="sf"><summary>Hirndruck senken — Maßnahmen?</summary><div class="sfa">Oberkörper 30°, Osmotherapie, kurzfristig Hyperventilation</div></details>
+      <details class="sf"><summary>Steroide beim SHT?</summary><div class="sfa">nein (nur bei Tumorödem)</div></details>
+      <details class="sf"><summary>Epiduralhämatom — Therapie?</summary><div class="sfa">notfallmäßige Trepanation</div></details>
+      <details class="sf"><summary>Schädelbasisfraktur — Zeichen?</summary><div class="sfa">Brillenhämatom, Liquorrhö, Hämatotympanon</div></details>
+      <details class="sf"><summary>Liquornachweis?</summary><div class="sfa">Glukose-positiv / β2-Transferrin / Halo-Zeichen</div></details>
+    </div>
+  </section>
+
+  <section class="panel" data-panel="protokoll">
+    <p class="panel-intro">Echte, dokumentierte Mainz-Fragen zum SHT — laut beantworten, dann aufdecken.</p>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · Drittes Fach</span><span>CT-Bild Epiduralhämatom</span><span class="pk-badge">Protokoll</span></div>
+      <div class="pk-akte"><span class="lab">Akte</span>Bewohner eines Pflegeheims, nachts aus dem Bett gefallen; die initiale Untersuchung war unauffällig, am Morgen Vigilanzminderung und Erbrechen. CT-Schädel im Hirnfenster.</div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">Was sehen Sie im CT, und woran erkennen Sie es?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich sehe eine bikonvexe, hyperdense Raumforderung. Die linsenförmige, bikonvexe Form und die scharfe, von den Schädelnähten begrenzte Begrenzung sprechen für ein Epiduralhämatom; hyperdens bedeutet frisches Blut.</div></details></div>
+      <div class="pq"><div class="pq-frage">Wie entsteht es, und welches Gefäß ist betroffen?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Durch eine arterielle Blutung, meist aus der Arteria meningea media, typischerweise nach einem Schädel-Hirn-Trauma mit Schläfenbeinfraktur.</div></details></div>
+      <div class="pq"><div class="pq-frage">Was ist klinisch typisch für das Epiduralhämatom?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Das symptomfreie Intervall: Der Patient ist kurz bewusstlos, wacht wieder auf und ist beschwerdefrei, und verschlechtert sich dann durch die zunehmende Blutung rasch.</div></details></div>
+      <div class="pq"><div class="pq-frage">Was machen Sie in der Notaufnahme — warten Sie auf den schriftlichen Radiologiebefund?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Nein. Bei einem Epiduralhämatom stelle ich den Patienten sofort neurochirurgisch vor, weil eine notfallmäßige Trepanation zur Entlastung nötig ist. Parallel sichere ich die Vitalfunktionen.</div></details></div>
+      <div class="pq"><div class="pq-frage">Ein zweites Bild desselben Patienten im Knochenfenster zeigt eine Linie — was ist das?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Eine Schädelkalottenfraktur an derselben Stelle, die zur Verletzung der Arteria meningea media geführt hat.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · Frau Forrel / Müller-Forrel</span><span>Die intrakraniellen Blutungen</span><span class="pk-badge">Protokoll</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">Welche intrakraniellen Blutungen kennen Sie, und welche ist typisch für ein Trauma?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Epidural, subdural, subarachnoidal und intrazerebral. Epidural, subdural und intrazerebral sind typische traumatische Blutungen; die Subarachnoidalblutung ist meist Folge einer Aneurysmaruptur.</div></details></div>
+      <div class="pq"><div class="pq-frage">Unterschied Subdural- vs. Epiduralhämatom in Ätiologie, CT und Therapie?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Das Epiduralhämatom ist arteriell aus der Arteria meningea media, im CT bikonvex, mit freiem Intervall, und wird sofort trepaniert. Das Subduralhämatom ist venös aus den Brückenvenen, im CT sichelförmig, akut nach Trauma oder chronisch nach Bagatelltrauma bei alten oder antikoagulierten Patienten; operiert wird bei Raumforderung, sonst Gerinnung normalisieren und kontrollieren.</div></details></div>
+      <div class="pq"><div class="pq-frage">Zwei Patienten kommen gleichzeitig — einer mit Epidural-, einer mit Subduralhämatom. Wen behandeln Sie zuerst?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Zuerst das Epiduralhämatom, weil es eine arterielle Blutung ist, sich rasch ausdehnt und schneller lebensbedrohlich wird.</div></details></div>
+      <div class="pq"><div class="pq-frage">Bei einer SAB nach SHT — was untersuchen Sie außer CT und MRT unbedingt?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Den Augenhintergrund mit der Fundoskopie, um retinale Einblutungen auszuschließen, etwa beim Terson-Syndrom. Klinisch achte ich auf Vernichtungskopfschmerz und Meningismus.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · Dr. Mendelssohn / Frau Forrel</span><span>GCS · offen/geschlossen</span><span class="pk-badge">Protokoll</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">Wie teilen Sie das SHT nach der Glasgow Coma Scale ein?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Leicht bei 13 bis 15, mittelschwer bei 9 bis 12 und schwer bei 8 oder weniger Punkten. Die Skala setzt sich aus Augenöffnen bis 4, verbaler Reaktion bis 5 und motorischer Reaktion bis 6 zusammen, also 3 bis 15 Punkte. Ab einem GCS von 8 oder weniger intubiere ich.</div></details></div>
+      <div class="pq"><div class="pq-frage">Was bedeutet ein GCS unter 9?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ein schweres Schädel-Hirn-Trauma. Der Patient kann seine Atemwege nicht mehr sicher schützen, deshalb wird er intubiert und intensivmedizinisch überwacht.</div></details></div>
+      <div class="pq"><div class="pq-frage">Offenes versus geschlossenes SHT — was ist für den Patienten besser, und warum?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Das geschlossene SHT ist besser, weil die Dura intakt ist und keine Verbindung nach außen besteht. Beim offenen SHT droht über die verletzte Dura eine Infektion des Zentralnervensystems.</div></details></div>
+      <div class="pq"><div class="pq-frage">Epiduralhämatom mit Luft im CT — was bedeutet das, und welche Komplikationen drohen?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Luft intrakraniell bedeutet ein offenes SHT mit verletzter Dura. Es drohen eine Meningitis oder Meningoenzephalitis, die in eine Sepsis und einen septischen Schock übergehen kann.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · Frau Prof. Müller-Forrel</span><span>Einklemmung &amp; Bewusstlosigkeit</span><span class="pk-badge">Protokoll</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">Welche Symptome hat der Patient bei einer oberen Einklemmung?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Eine ipsilaterale Pupillenerweiterung auf der Seite der Blutung und meist eine kontralaterale Hemiparese.</div></details></div>
+      <div class="pq"><div class="pq-frage">Warum kommt es zur Pupillenerweiterung, und welche Struktur komprimiert den Nerv?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Weil der Nervus oculomotorius komprimiert wird. Das geschieht, wenn der mediale Temporallappen über den Tentoriumschlitz gedrückt wird und den Nerv dort einklemmt.</div></details></div>
+      <div class="pq"><div class="pq-frage">Und bei einer unteren Einklemmung?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Dann kommt es zu Kreislauf- und Atemstörungen, weil der Hirnstamm im Foramen magnum eingeklemmt wird.</div></details></div>
+      <div class="pq"><div class="pq-frage">Ein bewusstloser Patient — welche klinischen Hinweise suchen Sie auf die Ursache?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich prüfe die Pupillen (Seitendifferenz, Lichtreaktion), suche nach Verletzungs- und Frakturzeichen am Kopf, nach Liquorrhö und Hämatomen, prüfe den GCS, den Blutzucker und achte auf Foetor, Meningismus und Lateralisationszeichen.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · Dr. Mendelssohn</span><span>Schädelbasisfraktur</span><span class="pk-badge">Protokoll</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">Schädelbasisfraktur — welche unsicheren Zeichen gibt es, und wie weisen Sie Liquor nach?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Unsichere Zeichen sind eine Liquorrhö aus Nase oder Ohr, ein Brillen- oder Monokelhämatom und ein Hämatotympanon. Liquor weise ich über den Glukosegehalt mit dem Teststreifen oder spezifisch über das Beta-2-Transferrin nach; auf dem Tupfer zeigt sich das Halo- oder Doppelring-Zeichen.</div></details></div>
+    </div>
+  </section>
+
+  <footer>
+    R3 · Schädel-Hirn-Trauma · Fragen &amp; Protokolle. Vier Kernstationen (wortgleich mit R2) + KP-Perlen mit Rapid-Fire + die echten dokumentierten Mainz-Fragen (Epiduralhämatom-CT, GCS, intrakranielle Blutungen, Einklemmung, Schädelbasisfraktur). Quelle: Mainz-Protokolle 2024–2026.
+  </footer>
+
+</div>
+<script>
+  const tabs = [...document.querySelectorAll('.tab')];
+  const panels = [...document.querySelectorAll('.panel')];
+  function showTab(name){
+    tabs.forEach(x=>x.classList.toggle('active', x.dataset.tab===name));
+    panels.forEach(p=>p.classList.toggle('active', p.dataset.panel===name));
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  tabs.forEach(t=>t.addEventListener('click',()=>showTab(t.dataset.tab)));
+</script>
+</body>
+</html>
