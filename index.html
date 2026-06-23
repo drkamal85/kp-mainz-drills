@@ -81,15 +81,7 @@
       letter-spacing: 0.05em; color: var(--blue); text-transform: uppercase; margin-bottom: 16px;
     }
     .hero-h1 { font-size: clamp(28px, 4vw, 46px); font-weight: 600; letter-spacing: -0.035em; line-height: 1.05; margin-bottom: 12px; }
-    .hero-p  { font-size: 15.5px; color: var(--t2); margin-bottom: 28px; max-width: 540px; line-height: 1.55; }
-    .stats-row { display: flex; gap: 8px; flex-wrap: wrap; }
-    .stat {
-      font-size: 12.5px; color: var(--t2); display: flex; align-items: center; gap: 8px;
-      background: var(--surface); border: 1px solid var(--border);
-      padding: 7px 13px; border-radius: 999px; box-shadow: var(--shadow-sm);
-    }
-    .stat::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--blue); }
-    .stat strong { font-family: var(--m); font-weight: 600; color: var(--t1); font-size: 13px; }
+    .hero-p  { font-size: 15.5px; color: var(--t2); margin-bottom: 0; max-width: 540px; line-height: 1.55; }
 
     /* ── Tabs — segmented control ────────────── */
     .tabs {
@@ -220,7 +212,6 @@
     [data-density=compact] .grid   { gap: 9px; }
     [data-density=compact] .hero   { padding: 40px 0 30px; }
     [data-density=compact] .sec    { margin-bottom: 44px; }
-    [data-density=compact] .stat   { padding: 5px 11px; }
 
     /* ── Responsive ──────────────────────────── */
     @media (max-width: 900px) {
@@ -262,12 +253,6 @@
     <div class="hero-kicker">Kenntnisprüfung Mainz · Vorbereitung</div>
     <h1 class="hero-h1">Lerneinheiten &amp; Reviews</h1>
     <p class="hero-p">Drills, Reviews und Summaries für die mündliche Prüfung — strukturiert nach Fachgebiet und Wiederholungsstufe (R1 → R2 → R3).</p>
-    <div class="stats-row">
-      <span class="stat"><strong id="st-reviews">–</strong> Reviews</span>
-      <span class="stat"><strong id="st-drills">–</strong> Drills</span>
-      <span class="stat"><strong id="st-summaries">–</strong> Summaries</span>
-      <span class="stat"><strong id="st-tools">–</strong> Tools</span>
-    </div>
   </section>
 
   <!-- Filter Tabs -->
@@ -1062,15 +1047,6 @@
     const exam = new Date('2027-03-01');
     const diff = Math.ceil((exam - Date.now()) / 86400000);
     document.getElementById('countdown').textContent = diff > 0 ? diff + ' Tage' : 'Prüfung jetzt';
-  })();
-
-  /* ── Live hero stats (count actual cards) ─────────────────── */
-  (function () {
-    var map = { 'st-reviews': 'reviews', 'st-drills': 'drills', 'st-summaries': 'summaries', 'st-tools': 'tools' };
-    Object.keys(map).forEach(function (id) {
-      var el = document.getElementById(id);
-      if (el) el.textContent = document.querySelectorAll('.sec[data-s="' + map[id] + '"] .card').length;
-    });
   })();
 
   /* ── Filter tabs ─────────────────────────────────────────── */
