@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AV-Block · R2 Review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F7F4EE; --card:#FFFDF8; --ink:#2A2724; --muted:#6B6358; --line:#E7E0D4;
+    --grundlagen:#C0392B; --grundlagen-t:#F7E9E6;
+    --klinik:#D97706;     --klinik-t:#FBEEDD;
+    --diagnostik:#1E5F9E; --diagnostik-t:#E4EDF6;
+    --therapie:#2D7A3E;   --therapie-t:#E5F0E7;
+    --fragen:#7B3F9E;     --fragen-t:#F0E8F6;
+    --perlen:#B8860B;     --perlen-t:#F8F0D9;
+    --retrieval:#0F766E;  --retrieval-t:#E0F0EE;
+    --protokoll:#334155;  --protokoll-t:#E8EBF0;
+    --ok:#2D7A3E; --gap:#D97706; --miss:#C0392B;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:'Manrope',system-ui,sans-serif;
+    font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased;padding:0 18px 80px}
+  .wrap{max-width:860px;margin:0 auto}
+
+  header{padding:54px 0 22px}
+  .eyebrow{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--retrieval);margin-bottom:16px}
+  h1{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(34px,7vw,52px);line-height:1.04;letter-spacing:-.01em}
+  h1 .accent{font-style:italic;color:var(--grundlagen)}
+  .subtitle{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(17px,2.6vw,20px);color:var(--muted);margin-top:14px}
+  .meta{display:flex;flex-wrap:wrap;gap:6px 0;margin-top:20px;font-size:13px;color:var(--muted);font-weight:500}
+  .meta span:not(:last-child)::after{content:"•";margin:0 10px;color:var(--line);font-weight:700}
+
+
+  .tabs{display:flex;flex-wrap:wrap;gap:8px;position:sticky;top:0;z-index:30;background:linear-gradient(var(--bg) 72%,rgba(247,244,238,0));padding:12px 0 14px;margin-bottom:6px}
+  .tab{position:relative;font-size:13px;font-weight:600;border:1px solid var(--line);background:var(--card);color:var(--muted);padding:8px 15px;border-radius:999px;cursor:pointer;transition:all .15s;white-space:nowrap}
+  .tab:hover{border-color:#cfc6b6}
+  .tab.active{color:#fff;border-color:transparent}
+  .tab[data-c=retrieval].active{background:var(--retrieval)}
+  .tab[data-c=grundlagen].active{background:var(--grundlagen)}
+  .tab[data-c=klinik].active{background:var(--klinik)}
+  .tab[data-c=diagnostik].active{background:var(--diagnostik)}
+  .tab[data-c=therapie].active{background:var(--therapie)}
+  .tab[data-c=fragen].active{background:var(--fragen)}
+  .tab[data-c=perlen].active{background:var(--perlen)}
+  .tab[data-c=protokoll].active{background:var(--protokoll)}
+  .tab .badge{display:none;margin-left:7px;font-size:10px;font-weight:800;padding:1px 6px;border-radius:999px;vertical-align:middle}
+  .tab.flag-gap .badge{display:inline-block;background:var(--gap);color:#fff}
+  .tab.flag-ok .badge{display:inline-block;background:var(--ok);color:#fff}
+  .tab.active .badge{background:rgba(255,255,255,.28)!important;color:#fff}
+
+  .panel{display:none;animation:fade .25s ease}
+  .panel.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+  .panel-intro{font-family:'Fraunces',serif;font-style:italic;font-size:17px;color:var(--muted);margin:6px 0 18px;line-height:1.5}
+
+  /* ---- control bar (Pass 1 instrument) ---- */
+  .ctrl{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:14px 16px;margin-bottom:20px}
+  .ctrl-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+  .tally{font-size:13px;font-weight:700;display:flex;gap:12px;flex-wrap:wrap}
+  .tally i{font-style:normal;display:inline-flex;align-items:center;gap:5px}
+  .tally i::before{content:"";width:9px;height:9px;border-radius:50%}
+  .tally .t-ok::before{background:var(--ok)} .tally .t-gap::before{background:var(--gap)} .tally .t-miss::before{background:var(--miss)}
+  .spacer{flex:1 1 auto}
+  .btn{font-family:'Manrope';font-size:12.5px;font-weight:700;border:none;border-radius:999px;padding:9px 16px;cursor:pointer;transition:.15s}
+  .btn-primary{background:var(--retrieval);color:#fff}
+  .btn-primary:hover{filter:brightness(1.06)}
+  .btn-ghost{background:transparent;color:var(--muted);border:1px solid var(--line)}
+  .btn-ghost:hover{border-color:#cfc6b6}
+  .ctrl-status{margin-top:11px;font-size:13px;font-style:italic;color:var(--retrieval);min-height:18px}
+
+  /* ---- retrieval prompt ---- */
+  .rt{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:14px;transition:border-color .2s}
+  .rt[data-score=sicher]{border-left-color:var(--ok)}
+  .rt[data-score=lueckenhaft]{border-left-color:var(--gap)}
+  .rt[data-score=gefehlt]{border-left-color:var(--miss)}
+  .rt-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:8px}
+  .rt-n{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--retrieval)}
+  .rt-right{display:flex;align-items:center;gap:10px;white-space:nowrap}
+  .rt-ptr{font-size:11px;font-weight:600;color:var(--muted)}
+  .rt-q{font-size:15.5px;line-height:1.55}
+  .reveal{margin-top:12px;border-top:1px dashed var(--line);padding-top:0}
+  .reveal>summary{list-style:none;cursor:pointer;font-size:12.5px;font-weight:800;letter-spacing:.04em;color:var(--retrieval);padding:11px 0 0;user-select:none;display:inline-flex;align-items:center;gap:6px}
+  .reveal>summary::-webkit-details-marker{display:none}
+  .reveal>summary::before{content:"▸";transition:transform .2s;display:inline-block}
+  .reveal[open]>summary::before{transform:rotate(90deg)}
+  .reveal .ans{font-size:14.5px;line-height:1.6;color:#3c372f;padding-top:10px}
+  .reveal .ans b{color:var(--ink)}
+  .reveal .ans ul{list-style:none;padding-left:2px;margin:2px 0 0}
+  .reveal .ans li{position:relative;padding-left:18px;margin-bottom:8px;line-height:1.5}
+  .reveal .ans>ul>li::before{content:"";position:absolute;left:2px;top:8px;width:6px;height:6px;border-radius:50%;background:var(--retrieval)}
+  .reveal .ans li ul{margin:7px 0 2px}
+  .reveal .ans li li{padding-left:16px;margin-bottom:5px;font-size:13.8px;color:#4a443c}
+  .reveal .ans li li::before{content:"";position:absolute;left:0;top:7px;width:5px;height:5px;transform:rotate(45deg);background:#b9b0a1}
+  .score{display:flex;gap:7px;margin-top:12px;padding-top:11px;border-top:1px solid var(--line)}
+  .sbtn{flex:1;font-size:12px;font-weight:700;border:1px solid var(--line);background:var(--bg);color:var(--muted);border-radius:8px;padding:7px 4px;cursor:pointer;transition:.12s}
+  .sbtn:hover{border-color:#cfc6b6}
+  .sbtn[data-v=sicher].on{background:var(--ok);color:#fff;border-color:transparent}
+  .sbtn[data-v=lueckenhaft].on{background:var(--gap);color:#fff;border-color:transparent}
+  .sbtn[data-v=gefehlt].on{background:var(--miss);color:#fff;border-color:transparent}
+
+  /* ---- Schnellfragen ---- */
+  .sf-wrap{background:var(--retrieval-t);border:1px solid #BFE0DC;border-radius:13px;padding:18px 20px;margin-top:24px}
+  .sf-wrap h3{font-family:'Fraunces',serif;font-weight:500;font-size:20px;margin-bottom:3px}
+  .sf-wrap .sf-intro{font-size:13.5px;font-style:italic;color:#0c5d57;margin-bottom:14px}
+  .sf{border-bottom:1px solid #cfe4e1;padding:9px 0}
+  .sf:last-child{border-bottom:none}
+  .sf>summary{list-style:none;cursor:pointer;font-size:14.5px;font-weight:600;display:flex;justify-content:space-between;gap:10px;user-select:none}
+  .sf>summary::-webkit-details-marker{display:none}
+  .sf>summary::after{content:"+";color:var(--retrieval);font-weight:800}
+  .sf[open]>summary::after{content:"−"}
+  .sf .sfa{font-size:14px;color:#0c5d57;font-weight:700;padding-top:6px}
+
+  /* ---- content cards (v1) ---- */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:14px;overflow:hidden}
+  .card>summary{list-style:none;cursor:pointer;padding:18px 20px;display:flex;align-items:flex-start;gap:14px;user-select:none}
+  .card>summary::-webkit-details-marker{display:none}
+  .card .ct{flex:1}
+  .card .ctag{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:5px}
+  .card .ctitle{font-family:'Fraunces',serif;font-weight:500;font-size:17px;line-height:1.25}
+  .plus{flex:none;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:18px;line-height:1;transition:transform .2s;margin-top:2px}
+  .card[open] .plus{transform:rotate(45deg)}
+  .card .body{padding:0 20px 20px;border-top:1px solid var(--line);margin-top:-2px;padding-top:16px}
+  .card.grundlagen .ctag{color:var(--grundlagen)} .card.grundlagen .plus{background:var(--grundlagen-t);color:var(--grundlagen)}
+  .card.klinik .ctag{color:var(--klinik)} .card.klinik .plus{background:var(--klinik-t);color:var(--klinik)}
+  .card.diagnostik .ctag{color:var(--diagnostik)} .card.diagnostik .plus{background:var(--diagnostik-t);color:var(--diagnostik)}
+  .card.therapie .ctag{color:var(--therapie)} .card.therapie .plus{background:var(--therapie-t);color:var(--therapie)}
+  .card.fragen .ctag{color:var(--fragen)} .card.fragen .plus{background:var(--fragen-t);color:var(--fragen)}
+  .card.perlen .ctag{color:var(--perlen)} .card.perlen .plus{background:var(--perlen-t);color:var(--perlen)}
+
+  ul.b{list-style:none;padding-left:2px}
+  ul.b>li{position:relative;padding-left:20px;margin-bottom:8px;line-height:1.55}
+  ul.b>li::before{content:"";position:absolute;left:2px;top:9px;width:7px;height:7px;border-radius:50%}
+  .grundlagen ul.b>li::before{background:var(--grundlagen)} .klinik ul.b>li::before{background:var(--klinik)}
+  .diagnostik ul.b>li::before{background:var(--diagnostik)} .therapie ul.b>li::before{background:var(--therapie)}
+  ul.b ul{list-style:none;padding-left:18px;margin-top:7px}
+  ul.b ul>li{position:relative;padding-left:18px;margin-bottom:6px;font-size:15px;color:#4a443c}
+  ul.b ul>li::before{content:"";position:absolute;left:0;top:7px;width:6px;height:6px;transform:rotate(45deg);background:#b9b0a1}
+  strong{font-weight:700;color:var(--ink)}
+
+  .callout{border-radius:11px;padding:13px 16px;margin:14px 0;font-size:14.5px;line-height:1.55;border-left:4px solid}
+  .callout .lab{font-weight:800;font-size:11px;letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .critical{background:var(--grundlagen-t);border-color:var(--grundlagen)} .critical .lab{color:var(--grundlagen)}
+  .warning{background:var(--klinik-t);border-color:var(--klinik)} .warning .lab{color:var(--klinik)}
+  .fact{background:var(--diagnostik-t);border-color:var(--diagnostik)} .fact .lab{color:var(--diagnostik)}
+
+  .dd{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+  .dd th,.dd td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+  .dd th{background:var(--diagnostik-t);font-weight:700;color:var(--diagnostik);font-size:12px}
+  .dd td:first-child{font-weight:600}
+
+  .pk{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:16px}
+  .pk-meta{display:flex;flex-wrap:wrap;gap:6px 0;font-size:11.5px;font-weight:700;color:var(--protokoll);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+  .pk-meta span:not(:last-child)::after{content:"•";margin:0 8px;color:#c3c9d2}
+  .pk-badge{display:inline-block;background:var(--therapie-t);color:var(--therapie);font-size:10.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:2px 9px;border-radius:999px;margin-left:auto}
+  .pk-akte{font-size:14.5px;line-height:1.58;background:var(--protokoll-t);border-radius:9px;padding:12px 14px;margin-bottom:12px}
+  .pk-akte .lab,.pk-q .lab{font-weight:800;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--protokoll);display:block;margin-bottom:5px}
+  .pk-q ul{list-style:none;padding:0}
+  .pk-q li{position:relative;padding-left:18px;margin-bottom:7px;font-size:14.5px;line-height:1.5}
+  .pk-q li::before{content:"–";position:absolute;left:0;color:var(--protokoll);font-weight:700}
+  .pq{border-top:1px solid var(--line);padding:10px 0}
+  .pq-frage{position:relative;padding-left:18px;font-size:14.5px;font-weight:600;line-height:1.5}
+  .pq-frage::before{content:"–";position:absolute;left:0;color:var(--protokoll);font-weight:700}
+  .pq .reveal{margin-top:5px;border-top:none;padding-top:0}
+  .pq .reveal>summary{padding:5px 0 0}
+
+  .pearl{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--perlen);border-radius:12px;padding:16px 18px;margin-bottom:13px}
+  .pearl .ph{font-weight:800;font-size:13px;color:var(--perlen);margin-bottom:7px}
+  .pearl .pt{font-size:15px;line-height:1.55}
+  .pearl .mn{margin-top:9px;background:var(--perlen-t);border-radius:8px;padding:8px 12px;font-size:13.5px;font-style:italic;color:#7a5c08}
+  .pearl .mn b{font-style:normal;font-weight:800}
+
+  footer{margin-top:40px;padding-top:22px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted);line-height:1.6}
+  .back{display:inline-block;font-family:Manrope,system-ui,sans-serif;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);text-decoration:none;margin-bottom:18px}
+  .back:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a href="../../index.html" class="back">← Zurück zur Library</a>
+
+  <header>
+    <div class="eyebrow">Kardiologie · R2 · Kurz + KP-Perlen</div>
+    <h1>AV-<span class="accent">Block</span></h1>
+    <div class="subtitle">Die drei Grade, Wenckebach vs. Mobitz II im EKG, der Ort der Blockierung als Prognose — und wann der Schrittmacher kommt. Vier Stationen + KP-Perlen.</div>
+    <div class="meta"><span>R2 · 5 Tabs · Kurz + KP-Perlen</span><span>~15 Min</span><span>Stand 06/2026</span><span>Stex + Mainz-Vorbereitung</span></div>
+  </header>
+
+  <div class="tabs">
+    <button class="tab active" data-c="grundlagen" data-tab="grundlagen">Grundlagen</button>
+    <button class="tab" data-c="klinik" data-tab="klinik">Klinik</button>
+    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik</button>
+    <button class="tab" data-c="therapie" data-tab="therapie">Therapie</button>
+    <button class="tab" data-c="perlen" data-tab="perlen">KP-Perlen</button>
+  </div>
+  <section class="panel active" data-panel="grundlagen">
+    <p class="panel-intro">Vom Vorhof zur Kammer — gestört.</p>
+    <details class="card grundlagen" open><summary><span class="ct"><span class="ctag">★ Anker</span><span class="ctitle">Was ist der AV-Block? + Einteilung</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Merksatz</span><strong>Störung der Erregungsleitung vom Vorhof zur Kammer</strong> (im AV-Knoten oder im His-Purkinje-System). Eingeteilt in drei Grade — der Ort der Blockierung entscheidet über Prognose und Atropin-Wirkung.</div>
+        <table class="dd">
+          <tr><th>Grad</th><th>Kurz</th></tr>
+          <tr><td><strong>I°</strong></td><td>jede Überleitung verzögert, kein Ausfall</td></tr>
+          <tr><td><strong>II° Mobitz I</strong> (Wenckebach)</td><td>zunehmende Verzögerung, dann ein Ausfall</td></tr>
+          <tr><td><strong>II° Mobitz II</strong></td><td>plötzlicher Ausfall ohne Vorwarnung — gefährlich</td></tr>
+          <tr><td><strong>III°</strong> (total)</td><td>keine Überleitung, AV-Dissoziation</td></tr>
+        </table>
+        <div class="callout critical"><span class="lab">▲ Ort = Prognose</span><strong>Suprahisär</strong> (AV-Knoten): meist benigne, Atropin-sensibel.<br><strong>Infrahisär</strong> (His-Purkinje): instabil, hohes Asystolie-Risiko, Atropin unwirksam.</div>
+        <div class="callout warning"><span class="lab">⚙ Ursachen</span>Degenerativ (Lenègre/Lev, am häufigsten)<br><strong>Hinterwandinfarkt</strong> (die RCA versorgt den AV-Knoten)<br>Medikamente (Betablocker, Digitalis, Verapamil/Diltiazem)<br>Erhöhter Vagotonus (z. B. Sportler)<br>Borreliose, Sarkoidose<br>Hyperkaliämie</div>
+      </div>
+    </details>
+  </section>
+  <section class="panel" data-panel="klinik">
+    <p class="panel-intro">Synkope = Adams-Stokes.</p>
+    <details class="card klinik" open><summary><span class="ct"><span class="ctag">★ Anker</span><span class="ctitle">Symptome + die Sturz-Falle</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Merksatz</span><strong>I° und Wenckebach oft asymptomatisch.</strong> Bei relevanter Bradykardie: Schwindel, Belastungsintoleranz, Herzinsuffizienz und <strong>Synkope</strong>.</div>
+        <div class="callout critical"><span class="lab">▲ Adams-Stokes-Anfall</span>Plötzliche Synkope durch kurze Asystolie bei AV-Block III° oder Mobitz II — mit Sturz- und plötzlichem-Herztod-Risiko.</div>
+        <div class="callout warning"><span class="lab">⚙ Stolperstein</span>Alter Patient mit <strong>rezidivierenden Stürzen oder Synkopen</strong> → an einen AV-Block denken. In Mainz wurde genau darauf abgezielt.</div>
+      </div>
+    </details>
+  </section>
+  <section class="panel" data-panel="diagnostik">
+    <p class="panel-intro">Das EKG entscheidet.</p>
+    <details class="card diagnostik" open><summary><span class="ct"><span class="ctag">★ Anker</span><span class="ctitle">Das EKG der vier Typen</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span>Das <strong>EKG ist diagnostisch</strong>. Normales PQ-Intervall: 120–200 ms.</div>
+        <table class="dd">
+          <tr><th>Typ</th><th>EKG</th></tr>
+          <tr><td><strong>I°</strong></td><td>PQ &gt; 200 ms, konstant verlängert; jede P-Welle leitet über</td></tr>
+          <tr><td><strong>II° Mobitz I</strong><br>(Wenckebach)</td><td>PQ wird von Schlag zu Schlag länger, bis ein QRS ausfällt (periodisch)</td></tr>
+          <tr><td><strong>II° Mobitz II</strong></td><td>PQ konstant, dann plötzlicher Ausfall eines QRS (oft 2:1) — meist infrahisär</td></tr>
+          <tr><td><strong>III°</strong> (total)</td><td>P-Wellen und QRS völlig unabhängig (AV-Dissoziation); Ersatzrhythmus: junktional schmal 40–60/min oder ventrikulär breit 20–40/min</td></tr>
+        </table>
+        <ul class="b">
+          <li><strong>Langzeit-EKG</strong> bei intermittierendem Block, <strong>Belastungs-EKG</strong> zur Differenzierung</li>
+          <li>Reversible Ursachen abklären: Medikamentenspiegel, Ischämie, Borreliose-Serologie, Kalium, TSH</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+  <section class="panel" data-panel="therapie">
+    <p class="panel-intro">Atropin, Katecholamine, Schrittmacher.</p>
+    <details class="card therapie" open><summary><span class="ct"><span class="ctag">★ Anker</span><span class="ctitle">Der Grad entscheidet + Akuttherapie</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Merksatz · warum die Typen unterscheiden?</span><strong>Die Therapie richtet sich nach dem Grad.</strong><br>I°: keine Therapie, Langzeit-EKG.<br>II° Mobitz I: meist nur Verlaufskontrolle.<br>II° Mobitz II und III°: Herzschrittmacher.</div>
+        <div class="callout critical"><span class="lab">▲ Akut bei symptomatischer Bradykardie</span><strong>Atropin</strong> i.v. — wirkt nur am AV-Knoten, <strong>bei infrahisärem Block unwirksam</strong>. Dann <strong>Katecholamine</strong> (Orciprenalin, Adrenalin) und <strong>transkutanes/transvenöses Pacing</strong> zur Überbrückung. Reversible Ursachen beheben (Medikamente absetzen, Ischämie → PCI).</div>
+      </div>
+    </details>
+    <details class="card therapie"><summary><span class="ct"><span class="ctag">⚙ Geräte</span><span class="ctitle">Schrittmacher-Typen + warum DDD</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">⚙ Welcher Schrittmacher?</span><strong>VVI</strong> = Einkammer (Ventrikel).<br><strong>AAI</strong> = Einkammer (Vorhof).<br><strong>DDD</strong> = Zweikammer, AV-sequentiell.<br><strong>CRT</strong> = Dreikammer (bei Herzinsuffizienz).</div>
+        <div class="callout critical"><span class="lab">▲ Warum DDD beim AV-Block?</span>Der DDD-Schrittmacher <strong>nimmt den Vorhof wahr und stimuliert die Kammer</strong> — er erhält die physiologische AV-Synchronität, die beim AV-Block gestört ist. AAI ist nutzlos (die Überleitung ist ja blockiert), VVI büßt die AV-Synchronität ein (Schrittmacher-Syndrom).</div>
+        <ul class="b">
+          <li>Bei symptomatischem AV-Block III° (z. B. ältere Patientin mit Schwindel): Notfall-Pacing + Katecholamine, dann <strong>permanenter Schrittmacher</strong></li>
+        </ul>
+      </div>
+    </details>
+  </section>
+  <section class="panel" data-panel="perlen">
+    <div class="pearl"><div class="ph">⭐ Perle 1 · Der Ort entscheidet die Prognose</div><div class="pt"><strong>Suprahisär</strong> (im AV-Knoten) ist meist benigne und Atropin-sensibel.<br><strong>Infrahisär</strong> (His-Purkinje) ist instabil, hat ein hohes Asystolie-Risiko und spricht nicht auf Atropin an. Mobitz II und III° sitzen typischerweise infrahisär.</div><div class="mn"><b>Merke:</b> Je tiefer der Block, desto gefährlicher.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 2 · Mobitz II und III° → Schrittmacher</div><div class="pt">Die Therapie richtet sich nach dem Grad: <strong>I° und Wenckebach</strong> brauchen meist nur Verlaufskontrolle, <strong>Mobitz II und III°</strong> bekommen einen <strong>Herzschrittmacher</strong> — bei III° auch, wenn der Patient gerade nicht symptomatisch ist.</div><div class="mn"><b>Merke:</b> Ab Mobitz II wird stimuliert.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 3 · Atropin wirkt nur am AV-Knoten</div><div class="pt">Akut bei symptomatischer Bradykardie gibt man <strong>Atropin i.v.</strong> — es wirkt aber nur suprahisär. <strong>Bei infrahisärem Block (Mobitz II, III°) ist es unwirksam</strong>; dann braucht es <strong>Katecholamine</strong> (Orciprenalin, Adrenalin) und ein <strong>transkutanes/transvenöses Pacing</strong> zur Überbrückung.</div><div class="mn"><b>Merke:</b> Tiefer Block — Atropin nutzlos, Strom muss her.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 4 · Adams-Stokes — an den alten Stürzler denken</div><div class="pt">Eine <strong>Synkope durch kurze Asystolie</strong> bei Mobitz II oder III° heißt <strong>Adams-Stokes-Anfall</strong>. Dokumentierter Mainz-Trigger: ein <strong>älterer Patient mit rezidivierenden Stürzen oder Synkopen</strong> — immer auch an einen AV-Block denken.</div><div class="mn"><b>Merke:</b> Alter Mensch stürzt → ans Herz denken, nicht nur ans Bein.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 5 · Wenckebach vs. Mobitz II im EKG</div><div class="pt"><strong>Wenckebach (Mobitz I):</strong> die PQ-Zeit wird von Schlag zu Schlag länger, bis ein QRS ausfällt — periodisch.<br><strong>Mobitz II:</strong> die PQ-Zeit bleibt konstant, dann fällt plötzlich ein QRS aus (oft 2:1). Das ist der entscheidende Unterschied im Streifen.</div><div class="mn"><b>Merke:</b> Wenckebach kriecht, Mobitz springt.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 6 · Hinterwandinfarkt macht AV-Block</div><div class="pt">Die <strong>rechte Koronararterie versorgt den AV-Knoten</strong>. Deshalb ist ein <strong>Hinterwandinfarkt</strong> eine klassische Ursache des akuten AV-Blocks — bei neuem Block immer eine Ischämie bedenken und ein EKG ableiten.</div><div class="mn"><b>Merke:</b> RCA → AV-Knoten → Hinterwand macht Block.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 7 · Borreliose — der reversible Block</div><div class="pt">Beim <strong>jüngeren Patienten</strong> mit neuem AV-Block an eine <strong>Lyme-Karditis (Borreliose)</strong> denken. Sie ist mit Antibiotika reversibel — eine reversible Ursache, die man nicht mit einem Schrittmacher „übergehen" darf. Ebenso: Medikamente, Hyperkaliämie, Vagotonus.</div><div class="mn"><b>Merke:</b> Junger Mensch + AV-Block + Zecke = Borrelien.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 8 · Warum DDD beim AV-Block</div><div class="pt">Der <strong>DDD-Schrittmacher nimmt den Vorhof wahr und stimuliert die Kammer</strong> — so bleibt die physiologische AV-Synchronität erhalten. <strong>AAI</strong> ist nutzlos, weil die Überleitung ja blockiert ist; <strong>VVI</strong> büßt die AV-Synchronität ein (Schrittmacher-Syndrom).</div><div class="mn"><b>Merke:</b> Block oben überbrückt — Vorhof spüren, Kammer takten (DDD).</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 9 · PQ-Zeit und der I°-Block</div><div class="pt">Die normale PQ-Zeit liegt bei <strong>120–200 ms</strong>. Beim <strong>AV-Block I°</strong> ist sie <strong>konstant über 200 ms verlängert</strong>, aber jede P-Welle wird übergeleitet — es fällt kein Schlag aus. Meist harmlos.</div><div class="mn"><b>Merke:</b> I° = langes PQ, aber keiner fällt aus.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 10 · Ersatzrhythmus bei III°</div><div class="pt">Beim totalen Block bestimmt der Ersatzrhythmus die Lage: <strong>junktional schmal mit 40–60/min</strong> ist relativ stabil, <strong>ventrikulär breit mit 20–40/min</strong> ist langsam und instabil. Je breiter und langsamer, desto bedrohlicher.</div><div class="mn"><b>Merke:</b> Schmal und schneller = höher und besser.</div></div>
+    <div class="sf-wrap">
+      <h3>Rapid-Fire</h3>
+      <div class="sf-intro">Atomare Einzelfakten — Ein-Wort-Abruf. Laut, sofort, dann aufdecken.</div>
+      <details class="sf"><summary>AV-Block — Definition?</summary><div class="sfa">Störung der Erregungsleitung Vorhof → Kammer</div></details>
+      <details class="sf"><summary>Normale PQ-Zeit?</summary><div class="sfa">120–200 ms</div></details>
+      <details class="sf"><summary>AV-Block I° — EKG?</summary><div class="sfa">PQ &gt; 200 ms konstant, jede P übergeleitet</div></details>
+      <details class="sf"><summary>Wenckebach (Mobitz I) — EKG?</summary><div class="sfa">PQ zunehmend, bis ein QRS ausfällt</div></details>
+      <details class="sf"><summary>Mobitz II — EKG?</summary><div class="sfa">PQ konstant, plötzlicher QRS-Ausfall</div></details>
+      <details class="sf"><summary>AV-Block III° — EKG?</summary><div class="sfa">AV-Dissoziation (P und QRS unabhängig)</div></details>
+      <details class="sf"><summary>Welcher Block ist gefährlich?</summary><div class="sfa">Mobitz II und III°</div></details>
+      <details class="sf"><summary>Schrittmacher-Indikation?</summary><div class="sfa">Mobitz II und III°</div></details>
+      <details class="sf"><summary>I° / Wenckebach — Therapie?</summary><div class="sfa">meist keine (Verlaufskontrolle)</div></details>
+      <details class="sf"><summary>Akut bei symptomatischer Bradykardie?</summary><div class="sfa">Atropin i.v.</div></details>
+      <details class="sf"><summary>Wann wirkt Atropin NICHT?</summary><div class="sfa">bei infrahisärem Block (Mobitz II/III°)</div></details>
+      <details class="sf"><summary>Atropin unwirksam — was dann?</summary><div class="sfa">Katecholamine + transkutanes/transvenöses Pacing</div></details>
+      <details class="sf"><summary>Synkope durch Asystolie heißt?</summary><div class="sfa">Adams-Stokes-Anfall</div></details>
+      <details class="sf"><summary>Welches Gefäß versorgt den AV-Knoten?</summary><div class="sfa">die RCA (rechte Koronararterie)</div></details>
+      <details class="sf"><summary>Infarkt-Lokalisation mit AV-Block?</summary><div class="sfa">Hinterwandinfarkt</div></details>
+      <details class="sf"><summary>Reversible Ursache beim jungen Patienten?</summary><div class="sfa">Borreliose (Lyme-Karditis)</div></details>
+      <details class="sf"><summary>Welcher Schrittmacher beim AV-Block?</summary><div class="sfa">DDD (Zweikammer)</div></details>
+      <details class="sf"><summary>Warum DDD und nicht VVI?</summary><div class="sfa">erhält die AV-Synchronität</div></details>
+      <details class="sf"><summary>Warum ist AAI nutzlos?</summary><div class="sfa">die Überleitung ist blockiert</div></details>
+      <details class="sf"><summary>III° — Ersatzrhythmus schmal vs. breit?</summary><div class="sfa">junktional 40–60/min, ventrikulär 20–40/min</div></details>
+      <details class="sf"><summary>Suprahisär vs. infrahisär — Prognose?</summary><div class="sfa">suprahisär benigne, infrahisär instabil</div></details>
+    </div>
+  </section>
+
+  <footer>
+    R2 · AV-Block · Kurz + KP-Perlen. Vier Kernstationen (wortgleich mit R1) + KP-Perlen mit Rapid-Fire. Quelle: Stex + Mainz-Vorbereitung.
+  </footer>
+
+</div>
+<script>
+  const tabs = [...document.querySelectorAll('.tab')];
+  const panels = [...document.querySelectorAll('.panel')];
+  function showTab(name){
+    tabs.forEach(x=>x.classList.toggle('active', x.dataset.tab===name));
+    panels.forEach(p=>p.classList.toggle('active', p.dataset.panel===name));
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  tabs.forEach(t=>t.addEventListener('click',()=>showTab(t.dataset.tab)));
+</script>
+</body>
+</html>
