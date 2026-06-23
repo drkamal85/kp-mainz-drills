@@ -6,16 +6,17 @@
 :root{--bg:#FBFAF7;--ink:#1A1A1A;--muted:#6B6B6B;--soft:#9A9A9A;--rule:#E6E2D9;--paper:#fff}
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);color:var(--ink);font-family:Manrope,sans-serif;font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
-.container{max-width:760px;margin:0 auto;padding:56px 22px 90px}
+.container{max-width:780px;margin:0 auto;padding:56px 22px 90px}
+.back{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#9A9A9A;text-decoration:none;margin-bottom:22px}
 .kicker{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--soft);margin-bottom:16px}
 h1{font-family:Fraunces,serif;font-weight:500;font-size:clamp(32px,6vw,46px);line-height:1.02;letter-spacing:-.02em;margin-bottom:14px}
-.lede{font-family:Fraunces,serif;font-size:17px;color:var(--muted);max-width:520px;margin-bottom:22px}
+.lede{font-family:Fraunces,serif;font-size:17px;color:var(--muted);max-width:560px;margin-bottom:22px}
 .stat-row{display:flex;gap:24px;font-size:13px;color:var(--soft);border-top:1px solid var(--rule);padding-top:16px;flex-wrap:wrap}
 .stat-row strong{color:var(--ink)}
 .tier{margin-top:42px}
 .tier-head{display:flex;justify-content:space-between;align-items:flex-end;border-left:3px solid var(--tc);padding-left:13px;margin-bottom:10px}
 .tier-title{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--tc)}
-.tier-desc{font-family:Fraunces,serif;font-style:italic;font-size:13.5px;color:var(--muted);margin-top:3px}
+.tier-desc{font-family:Fraunces,serif;font-style:italic;font-size:13.5px;color:var(--muted);margin-top:3px;max-width:500px}
 .tier-count{font-size:11.5px;color:var(--soft);white-space:nowrap}
 table{width:100%;border-collapse:collapse}
 td{padding:11px 8px;border-bottom:1px solid var(--rule);vertical-align:middle}
@@ -26,8 +27,12 @@ tr:hover td{background:rgba(0,0,0,.014)}
 .box.checked{background:var(--tc);border-color:var(--tc);position:relative}
 .box.checked::after{content:"✓";color:#fff;font-size:12px;font-weight:700;position:absolute;top:-1px;left:2px}
 .topic{font-family:Fraunces,serif;font-size:16px;font-weight:500}
-tr.done .topic{color:var(--soft)}
+.topic a{color:inherit;text-decoration:none;border-bottom:1px solid var(--rule)}
+.topic a:hover{border-bottom-color:var(--ink)}
+tr.done .topic a,tr.done .topic{color:var(--soft)}
+.note{font-family:Manrope;font-size:11px;font-style:normal;color:var(--soft);margin-top:2px}
 .have{display:inline-block;font-family:Manrope;font-size:9.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#2D7A3E;background:#E3F1E6;padding:2px 6px;border-radius:3px;margin-left:8px;vertical-align:middle}
+.have.drill{color:#5B53B0;background:#ECEAF8}
 .fach{font-size:12.5px;color:var(--muted);white-space:nowrap}
 .cnt{text-align:right;white-space:nowrap}
 .cnt .n{font-family:'JetBrains Mono',monospace;font-weight:500;font-size:14px;color:var(--tc)}
@@ -37,392 +42,31 @@ tr.done .topic{color:var(--soft)}
 .foot{margin-top:48px;padding-top:18px;border-top:1px solid var(--rule);font-size:11.5px;color:var(--soft);text-align:center}
 @media(max-width:560px){.container{padding:36px 15px}.fach{display:none}}
 </style></head><body><div class="container">
-<a href="../index.html" style="display:inline-block;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#9A9A9A;text-decoration:none;margin-bottom:22px">← Zurück zur Library</a>
+<a href="../index.html" class="back">← Zurück zur Library</a>
 <div class="kicker">KP Mainz · Studienplanung</div>
 <h1>Master-Themenliste</h1>
-<p class="lede">Alle Prüfungsthemen aus beiden Protokoll-Quellen — zusammengeführt, nach Häufigkeit in Tiers sortiert. Zum Abhaken.</p>
+<p class="lede">Alle Prüfungsthemen aus beiden Quellen — 82 Protokoll-Fälle + 176 WhatsApp-Berichte, zusammengeführt zu 87 Themen, nach Häufigkeit in Tiers sortiert. Review-Status live aus der Library; gebaute Themen sind verlinkt. Zum Abhaken.</p>
 <div class="stat-row">
-<span><strong>69</strong> Themen gesamt</span>
-<span><strong>5</strong> Reviews gebaut</span>
-<span><strong>82</strong> PB-Fälle + <strong>176</strong> WA-Berichte</span>
+<span><strong>87</strong> Themen · Frequenzliste</span>
+<span><strong>45</strong> Reviews live</span>
+<span><strong>82</strong> PB + <strong>176</strong> WA-Fälle</span>
 <span id="prog">0 abgehakt</span>
 </div>
-
-<section class="tier" style="--tc:#C0392B">
-<div class="tier-head"><div><div class="tier-title">Tier 1 · Kernthemen</div><div class="tier-desc">≥ 20 Nennungen — mit Sicherheit prüfungsrelevant</div></div><div class="tier-count">9 Themen</div></div>
-<table><tbody><tr class="done">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">Ileus<span class="have">✓ Review vorhanden</span></td>
-<td class="fach">Viszeralchirurgie</td>
-<td class="cnt"><span class="n">42</span><span class="src">2·PB 40·WA</span></td>
-</tr><tr class="done">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">Appendizitis<span class="have">✓ Review vorhanden</span></td>
-<td class="fach">Viszeralchirurgie</td>
-<td class="cnt"><span class="n">35</span><span class="src">3·PB 32·WA</span></td>
-</tr><tr class="done">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">Cholezystitis / Cholelithiasis<span class="have">✓ Review vorhanden</span></td>
-<td class="fach">Viszeralchirurgie</td>
-<td class="cnt"><span class="n">35</span><span class="src">2·PB 33·WA</span></td>
-</tr><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">Divertikulitis / Divertikulose</td>
-<td class="fach">Viszeralchirurgie</td>
-<td class="cnt"><span class="n">32</span><span class="src">2·PB 30·WA</span></td>
-</tr><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">Kolonkarzinom</td>
-<td class="fach">Viszeralchirurgie</td>
-<td class="cnt"><span class="n">31</span><span class="src">1·PB 30·WA</span></td>
-</tr><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">Lungenembolie</td>
-<td class="fach">Angiologie</td>
-<td class="cnt"><span class="n">25</span><span class="src">2·PB 23·WA</span></td>
-</tr><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">Herzinsuffizienz</td>
-<td class="fach">Kardiologie</td>
-<td class="cnt"><span class="n">23</span><span class="src">6·PB 17·WA</span></td>
-</tr><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">Pankreatitis</td>
-<td class="fach">Viszeralchirurgie</td>
-<td class="cnt"><span class="n">22</span><span class="src">1·PB 21·WA</span></td>
-</tr><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">Schilddrüse (allg.)</td>
-<td class="fach">Endokrinologie</td>
-<td class="cnt"><span class="n">21</span><span class="src">0·PB 21·WA</span></td>
-</tr></tbody></table>
-</section>
-<section class="tier" style="--tc:#D97706">
-<div class="tier-head"><div><div class="tier-title">Tier 2 · Hochfrequent</div><div class="tier-desc">10–19 Nennungen — sehr wahrscheinlich</div></div><div class="tier-count">11 Themen</div></div>
-<table><tbody><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">Pneumothorax</td>
-<td class="fach">Pneumologie</td>
-<td class="cnt"><span class="n">18</span><span class="src">0·PB 18·WA</span></td>
-</tr><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">Pneumonie</td>
-<td class="fach">Pneumologie</td>
-<td class="cnt"><span class="n">17</span><span class="src">2·PB 15·WA</span></td>
-</tr><tr class="done">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">COPD<span class="have">✓ Review vorhanden</span></td>
-<td class="fach">Pneumologie</td>
-<td class="cnt"><span class="n">16</span><span class="src">2·PB 14·WA</span></td>
-</tr><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">Allg. Frakturlehre</td>
-<td class="fach">Unfallchirurgie</td>
-<td class="cnt"><span class="n">14</span><span class="src">0·PB 14·WA</span></td>
-</tr><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">Schilddrüsenkarzinom</td>
-<td class="fach">Endokrinologie</td>
-<td class="cnt"><span class="n">14</span><span class="src">1·PB 13·WA</span></td>
-</tr><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">ALL / Leukämie</td>
-<td class="fach">Hämatologie</td>
-<td class="cnt"><span class="n">13</span><span class="src">3·PB 10·WA</span></td>
-</tr><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">Hyperthyreose</td>
-<td class="fach">Endokrinologie</td>
-<td class="cnt"><span class="n">13</span><span class="src">1·PB 12·WA</span></td>
-</tr><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">AV-Block</td>
-<td class="fach">Kardiologie</td>
-<td class="cnt"><span class="n">12</span><span class="src">2·PB 10·WA</span></td>
-</tr><tr class="done">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">Distale Radiusfraktur<span class="have">✓ Review vorhanden</span></td>
-<td class="fach">Unfallchirurgie</td>
-<td class="cnt"><span class="n">12</span><span class="src">1·PB 11·WA</span></td>
-</tr><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">Sprunggelenkfraktur (OSG)</td>
-<td class="fach">Unfallchirurgie</td>
-<td class="cnt"><span class="n">12</span><span class="src">1·PB 11·WA</span></td>
-</tr><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">Vorhofflimmern</td>
-<td class="fach">Kardiologie</td>
-<td class="cnt"><span class="n">12</span><span class="src">0·PB 12·WA</span></td>
-</tr></tbody></table>
-</section>
-<section class="tier" style="--tc:#1E5F9E">
-<div class="tier-head"><div><div class="tier-title">Tier 3 · Mittelfrequent</div><div class="tier-desc">5–9 Nennungen — solide vorbereiten</div></div><div class="tier-count">12 Themen</div></div>
-<table><tbody><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">KHK / Angina pectoris</td>
-<td class="fach">Kardiologie</td>
-<td class="cnt"><span class="n">9</span><span class="src">1·PB 8·WA</span></td>
-</tr><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">Rektumkarzinom</td>
-<td class="fach">Viszeralchirurgie</td>
-<td class="cnt"><span class="n">9</span><span class="src">3·PB 6·WA</span></td>
-</tr><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">Hypothyreose</td>
-<td class="fach">Endokrinologie</td>
-<td class="cnt"><span class="n">8</span><span class="src">1·PB 7·WA</span></td>
-</tr><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">Magenkarzinom</td>
-<td class="fach">Viszeralchirurgie</td>
-<td class="cnt"><span class="n">8</span><span class="src">2·PB 6·WA</span></td>
-</tr><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">Aortenklappenstenose</td>
-<td class="fach">Kardiologie</td>
-<td class="cnt"><span class="n">6</span><span class="src">1·PB 5·WA</span></td>
-</tr><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">Eisenmangelanämie</td>
-<td class="fach">Hämatologie</td>
-<td class="cnt"><span class="n">6</span><span class="src">3·PB 3·WA</span></td>
-</tr><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">Pankreaskarzinom</td>
-<td class="fach">Viszeralchirurgie</td>
-<td class="cnt"><span class="n">6</span><span class="src">1·PB 5·WA</span></td>
-</tr><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">Femurfraktur</td>
-<td class="fach">Unfallchirurgie</td>
-<td class="cnt"><span class="n">5</span><span class="src">0·PB 5·WA</span></td>
-</tr><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">GI-Blutung (OGIB)</td>
-<td class="fach">Viszeralchirurgie</td>
-<td class="cnt"><span class="n">5</span><span class="src">5·PB 0·WA</span></td>
-</tr><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">Hüft-/Knie-TEP</td>
-<td class="fach">Unfallchirurgie</td>
-<td class="cnt"><span class="n">5</span><span class="src">2·PB 3·WA</span></td>
-</tr><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">Schenkelhalsfraktur</td>
-<td class="fach">Unfallchirurgie</td>
-<td class="cnt"><span class="n">5</span><span class="src">1·PB 4·WA</span></td>
-</tr><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">Wirbelsäulenfraktur</td>
-<td class="fach">Unfallchirurgie</td>
-<td class="cnt"><span class="n">5</span><span class="src">0·PB 5·WA</span></td>
-</tr></tbody></table>
-</section>
-<section class="tier" style="--tc:#2D7A3E">
-<div class="tier-head"><div><div class="tier-title">Tier 4 · Niedrigfrequent / Drittes Fach</div><div class="tier-desc">1–4 Nennungen — Überblick genügt</div></div><div class="tier-count">37 Themen</div></div>
-<table><tbody><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">Beckenfraktur</td>
-<td class="fach">Unfallchirurgie</td>
-<td class="cnt"><span class="n">4</span><span class="src">0·PB 4·WA</span></td>
-</tr><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">Humerusfraktur</td>
-<td class="fach">Unfallchirurgie</td>
-<td class="cnt"><span class="n">4</span><span class="src">2·PB 2·WA</span></td>
-</tr><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">Myokardinfarkt / ACS</td>
-<td class="fach">Kardiologie</td>
-<td class="cnt"><span class="n">4</span><span class="src">0·PB 4·WA</span></td>
-</tr><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">Endokarditis</td>
-<td class="fach">Kardiologie</td>
-<td class="cnt"><span class="n">3</span><span class="src">1·PB 2·WA</span></td>
-</tr><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">Lebermetastasen / Lebertumor</td>
-<td class="fach">Gastroenterologie</td>
-<td class="cnt"><span class="n">3</span><span class="src">1·PB 2·WA</span></td>
-</tr><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">Leberzirrhose</td>
-<td class="fach">Gastroenterologie</td>
-<td class="cnt"><span class="n">3</span><span class="src">2·PB 1·WA</span></td>
-</tr><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">Mitralklappenvitium</td>
-<td class="fach">Kardiologie</td>
-<td class="cnt"><span class="n">3</span><span class="src">0·PB 3·WA</span></td>
-</tr><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">Morbus Hodgkin</td>
-<td class="fach">Hämatologie</td>
-<td class="cnt"><span class="n">3</span><span class="src">2·PB 1·WA</span></td>
-</tr><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">Sepsis</td>
-<td class="fach">Notfallmedizin</td>
-<td class="cnt"><span class="n">3</span><span class="src">1·PB 2·WA</span></td>
-</tr><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">Struma</td>
-<td class="fach">Endokrinologie</td>
-<td class="cnt"><span class="n">3</span><span class="src">0·PB 3·WA</span></td>
-</tr><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">Synkope</td>
-<td class="fach">Kardiologie</td>
-<td class="cnt"><span class="n">3</span><span class="src">1·PB 2·WA</span></td>
-</tr><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">Asthma bronchiale</td>
-<td class="fach">Pneumologie</td>
-<td class="cnt"><span class="n">2</span><span class="src">0·PB 2·WA</span></td>
-</tr><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">Bronchialkarzinom</td>
-<td class="fach">Pneumologie</td>
-<td class="cnt"><span class="n">2</span><span class="src">1·PB 1·WA</span></td>
-</tr><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">Cushing-Syndrom</td>
-<td class="fach">Endokrinologie</td>
-<td class="cnt"><span class="n">2</span><span class="src">0·PB 2·WA</span></td>
-</tr><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">Delir</td>
-<td class="fach">Notfallmedizin</td>
-<td class="cnt"><span class="n">2</span><span class="src">1·PB 1·WA</span></td>
-</tr><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">Hepatitis</td>
-<td class="fach">Gastroenterologie</td>
-<td class="cnt"><span class="n">2</span><span class="src">2·PB 0·WA</span></td>
-</tr><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">Ikterus / Cholestase</td>
-<td class="fach">Gastroenterologie</td>
-<td class="cnt"><span class="n">2</span><span class="src">1·PB 1·WA</span></td>
-</tr><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">Neuroblastom (Päd)</td>
-<td class="fach">Pädiatrie</td>
-<td class="cnt"><span class="n">2</span><span class="src">2·PB 0·WA</span></td>
-</tr><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">Schlaganfall</td>
-<td class="fach">Neurologie</td>
-<td class="cnt"><span class="n">2</span><span class="src">0·PB 2·WA</span></td>
-</tr><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">Sturz / Polytrauma</td>
-<td class="fach">Unfallchirurgie</td>
-<td class="cnt"><span class="n">2</span><span class="src">2·PB 0·WA</span></td>
-</tr><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">Akute Dyspnoe (DD)</td>
-<td class="fach">Pneumologie</td>
-<td class="cnt"><span class="n">1</span><span class="src">1·PB 0·WA</span></td>
-</tr><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">Aortenaneurysma (AAA)</td>
-<td class="fach">Angiologie</td>
-<td class="cnt"><span class="n">1</span><span class="src">1·PB 0·WA</span></td>
-</tr><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">Arterielle Hypertonie</td>
-<td class="fach">Kardiologie</td>
-<td class="cnt"><span class="n">1</span><span class="src">1·PB 0·WA</span></td>
-</tr><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">Check-up / Prävention</td>
-<td class="fach">Querschnitt</td>
-<td class="cnt"><span class="n">1</span><span class="src">1·PB 0·WA</span></td>
-</tr><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">Diabetes mellitus</td>
-<td class="fach">Endokrinologie</td>
-<td class="cnt"><span class="n">1</span><span class="src">1·PB 0·WA</span></td>
-</tr><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">Diarrhoe / Gastroenteritis</td>
-<td class="fach">Viszeralchirurgie</td>
-<td class="cnt"><span class="n">1</span><span class="src">1·PB 0·WA</span></td>
-</tr><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">Gastroduodenales Ulkus</td>
-<td class="fach">Viszeralchirurgie</td>
-<td class="cnt"><span class="n">1</span><span class="src">1·PB 0·WA</span></td>
-</tr><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">Germinom (Päd)</td>
-<td class="fach">Pädiatrie</td>
-<td class="cnt"><span class="n">1</span><span class="src">1·PB 0·WA</span></td>
-</tr><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">Gliogangliom (Päd)</td>
-<td class="fach">Pädiatrie</td>
-<td class="cnt"><span class="n">1</span><span class="src">1·PB 0·WA</span></td>
-</tr><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">Lymphom</td>
-<td class="fach">Hämatologie</td>
-<td class="cnt"><span class="n">1</span><span class="src">0·PB 1·WA</span></td>
-</tr><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">M. Bechterew</td>
-<td class="fach">Rheumatologie</td>
-<td class="cnt"><span class="n">1</span><span class="src">1·PB 0·WA</span></td>
-</tr><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">Morbus Crohn</td>
-<td class="fach">Viszeralchirurgie</td>
-<td class="cnt"><span class="n">1</span><span class="src">1·PB 0·WA</span></td>
-</tr><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">PMR / RZA</td>
-<td class="fach">Rheumatologie</td>
-<td class="cnt"><span class="n">1</span><span class="src">1·PB 0·WA</span></td>
-</tr><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">Sarkoidose</td>
-<td class="fach">Pneumologie</td>
-<td class="cnt"><span class="n">1</span><span class="src">0·PB 1·WA</span></td>
-</tr><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">Schock</td>
-<td class="fach">Notfallmedizin</td>
-<td class="cnt"><span class="n">1</span><span class="src">0·PB 1·WA</span></td>
-</tr><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">TVT / Phlebothrombose</td>
-<td class="fach">Angiologie</td>
-<td class="cnt"><span class="n">1</span><span class="src">0·PB 1·WA</span></td>
-</tr><tr class="">
-<td class="chk"><span class="box"></span></td>
-<td class="topic">pAVK</td>
-<td class="fach">Angiologie</td>
-<td class="cnt"><span class="n">1</span><span class="src">1·PB 0·WA</span></td>
-</tr></tbody></table>
-</section>
+<section class="tier" style="--tc:#C0392B"><div class="tier-head"><div><div class="tier-title">Tier 1 · Kernthemen</div><div class="tier-desc">≥ 20 Nennungen — mit Sicherheit prüfungsrelevant</div></div><div class="tier-count">9 Themen</div></div><table><tbody><tr class="done" data-topic="Ileus (inkl. Sigmavolvulus-DD)"><td class="chk"><span class="box"></span></td><td class="topic"><a href="../reviews/chirurgie/ileus-r2.html">Ileus (inkl. Sigmavolvulus-DD)</a><span class="have">✓ R2</span></td><td class="fach">Viszeralchirurgie</td><td class="cnt"><span class="n">42</span><span class="src">2·PB 40·WA</span></td></tr><tr class="done" data-topic="Appendizitis"><td class="chk"><span class="box"></span></td><td class="topic"><a href="../reviews/chirurgie/appendizitis-r2.html">Appendizitis</a><span class="have">✓ R2</span></td><td class="fach">Viszeralchirurgie</td><td class="cnt"><span class="n">35</span><span class="src">3·PB 32·WA</span></td></tr><tr class="done" data-topic="Cholezystitis / Cholelithiasis"><td class="chk"><span class="box"></span></td><td class="topic"><a href="../reviews/chirurgie/cholezystitis-r3.html">Cholezystitis / Cholelithiasis</a><span class="have">✓ R3</span></td><td class="fach">Viszeralchirurgie</td><td class="cnt"><span class="n">35</span><span class="src">2·PB 33·WA</span></td></tr><tr class="" data-topic="Divertikulitis / Divertikulose"><td class="chk"><span class="box"></span></td><td class="topic">Divertikulitis / Divertikulose</td><td class="fach">Viszeralchirurgie</td><td class="cnt"><span class="n">32</span><span class="src">2·PB 30·WA</span></td></tr><tr class="" data-topic="Kolonkarzinom"><td class="chk"><span class="box"></span></td><td class="topic">Kolonkarzinom</td><td class="fach">Viszeralchirurgie</td><td class="cnt"><span class="n">31</span><span class="src">1·PB 30·WA</span></td></tr><tr class="done" data-topic="Lungenembolie"><td class="chk"><span class="box"></span></td><td class="topic"><a href="../reviews/pneumologie/lungenembolie-r2.html">Lungenembolie</a><span class="have">✓ R2</span></td><td class="fach">Angiologie</td><td class="cnt"><span class="n">25</span><span class="src">2·PB 23·WA</span></td></tr><tr class="done" data-topic="Herzinsuffizienz"><td class="chk"><span class="box"></span></td><td class="topic"><a href="../reviews/kardiologie/herzinsuffizienz-r2.html">Herzinsuffizienz</a><span class="have">✓ R2</span></td><td class="fach">Kardiologie</td><td class="cnt"><span class="n">23</span><span class="src">6·PB 17·WA</span></td></tr><tr class="" data-topic="Pankreatitis ↑"><td class="chk"><span class="box"></span></td><td class="topic">Pankreatitis ↑</td><td class="fach">Viszeralchirurgie</td><td class="cnt"><span class="n">22</span><span class="src">1·PB 21·WA</span></td></tr><tr class="" data-topic="Schilddrüse (allg.)"><td class="chk"><span class="box"></span></td><td class="topic">Schilddrüse (allg.)</td><td class="fach">Endokrinologie</td><td class="cnt"><span class="n">21</span><span class="src">0·PB 21·WA</span></td></tr></tbody></table></section><section class="tier" style="--tc:#D97706"><div class="tier-head"><div><div class="tier-title">Tier 2 · Hochfrequent</div><div class="tier-desc">10–19 Nennungen — sehr wahrscheinlich</div></div><div class="tier-count">11 Themen</div></div><table><tbody><tr class="done" data-topic="Pneumothorax"><td class="chk"><span class="box"></span></td><td class="topic"><a href="../reviews/pneumologie/pneumothorax-r3.html">Pneumothorax</a><span class="have">✓ R3</span></td><td class="fach">Pneumologie</td><td class="cnt"><span class="n">18</span><span class="src">0·PB 18·WA</span></td></tr><tr class="done" data-topic="Pneumonie"><td class="chk"><span class="box"></span></td><td class="topic"><a href="../reviews/pneumologie/pneumonie-r3.html">Pneumonie</a><span class="have">✓ R3</span></td><td class="fach">Pneumologie</td><td class="cnt"><span class="n">17</span><span class="src">2·PB 15·WA</span></td></tr><tr class="done" data-topic="COPD"><td class="chk"><span class="box"></span></td><td class="topic"><a href="../reviews/pneumologie/copd-r3.html">COPD</a><span class="have">✓ R3</span></td><td class="fach">Pneumologie</td><td class="cnt"><span class="n">16</span><span class="src">2·PB 14·WA</span></td></tr><tr class="done" data-topic="Allg. Frakturlehre"><td class="chk"><span class="box"></span></td><td class="topic"><a href="../reviews/unfallchirurgie/allgemeine-frakturlehre-r3.html">Allg. Frakturlehre</a><span class="have">✓ R3</span></td><td class="fach">Unfallchirurgie</td><td class="cnt"><span class="n">14</span><span class="src">0·PB 14·WA</span></td></tr><tr class="" data-topic="Schilddrüsenkarzinom"><td class="chk"><span class="box"></span></td><td class="topic">Schilddrüsenkarzinom</td><td class="fach">Endokrinologie</td><td class="cnt"><span class="n">14</span><span class="src">1·PB 13·WA</span></td></tr><tr class="done" data-topic="ALL / Leukämie"><td class="chk"><span class="box"></span></td><td class="topic"><a href="../reviews/haematologie/akute-leukaemien-r2.html">ALL / Leukämie</a><span class="have">✓ R2</span></td><td class="fach">Hämatologie</td><td class="cnt"><span class="n">13</span><span class="src">3·PB 10·WA</span></td></tr><tr class="done" data-topic="Hyperthyreose"><td class="chk"><span class="box"></span></td><td class="topic"><a href="../reviews/endokrinologie/hyperthyreose-r3.html">Hyperthyreose</a><span class="have">✓ R3</span></td><td class="fach">Endokrinologie</td><td class="cnt"><span class="n">13</span><span class="src">1·PB 12·WA</span></td></tr><tr class="done" data-topic="AV-Block"><td class="chk"><span class="box"></span></td><td class="topic"><a href="../reviews/kardiologie/av-block-r2.html">AV-Block</a><span class="have">✓ R2</span></td><td class="fach">Kardiologie</td><td class="cnt"><span class="n">12</span><span class="src">2·PB 10·WA</span></td></tr><tr class="done" data-topic="Distale Radiusfraktur"><td class="chk"><span class="box"></span></td><td class="topic"><a href="../reviews/unfallchirurgie/distale-radiusfraktur-r3.html">Distale Radiusfraktur</a><span class="have">✓ R3</span></td><td class="fach">Unfallchirurgie</td><td class="cnt"><span class="n">12</span><span class="src">1·PB 11·WA</span></td></tr><tr class="done" data-topic="Sprunggelenkfraktur (OSG)"><td class="chk"><span class="box"></span></td><td class="topic"><a href="../reviews/unfallchirurgie/sprunggelenksfraktur-r3.html">Sprunggelenkfraktur (OSG)</a><span class="have">✓ R3</span></td><td class="fach">Unfallchirurgie</td><td class="cnt"><span class="n">12</span><span class="src">1·PB 11·WA</span></td></tr><tr class="done" data-topic="Vorhofflimmern"><td class="chk"><span class="box"></span></td><td class="topic"><a href="../reviews/kardiologie/vorhofflimmern-r1.html">Vorhofflimmern</a><span class="have">✓ R1</span></td><td class="fach">Kardiologie</td><td class="cnt"><span class="n">12</span><span class="src">0·PB 12·WA</span></td></tr></tbody></table></section><section class="tier" style="--tc:#0E7C7B"><div class="tier-head"><div><div class="tier-title">Tier 3 · Mittelfrequent</div><div class="tier-desc">5–9 Nennungen — solide vorbereiten</div></div><div class="tier-count">12 Themen</div></div><table><tbody><tr class="done" data-topic="KHK / Angina pectoris"><td class="chk"><span class="box"></span></td><td class="topic"><a href="../reviews/kardiologie/khk-r2.html">KHK / Angina pectoris</a><span class="have">✓ R2</span></td><td class="fach">Kardiologie</td><td class="cnt"><span class="n">9</span><span class="src">1·PB 8·WA</span></td></tr><tr class="" data-topic="Rektumkarzinom"><td class="chk"><span class="box"></span></td><td class="topic">Rektumkarzinom</td><td class="fach">Viszeralchirurgie</td><td class="cnt"><span class="n">9</span><span class="src">3·PB 6·WA</span></td></tr><tr class="" data-topic="Hypothyreose"><td class="chk"><span class="box"></span></td><td class="topic">Hypothyreose</td><td class="fach">Endokrinologie</td><td class="cnt"><span class="n">8</span><span class="src">1·PB 7·WA</span></td></tr><tr class="" data-topic="Magenkarzinom"><td class="chk"><span class="box"></span></td><td class="topic">Magenkarzinom</td><td class="fach">Viszeralchirurgie</td><td class="cnt"><span class="n">8</span><span class="src">2·PB 6·WA</span></td></tr><tr class="done" data-topic="Aortenklappenstenose (Herzklappen)"><td class="chk"><span class="box"></span></td><td class="topic"><a href="../reviews/kardiologie/herzklappenerkrankungen-r2.html">Aortenklappenstenose (Herzklappen)</a><span class="have">✓ R2</span></td><td class="fach">Kardiologie</td><td class="cnt"><span class="n">6</span><span class="src">1·PB 5·WA</span></td></tr><tr class="done" data-topic="Eisenmangelanämie (Thalassämie-DD, B12)"><td class="chk"><span class="box"></span></td><td class="topic"><a href="../reviews/haematologie/eisenmangelanaemie-r2.html">Eisenmangelanämie (Thalassämie-DD, B12)</a><span class="have">✓ R2</span></td><td class="fach">Hämatologie</td><td class="cnt"><span class="n">6</span><span class="src">3·PB 3·WA</span></td></tr><tr class="" data-topic="Pankreaskarzinom"><td class="chk"><span class="box"></span></td><td class="topic">Pankreaskarzinom</td><td class="fach">Viszeralchirurgie</td><td class="cnt"><span class="n">6</span><span class="src">1·PB 5·WA</span></td></tr><tr class="done" data-topic="Femurfraktur"><td class="chk"><span class="box"></span></td><td class="topic"><a href="../reviews/unfallchirurgie/proximale-femurfraktur-r3.html">Femurfraktur</a><span class="have">✓ R3</span></td><td class="fach">Unfallchirurgie</td><td class="cnt"><span class="n">5</span><span class="src">0·PB 5·WA</span></td></tr><tr class="done" data-topic="GI-Blutung (OGIB + UGIB) ↑"><td class="chk"><span class="box"></span></td><td class="topic"><a href="../reviews/gastroenterologie/gi-blutung-r3.html">GI-Blutung (OGIB + UGIB) ↑</a><span class="have">✓ R3</span></td><td class="fach">Viszeralchirurgie</td><td class="cnt"><span class="n">5</span><span class="src">5·PB 0·WA</span></td></tr><tr class="" data-topic="Hüft-/Knie-TEP"><td class="chk"><span class="box"></span></td><td class="topic">Hüft-/Knie-TEP</td><td class="fach">Unfallchirurgie</td><td class="cnt"><span class="n">5</span><span class="src">2·PB 3·WA</span></td></tr><tr class="done" data-topic="Schenkelhalsfraktur"><td class="chk"><span class="box"></span></td><td class="topic"><a href="../reviews/unfallchirurgie/proximale-femurfraktur-r3.html">Schenkelhalsfraktur</a><span class="have">✓ R3</span></td><td class="fach">Unfallchirurgie</td><td class="cnt"><span class="n">5</span><span class="src">1·PB 4·WA</span></td></tr><tr class="" data-topic="Wirbelsäulenfraktur"><td class="chk"><span class="box"></span></td><td class="topic">Wirbelsäulenfraktur</td><td class="fach">Unfallchirurgie</td><td class="cnt"><span class="n">5</span><span class="src">0·PB 5·WA</span></td></tr></tbody></table></section><section class="tier" style="--tc:#64748B"><div class="tier-head"><div><div class="tier-title">Tier 4 · Niedrigfrequent / Drittes Fach</div><div class="tier-desc">1–4 Nennungen — Überblick genügt</div></div><div class="tier-count">37 Themen</div></div><table><tbody><tr class="done" data-topic="Beckenfraktur"><td class="chk"><span class="box"></span></td><td class="topic"><a href="../reviews/unfallchirurgie/beckenringfrakturen-r3.html">Beckenfraktur</a><span class="have">✓ R3</span></td><td class="fach">Unfallchirurgie</td><td class="cnt"><span class="n">4</span><span class="src">0·PB 4·WA</span></td></tr><tr class="" data-topic="Humerusfraktur"><td class="chk"><span class="box"></span></td><td class="topic">Humerusfraktur</td><td class="fach">Unfallchirurgie</td><td class="cnt"><span class="n">4</span><span class="src">2·PB 2·WA</span></td></tr><tr class="done" data-topic="Myokardinfarkt / ACS"><td class="chk"><span class="box"></span></td><td class="topic"><a href="../reviews/kardiologie/acs-myokardinfarkt-r2.html">Myokardinfarkt / ACS</a><span class="have">✓ R2</span></td><td class="fach">Kardiologie</td><td class="cnt"><span class="n">4</span><span class="src">0·PB 4·WA</span></td></tr><tr class="done" data-topic="Endokarditis"><td class="chk"><span class="box"></span></td><td class="topic"><a href="../reviews/kardiologie/infektioese-endokarditis-r2.html">Endokarditis</a><span class="have">✓ R2</span></td><td class="fach">Kardiologie</td><td class="cnt"><span class="n">3</span><span class="src">1·PB 2·WA</span></td></tr><tr class="" data-topic="Lebermetastasen / Lebertumor"><td class="chk"><span class="box"></span></td><td class="topic">Lebermetastasen / Lebertumor</td><td class="fach">Gastroenterologie</td><td class="cnt"><span class="n">3</span><span class="src">1·PB 2·WA</span></td></tr><tr class="" data-topic="Leberzirrhose / portale Hypertonie"><td class="chk"><span class="box"></span></td><td class="topic">Leberzirrhose / portale Hypertonie</td><td class="fach">Gastroenterologie</td><td class="cnt"><span class="n">3</span><span class="src">2·PB 1·WA</span></td></tr><tr class="done" data-topic="Mitralklappenvitium (Herzklappen)"><td class="chk"><span class="box"></span></td><td class="topic"><a href="../reviews/kardiologie/herzklappenerkrankungen-r2.html">Mitralklappenvitium (Herzklappen)</a><span class="have">✓ R2</span></td><td class="fach">Kardiologie</td><td class="cnt"><span class="n">3</span><span class="src">0·PB 3·WA</span></td></tr><tr class="" data-topic="Morbus Hodgkin"><td class="chk"><span class="box"></span></td><td class="topic">Morbus Hodgkin</td><td class="fach">Hämatologie</td><td class="cnt"><span class="n">3</span><span class="src">2·PB 1·WA</span></td></tr><tr class="done" data-topic="Sepsis"><td class="chk"><span class="box"></span></td><td class="topic"><a href="../reviews/notfallmedizin/sepsis-r3.html">Sepsis</a><span class="have">✓ R3</span></td><td class="fach">Notfallmedizin</td><td class="cnt"><span class="n">3</span><span class="src">1·PB 2·WA</span></td></tr><tr class="" data-topic="Struma"><td class="chk"><span class="box"></span></td><td class="topic">Struma</td><td class="fach">Endokrinologie</td><td class="cnt"><span class="n">3</span><span class="src">0·PB 3·WA</span></td></tr><tr class="done" data-topic="Synkope"><td class="chk"><span class="box"></span></td><td class="topic"><a href="../reviews/kardiologie/synkope-r2.html">Synkope</a><span class="have">✓ R2</span></td><td class="fach">Kardiologie</td><td class="cnt"><span class="n">3</span><span class="src">1·PB 2·WA</span></td></tr><tr class="done" data-topic="Asthma bronchiale"><td class="chk"><span class="box"></span></td><td class="topic"><a href="../reviews/pneumologie/asthma-bronchiale-r3.html">Asthma bronchiale</a><span class="have">✓ R3</span></td><td class="fach">Pneumologie</td><td class="cnt"><span class="n">2</span><span class="src">0·PB 2·WA</span></td></tr><tr class="" data-topic="Bronchialkarzinom"><td class="chk"><span class="box"></span></td><td class="topic">Bronchialkarzinom</td><td class="fach">Pneumologie</td><td class="cnt"><span class="n">2</span><span class="src">1·PB 1·WA</span></td></tr><tr class="done" data-topic="Cushing-Syndrom"><td class="chk"><span class="box"></span></td><td class="topic"><a href="../reviews/endokrinologie/cushing-syndrom-r3.html">Cushing-Syndrom</a><span class="have">✓ R3</span></td><td class="fach">Endokrinologie</td><td class="cnt"><span class="n">2</span><span class="src">0·PB 2·WA</span></td></tr><tr class="" data-topic="Delir"><td class="chk"><span class="box"></span></td><td class="topic">Delir</td><td class="fach">Notfallmedizin</td><td class="cnt"><span class="n">2</span><span class="src">1·PB 1·WA</span></td></tr><tr class="" data-topic="Hepatitis"><td class="chk"><span class="box"></span></td><td class="topic">Hepatitis</td><td class="fach">Gastroenterologie</td><td class="cnt"><span class="n">2</span><span class="src">2·PB 0·WA</span></td></tr><tr class="" data-topic="Ikterus / Cholestase"><td class="chk"><span class="box"></span></td><td class="topic">Ikterus / Cholestase</td><td class="fach">Gastroenterologie</td><td class="cnt"><span class="n">2</span><span class="src">1·PB 1·WA</span></td></tr><tr class="done" data-topic="Schlaganfall ↑ (+ Para-/Tetraplegie)"><td class="chk"><span class="box"></span></td><td class="topic"><a href="../reviews/neurologie/schlaganfall-r2.html">Schlaganfall ↑ (+ Para-/Tetraplegie)</a><span class="have">✓ R2</span></td><td class="fach">Neurologie</td><td class="cnt"><span class="n">2</span><span class="src">0·PB 2·WA</span></td></tr><tr class="" data-topic="Sturz / Polytrauma (inkl. Thoraxtrauma)"><td class="chk"><span class="box"></span></td><td class="topic">Sturz / Polytrauma (inkl. Thoraxtrauma)</td><td class="fach">Unfallchirurgie</td><td class="cnt"><span class="n">2</span><span class="src">2·PB 0·WA</span></td></tr><tr class="" data-topic="Aortenaneurysma (AAA)"><td class="chk"><span class="box"></span></td><td class="topic">Aortenaneurysma (AAA)</td><td class="fach">Angiologie</td><td class="cnt"><span class="n">1</span><span class="src">1·PB 0·WA</span></td></tr><tr class="done" data-topic="Arterielle Hypertonie"><td class="chk"><span class="box"></span></td><td class="topic"><a href="../reviews/kardiologie/arterielle-hypertonie-r2.html">Arterielle Hypertonie</a><span class="have">✓ R2</span></td><td class="fach">Kardiologie</td><td class="cnt"><span class="n">1</span><span class="src">1·PB 0·WA</span></td></tr><tr class="" data-topic="Check-up / Prävention"><td class="chk"><span class="box"></span></td><td class="topic">Check-up / Prävention</td><td class="fach">Querschnitt</td><td class="cnt"><span class="n">1</span><span class="src">1·PB 0·WA</span></td></tr><tr class="done" data-topic="Diabetes mellitus (inkl. DKA)"><td class="chk"><span class="box"></span></td><td class="topic"><a href="../reviews/endokrinologie/diabetes-mellitus-r2.html">Diabetes mellitus (inkl. DKA)</a><span class="have">✓ R2</span></td><td class="fach">Endokrinologie</td><td class="cnt"><span class="n">1</span><span class="src">1·PB 0·WA</span></td></tr><tr class="" data-topic="Diarrhoe / Gastroenteritis"><td class="chk"><span class="box"></span></td><td class="topic">Diarrhoe / Gastroenteritis</td><td class="fach">Viszeralchirurgie</td><td class="cnt"><span class="n">1</span><span class="src">1·PB 0·WA</span></td></tr><tr class="" data-topic="Gastroduodenales Ulkus"><td class="chk"><span class="box"></span></td><td class="topic">Gastroduodenales Ulkus</td><td class="fach">Viszeralchirurgie</td><td class="cnt"><span class="n">1</span><span class="src">1·PB 0·WA</span></td></tr><tr class="done" data-topic="Lymphom"><td class="chk"><span class="box"></span></td><td class="topic"><a href="../reviews/haematologie/non-hodgkin-lymphome-r1.html">Lymphom</a><span class="have">✓ R1</span></td><td class="fach">Hämatologie</td><td class="cnt"><span class="n">1</span><span class="src">0·PB 1·WA</span></td></tr><tr class="done" data-topic="Morbus Crohn"><td class="chk"><span class="box"></span></td><td class="topic"><a href="../reviews/gastroenterologie/morbus-crohn-r2.html">Morbus Crohn</a><span class="have">✓ R2</span></td><td class="fach">Viszeralchirurgie</td><td class="cnt"><span class="n">1</span><span class="src">1·PB 0·WA</span></td></tr><tr class="done" data-topic="Schock"><td class="chk"><span class="box"></span></td><td class="topic"><a href="../reviews/notfallmedizin/schock-r3.html">Schock</a><span class="have">✓ R3</span></td><td class="fach">Notfallmedizin</td><td class="cnt"><span class="n">1</span><span class="src">0·PB 1·WA</span></td></tr><tr class="" data-topic="TVT / Phlebothrombose"><td class="chk"><span class="box"></span></td><td class="topic">TVT / Phlebothrombose</td><td class="fach">Angiologie</td><td class="cnt"><span class="n">1</span><span class="src">0·PB 1·WA</span></td></tr><tr class="" data-topic="pAVK"><td class="chk"><span class="box"></span></td><td class="topic">pAVK</td><td class="fach">Angiologie</td><td class="cnt"><span class="n">1</span><span class="src">1·PB 0·WA</span></td></tr></tbody></table></section><section class="tier" style="--tc:#5B53B0"><div class="tier-head"><div><div class="tier-title">Neu · Protokolle 03–06/2026</div><div class="tier-desc">Themen aus den fünf neuen Protokollen — historische Frequenz noch nicht codiert</div></div><div class="tier-count">16 Themen</div></div><table><tbody><tr class="done" data-topic="Leistenhernie / Hernien"><td class="chk"><span class="box"></span></td><td class="topic"><a href="../reviews/chirurgie/leistenhernie-r3.html">Leistenhernie / Hernien</a><span class="have">✓ R3</span><div class="note">bereits gebaut</div></td><td class="fach">Viszeralchirurgie</td><td class="cnt"><span class="n">2</span><span class="src">·06/26</span></td></tr><tr class="" data-topic="Hämorrhoiden"><td class="chk"><span class="box"></span></td><td class="topic">Hämorrhoiden<div class="note">neu</div></td><td class="fach">Viszeralchirurgie</td><td class="cnt"><span class="n">1</span><span class="src">·06/26</span></td></tr><tr class="" data-topic="Paroxysmale SVT / AVNRT–AVRT"><td class="chk"><span class="box"></span></td><td class="topic">Paroxysmale SVT / AVNRT–AVRT<div class="note">distinkt von AV-Block &amp; VHF</div></td><td class="fach">Kardiologie</td><td class="cnt"><span class="n">1</span><span class="src">·06/26</span></td></tr><tr class="" data-topic="Claviculafraktur (+ Plexus-Läsion)"><td class="chk"><span class="box"></span></td><td class="topic">Claviculafraktur (+ Plexus-Läsion)<div class="note">neu</div></td><td class="fach">Unfallchirurgie</td><td class="cnt"><span class="n">1</span><span class="src">·06/26</span></td></tr><tr class="done" data-topic="Aortendissektion (+ Stanford)"><td class="chk"><span class="box"></span></td><td class="topic"><a href="../reviews/gefaesschirurgie/aortendissektion-r2.html">Aortendissektion (+ Stanford)</a><span class="have">✓ R2</span><div class="note">Liste hatte nur AAA</div></td><td class="fach">Angiologie</td><td class="cnt"><span class="n">1</span><span class="src">·06/26</span></td></tr><tr class="" data-topic="Gastritis (Typ A/B/C, H. pylori)"><td class="chk"><span class="box"></span></td><td class="topic">Gastritis (Typ A/B/C, H. pylori)<div class="note">Liste hatte nur Ulkus</div></td><td class="fach">Gastroenterologie</td><td class="cnt"><span class="n">2</span><span class="src">·06/26</span></td></tr><tr class="" data-topic="Akutes Nierenversagen"><td class="chk"><span class="box"></span></td><td class="topic">Akutes Nierenversagen<div class="note">bisher keine Nephro-Zeile</div></td><td class="fach">Nephrologie</td><td class="cnt"><span class="n">1</span><span class="src">·06/26</span></td></tr><tr class="done" data-topic="Rechtsmedizin / Leichenschau"><td class="chk"><span class="box"></span></td><td class="topic"><a href="../reviews/drittes-fach/rechtsmedizin-r1.html">Rechtsmedizin / Leichenschau</a><span class="have">✓ R1</span><span class="have drill">Drill</span><div class="note">+ Drill</div></td><td class="fach">Drittes Fach</td><td class="cnt"><span class="n">2</span><span class="src">·06/26</span></td></tr><tr class="done" data-topic="Strahlenschutz (ALARA, 5 A)"><td class="chk"><span class="box"></span></td><td class="topic"><a href="../reviews/drittes-fach/strahlenschutz-r1.html">Strahlenschutz (ALARA, 5 A)</a><span class="have">✓ R1</span></td><td class="fach">Drittes Fach</td><td class="cnt"><span class="n">1</span><span class="src">·06/26</span></td></tr><tr class="" data-topic="Bluttransfusion (Kreuzprobe, Bedside)"><td class="chk"><span class="box"></span></td><td class="topic">Bluttransfusion (Kreuzprobe, Bedside)<div class="note">Einwilligung betont</div></td><td class="fach">Drittes Fach</td><td class="cnt"><span class="n">1</span><span class="src">·06/26</span></td></tr><tr class="" data-topic="Schmerztherapie / WHO-Stufenschema"><td class="chk"><span class="box"></span></td><td class="topic">Schmerztherapie / WHO-Stufenschema<div class="note">tlw. in Notfallpharma-R2</div></td><td class="fach">Drittes Fach</td><td class="cnt"><span class="n">2</span><span class="src">·06/26</span></td></tr><tr class="" data-topic="Evidenzbasierte Medizin (EBM)"><td class="chk"><span class="box"></span></td><td class="topic">Evidenzbasierte Medizin (EBM)<div class="note">neu</div></td><td class="fach">Drittes Fach</td><td class="cnt"><span class="n">1</span><span class="src">·06/26</span></td></tr><tr class="" data-topic="KI in der Medizin"><td class="chk"><span class="box"></span></td><td class="topic">KI in der Medizin<div class="note">aufkommend</div></td><td class="fach">Drittes Fach</td><td class="cnt"><span class="n">1</span><span class="src">·06/26</span></td></tr><tr class="done" data-topic="Aufklärung / Einwilligung / Betreuung"><td class="chk"><span class="box"></span></td><td class="topic"><a href="../reviews/drittes-fach/aufklaerung-einwilligung-betreuung-r2.html">Aufklärung / Einwilligung / Betreuung</a><span class="have">✓ R2</span><div class="note">bereits gebaut</div></td><td class="fach">Drittes Fach</td><td class="cnt"><span class="n">2</span><span class="src">·06/26</span></td></tr><tr class="done" data-topic="Impfungen / STIKO"><td class="chk"><span class="box"></span></td><td class="topic"><a href="../reviews/drittes-fach/impfungen-stiko-r3.html">Impfungen / STIKO</a><span class="have">✓ R3</span><div class="note">bereits gebaut</div></td><td class="fach">Drittes Fach</td><td class="cnt"><span class="n">1</span><span class="src">·06/26</span></td></tr><tr class="done" data-topic="Sozialrecht / Hygiene (BG, D-Arzt)"><td class="chk"><span class="box"></span></td><td class="topic"><a href="../reviews/drittes-fach/sozialrecht-hygiene-r1.html">Sozialrecht / Hygiene (BG, D-Arzt)</a><span class="have">✓ R1</span><div class="note">bereits gebaut</div></td><td class="fach">Drittes Fach</td><td class="cnt"><span class="n">1</span><span class="src">·06/26</span></td></tr></tbody></table></section><section class="tier" style="--tc:#0F766E"><div class="tier-head"><div><div class="tier-title">Neu · Amboss-152-Validierung</div><div class="tier-desc">Bestätigte Lücken aus dem statistischen Korpus-Abgleich — noch kein Review</div></div><div class="tier-count">9 Themen</div></div><table><tbody><tr class="" data-topic="Akuttoxikologie / Intoxikation"><td class="chk"><span class="box"></span></td><td class="topic">Akuttoxikologie / Intoxikation</td><td class="fach">Notfallmedizin</td><td class="cnt"><span class="n">62</span><span class="src">30·Chat</span></td></tr><tr class="" data-topic="Tuberkulose"><td class="chk"><span class="box"></span></td><td class="topic">Tuberkulose</td><td class="fach">Pneumologie</td><td class="cnt"><span class="n">59</span><span class="src">22·Chat</span></td></tr><tr class="" data-topic="Kompartmentsyndrom"><td class="chk"><span class="box"></span></td><td class="topic">Kompartmentsyndrom</td><td class="fach">Unfallchirurgie</td><td class="cnt"><span class="n">52</span><span class="src">22·Chat</span></td></tr><tr class="" data-topic="Ventrikuläre Tachykardie / Kammerflimmern"><td class="chk"><span class="box"></span></td><td class="topic">Ventrikuläre Tachykardie / Kammerflimmern</td><td class="fach">Kardiologie</td><td class="cnt"><span class="n">71</span><span class="src">21·Chat</span></td></tr><tr class="" data-topic="Verbrennung (Neuner-Regel, VKOF)"><td class="chk"><span class="box"></span></td><td class="topic">Verbrennung (Neuner-Regel, VKOF)</td><td class="fach">Notfallmedizin</td><td class="cnt"><span class="n">35</span><span class="src">19·Chat</span></td></tr><tr class="" data-topic="Osteoporose"><td class="chk"><span class="box"></span></td><td class="topic">Osteoporose</td><td class="fach">Endokrinologie</td><td class="cnt"><span class="n">70</span><span class="src">17·Chat</span></td></tr><tr class="" data-topic="Harnwegsinfekt / Pyelonephritis"><td class="chk"><span class="box"></span></td><td class="topic">Harnwegsinfekt / Pyelonephritis</td><td class="fach">Nephrologie</td><td class="cnt"><span class="n">55</span><span class="src">12·Chat</span></td></tr><tr class="" data-topic="GERD / Refluxkrankheit"><td class="chk"><span class="box"></span></td><td class="topic">GERD / Refluxkrankheit</td><td class="fach">Gastroenterologie</td><td class="cnt"><span class="n">48</span><span class="src">11·Chat</span></td></tr><tr class="" data-topic="Colitis ulcerosa"><td class="chk"><span class="box"></span></td><td class="topic">Colitis ulcerosa</td><td class="fach">Gastroenterologie</td><td class="cnt"><span class="n">47</span><span class="src">5·Chat</span></td></tr></tbody></table></section><section class="tier" style="--tc:#2D7A3E"><div class="tier-head"><div><div class="tier-title">Weitere gebaute Reviews</div><div class="tier-desc">In der Library vorhanden, aber noch nicht in der Frequenzliste codiert</div></div><div class="tier-count">5 Themen</div></div><table><tbody><tr class="done" data-topic="Schädel-Hirn-Trauma"><td class="chk"><span class="box"></span></td><td class="topic"><a href="../reviews/notfallmedizin/schaedel-hirn-trauma-r3.html">Schädel-Hirn-Trauma</a><span class="have">✓ R3</span></td><td class="fach">Notfallmedizin</td><td class="cnt"><span class="src">gebaut</span></td></tr><tr class="done" data-topic="Pleuraerguss"><td class="chk"><span class="box"></span></td><td class="topic"><a href="../reviews/pneumologie/pleuraerguss-r3.html">Pleuraerguss</a><span class="have">✓ R3</span></td><td class="fach">Pneumologie</td><td class="cnt"><span class="src">gebaut</span></td></tr><tr class="done" data-topic="Hypertrophe Kardiomyopathie"><td class="chk"><span class="box"></span></td><td class="topic"><a href="../reviews/kardiologie/hypertrophe-kardiomyopathie-r2.html">Hypertrophe Kardiomyopathie</a><span class="have">✓ R2</span></td><td class="fach">Kardiologie</td><td class="cnt"><span class="src">gebaut</span></td></tr><tr class="done" data-topic="Notfallpharmakologie"><td class="chk"><span class="box"></span></td><td class="topic"><a href="../reviews/notfallmedizin/notfallpharmakologie-r2.html">Notfallpharmakologie</a><span class="have">✓ R2</span></td><td class="fach">Notfallmedizin</td><td class="cnt"><span class="src">gebaut</span></td></tr><tr class="done" data-topic="CML"><td class="chk"><span class="box"></span></td><td class="topic"><a href="../reviews/haematologie/cml-r2.html">CML</a><span class="have">✓ R2</span></td><td class="fach">Hämatologie</td><td class="cnt"><span class="src">gebaut</span></td></tr></tbody></table></section>
 <div class="legend">
-<b>Häufigkeit</b> = wie oft das Thema als Prüfungsfall auftauchte (PB = Protokolle bearbeitet, WA = WhatsApp).
-Tiers nach Gesamthäufigkeit. <b>Reihenfolge-Empfehlung:</b> Tier 1 → 2 → 3 zuerst, Tier 4 (inkl. Drittes-Fach-/Neuro-Themen) nur im Überblick.
-Häkchen werden lokal im Browser gespeichert.
+<b>Häufigkeit</b> = wie oft das Thema als Prüfungsfall auftauchte (PB = Protokolle bearbeitet, WA = WhatsApp; bei den neuen Abschnitten: 06/26 = Treffer in den fünf neuesten Protokollen, Chat/Prot = Korpus-Treffer).
+<b>Review</b>-Badge zeigt das gebaute Level (✓ R1 → R3) und verlinkt direkt; <b>↑</b> = zuletzt steigende Häufigkeit.
+<b>Reihenfolge:</b> Tier 1 → 2 → 3 zuerst, Tier 4 nur im Überblick. Häkchen werden lokal im Browser gespeichert.
 </div>
-<div class="foot">KP Mainz · Master-Themenliste · aus Protokolle bearbeitet + WhatsApp-Chat · 69 Themen</div>
+<div class="foot">KP Mainz · Master-Themenliste · 87 Themen · 45 Reviews live · Review-Status direkt aus dem Repo · Stand 06/2026</div>
 </div>
 <script>
 const boxes=document.querySelectorAll('.box');
 function load(){try{return JSON.parse(localStorage.getItem('kp_master')||'{}')}catch(e){return {}}}
 function save(s){localStorage.setItem('kp_master',JSON.stringify(s))}
 let st=load();
-boxes.forEach((b,i)=>{
-  const row=b.closest('tr'); const key=row.querySelector('.topic').textContent.trim();
+boxes.forEach((b)=>{
+  const row=b.closest('tr'); const key=row.dataset.topic;
   if(st[key]) b.classList.add('checked');
   b.addEventListener('click',()=>{b.classList.toggle('checked');st[key]=b.classList.contains('checked');save(st);prog();});
 });
