@@ -115,7 +115,7 @@ FLAT=[
 (13,8,5,"Drittes Fach","KI in der Medizin",None),
 (12,10,2,"Drittes Fach","EBM",None),
 ]
-EXTRA=[("Notfallmedizin","Pleuraerguss","pleuraerguss"),("Kardiologie","Hypertrophe Kardiomyopathie","hypertrophe-kardiomyopathie"),("Notfallmedizin","Notfallpharmakologie","notfallpharmakologie"),("Hämatologie","CML","cml")]
+EXTRA=[("Notfallmedizin","Pleuraerguss","pleuraerguss"),("Kardiologie","Hypertrophe Kardiomyopathie","hypertrophe-kardiomyopathie"),("Notfallmedizin","Notfallpharmakologie","notfallpharmakologie"),("Hämatologie","CML","cml"),("Drittes Fach","Impfschäden + STIKO vertieft","impfschaeden-stiko-vertieft")]
 
 # rank + tier split
 ranked=[(i+1,)+row for i,row in enumerate(FLAT)]
