@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Schlaganfall / Apoplex · R3 Review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F7F4EE; --card:#FFFDF8; --ink:#2A2724; --muted:#6B6358; --line:#E7E0D4;
+    --grundlagen:#C0392B; --grundlagen-t:#F7E9E6;
+    --klinik:#D97706;     --klinik-t:#FBEEDD;
+    --diagnostik:#1E5F9E; --diagnostik-t:#E4EDF6;
+    --therapie:#2D7A3E;   --therapie-t:#E5F0E7;
+    --fragen:#7B3F9E;     --fragen-t:#F0E8F6;
+    --perlen:#B8860B;     --perlen-t:#F8F0D9;
+    --retrieval:#0F766E;  --retrieval-t:#E0F0EE;
+    --protokoll:#334155;  --protokoll-t:#E8EBF0;
+    --ok:#2D7A3E; --gap:#D97706; --miss:#C0392B;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:'Manrope',system-ui,sans-serif;
+    font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased;padding:0 18px 80px}
+  .wrap{max-width:860px;margin:0 auto}
+
+  header{padding:54px 0 22px}
+  .eyebrow{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--retrieval);margin-bottom:16px}
+  h1{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(34px,7vw,52px);line-height:1.04;letter-spacing:-.01em}
+  h1 .accent{font-style:italic;color:var(--grundlagen)}
+  .subtitle{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(17px,2.6vw,20px);color:var(--muted);margin-top:14px}
+  .meta{display:flex;flex-wrap:wrap;gap:6px 0;margin-top:20px;font-size:13px;color:var(--muted);font-weight:500}
+  .meta span:not(:last-child)::after{content:"•";margin:0 10px;color:var(--line);font-weight:700}
+
+
+  .tabs{display:flex;flex-wrap:wrap;gap:8px;position:sticky;top:0;z-index:30;background:linear-gradient(var(--bg) 72%,rgba(247,244,238,0));padding:12px 0 14px;margin-bottom:6px}
+  .tab{position:relative;font-size:13px;font-weight:600;border:1px solid var(--line);background:var(--card);color:var(--muted);padding:8px 15px;border-radius:999px;cursor:pointer;transition:all .15s;white-space:nowrap}
+  .tab:hover{border-color:#cfc6b6}
+  .tab.active{color:#fff;border-color:transparent}
+  .tab[data-c=retrieval].active{background:var(--retrieval)}
+  .tab[data-c=grundlagen].active{background:var(--grundlagen)}
+  .tab[data-c=klinik].active{background:var(--klinik)}
+  .tab[data-c=diagnostik].active{background:var(--diagnostik)}
+  .tab[data-c=therapie].active{background:var(--therapie)}
+  .tab[data-c=fragen].active{background:var(--fragen)}
+  .tab[data-c=perlen].active{background:var(--perlen)}
+  .tab[data-c=protokoll].active{background:var(--protokoll)}
+  .tab .badge{display:none;margin-left:7px;font-size:10px;font-weight:800;padding:1px 6px;border-radius:999px;vertical-align:middle}
+  .tab.flag-gap .badge{display:inline-block;background:var(--gap);color:#fff}
+  .tab.flag-ok .badge{display:inline-block;background:var(--ok);color:#fff}
+  .tab.active .badge{background:rgba(255,255,255,.28)!important;color:#fff}
+
+  .panel{display:none;animation:fade .25s ease}
+  .panel.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+  .panel-intro{font-family:'Fraunces',serif;font-style:italic;font-size:17px;color:var(--muted);margin:6px 0 18px;line-height:1.5}
+
+  /* ---- control bar (Pass 1 instrument) ---- */
+  .ctrl{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:14px 16px;margin-bottom:20px}
+  .ctrl-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+  .tally{font-size:13px;font-weight:700;display:flex;gap:12px;flex-wrap:wrap}
+  .tally i{font-style:normal;display:inline-flex;align-items:center;gap:5px}
+  .tally i::before{content:"";width:9px;height:9px;border-radius:50%}
+  .tally .t-ok::before{background:var(--ok)} .tally .t-gap::before{background:var(--gap)} .tally .t-miss::before{background:var(--miss)}
+  .spacer{flex:1 1 auto}
+  .btn{font-family:'Manrope';font-size:12.5px;font-weight:700;border:none;border-radius:999px;padding:9px 16px;cursor:pointer;transition:.15s}
+  .btn-primary{background:var(--retrieval);color:#fff}
+  .btn-primary:hover{filter:brightness(1.06)}
+  .btn-ghost{background:transparent;color:var(--muted);border:1px solid var(--line)}
+  .btn-ghost:hover{border-color:#cfc6b6}
+  .ctrl-status{margin-top:11px;font-size:13px;font-style:italic;color:var(--retrieval);min-height:18px}
+
+  /* ---- retrieval prompt ---- */
+  .rt{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:14px;transition:border-color .2s}
+  .rt[data-score=sicher]{border-left-color:var(--ok)}
+  .rt[data-score=lueckenhaft]{border-left-color:var(--gap)}
+  .rt[data-score=gefehlt]{border-left-color:var(--miss)}
+  .rt-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:8px}
+  .rt-n{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--retrieval)}
+  .rt-right{display:flex;align-items:center;gap:10px;white-space:nowrap}
+  .rt-ptr{font-size:11px;font-weight:600;color:var(--muted)}
+  .rt-q{font-size:15.5px;line-height:1.55}
+  .reveal{margin-top:12px;border-top:1px dashed var(--line);padding-top:0}
+  .reveal>summary{list-style:none;cursor:pointer;font-size:12.5px;font-weight:800;letter-spacing:.04em;color:var(--retrieval);padding:11px 0 0;user-select:none;display:inline-flex;align-items:center;gap:6px}
+  .reveal>summary::-webkit-details-marker{display:none}
+  .reveal>summary::before{content:"▸";transition:transform .2s;display:inline-block}
+  .reveal[open]>summary::before{transform:rotate(90deg)}
+  .reveal .ans{font-size:14.5px;line-height:1.6;color:#3c372f;padding-top:10px}
+  .reveal .ans b{color:var(--ink)}
+  .reveal .ans ul{list-style:none;padding-left:2px;margin:2px 0 0}
+  .reveal .ans li{position:relative;padding-left:18px;margin-bottom:8px;line-height:1.5}
+  .reveal .ans>ul>li::before{content:"";position:absolute;left:2px;top:8px;width:6px;height:6px;border-radius:50%;background:var(--retrieval)}
+  .reveal .ans li ul{margin:7px 0 2px}
+  .reveal .ans li li{padding-left:16px;margin-bottom:5px;font-size:13.8px;color:#4a443c}
+  .reveal .ans li li::before{content:"";position:absolute;left:0;top:7px;width:5px;height:5px;transform:rotate(45deg);background:#b9b0a1}
+  .score{display:flex;gap:7px;margin-top:12px;padding-top:11px;border-top:1px solid var(--line)}
+  .sbtn{flex:1;font-size:12px;font-weight:700;border:1px solid var(--line);background:var(--bg);color:var(--muted);border-radius:8px;padding:7px 4px;cursor:pointer;transition:.12s}
+  .sbtn:hover{border-color:#cfc6b6}
+  .sbtn[data-v=sicher].on{background:var(--ok);color:#fff;border-color:transparent}
+  .sbtn[data-v=lueckenhaft].on{background:var(--gap);color:#fff;border-color:transparent}
+  .sbtn[data-v=gefehlt].on{background:var(--miss);color:#fff;border-color:transparent}
+
+  /* ---- Schnellfragen ---- */
+  .sf-wrap{background:var(--retrieval-t);border:1px solid #BFE0DC;border-radius:13px;padding:18px 20px;margin-top:24px}
+  .sf-wrap h3{font-family:'Fraunces',serif;font-weight:500;font-size:20px;margin-bottom:3px}
+  .sf-wrap .sf-intro{font-size:13.5px;font-style:italic;color:#0c5d57;margin-bottom:14px}
+  .sf{border-bottom:1px solid #cfe4e1;padding:9px 0}
+  .sf:last-child{border-bottom:none}
+  .sf>summary{list-style:none;cursor:pointer;font-size:14.5px;font-weight:600;display:flex;justify-content:space-between;gap:10px;user-select:none}
+  .sf>summary::-webkit-details-marker{display:none}
+  .sf>summary::after{content:"+";color:var(--retrieval);font-weight:800}
+  .sf[open]>summary::after{content:"−"}
+  .sf .sfa{font-size:14px;color:#0c5d57;font-weight:700;padding-top:6px}
+
+  /* ---- content cards (v1) ---- */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:14px;overflow:hidden}
+  .card>summary{list-style:none;cursor:pointer;padding:18px 20px;display:flex;align-items:flex-start;gap:14px;user-select:none}
+  .card>summary::-webkit-details-marker{display:none}
+  .card .ct{flex:1}
+  .card .ctag{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:5px}
+  .card .ctitle{font-family:'Fraunces',serif;font-weight:500;font-size:17px;line-height:1.25}
+  .plus{flex:none;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:18px;line-height:1;transition:transform .2s;margin-top:2px}
+  .card[open] .plus{transform:rotate(45deg)}
+  .card .body{padding:0 20px 20px;border-top:1px solid var(--line);margin-top:-2px;padding-top:16px}
+  .card.grundlagen .ctag{color:var(--grundlagen)} .card.grundlagen .plus{background:var(--grundlagen-t);color:var(--grundlagen)}
+  .card.klinik .ctag{color:var(--klinik)} .card.klinik .plus{background:var(--klinik-t);color:var(--klinik)}
+  .card.diagnostik .ctag{color:var(--diagnostik)} .card.diagnostik .plus{background:var(--diagnostik-t);color:var(--diagnostik)}
+  .card.therapie .ctag{color:var(--therapie)} .card.therapie .plus{background:var(--therapie-t);color:var(--therapie)}
+  .card.fragen .ctag{color:var(--fragen)} .card.fragen .plus{background:var(--fragen-t);color:var(--fragen)}
+  .card.perlen .ctag{color:var(--perlen)} .card.perlen .plus{background:var(--perlen-t);color:var(--perlen)}
+
+  ul.b{list-style:none;padding-left:2px}
+  ul.b>li{position:relative;padding-left:20px;margin-bottom:8px;line-height:1.55}
+  ul.b>li::before{content:"";position:absolute;left:2px;top:9px;width:7px;height:7px;border-radius:50%}
+  .grundlagen ul.b>li::before{background:var(--grundlagen)} .klinik ul.b>li::before{background:var(--klinik)}
+  .diagnostik ul.b>li::before{background:var(--diagnostik)} .therapie ul.b>li::before{background:var(--therapie)}
+  ul.b ul{list-style:none;padding-left:18px;margin-top:7px}
+  ul.b ul>li{position:relative;padding-left:18px;margin-bottom:6px;font-size:15px;color:#4a443c}
+  ul.b ul>li::before{content:"";position:absolute;left:0;top:7px;width:6px;height:6px;transform:rotate(45deg);background:#b9b0a1}
+  strong{font-weight:700;color:var(--ink)}
+
+  .callout{border-radius:11px;padding:13px 16px;margin:14px 0;font-size:14.5px;line-height:1.55;border-left:4px solid}
+  .callout .lab{font-weight:800;font-size:11px;letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .critical{background:var(--grundlagen-t);border-color:var(--grundlagen)} .critical .lab{color:var(--grundlagen)}
+  .warning{background:var(--klinik-t);border-color:var(--klinik)} .warning .lab{color:var(--klinik)}
+  .fact{background:var(--diagnostik-t);border-color:var(--diagnostik)} .fact .lab{color:var(--diagnostik)}
+
+  .dd{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+  .dd th,.dd td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+  .dd th{background:var(--diagnostik-t);font-weight:700;color:var(--diagnostik);font-size:12px}
+  .dd td:first-child{font-weight:600}
+
+  .pk{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:16px}
+  .pk-meta{display:flex;flex-wrap:wrap;gap:6px 0;font-size:11.5px;font-weight:700;color:var(--protokoll);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+  .pk-meta span:not(:last-child)::after{content:"•";margin:0 8px;color:#c3c9d2}
+  .pk-badge{display:inline-block;background:var(--therapie-t);color:var(--therapie);font-size:10.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:2px 9px;border-radius:999px;margin-left:auto}
+  .pk-akte{font-size:14.5px;line-height:1.58;background:var(--protokoll-t);border-radius:9px;padding:12px 14px;margin-bottom:12px}
+  .pk-akte .lab,.pk-q .lab{font-weight:800;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--protokoll);display:block;margin-bottom:5px}
+  .pk-q ul{list-style:none;padding:0}
+  .pk-q li{position:relative;padding-left:18px;margin-bottom:7px;font-size:14.5px;line-height:1.5}
+  .pk-q li::before{content:"–";position:absolute;left:0;color:var(--protokoll);font-weight:700}
+  .pq{border-top:1px solid var(--line);padding:10px 0}
+  .pq-frage{position:relative;padding-left:18px;font-size:14.5px;font-weight:600;line-height:1.5}
+  .pq-frage::before{content:"–";position:absolute;left:0;color:var(--protokoll);font-weight:700}
+  .pq .reveal{margin-top:5px;border-top:none;padding-top:0}
+  .pq .reveal>summary{padding:5px 0 0}
+
+  .pearl{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--perlen);border-radius:12px;padding:16px 18px;margin-bottom:13px}
+  .pearl .ph{font-weight:800;font-size:13px;color:var(--perlen);margin-bottom:7px}
+  .pearl .pt{font-size:15px;line-height:1.55}
+  .pearl .mn{margin-top:9px;background:var(--perlen-t);border-radius:8px;padding:8px 12px;font-size:13.5px;font-style:italic;color:#7a5c08}
+  .pearl .mn b{font-style:normal;font-weight:800}
+
+  footer{margin-top:40px;padding-top:22px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted);line-height:1.6}
+  .back{display:inline-block;font-family:Manrope,system-ui,sans-serif;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);text-decoration:none;margin-bottom:18px}
+  .back:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a href="../../index.html" class="back">← Zurück zur Library</a>
+
+  <header>
+    <div class="eyebrow">Neurologie · R3 · Kurz + KP-Perlen + Protokolle</div>
+    <h1><span class="accent">Schlaganfall</span> / Apoplex</h1>
+    <div class="subtitle">CT zuerst, Blutung ausschließen — dann Lyse oder Thrombektomie gegen die Uhr. FAST, Stirn ausgespart, das Zeitfenster. Mainz-Dauerbrenner (Dr. Werner u. a.).</div>
+    <div class="meta">
+      <span>R3 · 6 Tabs · Kurz + KP-Perlen + Protokolle</span>
+      <span>~17 Min</span>
+      <span>Stand 06/2026</span>
+      <span>Stex + Vorbereitung + Mainz-Protokolle</span>
+    </div>
+  </header>
+
+  <div class="tabs">
+    <button class="tab active" data-c="grundlagen" data-tab="grundlagen">Grundlagen</button>
+    <button class="tab" data-c="klinik" data-tab="klinik">Klinik</button>
+    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik</button>
+    <button class="tab" data-c="therapie" data-tab="therapie">Therapie</button>
+    <button class="tab" data-c="perlen" data-tab="perlen">KP-Perlen</button>
+    <button class="tab" data-c="protokoll" data-tab="protokoll">Fragen &amp; Protokolle</button>
+  </div>
+
+  <!-- ============ GRUNDLAGEN ============ -->
+  <section class="panel active" data-panel="grundlagen">
+    <p class="panel-intro">Ischämisch oder hämorrhagisch — klinisch gleich, erst das CT trennt.</p>
+    <details class="card grundlagen" open><summary><span class="ct"><span class="ctag">★ Anker</span><span class="ctitle">Ischämisch vs. hämorrhagisch</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Merksatz</span><strong>~80–85 % ischämisch</strong> (Gefäßverschluss)<br><strong>~15–20 % hämorrhagisch</strong> (Blutung)<br>Klinisch nicht unterscheidbar → das CT entscheidet.</div>
+        <table class="dd"><tr><th></th><th>Ischämisch</th><th>Hämorrhagisch</th></tr>
+          <tr><td><strong>Häufigkeit</strong></td><td>80–85 %</td><td>15–20 %</td></tr>
+          <tr><td><strong>Ursache</strong></td><td>Thromboembolie, Atherosklerose</td><td>Hypertonie (loco typico), Aneurysma</td></tr>
+          <tr><td><strong>CT akut</strong></td><td>erst nach Stunden hypodens</td><td>sofort hyperdens (Blut)</td></tr>
+        </table>
+        <div class="callout fact"><span class="lab">⚙ Häufigstes Gefäß</span><strong>A. cerebri media</strong> ist am häufigsten betroffen.</div>
+      </div>
+    </details>
+    <details class="card grundlagen"><summary><span class="ct"><span class="ctag">★ Ätiologie + TIA</span><span class="ctitle">Ursachen &amp; TIA</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Merksatz</span><strong>Wichtigste Emboliequelle: Vorhofflimmern</strong> (Thrombus im linken Vorhofohr).<br>Weiter: arterio-arteriell (Karotisstenose), Makro-/Mikroangiopathie, Dissektion, PFO (paradoxe Embolie), Sinusvenenthrombose (junge Patienten), Endokarditis.</div>
+        <ul class="b">
+          <li><strong>TIA:</strong> vorübergehendes fokales Defizit ohne bleibenden Infarkt; 90-Tage-Schlaganfallrisiko ~10 % → Sekundärprophylaxe (vorübergehend DAPT)</li>
+          <li><strong>Amaurosis fugax:</strong> passagere einseitige Erblindung (Karotis)</li>
+          <li>Risikofaktoren: Hypertonie, VHF, DM, Karotisstenose, Rauchen, Hyperlipidämie</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ KLINIK ============ -->
+  <section class="panel" data-panel="klinik">
+    <p class="panel-intro">Plötzliches fokales Defizit — FAST erkennt es, die Stirn verrät den Ort.</p>
+    <details class="card klinik" open><summary><span class="ct"><span class="ctag">★ FAST</span><span class="ctitle">Leitsymptome erkennen</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz — FAST</span><strong>F</strong>ace — hängender Mundwinkel<br><strong>A</strong>rms — Arm hält nicht (Absinken)<br><strong>S</strong>peech — Sprachstörung<br><strong>T</strong>ime — „Time is brain!"<br>Erweitert <strong>BE-FAST</strong>: Balance + Eyes</div>
+        <ul class="b">
+          <li>Plötzlich einsetzendes <strong>fokales</strong> neurologisches Defizit</li>
+          <li>Hemiparese/-plegie, Hemihypästhesie, Aphasie, Dysarthrie, Gesichtsfeldausfall, Schwindel/Ataxie</li>
+        </ul>
+        <div class="callout fact"><span class="lab">⚙ Zentrale Fazialisparese</span><strong>Die Stirn bleibt ausgespart</strong> (Stirnrunzeln noch möglich) — die Stirnmuskulatur wird von beiden Hemisphären innerviert. <em>Periphere</em> Fazialisparese (z. B. Bell): ganze Gesichtshälfte inkl. Stirn betroffen.</div>
+      </div>
+    </details>
+    <details class="card klinik"><summary><span class="ct"><span class="ctag">★ Lokalisation</span><span class="ctitle">Stromgebiete</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <table class="dd"><tr><th>Gefäß</th><th>Typische Symptome</th></tr>
+          <tr><td><strong>A. cerebri media</strong></td><td>brachiofazial betonte Hemiparese, Aphasie (dominante Seite)</td></tr>
+          <tr><td><strong>A. cerebri anterior</strong></td><td>beinbetonte Hemiparese</td></tr>
+          <tr><td><strong>A. cerebri posterior</strong></td><td>homonyme Hemianopsie</td></tr>
+          <tr><td><strong>vertebrobasilär</strong></td><td>Schwindel, Doppelbilder, Ataxie, Hirnnervenausfälle</td></tr>
+        </table>
+        <div class="callout fact"><span class="lab">⚙ NIHSS</span>Schweregrad-Score; steuert Therapieentscheidung und Verlaufskontrolle.</div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ DIAGNOSTIK ============ -->
+  <section class="panel" data-panel="diagnostik">
+    <p class="panel-intro">Natives cCT zuerst — kein Medikament, bevor die Blutung ausgeschlossen ist.</p>
+    <details class="card diagnostik" open><summary><span class="ct"><span class="ctag">★ Anker</span><span class="ctitle">Warum CT zuerst?</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Erstes Ziel: natives cCT zum Ausschluss einer Blutung</strong> — Lyse bei Blutung wäre fatal.<br>Ischämie: im CT erst nach Stunden hypodens.<br>Blut: sofort hyperdens.</div>
+        <ul class="b">
+          <li><strong>CT-Angiographie:</strong> proximaler Gefäßverschluss (Thrombektomie-Kandidat)?</li>
+          <li><strong>CT-/MR-Perfusion (Mismatch):</strong> rettbare <em>Penumbra</em> („tissue at risk") abschätzen</li>
+          <li><strong>MRT (DWI):</strong> unklares Zeitfenster, vertebrobasilär, kleine Läsionen</li>
+        </ul>
+        <div class="callout fact"><span class="lab">⚙ Frühe CT-Zeichen (Ischämie)</span><strong>Hyperdenses Mediazeichen</strong> (thrombosierte A. cerebri media)<br><strong>verstrichene Sulci</strong><br>aufgehobene Mark-Rinden-Grenze<br>Fürs native cCT ist <strong>kein Kontrastmittel</strong> nötig.</div>
+      </div>
+    </details>
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">★ Ursachensuche</span><span class="ctitle">Emboliequelle + Labor</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <ul class="b">
+          <li><strong>EKG + Langzeit-EKG:</strong> Vorhofflimmern?</li>
+          <li><strong>TTE/TEE:</strong> kardiale Thromben, PFO</li>
+          <li><strong>Doppler Halsgefäße:</strong> Karotisstenose, Dissektion</li>
+          <li>Labor: BZ (Hypoglykämie als DD!), Gerinnung (INR!), Blutbild</li>
+          <li>Scores: CHA₂DS₂-VASc (Antikoagulation), HAS-BLED (Blutungsrisiko)</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ THERAPIE ============ -->
+  <section class="panel" data-panel="therapie">
+    <p class="panel-intro">Lyse ≤ 4,5 h, Thrombektomie bis 6 h — und dann auf die Stroke Unit.</p>
+    <details class="card therapie" open><summary><span class="ct"><span class="ctag">★ Lyse</span><span class="ctitle">Thrombolyse — das Zeitfenster</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Ischämischer Schlaganfall ≤ 4,5 h → Alteplase (rt-PA) 0,9 mg/kg i.v., max. 90 mg</strong> (10 % als Bolus, 90 % über 60 min). RR vorher auf &lt; 185/110 senken.</div>
+        <div class="callout warning"><span class="lab">⚠ Lyse-Kontraindikationen</span>Blutung (akut/anamnestisch)<br>NIHSS &gt; 25<br>INR &gt; 1,7 / Thrombozyten &lt; 100.000 / Quick &lt; 50 %<br>OP/Trauma &lt; 2 Wochen<br>RR &gt; 185/110 nicht kontrollierbar<br>Endokarditis<br>Schwangerschaft<br><em>Komplikation: intrazerebrale Blutung, orolinguales Angioödem.</em></div>
+      </div>
+    </details>
+    <details class="card therapie"><summary><span class="ct"><span class="ctag">★ Thrombektomie</span><span class="ctitle">Mechanische Rekanalisation</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Merksatz</span><strong>Proximaler Verschluss im vorderen Kreislauf (distale ACI, M1) → mechanische Thrombektomie (Stent-Retriever) bis 6 h</strong> (Basilaris: keine feste Obergrenze). Oft zusätzlich zur Lyse.</div>
+        <table class="dd"><tr><th>Befund</th><th>Therapie</th><th>Fenster</th></tr>
+          <tr><td>ischämisch, kein großes Gefäß</td><td>Lyse (Alteplase)</td><td>≤ 4,5 h</td></tr>
+          <tr><td>proximaler Verschluss vorne</td><td>Thrombektomie</td><td>bis 6 h (Perfusion länger)</td></tr>
+          <tr><td>hämorrhagisch</td><td>RR-Senkung, ggf. Hämatomausräumung</td><td>—</td></tr>
+        </table>
+      </div>
+    </details>
+    <details class="card therapie"><summary><span class="ct"><span class="ctag">★ Stroke Unit + Sekundär</span><span class="ctitle">Danach</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Merksatz</span><strong>Stroke Unit:</strong> Monitoring, Dysphagie-Screening (Schluckversuch vor erster Kost), NIHSS-Verlauf.<br>RR initial NICHT zu aggressiv senken (leichte Hypertonie tolerieren).</div>
+        <ul class="b">
+          <li><strong>Sekundärprophylaxe:</strong> Thrombozytenhemmer (ASS) bzw. <strong>Antikoagulation bei VHF</strong> (DOAK/Marcumar); Statin; RR- + DM-Einstellung; Karotis-OP/-Stent bei Stenose</li>
+          <li>Kontroll-cCT 24 h nach Lyse (Blutungsausschluss)</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ KP-PERLEN ============ -->
+  <section class="panel" data-panel="perlen">
+    <div class="pearl"><div class="ph">⭐ Perle 1 · CT zuerst — keine Medikamente vorher</div><div class="pt">Dokumentiert: Der Prüfer wollte ein Medikament hören — richtig ist: <strong>zuerst das native cCT</strong>, um eine Blutung auszuschließen. Eine Lyse bei Blutung wäre fatal.</div><div class="mn"><b>Merke:</b> Erst das native CT, dann erst Medikamente — nie umgekehrt.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 2 · Stirn ausgespart = zentral</div><div class="pt">Dokumentierter Stolperstein: Bei der <strong>zentralen Fazialisparese bleibt die Stirn ausgespart</strong> (Stirnrunzeln möglich), weil sie von beiden Hemisphären innerviert wird. Die <strong>periphere</strong> Parese betrifft die ganze Gesichtshälfte.</div><div class="mn"><b>Merke:</b> Kann er die Stirn runzeln? → zentral (Schlaganfall).</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 3 · Hyperdenses Mediazeichen</div><div class="pt">Dokumentiert: „Beschreiben Sie das CT." Frühe Ischämiezeichen sind das <strong>hyperdense Mediazeichen</strong> (thrombosierte A. cerebri media), <strong>verstrichene Sulci</strong> und die aufgehobene Mark-Rinden-Grenze.</div><div class="mn"><b>Merke:</b> Dichte Media + verwischte Sulci = früher Mediainfarkt.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 4 · Thrombus aus dem linken Vorhofohr</div><div class="pt">Dokumentierter Stolperstein: Bei Vorhofflimmern bildet sich der Thrombus im <strong>linken Vorhofohr</strong> und schwemmt von dort ins Gehirn. Genau diese Lokalisation wollte der Prüfer hören.</div><div class="mn"><b>Merke:</b> Bei VHF kommt der Thrombus aus dem linken Vorhofohr.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 5 · Marcumar? Erst den INR</div><div class="pt">Dokumentierter Fall: Patient unter Vitamin-K-Antagonist — Lyse oder nicht? Es entscheidet der INR: <strong>INR &lt; 1,7 → Lyse möglich</strong>, INR &gt; 1,7 ist eine Kontraindikation.</div><div class="mn"><b>Merke:</b> Marcumar + Schlaganfall? Erst den INR — unter 1,7 darf man lysieren.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 6 · Time is brain — 4,5 und 6</div><div class="pt"><strong>Lyse ≤ 4,5 h</strong>; <strong>mechanische Thrombektomie</strong> bei proximalem Verschluss im vorderen Kreislauf <strong>bis 6 h</strong> (Perfusionsbildgebung erlaubt länger; Basilaris keine feste Grenze).</div><div class="mn"><b>Merke:</b> Lyse viereinhalb, Thrombektomie sechs.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 7 · Dysphagie → Schluckscreening</div><div class="pt">Dokumentiert: Warum ist die Dysphagie so wichtig? Wegen der <strong>Aspirationspneumonie</strong>. Daher <strong>vor der ersten Kost ein Schluckscreening</strong> auf der Stroke Unit.</div><div class="mn"><b>Merke:</b> Kein Schluck ohne Schluckscreening — sonst Aspiration.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 8 · Mismatch = rettbare Penumbra</div><div class="pt">Dokumentiert: Wann und warum Perfusions-Diffusions-Mismatch? Der irreversible Infarktkern ist kleiner als die minderperfundierte Zone — die Differenz ist <strong>rettbares Gewebe (Penumbra)</strong> und rechtfertigt die Rekanalisation.</div><div class="mn"><b>Merke:</b> Mismatch = Gewebe, das man noch retten kann.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 9 · Junger Schlaganfall → Sinusvenenthrombose</div><div class="pt">Dokumentiert: Der Prüfer wollte die <strong>Sinusvenenthrombose</strong> hören. Bei jungen Patienten (Schwangerschaft, Pille, Thrombophilie) daran denken — Kopfschmerz, Stauungszeichen, Nachweis per MR-Venografie.</div><div class="mn"><b>Merke:</b> Junger Schlaganfall? Auch an die Sinusvenenthrombose denken.</div></div>
+    <div class="sf-wrap">
+      <h3>Rapid-Fire</h3>
+      <div class="sf-intro">Atomare Einzelfakten — Ein-Wort-Abruf. Laut, sofort, dann aufdecken.</div>
+      <details class="sf"><summary>Zwei Formen + Häufigkeit?</summary><div class="sfa">ischämisch ~85 %, hämorrhagisch ~15 %</div></details>
+      <details class="sf"><summary>Häufigstes betroffenes Gefäß?</summary><div class="sfa">A. cerebri media</div></details>
+      <details class="sf"><summary>Wichtigste Emboliequelle?</summary><div class="sfa">Vorhofflimmern (linkes Vorhofohr)</div></details>
+      <details class="sf"><summary>Leitsymptom (Prüfer-Favorit)?</summary><div class="sfa">Hemiparese</div></details>
+      <details class="sf"><summary>Zentrale Fazialisparese — Stirn?</summary><div class="sfa">ausgespart (Stirnrunzeln möglich)</div></details>
+      <details class="sf"><summary>Warum Stirn ausgespart?</summary><div class="sfa">bilaterale kortikale Innervation</div></details>
+      <details class="sf"><summary>FAST?</summary><div class="sfa">Face, Arms, Speech, Time</div></details>
+      <details class="sf"><summary>ACM-Infarkt — Symptome?</summary><div class="sfa">brachiofazial betonte Hemiparese, Aphasie (dominant)</div></details>
+      <details class="sf"><summary>ACA-Infarkt?</summary><div class="sfa">beinbetonte Hemiparese</div></details>
+      <details class="sf"><summary>ACP-Infarkt?</summary><div class="sfa">homonyme Hemianopsie</div></details>
+      <details class="sf"><summary>Erste Bildgebung + warum?</summary><div class="sfa">natives cCT (Blutung ausschließen)</div></details>
+      <details class="sf"><summary>Kontrastmittel fürs native cCT?</summary><div class="sfa">nein</div></details>
+      <details class="sf"><summary>Frühes CT-Zeichen Ischämie?</summary><div class="sfa">hyperdenses Mediazeichen, verstrichene Sulci</div></details>
+      <details class="sf"><summary>Lyse — Medikament + Dosis?</summary><div class="sfa">Alteplase 0,9 mg/kg, max. 90 mg (10 % Bolus)</div></details>
+      <details class="sf"><summary>Lyse-Zeitfenster?</summary><div class="sfa">≤ 4,5 h</div></details>
+      <details class="sf"><summary>RR vor Lyse?</summary><div class="sfa">&lt; 185/110 mmHg</div></details>
+      <details class="sf"><summary>Marcumar — Lyse ab welchem INR?</summary><div class="sfa">INR &lt; 1,7</div></details>
+      <details class="sf"><summary>Thrombektomie — Indikation + Fenster?</summary><div class="sfa">proximaler Verschluss vorderer Kreislauf, bis 6 h</div></details>
+      <details class="sf"><summary>Mismatch — was bedeutet das?</summary><div class="sfa">rettbare Penumbra</div></details>
+      <details class="sf"><summary>Vor der ersten Kost?</summary><div class="sfa">Schluckscreening (Dysphagie → Aspiration)</div></details>
+      <details class="sf"><summary>Sekundärprophylaxe bei VHF?</summary><div class="sfa">orale Antikoagulation (DOAK)</div></details>
+      <details class="sf"><summary>Junger Patient — DD-Ursache?</summary><div class="sfa">Sinusvenenthrombose, Dissektion, PFO</div></details>
+    </div>
+  </section>
+
+  <section class="panel" data-panel="protokoll">
+    <p class="panel-intro">Echte, dokumentierte Mainz-Fragen zum Schlaganfall — laut beantworten, dann aufdecken.</p>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · Innere / Neurologie</span><span>Grundlagen + Präsentation</span><span class="pk-badge">Protokoll</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">Was ist ein Schlaganfall?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ein Schlaganfall ist ein akutes fokal-neurologisches Defizit durch eine plötzliche Durchblutungsstörung des Gehirns. Etwa 85 % sind ischämisch und etwa 15 % hämorrhagisch.</div></details></div>
+      <div class="pq"><div class="pq-frage">Was ist die Ätiologie, und wie häufig ist jede Ursache?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Am häufigsten ist der ischämische Schlaganfall. Die wichtigsten Ursachen sind kardioembolisch, vor allem bei Vorhofflimmern mit einem Thrombus im linken Vorhofohr, dann arteriosklerotisch bei einer Karotisstenose und mikroangiopathisch als lakunärer Infarkt. Die hämorrhagischen Schlaganfälle teilen sich in die intrazerebrale Blutung, meist durch Hypertonie, und die Subarachnoidalblutung durch ein rupturiertes Aneurysma.</div></details></div>
+      <div class="pq"><div class="pq-frage">Wie präsentiert sich der Patient?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Typisch ist eine plötzliche halbseitige Lähmung, also eine kontralaterale Hemiparese. Je nach betroffenem Gefäßgebiet kommen eine Aphasie, ein Neglect, Sehstörungen, Schwindel oder eine Bewusstseinsstörung hinzu.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · Neurologie</span><span>Zentrale Fazialisparese</span><span class="pk-badge">Protokoll</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">Wie ist das Gesicht bei einer zentralen Fazialisparese betroffen?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Die mimische Muskulatur der unteren Gesichtshälfte ist gelähmt, während die Stirn ausgespart bleibt. Der Patient kann die Stirn auf der betroffenen Seite noch runzeln.</div></details></div>
+      <div class="pq"><div class="pq-frage">Warum bleibt die Stirn ausgespart?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Weil der Teil des Fazialiskerns für die Stirn von beiden Hirnhälften innerviert wird. Bei einer einseitigen zentralen Läsion übernimmt die gesunde Gegenseite, deshalb bleibt die Stirn beweglich. Bei einer peripheren Läsion ist dagegen die ganze Gesichtshälfte gelähmt.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · Radiologie / Neurologie</span><span>Erstdiagnostik + CT-Bild</span><span class="pk-badge">Protokoll</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">Welche Untersuchung machen Sie als Erstes?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Sofort ein natives CT des Schädels, um eine Blutung auszuschließen, bevor ich überhaupt an eine Lysetherapie denke.</div></details></div>
+      <div class="pq"><div class="pq-frage">Woran erkennen Sie im CT eine Blutung gegenüber einer Ischämie?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Frisches Blut stellt sich hyperdens, also hell, dar. Der frische ischämische Infarkt ist anfangs oft unauffällig und wird erst später hypodens. Eine Subarachnoidalblutung zeigt hyperdenses Blut in den basalen Zisternen.</div></details></div>
+      <div class="pq"><div class="pq-frage">Was ist sensitiver für den frühen Infarkt?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Die diffusionsgewichtete MRT, die sogenannte DWI. Sie zeigt den frischen Infarkt schon, wenn das CT noch unauffällig ist.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · mehrfach dokumentiert</span><span>Lysetherapie</span><span class="pk-badge">Protokoll</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">Bis zu welchem Zeitfenster führen Sie eine Lyse durch?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Bis 4,5 Stunden nach Symptombeginn. Je früher, desto besser, denn Zeit ist Hirn.</div></details></div>
+      <div class="pq"><div class="pq-frage">Wie führen Sie die Lyse konkret durch?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich therapiere mit Alteplase in einer Dosis von 0,9 mg pro kg Körpergewicht. Davon gebe ich 10 % als Bolus, den Rest über etwa eine Stunde als Infusion.</div></details></div>
+      <div class="pq"><div class="pq-frage">Nennen Sie Kontraindikationen der Lysetherapie.</div><details class="reveal"><summary>Antwort</summary><div class="ans">Eine intrakranielle Blutung.<br>Eine kürzliche große Operation oder ein schweres Trauma.<br>Eine aktive innere Blutung.<br>Ein sehr hoher, nicht einstellbarer Blutdruck.<br>Eine bekannte Gerinnungsstörung oder eine therapeutische Antikoagulation.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · Neurologie / Radiologie</span><span>Thrombektomie + Mismatch</span><span class="pk-badge">Protokoll</span></div>
+      <div class="pk-akte"><span class="lab">Akte</span>Großer Gefäßverschluss, aber die Lyse ist kontraindiziert — zum Beispiel nach einer frischen Operation oder Reanimation.</div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">Was tun Sie, wenn die Lyse kontraindiziert ist?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Dann führe ich eine mechanische Thrombektomie durch, vor allem bei einem Verschluss eines großen Gefäßes. So kann ich das Gefäß auch ohne Lyse wieder eröffnen.</div></details></div>
+      <div class="pq"><div class="pq-frage">Wann nutzen Sie das Perfusions-Diffusions-Mismatch, und warum?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Im erweiterten Zeitfenster, um noch rettbares Gewebe zu finden. Das Mismatch zeigt die Penumbra, also Gewebe, das zwar minderdurchblutet, aber noch nicht infarziert ist. Genau dieses Gewebe profitiert von der Wiedereröffnung.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · Kardiologie / Innere</span><span>Kardioembolie · CHA₂DS₂-VASc · PFO</span><span class="pk-badge">Protokoll</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">Welche kardiale Ursache ist besonders wichtig?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Das Vorhofflimmern. Der Thrombus bildet sich typischerweise im linken Vorhofohr und kann von dort ins Gehirn embolisieren.</div></details></div>
+      <div class="pq"><div class="pq-frage">Wie schätzen Sie das Schlaganfallrisiko bei Vorhofflimmern ab?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Mit dem CHA₂DS₂-VASc-Score. Ab einem Wert von 1 bei Männern und 2 bei Frauen ist eine orale Antikoagulation indiziert, um den Schlaganfall zu verhindern.</div></details></div>
+      <div class="pq"><div class="pq-frage">Wie kann ein Thrombus aus dem rechten Herzen einen Schlaganfall verursachen?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Über ein persistierendes Foramen ovale. Der Thrombus gelangt dann als paradoxe Embolie vom rechten in den linken Kreislauf und weiter ins Gehirn.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · dokumentiert</span><span>Sekundärprophylaxe</span><span class="pk-badge">Protokoll</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">Wie sieht die Sekundärprophylaxe aus?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Bei einem nicht-kardioembolischen Infarkt gebe ich einen Thrombozytenaggregationshemmer wie ASS, dazu ein Statin und eine konsequente Blutdruckeinstellung. Bei Vorhofflimmern gebe ich stattdessen eine orale Antikoagulation, bevorzugt ein DOAK. Bei einer relevanten Karotisstenose kommt eine operative oder interventionelle Versorgung hinzu.</div></details></div>
+    </div>
+  </section>
+
+  <footer>
+    R3 · Schlaganfall / Apoplex · Fragen &amp; Protokolle. Vier Kernstationen (wortgleich mit R2) + KP-Perlen mit Rapid-Fire + die echten dokumentierten Mainz-Fragen (Ätiologie + Präsentation, zentrale Fazialisparese, CCT zuerst, Lyse-Zeitfenster/Dosierung/Kontraindikationen, Thrombektomie + Mismatch, CHA₂DS₂-VASc + PFO, Sekundärprophylaxe). Quelle: Mainz-Protokolle 2024–2026 (Dr. Morgenthaler, Dr. Werner u. a.).
+  </footer>
+
+</div>
+<script>
+  const tabs = [...document.querySelectorAll('.tab')];
+  const panels = [...document.querySelectorAll('.panel')];
+  function showTab(name){
+    tabs.forEach(x=>x.classList.toggle('active', x.dataset.tab===name));
+    panels.forEach(p=>p.classList.toggle('active', p.dataset.panel===name));
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  tabs.forEach(t=>t.addEventListener('click',()=>showTab(t.dataset.tab)));
+</script>
+</body>
+</html>
