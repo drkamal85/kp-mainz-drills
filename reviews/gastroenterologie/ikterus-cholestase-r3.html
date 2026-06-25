@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ikterus + Cholestase · R3 Review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F7F4EE; --card:#FFFDF8; --ink:#2A2724; --muted:#6B6358; --line:#E7E0D4;
+    --grundlagen:#C0392B; --grundlagen-t:#F7E9E6;
+    --klinik:#D97706;     --klinik-t:#FBEEDD;
+    --diagnostik:#1E5F9E; --diagnostik-t:#E4EDF6;
+    --therapie:#2D7A3E;   --therapie-t:#E5F0E7;
+    --fragen:#7B3F9E;     --fragen-t:#F0E8F6;
+    --perlen:#B8860B;     --perlen-t:#F8F0D9;
+    --retrieval:#0F766E;  --retrieval-t:#E0F0EE;
+    --protokoll:#334155;  --protokoll-t:#E8EBF0;
+    --ok:#2D7A3E; --gap:#D97706; --miss:#C0392B;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:'Manrope',system-ui,sans-serif;
+    font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased;padding:0 18px 80px}
+  .wrap{max-width:860px;margin:0 auto}
+
+  header{padding:54px 0 22px}
+  .eyebrow{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--retrieval);margin-bottom:16px}
+  h1{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(34px,7vw,52px);line-height:1.04;letter-spacing:-.01em}
+  h1 .accent{font-style:italic;color:var(--grundlagen)}
+  .subtitle{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(17px,2.6vw,20px);color:var(--muted);margin-top:14px}
+  .meta{display:flex;flex-wrap:wrap;gap:6px 0;margin-top:20px;font-size:13px;color:var(--muted);font-weight:500}
+  .meta span:not(:last-child)::after{content:"•";margin:0 10px;color:var(--line);font-weight:700}
+
+
+  .tabs{display:flex;flex-wrap:wrap;gap:8px;position:sticky;top:0;z-index:30;background:linear-gradient(var(--bg) 72%,rgba(247,244,238,0));padding:12px 0 14px;margin-bottom:6px}
+  .tab{position:relative;font-size:13px;font-weight:600;border:1px solid var(--line);background:var(--card);color:var(--muted);padding:8px 15px;border-radius:999px;cursor:pointer;transition:all .15s;white-space:nowrap}
+  .tab:hover{border-color:#cfc6b6}
+  .tab.active{color:#fff;border-color:transparent}
+  .tab[data-c=retrieval].active{background:var(--retrieval)}
+  .tab[data-c=grundlagen].active{background:var(--grundlagen)}
+  .tab[data-c=klinik].active{background:var(--klinik)}
+  .tab[data-c=diagnostik].active{background:var(--diagnostik)}
+  .tab[data-c=therapie].active{background:var(--therapie)}
+  .tab[data-c=fragen].active{background:var(--fragen)}
+  .tab[data-c=perlen].active{background:var(--perlen)}
+  .tab[data-c=protokoll].active{background:var(--protokoll)}
+  .tab .badge{display:none;margin-left:7px;font-size:10px;font-weight:800;padding:1px 6px;border-radius:999px;vertical-align:middle}
+  .tab.flag-gap .badge{display:inline-block;background:var(--gap);color:#fff}
+  .tab.flag-ok .badge{display:inline-block;background:var(--ok);color:#fff}
+  .tab.active .badge{background:rgba(255,255,255,.28)!important;color:#fff}
+
+  .panel{display:none;animation:fade .25s ease}
+  .panel.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+  .panel-intro{font-family:'Fraunces',serif;font-style:italic;font-size:17px;color:var(--muted);margin:6px 0 18px;line-height:1.5}
+
+  /* ---- control bar (Pass 1 instrument) ---- */
+  .ctrl{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:14px 16px;margin-bottom:20px}
+  .ctrl-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+  .tally{font-size:13px;font-weight:700;display:flex;gap:12px;flex-wrap:wrap}
+  .tally i{font-style:normal;display:inline-flex;align-items:center;gap:5px}
+  .tally i::before{content:"";width:9px;height:9px;border-radius:50%}
+  .tally .t-ok::before{background:var(--ok)} .tally .t-gap::before{background:var(--gap)} .tally .t-miss::before{background:var(--miss)}
+  .spacer{flex:1 1 auto}
+  .btn{font-family:'Manrope';font-size:12.5px;font-weight:700;border:none;border-radius:999px;padding:9px 16px;cursor:pointer;transition:.15s}
+  .btn-primary{background:var(--retrieval);color:#fff}
+  .btn-primary:hover{filter:brightness(1.06)}
+  .btn-ghost{background:transparent;color:var(--muted);border:1px solid var(--line)}
+  .btn-ghost:hover{border-color:#cfc6b6}
+  .ctrl-status{margin-top:11px;font-size:13px;font-style:italic;color:var(--retrieval);min-height:18px}
+
+  /* ---- retrieval prompt ---- */
+  .rt{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:14px;transition:border-color .2s}
+  .rt[data-score=sicher]{border-left-color:var(--ok)}
+  .rt[data-score=lueckenhaft]{border-left-color:var(--gap)}
+  .rt[data-score=gefehlt]{border-left-color:var(--miss)}
+  .rt-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:8px}
+  .rt-n{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--retrieval)}
+  .rt-right{display:flex;align-items:center;gap:10px;white-space:nowrap}
+  .rt-ptr{font-size:11px;font-weight:600;color:var(--muted)}
+  .rt-q{font-size:15.5px;line-height:1.55}
+  .reveal{margin-top:12px;border-top:1px dashed var(--line);padding-top:0}
+  .reveal>summary{list-style:none;cursor:pointer;font-size:12.5px;font-weight:800;letter-spacing:.04em;color:var(--retrieval);padding:11px 0 0;user-select:none;display:inline-flex;align-items:center;gap:6px}
+  .reveal>summary::-webkit-details-marker{display:none}
+  .reveal>summary::before{content:"▸";transition:transform .2s;display:inline-block}
+  .reveal[open]>summary::before{transform:rotate(90deg)}
+  .reveal .ans{font-size:14.5px;line-height:1.6;color:#3c372f;padding-top:10px}
+  .reveal .ans b{color:var(--ink)}
+  .reveal .ans ul{list-style:none;padding-left:2px;margin:2px 0 0}
+  .reveal .ans li{position:relative;padding-left:18px;margin-bottom:8px;line-height:1.5}
+  .reveal .ans>ul>li::before{content:"";position:absolute;left:2px;top:8px;width:6px;height:6px;border-radius:50%;background:var(--retrieval)}
+  .reveal .ans li ul{margin:7px 0 2px}
+  .reveal .ans li li{padding-left:16px;margin-bottom:5px;font-size:13.8px;color:#4a443c}
+  .reveal .ans li li::before{content:"";position:absolute;left:0;top:7px;width:5px;height:5px;transform:rotate(45deg);background:#b9b0a1}
+  .score{display:flex;gap:7px;margin-top:12px;padding-top:11px;border-top:1px solid var(--line)}
+  .sbtn{flex:1;font-size:12px;font-weight:700;border:1px solid var(--line);background:var(--bg);color:var(--muted);border-radius:8px;padding:7px 4px;cursor:pointer;transition:.12s}
+  .sbtn:hover{border-color:#cfc6b6}
+  .sbtn[data-v=sicher].on{background:var(--ok);color:#fff;border-color:transparent}
+  .sbtn[data-v=lueckenhaft].on{background:var(--gap);color:#fff;border-color:transparent}
+  .sbtn[data-v=gefehlt].on{background:var(--miss);color:#fff;border-color:transparent}
+
+  /* ---- Schnellfragen ---- */
+  .sf-wrap{background:var(--retrieval-t);border:1px solid #BFE0DC;border-radius:13px;padding:18px 20px;margin-top:24px}
+  .sf-wrap h3{font-family:'Fraunces',serif;font-weight:500;font-size:20px;margin-bottom:3px}
+  .sf-wrap .sf-intro{font-size:13.5px;font-style:italic;color:#0c5d57;margin-bottom:14px}
+  .sf{border-bottom:1px solid #cfe4e1;padding:9px 0}
+  .sf:last-child{border-bottom:none}
+  .sf>summary{list-style:none;cursor:pointer;font-size:14.5px;font-weight:600;display:flex;justify-content:space-between;gap:10px;user-select:none}
+  .sf>summary::-webkit-details-marker{display:none}
+  .sf>summary::after{content:"+";color:var(--retrieval);font-weight:800}
+  .sf[open]>summary::after{content:"−"}
+  .sf .sfa{font-size:14px;color:#0c5d57;font-weight:700;padding-top:6px}
+
+  /* ---- content cards (v1) ---- */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:14px;overflow:hidden}
+  .card>summary{list-style:none;cursor:pointer;padding:18px 20px;display:flex;align-items:flex-start;gap:14px;user-select:none}
+  .card>summary::-webkit-details-marker{display:none}
+  .card .ct{flex:1}
+  .card .ctag{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:5px}
+  .card .ctitle{font-family:'Fraunces',serif;font-weight:500;font-size:17px;line-height:1.25}
+  .plus{flex:none;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:18px;line-height:1;transition:transform .2s;margin-top:2px}
+  .card[open] .plus{transform:rotate(45deg)}
+  .card .body{padding:0 20px 20px;border-top:1px solid var(--line);margin-top:-2px;padding-top:16px}
+  .card.grundlagen .ctag{color:var(--grundlagen)} .card.grundlagen .plus{background:var(--grundlagen-t);color:var(--grundlagen)}
+  .card.klinik .ctag{color:var(--klinik)} .card.klinik .plus{background:var(--klinik-t);color:var(--klinik)}
+  .card.diagnostik .ctag{color:var(--diagnostik)} .card.diagnostik .plus{background:var(--diagnostik-t);color:var(--diagnostik)}
+  .card.therapie .ctag{color:var(--therapie)} .card.therapie .plus{background:var(--therapie-t);color:var(--therapie)}
+  .card.fragen .ctag{color:var(--fragen)} .card.fragen .plus{background:var(--fragen-t);color:var(--fragen)}
+  .card.perlen .ctag{color:var(--perlen)} .card.perlen .plus{background:var(--perlen-t);color:var(--perlen)}
+
+  ul.b{list-style:none;padding-left:2px}
+  ul.b>li{position:relative;padding-left:20px;margin-bottom:8px;line-height:1.55}
+  ul.b>li::before{content:"";position:absolute;left:2px;top:9px;width:7px;height:7px;border-radius:50%}
+  .grundlagen ul.b>li::before{background:var(--grundlagen)} .klinik ul.b>li::before{background:var(--klinik)}
+  .diagnostik ul.b>li::before{background:var(--diagnostik)} .therapie ul.b>li::before{background:var(--therapie)}
+  ul.b ul{list-style:none;padding-left:18px;margin-top:7px}
+  ul.b ul>li{position:relative;padding-left:18px;margin-bottom:6px;font-size:15px;color:#4a443c}
+  ul.b ul>li::before{content:"";position:absolute;left:0;top:7px;width:6px;height:6px;transform:rotate(45deg);background:#b9b0a1}
+  strong{font-weight:700;color:var(--ink)}
+
+  .callout{border-radius:11px;padding:13px 16px;margin:14px 0;font-size:14.5px;line-height:1.55;border-left:4px solid}
+  .callout .lab{font-weight:800;font-size:11px;letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .critical{background:var(--grundlagen-t);border-color:var(--grundlagen)} .critical .lab{color:var(--grundlagen)}
+  .warning{background:var(--klinik-t);border-color:var(--klinik)} .warning .lab{color:var(--klinik)}
+  .fact{background:var(--diagnostik-t);border-color:var(--diagnostik)} .fact .lab{color:var(--diagnostik)}
+
+  .dd{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+  .dd th,.dd td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+  .dd th{background:var(--diagnostik-t);font-weight:700;color:var(--diagnostik);font-size:12px}
+  .dd td:first-child{font-weight:600}
+
+  .pk{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:16px}
+  .pk-meta{display:flex;flex-wrap:wrap;gap:6px 0;font-size:11.5px;font-weight:700;color:var(--protokoll);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+  .pk-meta span:not(:last-child)::after{content:"•";margin:0 8px;color:#c3c9d2}
+  .pk-badge{display:inline-block;background:var(--therapie-t);color:var(--therapie);font-size:10.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:2px 9px;border-radius:999px;margin-left:auto}
+  .pk-akte{font-size:14.5px;line-height:1.58;background:var(--protokoll-t);border-radius:9px;padding:12px 14px;margin-bottom:12px}
+  .pk-akte .lab,.pk-q .lab{font-weight:800;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--protokoll);display:block;margin-bottom:5px}
+  .pk-q ul{list-style:none;padding:0}
+  .pk-q li{position:relative;padding-left:18px;margin-bottom:7px;font-size:14.5px;line-height:1.5}
+  .pk-q li::before{content:"–";position:absolute;left:0;color:var(--protokoll);font-weight:700}
+  .pq{border-top:1px solid var(--line);padding:10px 0}
+  .pq-frage{position:relative;padding-left:18px;font-size:14.5px;font-weight:600;line-height:1.5}
+  .pq-frage::before{content:"–";position:absolute;left:0;color:var(--protokoll);font-weight:700}
+  .pq .reveal{margin-top:5px;border-top:none;padding-top:0}
+  .pq .reveal>summary{padding:5px 0 0}
+
+  .pearl{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--perlen);border-radius:12px;padding:16px 18px;margin-bottom:13px}
+  .pearl .ph{font-weight:800;font-size:13px;color:var(--perlen);margin-bottom:7px}
+  .pearl .pt{font-size:15px;line-height:1.55}
+  .pearl .mn{margin-top:9px;background:var(--perlen-t);border-radius:8px;padding:8px 12px;font-size:13.5px;font-style:italic;color:#7a5c08}
+  .pearl .mn b{font-style:normal;font-weight:800}
+
+  footer{margin-top:40px;padding-top:22px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted);line-height:1.6}
+  .back{display:inline-block;font-family:Manrope,system-ui,sans-serif;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);text-decoration:none;margin-bottom:18px}
+  .back:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a href="../../index.html" class="back">← Zurück zur Library</a>
+
+  <header>
+    <div class="eyebrow">Gastroenterologie · R3 · Kurz + KP-Perlen + Protokolle</div>
+    <h1>Ikterus + <span class="accent">Cholestase</span></h1>
+    <div class="subtitle">Prä-, intra- und posthepatischer Ikterus, der Bilirubin-Stoffwechsel, die Cholestase-Parameter und der Weg von der Sono bis zur ERCP — ein Mainz-Dauerbrenner (schmerzloser Ikterus, Courvoisier, Charcot-Trias). Vier Stationen + KP-Perlen + die echten Protokollfragen.</div>
+    <div class="meta"><span>R3 · 6 Tabs · Kurz + KP-Perlen + Protokolle</span><span>~25 Min</span><span>Stand 06/2026</span><span>Mainz-Protokolle 2024–2026</span></div>
+  </header>
+
+  <div class="tabs">
+    <button class="tab active" data-c="grundlagen" data-tab="grundlagen">Grundlagen</button>
+    <button class="tab" data-c="klinik" data-tab="klinik">Klinik</button>
+    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik</button>
+    <button class="tab" data-c="therapie" data-tab="therapie">Therapie</button>
+    <button class="tab" data-c="perlen" data-tab="perlen">KP-Perlen</button>
+    <button class="tab" data-c="protokoll" data-tab="protokoll">Fragen &amp; Protokolle</button>
+  </div>
+
+  <section class="panel active" data-panel="grundlagen">
+      <p class="panel-intro">Woher die Gelbfärbung kommt — und auf welcher Etage der Defekt sitzt.</p>
+      <details class="card grundlagen" open><summary><span class="ct"><span class="ctag">★ Anker</span><span class="ctitle">Definition &amp; Bilirubin-Stoffwechsel</span></span><span class="plus">+</span></summary>
+        <div class="body">
+          <div class="callout fact"><span class="lab">★ Ikterus</span>Gelbfärbung von Skleren und Haut durch Bilirubin-Ablagerung. Klinisch sichtbar ab einem Gesamt-Bilirubin &gt; 2 mg/dl (~34 µmol/l); der <strong>Sklerenikterus</strong> tritt am frühesten auf.</div><div class="callout fact"><span class="lab">⚙ Stoffwechsel</span>Häm-Abbau → <strong>unkonjugiertes (indirektes)</strong> Bilirubin: lipophil, an Albumin gebunden, nicht wasserlöslich, nicht renal ausscheidbar.<br>In der Leber Konjugation mit Glucuronsäure (<strong>UDP-Glucuronyltransferase</strong>) → <strong>konjugiertes (direktes)</strong> Bilirubin: wasserlöslich, biliär und renal ausscheidbar.<br>Galle → Darm → Urobilinogen / Sterkobilin (Stuhlfarbe).</div>
+        </div></details>
+
+      <details class="card grundlagen"><summary><span class="ct"><span class="ctag">★ Anker</span><span class="ctitle">Die drei Etagen — prä-, intra-, posthepatisch</span></span><span class="plus">+</span></summary>
+        <div class="body">
+          <table class="dd"><tr><th>Etage</th><th>Mechanismus</th><th>Bilirubin</th><th>Beispiele</th></tr><tr><td>Prähepatisch</td><td>vermehrter Anfall (Hämolyse)</td><td>indirekt ↑</td><td>Hämolyse, ineffektive Erythropoese</td></tr><tr><td>Intrahepatisch</td><td>gestörte Aufnahme / Konjugation / Sekretion</td><td>gemischt</td><td>Hepatitis, Zirrhose, Gilbert, medikamentös</td></tr><tr><td>Posthepatisch</td><td>Abflussstörung (Obstruktion)</td><td>direkt ↑</td><td>Choledocholithiasis, Pankreaskopf- / Papillenkarzinom</td></tr></table><div class="callout critical"><span class="lab">▲ Urin &amp; Stuhl verraten die Etage</span>Posthepatisch → <strong>bierbrauner Urin</strong> (konjugiertes Bili renal) + <strong>acholischer</strong> (entfärbter) Stuhl.<br>Prähepatisch → kein Bilirubin im Urin (unkonjugiert nicht renal), Urobilinogen ↑.</div>
+        </div></details>
+
+      <details class="card grundlagen"><summary><span class="ct"><span class="ctag">⚙ Begriff</span><span class="ctitle">Cholestase</span></span><span class="plus">+</span></summary>
+        <div class="body">
+          <div class="callout fact"><span class="lab">⚙ Definition</span>Cholestase = Störung der Gallebildung oder des Galleflusses → Rückstau gallepflichtiger Substanzen. Laborzeichen: <strong>AP ↑ und γ-GT ↑</strong> (+ direktes Bilirubin, Gallensäuren ↑).</div><ul class="b"><li><strong>Intrahepatisch:</strong> PBC, PSC, medikamentös-toxisch, Schwangerschaftscholestase, Hepatitis</li><li><strong>Extrahepatisch (mechanisch):</strong> Choledocholithiasis, Tumor (Pankreaskopf, Papille, Klatskin), Striktur</li></ul>
+        </div></details>
+
+      <details class="card grundlagen"><summary><span class="ct"><span class="ctag">⚙ DD</span><span class="ctitle">Gilbert-Syndrom (M. Meulengracht)</span></span><span class="plus">+</span></summary>
+        <div class="body">
+          <div class="callout fact"><span class="lab">⚙ Harmlos</span>Häufige (~5 %), benigne Konjugationsstörung (reduzierte UDP-Glucuronyltransferase) → milder <strong>unkonjugierter</strong> Ikterus bei Fasten, Stress oder Infekt. Keine Therapie nötig.</div><div class="callout warning"><span class="lab">⚙ DD Hämolyse</span>Abgrenzung zur Hämolyse: bei Gilbert sind Haptoglobin, LDH und Retikulozyten normal.</div>
+        </div></details>
+    </section>
+
+    <section class="panel" data-panel="klinik">
+      <p class="panel-intro">Schmerzlos oder schmerzhaft, mit Fieber oder ohne — das steuert die Verdachtsdiagnose.</p>
+      <details class="card klinik" open><summary><span class="ct"><span class="ctag">★ Leitbefund</span><span class="ctitle">Die Klinik der Cholestase</span></span><span class="plus">+</span></summary>
+        <div class="body">
+          <div class="callout fact"><span class="lab">★ Leitsymptome</span>Gelbfärbung (Skleren zuerst) + <strong>Pruritus</strong> (Gallensäuren) + dunkler Urin + heller / acholischer Stuhl.<br>Bei chronischer Cholestase zusätzlich Xanthelasmen und Steatorrhö.</div>
+        </div></details>
+
+      <details class="card klinik"><summary><span class="ct"><span class="ctag">★ Schlüsselzeichen</span><span class="ctitle">Schmerzlos vs. schmerzhaft — Courvoisier</span></span><span class="plus">+</span></summary>
+        <div class="body">
+          <div class="callout critical"><span class="lab">▲ Courvoisier-Zeichen</span>Schmerzlos tastbare, prall-elastische Gallenblase + Ikterus → V. a. <strong>malignen Verschluss</strong> (Pankreaskopf- oder distales Gallengangs- / Papillenkarzinom), <strong>nicht</strong> Steine.</div><div class="callout fact"><span class="lab">⚙ Schmerz-Logik</span>Schmerzhaft (kolikartig) + Ikterus → eher Choledocholithiasis.<br>Schmerzlos + Ikterus → eher Tumor.</div>
+        </div></details>
+
+      <details class="card klinik"><summary><span class="ct"><span class="ctag">▲ Notfall</span><span class="ctitle">Cholangitis — Charcot &amp; Reynolds</span></span><span class="plus">+</span></summary>
+        <div class="body">
+          <div class="callout critical"><span class="lab">▲ Charcot-Trias</span>Fieber + Ikterus + rechtsseitiger Oberbauchschmerz = akute <strong>Cholangitis</strong> (bakterielle Infektion der gestauten Gallenwege) → Notfall.</div><div class="callout critical"><span class="lab">▲ Reynolds-Pentade</span>Charcot-Trias + Hypotonie + Bewusstseinsstörung = <strong>septische</strong> Cholangitis → sofortige Dekompression.</div>
+        </div></details>
+
+      <details class="card klinik"><summary><span class="ct"><span class="ctag">⚙ Kontext</span><span class="ctitle">Begleitbefunde nach Ursache</span></span><span class="plus">+</span></summary>
+        <div class="body">
+          <ul class="b"><li><strong>Hämolyse:</strong> Anämie, evtl. Splenomegalie, Hämoglobinurie</li><li><strong>Zirrhose / intrahepatisch:</strong> Aszites, Spider naevi, Palmarerythem, Foetor hepaticus, hepatische Enzephalopathie</li><li><strong>Pankreaskopfkarzinom:</strong> schmerzloser Ikterus, Gewichtsverlust, evtl. neu aufgetretener Diabetes</li></ul>
+        </div></details>
+    </section>
+
+    <section class="panel" data-panel="diagnostik">
+      <p class="panel-intro">Erst das Labor fraktionieren, dann die EINE Sono-Frage: sind die Gallenwege gestaut?</p>
+      <details class="card diagnostik" open><summary><span class="ct"><span class="ctag">★ Labor</span><span class="ctitle">Bilirubin fraktionieren + Cholestase- und Leberwerte</span></span><span class="plus">+</span></summary>
+        <div class="body">
+          <div class="callout fact"><span class="lab">★ Fraktionierung</span>Gesamt-Bilirubin + direkt / indirekt → <strong>indirekt</strong> dominant = prähepatisch / Gilbert; <strong>direkt</strong> dominant = hepatisch / posthepatisch.</div><table class="dd"><tr><th>Parameter</th><th>Bedeutung</th></tr><tr><td>AP ↑, γ-GT ↑</td><td>Cholestase (γ-GT bestätigt hepatobiliäre Herkunft der AP)</td></tr><tr><td>GOT / GPT ↑↑</td><td>hepatozellulärer Schaden</td></tr><tr><td>LDH ↑, Haptoglobin ↓, Retikulozyten ↑</td><td>Hämolyse</td></tr><tr><td>Quick / INR, Albumin, CHE</td><td>Lebersyntheseleistung</td></tr></table><div class="callout fact"><span class="lab">⚙ De-Ritis-Quotient</span>GOT / GPT &gt; 1 → schwerer Schaden / Alkohol / Zirrhose; &lt; 1 → leichter Schaden (z. B. virale Hepatitis).</div>
+        </div></details>
+
+      <details class="card diagnostik"><summary><span class="ct"><span class="ctag">★ Erstbildgebung</span><span class="ctitle">Sonografie zuerst — die eine Frage</span></span><span class="plus">+</span></summary>
+        <div class="body">
+          <div class="callout critical"><span class="lab">▲ Sono ist Schritt 1</span>Die entscheidende Frage: sind die Gallenwege <strong>gestaut</strong> (DHC &gt; 7 mm)?<br>Erweitert → posthepatisch / obstruktiv. Nicht erweitert → prä- / intrahepatisch.</div><ul class="b"><li>Beurteilt zusätzlich Leberparenchym, Gallenblase / Steine, Pankreas, Raumforderung und Aszites</li></ul>
+        </div></details>
+
+      <details class="card diagnostik"><summary><span class="ct"><span class="ctag">⚙ Weiterführend</span><span class="ctitle">MRCP, ERCP, EUS — und die Reihenfolge</span></span><span class="plus">+</span></summary>
+        <div class="body">
+          <div class="callout warning"><span class="lab">⚙ MRCP vor ERCP</span>Zur reinen Darstellung der Gallenwege (unklare Cholestase, biliäre Pankreatitis ohne Cholangitis) → <strong>MRCP</strong> (nicht-invasiv) oder EUS zuerst, nicht primär ERCP.</div><div class="callout critical"><span class="lab">▲ ERCP wenn therapeutisch</span>Bei zu behandelndem Verschluss (Stein, Cholangitis, Stenose) → <strong>ERCP</strong> (Steinextraktion, Papillotomie, Stent). EUS bei distalen / pankreatischen Prozessen.</div>
+        </div></details>
+
+      <details class="card diagnostik"><summary><span class="ct"><span class="ctag">⚙ Ätiologie</span><span class="ctitle">Ursachensuche je nach Etage</span></span><span class="plus">+</span></summary>
+        <div class="body">
+          <ul class="b"><li>Hepatitis-Serologie</li><li>Autoantikörper: <strong>AMA → PBC</strong>; pANCA + MRCP-Befund → PSC</li><li>Tumormarker: <strong>CA 19-9</strong> (Pankreas / Galle), <strong>AFP → HCC</strong></li><li>CT / EUS zum Tumorstaging</li></ul>
+        </div></details>
+    </section>
+
+    <section class="panel" data-panel="therapie">
+      <p class="panel-intro">Kausal nach Ursache — und bei der Cholangitis zählt jede Stunde.</p>
+      <details class="card therapie" open><summary><span class="ct"><span class="ctag">★ Kausal</span><span class="ctitle">Obstruktion beseitigen</span></span><span class="plus">+</span></summary>
+        <div class="body">
+          <table class="dd"><tr><th>Ursache</th><th>Therapie</th></tr><tr><td>Choledocholithiasis</td><td>ERCP mit Papillotomie + Steinextraktion; anschließend Cholezystektomie (Rezidivprophylaxe)</td></tr><tr><td>Akute Cholangitis</td><td>Notfall: Antibiotika + dringende biliäre Dekompression (ERCP) + Sepsis-Therapie</td></tr><tr><td>Pankreaskopf- / Papillenkarzinom</td><td>resektabel → Whipple-OP (partielle Duodenopankreatektomie); palliativ → Stent (ERCP / PTCD)</td></tr><tr><td>PBC / PSC</td><td>UDCA (PBC); ERCP bei dominanten Stenosen (PSC); ggf. Lebertransplantation</td></tr></table>
+        </div></details>
+
+      <details class="card therapie"><summary><span class="ct"><span class="ctag">★ Symptomatisch</span><span class="ctitle">Pruritus, Vitamine, Gerinnung</span></span><span class="plus">+</span></summary>
+        <div class="body">
+          <div class="callout fact"><span class="lab">⚙ Pruritus</span><strong>Colestyramin</strong> bindet Gallensäuren im Darm.</div><div class="callout critical"><span class="lab">▲ Cave Gerinnung</span>Chronische Cholestase → Malabsorption fettlöslicher Vitamine (<strong>A, D, E, K</strong>) → Vit-K-Mangel → Quick ↓. Vor Eingriffen Vitamin K substituieren.</div>
+        </div></details>
+
+      <details class="card therapie"><summary><span class="ct"><span class="ctag">▲ Notfallpfad</span><span class="ctitle">Wann sofort ERCP, wann Cholezystektomie</span></span><span class="plus">+</span></summary>
+        <div class="body">
+          <div class="callout critical"><span class="lab">▲ Sofort-ERCP</span>Bei Fieber + Ikterus + Oberbauchschmerz (Charcot → Cholangitis) ist die dringende ERCP-Dekompression lebensrettend — vor jeder elektiven Operation.</div><div class="callout fact"><span class="lab">⚙ Cholezystektomie</span>Nach ERCP-Steinsanierung wird bei Cholezystolithiasis die Gallenblase frühelektiv entfernt, um Rezidive zu verhindern.</div>
+        </div></details>
+    </section>
+
+    <section class="panel" data-panel="perlen">
+      <p class="panel-intro">Die Haken, an denen Mainz den Ikterus immer wieder aufhängt.</p>
+      <div class="pearl"><div class="ph">⭐ Perle 1 · Courvoisier = Tumor</div><div class="pt">Schmerzlos tastbare, prall-elastische Gallenblase + Ikterus = <strong>maligner Verschluss</strong> (Pankreaskopf / Papille), nicht Steine.</div><div class="mn"><b>Merke:</b> schmerzlos + tastbar = Tumor; schmerzhaft = Stein.</div></div>
+      <div class="pearl"><div class="ph">⭐ Perle 2 · Schmerzloser Ikterus</div><div class="pt">Mainz will hier <strong>Papilla-Vateri-</strong> bzw. <strong>Pankreaskopfkarzinom</strong> hören — das ist die Tumor-Frage schlechthin.</div><div class="mn"><b>Merke:</b> schmerzloser Ikterus → bis zum Beweis des Gegenteils ein Tumor.</div></div>
+      <div class="pearl"><div class="ph">⭐ Perle 3 · Fieber macht den Notfall</div><div class="pt">Charcot-Trias (Fieber + Ikterus + Oberbauchschmerz) = Cholangitis → sofort ERCP; Reynolds-Pentade (+ Schock + Vigilanzminderung) = septisch.</div><div class="mn"><b>Merke:</b> Fieber verwandelt den Gallenstein in einen Notfall.</div></div>
+      <div class="pearl"><div class="ph">⭐ Perle 4 · Nur direktes Bili in den Urin</div><div class="pt">Unkonjugiertes (indirektes) Bilirubin ist lipophil → erscheint <strong>nicht</strong> im Urin (prähepatisch, Gilbert, Neugeborene); konjugiertes (direktes) → bierbrauner Urin.</div><div class="mn"><b>Merke:</b> indirekt bleibt im Blut, direkt geht in den Urin.</div></div>
+      <div class="pearl"><div class="ph">⭐ Perle 5 · AP braucht γ-GT</div><div class="pt">Eine isolierte AP-Erhöhung ist unspezifisch (auch Knochen, Schwangerschaft); erst <strong>γ-GT ↑</strong> sichert die hepatobiliäre Cholestase.</div><div class="mn"><b>Merke:</b> AP + γ-GT zusammen = Cholestase.</div></div>
+      <div class="pearl"><div class="ph">⭐ Perle 6 · Sono zuerst, eine Frage</div><div class="pt">Gestaute Gallenwege (DHC &gt; 7 mm)? — das trennt posthepatisch von prä- / intrahepatisch und steuert MRCP / ERCP.</div><div class="mn"><b>Merke:</b> erst der Schallkopf, dann das Endoskop.</div></div>
+      <div class="pearl"><div class="ph">⭐ Perle 7 · MRCP schaut, ERCP räumt auf</div><div class="pt">ERCP nicht zur reinen Diagnostik (Risiko Post-ERCP-Pankreatitis); biliäre Pankreatitis ohne Cholangitis → erst MRCP / EUS.</div><div class="mn"><b>Merke:</b> MRCP ist Bild, ERCP ist Eingriff.</div></div>
+      <div class="pearl"><div class="ph">⭐ Perle 8 · ERCP-Komplikationen</div><div class="pt">Aufklärungs-Liebling: <strong>Post-ERCP-Pankreatitis</strong> (häufigste), Blutung nach Papillotomie, Cholangitis, selten Perforation.</div><div class="mn"><b>Merke:</b> die Pankreatitis ist die typische ERCP-Komplikation.</div></div>
+      <div class="pearl"><div class="ph">⭐ Perle 9 · Heller Stuhl, dunkler Urin</div><div class="pt">Acholischer Stuhl + bierbrauner Urin = kompletter posthepatischer Verschluss.</div><div class="mn"><b>Merke:</b> heller Stuhl + dunkler Urin → unten dicht.</div></div>
+      <div class="pearl"><div class="ph">⭐ Perle 10 · Gilbert ist Laborbild</div><div class="pt">Milder unkonjugierter Ikterus bei Fasten / Stress, harmlos, keine Therapie; DD Hämolyse über Haptoglobin / LDH / Retikulozyten (bei Gilbert normal).</div><div class="mn"><b>Merke:</b> Gilbert hat keinen Krankheitswert.</div></div>
+      <div class="sf-wrap">
+      <h3>Rapid-Fire</h3>
+      <div class="sf-intro">Atomare Einzelfakten — Ein-Wort-Abruf. Laut, sofort, dann aufdecken.</div>
+      <details class="sf"><summary>Ab welchem Bilirubin ist der Ikterus sichtbar?</summary><div class="sfa">&gt; 2 mg/dl (~34 µmol/l)</div></details>
+      <details class="sf"><summary>Was färbt sich zuerst gelb?</summary><div class="sfa">die Skleren (Sklerenikterus)</div></details>
+      <details class="sf"><summary>Direktes Bilirubin = ?</summary><div class="sfa">konjugiert</div></details>
+      <details class="sf"><summary>Konjugationsenzym in der Leber?</summary><div class="sfa">UDP-Glucuronyltransferase</div></details>
+      <details class="sf"><summary>Schmerzlos tastbare Gallenblase + Ikterus?</summary><div class="sfa">Courvoisier-Zeichen → Tumor</div></details>
+      <details class="sf"><summary>Charcot-Trias?</summary><div class="sfa">Fieber + Ikterus + Oberbauchschmerz (Cholangitis)</div></details>
+      <details class="sf"><summary>Reynolds-Pentade?</summary><div class="sfa">Charcot + Hypotonie + Bewusstseinsstörung</div></details>
+      <details class="sf"><summary>Stuhl bei komplettem Verschluss?</summary><div class="sfa">acholisch (entfärbt)</div></details>
+      <details class="sf"><summary>Urin bei Verschluss?</summary><div class="sfa">bierbraun</div></details>
+      <details class="sf"><summary>Cholestase-Enzyme?</summary><div class="sfa">AP + γ-GT</div></details>
+      <details class="sf"><summary>AMA-positiv?</summary><div class="sfa">PBC</div></details>
+      <details class="sf"><summary>pANCA + Gallengangsstenosen?</summary><div class="sfa">PSC</div></details>
+      <details class="sf"><summary>DHC-Grenzwert (erweitert)?</summary><div class="sfa">&gt; 7 mm</div></details>
+      <details class="sf"><summary>Erstbildgebung bei Ikterus?</summary><div class="sfa">Abdomensonografie</div></details>
+      <details class="sf"><summary>Häufigste ERCP-Komplikation?</summary><div class="sfa">Post-ERCP-Pankreatitis</div></details>
+      <details class="sf"><summary>ERCP bei Choledocholithiasis macht?</summary><div class="sfa">Papillotomie + Steinextraktion</div></details>
+      <details class="sf"><summary>Nach ERCP-Steinsanierung?</summary><div class="sfa">Cholezystektomie</div></details>
+      <details class="sf"><summary>Pruritus bei Cholestase?</summary><div class="sfa">Colestyramin</div></details>
+      <details class="sf"><summary>Therapie der PBC?</summary><div class="sfa">Ursodeoxycholsäure (UDCA)</div></details>
+      <details class="sf"><summary>Hämolyse-Labor?</summary><div class="sfa">LDH ↑, Haptoglobin ↓, Retikulozyten ↑</div></details>
+      <details class="sf"><summary>Tumormarker Pankreas / Galle?</summary><div class="sfa">CA 19-9</div></details>
+      <details class="sf"><summary>Whipple-OP = ?</summary><div class="sfa">partielle Duodenopankreatektomie</div></details>
+      <details class="sf"><summary>Wo sammeln sich Gallensteine?</summary><div class="sfa">im Ductus choledochus</div></details>
+    </div>
+    </section>
+
+    <section class="panel" data-panel="protokoll">
+      <p class="panel-intro">Die echten dokumentierten Mainz-Fragen zu Ikterus — laut und einzeln beantworten.</p>
+      <div class="pk">
+      <div class="pk-meta"><span>Mainz · Chirurgie</span><span>Schmerzloser Ikterus</span><span class="pk-badge">Protokoll</span></div>
+      <div class="pk-akte"><span class="lab">Akte</span>Patient mit langsam zunehmender Gelbfärbung ohne Schmerzen.</div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">Welche Verdachtsdiagnose haben Sie bei einem schmerzlosen Ikterus?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ein schmerzloser Ikterus ist bis zum Beweis des Gegenteils tumorverdächtig — typisch ist ein Pankreaskopfkarzinom oder ein Papilla-Vateri-Karzinom, das den Gallenabfluss verlegt.</div></details></div>
+      <div class="pq"><div class="pq-frage">Welches klinische Zeichen passt dazu?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Das Courvoisier-Zeichen: eine schmerzlos tastbare, prall-elastische Gallenblase bei Ikterus, die auf einen malignen Verschluss hinweist und nicht auf Steine.</div></details></div>
+      <div class="pq"><div class="pq-frage">Beschreiben Sie den Verlauf der Gallenwege.</div><details class="reveal"><summary>Antwort</summary><div class="ans">Der rechte und der linke Ductus hepaticus vereinigen sich zum Ductus hepaticus communis; nach Einmündung des Ductus cysticus aus der Gallenblase entsteht der Ductus choledochus, der zusammen mit dem Pankreasgang über die Papilla Vateri ins Duodenum mündet.</div></details></div>
+    </div>
+
+      <div class="pk">
+      <div class="pk-meta"><span>Mainz · Innere / Notfall</span><span>Fieber + Ikterus</span><span class="pk-badge">Protokoll</span></div>
+      <div class="pk-akte"><span class="lab">Akte</span>Patient mit Fieber, rechtsseitigem Oberbauchschmerz und Ikterus.</div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">Woran denken Sie?</div><details class="reveal"><summary>Antwort</summary><div class="ans">An eine akute Cholangitis — die Charcot-Trias aus Fieber, Ikterus und Oberbauchschmerz spricht für eine bakterielle Infektion der gestauten Gallenwege.</div></details></div>
+      <div class="pq"><div class="pq-frage">Wie gehen Sie diagnostisch vor?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Labor mit Cholestase- und Entzündungsparametern sowie Blutkulturen, und sofort eine Abdomensonografie mit der Frage nach gestauten Gallenwegen und Steinen.</div></details></div>
+      <div class="pq"><div class="pq-frage">Wann machen Sie eine ERCP und wann eine Cholezystektomie?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Bei der Cholangitis ist die dringende ERCP zur Dekompression und Steinextraktion entscheidend; die Cholezystektomie folgt später, um Rezidive zu verhindern.</div></details></div>
+    </div>
+
+      <div class="pk">
+      <div class="pk-meta"><span>Mainz · Innere</span><span>Ikterus-Ätiologie</span><span class="pk-badge">Protokoll</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">Nennen Sie die Ätiologie des Ikterus.</div><details class="reveal"><summary>Antwort</summary><div class="ans">Man unterscheidet prähepatisch, intrahepatisch und posthepatisch: prähepatisch durch vermehrten Bilirubinanfall bei Hämolyse, intrahepatisch durch eine Leberzellschädigung, posthepatisch durch eine Abflussbehinderung der Gallenwege.</div></details></div>
+      <div class="pq"><div class="pq-frage">Was bedeuten direktes und indirektes Bilirubin?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Indirektes, unkonjugiertes Bilirubin ist fettlöslich, an Albumin gebunden und nicht wasserlöslich; in der Leber wird es mit Glucuronsäure zum direkten, konjugierten Bilirubin verbunden, das wasserlöslich ist und biliär sowie renal ausgeschieden werden kann.</div></details></div>
+      <div class="pq"><div class="pq-frage">Warum ist beim Verschluss vor allem das direkte Bilirubin erhöht?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Weil das Bilirubin bereits in der Leber konjugiert wurde und erst danach beim Abfluss über die Gallenwege gestaut wird; das wasserlösliche direkte Bilirubin erscheint dann auch im Urin.</div></details></div>
+    </div>
+
+      <div class="pk">
+      <div class="pk-meta"><span>Mainz · Innere</span><span>Cholestase-Parameter</span><span class="pk-badge">Protokoll</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">Welche Cholestase-Parameter kennen Sie?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Die alkalische Phosphatase und die γ-GT, begleitet von einem erhöhten direkten Bilirubin; die γ-GT bestätigt, dass die erhöhte alkalische Phosphatase aus dem hepatobiliären System stammt.</div></details></div>
+      <div class="pq"><div class="pq-frage">Welche Differenzialdiagnosen gibt es, und was sieht man jeweils im Sono?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Bei extrahepatischer Obstruktion durch Stein oder Tumor sieht man erweiterte Gallenwege; bei intrahepatischer Cholestase wie Hepatitis, PBC oder medikamentös sind die Gallenwege nicht erweitert.</div></details></div>
+    </div>
+
+      <div class="pk">
+      <div class="pk-meta"><span>Mainz · Innere / Chirurgie</span><span>ERCP</span><span class="pk-badge">Protokoll</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">Was ist eine ERCP und welche Bedeutung hat sie?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Die endoskopisch retrograde Cholangiopankreatikografie stellt die Gallen- und Pankreasgänge dar und ist vor allem therapeutisch: über die Papille sind eine Papillotomie, eine Steinextraktion und eine Stenteinlage möglich.</div></details></div>
+      <div class="pq"><div class="pq-frage">Wann muss eine ERCP schnell erfolgen?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Bei Fieber und Verdacht auf eine Cholangitis, dann dient sie der dringenden Dekompression der gestauten Gallenwege.</div></details></div>
+      <div class="pq"><div class="pq-frage">Welche Komplikationen hat die ERCP, und wie klären Sie auf?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Die häufigste ist die Post-ERCP-Pankreatitis; außerdem eine Blutung nach Papillotomie, eine Cholangitis und selten eine Perforation. Darüber kläre ich den Patienten vor dem Eingriff auf.</div></details></div>
+    </div>
+
+      <div class="pk">
+      <div class="pk-meta"><span>Mainz · Innere</span><span>Biliäre Pankreatitis</span><span class="pk-badge">Protokoll</span></div>
+      <div class="pk-akte"><span class="lab">Akte</span>Labor mit Cholestase, erhöhten Pankreaswerten und Entzündungszeichen.</div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">Wie gehen Sie bildgebend vor?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Wenn keine Cholangitis und kein klarer Steinnachweis vorliegen, mache ich zuerst eine MRCP zur Darstellung der Gallenwege, nicht primär eine ERCP oder eine Endosonografie.</div></details></div>
+    </div>
+
+      <div class="pk">
+      <div class="pk-meta"><span>Mainz · Chirurgie</span><span>Sono-Befund</span><span class="pk-badge">Protokoll</span></div>
+      <div class="pk-akte"><span class="lab">Akte</span>Ikterischer Patient, Abdomensonografie.</div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">Was suchen Sie im Ultraschall bei Ikterus?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Eine Erweiterung des Ductus choledochus und der intrahepatischen Gallenwege als Zeichen einer Abflussstörung, außerdem Steine, eine Raumforderung und das Leberparenchym.</div></details></div>
+      <div class="pq"><div class="pq-frage">Wo sammeln sich Gallensteine typischerweise?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Steine, die aus der Gallenblase abgehen, sammeln sich im Ductus choledochus.</div></details></div>
+    </div>
+
+      <div class="pk">
+      <div class="pk-meta"><span>Mainz · Innere</span><span>Hämolyse</span><span class="pk-badge">Protokoll</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">Wie erkennen Sie eine Hämolyse im Labor?</div><details class="reveal"><summary>Antwort</summary><div class="ans">An einer erhöhten LDH, einem erniedrigten Haptoglobin, erhöhten Retikulozyten und einem erhöhten indirekten Bilirubin; der direkte Coombs-Test klärt eine autoimmune Genese.</div></details></div>
+    </div>
+    </section>
+  
+
+  <footer>
+    R3 · Ikterus + Cholestase · Fragen &amp; Protokolle. Vier Kernstationen + KP-Perlen mit Rapid-Fire + die echten dokumentierten Mainz-Fragen (schmerzloser Ikterus, Courvoisier, Charcot-Trias, ERCP-Komplikationen, prä-/intra-/posthepatisch). Stex + Amboss + Mainz-Protokolle 2024–2026.
+  </footer>
+
+</div>
+<script>
+  const tabs = [...document.querySelectorAll('.tab')];
+  const panels = [...document.querySelectorAll('.panel')];
+  function showTab(name){
+    tabs.forEach(x=>x.classList.toggle('active', x.dataset.tab===name));
+    panels.forEach(p=>p.classList.toggle('active', p.dataset.panel===name));
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  tabs.forEach(t=>t.addEventListener('click',()=>showTab(t.dataset.tab)));
+</script>
+</body>
+</html>

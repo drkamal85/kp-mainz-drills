@@ -37,7 +37,7 @@ FLAT=[
 (264,98,166,"Drittes Fach","Impfungen / STIKO","impfungen-stiko"),
 (255,84,171,"Pneumologie","Pneumothorax","pneumothorax"),
 (244,78,166,"Neurologie","Schlaganfall","schlaganfall"),
-(243,44,199,"Gastroenterologie","Ikterus / Cholestase",None),
+(243,44,199,"Gastroenterologie","Ikterus / Cholestase","ikterus-cholestase"),
 (241,43,198,"Nephrologie","Nierenversagen (akut / akut-auf-chron.)",None),
 (236,79,157,"Viszeralchirurgie","GI-Blutung","gi-blutung"),
 (234,61,173,"Pneumologie","Pneumonie","pneumonie"),
