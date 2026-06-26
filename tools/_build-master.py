@@ -80,7 +80,7 @@ FLAT=[
 (87,17,70,"Endokrinologie","Osteoporose",None),
 (87,6,81,"Hämatologie","Lymphom (NHL)","non-hodgkin-lymphome"),
 (84,16,68,"Gastroenterologie","Morbus Crohn","morbus-crohn"),
-(82,16,66,"Endokrinologie","Hypothyreose",None),
+(82,16,66,"Endokrinologie","Hypothyreose","hypothyreose"),
 (81,27,54,"Unfallchirurgie","Schädel-Hirn-Trauma","schaedel-hirn-trauma"),
 (81,22,59,"Pneumologie","Tuberkulose",None),
 (81,16,65,"Unfallchirurgie","Sturz / Polytrauma",None),
