@@ -224,6 +224,15 @@
       .tw { bottom: 16px; right: 16px; width: 214px; }
     }
   </style>
+<style>
+.cards-cta{display:flex;align-items:center;justify-content:space-between;gap:14px;text-decoration:none;background:linear-gradient(135deg,#2D7A3E,#1f5e2f);color:#fff;border-radius:20px;padding:18px 22px;margin:0 0 22px;box-shadow:0 8px 24px rgba(45,122,62,.22);transition:transform .12s,box-shadow .2s}
+.cards-cta:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(45,122,62,.30)}
+.cta-left{display:flex;align-items:center;gap:14px;min-width:0}
+.cta-icon{font-size:1.8rem;line-height:1;flex:none}
+.cta-title{font-weight:800;font-size:1.02rem}
+.cta-sub{font-size:.8rem;opacity:.88;font-weight:600;margin-top:2px}
+.cta-arrow{font-size:1.4rem;font-weight:700;opacity:.9;flex:none}
+</style>
 </head>
 <body style="font-size: 16px;">
 
@@ -254,6 +263,17 @@
     <h1 class="hero-h1">Lerneinheiten &amp; Reviews</h1>
     <p class="hero-p">Drills, Reviews und Summaries für die mündliche Prüfung — strukturiert nach Fachgebiet und Wiederholungsstufe (R1 → R2 → R3).</p>
   </section>
+
+  <a class="cards-cta" href="flashcards.html">
+    <div class="cta-left">
+      <span class="cta-icon">🃏</span>
+      <div>
+        <div class="cta-title">KP Karten — Tägliches Training</div>
+        <div class="cta-sub">10 gewusst pro Tag · Spaced Repetition · aus allen R3-Reviews</div>
+      </div>
+    </div>
+    <span class="cta-arrow">→</span>
+  </a>
 
   <!-- Filter Tabs -->
   <nav class="tabs" id="tabs">
