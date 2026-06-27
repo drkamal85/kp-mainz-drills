@@ -122,6 +122,7 @@ feed = {'version': 1, 'updatedAt': __import__('datetime').datetime.now(__import_
         'specialties': list(specs.values()), 'topics': topics}
 out = json.dumps(feed, ensure_ascii=False, separators=(',',':'))
 io.open('content/topics.json','w',encoding='utf-8').write(out)
+io.open('api/topics.json','w',encoding='utf-8').write(out)  # bundled into the kp-progress Worker (served at /api/content)
 
 # report
 print('topics:', len(topics), '| specialties:', len(specs), '| bytes:', len(out.encode()), '(', round(len(out.encode())/1024), 'KB )')

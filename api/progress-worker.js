@@ -13,6 +13,9 @@
  * Worker instead, route `/api/*` to it and serve everything else via env.ASSETS.fetch(request).
  */
 
+import topicsFeed from './topics.json';
+const TOPICS_JSON = JSON.stringify(topicsFeed);
+
 const STATUS = ['new', 'learning', 'mastered'];
 const DEFAULTS = () => ({
   streak: 0,
@@ -36,12 +39,10 @@ export async function handleApi(request, env, url) {
   if (request.method === 'OPTIONS') return new Response(null, { status: 204, headers: ch });
   if (!url.pathname.startsWith('/api/')) return jsonRes({ error: 'not_found' }, 404, ch);
 
-  // ---- public: native content feed (no auth) — proxied from the static site with CORS + cache ----
+  // ---- public: native content feed (no auth) — bundled into the Worker, CORS + cache ----
   if (url.pathname === '/api/content') {
     if (request.method !== 'GET') return jsonRes({ error: 'method_not_allowed' }, 405, ch);
-    const up = await fetch('https://kp-mainz-drills.autoflow-med.workers.dev/content/topics.json', { cf: { cacheTtl: 300, cacheEverything: true } });
-    const body = await up.text();
-    return new Response(body, { status: up.status, headers: { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'public, max-age=300', ...ch } });
+    return new Response(TOPICS_JSON, { status: 200, headers: { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'public, max-age=300', ...ch } });
   }
 
   // ---- auth: Bearer token (or ?token= for quick testing) -> stable userId ----
