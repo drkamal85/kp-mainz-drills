@@ -49,7 +49,7 @@ FLAT=[
 (203,74,129,"Viszeralchirurgie","Pankreatitis",None),
 (203,68,135,"Viszeralchirurgie","Divertikulitis",None),
 (202,55,147,"Endokrinologie","Schilddrüse (allg.)",None),
-(171,46,125,"Gastroenterologie","Leberzirrhose",None),
+(171,46,125,"Gastroenterologie","Leberzirrhose","leberzirrhose"),
 (169,69,100,"Unfallchirurgie","Schenkelhalsfraktur","proximale-femurfraktur"),
 (169,54,115,"Viszeralchirurgie","Appendizitis","appendizitis"),
 (155,42,113,"Kardiologie","AV-Block","av-block"),

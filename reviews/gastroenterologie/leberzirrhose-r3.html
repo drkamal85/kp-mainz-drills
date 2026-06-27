@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leberzirrhose · R3 Review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F7F4EE; --card:#FFFDF8; --ink:#2A2724; --muted:#6B6358; --line:#E7E0D4;
+    --grundlagen:#C0392B; --grundlagen-t:#F7E9E6;
+    --klinik:#D97706;     --klinik-t:#FBEEDD;
+    --diagnostik:#1E5F9E; --diagnostik-t:#E4EDF6;
+    --therapie:#2D7A3E;   --therapie-t:#E5F0E7;
+    --fragen:#7B3F9E;     --fragen-t:#F0E8F6;
+    --perlen:#B8860B;     --perlen-t:#F8F0D9;
+    --retrieval:#0F766E;  --retrieval-t:#E0F0EE;
+    --protokoll:#334155;  --protokoll-t:#E8EBF0;
+    --ok:#2D7A3E; --gap:#D97706; --miss:#C0392B;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:'Manrope',system-ui,sans-serif;
+    font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased;padding:0 18px 80px}
+  .wrap{max-width:860px;margin:0 auto}
+
+  header{padding:54px 0 22px}
+  .eyebrow{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--retrieval);margin-bottom:16px}
+  h1{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(34px,7vw,52px);line-height:1.04;letter-spacing:-.01em}
+  h1 .accent{font-style:italic;color:var(--grundlagen)}
+  .subtitle{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(17px,2.6vw,20px);color:var(--muted);margin-top:14px}
+  .meta{display:flex;flex-wrap:wrap;gap:6px 0;margin-top:20px;font-size:13px;color:var(--muted);font-weight:500}
+  .meta span:not(:last-child)::after{content:"•";margin:0 10px;color:var(--line);font-weight:700}
+
+
+  .tabs{display:flex;flex-wrap:wrap;gap:8px;position:sticky;top:0;z-index:30;background:linear-gradient(var(--bg) 72%,rgba(247,244,238,0));padding:12px 0 14px;margin-bottom:6px}
+  .tab{position:relative;font-size:13px;font-weight:600;border:1px solid var(--line);background:var(--card);color:var(--muted);padding:8px 15px;border-radius:999px;cursor:pointer;transition:all .15s;white-space:nowrap}
+  .tab:hover{border-color:#cfc6b6}
+  .tab.active{color:#fff;border-color:transparent}
+  .tab[data-c=retrieval].active{background:var(--retrieval)}
+  .tab[data-c=grundlagen].active{background:var(--grundlagen)}
+  .tab[data-c=klinik].active{background:var(--klinik)}
+  .tab[data-c=diagnostik].active{background:var(--diagnostik)}
+  .tab[data-c=therapie].active{background:var(--therapie)}
+  .tab[data-c=fragen].active{background:var(--fragen)}
+  .tab[data-c=perlen].active{background:var(--perlen)}
+  .tab[data-c=protokoll].active{background:var(--protokoll)}
+  .tab .badge{display:none;margin-left:7px;font-size:10px;font-weight:800;padding:1px 6px;border-radius:999px;vertical-align:middle}
+  .tab.flag-gap .badge{display:inline-block;background:var(--gap);color:#fff}
+  .tab.flag-ok .badge{display:inline-block;background:var(--ok);color:#fff}
+  .tab.active .badge{background:rgba(255,255,255,.28)!important;color:#fff}
+
+  .panel{display:none;animation:fade .25s ease}
+  .panel.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+  .panel-intro{font-family:'Fraunces',serif;font-style:italic;font-size:17px;color:var(--muted);margin:6px 0 18px;line-height:1.5}
+
+  /* ---- control bar (Pass 1 instrument) ---- */
+  .ctrl{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:14px 16px;margin-bottom:20px}
+  .ctrl-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+  .tally{font-size:13px;font-weight:700;display:flex;gap:12px;flex-wrap:wrap}
+  .tally i{font-style:normal;display:inline-flex;align-items:center;gap:5px}
+  .tally i::before{content:"";width:9px;height:9px;border-radius:50%}
+  .tally .t-ok::before{background:var(--ok)} .tally .t-gap::before{background:var(--gap)} .tally .t-miss::before{background:var(--miss)}
+  .spacer{flex:1 1 auto}
+  .btn{font-family:'Manrope';font-size:12.5px;font-weight:700;border:none;border-radius:999px;padding:9px 16px;cursor:pointer;transition:.15s}
+  .btn-primary{background:var(--retrieval);color:#fff}
+  .btn-primary:hover{filter:brightness(1.06)}
+  .btn-ghost{background:transparent;color:var(--muted);border:1px solid var(--line)}
+  .btn-ghost:hover{border-color:#cfc6b6}
+  .ctrl-status{margin-top:11px;font-size:13px;font-style:italic;color:var(--retrieval);min-height:18px}
+
+  /* ---- retrieval prompt ---- */
+  .rt{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:14px;transition:border-color .2s}
+  .rt[data-score=sicher]{border-left-color:var(--ok)}
+  .rt[data-score=lueckenhaft]{border-left-color:var(--gap)}
+  .rt[data-score=gefehlt]{border-left-color:var(--miss)}
+  .rt-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:8px}
+  .rt-n{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--retrieval)}
+  .rt-right{display:flex;align-items:center;gap:10px;white-space:nowrap}
+  .rt-ptr{font-size:11px;font-weight:600;color:var(--muted)}
+  .rt-q{font-size:15.5px;line-height:1.55}
+  .reveal{margin-top:12px;border-top:1px dashed var(--line);padding-top:0}
+  .reveal>summary{list-style:none;cursor:pointer;font-size:12.5px;font-weight:800;letter-spacing:.04em;color:var(--retrieval);padding:11px 0 0;user-select:none;display:inline-flex;align-items:center;gap:6px}
+  .reveal>summary::-webkit-details-marker{display:none}
+  .reveal>summary::before{content:"▸";transition:transform .2s;display:inline-block}
+  .reveal[open]>summary::before{transform:rotate(90deg)}
+  .reveal .ans{font-size:14.5px;line-height:1.6;color:#3c372f;padding-top:10px}
+  .reveal .ans b{color:var(--ink)}
+  .reveal .ans ul{list-style:none;padding-left:2px;margin:2px 0 0}
+  .reveal .ans li{position:relative;padding-left:18px;margin-bottom:8px;line-height:1.5}
+  .reveal .ans>ul>li::before{content:"";position:absolute;left:2px;top:8px;width:6px;height:6px;border-radius:50%;background:var(--retrieval)}
+  .reveal .ans li ul{margin:7px 0 2px}
+  .reveal .ans li li{padding-left:16px;margin-bottom:5px;font-size:13.8px;color:#4a443c}
+  .reveal .ans li li::before{content:"";position:absolute;left:0;top:7px;width:5px;height:5px;transform:rotate(45deg);background:#b9b0a1}
+  .score{display:flex;gap:7px;margin-top:12px;padding-top:11px;border-top:1px solid var(--line)}
+  .sbtn{flex:1;font-size:12px;font-weight:700;border:1px solid var(--line);background:var(--bg);color:var(--muted);border-radius:8px;padding:7px 4px;cursor:pointer;transition:.12s}
+  .sbtn:hover{border-color:#cfc6b6}
+  .sbtn[data-v=sicher].on{background:var(--ok);color:#fff;border-color:transparent}
+  .sbtn[data-v=lueckenhaft].on{background:var(--gap);color:#fff;border-color:transparent}
+  .sbtn[data-v=gefehlt].on{background:var(--miss);color:#fff;border-color:transparent}
+
+  /* ---- Schnellfragen ---- */
+  .sf-wrap{background:var(--retrieval-t);border:1px solid #BFE0DC;border-radius:13px;padding:18px 20px;margin-top:24px}
+  .sf-wrap h3{font-family:'Fraunces',serif;font-weight:500;font-size:20px;margin-bottom:3px}
+  .sf-wrap .sf-intro{font-size:13.5px;font-style:italic;color:#0c5d57;margin-bottom:14px}
+  .sf{border-bottom:1px solid #cfe4e1;padding:9px 0}
+  .sf:last-child{border-bottom:none}
+  .sf>summary{list-style:none;cursor:pointer;font-size:14.5px;font-weight:600;display:flex;justify-content:space-between;gap:10px;user-select:none}
+  .sf>summary::-webkit-details-marker{display:none}
+  .sf>summary::after{content:"+";color:var(--retrieval);font-weight:800}
+  .sf[open]>summary::after{content:"−"}
+  .sf .sfa{font-size:14px;color:#0c5d57;font-weight:700;padding-top:6px}
+
+  /* ---- content cards (v1) ---- */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:14px;overflow:hidden}
+  .card>summary{list-style:none;cursor:pointer;padding:18px 20px;display:flex;align-items:flex-start;gap:14px;user-select:none}
+  .card>summary::-webkit-details-marker{display:none}
+  .card .ct{flex:1}
+  .card .ctag{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:5px}
+  .card .ctitle{font-family:'Fraunces',serif;font-weight:500;font-size:17px;line-height:1.25}
+  .plus{flex:none;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:18px;line-height:1;transition:transform .2s;margin-top:2px}
+  .card[open] .plus{transform:rotate(45deg)}
+  .card .body{padding:0 20px 20px;border-top:1px solid var(--line);margin-top:-2px;padding-top:16px}
+  .card.grundlagen .ctag{color:var(--grundlagen)} .card.grundlagen .plus{background:var(--grundlagen-t);color:var(--grundlagen)}
+  .card.klinik .ctag{color:var(--klinik)} .card.klinik .plus{background:var(--klinik-t);color:var(--klinik)}
+  .card.diagnostik .ctag{color:var(--diagnostik)} .card.diagnostik .plus{background:var(--diagnostik-t);color:var(--diagnostik)}
+  .card.therapie .ctag{color:var(--therapie)} .card.therapie .plus{background:var(--therapie-t);color:var(--therapie)}
+  .card.fragen .ctag{color:var(--fragen)} .card.fragen .plus{background:var(--fragen-t);color:var(--fragen)}
+  .card.perlen .ctag{color:var(--perlen)} .card.perlen .plus{background:var(--perlen-t);color:var(--perlen)}
+
+  ul.b{list-style:none;padding-left:2px}
+  ul.b>li{position:relative;padding-left:20px;margin-bottom:8px;line-height:1.55}
+  ul.b>li::before{content:"";position:absolute;left:2px;top:9px;width:7px;height:7px;border-radius:50%}
+  .grundlagen ul.b>li::before{background:var(--grundlagen)} .klinik ul.b>li::before{background:var(--klinik)}
+  .diagnostik ul.b>li::before{background:var(--diagnostik)} .therapie ul.b>li::before{background:var(--therapie)}
+  ul.b ul{list-style:none;padding-left:18px;margin-top:7px}
+  ul.b ul>li{position:relative;padding-left:18px;margin-bottom:6px;font-size:15px;color:#4a443c}
+  ul.b ul>li::before{content:"";position:absolute;left:0;top:7px;width:6px;height:6px;transform:rotate(45deg);background:#b9b0a1}
+  strong{font-weight:700;color:var(--ink)}
+
+  .callout{border-radius:11px;padding:13px 16px;margin:14px 0;font-size:14.5px;line-height:1.55;border-left:4px solid}
+  .callout .lab{font-weight:800;font-size:11px;letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .critical{background:var(--grundlagen-t);border-color:var(--grundlagen)} .critical .lab{color:var(--grundlagen)}
+  .warning{background:var(--klinik-t);border-color:var(--klinik)} .warning .lab{color:var(--klinik)}
+  .fact{background:var(--diagnostik-t);border-color:var(--diagnostik)} .fact .lab{color:var(--diagnostik)}
+
+  .dd{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+  .dd th,.dd td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+  .dd th{background:var(--diagnostik-t);font-weight:700;color:var(--diagnostik);font-size:12px}
+  .dd td:first-child{font-weight:600}
+
+  .pk{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:16px}
+  .pk-meta{display:flex;flex-wrap:wrap;gap:6px 0;font-size:11.5px;font-weight:700;color:var(--protokoll);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+  .pk-meta span:not(:last-child)::after{content:"•";margin:0 8px;color:#c3c9d2}
+  .pk-badge{display:inline-block;background:var(--therapie-t);color:var(--therapie);font-size:10.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:2px 9px;border-radius:999px;margin-left:auto}
+  .pk-akte{font-size:14.5px;line-height:1.58;background:var(--protokoll-t);border-radius:9px;padding:12px 14px;margin-bottom:12px}
+  .pk-akte .lab,.pk-q .lab{font-weight:800;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--protokoll);display:block;margin-bottom:5px}
+  .pk-q ul{list-style:none;padding:0}
+  .pk-q li{position:relative;padding-left:18px;margin-bottom:7px;font-size:14.5px;line-height:1.5}
+  .pk-q li::before{content:"–";position:absolute;left:0;color:var(--protokoll);font-weight:700}
+  .pq{border-top:1px solid var(--line);padding:10px 0}
+  .pq-frage{position:relative;padding-left:18px;font-size:14.5px;font-weight:600;line-height:1.5}
+  .pq-frage::before{content:"–";position:absolute;left:0;color:var(--protokoll);font-weight:700}
+  .pq .reveal{margin-top:5px;border-top:none;padding-top:0}
+  .pq .reveal>summary{padding:5px 0 0}
+
+  .pearl{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--perlen);border-radius:12px;padding:16px 18px;margin-bottom:13px}
+  .pearl .ph{font-weight:800;font-size:13px;color:var(--perlen);margin-bottom:7px}
+  .pearl .pt{font-size:15px;line-height:1.55}
+  .pearl .mn{margin-top:9px;background:var(--perlen-t);border-radius:8px;padding:8px 12px;font-size:13.5px;font-style:italic;color:#7a5c08}
+  .pearl .mn b{font-style:normal;font-weight:800}
+
+  footer{margin-top:40px;padding-top:22px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted);line-height:1.6}
+  .back{display:inline-block;font-family:Manrope,system-ui,sans-serif;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);text-decoration:none;margin-bottom:18px}
+  .back:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a href="../../index.html" class="back">← Zurück zur Library</a>
+
+  <header>
+    <div class="eyebrow">Gastroenterologie · R3 · Kurz + KP-Perlen + Protokolle</div>
+    <h1>Die <span class="accent">Leberzirrhose</span></h1>
+    <div class="subtitle">Der irreversible Endzustand chronischer Lebererkrankungen — die Ätiologie (Alkohol, Virushepatitis), die portale Hypertension mit ihren Folgen, die Leberhautzeichen, der Child-Pugh- und MELD-Score und das Komplikationsmanagement. Ein Mainz-Dauerbrenner. Vier Stationen + KP-Perlen + die echten Protokollfragen.</div>
+    <div class="meta"><span>R3 · 6 Tabs · Kurz + KP-Perlen + Protokolle</span><span>~24 Min</span><span>Stand 06/2026</span><span>Mainz-Protokolle 2024–2026</span></div>
+  </header>
+
+  <div class="tabs">
+    <button class="tab active" data-c="grundlagen" data-tab="grundlagen">Grundlagen</button>
+    <button class="tab" data-c="klinik" data-tab="klinik">Klinik</button>
+    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik</button>
+    <button class="tab" data-c="therapie" data-tab="therapie">Therapie</button>
+    <button class="tab" data-c="perlen" data-tab="perlen">KP-Perlen</button>
+    <button class="tab" data-c="protokoll" data-tab="protokoll">Fragen &amp; Protokolle</button>
+  </div>
+
+  <section class="panel active" data-panel="grundlagen">
+    <p class="panel-intro">Der irreversible Endzustand chronischer Lebererkrankungen — mit den zwei Folgesträngen portale Hypertension und Leberinsuffizienz.</p>
+
+    <details class="card grundlagen" open><summary><span class="ct"><span class="ctag">★ Anker</span><span class="ctitle">Definition</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Merksatz</span><strong>Leberzirrhose = irreversibler bindegewebiger Umbau der Leber</strong> mit Zerstörung der Läppchenarchitektur, Fibrose und Regeneratknoten — der gemeinsame Endzustand chronischer Lebererkrankungen.</div><ul class="b"><li>Zwei Folgestränge: <strong>portale Hypertension</strong> (Pfortaderhochdruck) und <strong>Leberinsuffizienz</strong> (Syntheseversagen + verminderte Entgiftung).</li><li><strong>Kompensiert</strong> (oft asymptomatisch) vs. <strong>dekompensiert</strong> (Aszites, Ikterus, Varizenblutung, Enzephalopathie).</li></ul>
+      </div></details>
+
+    <details class="card grundlagen"><summary><span class="ct"><span class="ctag">★ Dauerbrenner</span><span class="ctitle">Ätiologie</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Die zwei häufigsten — sie fragen die Reihenfolge</span><strong>1. Alkohol (ethyltoxisch)</strong> — häufigste Ursache in Deutschland<br><strong>2. Chronische Virushepatitis B und C</strong></div><ul class="b"><li><strong>NASH/MASH</strong> — Fettleber bei metabolischem Syndrom (zunehmend häufig)</li><li>Autoimmun/cholestatisch: Autoimmunhepatitis, PBC, PSC</li><li>Speicherkrankheiten: <strong>Hämochromatose</strong> (Eisen), <strong>Morbus Wilson</strong> (Kupfer), α1-Antitrypsinmangel</li><li>Vaskulär: chronische Rechtsherzinsuffizienz (Cirrhose cardiaque), Budd-Chiari</li></ul><div class="callout fact"><span class="lab">⚙ Faktoid</span>Die <strong>Steatosis hepatis</strong> (Fettleber) ist die Vorstufe — und kann, ebenso wie die Hepatitis B, ein HCC auch <strong>ohne</strong> vollständige Zirrhose begünstigen.</div>
+      </div></details>
+  </section>
+
+  <section class="panel" data-panel="klinik">
+    <p class="panel-intro">Leberhautzeichen, die Folgen der portalen Hypertension und die gefürchteten Dekompensationen.</p>
+
+    <details class="card klinik" open><summary><span class="ct"><span class="ctag">★ Anker</span><span class="ctitle">Leberhautzeichen</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Die klassischen Stigmata</span>Spider naevi (Gefäßspinnen), Palmar- und Plantarerythem, Caput medusae, Weißnägel (Leukonychie), Bauchglatze und Gynäkomastie, Dupuytren-Kontraktur, Lacklippen und Lackzunge.</div><div class="callout fact"><span class="lab">⚙ Mechanismus</span>Viele Zeichen durch <strong>Hyperöstrogenismus</strong> — der verminderte hepatische Östrogenabbau erklärt Gynäkomastie, Spider naevi und Palmarerythem.</div>
+      </div></details>
+
+    <details class="card klinik"><summary><span class="ct"><span class="ctag">★ Dauerbrenner</span><span class="ctitle">Portale Hypertension</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Die vier Folgen — sie fragen sie</span><strong>Ösophagus- und Fundusvarizen</strong> (Blutungsgefahr)<br><strong>Aszites</strong><br><strong>Splenomegalie</strong> mit Hypersplenismus (→ Thrombozytopenie)<br><strong>Caput medusae</strong> (porto-kavale Umgehungskreisläufe)</div><div class="callout fact"><span class="lab">⚙ Definition</span>Erhöhter Pfortaderdruck (Gradient HVPG > 5 mmHg; klinisch relevant ab > 10 mmHg) durch den erhöhten Widerstand im zirrhotischen Lebergewebe.</div>
+      </div></details>
+
+    <details class="card klinik"><summary><span class="ct"><span class="ctag">★ Anker</span><span class="ctitle">Aszites</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Pathogenese</span>Portale Hypertension + <strong>Hypalbuminämie</strong> (verminderter onkotischer Druck) + sekundärer Hyperaldosteronismus (Natrium- und Wasserretention).</div><div class="callout fact"><span class="lab">⚙ Transsudat (SAAG ≥ 1,1 g/dl)</span>Der zirrhotische Aszites ist ein <strong>Transsudat</strong> mit hohem Serum-Aszites-Albumin-Gradienten — Abgrenzung zum Exsudat bei Malignom oder Infektion (SAAG < 1,1).</div>
+      </div></details>
+
+    <details class="card klinik"><summary><span class="ct"><span class="ctag">★ Komplikation</span><span class="ctitle">Dekompensation &amp; Komplikationen</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">▲ Die gefürchteten Komplikationen</span>Ösophagusvarizenblutung (obere GI-Blutung)<br>Spontan bakterielle Peritonitis (SBP)<br>Hepatische Enzephalopathie<br>Hepatorenales Syndrom<br>Hepatozelluläres Karzinom (HCC)</div><div class="callout fact"><span class="lab">⚙ HCC — auch ohne Zirrhose</span>Außer der Zirrhose können auch eine <strong>chronische Hepatitis B</strong> und die <strong>Fettleber (Steatosis)</strong> direkt ein HCC verursachen.</div>
+      </div></details>
+
+    <details class="card klinik"><summary><span class="ct"><span class="ctag">★ Anker</span><span class="ctitle">Hepatische Enzephalopathie</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Mechanismus + Stadien</span><strong>Ammoniak (NH₃)</strong> und weitere Toxine umgehen die geschädigte Leber → ZNS-Funktionsstörung. Stadien I–IV: von <strong>Asterixis</strong> (Flapping tremor) und Verwirrtheit bis zum Coma hepaticum.</div><div class="callout warning"><span class="lab">⚠ Auslöser (Trigger)</span>GI-Blutung, Infektion (SBP), Obstipation, Elektrolytstörung, Eiweißexzess, Diuretika — bei jeder Dekompensation gezielt suchen.</div>
+      </div></details>
+  </section>
+
+  <section class="panel" data-panel="diagnostik">
+    <p class="panel-intro">Labor (was erhöht, was erniedrigt), Sonografie, der Child-Pugh- und der MELD-Score — und die Aszitespunktion.</p>
+
+    <details class="card diagnostik" open><summary><span class="ct"><span class="ctag">★ Dauerbrenner</span><span class="ctitle">Labor — was erhöht, was erniedrigt</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Synthese erniedrigt</span><strong>Albumin ↓</strong>, <strong>Quick ↓ / INR ↑</strong> (verminderte Gerinnungsfaktor-Synthese), Cholinesterase ↓.</div><div class="callout fact"><span class="lab">⚙ Erhöht</span>Bilirubin ↑, Transaminasen GOT/GPT oft mäßig ↑ (bei Alkohol <strong>GOT > GPT</strong>, De-Ritis > 1), GGT ↑, Ammoniak ↑.</div><div class="callout fact"><span class="lab">⚙ Hypersplenismus</span><strong>Thrombozyten ↓</strong> (oft auch Leuko- und Erythrozyten) durch Pooling in der vergrößerten Milz.</div>
+      </div></details>
+
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">★ Anker</span><span class="ctitle">Sonografie</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Typische Befunde</span>Höckrige, unregelmäßige Leberoberfläche, inhomogenes Parenchym, abgerundeter Leberrand; Zeichen der portalen Hypertension: Splenomegalie, Aszites, erweiterte Pfortader, rekanalisierte Nabelvene.</div><div class="callout fact"><span class="lab">⚙ Ergänzend</span><strong>Elastografie (FibroScan)</strong> misst die Lebersteifigkeit nicht-invasiv; der Duplex zeigt Richtung und Tempo des Pfortaderflusses.</div>
+      </div></details>
+
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">★ Dauerbrenner</span><span class="ctitle">Child-Pugh-Score</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Die fünf Parameter</span><strong>Bilirubin</strong> · <strong>Albumin</strong> · <strong>Quick / INR</strong> · <strong>Aszites</strong> · <strong>hepatische Enzephalopathie</strong></div><table class="dd"><tr><td><strong>Parameter</strong></td><td><strong>1 Punkt</strong></td><td><strong>2 Punkte</strong></td><td><strong>3 Punkte</strong></td></tr><tr><td>Bilirubin</td><td>< 2</td><td>2–3</td><td>> 3 mg/dl</td></tr><tr><td>Albumin</td><td>> 3,5</td><td>2,8–3,5</td><td>< 2,8 g/dl</td></tr><tr><td>Quick (INR)</td><td>> 70 % (<1,7)</td><td>40–70 %</td><td>< 40 % (>2,3)</td></tr><tr><td>Aszites</td><td>keiner</td><td>mäßig</td><td>ausgeprägt</td></tr><tr><td>Enzephalopathie</td><td>keine</td><td>Grad I–II</td><td>Grad III–IV</td></tr></table><div class="callout fact"><span class="lab">⚙ Einteilung</span>Summe → <strong>Child A</strong> (5–6, gute Prognose), <strong>B</strong> (7–9), <strong>C</strong> (10–15, schlechte Prognose).</div>
+      </div></details>
+
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">★ Anker</span><span class="ctitle">MELD-Score</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Drei Laborwerte</span><strong>Bilirubin, INR und Kreatinin</strong> — der MELD-Score quantifiziert die Schwere und steuert die <strong>Priorität auf der Transplantationsliste</strong>.</div>
+      </div></details>
+
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">★ Anker</span><span class="ctitle">Biopsie &amp; Aszitespunktion</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Leberbiopsie</span>Histologischer Goldstandard, heute aber selten nötig — die Diagnose gelingt meist klinisch über Sono, Labor und Elastografie.</div><div class="callout fact"><span class="lab">⚙ Diagnostische Aszitespunktion</span>Bestimmung von SAAG, Eiweiß und <strong>Zellzahl</strong> — <strong>> 250 neutrophile Granulozyten/µl</strong> beweisen eine SBP. Vor der Punktion Gerinnung (Quick, Thrombozyten) beachten.</div>
+      </div></details>
+  </section>
+
+  <section class="panel" data-panel="therapie">
+    <p class="panel-intro">Kausal behandeln, die Komplikationen beherrschen — und rechtzeitig an die Transplantation denken.</p>
+
+    <details class="card therapie" open><summary><span class="ct"><span class="ctag">★ Anker</span><span class="ctitle">Kausal &amp; Basismaßnahmen</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Grundpfeiler</span><strong>Ursache behandeln</strong> — absolute Alkoholkarenz, antivirale Therapie bei Hepatitis B/C, Therapie der Grunderkrankung (z. B. Aderlass bei Hämochromatose).</div><ul class="b"><li>Hepatotoxische Medikamente meiden</li><li>Impfungen: Hepatitis A/B, Pneumokokken, Influenza</li><li>Auf ausreichende Ernährung achten (Mangelernährung häufig)</li></ul>
+      </div></details>
+
+    <details class="card therapie"><summary><span class="ct"><span class="ctag">★ Dauerbrenner</span><span class="ctitle">Aszites-Therapie</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Stufenschema</span><strong>Natriumrestriktion</strong> + <strong>Spironolacton</strong> (Aldosteronantagonist), bei Bedarf plus <strong>Schleifendiuretikum (Furosemid)</strong>.</div><div class="callout warning"><span class="lab">⚠ Großvolumige Parazentese</span>Bei gespanntem oder refraktärem Aszites — bei Entlastung > 5 l <strong>Albumin substituieren</strong> (Schutz vor Kreislaufdysfunktion nach der Parazentese). Refraktär: <strong>TIPS</strong>.</div>
+      </div></details>
+
+    <details class="card therapie"><summary><span class="ct"><span class="ctag">★ Dauerbrenner</span><span class="ctitle">Ösophagusvarizen</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Akute Varizenblutung — drei Säulen</span><strong>Endoskopische Gummibandligatur</strong> (oder Sklerosierung)<br><strong>Terlipressin</strong> (senkt den Pfortaderdruck)<br><strong>Antibiotika-Prophylaxe</strong> (z. B. Ceftriaxon — senkt die Mortalität)<br>bei Versagen: TIPS</div><div class="callout fact"><span class="lab">⚙ Prophylaxe</span>Primär- und Sekundärprophylaxe mit <strong>nicht-selektivem Betablocker</strong> (Propranolol/Carvedilol) und/oder <strong>Ligatur</strong>.</div>
+      </div></details>
+
+    <details class="card therapie"><summary><span class="ct"><span class="ctag">★ Komplikation</span><span class="ctitle">SBP, Enzephalopathie &amp; hepatorenales Syndrom</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ SBP</span>Empirisch <strong>Cefotaxim/Ceftriaxon</strong>, danach Antibiotika-Sekundärprophylaxe; Albumin senkt das Risiko des hepatorenalen Syndroms.</div><div class="callout fact"><span class="lab">⚙ Hepatische Enzephalopathie</span><strong>Lactulose</strong> (senkt Ammoniak) und <strong>Rifaximin</strong> (nicht-resorbierbares Antibiotikum); Auslöser beseitigen, Eiweiß nicht zu stark restringieren.</div><div class="callout critical"><span class="lab">▲ Hepatorenales Syndrom</span>Funktionelles Nierenversagen bei Zirrhose — <strong>Terlipressin + Albumin</strong>; definitive Therapie ist die Lebertransplantation.</div>
+      </div></details>
+
+    <details class="card therapie"><summary><span class="ct"><span class="ctag">★ Anker</span><span class="ctitle">Lebertransplantation &amp; HCC-Screening</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Kurativ</span>Die <strong>Lebertransplantation</strong> ist die einzige kurative Option der dekompensierten Zirrhose — Priorisierung nach dem <strong>MELD-Score</strong>.</div><div class="callout fact"><span class="lab">⚙ HCC-Früherkennung</span>Bei Zirrhose <strong>Sonografie alle 6 Monate</strong> (± AFP) zur Früherkennung des hepatozellulären Karzinoms.</div>
+      </div></details>
+  </section>
+
+  <section class="panel" data-panel="perlen">
+    <p class="panel-intro">Die Dauerbrenner — Ätiologie-Reihenfolge, Child-Pugh-Parameter, die portale Hypertension und die Komplikationen.</p>
+
+    <div class="pearl"><div class="ph">⭐ Perle 1 · Alkohol vor Virus</div><div class="pt">Häufigste Ursache in Deutschland ist der Alkohol, zweithäufigste die chronische Virushepatitis B/C.</div><div class="mn"><b>Merke:</b> Sie fragen die Reihenfolge — Alkohol zuerst, dann B und C.</div></div>
+
+    <div class="pearl"><div class="ph">⭐ Perle 2 · Zwei Stränge ordnen</div><div class="pt">Jede Komplikation gehört entweder zur portalen Hypertension (Varizen, Aszites, Splenomegalie, Caput medusae) oder zur Leberinsuffizienz (Ikterus, Gerinnung, Enzephalopathie, Hypalbuminämie).</div><div class="mn"><b>Merke:</b> Erst einordnen, dann aufzählen.</div></div>
+
+    <div class="pearl"><div class="ph">⭐ Perle 3 · Die fünf Child-Pugh-Parameter</div><div class="pt">Bilirubin, Albumin, Quick/INR, Aszites und Enzephalopathie ergeben Child A, B oder C.</div><div class="mn"><b>Merke:</b> Zwei Synthesewerte (Albumin, Quick), ein Abbauwert (Bilirubin), zwei Klinik-Punkte (Aszites, Enzephalopathie).</div></div>
+
+    <div class="pearl"><div class="ph">⭐ Perle 4 · MELD ist nicht Child</div><div class="pt">Child schätzt die Prognose; der MELD-Score steuert die Transplantationspriorität aus Bilirubin, INR und Kreatinin.</div><div class="mn"><b>Merke:</b> MELD hat die Niere drin, Child die Klinik.</div></div>
+
+    <div class="pearl"><div class="ph">⭐ Perle 5 · Synthese runter, Bilirubin rauf</div><div class="pt">Albumin und Quick fallen (Syntheseleistung), Bilirubin und Ammoniak steigen.</div><div class="mn"><b>Merke:</b> Was die Leber baut, sinkt; was sie abbaut, staut sich.</div></div>
+
+    <div class="pearl"><div class="ph">⭐ Perle 6 · Thrombopenie verrät den Hypersplenismus</div><div class="pt">Niedrige Thrombozyten bei Lebererkrankung sprechen für portale Hypertension mit Splenomegalie.</div><div class="mn"><b>Merke:</b> Thrombopenie = die große Milz poolt.</div></div>
+
+    <div class="pearl"><div class="ph">⭐ Perle 7 · Transsudat mit hohem SAAG</div><div class="pt">Der zirrhotische Aszites ist ein Transsudat mit SAAG ≥ 1,1 g/dl.</div><div class="mn"><b>Merke:</b> Hoher Gradient = portal bedingt.</div></div>
+
+    <div class="pearl"><div class="ph">⭐ Perle 8 · Bei Varizenblutung das Antibiotikum nicht vergessen</div><div class="pt">Ligatur und Terlipressin sind klar — die Antibiotika-Prophylaxe senkt die Mortalität mit.</div><div class="mn"><b>Merke:</b> Drei Säulen: Ligatur, Terlipressin, Antibiotikum.</div></div>
+
+    <div class="pearl"><div class="ph">⭐ Perle 9 · Hepatorenales Syndrom = Terlipressin + Albumin</div><div class="pt">Funktionelles Nierenversagen, das auf Volumen allein nicht anspricht.</div><div class="mn"><b>Merke:</b> Terlipressin + Albumin — definitiv hilft nur die Transplantation.</div></div>
+
+    <div class="pearl"><div class="ph">⭐ Perle 10 · HCC auch ohne Zirrhose</div><div class="pt">Hepatitis B und die Fettleber können direkt ein HCC machen; bei Zirrhose Sono alle 6 Monate.</div><div class="mn"><b>Merke:</b> Außer der Zirrhose machen auch B und Fett ein HCC.</div></div>
+
+    <div class="sf-wrap"><h3>Rapid-Fire</h3><div class="sf-intro">Schnelldurchlauf — Frage antippen, laut beantworten, aufdecken.</div><details class="sf"><summary>Häufigste Ursache der Leberzirrhose in Deutschland?</summary><div class="sfa">Alkohol (ethyltoxisch).</div></details><details class="sf"><summary>Zweithäufigste Ursache?</summary><div class="sfa">Chronische Virushepatitis B und C.</div></details><details class="sf"><summary>Die zwei pathophysiologischen Folgestränge?</summary><div class="sfa">Portale Hypertension und Leberinsuffizienz.</div></details><details class="sf"><summary>Vier Folgen der portalen Hypertension?</summary><div class="sfa">Varizen, Aszites, Splenomegalie, Caput medusae.</div></details><details class="sf"><summary>Drei typische Leberhautzeichen?</summary><div class="sfa">Spider naevi, Palmarerythem, Caput medusae.</div></details><details class="sf"><summary>Warum Gynäkomastie und Spider naevi?</summary><div class="sfa">Hyperöstrogenismus durch verminderten Östrogenabbau.</div></details><details class="sf"><summary>Die fünf Child-Pugh-Parameter?</summary><div class="sfa">Bilirubin, Albumin, Quick/INR, Aszites, Enzephalopathie.</div></details><details class="sf"><summary>Die Child-Pugh-Klassen?</summary><div class="sfa">A, B und C.</div></details><details class="sf"><summary>Welche drei Werte stecken im MELD-Score?</summary><div class="sfa">Bilirubin, INR und Kreatinin.</div></details><details class="sf"><summary>Wofür dient der MELD-Score?</summary><div class="sfa">Für die Priorität auf der Transplantationsliste.</div></details><details class="sf"><summary>Welche Syntheseparameter sind erniedrigt?</summary><div class="sfa">Albumin und Quick (INR erhöht).</div></details><details class="sf"><summary>Warum sind die Thrombozyten niedrig?</summary><div class="sfa">Hypersplenismus bei Splenomegalie.</div></details><details class="sf"><summary>Welcher Aszites-Typ und welcher SAAG?</summary><div class="sfa">Ein Transsudat, SAAG ≥ 1,1 g/dl.</div></details><details class="sf"><summary>Was beweist eine SBP in der Punktion?</summary><div class="sfa">Mehr als 250 neutrophile Granulozyten pro µl.</div></details><details class="sf"><summary>Erstlinientherapie des Aszites?</summary><div class="sfa">Natriumrestriktion plus Spironolacton (± Furosemid).</div></details><details class="sf"><summary>Drei Säulen der akuten Varizenblutung?</summary><div class="sfa">Ligatur, Terlipressin, Antibiotikum.</div></details><details class="sf"><summary>Therapie der hepatischen Enzephalopathie?</summary><div class="sfa">Lactulose und Rifaximin.</div></details><details class="sf"><summary>Therapie des hepatorenalen Syndroms?</summary><div class="sfa">Terlipressin und Albumin.</div></details><details class="sf"><summary>Einzige kurative Therapie?</summary><div class="sfa">Die Lebertransplantation.</div></details><details class="sf"><summary>HCC-Screening bei Zirrhose?</summary><div class="sfa">Sonografie alle 6 Monate (± AFP).</div></details></div>
+  </section>
+
+  <section class="panel" data-panel="protokoll">
+    <p class="panel-intro">Echte dokumentierte Mainz-Fälle und -Fragen — einzeln, laut, in ganzen Sätzen beantworten.</p>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · dokumentiert</span><span>Innere · Psychiatrie</span><span class="pk-badge">Alkohol-Zirrhose</span></div>
+      <div class="pk-akte"><span class="lab">Fall</span>Ein Prüfer fragt nach der häufigsten internistischen Erkrankung bei (alkoholkranken) psychiatrischen Patienten — der Leberzirrhose — und geht sie von der Ursache bis zur Komplikation durch.</div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">Was ist die häufigste Ursache der Leberzirrhose?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Die ethyltoxische, also der chronische Alkoholkonsum.</div></details></div><div class="pq"><div class="pq-frage">Und die zweithäufigste?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Die chronischen Virushepatitiden B und C.</div></details></div><div class="pq"><div class="pq-frage">Wie diagnostizieren Sie eine Leberzirrhose?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Über das Labor — Albumin und Quick sind erniedrigt, Bilirubin erhöht — die Sonografie mit höckriger Oberfläche und Splenomegalie, und falls nötig die Biopsie.</div></details></div><div class="pq"><div class="pq-frage">Gibt es eine Schweregradeinteilung?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ja, den Child-Pugh-Score.</div></details></div><div class="pq"><div class="pq-frage">Welche Parameter hat der Child-Pugh-Score?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Bilirubin, Albumin, den Quick-Wert, den Aszites und die hepatische Enzephalopathie.</div></details></div><div class="pq"><div class="pq-frage">Welche Komplikationen kennen Sie?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Von der Varizenblutung über Aszites, spontan bakterielle Peritonitis, hepatische Enzephalopathie und hepatorenales Syndrom bis zum hepatozellulären Karzinom.</div></details></div><div class="pq"><div class="pq-frage">Was außer der Zirrhose kann noch ein HCC verursachen?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Eine chronische Hepatitis B und die Fettleber, die Steatosis hepatis.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · dokumentiert</span><span>Innere / Gastroenterologie</span><span class="pk-badge">Dekompensiert</span></div>
+      <div class="pk-akte"><span class="lab">Fall</span>Dokumentierter Fall (Dr. Linke): eine infektgetriggerte, dekompensierte Leberzirrhose mit oberer GI-Blutung, dazu Ikterus, Aszites und hepatorenales Syndrom.</div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">Woran denken Sie bei der oberen GI-Blutung des Zirrhotikers zuerst?</div><details class="reveal"><summary>Antwort</summary><div class="ans">An eine Ösophagusvarizenblutung infolge der portalen Hypertension.</div></details></div><div class="pq"><div class="pq-frage">Wie behandeln Sie die akute Varizenblutung?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Endoskopisch mit Gummibandligatur, dazu Terlipressin zur Senkung des Pfortaderdrucks und eine Antibiotika-Prophylaxe.</div></details></div><div class="pq"><div class="pq-frage">Wie behandeln Sie das hepatorenale Syndrom?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Mit Terlipressin und Albumin; die definitive Therapie ist die Lebertransplantation.</div></details></div><div class="pq"><div class="pq-frage">Was ist die einzige kurative Option?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Die Lebertransplantation, priorisiert nach dem MELD-Score.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · dokumentiert</span><span>Innere</span><span class="pk-badge">Hautzeichen + Pfortader</span></div>
+      <div class="pk-akte"><span class="lab">Fall</span>Ein Prüfer geht die Leberzirrhose ganz ausführlich durch — Ätiologie, portale Hypertension, Leberhautzeichen und Komplikationen.</div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">Nennen Sie typische Leberhautzeichen.</div><details class="reveal"><summary>Antwort</summary><div class="ans">Spider naevi, Palmarerythem, Caput medusae, Weißnägel, Gynäkomastie und eine Bauchglatze.</div></details></div><div class="pq"><div class="pq-frage">Was bedeutet portale Hypertension und welche Folgen hat sie?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Einen erhöhten Pfortaderdruck mit Ösophagusvarizen, Aszites, Splenomegalie und Caput medusae.</div></details></div><div class="pq"><div class="pq-frage">Welcher Aszites-Typ liegt vor?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ein Transsudat mit hohem Serum-Aszites-Albumin-Gradienten.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · dokumentiert</span><span>Innere</span><span class="pk-badge">Aszites-Management</span></div>
+      <div class="pk-akte"><span class="lab">Fall</span>Ein Bild zeigt einen ausgeprägten Aszites — gefragt wird nach dem Vorgehen und der Punktion.</div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">Wie gehen Sie bei diesem Aszites vor?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich punktiere zunächst diagnostisch zur Klärung der Ursache und behandle konservativ mit Natriumrestriktion und Spironolacton.</div></details></div><div class="pq"><div class="pq-frage">Worauf achten Sie vor der Aszitespunktion?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Auf die Gerinnung, also Quick und Thrombozyten.</div></details></div><div class="pq"><div class="pq-frage">Was geben Sie bei großvolumiger Entlastung?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Albumin, um eine Kreislaufdysfunktion nach der Parazentese zu vermeiden.</div></details></div><div class="pq"><div class="pq-frage">Was beweist eine spontan bakterielle Peritonitis?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Mehr als 250 neutrophile Granulozyten pro Mikroliter im Aszites.</div></details></div>
+    </div>
+  </section>
+  
+
+  <footer>
+    R3 · Leberzirrhose · Fragen &amp; Protokolle. Vier Kernstationen + KP-Perlen mit Rapid-Fire + die echten dokumentierten Mainz-Fragen (Ätiologie, portale Hypertension, Leberhautzeichen, Child-Pugh, Aszites, hepatorenales Syndrom, HCC). Stex + Amboss + Mainz-Protokolle 2024–2026.
+  </footer>
+
+</div>
+<script>
+  const tabs = [...document.querySelectorAll('.tab')];
+  const panels = [...document.querySelectorAll('.panel')];
+  function showTab(name){
+    tabs.forEach(x=>x.classList.toggle('active', x.dataset.tab===name));
+    panels.forEach(p=>p.classList.toggle('active', p.dataset.panel===name));
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  tabs.forEach(t=>t.addEventListener('click',()=>showTab(t.dataset.tab)));
+</script>
+  <script src="/sync.js" defer></script>
+</body>
+</html>
