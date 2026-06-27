@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Schock (alle Typen) · R3 · Diagnostischer Durchlauf</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F7F4EE; --card:#FFFDF8; --ink:#2A2724; --muted:#6B6358; --line:#E7E0D4;
+    --grundlagen:#C0392B; --grundlagen-t:#F7E9E6;
+    --klinik:#D97706;     --klinik-t:#FBEEDD;
+    --diagnostik:#1E5F9E; --diagnostik-t:#E4EDF6;
+    --therapie:#2D7A3E;   --therapie-t:#E5F0E7;
+    --fragen:#7B3F9E;     --fragen-t:#F0E8F6;
+    --perlen:#B8860B;     --perlen-t:#F8F0D9;
+    --retrieval:#0F766E;  --retrieval-t:#E0F0EE;
+    --protokoll:#334155;  --protokoll-t:#E8EBF0;
+    --ok:#2D7A3E; --gap:#D97706; --miss:#C0392B;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:'Manrope',system-ui,sans-serif;
+    font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased;padding:0 18px 80px}
+  .wrap{max-width:860px;margin:0 auto}
+
+  header{padding:54px 0 22px}
+  .eyebrow{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--retrieval);margin-bottom:16px}
+  h1{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(34px,7vw,52px);line-height:1.04;letter-spacing:-.01em}
+  h1 .accent{font-style:italic;color:var(--grundlagen)}
+  .subtitle{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(17px,2.6vw,20px);color:var(--muted);margin-top:14px}
+  .meta{display:flex;flex-wrap:wrap;gap:6px 0;margin-top:20px;font-size:13px;color:var(--muted);font-weight:500}
+  .meta span:not(:last-child)::after{content:"•";margin:0 10px;color:var(--line);font-weight:700}
+
+
+  .tabs{display:flex;flex-wrap:wrap;gap:8px;position:sticky;top:0;z-index:30;background:linear-gradient(var(--bg) 72%,rgba(247,244,238,0));padding:12px 0 14px;margin-bottom:6px}
+  .tab{position:relative;font-size:13px;font-weight:600;border:1px solid var(--line);background:var(--card);color:var(--muted);padding:8px 15px;border-radius:999px;cursor:pointer;transition:all .15s;white-space:nowrap}
+  .tab:hover{border-color:#cfc6b6}
+  .tab.active{color:#fff;border-color:transparent}
+  .tab[data-c=retrieval].active{background:var(--retrieval)}
+  .tab[data-c=grundlagen].active{background:var(--grundlagen)}
+  .tab[data-c=klinik].active{background:var(--klinik)}
+  .tab[data-c=diagnostik].active{background:var(--diagnostik)}
+  .tab[data-c=therapie].active{background:var(--therapie)}
+  .tab[data-c=fragen].active{background:var(--fragen)}
+  .tab[data-c=perlen].active{background:var(--perlen)}
+  .tab[data-c=protokoll].active{background:var(--protokoll)}
+  .tab .badge{display:none;margin-left:7px;font-size:10px;font-weight:800;padding:1px 6px;border-radius:999px;vertical-align:middle}
+  .tab.flag-gap .badge{display:inline-block;background:var(--gap);color:#fff}
+  .tab.flag-ok .badge{display:inline-block;background:var(--ok);color:#fff}
+  .tab.active .badge{background:rgba(255,255,255,.28)!important;color:#fff}
+
+  .panel{display:none;animation:fade .25s ease}
+  .panel.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+  .panel-intro{font-family:'Fraunces',serif;font-style:italic;font-size:17px;color:var(--muted);margin:6px 0 18px;line-height:1.5}
+
+  /* ---- control bar (Pass 1 instrument) ---- */
+  .ctrl{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:14px 16px;margin-bottom:20px}
+  .ctrl-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+  .tally{font-size:13px;font-weight:700;display:flex;gap:12px;flex-wrap:wrap}
+  .tally i{font-style:normal;display:inline-flex;align-items:center;gap:5px}
+  .tally i::before{content:"";width:9px;height:9px;border-radius:50%}
+  .tally .t-ok::before{background:var(--ok)} .tally .t-gap::before{background:var(--gap)} .tally .t-miss::before{background:var(--miss)}
+  .spacer{flex:1 1 auto}
+  .btn{font-family:'Manrope';font-size:12.5px;font-weight:700;border:none;border-radius:999px;padding:9px 16px;cursor:pointer;transition:.15s}
+  .btn-primary{background:var(--retrieval);color:#fff}
+  .btn-primary:hover{filter:brightness(1.06)}
+  .btn-ghost{background:transparent;color:var(--muted);border:1px solid var(--line)}
+  .btn-ghost:hover{border-color:#cfc6b6}
+  .ctrl-status{margin-top:11px;font-size:13px;font-style:italic;color:var(--retrieval);min-height:18px}
+
+  /* ---- retrieval prompt ---- */
+  .rt{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:14px;transition:border-color .2s}
+  .rt[data-score=sicher]{border-left-color:var(--ok)}
+  .rt[data-score=lueckenhaft]{border-left-color:var(--gap)}
+  .rt[data-score=gefehlt]{border-left-color:var(--miss)}
+  .rt-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:8px}
+  .rt-n{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--retrieval)}
+  .rt-right{display:flex;align-items:center;gap:10px;white-space:nowrap}
+  .rt-ptr{font-size:11px;font-weight:600;color:var(--muted)}
+  .rt-q{font-size:15.5px;line-height:1.55}
+  .reveal{margin-top:12px;border-top:1px dashed var(--line);padding-top:0}
+  .reveal>summary{list-style:none;cursor:pointer;font-size:12.5px;font-weight:800;letter-spacing:.04em;color:var(--retrieval);padding:11px 0 0;user-select:none;display:inline-flex;align-items:center;gap:6px}
+  .reveal>summary::-webkit-details-marker{display:none}
+  .reveal>summary::before{content:"▸";transition:transform .2s;display:inline-block}
+  .reveal[open]>summary::before{transform:rotate(90deg)}
+  .reveal .ans{font-size:14.5px;line-height:1.6;color:#3c372f;padding-top:10px}
+  .reveal .ans b{color:var(--ink)}
+  .reveal .ans ul{list-style:none;padding-left:2px;margin:2px 0 0}
+  .reveal .ans li{position:relative;padding-left:18px;margin-bottom:8px;line-height:1.5}
+  .reveal .ans>ul>li::before{content:"";position:absolute;left:2px;top:8px;width:6px;height:6px;border-radius:50%;background:var(--retrieval)}
+  .reveal .ans li ul{margin:7px 0 2px}
+  .reveal .ans li li{padding-left:16px;margin-bottom:5px;font-size:13.8px;color:#4a443c}
+  .reveal .ans li li::before{content:"";position:absolute;left:0;top:7px;width:5px;height:5px;transform:rotate(45deg);background:#b9b0a1}
+  .score{display:flex;gap:7px;margin-top:12px;padding-top:11px;border-top:1px solid var(--line)}
+  .sbtn{flex:1;font-size:12px;font-weight:700;border:1px solid var(--line);background:var(--bg);color:var(--muted);border-radius:8px;padding:7px 4px;cursor:pointer;transition:.12s}
+  .sbtn:hover{border-color:#cfc6b6}
+  .sbtn[data-v=sicher].on{background:var(--ok);color:#fff;border-color:transparent}
+  .sbtn[data-v=lueckenhaft].on{background:var(--gap);color:#fff;border-color:transparent}
+  .sbtn[data-v=gefehlt].on{background:var(--miss);color:#fff;border-color:transparent}
+
+  /* ---- Schnellfragen ---- */
+  .sf-wrap{background:var(--retrieval-t);border:1px solid #BFE0DC;border-radius:13px;padding:18px 20px;margin-top:24px}
+  .sf-wrap h3{font-family:'Fraunces',serif;font-weight:500;font-size:20px;margin-bottom:3px}
+  .sf-wrap .sf-intro{font-size:13.5px;font-style:italic;color:#0c5d57;margin-bottom:14px}
+  .sf{border-bottom:1px solid #cfe4e1;padding:9px 0}
+  .sf:last-child{border-bottom:none}
+  .sf>summary{list-style:none;cursor:pointer;font-size:14.5px;font-weight:600;display:flex;justify-content:space-between;gap:10px;user-select:none}
+  .sf>summary::-webkit-details-marker{display:none}
+  .sf>summary::after{content:"+";color:var(--retrieval);font-weight:800}
+  .sf[open]>summary::after{content:"−"}
+  .sf .sfa{font-size:14px;color:#0c5d57;font-weight:700;padding-top:6px}
+
+  /* ---- content cards (v1) ---- */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:14px;overflow:hidden}
+  .card>summary{list-style:none;cursor:pointer;padding:18px 20px;display:flex;align-items:flex-start;gap:14px;user-select:none}
+  .card>summary::-webkit-details-marker{display:none}
+  .card .ct{flex:1}
+  .card .ctag{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:5px}
+  .card .ctitle{font-family:'Fraunces',serif;font-weight:500;font-size:17px;line-height:1.25}
+  .plus{flex:none;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:18px;line-height:1;transition:transform .2s;margin-top:2px}
+  .card[open] .plus{transform:rotate(45deg)}
+  .card .body{padding:0 20px 20px;border-top:1px solid var(--line);margin-top:-2px;padding-top:16px}
+  .card.grundlagen .ctag{color:var(--grundlagen)} .card.grundlagen .plus{background:var(--grundlagen-t);color:var(--grundlagen)}
+  .card.klinik .ctag{color:var(--klinik)} .card.klinik .plus{background:var(--klinik-t);color:var(--klinik)}
+  .card.diagnostik .ctag{color:var(--diagnostik)} .card.diagnostik .plus{background:var(--diagnostik-t);color:var(--diagnostik)}
+  .card.therapie .ctag{color:var(--therapie)} .card.therapie .plus{background:var(--therapie-t);color:var(--therapie)}
+  .card.fragen .ctag{color:var(--fragen)} .card.fragen .plus{background:var(--fragen-t);color:var(--fragen)}
+  .card.perlen .ctag{color:var(--perlen)} .card.perlen .plus{background:var(--perlen-t);color:var(--perlen)}
+
+  ul.b{list-style:none;padding-left:2px}
+  ul.b>li{position:relative;padding-left:20px;margin-bottom:8px;line-height:1.55}
+  ul.b>li::before{content:"";position:absolute;left:2px;top:9px;width:7px;height:7px;border-radius:50%}
+  .grundlagen ul.b>li::before{background:var(--grundlagen)} .klinik ul.b>li::before{background:var(--klinik)}
+  .diagnostik ul.b>li::before{background:var(--diagnostik)} .therapie ul.b>li::before{background:var(--therapie)}
+  ul.b ul{list-style:none;padding-left:18px;margin-top:7px}
+  ul.b ul>li{position:relative;padding-left:18px;margin-bottom:6px;font-size:15px;color:#4a443c}
+  ul.b ul>li::before{content:"";position:absolute;left:0;top:7px;width:6px;height:6px;transform:rotate(45deg);background:#b9b0a1}
+  strong{font-weight:700;color:var(--ink)}
+
+  .callout{border-radius:11px;padding:13px 16px;margin:14px 0;font-size:14.5px;line-height:1.55;border-left:4px solid}
+  .callout .lab{font-weight:800;font-size:11px;letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .critical{background:var(--grundlagen-t);border-color:var(--grundlagen)} .critical .lab{color:var(--grundlagen)}
+  .warning{background:var(--klinik-t);border-color:var(--klinik)} .warning .lab{color:var(--klinik)}
+  .fact{background:var(--diagnostik-t);border-color:var(--diagnostik)} .fact .lab{color:var(--diagnostik)}
+
+  .dd{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+  .dd th,.dd td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+  .dd th{background:var(--diagnostik-t);font-weight:700;color:var(--diagnostik);font-size:12px}
+  .dd td:first-child{font-weight:600}
+
+  .pk{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:16px}
+  .pk-meta{display:flex;flex-wrap:wrap;gap:6px 0;font-size:11.5px;font-weight:700;color:var(--protokoll);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+  .pk-meta span:not(:last-child)::after{content:"•";margin:0 8px;color:#c3c9d2}
+  .pk-badge{display:inline-block;background:var(--therapie-t);color:var(--therapie);font-size:10.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:2px 9px;border-radius:999px;margin-left:auto}
+  .pk-akte{font-size:14.5px;line-height:1.58;background:var(--protokoll-t);border-radius:9px;padding:12px 14px;margin-bottom:12px}
+  .pk-akte .lab,.pk-q .lab{font-weight:800;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--protokoll);display:block;margin-bottom:5px}
+  .pk-q ul{list-style:none;padding:0}
+  .pk-q li{position:relative;padding-left:18px;margin-bottom:7px;font-size:14.5px;line-height:1.5}
+  .pk-q li::before{content:"–";position:absolute;left:0;color:var(--protokoll);font-weight:700}
+  .pq{border-top:1px solid var(--line);padding:10px 0}
+  .pq-frage{position:relative;padding-left:18px;font-size:14.5px;font-weight:600;line-height:1.5}
+  .pq-frage::before{content:"–";position:absolute;left:0;color:var(--protokoll);font-weight:700}
+  .pq .reveal{margin-top:5px;border-top:none;padding-top:0}
+  .pq .reveal>summary{padding:5px 0 0}
+
+  .pearl{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--perlen);border-radius:12px;padding:16px 18px;margin-bottom:13px}
+  .pearl .ph{font-weight:800;font-size:13px;color:var(--perlen);margin-bottom:7px}
+  .pearl .pt{font-size:15px;line-height:1.55}
+  .pearl .mn{margin-top:9px;background:var(--perlen-t);border-radius:8px;padding:8px 12px;font-size:13.5px;font-style:italic;color:#7a5c08}
+  .pearl .mn b{font-style:normal;font-weight:800}
+
+  footer{margin-top:40px;padding-top:22px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted);line-height:1.6}
+  .back{display:inline-block;font-family:Manrope,system-ui,sans-serif;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);text-decoration:none;margin-bottom:18px}
+  .back:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a href="../../index.html" class="back">← Zurück zur Library</a>
+
+  <header>
+    <div class="eyebrow">Gefäßchirurgie · R3 · Kurz + KP-Perlen + Protokolle</div>
+    <h1>Aorten<span class="accent">dissektion</span></h1>
+    <div class="subtitle">Vier Stationen (wortgleich mit R2) + KP-Perlen + die echten Mainz-Fragen — zum lauten Üben.</div>
+    <div class="meta">
+      <span>R3 von 5 · Upgrade aus R2</span>
+      <span>~14 Min</span>
+      <span>Stand 06/2026</span>
+      <span>Stex + Vorbereitung + Mainz-Protokolle</span>
+    </div>
+  </header>
+
+  <div class="tabs">
+    <button class="tab active" data-c="grundlagen" data-tab="grundlagen">Grundlagen</button>
+    <button class="tab" data-c="klinik" data-tab="klinik">Klinik</button>
+    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik</button>
+    <button class="tab" data-c="therapie" data-tab="therapie">Therapie</button>
+    <button class="tab" data-c="perlen" data-tab="perlen">KP-Perlen</button>
+    <button class="tab" data-c="protokoll" data-tab="protokoll">Fragen &amp; Protokolle</button>
+  </div>
+
+  <section class="panel active" data-panel="grundlagen">
+    <p class="panel-intro">Was genau reißt ein, wie wird klassifiziert und wer ist gefährdet — die Basis für die ganze Therapieentscheidung.</p>
+
+    <details class="card grundlagen" open><summary><span class="ct"><span class="ctag">Definition</span><span class="ctitle">Was ist eine Dissektion?</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <p>Ein Einriss der <strong>Intima</strong> lässt Blut zwischen die Wandschichten in die <strong>Media</strong> eindringen — es entsteht ein zweiter Kanal, das <strong>falsche Lumen</strong>. Die Aortenwand spaltet sich der Länge nach. Lebensbedrohlich durch Ruptur, Tamponade und Verlegung von Gefäßabgängen mit Organischämie. Akut = innerhalb von 14 Tagen.</p>
+        <div class="callout fact"><span class="lab">Merke</span>Es gibt ein wahres und ein falsches Lumen — das falsche Lumen kann Gefäßabgänge verlegen und so Organe ischämisch machen.</div>
+      </div></details>
+
+    <details class="card grundlagen"><summary><span class="ct"><span class="ctag">Klassifikation</span><span class="ctitle">Stanford &amp; DeBakey</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <p>Klinisch entscheidend ist <strong>Stanford</strong>: Typ A betrifft die Aorta <strong>ascendens</strong> (unabhängig vom Entry) und ist immer ein Notfall; Typ B betrifft nur die Aorta <strong>descendens</strong> distal der linken A. subclavia. <strong>DeBakey</strong> teilt feiner ein: I = ascendens + descendens, II = nur ascendens, III = nur descendens.</p>
+        <table class="dd">
+          <tr><td><strong>Typ</strong></td><td><strong>Lokalisation</strong></td><td><strong>Konsequenz</strong></td></tr>
+          <tr><td>Stanford A</td><td>Aorta ascendens (± Bogen/descendens)</td><td>Notfall-OP</td></tr>
+          <tr><td>Stanford B</td><td>nur descendens (ab A. subclavia)</td><td>konservativ / TEVAR</td></tr>
+        </table>
+        <div class="callout fact"><span class="lab">Merke</span>Stanford A = Ascendens = Akut-OP.</div>
+      </div></details>
+
+    <details class="card grundlagen"><summary><span class="ct"><span class="ctag">Risikofaktoren</span><span class="ctitle">Wer ist gefährdet?</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <ul class="b">
+          <li><strong>Arterielle Hypertonie</strong> — der häufigste Risikofaktor.</li>
+          <li>Bindegewebserkrankungen: <strong>Marfan-Syndrom</strong>, Ehlers-Danlos, Loeys-Dietz.</li>
+          <li>Bikuspide Aortenklappe, <strong>Aortenisthmusstenose</strong>, vorbestehendes Aortenaneurysma.</li>
+          <li>Schwangerschaft (3. Trimenon), Kokain/Amphetamine, Vaskulitiden.</li>
+          <li>Dezelerationstrauma, Alter und Arteriosklerose.</li>
+        </ul>
+        <div class="callout warning"><span class="lab">Achtung</span>Junger Patient mit Dissektion → an ein Marfan-Syndrom denken: Hochwuchs, Arachnodaktylie und Linsenluxation → Aorta kontrollieren.</div>
+      </div></details>
+  </section>
+
+  <section class="panel" data-panel="klinik">
+    <p class="panel-intro">Der Schmerz, die Seitendifferenz und die typabhängigen Komplikationen — genau das wird in Mainz abgefragt.</p>
+
+    <details class="card klinik" open><summary><span class="ct"><span class="ctag">Leitsymptom</span><span class="ctitle">Der Vernichtungsschmerz</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <p>Plötzlicher, schlagartiger, reißender <strong>Vernichtungsschmerz</strong> von maximaler Intensität, der oft nach kaudal in den Rücken <strong>wandert</strong> — er wandert mit der fortschreitenden Dissektionsmembran. Typ A eher vorderer Thoraxschmerz, Typ B eher zwischen den Schulterblättern.</p>
+        <div class="callout critical"><span class="lab">Cave</span>Schlagartiger reißender Vernichtungsschmerz, der wandert = bis zum Beweis des Gegenteils eine Dissektion.</div>
+      </div></details>
+
+    <details class="card klinik"><summary><span class="ct"><span class="ctag">Untersuchung</span><span class="ctitle">Puls- und Blutdruckdifferenz</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <p>Durch Verlegung von Gefäßabgängen entsteht eine <strong>Blutdruck- und Pulsdifferenz</strong> zwischen den Armen, abgeschwächte oder fehlende Pulse (Pulsdefizit) und bei Typ A ein neues <strong>Diastolikum</strong> der Aortenklappeninsuffizienz.</p>
+        <div class="callout fact"><span class="lab">Merke</span>Die Seitendifferenz von Puls und Blutdruck zwischen den Armen ist das klassische klinische Zeichen.</div>
+      </div></details>
+
+    <details class="card klinik"><summary><span class="ct"><span class="ctag">Komplikationen (Mainz!)</span><span class="ctitle">Komplikationen typabhängig</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <p>Typ A schlägt nach <strong>oben</strong> (Herz und Kopf), Typ B nach <strong>unten</strong> (Bauch und Rückenmark):</p>
+        <table class="dd">
+          <tr><td><strong>Typ A (proximal)</strong></td><td>Perikardtamponade, akute Aortenklappeninsuffizienz, Myokardinfarkt (Koronarostien), Schlaganfall (Karotis)</td></tr>
+          <tr><td><strong>Typ B (distal)</strong></td><td>Mesenterialischämie, Niereninfarkt, Querschnitt (Spinalarterien), Extremitätenischämie</td></tr>
+        </table>
+        <p>Bei beiden Typen droht die freie <strong>Ruptur</strong> mit hämorrhagischem Schock. Die Perikardtamponade zeigt die <strong>Beck-Trias</strong>: Hypotonie, gestaute Halsvenen und leise Herztöne.</p>
+        <div class="callout critical"><span class="lab">Cave</span>Mainz-Lieblingsfrage:<br>A → oben (Herz/Kopf)<br>B → unten (Bauch/Rückenmark)</div>
+      </div></details>
+  </section>
+
+  <section class="panel" data-panel="diagnostik">
+    <p class="panel-intro">Stabil oder instabil entscheidet über die Bildgebung; das EKG schützt vor dem fatalen Fehler.</p>
+
+    <details class="card diagnostik" open><summary><span class="ct"><span class="ctag">Goldstandard</span><span class="ctitle">CT-Angiographie</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <p>Beim kreislaufstabilen Patienten ist die <strong>CT-Angiographie</strong> mit Kontrastmittel der Goldstandard — sie zeigt wahres und falsches Lumen, Entry und Re-Entry, die gesamte Aorta mit ihren Abgängen und damit Ausdehnung und Klassifikation. Schnell und überall verfügbar.</p>
+        <div class="callout fact"><span class="lab">Merke</span>Stabiler Patient mit Dissektionsverdacht → sofort CT-Angiographie.</div>
+      </div></details>
+
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Instabil</span><span class="ctitle">TEE &amp; Echo am Bett</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <p>Beim instabilen Patienten ist die <strong>transösophageale Echokardiographie (TEE)</strong> die Methode der Wahl — am Bett, ohne Transport; sie sieht die Ascendens-Dissektion, einen Perikarderguss und die Aortenklappe. Die TTE zeigt Tamponade, Aortenklappeninsuffizienz und einen proximalen Flap.</p>
+        <div class="callout fact"><span class="lab">Merke</span>Instabil → TEE am Bett statt CT.</div>
+      </div></details>
+
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Labor &amp; DD</span><span class="ctitle">D-Dimere, EKG, Röntgen</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <ul class="b">
+          <li><strong>D-Dimere</strong>: hoch sensitiv — bei niedriger Wahrscheinlichkeit schließt ein negativer Test die Dissektion weitgehend aus; positiv oder hohe Wahrscheinlichkeit → CT-Angiographie.</li>
+          <li><strong>EKG + Troponin</strong>: Pflicht zur Abgrenzung vom Myokardinfarkt (bei Koronarbeteiligung sogar Infarktzeichen möglich).</li>
+          <li><strong>Röntgen-Thorax</strong>: verbreitertes Mediastinum (unspezifisch).</li>
+          <li>DD: Myokardinfarkt, Lungenembolie, Aortenruptur, Pneumothorax.</li>
+        </ul>
+        <div class="callout warning"><span class="lab">Achtung</span>Beim akuten Thoraxschmerz immer EKG und Troponin — den Myokardinfarkt ausschließen und keine Lyse vor dem Dissektionsausschluss.</div>
+      </div></details>
+  </section>
+
+  <section class="panel" data-panel="therapie">
+    <p class="panel-intro">Erst die Scherkräfte senken — dann entscheidet der Stanford-Typ über OP oder konservativ.</p>
+
+    <details class="card therapie" open><summary><span class="ct"><span class="ctag">Sofort — bei jedem Typ</span><span class="ctitle">Bei jedem Typ zuerst</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <p>Sofort Schmerz, Blutdruck und Herzfrequenz senken, um die <strong>Scherkräfte</strong> (Wandspannung, dP/dt) zu reduzieren. Ziel: systolischer RR etwa <strong>100–120 mmHg</strong>, Herzfrequenz <strong>unter 60</strong>. Mittel der ersten Wahl ist der <strong>Betablocker</strong> (Esmolol, Labetalol, Metoprolol) — erst Frequenz und Kontraktilität senken, dann bei Bedarf ein Vasodilatator (Nitroprussid, Urapidil). Dazu Analgesie, Monitoring, großlumige Zugänge und Kreuzblut.</p>
+        <div class="callout critical"><span class="lab">Cave</span>Erst Betablocker (Frequenz runter), dann Vasodilatator — niemals einen Vasodilatator allein, sonst Reflextachykardie und mehr Scherkräfte.</div>
+      </div></details>
+
+    <details class="card therapie"><summary><span class="ct"><span class="ctag">Typentscheidung</span><span class="ctitle">Stanford A vs. B</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <p>Den <strong>Typ A</strong> operiere ich notfallmäßig (Ersatz der Aorta ascendens, ggf. Klappe und Bogen) — unbehandelt etwa 1 % Letalität pro Stunde in den ersten 48 Stunden. Den <strong>Typ B</strong> behandle ich primär konservativ mit Blutdruck- und Frequenzkontrolle; nur bei Komplikationen (Malperfusion, drohende oder erfolgte Ruptur, Progredienz, therapierefraktärer Schmerz) folgt eine endovaskuläre Stentprothese (TEVAR) oder eine OP.</p>
+        <table class="dd">
+          <tr><td><strong>Stanford A</strong></td><td>Notfall-OP — immer</td></tr>
+          <tr><td><strong>Stanford B</strong></td><td>konservativ; TEVAR/OP nur bei Komplikation</td></tr>
+        </table>
+        <div class="callout fact"><span class="lab">Merke</span>A = auf jeden Fall OP, B = bloß nicht (konservativ / TEVAR).</div>
+      </div></details>
+  </section>
+
+  <section class="panel" data-panel="perlen">
+    <p class="panel-intro">Acht Perlen, die in Mainz immer wieder fallen — jede mit einem Merksatz zum Behalten. Danach die Rapid-Fire-Strecke.</p>
+
+    <div class="pearl"><div class="ph">⭐ Perle 1 · A operieren, B nicht</div><div class="pt">Stanford A = auf jeden Fall OP. Stanford B = bloß nicht sofort (konservativ/TEVAR). Der Satz, der die ganze Therapie trägt.</div><div class="mn"><b>Merke:</b> A = auf jeden Fall, B = bloß nicht</div></div>
+
+    <div class="pearl"><div class="ph">⭐ Perle 2 · CT-Angio</div><div class="pt">CT-Angiographie = Goldstandard — wahres + falsches Lumen, gesamte Aorta. Beim instabilen Patienten TEE am Bett.</div><div class="mn"><b>Merke:</b> Dissektion sichern = CT-Angio</div></div>
+
+    <div class="pearl"><div class="ph">⭐ Perle 3 · RR 120 / HF 60</div><div class="pt">Ziel-RR ~120 systolisch, HF ~60 mit Betablockern — senkt die Scherkräfte → weniger Rupturgefahr.</div><div class="mn"><b>Merke:</b> Betablocker: 120 und 60</div></div>
+
+    <div class="pearl"><div class="ph">⭐ Perle 4 · Wandernder Schmerz</div><div class="pt">Reißender Vernichtungsschmerz, der nach kaudal wandert — pathognomonisch für die fortschreitende Dissektionsmembran.</div><div class="mn"><b>Merke:</b> Schmerz wandert mit der Membran</div></div>
+
+    <div class="pearl"><div class="ph">⭐ Perle 5 · Komplikation = Typ</div><div class="pt">A → Herz/Kopf (MI, Tamponade, Schlaganfall). B → Bauch/Rückenmark (Mesenterialinfarkt, Querschnitt). Mainz-Lieblingsfrage.</div><div class="mn"><b>Merke:</b> A oben (Herz), B unten (Bauch)</div></div>
+
+    <div class="pearl"><div class="ph">⭐ Perle 6 · Pulsdifferenz</div><div class="pt">Blutdruck-/Pulsdifferenz zwischen den Armen ist das klassische klinische Zeichen.</div><div class="mn"><b>Merke:</b> Seitendifferenz = denk an Dissektion</div></div>
+
+    <div class="pearl"><div class="ph">⭐ Perle 7 · DD Myokardinfarkt</div><div class="pt">Beim akuten Thoraxschmerz immer MI mit EKG + Troponin ausschließen — und keine Lyse geben, bevor die Dissektion ausgeschlossen ist!</div><div class="mn"><b>Merke:</b> Erst Dissektion ausschließen, dann lysieren</div></div>
+
+    <div class="pearl"><div class="ph">⭐ Perle 8 · Marfan = jung</div><div class="pt">Marfan-Syndrom → Dissektion schon um das 30. Lj. Hochwuchs + Arachnodaktylie + Linsenluxation → Aorta kontrollieren.</div><div class="mn"><b>Merke:</b> Lang &amp; schlank &amp; jung → Aorta prüfen</div></div>
+
+    <div class="sf-wrap">
+      <h3>Rapid-Fire</h3>
+      <div class="sf-intro">Frage lesen, laut antworten, dann aufdecken. Tempo halten.</div>
+      <details class="sf"><summary>Was passiert bei einer Dissektion anatomisch?</summary><div class="sfa">Intimaeinriss → Blut wühlt sich in die Media → falsches Lumen.</div></details>
+      <details class="sf"><summary>Stanford A — welche Lokalisation?</summary><div class="sfa">Aorta ascendens (± Bogen/descendens).</div></details>
+      <details class="sf"><summary>Stanford B — welche Lokalisation?</summary><div class="sfa">Nur descendens, distal der linken A. subclavia.</div></details>
+      <details class="sf"><summary>Häufigster Risikofaktor?</summary><div class="sfa">Arterielle Hypertonie.</div></details>
+      <details class="sf"><summary>Junger Patient — welche Grunderkrankung?</summary><div class="sfa">Marfan-Syndrom (Bindegewebe).</div></details>
+      <details class="sf"><summary>Marfan-Trias klinisch?</summary><div class="sfa">Hochwuchs, Arachnodaktylie, Linsenluxation.</div></details>
+      <details class="sf"><summary>Charakter des Schmerzes?</summary><div class="sfa">Schlagartig, reißend, Vernichtungsschmerz, wandernd.</div></details>
+      <details class="sf"><summary>Klassisches klinisches Zeichen?</summary><div class="sfa">Blutdruck-/Pulsdifferenz zwischen den Armen.</div></details>
+      <details class="sf"><summary>Komplikationen Stanford A?</summary><div class="sfa">Tamponade, Aortenklappeninsuffizienz, Myokardinfarkt, Schlaganfall.</div></details>
+      <details class="sf"><summary>Komplikationen Stanford B?</summary><div class="sfa">Mesenterial-/Niereninfarkt, Querschnitt, Beinischämie.</div></details>
+      <details class="sf"><summary>Beck-Trias bei Tamponade?</summary><div class="sfa">Hypotonie, gestaute Halsvenen, leise Herztöne.</div></details>
+      <details class="sf"><summary>Goldstandard-Diagnostik beim stabilen Patienten?</summary><div class="sfa">CT-Angiographie mit Kontrastmittel.</div></details>
+      <details class="sf"><summary>Diagnostik beim instabilen Patienten?</summary><div class="sfa">TEE am Bett.</div></details>
+      <details class="sf"><summary>Wozu die D-Dimere?</summary><div class="sfa">Sensitiv — niedrige Wahrscheinlichkeit + negativ → Ausschluss.</div></details>
+      <details class="sf"><summary>Warum immer EKG + Troponin?</summary><div class="sfa">Den Myokardinfarkt ausschließen (DD).</div></details>
+      <details class="sf"><summary>Röntgen-Thorax-Zeichen?</summary><div class="sfa">Verbreitertes Mediastinum (unspezifisch).</div></details>
+      <details class="sf"><summary>Therapieziel RR und HF?</summary><div class="sfa">RR ~100–120 mmHg systolisch, HF unter 60.</div></details>
+      <details class="sf"><summary>Welches Medikament zuerst?</summary><div class="sfa">Betablocker (Esmolol/Labetalol) — vor dem Vasodilatator.</div></details>
+      <details class="sf"><summary>Warum Betablocker vor Vasodilatator?</summary><div class="sfa">Vasodilatator allein → Reflextachykardie → mehr Scherkräfte.</div></details>
+      <details class="sf"><summary>Therapie Stanford A?</summary><div class="sfa">Notfall-OP (Ersatz der Aorta ascendens).</div></details>
+      <details class="sf"><summary>Therapie Stanford B?</summary><div class="sfa">Konservativ; TEVAR/OP nur bei Komplikation.</div></details>
+    </div>
+  </section>
+
+  <section class="panel" data-panel="protokoll">
+    <p class="panel-intro">Generalprobe an echten Mainz-Fällen. Jede Frage einzeln laut beantworten, dann die Antwort aufdecken.</p>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mündliche Prüfung · dokumentiert</span><span>Gefäß-/Thoraxchirurgie</span><span class="pk-badge">Bestanden</span></div>
+      <div class="pk-akte"><span class="lab">Fall</span>Dokumentierter Mainz-Fall: Die Aortendissektion wurde mit Diagnose, Klassifikation und Therapie durchgefragt, im Anschluss ging es um das Marfan-Syndrom.</div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">Wie klassifizieren Sie die Aortendissektion?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich verwende die Stanford-Klassifikation. Typ A betrifft die Aorta ascendens und ist immer ein Notfall, Typ B betrifft nur die Aorta descendens distal der linken A. subclavia. Daneben gibt es die DeBakey-Einteilung in die Typen I, II und III.</div></details></div>
+      <div class="pq"><div class="pq-frage">Wie sichern Sie die Diagnose?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Beim kreislaufstabilen Patienten mache ich eine CT-Angiographie mit Kontrastmittel, sie zeigt das wahre und das falsche Lumen und die gesamte Aorta. Beim instabilen Patienten nehme ich die transösophageale Echokardiographie am Bett.</div></details></div>
+      <div class="pq"><div class="pq-frage">Wie behandeln Sie die beiden Typen?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Den Typ A operiere ich notfallmäßig mit Ersatz der Aorta ascendens. Den Typ B behandle ich zunächst konservativ mit Blutdruck- und Frequenzsenkung; nur bei Komplikationen kommt eine endovaskuläre Stentprothese oder eine Operation infrage.</div></details></div>
+      <div class="pq"><div class="pq-frage">Was geben Sie sofort medikamentös?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich senke zuerst mit einem Betablocker die Herzfrequenz und den Blutdruck, das Ziel sind etwa 100 bis 120 mmHg systolisch und eine Frequenz unter 60. Erst danach gebe ich bei Bedarf einen Vasodilatator, dazu eine ausreichende Analgesie.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mündliche Prüfung · dokumentiert</span><span>Innere / Anästhesie</span><span class="pk-badge">Bestanden</span></div>
+      <div class="pk-akte"><span class="lab">Fall</span>Im Gespräch wurde nach dem Marfan-Syndrom und — als Komplikation der proximalen Dissektion — nach der Perikardtamponade mit der Beck-Triade gefragt.</div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">Was sieht man beim Marfan-Syndrom neben der Überbeweglichkeit klinisch?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Die Patienten sind hochwüchsig und schlank und haben lange, schmale Finger, die Arachnodaktylie. Häufig finden sich eine Linsenluxation am Auge und eine Beteiligung der Aorta mit Aneurysmen, die zur Dissektion führen können.</div></details></div>
+      <div class="pq"><div class="pq-frage">Was ist die Beck-Triade bei der Perikardtamponade?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Die Beck-Triade besteht aus einer Hypotonie, gestauten Halsvenen und leisen, abgeschwächten Herztönen.</div></details></div>
+      <div class="pq"><div class="pq-frage">Ab welcher Menge wird der Perikarderguss kritisch?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Entscheidend ist die Geschwindigkeit, nicht nur die Menge. Akut können schon etwa 150 bis 200 ml zur Tamponade führen, weil sich das Perikard nicht dehnt; chronisch werden auch über ein Liter toleriert.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mündliche Prüfung · dokumentiert</span><span>Radiologie / Notfall</span><span class="pk-badge">Bestanden</span></div>
+      <div class="pk-akte"><span class="lab">Fall</span>In einem radiologischen Teil wurde ein CT-Thorax gezeigt und nach den Differenzialdiagnosen gefragt; in einem anderen Fall ging es um eine Aortenruptur im CT-Abdomen mit Kontrastmittel.</div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">Welche Differenzialdiagnosen hat ein akuter Thoraxschmerz im CT-Thorax?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Vor allem die Lungenembolie, die Aortendissektion und die Aortenruptur, daneben ein Pneumothorax, ein Pleuraerguss und eine Pneumonie.</div></details></div>
+      <div class="pq"><div class="pq-frage">Wie gehen Sie beim stabilen Patienten mit den D-Dimeren um?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Bei niedriger Wahrscheinlichkeit schließt ein negativer D-Dimer-Test die Dissektion und die Lungenembolie weitgehend aus. Sind die D-Dimere erhöht oder ist die Wahrscheinlichkeit hoch, mache ich direkt eine CT-Angiographie.</div></details></div>
+      <div class="pq"><div class="pq-frage">Welche Symptome und welche Therapie hat die Aortenruptur?</div><details class="reveal"><summary>Antwort</summary><div class="ans">Die Patienten haben stärksten Schmerz und sind im hämorrhagischen Schock mit Blutdruckabfall. Das ist ein chirurgischer Notfall: Ich stabilisiere den Kreislauf, gebe Blutprodukte und bringe den Patienten sofort zur operativen oder endovaskulären Versorgung.</div></details></div>
+    </div>
+
+    <div class="pk-q"><span class="lab">Weitere dokumentierte Prüferfragen</span></div>
+    <details class="card"><summary><span class="ct"><span class="ctag">Mainz · Gefäßsystem</span><span class="ctitle">Aortenisthmusstenose — was ist das?</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b"><li>Eine angeborene Einengung der Aorta, typischerweise distal der linken A. subclavia. Klinisch: Hypertonie an den Armen, abgeschwächte Leistenpulse und eine Blutdruckdifferenz zwischen Arm und Bein. Sie ist ein Risikofaktor für eine spätere Dissektion.</li></ul></div>
+    </details>
+  </section>
+
+  <footer>
+    R3 · Aortendissektion · Fragen &amp; Protokolle. Vier Kernstationen (wortgleich mit R2) + KP-Perlen mit Rapid-Fire + die echten dokumentierten Mainz-Fragen.
+  </footer>
+
+</div>
+<script>
+  const tabs = [...document.querySelectorAll('.tab')];
+  const panels = [...document.querySelectorAll('.panel')];
+  function showTab(name){
+    tabs.forEach(x=>x.classList.toggle('active', x.dataset.tab===name));
+    panels.forEach(p=>p.classList.toggle('active', p.dataset.panel===name));
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  tabs.forEach(t=>t.addEventListener('click',()=>showTab(t.dataset.tab)));
+</script>
+  <script src="/sync.js" defer></script>
+</body>
+</html>
