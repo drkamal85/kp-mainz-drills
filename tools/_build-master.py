@@ -254,6 +254,19 @@ prog();
 </body></html>'''
 io.open("tools/master-themenliste.html","w",encoding="utf-8").write(html)
 h=html
+# --- JSON feed for the app (bundled into the kp-progress Worker at /api/themen) ---
+import json as _json, datetime as _dt
+_themen=[{
+  'rank':rk,'treffer':t,'fach':f,'thema':th,
+  'slug':s,'covered':bool(s) and s in repo,
+  'level':(repo[s][0] if (s and s in repo) else None),
+  'reviewId':(f'{s}-r{repo[s][0]}' if (s and s in repo) else None)
+} for rk,t,c,p,f,th,s in ranked]
+_out={'version':1,'updatedAt':_dt.datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ'),
+      'total':len(ranked),'covered':sum(1 for x in _themen if x['covered']),'coveragePct':cov_pct,
+      'topics':_themen}
+io.open("api/themen.json","w",encoding="utf-8").write(_json.dumps(_out,ensure_ascii=False,separators=(',',':')))
+print("api/themen.json:",len(_themen),"rows |",_out['covered'],"covered")
 print("FLAT rows:",len(FLAT),"| tiers:",f"T1 {t1n} T2 {t2n} T3 {t3n} T4 {t4n} (sum {t1n+t2n+t3n+t4n}) + EXTRA {len(EXTRA)}")
 print("topic rows total:",h.count('<tr '),"| review badges:",h.count('class=\"have\"'),"| live reviews:",len(repo))
 links=re.findall(r'href="\.\./(reviews/[^"]+)"',h); print("links:",len(links),"| broken:",[p for p in links if not glob.glob(p)] or "none")

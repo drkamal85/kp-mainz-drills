@@ -251,7 +251,7 @@ function answer(known){
 }
 function keepGoing(){extra=true;render();}
 function forceNew(){extra=true;render();}
-function resetProgress(){ if(confirm('Allen Lernfortschritt und die Serie zurücksetzen?')){ localStorage.removeItem(KEY); S=load(); extra=false; render(); } }
+function resetProgress(){ if(confirm('Allen Lernfortschritt und die Serie zurücksetzen?')){ localStorage.removeItem(KEY); S=load(); save(); extra=false; render(); pushRemote(); } }
 render();
 
 // ---- cloud sync (opt-in; pure localStorage if unconfigured) ----
@@ -274,22 +274,38 @@ async function saveSync(){
 }
 async function pullRemote(){
   var c=syncCfg(); if(!c.api||!c.token) return;
+  var changed=false;
+  // full deck state is authoritative for the cross-device card schedule (last-write-wins by updatedAt)
   try{
-    var r=await fetch(c.api+'/api/progress',{headers:{'Authorization':'Bearer '+c.token}});
-    if(!r.ok) return; var j=await r.json();
-    if(j && typeof j.updatedAt==='string' && (!S.updatedAt || j.updatedAt>S.updatedAt)){
-      if(typeof j.streak==='number') S.streak=j.streak;
-      try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}
-      render();
+    var r2=await fetch(c.api+'/api/cards',{headers:{'Authorization':'Bearer '+c.token}});
+    if(r2.ok){ var d=await r2.json();
+      if(d && !d.empty && d.cards && typeof d.updatedAt==='string' && (!S.updatedAt || d.updatedAt>S.updatedAt)){
+        S={v:2, cards:(d.cards||{}), day:(d.day||{date:'',count:0,seen:[]}), streak:(d.streak||0), lastDone:(d.lastDone||''), totalKnown:(d.totalKnown||0), updatedAt:d.updatedAt};
+        changed=true;
+      }
     }
   }catch(e){}
+  // fallback: if no deck on the server yet, still adopt a newer streak from the summary
+  if(!changed){
+    try{
+      var r=await fetch(c.api+'/api/progress',{headers:{'Authorization':'Bearer '+c.token}});
+      if(r.ok){ var j=await r.json();
+        if(j && typeof j.updatedAt==='string' && (!S.updatedAt || j.updatedAt>S.updatedAt) && typeof j.streak==='number' && S.streak!==j.streak){ S.streak=j.streak; changed=true; }
+      }
+    }catch(e){}
+  }
+  if(changed){ try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){} render(); }
 }
 var _pushT=null;
 function pushRemote(){
   var c=syncCfg(); if(!c.api||!c.token) return Promise.resolve();
-  var body={ streak:S.streak, examDate:(c.examDate||null),
+  // 1) clean summary for the external app's dashboard
+  var summary={ streak:S.streak, examDate:(c.examDate||null),
     cards:{ doneToday:S.day.count, goal:GOAL, mastered:masteredCount(), total:DECK.length, dueTomorrow:dueTomorrow() } };
-  return fetch(c.api+'/api/progress',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+c.token},body:JSON.stringify(body)}).catch(function(){});
+  var p1=fetch(c.api+'/api/progress',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+c.token},body:JSON.stringify(summary)}).catch(function(){});
+  // 2) full deck state so the exact Leitner schedule follows the user across devices
+  var p2=fetch(c.api+'/api/cards',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+c.token},body:JSON.stringify(S)}).catch(function(){});
+  return Promise.all([p1,p2]);
 }
 function queuePush(){ clearTimeout(_pushT); _pushT=setTimeout(pushRemote,800); }
 function syncNow(){ var msg=document.getElementById('syncmsg'); msg.className='syncmsg'; msg.textContent='Synchronisiere…'; Promise.resolve().then(pullRemote).then(pushRemote).then(function(){ msg.className='syncmsg ok'; msg.textContent='Synchronisiert ✓'; }).catch(function(){ msg.className='syncmsg err'; msg.textContent='Sync-Fehler'; }); }

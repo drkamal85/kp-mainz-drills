@@ -3,7 +3,7 @@
  * Deploy as its OWN Worker (does not touch the static site). The static pages call it cross-origin.
  *
  * Required binding:
- *   PROGRESS         KV namespace (stores one JSON blob per user, key "u:<userId>")
+ *   PROGRESS         KV namespace — per user: progress "u:<userId>", full deck state "c:<userId>"
  * Optional env vars / secrets:
  *   AUTH_SALT        secret — salts the token->userId hash (SET THIS; default is insecure)
  *   API_TOKENS       comma-separated allowlist of accepted tokens (omit = any token >=8 chars)
@@ -15,6 +15,8 @@
 
 import topicsFeed from './topics.json';
 const TOPICS_JSON = JSON.stringify(topicsFeed);
+import themenFeed from './themen.json';
+const THEMEN_JSON = JSON.stringify(themenFeed);
 
 const STATUS = ['new', 'learning', 'mastered'];
 const DEFAULTS = () => ({
@@ -45,6 +47,12 @@ export async function handleApi(request, env, url) {
     return new Response(TOPICS_JSON, { status: 200, headers: { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'public, max-age=300', ...ch } });
   }
 
+  // ---- public: master curriculum list (no auth) — bundled, CORS + cache ----
+  if (url.pathname === '/api/themen') {
+    if (request.method !== 'GET') return jsonRes({ error: 'method_not_allowed' }, 405, ch);
+    return new Response(THEMEN_JSON, { status: 200, headers: { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'public, max-age=300', ...ch } });
+  }
+
   // ---- auth: Bearer token (or ?token= for quick testing) -> stable userId ----
   const token = bearer(request) || url.searchParams.get('token') || '';
   if (!token) return jsonRes({ error: 'missing_token' }, 401, ch);
@@ -67,6 +75,24 @@ export async function handleApi(request, env, url) {
       merged.updatedAt = new Date().toISOString();
       await env.PROGRESS.put(key, JSON.stringify(merged));
       return jsonRes(withMeta(merged, userId), 200, ch);
+    }
+    return jsonRes({ error: 'method_not_allowed' }, 405, ch);
+  }
+
+  // ---- full flashcard deck state (authed) — opaque blob, last-write-wins by updatedAt ----
+  if (url.pathname === '/api/cards') {
+    const key = 'c:' + userId;
+    if (request.method === 'GET') {
+      const stored = await readJson(env.PROGRESS, key);
+      return jsonRes(stored || { empty: true }, 200, ch);
+    }
+    if (request.method === 'POST') {
+      let body;
+      try { body = await request.json(); } catch { return jsonRes({ error: 'bad_json' }, 400, ch); }
+      if (!body || typeof body !== 'object' || Array.isArray(body)) return jsonRes({ error: 'bad_body' }, 400, ch);
+      body.updatedAt = new Date().toISOString();
+      await env.PROGRESS.put(key, JSON.stringify(body));
+      return jsonRes(body, 200, ch);
     }
     return jsonRes({ error: 'method_not_allowed' }, 405, ch);
   }

@@ -63,7 +63,7 @@ def parse_stations(h):
                 bm = re.search(r'<div class="body">(.*)</div>\s*$', inner, re.S)
                 stations[key].extend(card_to_blocks(md(tm.group(1)) if tm else '', bm.group(1) if bm else ''))
     else:  # v1 (R1) — sections in order
-        secs = re.findall(r'<section class="station"[^>]*>(.*?)</section>', h, re.S)
+        secs = re.findall(r'<section class="station[^"]*"[^>]*>(.*?)</section>', h, re.S)
         for idx, sec in enumerate(secs[:4]):
             key = STATION_KEYS[idx]
             for ch in re.split(r'(?=<div class="card[ "])', sec):
