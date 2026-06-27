@@ -36,6 +36,14 @@ export async function handleApi(request, env, url) {
   if (request.method === 'OPTIONS') return new Response(null, { status: 204, headers: ch });
   if (!url.pathname.startsWith('/api/')) return jsonRes({ error: 'not_found' }, 404, ch);
 
+  // ---- public: native content feed (no auth) — proxied from the static site with CORS + cache ----
+  if (url.pathname === '/api/content') {
+    if (request.method !== 'GET') return jsonRes({ error: 'method_not_allowed' }, 405, ch);
+    const up = await fetch('https://kp-mainz-drills.autoflow-med.workers.dev/content/topics.json', { cf: { cacheTtl: 300, cacheEverything: true } });
+    const body = await up.text();
+    return new Response(body, { status: up.status, headers: { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'public, max-age=300', ...ch } });
+  }
+
   // ---- auth: Bearer token (or ?token= for quick testing) -> stable userId ----
   const token = bearer(request) || url.searchParams.get('token') || '';
   if (!token) return jsonRes({ error: 'missing_token' }, 401, ch);
