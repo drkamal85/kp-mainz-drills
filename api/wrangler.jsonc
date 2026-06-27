@@ -1,0 +1,18 @@
+{
+  // Standalone progress-sync Worker. Deploy with:  cd api && npx wrangler deploy
+  "name": "kp-progress",
+  "main": "progress-worker.js",
+  "compatibility_date": "2025-06-01",
+  // 1) create the namespace:  npx wrangler kv namespace create PROGRESS
+  // 2) paste the printed id below:
+  "kv_namespaces": [
+    { "binding": "PROGRESS", "id": "<PUT_YOUR_KV_NAMESPACE_ID_HERE>" }
+  ],
+  // lock CORS to your site + your app origin (or use "*" while testing):
+  "vars": {
+    "ALLOWED_ORIGINS": "https://kp-mainz-drills.autoflow-med.workers.dev"
+  }
+  // Secrets (DO NOT put here) — set after first deploy:
+  //   npx wrangler secret put AUTH_SALT     (recommended; any long random string)
+  //   npx wrangler secret put API_TOKENS    (optional; comma-separated allowlist)
+}
