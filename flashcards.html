@@ -61,7 +61,8 @@
   .btn:active{transform:scale(.97)}
   .btn.know{background:var(--green);color:#fff}
   .btn.dont{background:var(--redbg);color:var(--red);border:1.5px solid #EBC8C2}
-  .btn.later{grid-column:1/-1;background:#ECE7DD;color:var(--muted);border:1.5px solid #E0DACE;padding:12px;font-size:.9rem;font-weight:700}
+  .skipbar{margin-top:14px}
+  .btn.skip{width:100%;background:#ECE7DD;color:var(--muted);border:1.5px solid #E0DACE;padding:12px;font-size:.9rem;font-weight:700}
   .btn .k{font-size:1.15rem}
   /* completion */
   .done-screen{background:var(--paper);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:34px 26px;text-align:center;display:none}
@@ -137,10 +138,13 @@
     </div>
   </div>
 
+  <div class="skipbar" id="skipbar" style="visibility:hidden">
+    <button class="btn skip" onclick="later()"><span class="k">↪</span> Später · überspringen</button>
+  </div>
+
   <div class="btns" id="btns" style="visibility:hidden">
     <button class="btn dont" onclick="answer(false)"><span class="k">↻</span> Nicht gewusst</button>
     <button class="btn know" onclick="answer(true)"><span class="k">✓</span> Gewusst</button>
-    <button class="btn later" onclick="later()"><span class="k">↪</span> Später nochmal</button>
   </div>
 
   <div class="done-screen" id="done">
@@ -218,20 +222,21 @@ function render(){
 }
 function nextCard(){
   const card=document.getElementById('card'), btns=document.getElementById('btns'),
+        skip=document.getElementById('skipbar'),
         done=document.getElementById('done'), empty=document.getElementById('empty'),
         scene=document.querySelector('.scene');
   // goal reached and not in extra mode -> completion screen
   if(S.day.count>=GOAL && !extra){
-    scene.style.display='none'; btns.style.visibility='hidden'; empty.classList.remove('show');
+    scene.style.display='none'; btns.style.visibility='hidden'; skip.style.visibility='hidden'; empty.classList.remove('show');
     document.getElementById('donestreak').textContent='🔥 '+S.streak+' '+(S.streak===1?'Tag':'Tage')+' in Folge';
     done.classList.add('show'); return;
   }
   done.classList.remove('show');
   const q=queue(extra);
-  if(!q.length){ scene.style.display='none'; btns.style.visibility='hidden'; empty.classList.add('show'); return; }
+  if(!q.length){ scene.style.display='none'; btns.style.visibility='hidden'; skip.style.visibility='hidden'; empty.classList.add('show'); return; }
   empty.classList.remove('show'); scene.style.display='block';
   cur=q[0];
-  card.classList.remove('flipped'); btns.style.visibility='hidden';
+  card.classList.remove('flipped'); btns.style.visibility='hidden'; skip.style.visibility='visible';
   const hue=cur.h, chipbg='oklch(95% 0.04 '+hue+')', chipfg='oklch(38% 0.13 '+hue+')';
   for(const id of ['chip','chipb']){const e=document.getElementById(id);e.textContent=cur.g;e.style.background=chipbg;e.style.color=chipfg;}
   document.getElementById('topic').textContent=cur.t;
@@ -244,6 +249,7 @@ function flip(){
   const card=document.getElementById('card');
   if(card.classList.contains('flipped'))return;
   card.classList.add('flipped');
+  document.getElementById('skipbar').style.visibility='hidden';
   setTimeout(()=>{document.getElementById('btns').style.visibility='visible';},260);
 }
 function answer(known){
