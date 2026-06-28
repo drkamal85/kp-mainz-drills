@@ -17,6 +17,8 @@ import topicsFeed from './topics.json';
 const TOPICS_JSON = JSON.stringify(topicsFeed);
 import themenFeed from './themen.json';
 const THEMEN_JSON = JSON.stringify(themenFeed);
+import deckFeed from './deck.json';
+const DECK_JSON = JSON.stringify(deckFeed);
 
 const STATUS = ['new', 'learning', 'mastered'];
 const DEFAULTS = () => ({
@@ -51,6 +53,12 @@ export async function handleApi(request, env, url) {
   if (url.pathname === '/api/themen') {
     if (request.method !== 'GET') return jsonRes({ error: 'method_not_allowed' }, 405, ch);
     return new Response(THEMEN_JSON, { status: 200, headers: { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'public, max-age=300', ...ch } });
+  }
+
+  // ---- public: Kernprinzip flashcard deck (no auth) — bundled, CORS + cache ----
+  if (url.pathname === '/api/deck') {
+    if (request.method !== 'GET') return jsonRes({ error: 'method_not_allowed' }, 405, ch);
+    return new Response(DECK_JSON, { status: 200, headers: { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'public, max-age=300', ...ch } });
   }
 
   // ---- auth: Bearer token (or ?token= for quick testing) -> stable userId ----
