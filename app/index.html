@@ -1,0 +1,1395 @@
+<!DOCTYPE html>
+<html lang="de"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>KP Mainz</title>
+<meta name="description" content="KP Mainz — Lernbibliothek für die Kenntnisprüfung">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#F4F7FB">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="KP">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="icons/icon-512.png">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<script src="app.js" defer></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <style>/* cyrillic-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/font-01.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/font-02.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/font-03.woff2") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/font-04.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/font-05.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/font-06.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/font-01.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/font-02.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/font-03.woff2") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/font-04.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/font-05.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/font-06.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/font-01.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/font-02.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/font-03.woff2") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/font-04.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/font-05.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/font-06.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/font-07.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/font-08.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/font-09.woff2") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/font-10.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/font-11.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/font-12.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/font-07.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/font-08.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/font-09.woff2") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/font-10.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/font-11.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/font-12.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/font-07.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/font-08.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/font-09.woff2") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/font-10.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/font-11.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/font-12.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/font-07.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/font-08.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/font-09.woff2") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/font-10.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/font-11.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/font-12.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("fonts/font-07.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("fonts/font-08.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("fonts/font-09.woff2") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("fonts/font-10.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("fonts/font-11.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("fonts/font-12.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/font-13.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/font-14.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/font-15.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/font-13.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/font-14.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/font-15.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/font-13.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/font-14.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/font-15.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/font-13.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/font-14.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/font-15.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="KP">
+  <meta name="theme-color" content="#F4F7FB">
+  <link rel="apple-touch-icon" href="icons/icon-180.png">
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; height: 100%; }
+    body { font-family: "Manrope", system-ui, sans-serif; background: #DDE5EE; display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 24px; }
+    .kp-scroll::-webkit-scrollbar { width: 0; height: 0; }
+    .kp-scroll { scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+    .kp-chips::-webkit-scrollbar { height: 0; }
+    @keyframes kp-spin { to { transform: rotate(360deg); } }
+    input.kp-search { font-family: "Manrope", sans-serif; }
+    input.kp-search::placeholder { color: #94A3B8; }
+    .kp-rich strong { font-weight: 700; color: #0F172A; }
+    .kp-rich em { font-style: italic; color: #475569; }
+    .kp-rich ul { margin: 6px 0; padding-left: 18px; }
+    .kp-rich li { margin: 3px 0; }
+    @media (display-mode: standalone), (display-mode: fullscreen) {
+      html, body { background:#F4F7FB !important; }
+      body { padding:0 !important; align-items:stretch !important; justify-content:stretch !important; }
+      .kp-app { width:100vw !important; height:100vh !important; height:100dvh !important; border:0 !important; border-radius:0 !important; box-shadow:none !important; }
+      .kp-statusbar, .kp-notch, .kp-homeind { display:none !important; }
+      .kp-scroll-main { top:env(safe-area-inset-top) !important; bottom:calc(70px + env(safe-area-inset-bottom)) !important; }
+      .kp-tabbar { height:auto !important; padding-top:12px !important; padding-bottom:calc(12px + env(safe-area-inset-bottom)) !important; }
+      .kp-topspacer { height:env(safe-area-inset-top) !important; }
+    }
+  </style>
+</helmet>
+
+
+
+<div class="kp-app" style="width:390px; height:844px; border-radius:46px; background:radial-gradient(130% 90% at 0% -8%, rgba(6,182,212,0.12), transparent 55%), radial-gradient(120% 85% at 100% 108%, rgba(124,58,237,0.10), transparent 55%), #F4F7FB; position:relative; overflow:hidden; box-shadow:0 40px 90px rgba(15,23,42,0.28), 0 0 0 1px rgba(15,23,42,0.04); border:7px solid #1B2430;">
+
+  <!-- status bar (always on top) -->
+  <div class="kp-statusbar" style="position:absolute; top:0; left:0; right:0; height:54px; display:flex; align-items:center; justify-content:space-between; padding:18px 30px 0; z-index:80; pointer-events:none;">
+    <span style="font-family:'Space Grotesk',sans-serif; font-size:15px; font-weight:600; color:#0F172A; letter-spacing:0.02em;">9:41</span>
+    <span style="font-size:12px; color:#0F172A;">●●●●● &nbsp;📶 &nbsp;🔋</span>
+  </div>
+  <div class="kp-notch" style="position:absolute; top:11px; left:50%; transform:translateX(-50%); width:118px; height:33px; border-radius:20px; background:#1B2430; z-index:81; pointer-events:none;"></div>
+
+  <div class="kp-scroll kp-scroll-main" style="position:absolute; top:54px; left:0; right:0; bottom:84px; overflow-y:auto;">
+
+    <!-- ===== HEUTE ===== -->
+    <sc-if value="{{ isHeute }}" hint-placeholder-val="{{ true }}">
+    <div style="padding:18px 20px 28px;">
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:22px;">
+        <div>
+          <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:#94A3B8; margin-bottom:6px;">{{ greetingDate }}</div>
+          <div style="font-family:'Space Grotesk',sans-serif; font-size:26px; font-weight:600; color:#0F172A; letter-spacing:-0.01em;">Moin, Mohamed</div>
+        </div>
+        <div style="width:48px; height:48px; border-radius:50%; background:linear-gradient(135deg,#06B6D4,#7C3AED); display:flex; align-items:center; justify-content:center; box-shadow:0 6px 18px rgba(8,145,178,0.30);">
+          <div style="width:43px; height:43px; border-radius:50%; background:#FFFFFF; display:flex; align-items:center; justify-content:center; font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:16px; color:#0F172A;">MK</div>
+        </div>
+      </div>
+
+      <!-- coverage hero -->
+      <div style="position:relative; border-radius:26px; padding:22px 22px; background:#FFFFFF; border:1px solid rgba(15,23,42,0.07); overflow:hidden; box-shadow:0 1px 2px rgba(15,23,42,0.04), 0 10px 28px rgba(15,23,42,0.06);">
+        <div style="position:absolute; right:-50px; top:-50px; width:170px; height:170px; border-radius:50%; background:radial-gradient(circle, rgba(6,182,212,0.14), transparent 70%);"></div>
+        <div style="position:relative;">
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px;">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:#0891B2;">Deine Bibliothek</span>
+            <span style="font-size:12px; font-weight:700; color:#0891B2; background:rgba(8,145,178,0.10); border:1px solid rgba(8,145,178,0.24); border-radius:99px; padding:4px 11px;">noch {{ daysLeft }} Tage</span>
+          </div>
+          <div style="display:flex; align-items:baseline; gap:10px; margin-bottom:16px;">
+            <span style="font-family:'Space Grotesk',sans-serif; font-size:48px; font-weight:700; line-height:1; background:linear-gradient(135deg,#06B6D4,#7C3AED); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent;">{{ builtCount }}</span>
+            <span style="font-size:14px; color:#64748B; font-weight:500;">{{ themenSub }}</span>
+          </div>
+          <div style="display:flex; height:9px; border-radius:99px; overflow:hidden; background:#E6ECF3;">
+            <div style="width:{{ r3W }}; background:#F43F5E;"></div>
+            <div style="width:{{ r2W }}; background:#3B82F6;"></div>
+            <div style="width:{{ r1W }}; background:#F59E0B;"></div>
+          </div>
+          <div style="display:flex; gap:13px; margin-top:14px; font-size:12px; font-weight:600; white-space:nowrap;">
+            <span style="color:#E11D48;">● {{ r3 }} R3</span>
+            <span style="color:#2563EB;">● {{ r2 }} R2</span>
+            <span style="color:#D97706;">● {{ r1 }} R1</span>
+            <sc-if value="{{ hasMaster }}" hint-placeholder-val="{{ false }}"><span style="color:#94A3B8;">● {{ offen }} offen</span></sc-if>
+          </div>
+        </div>
+      </div>
+
+      <!-- flashcards launcher -->
+      <div onclick="{{ openCards }}" style="display:flex; align-items:center; gap:14px; border-radius:22px; padding:16px 18px; margin-top:14px; cursor:pointer; position:relative; overflow:hidden; background:linear-gradient(135deg,#0891B2,#7C3AED); box-shadow:0 12px 28px rgba(124,58,237,0.22);">
+        <div style="position:absolute; right:-26px; bottom:-32px; width:130px; height:130px; border-radius:50%; background:rgba(255,255,255,0.12);"></div>
+        <div style="width:46px; height:46px; border-radius:14px; background:rgba(255,255,255,0.18); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="14" height="13" rx="2"></rect><path d="M7 7V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-1"></path></svg>
+        </div>
+        <div style="flex:1; min-width:0; position:relative;">
+          <div style="font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:600; color:#FFFFFF;">KP Karten</div>
+          <div style="font-size:12px; color:rgba(255,255,255,0.85); font-weight:600; margin-top:2px;">{{ cardsDone }} / {{ cardsGoal }} heute · {{ streakDays }} Tage&nbsp;🔥</div>
+        </div>
+        <span style="position:relative; color:#FFFFFF; font-size:19px;">→</span>
+      </div>
+
+      <!-- Fächer -->
+      <div style="display:flex; align-items:baseline; justify-content:space-between; margin:26px 2px 13px;">
+        <span style="font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:600; color:#0F172A;">Fächer</span>
+        <span onclick="{{ goBib }}" style="font-size:13px; color:#0891B2; font-weight:700; cursor:pointer;">Bibliothek →</span>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <sc-for list="{{ specStats }}" as="s" hint-placeholder-count="6">
+          <div onclick="{{ s.onOpen }}" style="border-radius:16px; padding:14px 16px; cursor:pointer; background:#FFFFFF; border:1px solid rgba(15,23,42,0.07); box-shadow:0 1px 2px rgba(15,23,42,0.04);">
+            <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+              <span style="width:9px; height:9px; border-radius:50%; background:{{ s.color }};"></span>
+              <span style="flex:1; font-size:15px; font-weight:700; color:#1E293B;">{{ s.name }}</span>
+              <span style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:600; color:#94A3B8;">{{ s.countLabel }}</span>
+            </div>
+            <div style="display:flex; height:6px; border-radius:99px; overflow:hidden; background:#E6ECF3;">
+              <div style="width:{{ s.builtW }}; background:linear-gradient(90deg,#06B6D4,#22D3EE);"></div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+    </sc-if>
+
+    <!-- ===== BIBLIOTHEK ===== -->
+    <sc-if value="{{ isBib }}" hint-placeholder-val="{{ false }}">
+    <div style="padding:18px 20px 28px;">
+      <div style="font-family:'Space Grotesk',sans-serif; font-size:30px; font-weight:600; color:#0F172A; letter-spacing:-0.01em; margin-bottom:16px;">Bibliothek</div>
+      <div style="display:flex; align-items:center; gap:10px; border-radius:15px; padding:12px 14px; margin-bottom:16px; background:#FFFFFF; border:1px solid rgba(15,23,42,0.09); box-shadow:0 1px 2px rgba(15,23,42,0.04);">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0891B2" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4-4"></path></svg>
+        <input class="kp-search" type="text" value="{{ query }}" oninput="{{ onQuery }}" placeholder="Thema oder Fach suchen …" style="flex:1; border:0; outline:0; background:transparent; font-size:15px; color:#0F172A;">
+      </div>
+
+      <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.06em; color:#94A3B8; font-weight:500; margin:0 2px 16px;">{{ libCountLabel }}</div>
+
+      <sc-if value="{{ libLoading }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex; flex-direction:column; align-items:center; gap:12px; padding:60px 0; color:#94A3B8;">
+          <div style="width:26px; height:26px; border-radius:50%; border:3px solid rgba(15,23,42,0.1); border-top-color:#0891B2; animation:kp-spin 0.8s linear infinite;"></div>
+          <span style="font-size:13px; font-weight:500;">Bibliothek wird geladen …</span>
+        </div>
+      </sc-if>
+
+      <sc-for list="{{ groups }}" as="grp" hint-placeholder-count="3">
+        <div style="margin-bottom:22px;">
+          <div style="display:flex; align-items:center; gap:9px; margin:0 2px 11px;">
+            <span style="width:10px; height:10px; border-radius:50%; background:{{ grp.color }};"></span>
+            <span style="font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:600; color:#0F172A; flex:1;">{{ grp.name }}</span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#94A3B8; font-weight:600;">{{ grp.count }}</span>
+          </div>
+          <div style="border-radius:18px; overflow:hidden; background:#FFFFFF; border:1px solid rgba(15,23,42,0.07); box-shadow:0 1px 2px rgba(15,23,42,0.04);">
+            <sc-for list="{{ grp.items }}" as="it" hint-placeholder-count="3">
+              <div onclick="{{ it.onOpen }}" style="display:flex; align-items:center; gap:12px; padding:14px 16px; border-top:1px solid rgba(15,23,42,0.06); cursor:{{ it.cursor }};">
+                <span style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; border-radius:7px; padding:3px 8px; color:{{ it.pillColor }}; background:{{ it.pillBg }}; border:1px solid {{ it.pillBorder }};">{{ it.pill }}</span>
+                <div style="flex:1; min-width:0;">
+                  <div style="font-size:15px; font-weight:600; color:{{ it.titleColor }}; line-height:1.25;">{{ it.title }}</div>
+                  <div style="font-size:12px; color:{{ it.metaColor }}; font-weight:500; margin-top:2px;">{{ it.metaText }}</div>
+                </div>
+                <sc-if value="{{ it.tappable }}" hint-placeholder-val="{{ true }}"><span style="color:#0891B2; font-size:16px;">›</span></sc-if>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+    </sc-if>
+
+    <!-- ===== KARTEN ===== -->
+    <sc-if value="{{ isKarten }}" hint-placeholder-val="{{ false }}">
+    <div style="padding:18px 20px 28px; min-height:100%; display:flex; flex-direction:column;">
+      <div style="font-family:'Space Grotesk',sans-serif; font-size:30px; font-weight:600; color:#0F172A; letter-spacing:-0.01em; margin-bottom:5px;">KP Karten</div>
+      <div style="font-size:14px; color:#64748B; font-weight:500; margin-bottom:28px;">Tägliches Karten-Training aus allen R3-Perlen.</div>
+
+      <div style="display:flex; flex-direction:column; align-items:center; margin-bottom:28px;">
+        <div style="width:182px; height:182px; border-radius:50%; background:{{ ringStyle }}; display:flex; align-items:center; justify-content:center; box-shadow:0 10px 30px rgba(8,145,178,0.16);">
+          <div style="width:142px; height:142px; border-radius:50%; background:#FFFFFF; display:flex; flex-direction:column; align-items:center; justify-content:center; box-shadow:inset 0 0 0 1px rgba(15,23,42,0.05);">
+            <div style="font-family:'Space Grotesk',sans-serif; font-size:46px; font-weight:700; color:#0F172A; line-height:1;">{{ cardsDone }}</div>
+            <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#94A3B8; font-weight:500; margin-top:4px;">von {{ cardsGoal }} heute</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:8px; margin-top:20px; border-radius:99px; padding:9px 18px; background:#FFFFFF; border:1px solid rgba(15,23,42,0.08); box-shadow:0 1px 2px rgba(15,23,42,0.04);">
+          <span style="font-size:16px;">🔥</span>
+          <span style="font-size:15px; font-weight:700; color:#0F172A;">{{ streakDays }} Tage in Folge</span>
+        </div>
+      </div>
+
+      <div onclick="{{ openCards }}" style="border-radius:18px; padding:18px; text-align:center; cursor:pointer; background:linear-gradient(135deg,#06B6D4,#0891B2); box-shadow:0 12px 28px rgba(8,145,178,0.28); margin-bottom:14px;">
+        <span style="font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:600; color:#FFFFFF; letter-spacing:0.01em;">Training starten</span>
+      </div>
+
+      <div style="display:flex; gap:12px;">
+        <div style="flex:1; border-radius:18px; padding:16px; text-align:center; background:#FFFFFF; border:1px solid rgba(15,23,42,0.07); box-shadow:0 1px 2px rgba(15,23,42,0.04);">
+          <div style="font-family:'Space Grotesk',sans-serif; font-size:24px; font-weight:700; color:#D97706;">{{ cardsMastered }}</div>
+          <div style="font-size:12px; color:#64748B; font-weight:500; margin-top:2px;">gemeistert</div>
+        </div>
+        <div style="flex:1; border-radius:18px; padding:16px; text-align:center; background:#FFFFFF; border:1px solid rgba(15,23,42,0.07); box-shadow:0 1px 2px rgba(15,23,42,0.04);">
+          <div style="font-family:'Space Grotesk',sans-serif; font-size:24px; font-weight:700; color:#0F172A;">{{ cardsTotal }}</div>
+          <div style="font-size:12px; color:#64748B; font-weight:500; margin-top:2px;">Perlen</div>
+        </div>
+        <div style="flex:1; border-radius:18px; padding:16px; text-align:center; background:#FFFFFF; border:1px solid rgba(15,23,42,0.07); box-shadow:0 1px 2px rgba(15,23,42,0.04);">
+          <div style="font-family:'Space Grotesk',sans-serif; font-size:24px; font-weight:700; color:#2563EB;">{{ cardsDueTomorrow }}</div>
+          <div style="font-size:12px; color:#64748B; font-weight:500; margin-top:2px;">morgen</div>
+        </div>
+      </div>
+    </div>
+    </sc-if>
+
+    <!-- ===== PROFIL ===== -->
+    <sc-if value="{{ isProfil }}" hint-placeholder-val="{{ false }}">
+    <div style="padding:18px 20px 28px;">
+      <div style="display:flex; align-items:center; gap:15px; margin:6px 0 26px;">
+        <div style="width:66px; height:66px; border-radius:50%; background:linear-gradient(135deg,#06B6D4,#7C3AED); display:flex; align-items:center; justify-content:center; box-shadow:0 8px 22px rgba(8,145,178,0.26); flex-shrink:0;">
+          <div style="width:60px; height:60px; border-radius:50%; background:#FFFFFF; display:flex; align-items:center; justify-content:center; font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:21px; color:#0F172A;">MK</div>
+        </div>
+        <div>
+          <div style="font-family:'Space Grotesk',sans-serif; font-size:22px; font-weight:600; color:#0F172A;">Mohamed Kamal</div>
+          <div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#94A3B8; font-weight:500; letter-spacing:0.08em; margin-top:3px;">KENNTNISPRÜFUNG</div>
+        </div>
+      </div>
+
+      <div style="display:flex; gap:12px; margin-bottom:24px;">
+        <div style="flex:1; border-radius:18px; padding:16px; text-align:center; background:#FFFFFF; border:1px solid rgba(15,23,42,0.07); box-shadow:0 1px 2px rgba(15,23,42,0.04);">
+          <div style="font-family:'Space Grotesk',sans-serif; font-size:25px; font-weight:700; color:#0F172A;">{{ totalTopics }}</div>
+          <div style="font-size:12px; color:#64748B; font-weight:500;">Themen</div>
+        </div>
+        <div style="flex:1; border-radius:18px; padding:16px; text-align:center; background:#FFFFFF; border:1px solid rgba(15,23,42,0.07); box-shadow:0 1px 2px rgba(15,23,42,0.04);">
+          <div style="font-family:'Space Grotesk',sans-serif; font-size:25px; font-weight:700; color:#E11D48;">{{ streakDays }}</div>
+          <div style="font-size:12px; color:#64748B; font-weight:500;">Streak</div>
+        </div>
+        <div style="flex:1; border-radius:18px; padding:16px; text-align:center; background:#FFFFFF; border:1px solid rgba(15,23,42,0.07); box-shadow:0 1px 2px rgba(15,23,42,0.04);">
+          <div style="font-family:'Space Grotesk',sans-serif; font-size:25px; font-weight:700; color:#D97706;">{{ cardsTotal }}</div>
+          <div style="font-size:12px; color:#64748B; font-weight:500;">Perlen</div>
+        </div>
+      </div>
+
+      <div style="border-radius:20px; overflow:hidden; background:#FFFFFF; border:1px solid rgba(15,23,42,0.07); box-shadow:0 1px 2px rgba(15,23,42,0.04);">
+        <div style="display:flex; align-items:center; padding:15px 18px;"><span style="flex:1; font-size:15px; color:#334155; font-weight:500;">Synchronisierung</span><span style="font-size:14px; color:{{ syncColor }}; font-weight:700;">{{ syncLabel }}</span></div>
+        <div style="display:flex; align-items:center; padding:15px 18px; border-top:1px solid rgba(15,23,42,0.06);"><span style="flex:1; font-size:15px; color:#334155; font-weight:500;">Inhalte</span><span style="font-size:14px; color:{{ contentColor }}; font-weight:700;">{{ contentLabel }}</span></div>
+        <div style="display:flex; align-items:center; padding:15px 18px; border-top:1px solid rgba(15,23,42,0.06);"><span style="flex:1; font-size:15px; color:#334155; font-weight:500;">Erinnerungen</span><span style="font-size:14px; color:#059669; font-weight:700;">An</span></div>
+      </div>
+
+      <div style="text-align:center; font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.06em; color:#B6C0CE; margin-top:22px;">SYNC AUTOFLOW-MED</div>
+    </div>
+    </sc-if>
+
+  </div>
+
+  <!-- tab bar -->
+  <div class="kp-tabbar" style="position:absolute; bottom:0; left:0; right:0; height:84px; background:rgba(255,255,255,0.88); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); border-top:1px solid rgba(15,23,42,0.07); display:flex; padding:10px 12px 24px; z-index:30;">
+    <div onclick="{{ goHeute }}" style="flex:1; display:flex; flex-direction:column; align-items:center; gap:5px; cursor:pointer; color:{{ cHeute }};">
+      <div style="width:18px; height:3px; border-radius:9px; background:{{ dHeute }};"></div>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"></path><path d="M5 10v9h14v-9"></path></svg>
+      <span style="font-size:10px; font-weight:700;">Heute</span>
+    </div>
+    <div onclick="{{ goBib }}" style="flex:1; display:flex; flex-direction:column; align-items:center; gap:5px; cursor:pointer; color:{{ cBib }};">
+      <div style="width:18px; height:3px; border-radius:9px; background:{{ dBib }};"></div>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a1 1 0 0 1 1-1h5v16H5a1 1 0 0 1-1-1z"></path><path d="M14 4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-5z"></path><path d="M10 4v16"></path></svg>
+      <span style="font-size:10px; font-weight:700;">Bibliothek</span>
+    </div>
+    <div onclick="{{ goKarten }}" style="flex:1; display:flex; flex-direction:column; align-items:center; gap:5px; cursor:pointer; color:{{ cKarten }};">
+      <div style="width:18px; height:3px; border-radius:9px; background:{{ dKarten }};"></div>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="14" height="13" rx="2"></rect><path d="M7 7V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-1"></path></svg>
+      <span style="font-size:10px; font-weight:700;">Karten</span>
+    </div>
+    <div onclick="{{ goProfil }}" style="flex:1; display:flex; flex-direction:column; align-items:center; gap:5px; cursor:pointer; color:{{ cProfil }};">
+      <div style="width:18px; height:3px; border-radius:9px; background:{{ dProfil }};"></div>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 20c0-4 4-6.5 8-6.5s8 2.5 8 6.5"></path></svg>
+      <span style="font-size:10px; font-weight:700;">Profil</span>
+    </div>
+  </div>
+  <div class="kp-homeind" style="position:absolute; bottom:8px; left:50%; transform:translateX(-50%); width:128px; height:5px; border-radius:99px; background:rgba(15,23,42,0.22); z-index:82; pointer-events:none;"></div>
+
+  <!-- ===== NATIVE REVIEW READER ===== -->
+  <sc-if value="{{ hasReview }}" hint-placeholder-val="{{ false }}">
+  <div style="position:absolute; inset:0; background:radial-gradient(130% 80% at 0% -8%, rgba(6,182,212,0.10), transparent 55%), radial-gradient(120% 80% at 100% 108%, rgba(124,58,237,0.09), transparent 55%), #F4F7FB; z-index:60; display:flex; flex-direction:column;">
+    <div class="kp-topspacer" style="height:54px; flex-shrink:0;"></div>
+    <div style="flex-shrink:0; display:flex; align-items:center; justify-content:space-between; padding:8px 16px 4px;">
+      <div onclick="{{ closeReview }}" style="display:inline-flex; align-items:center; gap:5px; background:rgba(8,145,178,0.10); border:1px solid rgba(8,145,178,0.26); color:#0891B2; font-weight:700; font-size:14px; padding:8px 14px 8px 10px; border-radius:99px; cursor:pointer;">
+        <span style="font-size:17px; line-height:1;">‹</span> {{ review.back }}
+      </div>
+      <span style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; letter-spacing:0.06em; color:#94A3B8;">{{ review.levelTag }}</span>
+    </div>
+
+    <div class="kp-scroll" style="flex:1; overflow-y:auto;">
+      <div style="padding:10px 20px 4px;">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color:#0891B2; font-weight:500; margin-bottom:8px;">{{ review.sub }}</div>
+        <div style="font-family:'Space Grotesk',sans-serif; font-size:28px; font-weight:600; color:#0F172A; line-height:1.12; letter-spacing:-0.01em;">{{ review.title }}</div>
+      </div>
+
+      <!-- tabs -->
+      <div class="kp-chips" style="display:flex; gap:8px; overflow-x:auto; padding:14px 20px 12px; position:sticky; top:0; background:linear-gradient(#F4F7FB 72%, rgba(244,247,251,0)); z-index:2;">
+        <sc-for list="{{ review.tabs }}" as="tb" hint-placeholder-count="4">
+          <div onclick="{{ tb.onClick }}" style="flex-shrink:0; font-size:13px; font-weight:700; padding:8px 15px; border-radius:99px; cursor:pointer; white-space:nowrap; color:{{ tb.fg }}; background:{{ tb.bg }}; border:1px solid {{ tb.border }}; box-shadow:{{ tb.glow }};">{{ tb.label }}</div>
+        </sc-for>
+      </div>
+
+      <div style="padding:4px 20px 44px;">
+        <!-- STATION BLOCKS -->
+        <sc-if value="{{ review.isStation }}" hint-placeholder-val="{{ true }}">
+          <sc-for list="{{ review.blocks }}" as="b" hint-placeholder-count="4">
+            <sc-if value="{{ b.isText }}" hint-placeholder-val="{{ false }}">
+              <div style="margin-bottom:18px;">
+                <sc-if value="{{ b.hasTitle }}" hint-placeholder-val="{{ false }}"><div style="font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:600; color:#0F172A; margin-bottom:6px;">{{ b.title }}</div></sc-if>
+                <div class="kp-rich" style="font-size:14.5px; color:#475569; line-height:1.62;">{{ b.bodyNode }}</div>
+              </div>
+            </sc-if>
+            <sc-if value="{{ b.isCallout }}" hint-placeholder-val="{{ false }}">
+              <div style="margin-bottom:16px; border-radius:16px; padding:14px 16px; background:{{ b.bg }}; border:1px solid {{ b.border }}; border-left:3px solid {{ b.accent }};">
+                <div style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.08em; text-transform:uppercase; font-weight:600; color:{{ b.accent }}; margin-bottom:7px;">{{ b.title }}</div>
+                <div class="kp-rich" style="font-size:14px; color:#3F4A5A; line-height:1.58;">{{ b.bodyNode }}</div>
+              </div>
+            </sc-if>
+            <sc-if value="{{ b.isTable }}" hint-placeholder-val="{{ false }}">
+              <div style="margin-bottom:16px; border-radius:14px; overflow:hidden; border:1px solid rgba(15,23,42,0.10); background:#FFFFFF;">
+                <sc-for list="{{ b.rows }}" as="row" hint-placeholder-count="3">
+                  <div style="display:flex; border-top:1px solid rgba(15,23,42,0.06);">
+                    <sc-for list="{{ row.cells }}" as="cell" hint-placeholder-count="2">
+                      <div class="kp-rich" style="flex:1; padding:10px 13px; font-size:13px; line-height:1.42; color:{{ cell.color }}; font-weight:{{ cell.weight }}; border-left:1px solid rgba(15,23,42,0.06);">{{ cell.node }}</div>
+                    </sc-for>
+                  </div>
+                </sc-for>
+              </div>
+            </sc-if>
+          </sc-for>
+        </sc-if>
+
+        <!-- PERLEN -->
+        <sc-if value="{{ review.isPerlen }}" hint-placeholder-val="{{ false }}">
+          <sc-for list="{{ review.perlen }}" as="pe" hint-placeholder-count="3">
+            <div style="margin-bottom:14px; border-radius:16px; padding:15px 16px; background:#FFFFFF; border:1px solid rgba(15,23,42,0.07); border-left:3px solid #F59E0B; box-shadow:0 1px 2px rgba(15,23,42,0.04);">
+              <div style="display:flex; align-items:center; gap:8px; margin-bottom:9px;">
+                <span style="color:#F59E0B; font-size:14px;">★</span>
+                <span style="font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:600; color:#0F172A; line-height:1.25;">{{ pe.stichwort }}</span>
+              </div>
+              <div class="kp-rich" style="font-size:14px; color:#475569; line-height:1.58;">{{ pe.prinzipNode }}</div>
+              <sc-if value="{{ pe.hasMerke }}" hint-placeholder-val="{{ false }}">
+                <div style="margin-top:10px; padding-top:10px; border-top:1px dashed rgba(245,158,11,0.35); font-size:13px; color:#B45309; font-style:italic;">{{ pe.merke }}</div>
+              </sc-if>
+            </div>
+          </sc-for>
+        </sc-if>
+
+        <!-- FRAGEN -->
+        <sc-if value="{{ review.isFragen }}" hint-placeholder-val="{{ false }}">
+          <sc-for list="{{ review.fragenGroups }}" as="grp" hint-placeholder-count="1">
+            <div style="margin-bottom:6px;">
+              <sc-if value="{{ grp.hasFall }}" hint-placeholder-val="{{ false }}">
+                <div style="margin-bottom:14px; border-radius:14px; padding:13px 15px; background:rgba(124,58,237,0.06); border:1px solid rgba(124,58,237,0.18);">
+                  <div style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.08em; text-transform:uppercase; font-weight:600; color:#7C3AED; margin-bottom:6px;">Fall</div>
+                  <div class="kp-rich" style="font-size:14px; color:#3F4A5A; line-height:1.58;">{{ grp.fallNode }}</div>
+                </div>
+              </sc-if>
+              <sc-for list="{{ grp.items }}" as="fr" hint-placeholder-count="2">
+                <div style="margin-bottom:18px;">
+                  <div style="display:flex; gap:9px; margin-bottom:10px;">
+                    <span style="color:#7C3AED; font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:16px;">F</span>
+                    <span style="font-size:15px; font-weight:700; color:#0F172A; line-height:1.42;">{{ fr.frage }}</span>
+                  </div>
+                  <sc-if value="{{ fr.revealed }}" hint-placeholder-val="{{ false }}">
+                    <div style="border-radius:14px; padding:14px 16px; background:rgba(124,58,237,0.05); border:1px solid rgba(124,58,237,0.16); border-left:3px solid #7C3AED;">
+                      <div class="kp-rich" style="font-size:14px; color:#475569; line-height:1.62;">{{ fr.antwortNode }}</div>
+                    </div>
+                  </sc-if>
+                  <sc-if value="{{ fr.hidden }}" hint-placeholder-val="{{ true }}">
+                    <div onclick="{{ fr.toggle }}" style="border-radius:14px; padding:15px; background:#FFFFFF; border:1px dashed rgba(124,58,237,0.40); display:flex; align-items:center; justify-content:center; gap:8px; cursor:pointer;">
+                      <span style="color:#7C3AED; font-size:15px;">👁</span>
+                      <span style="font-size:14px; font-weight:700; color:#7C3AED;">Antwort aufdecken</span>
+                    </div>
+                  </sc-if>
+                </div>
+              </sc-for>
+            </div>
+          </sc-for>
+        </sc-if>
+
+        <sc-if value="{{ review.stationEmpty }}" hint-placeholder-val="{{ false }}">
+          <div style="text-align:center; color:#94A3B8; font-size:14px; padding:48px 26px; line-height:1.65;">
+            <div style="font-size:26px; margin-bottom:10px;">✎</div>
+            Für „{{ review.stationLabel }}“ sind noch keine Inhalte im Feed.<br>Sie werden ergänzt, sobald sie veröffentlicht sind.
+          </div>
+        </sc-if>
+      </div>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ===== NATIVE FLASHCARD TRAINER ===== -->
+  <sc-if value="{{ hasCardSession }}" hint-placeholder-val="{{ false }}">
+  <div style="position:absolute; inset:0; background:radial-gradient(120% 70% at 50% -8%, rgba(6,182,212,0.12), transparent 55%), #F4F7FB; z-index:70; display:flex; flex-direction:column;">
+    <div class="kp-topspacer" style="height:54px; flex-shrink:0;"></div>
+    <div style="flex-shrink:0; display:flex; align-items:center; justify-content:space-between; padding:8px 16px;">
+      <div onclick="{{ closeCards }}" style="display:inline-flex; align-items:center; gap:5px; background:rgba(8,145,178,0.10); border:1px solid rgba(8,145,178,0.26); color:#0891B2; font-size:14px; font-weight:700; padding:8px 14px 8px 10px; border-radius:99px; cursor:pointer;"><span style="font-size:17px; line-height:1;">‹</span> Zurück</div>
+      <span style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:600; color:#94A3B8; letter-spacing:0.04em;">{{ session.counter }}</span>
+    </div>
+    <div style="flex-shrink:0; padding:4px 18px 14px;">
+      <div style="height:6px; border-radius:99px; background:#E6ECF3; overflow:hidden;">
+        <div style="width:{{ session.progress }}; height:100%; background:linear-gradient(90deg,#06B6D4,#22D3EE); border-radius:99px;"></div>
+      </div>
+    </div>
+
+    <!-- active card -->
+    <sc-if value="{{ session.active }}" hint-placeholder-val="{{ true }}">
+    <div style="flex:1; display:flex; flex-direction:column; padding:8px 20px 24px;">
+      <div onclick="{{ session.flip }}" style="flex:1; border-radius:26px; padding:24px 22px; display:flex; flex-direction:column; cursor:pointer; overflow:hidden; background:#FFFFFF; border:1px solid rgba(15,23,42,0.08); box-shadow:0 16px 40px rgba(15,23,42,0.10);">
+        <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; flex-shrink:0;">
+          <span style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; color:#0891B2; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:72%;">{{ session.topic }}</span>
+          <span style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:#94A3B8; font-weight:600;">{{ session.face }}</span>
+        </div>
+        <div class="kp-scroll" style="flex:1; overflow-y:auto; padding:14px 0;">
+          <sc-if value="{{ session.showFront }}" hint-placeholder-val="{{ true }}">
+            <div style="min-height:100%; display:flex; flex-direction:column; justify-content:center;">
+              <div style="font-family:'Space Grotesk',sans-serif; font-size:26px; font-weight:600; color:#0F172A; line-height:1.3;">{{ session.stichwort }}</div>
+            </div>
+          </sc-if>
+          <sc-if value="{{ session.showBack }}" hint-placeholder-val="{{ false }}">
+            <div class="kp-rich" style="font-size:16px; color:#334155; line-height:1.58;">{{ session.prinzipNode }}</div>
+            <sc-if value="{{ session.hasMerke }}" hint-placeholder-val="{{ false }}">
+              <div style="margin-top:14px; padding-top:12px; border-top:1px dashed rgba(245,158,11,0.35); font-size:14px; color:#B45309; font-style:italic;">{{ session.merke }}</div>
+            </sc-if>
+          </sc-if>
+        </div>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#B6C0CE; font-weight:500; text-align:center;">{{ session.hint }}</div>
+      </div>
+
+      <sc-if value="{{ session.showBack }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex; gap:12px; margin-top:16px;">
+          <div onclick="{{ session.miss }}" style="flex:1; padding:16px; border-radius:16px; text-align:center; cursor:pointer; background:#FFFFFF; border:1px solid rgba(15,23,42,0.12);">
+            <span style="font-size:15px; font-weight:700; color:#475569;">↻ Nochmal</span>
+          </div>
+          <div onclick="{{ session.hit }}" style="flex:1; padding:16px; border-radius:16px; text-align:center; cursor:pointer; background:linear-gradient(135deg,#10B981,#059669); box-shadow:0 10px 24px rgba(16,185,129,0.26);">
+            <span style="font-size:15px; font-weight:700; color:#FFFFFF;">✓ Gewusst</span>
+          </div>
+        </div>
+      </sc-if>
+      <sc-if value="{{ session.showFront }}" hint-placeholder-val="{{ false }}">
+        <div onclick="{{ session.flip }}" style="margin-top:16px; padding:16px; border-radius:16px; text-align:center; cursor:pointer; background:linear-gradient(135deg,#06B6D4,#0891B2); box-shadow:0 10px 24px rgba(8,145,178,0.26);">
+          <span style="font-size:15px; font-weight:700; color:#FFFFFF;">Antwort zeigen</span>
+        </div>
+      </sc-if>
+    </div>
+    </sc-if>
+
+    <!-- done -->
+    <sc-if value="{{ session.done }}" hint-placeholder-val="{{ false }}">
+    <div style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:24px 30px; text-align:center;">
+      <div style="font-size:54px; margin-bottom:10px;">🎉</div>
+      <div style="font-family:'Space Grotesk',sans-serif; font-size:28px; font-weight:600; color:#0F172A; margin-bottom:8px;">Session beendet</div>
+      <div style="font-size:15px; color:#64748B; line-height:1.5; margin-bottom:28px;">{{ session.summary }}</div>
+      <div onclick="{{ closeCards }}" style="padding:15px 42px; border-radius:16px; background:linear-gradient(135deg,#06B6D4,#0891B2); cursor:pointer; box-shadow:0 10px 24px rgba(8,145,178,0.26);">
+        <span style="font-size:15px; font-weight:700; color:#FFFFFF;">Fertig</span>
+      </div>
+    </div>
+    </sc-if>
+  </div>
+  </sc-if>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script="">
+class Component extends DCLogic {
+  API = 'https://kp-progress.autoflow-med.workers.dev';
+  CONTENT = 'https://kp-progress.autoflow-med.workers.dev/api/content';
+  SITE = 'https://kp-mainz-drills.autoflow-med.workers.dev';
+  TOKEN = (typeof localStorage !== 'undefined' && localStorage.getItem('kp_sync_token')) || 'uSqYuz8d3-Q7gi0OcMFFkWqxGKHLtZkb';
+
+  STAT = {
+    grundlagen: { label: 'Grundlagen', color: '#F43F5E' },
+    klinik: { label: 'Klinik', color: '#F59E0B' },
+    diagnostik: { label: 'Diagnostik', color: '#3B82F6' },
+    therapie: { label: 'Therapie', color: '#10B981' },
+    perlen: { label: 'KP-Perlen', color: '#D97706' },
+    fragen: { label: 'Fragen', color: '#7C3AED' },
+  };
+
+  state = {
+    tab: 'heute', query: '', sync: 'idle', content_status: 'idle',
+    openId: null, station: null, revealed: {},
+    session: null,
+    progress: { streak: 0, examDate: '2027-03-02', reviews: {}, cards: { doneToday: 0, goal: 10, mastered: 0, total: 199, dueTomorrow: 0 } },
+    content: { specialties: [], topics: [], master: [] },
+    themen: { total: 0, covered: 0, coveragePct: 0, topics: [], extras: [] }, themen_status: 'idle',
+  };
+
+  componentDidMount() { this.loadProgress(); this.loadContent(); this.loadThemen(); }
+
+  async loadProgress() {
+    this.setState({ sync: 'loading' });
+    try {
+      const r = await fetch(this.API + '/api/progress', { headers: { Authorization: 'Bearer ' + this.TOKEN } });
+      if (!r.ok) { this.setState({ sync: 'error' }); return; }
+      const d = await r.json();
+      this.mergeProgress(d, 'ok');
+    } catch (e) { this.setState({ sync: 'error' }); }
+  }
+
+  mergeProgress(d, sync) {
+    this.setState(s => ({
+      sync: sync || s.sync,
+      progress: { ...s.progress, ...d, cards: { ...s.progress.cards, ...(d.cards || {}) }, reviews: { ...s.progress.reviews, ...(d.reviews || {}) } },
+    }));
+  }
+
+  async saveProgress(patch) {
+    this.setState(s => ({ progress: { ...s.progress, ...patch, cards: { ...s.progress.cards, ...(patch.cards || {}) }, reviews: { ...s.progress.reviews, ...(patch.reviews || {}) } } }));
+    try {
+      const r = await fetch(this.API + '/api/progress', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + this.TOKEN }, body: JSON.stringify(patch) });
+      if (r.ok) { const d = await r.json(); this.mergeProgress(d); }
+    } catch (e) {}
+  }
+
+  async loadContent(attempt = 0) {
+    this.setState({ content_status: 'loading' });
+    try {
+      const r = await fetch(this.CONTENT, { cache: 'no-store' });
+      if (!r.ok) throw new Error('status ' + r.status);
+      const d = await r.json();
+      this.setState({ content: { specialties: d.specialties || [], topics: d.topics || [], master: d.master || d.planned || [] }, content_status: 'ok' });
+    } catch (e) {
+      this.setState({ content_status: 'error' });
+      if (attempt < 4) setTimeout(() => this.loadContent(attempt + 1), 2000 * (attempt + 1));
+    }
+  }
+
+  async loadThemen(attempt = 0) {
+    this.setState({ themen_status: 'loading' });
+    try {
+      const r = await fetch(this.API + '/api/themen', { cache: 'no-store' });
+      if (!r.ok) throw new Error('status ' + r.status);
+      const d = await r.json();
+      this.setState({ themen: { total: d.total || 0, covered: d.covered || 0, coveragePct: d.coveragePct || 0, topics: d.topics || [], extras: d.extras || [], extrasTotal: d.extrasTotal || 0, extrasCovered: d.extrasCovered || 0 }, themen_status: 'ok' });
+    } catch (e) {
+      this.setState({ themen_status: 'error' });
+      if (attempt < 4) setTimeout(() => this.loadThemen(attempt + 1), 2000 * (attempt + 1));
+    }
+  }
+
+  // ---- markdown ----
+  mdInline(s) {
+    s = String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    s = s.replace(/\*\*([\s\S]+?)\*\*/g, '<strong>$1</strong>');
+    s = s.replace(/\*([^*\n]+?)\*/g, '<em>$1</em>');
+    return s;
+  }
+  mdHtml(body) {
+    const lines = String(body == null ? '' : body).split('\n');
+    const groups = []; let cur = null;
+    const flush = () => { if (cur) { groups.push(cur); cur = null; } };
+    for (const ln of lines) {
+      const t = ln.trim();
+      if (t === '') { flush(); continue; }
+      if (t.startsWith('- ') || t.startsWith('* ')) {
+        if (!cur || cur.type !== 'ul') { flush(); cur = { type: 'ul', items: [] }; }
+        cur.items.push(t.slice(2));
+      } else {
+        if (!cur || cur.type !== 'p') { flush(); cur = { type: 'p', lines: [] }; }
+        cur.lines.push(ln);
+      }
+    }
+    flush();
+    let html = '';
+    for (const g of groups) {
+      if (g.type === 'ul') html += '<ul>' + g.items.map(it => '<li>' + this.mdInline(it) + '</li>').join('') + '</ul>';
+      else html += '<div style="margin:5px 0;">' + this.mdInline(g.lines.join('\n')).replace(/\n/g, '<br>') + '</div>';
+    }
+    return html;
+  }
+  rich(body) { return React.createElement('div', { dangerouslySetInnerHTML: { __html: this.mdHtml(body) } }); }
+  richInline(s) { return React.createElement('span', { dangerouslySetInnerHTML: { __html: this.mdInline(s) } }); }
+
+  specColor(hue) { return (hue == null) ? '#64748B' : `oklch(56% 0.16 ${hue})`; }
+  levelColor(lvl) { return lvl === 'R3' ? '#E11D48' : (lvl === 'R2' ? '#2563EB' : '#D97706'); }
+  levelBg(lvl) { return lvl === 'R3' ? 'rgba(244,63,94,0.10)' : (lvl === 'R2' ? 'rgba(59,130,246,0.10)' : 'rgba(245,158,11,0.12)'); }
+  levelBorder(lvl) { return lvl === 'R3' ? 'rgba(244,63,94,0.24)' : (lvl === 'R2' ? 'rgba(59,130,246,0.24)' : 'rgba(245,158,11,0.28)'); }
+  calloutStyle(variant) {
+    if (variant === 'cave') return { accent: '#E11D48', bg: 'rgba(244,63,94,0.06)', border: 'rgba(244,63,94,0.20)' };
+    if (variant === 'fakt') return { accent: '#2563EB', bg: 'rgba(59,130,246,0.06)', border: 'rgba(59,130,246,0.18)' };
+    return { accent: '#D97706', bg: 'rgba(245,158,11,0.07)', border: 'rgba(245,158,11,0.20)' };
+  }
+
+  buildReview(topic, specName) {
+    const sObj = (topic && topic.stations) || {};
+    const STATIONS = ['grundlagen', 'klinik', 'diagnostik', 'therapie'];
+    const extras = [];
+    if ((topic.perlen || []).length) extras.push('perlen');
+    if ((topic.fragen || []).length) extras.push('fragen');
+    const tabKeys = STATIONS.concat(extras);
+
+    let station = this.state.station;
+    if (!tabKeys.includes(station)) station = STATIONS.find(k => sObj[k] && sObj[k].length) || (extras.includes('perlen') ? 'perlen' : (extras[0] || 'grundlagen'));
+
+    const tabs = tabKeys.map(k => {
+      const m = this.STAT[k]; const active = k === station;
+      return { label: m.label, onClick: () => this.setState({ station: k }),
+        fg: active ? '#FFFFFF' : m.color, bg: active ? m.color : '#FFFFFF', border: active ? m.color : 'rgba(15,23,42,0.10)',
+        glow: active ? ('0 4px 14px ' + m.color + '40') : 'none' };
+    });
+
+    const out = {
+      title: topic.title, back: 'Bibliothek',
+      sub: (specName[topic.specialty] || '') + ' · ' + (topic.level || '') + (topic.minutes ? ' · ~' + topic.minutes + ' Min' : ''),
+      tabs, isStation: false, isPerlen: false, isFragen: false, stationEmpty: false,
+      levelTag: topic.level || '',
+      stationLabel: this.STAT[station] ? this.STAT[station].label : '',
+      blocks: [], perlen: [], fragen: [], fragenGroups: [],
+    };
+
+    if (station === 'perlen') {
+      out.isPerlen = true;
+      out.perlen = (topic.perlen || []).map(pe => ({
+        stichwort: pe.stichwort, prinzipNode: this.rich(pe.prinzip),
+        hasMerke: !!pe.merke, merke: pe.merke ? this.richInline(pe.merke) : '',
+      }));
+    } else if (station === 'fragen') {
+      out.isFragen = true;
+      const fg = []; let cur = null, lastFall = null;
+      (topic.fragen || []).forEach((fr, i) => {
+        const fallText = (fr.fall || '').trim();
+        const rev = !!this.state.revealed[i];
+        const item = { frage: fr.frage, antwortNode: this.rich(fr.antwort), revealed: rev, hidden: !rev,
+          toggle: () => this.setState(s => ({ revealed: { ...s.revealed, [i]: !s.revealed[i] } })) };
+        if (!cur || fallText !== lastFall) {
+          cur = { hasFall: !!fallText, fallNode: fallText ? this.rich(fr.fall) : '', items: [] };
+          fg.push(cur); lastFall = fallText;
+        }
+        cur.items.push(item);
+      });
+      out.fragenGroups = fg;
+    } else {
+      out.isStation = true;
+      out.blocks = (sObj[station] || []).map(b => {
+        if (b.type === 'callout') {
+          const cs = this.calloutStyle(b.variant);
+          return { isCallout: true, title: b.title || '★ Merksatz', accent: cs.accent, bg: cs.bg, border: cs.border, bodyNode: this.rich(b.body) };
+        }
+        if (b.type === 'table') {
+          const rows = (b.rows || []).map(r => ({ cells: r.map((c, ci) => ({ node: this.richInline(c), weight: ci === 0 ? 700 : 500, color: ci === 0 ? '#0F172A' : '#64748B' })) }));
+          return { isTable: true, rows };
+        }
+        return { isText: true, hasTitle: !!b.title, title: b.title || '', bodyNode: this.rich(b.body) };
+      });
+      out.stationEmpty = out.blocks.length === 0;
+    }
+    return out;
+  }
+
+  // ---- flashcards ----
+  shuffle(a) { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+  startCards(topics) {
+    const deck = [];
+    topics.forEach(t => (t.perlen || []).forEach(pe => deck.push({ stichwort: pe.stichwort, prinzip: pe.prinzip, merke: pe.merke, topic: t.title })));
+    const goal = this.state.progress.cards.goal || 10;
+    const cards = this.shuffle(deck).slice(0, Math.max(1, goal));
+    this.setState({ session: { cards, i: 0, flipped: false, hit: 0, done: cards.length === 0 } });
+  }
+  cardAnswer(ok) {
+    this.setState(s => {
+      const se = s.session; if (!se) return {};
+      const hit = se.hit + (ok ? 1 : 0);
+      const ni = se.i + 1;
+      const done = ni >= se.cards.length;
+      if (done) { const goal = s.progress.cards.goal || 10; this.saveProgress({ cards: { ...s.progress.cards, doneToday: Math.min(goal, hit) } }); }
+      return { session: { ...se, i: ni, flipped: false, hit, done } };
+    });
+  }
+
+  renderVals() {
+    const p = this.state.progress;
+    const C0 = this.state.content;
+    const FALLBACK = {
+      specialties: [{ id: 'kardiologie', name: 'Kardiologie', hue: 25 }, { id: 'pneumologie', name: 'Pneumologie', hue: 210 }],
+      topics: [
+        { id: 'synkope-r3', title: 'Synkope', specialty: 'kardiologie', level: 'R3', minutes: 16 },
+        { id: 'pneumothorax-r3', title: 'Pneumothorax', specialty: 'pneumologie', level: 'R3', minutes: 14 },
+      ],
+    };
+    const C = (C0.topics && C0.topics.length) ? C0 : FALLBACK;
+    const t = this.state.tab;
+    const q = this.state.query.trim().toLowerCase();
+
+    const specName = {}, specHue = {};
+    C.specialties.forEach(s => { specName[s.id] = s.name; specHue[s.id] = s.hue; });
+
+    const openReview = id => () => this.setState({ openId: id, station: null, revealed: {} });
+    const openCards = () => this.startCards(C.topics);
+
+    const masteredCount = Object.values(p.reviews).filter(v => v === 'mastered').length;
+    const totalTopics = C.topics.length || 0;
+    const pct = totalTopics ? Math.round((masteredCount / totalTopics) * 100) : 0;
+    const cardsPctNum = p.cards.goal ? Math.min(100, Math.round((p.cards.doneToday / p.cards.goal) * 100)) : 0;
+
+    // ----- curriculum map from /api/themen -----
+    const T = this.state.themen;
+    const hasThemen = !!(T && T.topics && T.topics.length);
+    const contentById = {};
+    C.topics.forEach(tp => { contentById[tp.id] = tp; });
+    const hueByName = {};
+    C.specialties.forEach(s => { hueByName[s.name] = s.hue; });
+
+    const isComplete = cm => cm && cm.complete !== false;
+    const toLevel = n => (n == null ? null : ('R' + n));
+    const core = hasThemen
+      ? T.topics.map(x => ({ id: x.reviewId, title: x.thema, fach: x.fach, level: toLevel(x.level), covered: !!x.covered }))
+      : C.topics.map(tp => ({ id: tp.id, title: tp.title, fach: specName[tp.specialty] || '—', level: tp.level, covered: true }));
+    const extras = (hasThemen && Array.isArray(T.extras))
+      ? T.extras.map(x => ({ id: x.reviewId, title: x.thema, fach: x.fach, level: toLevel(x.level), covered: !!x.covered }))
+      : [];
+
+    const builtCount = hasThemen ? (T.covered != null ? T.covered : core.filter(m => m.covered).length) : C.topics.length;
+    const plannedCount = hasThemen ? (T.total || core.length) : (C.topics.length || 1);
+    const coveragePct = hasThemen ? (T.coveragePct != null ? Math.round(T.coveragePct) : Math.round(builtCount / plannedCount * 100)) : 100;
+    const offen = Math.max(0, plannedCount - builtCount);
+    const extrasCount = extras.length;
+    const cntCov = lv => core.filter(m => m.covered && m.level === lv).length;
+    const r3 = cntCov('R3'), r2 = cntCov('R2'), r1 = cntCov('R1');
+    const w = n => n / (plannedCount || 1) * 100 + '%';
+    const themenSub = 'von ' + plannedCount + ' geplant';
+
+    const fachOrder = [], fachMap = {};
+    core.forEach(m => {
+      if (!fachMap[m.fach]) { fachMap[m.fach] = { name: m.fach, items: [], covered: 0, total: 0 }; fachOrder.push(m.fach); }
+      const g = fachMap[m.fach]; g.total++; if (m.covered) g.covered++; g.items.push(m);
+    });
+    const specCount = fachOrder.length;
+    const specStats = fachOrder.map(name => {
+      const g = fachMap[name];
+      return { name, color: this.specColor(hueByName[name]), countLabel: g.covered + ' / ' + g.total,
+        builtW: g.covered / (g.total || 1) * 100 + '%',
+        onOpen: () => this.setState({ tab: 'bibliothek', query: name }) };
+    });
+
+    const match = m => !q || (m.title || '').toLowerCase().includes(q) || (m.fach || '').toLowerCase().includes(q);
+    const mkItem = m => {
+      const cm = contentById[m.id];
+      const lvl = m.level || 'R2';
+      if (!m.covered) {
+        return { title: m.title, pill: 'PLAN', pillColor: '#94A3B8', pillBg: '#F1F5F9', pillBorder: 'rgba(15,23,42,0.08)',
+          titleColor: '#94A3B8', metaText: 'in Vorbereitung', metaColor: '#B6C0CE',
+          tappable: false, cursor: 'default', onOpen: () => {} };
+      }
+      if (!isComplete(cm)) {
+        return { title: m.title, pill: m.level || '·', pillColor: '#D97706', pillBg: 'rgba(245,158,11,0.12)', pillBorder: 'rgba(245,158,11,0.28)',
+          titleColor: '#64748B', metaText: 'in Arbeit', metaColor: '#D97706',
+          tappable: false, cursor: 'default', onOpen: () => {} };
+      }
+      return { title: m.title, pill: m.level || '·', pillColor: this.levelColor(lvl), pillBg: this.levelBg(lvl), pillBorder: this.levelBorder(lvl),
+        titleColor: '#0F172A', metaText: (cm && cm.minutes ? ('~' + cm.minutes + ' Min') : 'Review öffnen'), metaColor: '#94A3B8',
+        tappable: true, cursor: 'pointer', onOpen: openReview(m.id) };
+    };
+
+    const groups = fachOrder.map(name => {
+      const g = fachMap[name];
+      const items = g.items.filter(match).map(mkItem);
+      return { name, color: this.specColor(hueByName[name]), count: g.covered + ' / ' + g.total, items, n: items.length, isExtra: false };
+    }).filter(g => g.n > 0);
+    const extraItems = extras.filter(match).map(mkItem);
+    if (extraItems.length) groups.push({ name: 'Zusatz', color: '#7C3AED', count: extrasCount + ' Themen', items: extraItems, n: extraItems.length, isExtra: true });
+
+    const loading = (this.state.themen_status === 'loading' || this.state.content_status === 'loading') && !hasThemen && totalTopics === 0;
+    const matched = groups.reduce((a, g) => a + g.n, 0);
+    const libCountLabel = loading ? 'lädt …' : (q ? (matched + ' Treffer') : (builtCount + ' / ' + plannedCount + ' Themen · ' + specCount + ' Fächer'));
+
+    const ex = new Date((p.examDate || '2027-03-02') + 'T00:00:00');
+    const examFmt = String(ex.getDate()).padStart(2, '0') + '.' + String(ex.getMonth() + 1).padStart(2, '0') + '.' + ex.getFullYear();
+    const days = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
+    const months = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
+    const now = new Date();
+    const greetingDate = days[now.getDay()] + ', ' + now.getDate() + '. ' + months[now.getMonth()];
+    const today0 = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    const daysLeft = Math.max(0, Math.round((ex - today0) / 86400000));
+
+    const sy = this.state.sync;
+    const syncLabel = sy === 'ok' ? 'Verbunden' : (sy === 'loading' ? 'Lädt …' : (sy === 'error' ? 'Offline' : '—'));
+    const syncColor = sy === 'ok' ? '#059669' : (sy === 'error' ? '#E11D48' : '#94A3B8');
+    const cst = this.state.content_status;
+    const contentLabel = cst === 'ok' ? (totalTopics + ' Themen') : (cst === 'loading' ? 'Lädt …' : (cst === 'error' ? 'Offline' : '—'));
+    const contentColor = cst === 'ok' ? '#059669' : (cst === 'error' ? '#E11D48' : '#94A3B8');
+    const accent = c => t === c ? '#0891B2' : '#94A3B8';
+    const tdot = c => t === c ? '#06B6D4' : 'transparent';
+
+    // review
+    let review = null;
+    if (this.state.openId) {
+      const topic = C.topics.find(x => x.id === this.state.openId);
+      if (topic) review = this.buildReview(topic, specName);
+    }
+
+    // session
+    const seState = this.state.session;
+    let session = null;
+    if (seState) {
+      if (seState.done) {
+        session = { done: true, active: false, counter: '', progress: '100%', summary: seState.hit + ' von ' + seState.cards.length + ' gewusst. Weiter so.' };
+      } else {
+        const card = seState.cards[seState.i];
+        session = {
+          done: false, active: true,
+          counter: (seState.i + 1) + ' / ' + seState.cards.length,
+          progress: Math.round((seState.i / seState.cards.length) * 100) + '%',
+          face: seState.flipped ? 'Prinzip' : 'Stichwort',
+          showFront: !seState.flipped, showBack: !!seState.flipped,
+          topic: card.topic, stichwort: card.stichwort, prinzipNode: this.rich(card.prinzip),
+          hasMerke: !!card.merke, merke: card.merke ? this.richInline(card.merke) : '',
+          hint: seState.flipped ? '' : 'Tippen zum Aufdecken',
+          flip: () => this.setState(s => ({ session: { ...s.session, flipped: true } })),
+          hit: () => this.cardAnswer(true), miss: () => this.cardAnswer(false),
+        };
+      }
+    }
+
+    return {
+      isHeute: t === 'heute', isBib: t === 'bibliothek', isKarten: t === 'karten', isProfil: t === 'profil',
+      cHeute: accent('heute'), cBib: accent('bibliothek'), cKarten: accent('karten'), cProfil: accent('profil'),
+      dHeute: tdot('heute'), dBib: tdot('bibliothek'), dKarten: tdot('karten'), dProfil: tdot('profil'),
+      goHeute: () => this.setState({ tab: 'heute' }), goBib: () => this.setState({ tab: 'bibliothek' }),
+      goKarten: () => this.setState({ tab: 'karten' }), goProfil: () => this.setState({ tab: 'profil' }),
+      greetingDate,
+      cardsDone: p.cards.doneToday, cardsGoal: p.cards.goal, cardsPct: cardsPctNum + '%',
+      cardsMastered: p.cards.mastered, cardsTotal: p.cards.total, cardsDueTomorrow: p.cards.dueTomorrow,
+      streakDays: p.streak, masteredCount, totalTopics, pctLabel: pct + '%',
+      ringStyle: `conic-gradient(#06B6D4 ${cardsPctNum}%, #E6ECF3 0)`,
+      specStats, specCount, builtCount, plannedCount, themenSub, hasMaster: hasThemen, offen, coveragePct, extrasCount, hasExtras: extrasCount > 0, r3, r2, r1, r3W: w(r3), r2W: w(r2), r1W: w(r1), daysLeft,
+      query: this.state.query, onQuery: e => this.setState({ query: e.target.value }),
+      groups, libLoading: loading, libCountLabel,
+      examFmt, syncLabel, syncColor, contentLabel, contentColor,
+      openCards,
+      review, hasReview: !!review, closeReview: () => this.setState({ openId: null }),
+      session, hasCardSession: !!session, closeCards: () => this.setState({ session: null }),
+    };
+  }
+}
+</script>
+
+
+</body></html>
