@@ -12,13 +12,21 @@ def clean(s):
 LABEL = re.compile(r'\b(Symptome|Therapie|Diagnostik|Klinik|Ätiologie|Komplikationen|Diagnose|'
                    r'Befund|Ursachen?|Pathophysiologie|Klassifikation|Einteilung|Mechanismus|'
                    r'Trias|Indikation|Kontraindikation|Labor)\s*:')
+# A capitalized word + colon at the start of a sentence = telegraphic label (e.g. "Primär:", "Ziel:")
+LABELCOLON = re.compile(r'(?:^|\. |\? )([A-ZÄÖÜ][A-Za-zäöüÄÖÜ.-]{2,}):\s')
+INTRO_OK = {'Wichtig', 'Cave', 'Merke', 'Achtung', 'Beispiel', 'Definition', 'Faustregel'}
 
 def violations(answer):
     at = clean(answer); wc = len(at.split())
     flowing = bool(re.search(r'\b(ich|wir|man|sie|er|es)\b', at.lower())) and at.count('.') >= 1
     reasons = []
     if LABEL.search(at): reasons.append('label-style')
-    if not flowing and (at.count('→') >= 2 or at.count(';') >= 2): reasons.append('telegraphic')
+    if '→' in at: reasons.append('arrow')
+    if re.search(r'=\s', at): reasons.append('equals')
+    if re.search(r'\s\+\s', at): reasons.append('plus')
+    lc = [x for x in LABELCOLON.findall(at) if x not in INTRO_OK]
+    if lc: reasons.append('label-colon(%s)' % '/'.join(lc))
+    if not flowing and (at.count(';') >= 2): reasons.append('telegraphic')
     if wc < 5 or (at and at[-1] not in '.!?'): reasons.append('fragment')
     return reasons
 
