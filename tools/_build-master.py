@@ -256,15 +256,21 @@ io.open("tools/master-themenliste.html","w",encoding="utf-8").write(html)
 h=html
 # --- JSON feed for the app (bundled into the kp-progress Worker at /api/themen) ---
 import json as _json, datetime as _dt
+def _cov(s): return bool(s) and s in repo
+def _rid(s): return (f'{s}-r{repo[s][0]}' if _cov(s) else None)
+def _lvl(s): return (repo[s][0] if _cov(s) else None)
 _themen=[{
-  'rank':rk,'treffer':t,'fach':f,'thema':th,
-  'slug':s,'covered':bool(s) and s in repo,
-  'level':(repo[s][0] if (s and s in repo) else None),
-  'reviewId':(f'{s}-r{repo[s][0]}' if (s and s in repo) else None)
+  'tier':'core','rank':rk,'treffer':t,'fach':f,'thema':th,
+  'slug':s,'covered':_cov(s),'level':_lvl(s),'reviewId':_rid(s)
 } for rk,t,c,p,f,th,s in ranked]
-_out={'version':1,'updatedAt':_dt.datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ'),
+_extras=[{
+  'tier':'extra','fach':f,'thema':th,
+  'slug':s,'covered':_cov(s),'level':_lvl(s),'reviewId':_rid(s)
+} for f,th,s in EXTRA]
+_out={'version':2,'updatedAt':_dt.datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ'),
       'total':len(ranked),'covered':sum(1 for x in _themen if x['covered']),'coveragePct':cov_pct,
-      'topics':_themen}
+      'extrasTotal':len(_extras),'extrasCovered':sum(1 for x in _extras if x['covered']),
+      'topics':_themen,'extras':_extras}
 io.open("api/themen.json","w",encoding="utf-8").write(_json.dumps(_out,ensure_ascii=False,separators=(',',':')))
 print("api/themen.json:",len(_themen),"rows |",_out['covered'],"covered")
 print("FLAT rows:",len(FLAT),"| tiers:",f"T1 {t1n} T2 {t2n} T3 {t3n} T4 {t4n} (sum {t1n+t2n+t3n+t4n}) + EXTRA {len(EXTRA)}")

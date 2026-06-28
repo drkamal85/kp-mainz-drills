@@ -111,9 +111,12 @@ for path, folder, slug, lvl in cards:
     mm = re.search(r'(\d+)\s*Min', h)
     words = len(re.findall(r'\w+', re.sub(r'<[^>]+>',' ',h)))
     minutes = int(mm.group(1)) if mm else max(3, round(words/180))
+    _st = parse_stations(h)
+    _present = [k for k in ('grundlagen','klinik','diagnostik','therapie') if _st.get(k)]
     topics.append({
         'id': slug, 'title': title, 'specialty': folder, 'level': 'R'+lvl, 'minutes': minutes,
-        'stations': parse_stations(h),
+        'complete': len(_present) == 4, 'stationsPresent': _present,
+        'stations': _st,
         'perlen': parse_perlen(h),
         'fragen': parse_fragen(h, name),
     })
