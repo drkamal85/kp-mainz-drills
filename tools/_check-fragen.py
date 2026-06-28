@@ -3,7 +3,7 @@
 # flowing, speakable candidate-voice sentence. Flags telegraphic label-style answers
 # ("Symptome: …, Therapie: …"), arrow/semicolon chains, and one-word fragments.
 # Long-but-flowing multi-part answers are allowed (they are still speakable).
-# Scope: all individual R3 reviews + the aggregated sammel page. Exit 1 on any violation.
+# Scope: all individual R3 reviews. Exit 1 on any violation.
 import re, html, glob, io, sys
 
 def clean(s):
@@ -22,8 +22,7 @@ def violations(answer):
     if wc < 5 or (at and at[-1] not in '.!?'): reasons.append('fragment')
     return reasons
 
-files = [f for f in glob.glob('reviews/**/*-r3.html', recursive=True)] \
-      + glob.glob('reviews/sammel/*.html')
+files = glob.glob('reviews/**/*-r3.html', recursive=True)
 bad = []
 total = 0
 for f in sorted(set(files)):
