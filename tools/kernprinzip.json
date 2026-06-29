@@ -298,5 +298,6 @@
  "w":"Entzündung von Pseudodivertikeln, fast immer im Sigma — die sogenannte linksseitige Appendizitis.",
  "v":"CT mit Kontrast zum Staging; unkomplizierte Fälle konservativ und oft ohne Antibiotika, eine freie Perforation ist eine Notfall-OP.",
  "k":"CDD-Stadien; Hinchey III und IV bei Peritonitis.",
- "n":"Keine Koloskopie im akuten Schub — erst nach 4 bis 6 Wochen zum Karzinomausschluss; bei kotiger Peritonitis die Hartmann-OP."}
+ "n":"Keine Koloskopie im akuten Schub — erst nach 4 bis 6 Wochen zum Karzinomausschluss; bei kotiger Peritonitis die Hartmann-OP."},
+{"slug":"kolonkarzinom","title":"Kolonkarzinom","spec":"chirurgie","acute":false,"q":"Änderung der Stuhlgewohnheiten, Blut im Stuhl oder eine Eisenmangelanämie?","w":"Ein maligner Tumor des Kolons oder Rektums, meist ein Adenokarzinom aus der Adenom-Karzinom-Sequenz.","v":"Komplette Koloskopie mit Biopsie zur Sicherung, Staging mit CT und beim Rektum zusätzlich MRT-Becken; kurativ ist die R0-Resektion.","k":"Lebermetastasen zuerst über die Pfortader, beim Rektum die TME.","n":"Jede Eisenmangelanämie beim Mann oder bei der postmenopausalen Frau gilt als Kolonkarzinom bis zum Beweis des Gegenteils."}
 ]
