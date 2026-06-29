@@ -104,6 +104,42 @@ export async function handleApi(request, env, url) {
     }
     return jsonRes({ error: 'method_not_allowed' }, 405, ch);
   }
+
+  // ---- computed daily session: due+fresh queue + live stats (authed) ----
+  if (url.pathname === '/api/session') {
+    if (request.method !== 'GET') return jsonRes({ error: 'method_not_allowed' }, 405, ch);
+    const t = dayParam(url.searchParams.get('today'));
+    const goal = clampGoal(url.searchParams.get('goal'));
+    const S = normalizeState(await readJson(env.PROGRESS, 'c:' + userId));
+    const cards = buildQueue(deckFeed.cards, S, t, goal).map(toClientCard);
+    return jsonRes({ today: t, stats: computeStats(deckFeed.cards, S, t, goal), cards }, 200, ch);
+  }
+
+  // ---- grade one card server-side (Leitner) -> returns updated stats (authed) ----
+  if (url.pathname === '/api/review') {
+    if (request.method !== 'POST') return jsonRes({ error: 'method_not_allowed' }, 405, ch);
+    let body; try { body = await request.json(); } catch { return jsonRes({ error: 'bad_json' }, 400, ch); }
+    const id = body && typeof body.id === 'string' ? body.id : '';
+    const result = body && (body.result === 'known' || body.result === 'again') ? body.result : '';
+    if (!id || !result) return jsonRes({ error: 'bad_body', hint: 'send { id, result: "known" | "again", today, goal }' }, 400, ch);
+    if (!deckFeed.cards.some(c => c.id === id)) return jsonRes({ error: 'unknown_card', id }, 400, ch);
+    const t = dayParam(body.today);
+    const goal = clampGoal(body.goal);
+    const key = 'c:' + userId;
+    const S = normalizeState(await readJson(env.PROGRESS, key));
+    gradeCard(S, id, result, t, goal);
+    S.updatedAt = new Date().toISOString();
+    await env.PROGRESS.put(key, JSON.stringify(S));
+    const stats = computeStats(deckFeed.cards, S, t, goal);
+    try { // mirror lightweight summary into the progress feed for other consumers (best-effort)
+      const pkey = 'u:' + userId;
+      const merged = mergeProgress((await readJson(env.PROGRESS, pkey)) || DEFAULTS(), { streak: stats.streak, cards: { doneToday: stats.doneToday, goal: stats.goal, mastered: stats.mastered, total: stats.total, dueTomorrow: stats.dueTomorrow } });
+      merged.updatedAt = new Date().toISOString();
+      await env.PROGRESS.put(pkey, JSON.stringify(merged));
+    } catch (e) { /* non-fatal */ }
+    return jsonRes({ ok: true, stats }, 200, ch);
+  }
+
   return jsonRes({ error: 'not_found' }, 404, ch);
 }
 
@@ -115,6 +151,69 @@ async function deriveUserId(token, env) {
   return [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2, '0')).join('').slice(0, 24);
 }
 async function readJson(kv, key) { const v = await kv.get(key); if (!v) return null; try { return JSON.parse(v); } catch { return null; } }
+
+// ---- spaced-repetition engine (server-authoritative; mirrors the client byte-for-byte) ----
+const INTERVALS = [1, 3, 7, 16, 35];
+const GOAL_DEFAULT = 10;
+function todayUTC() { return new Date().toISOString().slice(0, 10); }
+function dayParam(v) { return (typeof v === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(v)) ? v : todayUTC(); }
+function clampGoal(v) { const n = parseInt(v, 10); return Number.isFinite(n) ? Math.min(100, Math.max(1, n)) : GOAL_DEFAULT; }
+function addDays(s, n) { const d = new Date(s + 'T00:00:00Z'); d.setUTCDate(d.getUTCDate() + n); return d.toISOString().slice(0, 10); }
+function shuffle(a) { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+function defaultState() { return { v: 2, cards: {}, day: { date: '', count: 0, seen: [] }, streak: 0, lastDone: '', totalKnown: 0 }; }
+function normalizeState(s) {
+  if (!s || typeof s !== 'object' || s.empty) return defaultState();
+  const day = (s.day && typeof s.day === 'object') ? s.day : {};
+  return {
+    v: 2,
+    cards: (s.cards && typeof s.cards === 'object' && !Array.isArray(s.cards)) ? s.cards : {},
+    day: { date: day.date || '', count: day.count || 0, seen: Array.isArray(day.seen) ? day.seen : [] },
+    streak: s.streak || 0, lastDone: s.lastDone || '', totalKnown: s.totalKnown || 0,
+    updatedAt: s.updatedAt
+  };
+}
+function specAccent(hue) { return (hue === null || hue === undefined) ? '#64748B' : `oklch(56% 0.16 ${hue})`; }
+function toClientCard(c) { return { id: c.id, front: c.front, back: c.back || {}, topic: c.topic || '', fach: c.fach || '', hue: c.hue, accent: specAccent(c.hue), acute: !!c.acute, draft: !!c.draft }; }
+function buildQueue(deckCards, S, t, goal) {
+  const seen = new Set((S.day && S.day.seen) || []);
+  const due = [], fresh = [];
+  for (const c of deckCards) {
+    if (seen.has(c.id)) continue;
+    const st = S.cards[c.id];
+    if (st) { if (st.due <= t) due.push(c); } else fresh.push(c);
+  }
+  shuffle(due); shuffle(fresh);
+  return due.concat(fresh).slice(0, Math.max(1, goal));
+}
+function computeStats(deckCards, S, t, goal) {
+  const tm = addDays(t, 1);
+  let mastered = 0, dueTomorrow = 0;
+  for (const id in S.cards) { const st = S.cards[id]; if (st.box >= 5) mastered++; if (st.due === tm) dueTomorrow++; }
+  const doneToday = (S.day && S.day.date === t) ? (S.day.count || 0) : 0;
+  return { doneToday, goal, streak: S.streak || 0, total: deckCards.length, mastered, dueTomorrow };
+}
+function gradeCard(S, id, result, t, goal) {
+  if (!S.day || S.day.date !== t) S.day = { date: t, count: 0, seen: [] };
+  const st = S.cards[id] || { box: 0, due: t, kn: 0, unk: 0 };
+  if (result === 'known') {
+    st.box = Math.min(st.box + 1, 5);
+    st.due = addDays(t, INTERVALS[st.box - 1]);
+    st.kn = (st.kn || 0) + 1;
+    S.day.count = (S.day.count || 0) + 1;
+    S.totalKnown = (S.totalKnown || 0) + 1;
+  } else {
+    st.box = 0;
+    st.due = addDays(t, 1);
+    st.unk = (st.unk || 0) + 1;
+  }
+  st.seen = t;
+  S.cards[id] = st;
+  if (!S.day.seen.includes(id)) S.day.seen.push(id);
+  if (result === 'known' && S.day.count === goal && S.lastDone !== t) {
+    S.streak = (S.lastDone === addDays(t, -1)) ? ((S.streak || 0) + 1) : 1;
+    S.lastDone = t;
+  }
+}
 
 function sanitize(b) {
   const out = {};
