@@ -69,8 +69,14 @@ def parse_stations(h):
             for ch in re.split(r'(?=<div class="card[ "])', sec):
                 tm = re.search(r'<div class="card-title">(.*?)</div>', ch, re.S)
                 if not tm: continue
+                title = md(tm.group(1))
+                tagm = re.search(r'<span class="card-tag">(.*?)</span>', ch, re.S)
+                if tagm:
+                    tag = md(tagm.group(1))
+                    if tag and tag.lower() not in title.lower():
+                        title = tag + ' · ' + title
                 bm = re.search(r'<div class="card-body-inner">(.*)', ch, re.S)
-                stations[key].extend(card_to_blocks(md(tm.group(1)), bm.group(1) if bm else ''))
+                stations[key].extend(card_to_blocks(title, bm.group(1) if bm else ''))
     return stations
 
 def parse_perlen(h):
