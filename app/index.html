@@ -1005,8 +1005,15 @@
         </div>
       </sc-if>
       <sc-if value="{{ session.showFront }}" hint-placeholder-val="{{ false }}">
-        <div onclick="{{ session.flip }}" style="margin-top:16px; padding:16px; border-radius:16px; text-align:center; cursor:pointer; background:linear-gradient(135deg,#06B6D4,#0891B2); box-shadow:0 10px 24px rgba(8,145,178,0.26);">
-          <span style="font-size:15px; font-weight:700; color:#FFFFFF;">Antwort zeigen</span>
+        <div style="display:flex; gap:12px; margin-top:16px;">
+          <sc-if value="{{ session.canSkip }}" hint-placeholder-val="{{ true }}">
+            <div onclick="{{ session.skip }}" style="flex:0 0 auto; padding:16px 20px; border-radius:16px; text-align:center; cursor:pointer; background:#FFFFFF; border:1px solid rgba(15,23,42,0.12);">
+              <span style="font-size:15px; font-weight:700; color:#475569;">Später</span>
+            </div>
+          </sc-if>
+          <div onclick="{{ session.flip }}" style="flex:1; padding:16px; border-radius:16px; text-align:center; cursor:pointer; background:linear-gradient(135deg,#06B6D4,#0891B2); box-shadow:0 10px 24px rgba(8,145,178,0.26);">
+            <span style="font-size:15px; font-weight:700; color:#FFFFFF;">Antwort zeigen</span>
+          </div>
         </div>
       </sc-if>
     </div>
@@ -1306,6 +1313,16 @@ class Component extends DCLogic {
     });
   }
 
+  cardSkip() {
+    this.setState(s => {
+      const se = s.session; if (!se || se.done) return {};
+      if (se.cards.length - se.i <= 1) return {}; // last remaining card — nothing to defer past
+      const card = se.cards[se.i];
+      const cards = se.cards.slice(0, se.i).concat(se.cards.slice(se.i + 1), [card]);
+      return { session: { ...se, cards, flipped: false } };
+    });
+  }
+
   renderVals() {
     const p = this.state.progress;
     const C0 = this.state.content;
@@ -1452,6 +1469,7 @@ class Component extends DCLogic {
           nieVergessen: fb.nieVergessen || '',
           hint: seState.flipped ? '' : 'Tippen zum Aufdecken',
           flip: () => this.setState(s => ({ session: { ...s.session, flipped: true } })),
+          canSkip: (seState.cards.length - seState.i) > 1, skip: () => this.cardSkip(),
           hit: () => this.cardAnswer(true), miss: () => this.cardAnswer(false),
         };
       }
