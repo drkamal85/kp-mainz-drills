@@ -22,7 +22,7 @@ import json, re, io, html, os, datetime
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SPEC = {  # specialty -> (display label, hue)  — mirrors the library groups
  'kardiologie':('Kardiologie',25), 'pneumologie':('Pneumologie',210),
- 'chirurgie':('Viszeralchirurgie',180), 'viszeralchirurgie':('Viszeralchirurgie',180),
+ 'chirurgie':('Allgemein- und Viszeralchirurgie',180), 'viszeralchirurgie':('Allgemein- und Viszeralchirurgie',180),
  'gastroenterologie':('Gastroenterologie',150), 'unfallchirurgie':('Unfallchirurgie',50),
  'drittes-fach':('Drittes Fach',18), 'notfallmedizin':('Notfallmedizin',255),
  'gefaesschirurgie':('Gefäßchirurgie',10), 'neurologie':('Neurologie',300),

@@ -1,6 +1,7 @@
 {
   // Standalone progress-sync Worker. Deploy with:  cd api && npx wrangler deploy
   "name": "kp-progress",
+  "account_id": "a4c8eae3c828dffbf695b6860fa6cabc",
   "main": "progress-worker.js",
   "compatibility_date": "2025-06-01",
   // 1) create the namespace:  npx wrangler kv namespace create PROGRESS

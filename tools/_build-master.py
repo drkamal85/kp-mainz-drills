@@ -26,11 +26,11 @@ def trow(rank, treffer, chat, prot, fach, thema, slug):
 
 # FLAT ranking (treffer, chat, prot, fach, thema, slug) — rank = position
 FLAT=[
-(381,122,259,"Viszeralchirurgie","Cholezystitis / Cholelithiasis","cholezystitis"),
+(381,122,259,"Allgemein- und Viszeralchirurgie","Cholezystitis / Cholelithiasis","cholezystitis"),
 (353,130,223,"Kardiologie","Vorhofflimmern","vorhofflimmern"),
 (327,66,261,"Kardiologie","Herzinsuffizienz","herzinsuffizienz"),
 (304,72,232,"Notfallmedizin","Schock","schock"),
-(298,88,210,"Viszeralchirurgie","Ileus","ileus"),
+(298,88,210,"Allgemein- und Viszeralchirurgie","Ileus","ileus"),
 (296,56,240,"Notfallmedizin","Sepsis","sepsis"),
 (282,103,179,"Drittes Fach","Bluttransfusion",None),
 (278,74,204,"Endokrinologie","Diabetes mellitus","diabetes-mellitus"),
@@ -39,23 +39,23 @@ FLAT=[
 (244,78,166,"Neurologie","Schlaganfall","schlaganfall"),
 (243,44,199,"Gastroenterologie","Ikterus / Cholestase","ikterus-cholestase"),
 (241,43,198,"Nephrologie","Nierenversagen (akut / akut-auf-chron.)",None),
-(236,79,157,"Viszeralchirurgie","GI-Blutung","gi-blutung"),
+(236,79,157,"Allgemein- und Viszeralchirurgie","GI-Blutung","gi-blutung"),
 (234,61,173,"Pneumologie","Pneumonie","pneumonie"),
 (232,58,174,"Kardiologie","Myokardinfarkt / ACS","acs-myokardinfarkt"),
-(226,78,148,"Viszeralchirurgie","Leistenhernie / Hernien","leistenhernie"),
+(226,78,148,"Allgemein- und Viszeralchirurgie","Leistenhernie / Hernien","leistenhernie"),
 (224,118,106,"Drittes Fach","Rechtsmedizin / Leichenschau","rechtsmedizin"),
 (220,76,144,"Angiologie","Lungenembolie","lungenembolie"),
-(218,88,130,"Viszeralchirurgie","Gastroduodenales Ulkus",None),
-(203,74,129,"Viszeralchirurgie","Pankreatitis",None),
-(203,68,135,"Viszeralchirurgie","Divertikulitis","divertikulitis"),
+(218,88,130,"Allgemein- und Viszeralchirurgie","Gastroduodenales Ulkus",None),
+(203,74,129,"Allgemein- und Viszeralchirurgie","Pankreatitis",None),
+(203,68,135,"Allgemein- und Viszeralchirurgie","Divertikulitis","divertikulitis"),
 (202,55,147,"Endokrinologie","Schilddrüse (allg.)",None),
 (171,46,125,"Gastroenterologie","Leberzirrhose","leberzirrhose"),
 (169,69,100,"Unfallchirurgie","Schenkelhalsfraktur","proximale-femurfraktur"),
-(169,54,115,"Viszeralchirurgie","Appendizitis","appendizitis"),
+(169,54,115,"Allgemein- und Viszeralchirurgie","Appendizitis","appendizitis"),
 (155,42,113,"Kardiologie","AV-Block","av-block"),
 (151,61,90,"Hämatologie","Eisenmangelanämie","eisenmangelanaemie"),
 (151,18,133,"Gastroenterologie","Hepatitis",None),
-(143,42,101,"Viszeralchirurgie","Kolonkarzinom",None),
+(143,42,101,"Allgemein- und Viszeralchirurgie","Kolonkarzinom",None),
 (142,16,126,"Kardiologie","KHK / Angina pectoris","khk"),
 (132,39,93,"Gastroenterologie","Lebermetastasen / Lebertumor",None),
 (131,82,49,"Drittes Fach","Strahlenschutz","strahlenschutz"),
@@ -89,14 +89,14 @@ FLAT=[
 (68,12,56,"Unfallchirurgie","Allg. Frakturlehre","allgemeine-frakturlehre"),
 (67,12,55,"Nephrologie","Harnwegsinfekt / Pyelonephritis",None),
 (65,22,43,"Endokrinologie","Schilddrüsenkarzinom",None),
-(62,15,47,"Viszeralchirurgie","Rektumkarzinom",None),
+(62,15,47,"Allgemein- und Viszeralchirurgie","Rektumkarzinom",None),
 (60,15,45,"Unfallchirurgie","Humerusfraktur",None),
 (59,11,48,"Gastroenterologie","GERD / Refluxkrankheit",None),
 (59,7,52,"Kardiologie","Endokarditis","infektioese-endokarditis"),
-(57,17,40,"Viszeralchirurgie","Diarrhoe / Gastroenteritis",None),
-(56,15,41,"Viszeralchirurgie","Pankreaskarzinom",None),
-(56,11,45,"Viszeralchirurgie","Hämorrhoiden",None),
-(55,11,44,"Viszeralchirurgie","Magenkarzinom",None),
+(57,17,40,"Allgemein- und Viszeralchirurgie","Diarrhoe / Gastroenteritis",None),
+(56,15,41,"Allgemein- und Viszeralchirurgie","Pankreaskarzinom",None),
+(56,11,45,"Allgemein- und Viszeralchirurgie","Hämorrhoiden",None),
+(55,11,44,"Allgemein- und Viszeralchirurgie","Magenkarzinom",None),
 (55,9,46,"Hämatologie","Morbus Hodgkin",None),
 (54,19,35,"Notfallmedizin","Verbrennung",None),
 (52,5,47,"Gastroenterologie","Colitis ulcerosa",None),
@@ -128,7 +128,7 @@ n_md=len(FLAT); md_cov=sum(1 for r in ranked if covered(r[6])); cov_pct=round(md
 nr={3:0,2:0,1:0}
 for lvl,_ in repo.values(): nr[lvl]=nr.get(lvl,0)+1
 gaps=[(t,th,f) for rk,t,c,p,f,th,s in ranked if not covered(s)][:6]
-fab={"Viszeralchirurgie":"Viszeralchir.","Unfallchirurgie":"Unfallchir.","Endokrinologie":"Endokrin.","Kardiologie":"Kardio.","Gastroenterologie":"Gastro.","Angiologie":"Angio.","Notfallmedizin":"Notfall","Pneumologie":"Pneumo.","Hämatologie":"Häm.","Nephrologie":"Nephro.","Neurologie":"Neuro.","Drittes Fach":"Drittes Fach","Querschnitt":"Querschnitt"}
+fab={"Allgemein- und Viszeralchirurgie":"Viszeralchir.","Unfallchirurgie":"Unfallchir.","Endokrinologie":"Endokrin.","Kardiologie":"Kardio.","Gastroenterologie":"Gastro.","Angiologie":"Angio.","Notfallmedizin":"Notfall","Pneumologie":"Pneumo.","Hämatologie":"Häm.","Nephrologie":"Nephro.","Neurologie":"Neuro.","Drittes Fach":"Drittes Fach","Querschnitt":"Querschnitt"}
 
 def section(tc_,title,desc,count,rows):
     return (f'<section class="tier" style="--tc:{tc_}"><div class="tier-head"><div><div class="tier-title">{title}</div>'
