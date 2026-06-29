@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>KP app · backend ⇄ frontend channel</title>
+<style>
+  :root{ --bg:#F4F7FB; --panel:#fff; --ink:#0F172A; --mut:#64748B; --line:#E6ECF3;
+         --be:#0891B2; --fe:#7C3AED; --ok:#059669; }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:var(--bg); color:var(--ink);
+        font-family:"Manrope",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+        line-height:1.5; -webkit-font-smoothing:antialiased; }
+  .wrap{ max-width:820px; margin:0 auto; padding:24px 18px 80px; }
+  h1{ font-size:20px; margin:0 0 4px; letter-spacing:-0.01em; }
+  .sub{ color:var(--mut); font-size:13px; margin-bottom:16px; }
+  .pills{ display:flex; gap:8px; flex-wrap:wrap; margin-bottom:18px; }
+  .pill{ font-size:12px; font-weight:600; padding:4px 10px; border-radius:999px; background:#EAF0F7; color:#334155; }
+  .card{ background:var(--panel); border:1px solid var(--line); border-radius:16px; padding:16px 18px; margin-bottom:14px; }
+  .card h2{ font-size:13px; text-transform:uppercase; letter-spacing:0.06em; color:var(--mut); margin:0 0 10px; }
+  .own{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  .own div{ font-size:13px; } .own b{ display:block; margin-bottom:2px; }
+  .ep{ border-top:1px dashed var(--line); padding:10px 0; font-size:13px; }
+  .ep:first-of-type{ border-top:0; }
+  .ep .m{ font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:12px; font-weight:700; }
+  .ep .p{ font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:12px; color:#334155; word-break:break-all; }
+  .ep .n{ color:var(--mut); margin-top:2px; }
+  details{ margin-top:8px; } summary{ cursor:pointer; color:var(--mut); font-size:12px; }
+  pre{ background:#0F172A; color:#CBD5E1; padding:12px; border-radius:12px; overflow:auto; font-size:11.5px; }
+  .log{ display:flex; flex-direction:column; gap:10px; }
+  .msg{ border-radius:12px; padding:10px 12px; font-size:14px; white-space:pre-wrap; word-break:break-word; }
+  .msg.backend{ background:#ECFAFE; border-left:3px solid var(--be); }
+  .msg.frontend{ background:#F5F0FF; border-left:3px solid var(--fe); }
+  .msg.unknown{ background:#F1F5F9; border-left:3px solid #94A3B8; }
+  .meta{ font-size:11px; color:var(--mut); margin-bottom:3px; font-weight:600; }
+  .post{ position:sticky; bottom:0; }
+  .post .row{ display:flex; gap:8px; margin-top:8px; }
+  select,textarea,button{ font:inherit; }
+  textarea{ width:100%; min-height:64px; resize:vertical; border:1px solid var(--line); border-radius:12px; padding:10px 12px; }
+  select{ border:1px solid var(--line); border-radius:10px; padding:8px 10px; background:#fff; }
+  button{ border:0; border-radius:12px; padding:10px 18px; font-weight:700; color:#fff; cursor:pointer;
+          background:linear-gradient(135deg,#06B6D4,#0891B2); }
+  button:disabled{ opacity:.5; cursor:default; }
+  .hint{ color:var(--mut); font-size:12px; margin-top:6px; }
+  .err{ color:#B91C1C; font-size:12px; }
+  a{ color:var(--be); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>KP app · backend ⇄ frontend channel</h1>
+  <div class="sub">Shared source of truth. The contract is bundled in the worker; messages live in the worker too — both read straight from the URL, so nothing has to be copy-pasted. Auto-refreshes every 15s.</div>
+  <div class="pills" id="pills"></div>
+
+  <div class="card" id="contractCard">
+    <h2>The contract</h2>
+    <div id="contract">Loading…</div>
+  </div>
+
+  <div class="card">
+    <h2>Messages</h2>
+    <div class="log" id="log">Loading…</div>
+    <div class="post">
+      <div class="row">
+        <select id="from">
+          <option value="frontend">frontend</option>
+          <option value="backend">backend</option>
+        </select>
+        <textarea id="msg" placeholder="Write a note to the other side…"></textarea>
+      </div>
+      <div class="row" style="justify-content:flex-end; align-items:center;">
+        <span class="err" id="err"></span>
+        <button id="send">Post</button>
+      </div>
+      <div class="hint">Anyone can read this page. Posting uses the app's shared token. Replies appear above within 15s.</div>
+    </div>
+  </div>
+</div>
+
+<script>
+const BASE = 'https://kp-progress.autoflow-med.workers.dev';
+const TOKEN = 'uSqYuz8d3-Q7gi0OcMFFkWqxGKHLtZkb';
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+
+function renderContract(c){
+  if(!c){ $('#contract').textContent = '(no contract)'; return; }
+  const own = c.ownership || {};
+  const eps = c.endpoints || {};
+  let h = '';
+  h += `<div class="own"><div><b>Frontend owns</b>${esc(own.frontend||'')}</div><div><b>Backend owns</b>${esc(own.backend||'')}</div></div>`;
+  h += `<div style="height:10px"></div>`;
+  for(const [k,e] of Object.entries(eps)){
+    h += `<div class="ep"><span class="m">${esc(e.method||'')}</span> <span class="p">${esc(e.path||'')}</span><div class="n">${esc(e.purpose||e.notes||'')}</div></div>`;
+  }
+  if(c.backendMessage) h += `<div class="msg backend" style="margin-top:12px">${esc(c.backendMessage)}</div>`;
+  h += `<details><summary>Raw JSON (the machine contract)</summary><pre>${esc(JSON.stringify(c,null,2))}</pre></details>`;
+  $('#contract').innerHTML = h;
+
+  const st = c.status || {};
+  $('#pills').innerHTML =
+    `<span class="pill">v${esc(c.version||'?')}</span>` +
+    `<span class="pill">backend: ${esc(st.backend||'?')}</span>` +
+    `<span class="pill">frontend: ${esc(st.frontend||'?')}</span>`;
+}
+
+function renderLog(log){
+  if(!log || !log.length){ $('#log').innerHTML = '<div class="hint">No messages yet. Be the first.</div>'; return; }
+  $('#log').innerHTML = log.map(m => {
+    const who = (m.from==='backend'||m.from==='frontend') ? m.from : 'unknown';
+    const ts = (m.ts||'').replace('T',' ').replace(/\..*$/,' UTC');
+    return `<div class="msg ${who}"><div class="meta">${esc(m.from||'?')} · ${esc(ts)}</div>${esc(m.msg||'')}</div>`;
+  }).join('');
+}
+
+async function load(){
+  try{
+    const r = await fetch(BASE + '/api/comms', { cache:'no-store' });
+    const d = await r.json();
+    renderContract(d.contract);
+    renderLog(d.log);
+  }catch(e){ $('#log').innerHTML = '<div class="err">Could not reach the channel: ' + esc(e.message) + '</div>'; }
+}
+
+async function send(){
+  const from = $('#from').value;
+  const msg = $('#msg').value.trim();
+  $('#err').textContent = '';
+  if(!msg){ $('#err').textContent = 'Write something first.'; return; }
+  $('#send').disabled = true;
+  try{
+    const r = await fetch(BASE + '/api/comms', {
+      method:'POST',
+      headers:{ 'Content-Type':'application/json', 'Authorization':'Bearer ' + TOKEN },
+      body: JSON.stringify({ from, msg })
+    });
+    if(!r.ok){ const e = await r.json().catch(()=>({})); throw new Error(e.error || ('status '+r.status)); }
+    $('#msg').value = '';
+    await load();
+  }catch(e){ $('#err').textContent = 'Post failed: ' + esc(e.message); }
+  finally{ $('#send').disabled = false; }
+}
+
+$('#send').addEventListener('click', send);
+load();
+setInterval(load, 15000);
+</script>
+</body>
+</html>

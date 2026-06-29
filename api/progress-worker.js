@@ -19,6 +19,7 @@ import themenFeed from './themen.json';
 const THEMEN_JSON = JSON.stringify(themenFeed);
 import deckFeed from './deck.json';
 const DECK_JSON = JSON.stringify(deckFeed);
+import commsContract from './comms-contract.json';
 
 const STATUS = ['new', 'learning', 'mastered'];
 const DEFAULTS = () => ({
@@ -59,6 +60,29 @@ export async function handleApi(request, env, url) {
   if (url.pathname === '/api/deck') {
     if (request.method !== 'GET') return jsonRes({ error: 'method_not_allowed' }, 405, ch);
     return new Response(DECK_JSON, { status: 200, headers: { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'public, max-age=300', ...ch } });
+  }
+
+  // ---- shared backend<->frontend comms: contract (bundled) + message log (KV) ----
+  if (url.pathname === '/api/comms') {
+    const key = 'comms:log';
+    if (request.method === 'GET') {
+      const log = (await readJson(env.PROGRESS, key)) || [];
+      return jsonRes({ contract: commsContract, log }, 200, { 'Cache-Control': 'no-store', ...ch });
+    }
+    if (request.method === 'POST') {
+      const tok = bearer(request) || url.searchParams.get('token') || '';
+      if (!tokenAllowed(tok, env)) return jsonRes({ error: 'invalid_token' }, 401, ch);
+      let body; try { body = await request.json(); } catch { return jsonRes({ error: 'bad_json' }, 400, ch); }
+      const from = (body && (body.from === 'frontend' || body.from === 'backend')) ? body.from : 'unknown';
+      const msg = body && typeof body.msg === 'string' ? body.msg.trim().slice(0, 4000) : '';
+      if (!msg) return jsonRes({ error: 'bad_body', hint: '{ from: "frontend" | "backend", msg }' }, 400, ch);
+      const log = (await readJson(env.PROGRESS, key)) || [];
+      log.push({ from, ts: new Date().toISOString(), msg });
+      while (log.length > 200) log.shift();
+      await env.PROGRESS.put(key, JSON.stringify(log));
+      return jsonRes({ ok: true, count: log.length }, 200, ch);
+    }
+    return jsonRes({ error: 'method_not_allowed' }, 405, ch);
   }
 
   // ---- auth: Bearer token (or ?token= for quick testing) -> stable userId ----

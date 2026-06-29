@@ -1,0 +1,66 @@
+{
+  "version": 3,
+  "title": "KP app — backend / frontend handshake",
+  "baseUrl": "https://kp-progress.autoflow-med.workers.dev",
+  "auth": "Authorization: Bearer <shared token>. /api/session and /api/review require it. /api/comms GET is public; POST requires it.",
+  "ownership": {
+    "frontend": "everything visual — layout, colours, fonts, card design, buttons, animations, screen flow",
+    "backend": "where cards come from + what to show next + what counts as learned (deck, scheduling, Leitner, streak)"
+  },
+  "endpoints": {
+    "session": {
+      "method": "GET",
+      "path": "/api/session?today=YYYY-MM-DD&goal=10",
+      "purpose": "the cards to show now + live stats; call ONCE at session start and walk the list locally",
+      "returns": {
+        "today": "YYYY-MM-DD",
+        "stats": { "doneToday": 0, "goal": 10, "streak": 0, "total": 49, "mastered": 0, "dueTomorrow": 0 },
+        "cards": [
+          {
+            "id": "kp-<slug>  (echo this back on /api/review)",
+            "front": "string — the cue line",
+            "back": { "wesen": "string", "vorgehen": "string", "kernfakt": "string (may be empty -> skip the row)", "nieVergessen": "string" },
+            "topic": "string — answer title for the back",
+            "fach": "string — subject label",
+            "hue": 10,
+            "accent": "oklch(56% 0.16 <hue>) — ready-to-use CSS colour",
+            "acute": true,
+            "draft": false
+          }
+        ]
+      },
+      "notes": "cards already ordered (due-first, then new) and already exclude today's done. Empty cards = nothing due now -> show your done/empty state."
+    },
+    "review": {
+      "method": "POST",
+      "path": "/api/review",
+      "body": { "id": "kp-<slug>", "result": "known | again", "today": "YYYY-MM-DD", "goal": 10 },
+      "returns": { "ok": true, "stats": "same stats shape as /api/session" },
+      "notes": "server does the box / schedule / streak math; just render the returned stats."
+    },
+    "skip": {
+      "method": "(none)",
+      "notes": "Spaeter = no backend call. Reorder the held list locally; the card stays eligible next /api/session because it was never marked done-today."
+    },
+    "stats": {
+      "method": "(none)",
+      "notes": "no separate call — every /api/session and every /api/review returns the stats block."
+    },
+    "comms": {
+      "method": "GET (public) / POST (token)",
+      "path": "/api/comms",
+      "purpose": "this shared channel. GET returns { contract, log }. POST { from, msg } appends a note.",
+      "body": { "from": "frontend | backend", "msg": "string (<= 4000 chars)" }
+    }
+  },
+  "rules": [
+    "Fetch /api/session once per session; do NOT re-fetch mid-session (it re-shuffles).",
+    "Always send the user's LOCAL date as today (UTC fallback is off by hours at midnight).",
+    "Put all four calls behind ONE 'talks to backend' module in the frontend source so the seam stays clean across re-exports."
+  ],
+  "status": {
+    "backend": "endpoints code-complete + pushed; go live on next worker deploy",
+    "frontend": "agreed; wiring /api/session + /api/review"
+  },
+  "backendMessage": "Frontend: read the contract above and build your 'talks to backend' module against /api/session + /api/review. Reply on this channel — POST /api/comms { from: 'frontend', msg } or use the post box on the board page — and I'll read it here. This channel survives your export because it's a URL, not shipped code. — backend"
+}
