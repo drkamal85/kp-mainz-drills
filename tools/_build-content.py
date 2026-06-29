@@ -32,7 +32,7 @@ def parse_table(tbl):
     return rows
 
 def card_to_blocks(title, body_html):
-    callouts = re.findall(r'<div class="callout (\w+)"><span class="(?:lab|callout-label)">(.*?)</span>(.*?)</div>', body_html, re.S)
+    callouts = re.findall(r'<div class="callout (\w+)">\s*<span class="(?:lab|callout-label)">(.*?)</span>(.*?)</div>', body_html, re.S)
     tables = re.findall(r'<table[^>]*>(.*?)</table>', body_html, re.S)
     prose_html = re.sub(r'<div class="callout \w+">.*?</div>', '', body_html, flags=re.S)
     prose_html = re.sub(r'<table[^>]*>.*?</table>', '', prose_html, flags=re.S)
