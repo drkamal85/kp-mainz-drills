@@ -292,5 +292,11 @@
  "w":"Grundlagen der Frakturversorgung; sichere Zeichen sind Fehlstellung und Krepitation, unsichere Schmerz und Schwellung.",
  "v":"Reposition, Retention und Rehabilitation; Schraube oder Platte für absolute, der Marknagel für relative Stabilität.",
  "k":"Absolute Stabilität heilt primär ohne Kallus, relative sekundär über Kallus.",
- "n":"Logendruck mit Dehnungsschmerz ist ein Kompartmentsyndrom und braucht eine sofortige Fasziotomie."}
+ "n":"Logendruck mit Dehnungsschmerz ist ein Kompartmentsyndrom und braucht eine sofortige Fasziotomie."},
+{"slug":"divertikulitis","title":"Divertikulitis","spec":"chirurgie","acute":true,
+ "q":"Schmerz im linken Unterbauch mit Fieber und lokalem Druckschmerz?",
+ "w":"Entzündung von Pseudodivertikeln, fast immer im Sigma — die sogenannte linksseitige Appendizitis.",
+ "v":"CT mit Kontrast zum Staging; unkomplizierte Fälle konservativ und oft ohne Antibiotika, eine freie Perforation ist eine Notfall-OP.",
+ "k":"CDD-Stadien; Hinchey III und IV bei Peritonitis.",
+ "n":"Keine Koloskopie im akuten Schub — erst nach 4 bis 6 Wochen zum Karzinomausschluss; bei kotiger Peritonitis die Hartmann-OP."}
 ]
