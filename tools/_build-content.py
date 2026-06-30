@@ -95,7 +95,7 @@ def parse_fragen(h, spec_name):
     if not pm: return out
     tag = 'MAINZ · ' + spec_name.upper()
     for chunk in re.split(r'(?=<div class="pk">)', pm.group(1)):
-        if 'pk-akte' not in chunk: continue
+        if 'class="pq"' not in chunk: continue
         akte = re.search(r'<div class="pk-akte"><span class="lab">Fall</span>(.*?)</div>', chunk, re.S)
         fall = md(akte.group(1)) if akte else ''
         for q in re.finditer(r'<div class="pq"><div class="pq-frage">(.*?)</div><details class="reveal"><summary>Antwort</summary><div class="ans">(.*?)</div></details></div>', chunk, re.S):
