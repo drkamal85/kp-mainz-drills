@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lungenembolie · R3 · Klinischer Durchlauf</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F7F4EE; --card:#FFFDF8; --ink:#2A2724; --muted:#6B6358; --line:#E7E0D4;
+    --grundlagen:#C0392B; --grundlagen-t:#F7E9E6;
+    --klinik:#D97706;     --klinik-t:#FBEEDD;
+    --diagnostik:#1E5F9E; --diagnostik-t:#E4EDF6;
+    --therapie:#2D7A3E;   --therapie-t:#E5F0E7;
+    --fragen:#7B3F9E;     --fragen-t:#F0E8F6;
+    --perlen:#B8860B;     --perlen-t:#F8F0D9;
+    --retrieval:#0F766E;  --retrieval-t:#E0F0EE;
+    --protokoll:#334155;  --protokoll-t:#E8EBF0;
+    --ok:#2D7A3E; --gap:#D97706; --miss:#C0392B;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:'Manrope',system-ui,sans-serif;
+    font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased;padding:0 18px 80px}
+  .wrap{max-width:860px;margin:0 auto}
+
+  header{padding:54px 0 22px}
+  .eyebrow{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--retrieval);margin-bottom:16px}
+  h1{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(34px,7vw,52px);line-height:1.04;letter-spacing:-.01em}
+  h1 .accent{font-style:italic;color:var(--grundlagen)}
+  .subtitle{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(17px,2.6vw,20px);color:var(--muted);margin-top:14px}
+  .meta{display:flex;flex-wrap:wrap;gap:6px 0;margin-top:20px;font-size:13px;color:var(--muted);font-weight:500}
+  .meta span:not(:last-child)::after{content:"•";margin:0 10px;color:var(--line);font-weight:700}
+
+
+  .tabs{display:flex;flex-wrap:wrap;gap:8px;position:sticky;top:0;z-index:30;background:linear-gradient(var(--bg) 72%,rgba(247,244,238,0));padding:12px 0 14px;margin-bottom:6px}
+  .tab{position:relative;font-size:13px;font-weight:600;border:1px solid var(--line);background:var(--card);color:var(--muted);padding:8px 15px;border-radius:999px;cursor:pointer;transition:all .15s;white-space:nowrap}
+  .tab:hover{border-color:#cfc6b6}
+  .tab.active{color:#fff;border-color:transparent}
+  .tab[data-c=retrieval].active{background:var(--retrieval)}
+  .tab[data-c=grundlagen].active{background:var(--grundlagen)}
+  .tab[data-c=klinik].active{background:var(--klinik)}
+  .tab[data-c=diagnostik].active{background:var(--diagnostik)}
+  .tab[data-c=therapie].active{background:var(--therapie)}
+  .tab[data-c=fragen].active{background:var(--fragen)}
+  .tab[data-c=perlen].active{background:var(--perlen)}
+  .tab[data-c=protokoll].active{background:var(--protokoll)}
+  .tab .badge{display:none;margin-left:7px;font-size:10px;font-weight:800;padding:1px 6px;border-radius:999px;vertical-align:middle}
+  .tab.flag-gap .badge{display:inline-block;background:var(--gap);color:#fff}
+  .tab.flag-ok .badge{display:inline-block;background:var(--ok);color:#fff}
+  .tab.active .badge{background:rgba(255,255,255,.28)!important;color:#fff}
+
+  .panel{display:none;animation:fade .25s ease}
+  .panel.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+  .panel-intro{font-family:'Fraunces',serif;font-style:italic;font-size:17px;color:var(--muted);margin:6px 0 18px;line-height:1.5}
+
+  /* ---- control bar (Pass 1 instrument) ---- */
+  .ctrl{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:14px 16px;margin-bottom:20px}
+  .ctrl-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+  .tally{font-size:13px;font-weight:700;display:flex;gap:12px;flex-wrap:wrap}
+  .tally i{font-style:normal;display:inline-flex;align-items:center;gap:5px}
+  .tally i::before{content:"";width:9px;height:9px;border-radius:50%}
+  .tally .t-ok::before{background:var(--ok)} .tally .t-gap::before{background:var(--gap)} .tally .t-miss::before{background:var(--miss)}
+  .spacer{flex:1 1 auto}
+  .btn{font-family:'Manrope';font-size:12.5px;font-weight:700;border:none;border-radius:999px;padding:9px 16px;cursor:pointer;transition:.15s}
+  .btn-primary{background:var(--retrieval);color:#fff}
+  .btn-primary:hover{filter:brightness(1.06)}
+  .btn-ghost{background:transparent;color:var(--muted);border:1px solid var(--line)}
+  .btn-ghost:hover{border-color:#cfc6b6}
+  .ctrl-status{margin-top:11px;font-size:13px;font-style:italic;color:var(--retrieval);min-height:18px}
+
+  /* ---- retrieval prompt ---- */
+  .rt{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:14px;transition:border-color .2s}
+  .rt[data-score=sicher]{border-left-color:var(--ok)}
+  .rt[data-score=lueckenhaft]{border-left-color:var(--gap)}
+  .rt[data-score=gefehlt]{border-left-color:var(--miss)}
+  .rt-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:8px}
+  .rt-n{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--retrieval)}
+  .rt-right{display:flex;align-items:center;gap:10px;white-space:nowrap}
+  .rt-ptr{font-size:11px;font-weight:600;color:var(--muted)}
+  .rt-q{font-size:15.5px;line-height:1.55}
+  .reveal{margin-top:12px;border-top:1px dashed var(--line);padding-top:0}
+  .reveal>summary{list-style:none;cursor:pointer;font-size:12.5px;font-weight:800;letter-spacing:.04em;color:var(--retrieval);padding:11px 0 0;user-select:none;display:inline-flex;align-items:center;gap:6px}
+  .reveal>summary::-webkit-details-marker{display:none}
+  .reveal>summary::before{content:"▸";transition:transform .2s;display:inline-block}
+  .reveal[open]>summary::before{transform:rotate(90deg)}
+  .reveal .ans{font-size:14.5px;line-height:1.6;color:#3c372f;padding-top:10px}
+  .reveal .ans b{color:var(--ink)}
+  .reveal .ans ul{list-style:none;padding-left:2px;margin:2px 0 0}
+  .reveal .ans li{position:relative;padding-left:18px;margin-bottom:8px;line-height:1.5}
+  .reveal .ans>ul>li::before{content:"";position:absolute;left:2px;top:8px;width:6px;height:6px;border-radius:50%;background:var(--retrieval)}
+  .reveal .ans li ul{margin:7px 0 2px}
+  .reveal .ans li li{padding-left:16px;margin-bottom:5px;font-size:13.8px;color:#4a443c}
+  .reveal .ans li li::before{content:"";position:absolute;left:0;top:7px;width:5px;height:5px;transform:rotate(45deg);background:#b9b0a1}
+  .score{display:flex;gap:7px;margin-top:12px;padding-top:11px;border-top:1px solid var(--line)}
+  .sbtn{flex:1;font-size:12px;font-weight:700;border:1px solid var(--line);background:var(--bg);color:var(--muted);border-radius:8px;padding:7px 4px;cursor:pointer;transition:.12s}
+  .sbtn:hover{border-color:#cfc6b6}
+  .sbtn[data-v=sicher].on{background:var(--ok);color:#fff;border-color:transparent}
+  .sbtn[data-v=lueckenhaft].on{background:var(--gap);color:#fff;border-color:transparent}
+  .sbtn[data-v=gefehlt].on{background:var(--miss);color:#fff;border-color:transparent}
+
+  /* ---- Schnellfragen ---- */
+  .sf-wrap{background:var(--retrieval-t);border:1px solid #BFE0DC;border-radius:13px;padding:18px 20px;margin-top:24px}
+  .sf-wrap h3{font-family:'Fraunces',serif;font-weight:500;font-size:20px;margin-bottom:3px}
+  .sf-wrap .sf-intro{font-size:13.5px;font-style:italic;color:#0c5d57;margin-bottom:14px}
+  .sf{border-bottom:1px solid #cfe4e1;padding:9px 0}
+  .sf:last-child{border-bottom:none}
+  .sf>summary{list-style:none;cursor:pointer;font-size:14.5px;font-weight:600;display:flex;justify-content:space-between;gap:10px;user-select:none}
+  .sf>summary::-webkit-details-marker{display:none}
+  .sf>summary::after{content:"+";color:var(--retrieval);font-weight:800}
+  .sf[open]>summary::after{content:"−"}
+  .sf .sfa{font-size:14px;color:#0c5d57;font-weight:700;padding-top:6px}
+
+  /* ---- content cards (v1) ---- */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:14px;overflow:hidden}
+  .card>summary{list-style:none;cursor:pointer;padding:18px 20px;display:flex;align-items:flex-start;gap:14px;user-select:none}
+  .card>summary::-webkit-details-marker{display:none}
+  .card .ct{flex:1}
+  .card .ctag{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:5px}
+  .card .ctitle{font-family:'Fraunces',serif;font-weight:500;font-size:17px;line-height:1.25}
+  .plus{flex:none;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:18px;line-height:1;transition:transform .2s;margin-top:2px}
+  .card[open] .plus{transform:rotate(45deg)}
+  .card .body{padding:0 20px 20px;border-top:1px solid var(--line);margin-top:-2px;padding-top:16px}
+  .card.grundlagen .ctag{color:var(--grundlagen)} .card.grundlagen .plus{background:var(--grundlagen-t);color:var(--grundlagen)}
+  .card.klinik .ctag{color:var(--klinik)} .card.klinik .plus{background:var(--klinik-t);color:var(--klinik)}
+  .card.diagnostik .ctag{color:var(--diagnostik)} .card.diagnostik .plus{background:var(--diagnostik-t);color:var(--diagnostik)}
+  .card.therapie .ctag{color:var(--therapie)} .card.therapie .plus{background:var(--therapie-t);color:var(--therapie)}
+  .card.fragen .ctag{color:var(--fragen)} .card.fragen .plus{background:var(--fragen-t);color:var(--fragen)}
+  .card.perlen .ctag{color:var(--perlen)} .card.perlen .plus{background:var(--perlen-t);color:var(--perlen)}
+
+  ul.b{list-style:none;padding-left:2px}
+  ul.b>li{position:relative;padding-left:20px;margin-bottom:8px;line-height:1.55}
+  ul.b>li::before{content:"";position:absolute;left:2px;top:9px;width:7px;height:7px;border-radius:50%}
+  .grundlagen ul.b>li::before{background:var(--grundlagen)} .klinik ul.b>li::before{background:var(--klinik)}
+  .diagnostik ul.b>li::before{background:var(--diagnostik)} .therapie ul.b>li::before{background:var(--therapie)}
+  ul.b ul{list-style:none;padding-left:18px;margin-top:7px}
+  ul.b ul>li{position:relative;padding-left:18px;margin-bottom:6px;font-size:15px;color:#4a443c}
+  ul.b ul>li::before{content:"";position:absolute;left:0;top:7px;width:6px;height:6px;transform:rotate(45deg);background:#b9b0a1}
+  strong{font-weight:700;color:var(--ink)}
+
+  .callout{border-radius:11px;padding:13px 16px;margin:14px 0;font-size:14.5px;line-height:1.55;border-left:4px solid}
+  .callout .lab{font-weight:800;font-size:11px;letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .critical{background:var(--grundlagen-t);border-color:var(--grundlagen)} .critical .lab{color:var(--grundlagen)}
+  .warning{background:var(--klinik-t);border-color:var(--klinik)} .warning .lab{color:var(--klinik)}
+  .fact{background:var(--diagnostik-t);border-color:var(--diagnostik)} .fact .lab{color:var(--diagnostik)}
+
+  .dd{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+  .dd th,.dd td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+  .dd th{background:var(--diagnostik-t);font-weight:700;color:var(--diagnostik);font-size:12px}
+  .dd td:first-child{font-weight:600}
+
+  .pk{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:16px}
+  .pk-meta{display:flex;flex-wrap:wrap;gap:6px 0;font-size:11.5px;font-weight:700;color:var(--protokoll);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+  .pk-meta span:not(:last-child)::after{content:"•";margin:0 8px;color:#c3c9d2}
+  .pk-badge{display:inline-block;background:var(--therapie-t);color:var(--therapie);font-size:10.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:2px 9px;border-radius:999px;margin-left:auto}
+  .pk-akte{font-size:14.5px;line-height:1.58;background:var(--protokoll-t);border-radius:9px;padding:12px 14px;margin-bottom:12px}
+  .pk-akte .lab,.pk-q .lab{font-weight:800;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--protokoll);display:block;margin-bottom:5px}
+  .pk-q ul{list-style:none;padding:0}
+  .pk-q li{position:relative;padding-left:18px;margin-bottom:7px;font-size:14.5px;line-height:1.5}
+  .pk-q li::before{content:"–";position:absolute;left:0;color:var(--protokoll);font-weight:700}
+  .pq{border-top:1px solid var(--line);padding:10px 0}
+  .pq-frage{position:relative;padding-left:18px;font-size:14.5px;font-weight:600;line-height:1.5}
+  .pq-frage::before{content:"–";position:absolute;left:0;color:var(--protokoll);font-weight:700}
+  .pq .reveal{margin-top:5px;border-top:none;padding-top:0}
+  .pq .reveal>summary{padding:5px 0 0}
+
+  .pearl{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--perlen);border-radius:12px;padding:16px 18px;margin-bottom:13px}
+  .pearl .ph{font-weight:800;font-size:13px;color:var(--perlen);margin-bottom:7px}
+  .pearl .pt{font-size:15px;line-height:1.55}
+  .pearl .mn{margin-top:9px;background:var(--perlen-t);border-radius:8px;padding:8px 12px;font-size:13.5px;font-style:italic;color:#7a5c08}
+  .pearl .mn b{font-style:normal;font-weight:800}
+
+  footer{margin-top:40px;padding-top:22px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted);line-height:1.6}
+  .back{display:inline-block;font-family:Manrope,system-ui,sans-serif;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);text-decoration:none;margin-bottom:18px}
+  .back:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a href="../../index.html" class="back">← Zurück zur Library</a>
+
+  <header>
+    <div class="eyebrow">Pneumologie · R3 · Kurz + KP-Perlen + Protokolle</div>
+    <h1>Lungen<span class="accent">embolie</span></h1>
+    <div class="subtitle">Stabil vs. instabil, der Wells-Algorithmus und Lyse nur im Schock (wortgleich mit R2) + KP-Perlen + die echten Mainz-Fragen — zum lauten Üben.</div>
+    <div class="meta">
+      <span>R3 von 5 · Superset von R2</span>
+      <span>~12–15 Min</span>
+      <span>Stand 06/2026</span>
+      <span>Stex Lernkarten 5.1 + Mainz-Protokolle (Voßeler, Sturm)</span>
+    </div>
+  </header>
+
+  <div class="tabs">
+    <button class="tab active" data-c="grundlagen" data-tab="grundlagen">Grundlagen</button>
+    <button class="tab" data-c="klinik" data-tab="klinik">Klinik</button>
+    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik</button>
+    <button class="tab" data-c="therapie" data-tab="therapie">Therapie</button>
+    <button class="tab" data-c="perlen" data-tab="perlen">KP-Perlen</button>
+    <button class="tab" data-c="protokoll" data-tab="protokoll">Fragen &amp; Protokolle</button>
+  </div>
+
+  <section class="panel active" data-panel="grundlagen">
+    <p class="panel-intro">Was, woher, wer ist gefährdet. Erst laut, dann aufklappen.</p>
+    <details class="card grundlagen" open><summary><span class="ct"><span class="ctag">Definition</span><span class="ctitle">Was ist eine LAE?</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b">
+        <li>Verschluss einer Lungenarterie durch einen <strong>verschleppten Thrombus</strong> — meist aus einer <strong>tiefen Beinvenenthrombose (TVT)</strong></li>
+        <li>Folge: akute Rechtsherzbelastung → bei großem Verschluss obstruktiver Schock</li>
+      </ul>
+        <div class="callout fact"><span class="lab">⚙ Merksatz</span><strong>LAE und TVT sind eine Krankheit an zwei Orten</strong> — zusammen „venöse Thromboembolie (VTE)". Such bei jeder LAE die Beinvene.</div>
+      </div>
+    </details>
+    <details class="card grundlagen"><summary><span class="ct"><span class="ctag">Ätiologie</span><span class="ctitle">Virchow-Trias + Risikofaktoren</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <h4>Virchow-Trias</h4>
+        <ul class="b">
+          <li><strong>Endothelschaden</strong> (OP, Trauma)</li>
+          <li><strong>Stase</strong> (Immobilisation, lange Reise, Varizen)</li>
+          <li><strong>Hyperkoagulabilität</strong> (Malignom, Östrogene, Thrombophilie)</li>
+        </ul>
+        <h4>Risikofaktoren</h4>
+        <ul class="b"><li>OP/Immobilisation, <strong>Malignom</strong>, frühere VTE, Schwangerschaft/Wochenbett, Kontrazeptiva, Adipositas, hereditäre Thrombophilie (Faktor-V-Leiden)</li></ul>
+        <div class="callout fact"><span class="lab">⚙ Tumorsuche</span>Bei TVT/LAE unklarer Genese &gt; 50 J. → an okkultes <strong>Malignom</strong> denken (Mainz-Frage).</div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ KLINIK ============ -->
+  <section class="panel" data-panel="klinik">
+    <p class="panel-intro">Unspezifisch — aber denken muss man dran. Erst laut, dann abgleichen.</p>
+    <details class="card klinik" open><summary><span class="ct"><span class="ctag">Leitsymptome</span><span class="ctitle">Die typische Trias</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b">
+        <li><strong>Plötzliche Dyspnoe</strong> + <strong>Tachypnoe</strong> (häufigstes Zeichen)</li>
+        <li><strong>Atemabhängiger Thoraxschmerz</strong> (pleuritisch)</li>
+        <li><strong>Tachykardie</strong>; ggf. Hämoptysen, Husten, Synkope</li>
+        <li>Zeichen der TVT: einseitig geschwollenes, schmerzhaftes Bein</li>
+      </ul></div>
+    </details>
+    <details class="card klinik"><summary><span class="ct"><span class="ctag">Schweregrad</span><span class="ctitle">Stabil vs. instabil</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b">
+        <li><strong>Stabil:</strong> RR systolisch &gt; 90 mmHg</li>
+        <li><strong>Instabil:</strong> RR &lt; 90 mmHg oder Abfall &gt; 40 mmHg &gt; 15 min → <strong>obstruktiver Schock</strong></li>
+      </ul>
+        <div class="callout critical"><span class="lab">▲ Warum wichtig</span><strong>Stabil vs. instabil bestimmt den gesamten Diagnose- und Therapieweg.</strong> Das ist die erste Frage in Mainz.</div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ DIAGNOSTIK ============ -->
+  <section class="panel" data-panel="diagnostik">
+    <p class="panel-intro">Der Algorithmus ist die Kernfrage. Erst laut, dann abgleichen.</p>
+    <details class="card diagnostik" open><summary><span class="ct"><span class="ctag">★ Algorithmus</span><span class="ctitle">Stabil → Wells, instabil → Echo</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <h4>Stabiler Patient (RR &gt; 90)</h4>
+        <ul class="b">
+          <li><strong>Wells-Score berechnen</strong></li>
+          <li>LAE <strong>unwahrscheinlich</strong> (≤1 vereinf.) → <strong>D-Dimer</strong>: negativ = Ausschluss · positiv → CT-Angio</li>
+          <li>LAE <strong>wahrscheinlich</strong> (≥2) → direkt <strong>CT-Angiografie</strong></li>
+        </ul>
+        <h4>Instabiler Patient (RR &lt; 90)</h4>
+        <ul class="b">
+          <li>Stabil genug für CT → CT-Angio</li>
+          <li>Nicht transportfähig → <strong>Echo am Bett</strong>: Rechtsherzbelastung → Lyse</li>
+        </ul>
+        <div class="callout fact"><span class="lab">⚙ Merksatz</span><strong>Stabil = Wells (dann D-Dimer oder CT). Instabil = Echo.</strong> CT-Angio ist das Mittel der 1. Wahl zur Diagnosesicherung.</div>
+      </div>
+    </details>
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Wells-Score</span><span class="ctitle">Die 7 Punkte (vereinfacht je 1)</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b">
+        <li>Klinische Zeichen einer TVT</li>
+        <li>LAE wahrscheinlicher als andere Diagnose</li>
+        <li>Frühere LAE/TVT</li>
+        <li>Tachykardie &gt; 100/min</li>
+        <li>OP/Immobilisation letzter Monat</li>
+        <li>Hämoptysen</li>
+        <li>Malignom</li>
+      </ul>
+        <div class="callout fact"><span class="lab">⚙ Interpretation</span>Vereinfacht: <strong>≤1 unwahrscheinlich, ≥2 wahrscheinlich</strong>. Die Punkte muss man nicht auswendig — den Algorithmus schon.</div>
+      </div>
+    </details>
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Befunde</span><span class="ctitle">D-Dimer, EKG, BGA, Echo</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b">
+        <li><strong>D-Dimer:</strong> Fibrin-Spaltprodukt — sensitiv, <strong>nicht spezifisch</strong> (↑ bei OP, Tumor, Infekt). Nur als Ausschluss bei niedriger Wahrscheinlichkeit</li>
+        <li><strong>EKG:</strong> Sinustachykardie (häufigste); klassisch <strong>S<sub>I</sub>Q<sub>III</sub>-Typ</strong>, Rechtsschenkelblock, P-pulmonale, T-Negativierung V1–V3</li>
+        <li><strong>BGA:</strong> Hypoxämie + Hypokapnie → respiratorische Alkalose (Hyperventilation)</li>
+        <li><strong>Echo:</strong> Rechtsherzbelastung (RV-Dilatation, paradoxe Septumbewegung); <strong>Troponin/BNP ↑</strong> = prognostisch ungünstig</li>
+        <li><strong>FKDS Beinvenen:</strong> TVT-Nachweis</li>
+      </ul></div>
+    </details>
+  </section>
+
+  <!-- ============ THERAPIE ============ -->
+  <section class="panel" data-panel="therapie">
+    <p class="panel-intro">Antikoagulation immer, Lyse nur instabil. Erst laut, dann abgleichen.</p>
+    <details class="card therapie" open><summary><span class="ct"><span class="ctag">★ Kernprinzip</span><span class="ctitle">Risikogerecht behandeln</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <table class="dd"><tr><th>Risiko</th><th>Therapie</th></tr>
+          <tr><td><strong>Niedrig/intermediär (stabil)</strong></td><td>therapeutische <strong>Antikoagulation</strong></td></tr>
+          <tr><td><strong>Hoch (instabil/Schock)</strong></td><td><strong>Systemische Lyse</strong> (Alteplase) + Heparin</td></tr></table>
+        <div class="callout critical"><span class="lab">▲ Mainz-Klassiker</span><strong>Lyse NUR beim instabilen Patienten.</strong> Lyse bei einem stabilen Patienten = Behandlungsfehler (echte Protokollfrage).</div>
+      </div>
+    </details>
+    <details class="card therapie"><summary><span class="ct"><span class="ctag">Akut</span><span class="ctitle">Sofortmaßnahmen</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b">
+        <li>Halbsitzende Lagerung, <strong>O₂ 6 l/min</strong>, Monitoring, ITS ab intermediärem Risiko</li>
+        <li>Analgesie (Morphin), ggf. Anxiolyse</li>
+        <li><strong>Initiale Antikoagulation sofort</strong> — schon bei mittlerem/hohem Verdacht, vor Bildgebung: NMH (Enoxaparin), Fondaparinux oder UFH-Bolus</li>
+        <li>Bei Schock: Volumen vorsichtig, Noradrenalin/Dobutamin, ggf. ECMO</li>
+      </ul></div>
+    </details>
+    <details class="card therapie"><summary><span class="ct"><span class="ctag">Erhaltung</span><span class="ctitle">DOAK + Dauer</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b">
+        <li><strong>DOAK 1. Wahl</strong> (Apixaban, Rivaroxaban) — keine INR-Kontrolle nötig</li>
+        <li>Alternativ NMH → VKA (überlappend ≥5 Tage bis INR 2–3)</li>
+        <li><strong>Dauer: mind. 3–6 Monate</strong>; bei Rezidiv/Malignom/Thrombophilie ggf. dauerhaft</li>
+        <li><strong>KI der DOAK:</strong> GFR &lt; 15 ml/min</li>
+      </ul>
+        <div class="callout warning"><span class="lab">⚠ Lyse-KI</span>Aktive Blutung, frischer Schlaganfall/OP, intrakranielle Blutung in Anamnese, schwere Hypertonie. <strong>Bei Reanimation keine KI.</strong></div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ KP-PERLEN ============ -->
+  <section class="panel" data-panel="perlen">
+    <p class="panel-intro">Acht Sätze, die in der Prüfung gewinnen.</p>
+    <div class="pearl"><div class="ph">⭐ Perle 1 · Der Algorithmus</div><div class="pt"><strong>Stabil = Wells-Score. Instabil = Echo.</strong> Das ist die Achse jeder LAE-Frage in Mainz — wer das sauber sagt, hat die halbe Prüfung.</div><div class="mn"><b>Merke:</b> Stabil denkt nach (Score), instabil schaut sofort (Echo)</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 2 · Lyse nur instabil</div><div class="pt"><strong>Lyse ausschließlich beim instabilen Patienten.</strong> Lyse bei Stabilen = Behandlungsfehler — genau so im Protokoll gefragt.</div><div class="mn"><b>Merke:</b> Lyse = letzte Rettung, nicht Routine</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 3 · D-Dimer</div><div class="pt"><strong>Sensitiv, nicht spezifisch.</strong> Nur Ausschluss bei niedriger Wahrscheinlichkeit. Negativ = raus, positiv = beweist nichts → CT.</div><div class="mn"><b>Merke:</b> D-Dimer schließt aus, beweist nie</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 4 · Stabil = RR &gt; 90</div><div class="pt">Die Grenze stabil/instabil ist <strong>RR systolisch 90 mmHg</strong>. Diese Zahl entscheidet den ganzen Weg.</div><div class="mn"><b>Merke:</b> Neunzig ist die Weiche</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 5 · CT-Angio</div><div class="pt"><strong>CT-Angiografie = Mittel der 1. Wahl</strong> zur Diagnosesicherung (KM-Aussparung in der Pulmonalarterie).</div><div class="mn"><b>Merke:</b> Sichern heißt CT</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 6 · S<sub>I</sub>Q<sub>III</sub>-Typ</div><div class="pt">EKG: häufigste Veränderung ist die <strong>Sinustachykardie</strong>; klassisch (aber selten) der <strong>S<sub>I</sub>Q<sub>III</sub>-Typ</strong> + Rechtsschenkelblock als Rechtsherzbelastungszeichen.</div><div class="mn"><b>Merke:</b> Tachykardie häufig, S1Q3 berühmt</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 7 · Antikoagulation sofort</div><div class="pt"><strong>Heparin schon bei mittlerem/hohem Verdacht</strong> — vor der Bildgebung. Nicht auf das CT warten.</div><div class="mn"><b>Merke:</b> Verdacht reicht zum Heparin</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 8 · Tumorsuche</div><div class="pt">TVT/LAE unklarer Genese &gt; 50 J. → <strong>Malignomsuche</strong>. Bei Jungen → Thrombophilie (Faktor-V-Leiden).</div><div class="mn"><b>Merke:</b> Alt = Tumor suchen, jung = Thrombophilie</div></div>
+
+    <div class="sf-wrap">
+      <h3>Schnellfragen · Rapid-Fire</h3>
+      <div class="sf-intro">Atomare Einzelfakten — Ein-Wort-Abruf, keine Optionen. Laut, sofort, dann aufdecken.</div>
+      <details class="sf"><summary>LAE + TVT zusammen — Sammelbegriff?</summary><div class="sfa">venöse Thromboembolie (VTE)</div></details>
+      <details class="sf"><summary>Virchow-Trias?</summary><div class="sfa">Endothelschaden · Stase · Hyperkoagulabilität</div></details>
+      <details class="sf"><summary>Stabil — ab welchem RR?</summary><div class="sfa">systolisch &gt; 90 mmHg</div></details>
+      <details class="sf"><summary>Häufigstes Symptom?</summary><div class="sfa">plötzliche Dyspnoe + Tachypnoe</div></details>
+      <details class="sf"><summary>Stabil, LAE unwahrscheinlich — nächster Schritt?</summary><div class="sfa">D-Dimer</div></details>
+      <details class="sf"><summary>Stabil, LAE wahrscheinlich — nächster Schritt?</summary><div class="sfa">direkt CT-Angiografie</div></details>
+      <details class="sf"><summary>Instabil, nicht transportfähig — nächster Schritt?</summary><div class="sfa">Echokardiografie am Bett</div></details>
+      <details class="sf"><summary>D-Dimer — sensitiv oder spezifisch?</summary><div class="sfa">sensitiv, nicht spezifisch</div></details>
+      <details class="sf"><summary>Klassisches (seltenes) EKG-Zeichen?</summary><div class="sfa">S₁Q₃-Typ</div></details>
+      <details class="sf"><summary>Häufigste EKG-Veränderung?</summary><div class="sfa">Sinustachykardie</div></details>
+      <details class="sf"><summary>BGA-Befund typisch?</summary><div class="sfa">Hypoxämie + Hypokapnie (respiratorische Alkalose)</div></details>
+      <details class="sf"><summary>Therapie bei niedrigem/intermediärem Risiko?</summary><div class="sfa">therapeutische Antikoagulation</div></details>
+      <details class="sf"><summary>Therapie bei hohem Risiko (instabil/Schock)?</summary><div class="sfa">systemische Lyse + Heparin</div></details>
+      <details class="sf"><summary>1. Wahl zur Erhaltungstherapie?</summary><div class="sfa">DOAK (Apixaban, Rivaroxaban)</div></details>
+      <details class="sf"><summary>Tumorsuche bei TVT/LAE — ab welchem Alter?</summary><div class="sfa">&gt; 50 Jahre bei unklarer Genese</div></details>
+      <details class="sf"><summary>Klassische Thrombosezeichen?</summary><div class="sfa">Meyer · Homans · Payr</div></details>
+      <details class="sf"><summary>Warum Schock bei großer LAE?</summary><div class="sfa">RV-Druckanstieg → RV-Dilatation → LV-Vorlast ↓</div></details>
+      <details class="sf"><summary>Reanimation + absolute Lyse-KI — Alternative?</summary><div class="sfa">offene oder interventionelle Thrombektomie</div></details>
+    </div>
+  </section>
+
+  <!-- ============ PROTOKOLLE ============ -->
+  <section class="panel" data-panel="protokoll">
+    <p class="panel-intro">Generalprobe an zwei dokumentierten Mainz-Sessions. Jede Frage einzeln laut beantworten, dann die Antwort aufdecken.</p>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · dokumentiert</span><span>Innere Medizin · Voßeler</span><span class="pk-badge">Protokoll-Kernfrage</span></div>
+      <div class="pk-akte"><span class="lab">Fall</span>Patient mit V. a. Lungenembolie. Herr Voßeler fragt den kompletten Algorithmus ab — stabil und instabil getrennt — und hängt eine Fallfehler-Frage an, bei der eine stabile Patientin fälschlich lysiert wurde.</div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">„Wie gehen Sie bei einem stabilen Patienten mit Verdacht auf eine Lungenembolie vor — und wann ist er überhaupt stabil?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Stabil bedeutet ein systolischer Blutdruck über 90 mmHg. Bei einem stabilen Patienten berechne ich zunächst den Wells-Score. Ist die Wahrscheinlichkeit niedrig, bestimme ich die D-Dimere — sind sie negativ, ist eine Lungenembolie weitgehend ausgeschlossen, sind sie positiv, folgt eine CT-Angiografie. Bei hoher Wahrscheinlichkeit gehe ich direkt zur CT-Angiografie über.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Und wie gehen Sie beim instabilen Patienten vor?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ist der Patient stabil genug für den Transport, mache ich eine CT-Angiografie. Ist er nicht transportfähig, führe ich eine Echokardiografie am Bett durch — zeigt sich dabei eine Rechtsherzbelastung, leite ich die Lysetherapie ein.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Was sind D-Dimere, und sind sie spezifisch für eine Lungenembolie?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">D-Dimere sind Spaltprodukte der Fibrinolyse. Sie sind nicht spezifisch für eine Lungenembolie, denn sie sind auch nach Operationen, bei Traumata, Malignomen oder Infekten erhöht. Deshalb nutze ich sie nur als Ausschlusstest bei niedriger Vortestwahrscheinlichkeit.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Was sind DOAKs?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">DOAKs sind direkte orale Antikoagulanzien. Es gibt zwei Gruppen: den Thrombin-Antagonisten Dabigatran und die Faktor-Xa-Hemmer Apixaban, Rivaroxaban und Edoxaban. Sie sind die erste Wahl in der Erhaltungstherapie und benötigen keine INR-Kontrolle.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Eine stabile Patientin erhielt eine Lysetherapie — was wurde hier falsch gemacht?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Falsch war die Lysetherapie selbst, denn bei einer stabilen Patientin ist sie nicht indiziert und birgt ein unnötiges Blutungsrisiko ohne zusätzlichen Nutzen. Richtig gewesen wäre die alleinige therapeutische Antikoagulation, denn die Lyse bleibt instabilen Patienten mit hohem Risiko vorbehalten.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Wann veranlassen Sie bei einer tiefen Beinvenenthrombose eine Tumorsuche?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Eine Tumorsuche veranlasse ich bei unklarer Genese und einem Alter über 50 Jahren, denn eine tiefe Beinvenenthrombose oder Lungenembolie kann das paraneoplastische Erstsymptom eines Malignoms sein. Bei jüngeren Patienten denke ich zusätzlich an eine hereditäre Thrombophilie wie die Faktor-V-Leiden-Mutation.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz 13.12.2025</span><span>Innere Medizin · Dr. Sturm</span><span class="pk-badge">Bestanden</span></div>
+      <div class="pk-akte"><span class="lab">Fall</span>34-jähriger Patient mit akuter Atemnot auf dem Weg zur Impfung. Die Mutter ist mit 49 Jahren an einer Lungenembolie verstorben. CTA bestätigt die Lungenembolie, die Sonografie eine TVT.</div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">„Welche klinischen Thrombosezeichen kennen Sie?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich kenne das Meyer-Zeichen als Druckschmerz entlang der Wadenmuskulatur, das Homans-Zeichen als Wadenschmerz bei Dorsalextension des Fußes und das Payr-Zeichen als Druckschmerz an der medialen Fußsohle. Alle drei sind klassische, aber unsichere klinische Hinweise auf eine tiefe Beinvenenthrombose und ersetzen nicht die bildgebende Diagnostik.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · weitere dokumentierte Fragen</span><span>2024–2026</span><span class="pk-badge">Protokoll</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">„Warum kommt es bei einer Lungenembolie zur Herzinsuffizienz?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Der embolische Verschluss erhöht akut den pulmonalvaskulären Widerstand, wodurch der rechte Ventrikel gegen einen plötzlich gestiegenen Druck arbeiten muss und dilatiert. Dadurch sinkt die Vorlast des linken Ventrikels, das Herzzeitvolumen fällt ab, und im schweren Fall entsteht ein obstruktiver Schock.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Ein reanimationspflichtiger Patient hat eine absolute Kontraindikation für die Lyse, etwa eine frische Operation — wie gehen Sie vor?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">In diesem Fall ziehe ich primär die offene chirurgische oder die kathetergestützte interventionelle Thrombektomie in Betracht. Steht keine dieser Optionen zur Verfügung, kann in der vital bedrohlichen Reanimationssituation die Lyse als Ultima Ratio trotz des Blutungsrisikos erwogen werden.</div></details></div>
+    </div>
+  </section>
+
+  <footer>
+    R3 · Lungenembolie · Fragen &amp; Protokolle. Vier Kernstationen (wortgleich mit R2) + KP-Perlen mit Rapid-Fire + die echten dokumentierten Mainz-Fragen.
+  </footer>
+
+</div>
+<script>
+  const tabs = [...document.querySelectorAll('.tab')];
+  const panels = [...document.querySelectorAll('.panel')];
+  function showTab(name){
+    tabs.forEach(x=>x.classList.toggle('active', x.dataset.tab===name));
+    panels.forEach(p=>p.classList.toggle('active', p.dataset.panel===name));
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  tabs.forEach(t=>t.addEventListener('click',()=>showTab(t.dataset.tab)));
+</script>
+  <script src="/sync.js" defer></script>
+</body>
+</html>
