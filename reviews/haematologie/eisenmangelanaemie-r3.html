@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eisenmangelanämie · R3 · Klinischer Durchlauf</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F7F4EE; --card:#FFFDF8; --ink:#2A2724; --muted:#6B6358; --line:#E7E0D4;
+    --grundlagen:#C0392B; --grundlagen-t:#F7E9E6;
+    --klinik:#D97706;     --klinik-t:#FBEEDD;
+    --diagnostik:#1E5F9E; --diagnostik-t:#E4EDF6;
+    --therapie:#2D7A3E;   --therapie-t:#E5F0E7;
+    --fragen:#7B3F9E;     --fragen-t:#F0E8F6;
+    --perlen:#B8860B;     --perlen-t:#F8F0D9;
+    --retrieval:#0F766E;  --retrieval-t:#E0F0EE;
+    --protokoll:#334155;  --protokoll-t:#E8EBF0;
+    --ok:#2D7A3E; --gap:#D97706; --miss:#C0392B;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:'Manrope',system-ui,sans-serif;
+    font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased;padding:0 18px 80px}
+  .wrap{max-width:860px;margin:0 auto}
+
+  header{padding:54px 0 22px}
+  .eyebrow{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--retrieval);margin-bottom:16px}
+  h1{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(34px,7vw,52px);line-height:1.04;letter-spacing:-.01em}
+  h1 .accent{font-style:italic;color:var(--grundlagen)}
+  .subtitle{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(17px,2.6vw,20px);color:var(--muted);margin-top:14px}
+  .meta{display:flex;flex-wrap:wrap;gap:6px 0;margin-top:20px;font-size:13px;color:var(--muted);font-weight:500}
+  .meta span:not(:last-child)::after{content:"•";margin:0 10px;color:var(--line);font-weight:700}
+
+
+  .tabs{display:flex;flex-wrap:wrap;gap:8px;position:sticky;top:0;z-index:30;background:linear-gradient(var(--bg) 72%,rgba(247,244,238,0));padding:12px 0 14px;margin-bottom:6px}
+  .tab{position:relative;font-size:13px;font-weight:600;border:1px solid var(--line);background:var(--card);color:var(--muted);padding:8px 15px;border-radius:999px;cursor:pointer;transition:all .15s;white-space:nowrap}
+  .tab:hover{border-color:#cfc6b6}
+  .tab.active{color:#fff;border-color:transparent}
+  .tab[data-c=retrieval].active{background:var(--retrieval)}
+  .tab[data-c=grundlagen].active{background:var(--grundlagen)}
+  .tab[data-c=klinik].active{background:var(--klinik)}
+  .tab[data-c=diagnostik].active{background:var(--diagnostik)}
+  .tab[data-c=therapie].active{background:var(--therapie)}
+  .tab[data-c=fragen].active{background:var(--fragen)}
+  .tab[data-c=perlen].active{background:var(--perlen)}
+  .tab[data-c=protokoll].active{background:var(--protokoll)}
+  .tab .badge{display:none;margin-left:7px;font-size:10px;font-weight:800;padding:1px 6px;border-radius:999px;vertical-align:middle}
+  .tab.flag-gap .badge{display:inline-block;background:var(--gap);color:#fff}
+  .tab.flag-ok .badge{display:inline-block;background:var(--ok);color:#fff}
+  .tab.active .badge{background:rgba(255,255,255,.28)!important;color:#fff}
+
+  .panel{display:none;animation:fade .25s ease}
+  .panel.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+  .panel-intro{font-family:'Fraunces',serif;font-style:italic;font-size:17px;color:var(--muted);margin:6px 0 18px;line-height:1.5}
+
+  /* ---- control bar (Pass 1 instrument) ---- */
+  .ctrl{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:14px 16px;margin-bottom:20px}
+  .ctrl-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+  .tally{font-size:13px;font-weight:700;display:flex;gap:12px;flex-wrap:wrap}
+  .tally i{font-style:normal;display:inline-flex;align-items:center;gap:5px}
+  .tally i::before{content:"";width:9px;height:9px;border-radius:50%}
+  .tally .t-ok::before{background:var(--ok)} .tally .t-gap::before{background:var(--gap)} .tally .t-miss::before{background:var(--miss)}
+  .spacer{flex:1 1 auto}
+  .btn{font-family:'Manrope';font-size:12.5px;font-weight:700;border:none;border-radius:999px;padding:9px 16px;cursor:pointer;transition:.15s}
+  .btn-primary{background:var(--retrieval);color:#fff}
+  .btn-primary:hover{filter:brightness(1.06)}
+  .btn-ghost{background:transparent;color:var(--muted);border:1px solid var(--line)}
+  .btn-ghost:hover{border-color:#cfc6b6}
+  .ctrl-status{margin-top:11px;font-size:13px;font-style:italic;color:var(--retrieval);min-height:18px}
+
+  /* ---- retrieval prompt ---- */
+  .rt{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:14px;transition:border-color .2s}
+  .rt[data-score=sicher]{border-left-color:var(--ok)}
+  .rt[data-score=lueckenhaft]{border-left-color:var(--gap)}
+  .rt[data-score=gefehlt]{border-left-color:var(--miss)}
+  .rt-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:8px}
+  .rt-n{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--retrieval)}
+  .rt-right{display:flex;align-items:center;gap:10px;white-space:nowrap}
+  .rt-ptr{font-size:11px;font-weight:600;color:var(--muted)}
+  .rt-q{font-size:15.5px;line-height:1.55}
+  .reveal{margin-top:12px;border-top:1px dashed var(--line);padding-top:0}
+  .reveal>summary{list-style:none;cursor:pointer;font-size:12.5px;font-weight:800;letter-spacing:.04em;color:var(--retrieval);padding:11px 0 0;user-select:none;display:inline-flex;align-items:center;gap:6px}
+  .reveal>summary::-webkit-details-marker{display:none}
+  .reveal>summary::before{content:"▸";transition:transform .2s;display:inline-block}
+  .reveal[open]>summary::before{transform:rotate(90deg)}
+  .reveal .ans{font-size:14.5px;line-height:1.6;color:#3c372f;padding-top:10px}
+  .reveal .ans b{color:var(--ink)}
+  .reveal .ans ul{list-style:none;padding-left:2px;margin:2px 0 0}
+  .reveal .ans li{position:relative;padding-left:18px;margin-bottom:8px;line-height:1.5}
+  .reveal .ans>ul>li::before{content:"";position:absolute;left:2px;top:8px;width:6px;height:6px;border-radius:50%;background:var(--retrieval)}
+  .reveal .ans li ul{margin:7px 0 2px}
+  .reveal .ans li li{padding-left:16px;margin-bottom:5px;font-size:13.8px;color:#4a443c}
+  .reveal .ans li li::before{content:"";position:absolute;left:0;top:7px;width:5px;height:5px;transform:rotate(45deg);background:#b9b0a1}
+  .score{display:flex;gap:7px;margin-top:12px;padding-top:11px;border-top:1px solid var(--line)}
+  .sbtn{flex:1;font-size:12px;font-weight:700;border:1px solid var(--line);background:var(--bg);color:var(--muted);border-radius:8px;padding:7px 4px;cursor:pointer;transition:.12s}
+  .sbtn:hover{border-color:#cfc6b6}
+  .sbtn[data-v=sicher].on{background:var(--ok);color:#fff;border-color:transparent}
+  .sbtn[data-v=lueckenhaft].on{background:var(--gap);color:#fff;border-color:transparent}
+  .sbtn[data-v=gefehlt].on{background:var(--miss);color:#fff;border-color:transparent}
+
+  /* ---- Schnellfragen ---- */
+  .sf-wrap{background:var(--retrieval-t);border:1px solid #BFE0DC;border-radius:13px;padding:18px 20px;margin-top:24px}
+  .sf-wrap h3{font-family:'Fraunces',serif;font-weight:500;font-size:20px;margin-bottom:3px}
+  .sf-wrap .sf-intro{font-size:13.5px;font-style:italic;color:#0c5d57;margin-bottom:14px}
+  .sf{border-bottom:1px solid #cfe4e1;padding:9px 0}
+  .sf:last-child{border-bottom:none}
+  .sf>summary{list-style:none;cursor:pointer;font-size:14.5px;font-weight:600;display:flex;justify-content:space-between;gap:10px;user-select:none}
+  .sf>summary::-webkit-details-marker{display:none}
+  .sf>summary::after{content:"+";color:var(--retrieval);font-weight:800}
+  .sf[open]>summary::after{content:"−"}
+  .sf .sfa{font-size:14px;color:#0c5d57;font-weight:700;padding-top:6px}
+
+  /* ---- content cards (v1) ---- */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:14px;overflow:hidden}
+  .card>summary{list-style:none;cursor:pointer;padding:18px 20px;display:flex;align-items:flex-start;gap:14px;user-select:none}
+  .card>summary::-webkit-details-marker{display:none}
+  .card .ct{flex:1}
+  .card .ctag{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:5px}
+  .card .ctitle{font-family:'Fraunces',serif;font-weight:500;font-size:17px;line-height:1.25}
+  .plus{flex:none;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:18px;line-height:1;transition:transform .2s;margin-top:2px}
+  .card[open] .plus{transform:rotate(45deg)}
+  .card .body{padding:0 20px 20px;border-top:1px solid var(--line);margin-top:-2px;padding-top:16px}
+  .card.grundlagen .ctag{color:var(--grundlagen)} .card.grundlagen .plus{background:var(--grundlagen-t);color:var(--grundlagen)}
+  .card.klinik .ctag{color:var(--klinik)} .card.klinik .plus{background:var(--klinik-t);color:var(--klinik)}
+  .card.diagnostik .ctag{color:var(--diagnostik)} .card.diagnostik .plus{background:var(--diagnostik-t);color:var(--diagnostik)}
+  .card.therapie .ctag{color:var(--therapie)} .card.therapie .plus{background:var(--therapie-t);color:var(--therapie)}
+  .card.fragen .ctag{color:var(--fragen)} .card.fragen .plus{background:var(--fragen-t);color:var(--fragen)}
+  .card.perlen .ctag{color:var(--perlen)} .card.perlen .plus{background:var(--perlen-t);color:var(--perlen)}
+
+  ul.b{list-style:none;padding-left:2px}
+  ul.b>li{position:relative;padding-left:20px;margin-bottom:8px;line-height:1.55}
+  ul.b>li::before{content:"";position:absolute;left:2px;top:9px;width:7px;height:7px;border-radius:50%}
+  .grundlagen ul.b>li::before{background:var(--grundlagen)} .klinik ul.b>li::before{background:var(--klinik)}
+  .diagnostik ul.b>li::before{background:var(--diagnostik)} .therapie ul.b>li::before{background:var(--therapie)}
+  ul.b ul{list-style:none;padding-left:18px;margin-top:7px}
+  ul.b ul>li{position:relative;padding-left:18px;margin-bottom:6px;font-size:15px;color:#4a443c}
+  ul.b ul>li::before{content:"";position:absolute;left:0;top:7px;width:6px;height:6px;transform:rotate(45deg);background:#b9b0a1}
+  strong{font-weight:700;color:var(--ink)}
+
+  .callout{border-radius:11px;padding:13px 16px;margin:14px 0;font-size:14.5px;line-height:1.55;border-left:4px solid}
+  .callout .lab{font-weight:800;font-size:11px;letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .critical{background:var(--grundlagen-t);border-color:var(--grundlagen)} .critical .lab{color:var(--grundlagen)}
+  .warning{background:var(--klinik-t);border-color:var(--klinik)} .warning .lab{color:var(--klinik)}
+  .fact{background:var(--diagnostik-t);border-color:var(--diagnostik)} .fact .lab{color:var(--diagnostik)}
+
+  .dd{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+  .dd th,.dd td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+  .dd th{background:var(--diagnostik-t);font-weight:700;color:var(--diagnostik);font-size:12px}
+  .dd td:first-child{font-weight:600}
+
+  .pk{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:16px}
+  .pk-meta{display:flex;flex-wrap:wrap;gap:6px 0;font-size:11.5px;font-weight:700;color:var(--protokoll);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+  .pk-meta span:not(:last-child)::after{content:"•";margin:0 8px;color:#c3c9d2}
+  .pk-badge{display:inline-block;background:var(--therapie-t);color:var(--therapie);font-size:10.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:2px 9px;border-radius:999px;margin-left:auto}
+  .pk-akte{font-size:14.5px;line-height:1.58;background:var(--protokoll-t);border-radius:9px;padding:12px 14px;margin-bottom:12px}
+  .pk-akte .lab,.pk-q .lab{font-weight:800;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--protokoll);display:block;margin-bottom:5px}
+  .pk-q ul{list-style:none;padding:0}
+  .pk-q li{position:relative;padding-left:18px;margin-bottom:7px;font-size:14.5px;line-height:1.5}
+  .pk-q li::before{content:"–";position:absolute;left:0;color:var(--protokoll);font-weight:700}
+  .pq{border-top:1px solid var(--line);padding:10px 0}
+  .pq-frage{position:relative;padding-left:18px;font-size:14.5px;font-weight:600;line-height:1.5}
+  .pq-frage::before{content:"–";position:absolute;left:0;color:var(--protokoll);font-weight:700}
+  .pq .reveal{margin-top:5px;border-top:none;padding-top:0}
+  .pq .reveal>summary{padding:5px 0 0}
+
+  .pearl{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--perlen);border-radius:12px;padding:16px 18px;margin-bottom:13px}
+  .pearl .ph{font-weight:800;font-size:13px;color:var(--perlen);margin-bottom:7px}
+  .pearl .pt{font-size:15px;line-height:1.55}
+  .pearl .mn{margin-top:9px;background:var(--perlen-t);border-radius:8px;padding:8px 12px;font-size:13.5px;font-style:italic;color:#7a5c08}
+  .pearl .mn b{font-style:normal;font-weight:800}
+
+  footer{margin-top:40px;padding-top:22px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted);line-height:1.6}
+  .back{display:inline-block;font-family:Manrope,system-ui,sans-serif;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);text-decoration:none;margin-bottom:18px}
+  .back:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a href="../../index.html" class="back">← Zurück zur Library</a>
+
+  <header>
+    <div class="eyebrow">Hämatologie · R3 · Kurz + KP-Perlen + Protokolle</div>
+    <h1>Eisenmangel<span class="accent">anämie</span></h1>
+    <div class="subtitle">Das MCV/MCH-Schema, die Ferritin-Konstellation und die Blutungssuche beim Mann (wortgleich mit R2) + KP-Perlen + die echten Mainz-Fragen — zum lauten Üben.</div>
+    <div class="meta">
+      <span>R3 von 5 · Superset von R1 + R2</span>
+      <span>~12–15 Min</span>
+      <span>Stand 06/2026</span>
+      <span>Stex + Mainz-Protokolle (Dr. Hock)</span>
+    </div>
+  </header>
+
+  <div class="tabs">
+    <button class="tab active" data-c="grundlagen" data-tab="grundlagen">Grundlagen</button>
+    <button class="tab" data-c="klinik" data-tab="klinik">Klinik</button>
+    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik</button>
+    <button class="tab" data-c="therapie" data-tab="therapie">Therapie</button>
+    <button class="tab" data-c="perlen" data-tab="perlen">KP-Perlen</button>
+    <button class="tab" data-c="protokoll" data-tab="protokoll">Fragen &amp; Protokolle</button>
+  </div>
+
+  <section class="panel active" data-panel="grundlagen">
+    <p class="panel-intro">Das MCV/MCH-Schema + Ursachen. Erst laut, dann aufklappen.</p>
+    <details class="card grundlagen" open><summary><span class="ct"><span class="ctag">Einteilung</span><span class="ctitle">Anämie-Einteilung nach MCV/MCH</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Merksatz</span><strong>MCV/MCH teilen jede Anämie in drei Schubladen: mikrozytär-hypochrom · normozytär-normochrom · makrozytär-hyperchrom. Eisenmangel = mikrozytär-hypochrom und die häufigste Anämie weltweit.</strong></div>
+        <table class="dd"><tr><th>Typ (MCV/MCH)</th><th>Beispiele</th></tr>
+          <tr><td><strong>mikrozytär, hypochrom</strong> (↓)</td><td>Eisenmangel, Thalassämie, (ACD)</td></tr>
+          <tr><td><strong>normozytär, normochrom</strong> (normal)</td><td>akute Blutung, ACD, hämolytisch, renal</td></tr>
+          <tr><td><strong>makrozytär, hyperchrom</strong> (↑)</td><td>Vitamin-B12-Mangel, Folsäuremangel</td></tr></table>
+        <div class="callout fact"><span class="lab">⚙ Definition</span>Anämie = Hb &lt; 12 g/dl (♀) / &lt; 13 g/dl (♂). Pathophysiologie mikrozytär: zu wenig Hämoglobin pro (normaler Zahl) Erythrozyten.</div>
+      </div>
+    </details>
+    <details class="card grundlagen"><summary><span class="ct"><span class="ctag">Ätiologie</span><span class="ctitle">Woher der Eisenmangel kommt</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Drei Wege: verminderte Aufnahme · Verlust durch Blutung · erhöhter Bedarf. Bei Männern und postmenopausalen Frauen gilt ein Eisenmangel bis zum Beweis des Gegenteils als GI-Blutung (Tumor!).</strong></div>
+        <table class="dd"><tr><th>Mechanismus</th><th>Beispiele</th></tr>
+          <tr><td><strong>Aufnahme ↓</strong></td><td>vegane/vegetarische Ernährung, Malabsorption (Zöliakie, CED)</td></tr>
+          <tr><td><strong>Verlust (Blutung)</strong></td><td>Menstruation/Hypermenorrhö; GI-Blutung (Ulkus, <strong>Kolon-/Magenkarzinom</strong>), häufiges Blutspenden</td></tr>
+          <tr><td><strong>Bedarf ↑</strong></td><td>Schwangerschaft, Stillzeit, Wachstum</td></tr></table>
+        <div class="callout warning"><span class="lab">⚠ Mainz-Logik</span>Chronische Blutung wird oft lange toleriert → Patient kommt spät. Deshalb: jede unklare Eisenmangelanämie → <strong>Tumorsuche</strong>.</div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ KLINIK ============ -->
+  <section class="panel" data-panel="klinik">
+    <p class="panel-intro">Allgemein + eisenmangelspezifisch. Erst laut, dann abgleichen.</p>
+    <details class="card klinik" open><summary><span class="ct"><span class="ctag">Leitsymptome</span><span class="ctitle">Symptome</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Merksatz</span><strong>Allgemeine Anämiezeichen (Blässe, Müdigkeit, Belastungsdyspnoe, Tachykardie) PLUS eisenmangelspezifische Epithelzeichen.</strong></div>
+        <table class="dd"><tr><th>Allgemein (Anämie)</th><th>Eisenmangel-spezifisch</th></tr>
+          <tr><td>Blässe (Haut, Konjunktiven)</td><td>Mundwinkelrhagaden, Aphthen</td></tr>
+          <tr><td>Müdigkeit, Schwindel, Kopfschmerz</td><td>Koilonychie (Hohlnägel), brüchige Nägel</td></tr>
+          <tr><td>Belastungsdyspnoe, Tachykardie</td><td>Haarausfall, Plummer-Vinson-Syndrom</td></tr>
+          <tr><td>Leistungsknick</td><td>Restless-Legs, Konzentrationsstörungen</td></tr></table>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ DIAGNOSTIK ============ -->
+  <section class="panel" data-panel="diagnostik">
+    <p class="panel-intro">Ferritin beweist — dann Blutung suchen. Erst laut, dann abgleichen.</p>
+    <details class="card diagnostik" open><summary><span class="ct"><span class="ctag">Labor</span><span class="ctitle">Die Laborkonstellation</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Ferritin ↓ ist beweisend. Dazu: Transferrinsättigung ↓, Transferrin ↑, Serumeisen ↓, sTfR ↑, Retikulozyten ↓, MCV ↓ / MCH ↓.</strong></div>
+        <table class="dd"><tr><th>Parameter</th><th>Eisenmangel</th></tr>
+          <tr><td><strong>Ferritin</strong> (Speichereisen)</td><td>↓ <strong>beweisend</strong></td></tr>
+          <tr><td><strong>Transferrin</strong> (Transporteisen)</td><td>↑ (Bedarf hoch)</td></tr>
+          <tr><td><strong>Transferrinsättigung</strong></td><td>↓</td></tr>
+          <tr><td><strong>sTfR</strong> (lösl. Rezeptor)</td><td>↑</td></tr>
+          <tr><td><strong>Retikulozyten</strong></td><td>↓</td></tr></table>
+        <div class="callout fact"><span class="lab">⚙ Merke (Ferritin)</span>Ferritin ist ein <strong>Akute-Phase-Protein</strong> → bei Entzündung/Tumor falsch-hoch und kaschiert den Mangel. Dann <strong>sTfR</strong> bestimmen. <strong>Ferritin ↓ unterscheidet Eisenmangel von der ACD (Ferritin ↑).</strong></div>
+      </div>
+    </details>
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Abklärung</span><span class="ctitle">Blutungsquelle suchen</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Bei jeder ungeklärten Eisenmangelanämie Blutverlust abklären: Hämoccult + Endoskopie (Gastroskopie + Koloskopie) zum Tumorausschluss.</strong></div>
+        <ul class="b">
+          <li>Blutausstrich: Anisozytose, Poikilozytose, Anulozyten</li>
+          <li>Gynäkologische Abklärung bei Frauen (Hypermenorrhö)</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ THERAPIE ============ -->
+  <section class="panel" data-panel="therapie">
+    <p class="panel-intro">Orales Fe²⁺ — lang genug. Erst laut, dann abgleichen.</p>
+    <details class="card therapie" open><summary><span class="ct"><span class="ctag">Oral</span><span class="ctitle">Orale Eisensubstitution</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Merksatz</span><strong>1. Wahl: zweiwertiges Eisen (Fe²⁺) oral, nüchtern + Vitamin C (verbessert Resorption). Dreiwertiges Eisen wird oral kaum resorbiert.</strong></div>
+        <ul class="b">
+          <li><strong>Dauer:</strong> Kontrolle nach 1–2 Wochen (Retikulozytenanstieg); nach Hb-Normalisierung noch <strong>3–6 Monate</strong> weiter (Speicher auffüllen)</li>
+          <li><strong>NW:</strong> Übelkeit, Obstipation, Schwarzfärbung des Stuhls</li>
+          <li>+ immer die <strong>Grunderkrankung</strong> behandeln (kausal)</li>
+        </ul>
+      </div>
+    </details>
+    <details class="card therapie"><summary><span class="ct"><span class="ctag">i.v.</span><span class="ctitle">Parenterale Substitution</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Merksatz</span><strong>i.v. = dreiwertiges Eisen (Fe³⁺) — nur bei oraler Unverträglichkeit, Malabsorption, Dialyse oder unzureichender oraler Wirkung.</strong></div>
+        <div class="callout warning"><span class="lab">⚠ NW i.v.</span>Thrombophlebitis, Flush, Hypotonie, Übelkeit, <strong>anaphylaktische Reaktion</strong>.</div>
+        <div class="callout fact"><span class="lab">⚙ Eisenbedarf</span>Bedarf (mg) ≈ Hb-Defizit × 200 + 250 (Speicher). Bsp.: Hb 9 (Soll 12) → 3 × 200 + 250 = 850 mg.</div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ KP-PERLEN ============ -->
+  <section class="panel" data-panel="perlen">
+    <p class="panel-intro">Acht Sätze, die in der Prüfung gewinnen.</p>
+    <div class="pearl"><div class="ph">⭐ Perle 1 · Mikrozytär-hypochrom</div><div class="pt"><strong>Eisenmangel = mikrozytär-hypochrom</strong> (MCV ↓ / MCH ↓) und die häufigste Anämie weltweit (v. a. gebärfähige Frauen).</div><div class="mn"><b>Merke:</b> Kleine blasse Zellen, weltweit Nummer 1</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 2 · Ferritin beweist</div><div class="pt"><strong>Ferritin ↓ ist beweisend</strong> — es spiegelt das Speichereisen. Transferrin ↑, Transferrinsättigung ↓, sTfR ↑.</div><div class="mn"><b>Merke:</b> Leerer Speicher = Ferritin runter</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 3 · Ferritin lügt bei Entzündung</div><div class="pt">Ferritin ist ein <strong>Akute-Phase-Protein</strong> → bei Entzündung/Tumor falsch-hoch, kaschiert den Mangel. Dann <strong>sTfR</strong> bestimmen.</div><div class="mn"><b>Merke:</b> Entzündung lügt beim Ferritin → sTfR</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 4 · Eisenmangel vs. ACD</div><div class="pt"><strong>Ferritin ↓ (Eisenmangel) vs. Ferritin ↑ (ACD).</strong> Das ist die entscheidende Unterscheidung der mikrozytären Anämien.</div><div class="mn"><b>Merke:</b> Leerer Speicher vs. blockierter Speicher</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 5 · Tumor bis zum Beweis</div><div class="pt">Mann oder postmenopausale Frau mit Eisenmangel = <strong>GI-Blutung bis zum Beweis des Gegenteils</strong> → Gastroskopie + Koloskopie, auch ohne sichtbares Blut.</div><div class="mn"><b>Merke:</b> Erst den Darm angucken</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 6 · Fe²⁺ oral + Vitamin C</div><div class="pt"><strong>Zweiwertiges Eisen (Fe²⁺) oral, nüchtern + Vitamin C.</strong> Dreiwertiges Eisen wird oral kaum resorbiert.</div><div class="mn"><b>Merke:</b> Zweiwertig + C, nüchtern</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 7 · Lang genug behandeln</div><div class="pt">Nach Hb-Normalisierung noch <strong>3–6 Monate</strong> weiter substituieren, um die Speicher aufzufüllen.</div><div class="mn"><b>Merke:</b> Hb normal heißt nicht fertig</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 8 · RDW + Ausstrich</div><div class="pt">Früh erhöht: <strong>RDW ↑</strong> (Anisozytose). Im Blutausstrich Anisozytose, Poikilozytose, Anulozyten. RDW ist oft der erste Hinweis.</div><div class="mn"><b>Merke:</b> Bunte Zellgrößen = RDW hoch</div></div>
+
+    <div class="sf-wrap">
+      <h3>Schnellfragen · Rapid-Fire</h3>
+      <div class="sf-intro">Atomare Einzelfakten — Ein-Wort-Abruf, keine Optionen. Laut, sofort, dann aufdecken.</div>
+      <details class="sf"><summary>Eisenmangel — welcher Anämietyp?</summary><div class="sfa">mikrozytär-hypochrom (MCV ↓ / MCH ↓)</div></details>
+      <details class="sf"><summary>Häufigste Anämie weltweit?</summary><div class="sfa">Eisenmangelanämie</div></details>
+      <details class="sf"><summary>Anämie-Grenze Hb?</summary><div class="sfa">&lt; 12 g/dl (♀) · &lt; 13 g/dl (♂)</div></details>
+      <details class="sf"><summary>Beweisender Laborwert?</summary><div class="sfa">Ferritin ↓ (Speichereisen leer)</div></details>
+      <details class="sf"><summary>Ferritin bei Entzündung?</summary><div class="sfa">falsch-hoch (Akute-Phase-Protein) → sTfR bestimmen</div></details>
+      <details class="sf"><summary>Transferrin + Transferrinsättigung?</summary><div class="sfa">Transferrin ↑ · Sättigung ↓</div></details>
+      <details class="sf"><summary>Eisenmangel vs. ACD — ein Wert?</summary><div class="sfa">Ferritin (↓ vs. normal/↑)</div></details>
+      <details class="sf"><summary>Früher Hinweis im Blutbild?</summary><div class="sfa">RDW ↑ (Anisozytose)</div></details>
+      <details class="sf"><summary>Welche Eisenform wird resorbiert?</summary><div class="sfa">zweiwertiges Eisen (Fe²⁺)</div></details>
+      <details class="sf"><summary>Fe³⁺ vor der Resorption — was passiert?</summary><div class="sfa">Reduktion zu Fe²⁺ durch Ferrireduktase (saures Milieu)</div></details>
+      <details class="sf"><summary>Warum Eisenmangel bei Magen-Ca / Gastrektomie?</summary><div class="sfa">fehlende Magensäure → schlechtere Fe-Resorption</div></details>
+      <details class="sf"><summary>Orale Therapie — womit kombinieren?</summary><div class="sfa">nüchtern + Vitamin C</div></details>
+      <details class="sf"><summary>Therapiedauer nach Hb-Normalisierung?</summary><div class="sfa">noch 3–6 Monate (Speicher auffüllen)</div></details>
+      <details class="sf"><summary>i.v.-Eisen — welche Wertigkeit?</summary><div class="sfa">dreiwertiges Eisen (Fe³⁺)</div></details>
+      <details class="sf"><summary>Gefährlichste NW von i.v.-Eisen?</summary><div class="sfa">anaphylaktische Reaktion</div></details>
+      <details class="sf"><summary>Mann mit Eisenmangel — was ausschließen?</summary><div class="sfa">GI-Blutung / Tumor (Gastro- + Koloskopie)</div></details>
+      <details class="sf"><summary>Epithelzeichen des Eisenmangels?</summary><div class="sfa">Mundwinkelrhagaden, Koilonychie, Plummer-Vinson</div></details>
+      <details class="sf"><summary>Hb 4 g/dl — Akutmanagement?</summary><div class="sfa">Erythrozytenkonzentrate transfundieren</div></details>
+    </div>
+  </section>
+
+  <!-- ============ PROTOKOLLE ============ -->
+  <section class="panel" data-panel="protokoll">
+    <p class="panel-intro">Generalprobe an drei dokumentierten Mainz-Sessions. Jede Frage einzeln laut beantworten, dann die Antwort aufdecken.</p>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · dokumentiert</span><span>Innere Medizin · Dr. Hock</span><span class="pk-badge">Bestanden</span></div>
+      <div class="pk-akte"><span class="lab">Fall</span>Patient mit mikrozytär-hypochromer Anämie. Dr. Hock geht die Anämie-Einteilung, die beweisende Laborkonstellation, die Abgrenzung zur ACD und die orale wie intravenöse Therapie durch.</div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">„Erklären Sie die Anämie-Einteilung nach MCV und MCH — wo steht der Eisenmangel?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich teile die Anämien nach MCV und MCH in drei Gruppen ein. Die mikrozytär-hypochrome Gruppe mit erniedrigtem MCV und MCH umfasst den Eisenmangel, die Thalassämie und die Anämie der chronischen Erkrankung. Die normozytär-normochrome Gruppe umfasst die akute Blutung, die renale und die hämolytische Anämie. Die makrozytär-hyperchrome Gruppe entsteht durch einen Vitamin-B12- oder Folsäuremangel. Der Eisenmangel ist dabei mikrozytär-hypochrom und die häufigste Anämie weltweit.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Welche Laborkonstellation beweist einen Eisenmangel?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Beweisend ist ein erniedrigtes Ferritin, weil es das leere Speichereisen widerspiegelt. Dazu passen eine erniedrigte Transferrinsättigung, ein erhöhtes Transferrin als Zeichen des gesteigerten Bedarfs, ein erniedrigtes Serumeisen, ein erhöhter löslicher Transferrinrezeptor sowie erniedrigte Retikulozyten und ein niedriges MCV und MCH.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Wie unterscheiden Sie den Eisenmangel von der Anämie der chronischen Erkrankung?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Der entscheidende Wert ist das Ferritin, denn beim Eisenmangel ist es erniedrigt und bei der Anämie der chronischen Erkrankung normal bis erhöht, weil es ein Akute-Phase-Protein ist. Besteht gleichzeitig eine Entzündung, kann das Ferritin falsch hoch sein und den Mangel verschleiern, dann hilft mir der lösliche Transferrinrezeptor weiter, der beim Eisenmangel erhöht ist. Als dritte mikrozytäre Differentialdiagnose denke ich an die Thalassämie mit normalem oder erhöhtem Ferritin und Hämolysezeichen.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Wie behandeln Sie die Eisenmangelanämie oral?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich gebe zweiwertiges Eisen oral, nüchtern und zusammen mit Vitamin C, weil das die Resorption verbessert und dreiwertiges Eisen oral kaum aufgenommen wird. Nach ein bis zwei Wochen kontrolliere ich den Anstieg der Retikulozyten und des Hämoglobins, und nach der Normalisierung des Hämoglobins substituiere ich noch drei bis sechs Monate weiter, um die Speicher aufzufüllen. Außerdem behandle ich immer die zugrunde liegende Erkrankung kausal.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Wann geben Sie Eisen intravenös, und welche Gefahr besteht?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Intravenös gebe ich dreiwertiges Eisen bei oraler Unverträglichkeit, bei einer Malabsorption, bei Dialysepatienten oder wenn die orale Gabe nicht ausreichend wirkt. Die wichtigste Gefahr ist die anaphylaktische Reaktion, daneben können ein Flush, eine Hypotonie und eine Thrombophlebitis auftreten.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · dokumentierter Fall</span><span>Innere Medizin</span><span class="pk-badge">RDW 23</span></div>
+      <div class="pk-akte"><span class="lab">Fall</span>60-jähriger, beschwerdefreier Mann mit einer mikrozytären Anämie und einem RDW von 23. Gefragt wird nach der weiteren Diagnostik und dem Vorgehen.</div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">„Wie gehen Sie bei diesem Patienten weiter vor?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Zuerst sichere ich den Eisenmangel mit dem Eisenstatus, also einem erniedrigten Ferritin, einer erniedrigten Transferrinsättigung und einem erhöhten löslichen Transferrinrezeptor. Anschließend suche ich die Blutungsquelle mit der digital-rektalen Untersuchung, dem Hämoccult-Test sowie einer Gastroskopie und einer Koloskopie mit histologischer Abklärung, auch wenn der Patient kein Blut im Stuhl bemerkt hat. Bei einem Mann oder einer postmenopausalen Frau gilt ein Eisenmangel bis zum Beweis des Gegenteils als gastrointestinale Blutung, hinter der ein Tumor stecken kann.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · weitere dokumentierte Fragen</span><span>2024–2026</span><span class="pk-badge">Protokoll</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">„Warum fällt bei einer akuten Blutung der Hämoglobinwert zunächst nicht ab?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Bei einer akuten Blutung verliert der Patient Vollblut, also Erythrozyten und Plasma im gleichen Verhältnis, sodass die Hämoglobin-Konzentration zunächst normal bleibt. Erst wenn Flüssigkeit aus dem Gewebe in die Gefäße einströmt und das Blut verdünnt, sinkt der gemessene Hämoglobinwert. Hält der Blutverlust chronisch an, entsteht durch den Eisenverlust eine mikrozytär-hypochrome Anämie.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Welche Eisenform wird im Darm resorbiert, und was muss mit dreiwertigem Eisen zuvor geschehen?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Resorbiert wird das zweiwertige Eisen. Dreiwertiges Eisen muss vorher an der Darmschleimhaut durch eine Ferrireduktase zu zweiwertigem Eisen reduziert werden, und dafür ist ein saures Milieu im Magen wichtig.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Warum kann ein Magenkarzinom einen Eisenmangel verursachen?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Beim Magenkarzinom oder nach einer Magenentfernung fehlt die Magensäure, weil die salzsäurebildenden Belegzellen wegfallen. Ohne das saure Milieu wird das dreiwertige Eisen schlechter zu zweiwertigem reduziert und gelöst, sodass die Eisenresorption abnimmt und mit der Zeit ein Eisenmangel entsteht.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Wo tritt die Eisenmangelanämie am häufigsten auf, und warum?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Die Eisenmangelanämie ist die häufigste Anämie überhaupt und tritt in Entwicklungsländern besonders häufig auf. Die Gründe sind eine eisenarme Ernährung, chronische Blutverluste durch Wurmerkrankungen und der hohe Bedarf durch häufige Schwangerschaften. Weltweit sind vor allem Frauen im gebärfähigen Alter betroffen.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Ein Patient hat einen Hämoglobinwert von 4 g/dl — was ist Ihr Akutmanagement?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Bei einem Hämoglobin von 4 g/dl ist der Patient hochgradig anämisch, deshalb transfundiere ich Erythrozytenkonzentrate. Als Faustregel gebe ich zunächst zwei Erythrozytenkonzentrate und kontrolliere danach den Hämoglobinwert, und parallel suche und behandle ich die Blutungsquelle.</div></details></div>
+    </div>
+  </section>
+
+  <footer>
+    R3 · Eisenmangelanämie · Fragen &amp; Protokolle. Vier Kernstationen (wortgleich mit R2) + KP-Perlen mit Rapid-Fire + die echten dokumentierten Mainz-Fragen.
+  </footer>
+
+</div>
+<script>
+  const tabs = [...document.querySelectorAll('.tab')];
+  const panels = [...document.querySelectorAll('.panel')];
+  function showTab(name){
+    tabs.forEach(x=>x.classList.toggle('active', x.dataset.tab===name));
+    panels.forEach(p=>p.classList.toggle('active', p.dataset.panel===name));
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  tabs.forEach(t=>t.addEventListener('click',()=>showTab(t.dataset.tab)));
+</script>
+  <script src="/sync.js" defer></script>
+</body>
+</html>
