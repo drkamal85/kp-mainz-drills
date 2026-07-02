@@ -1,0 +1,10 @@
+{
+  // Static-assets Worker that serves the KP-Mainz Drills site (repo root).
+  // Manual deploy (bypasses Workers Builds queue):  npx wrangler deploy
+  // Having this file committed stops Cloudflare's autoconfig bot from
+  // re-adding config on every push (which was doubling build usage).
+  "name": "kp-mainz-drills",
+  "account_id": "a4c8eae3c828dffbf695b6860fa6cabc",
+  "compatibility_date": "2025-06-01",
+  "assets": { "directory": "./" }
+}
