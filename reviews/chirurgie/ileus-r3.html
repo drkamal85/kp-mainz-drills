@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ileus · R3 · Klinischer Durchlauf</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F7F4EE; --card:#FFFDF8; --ink:#2A2724; --muted:#6B6358; --line:#E7E0D4;
+    --grundlagen:#C0392B; --grundlagen-t:#F7E9E6;
+    --klinik:#D97706;     --klinik-t:#FBEEDD;
+    --diagnostik:#1E5F9E; --diagnostik-t:#E4EDF6;
+    --therapie:#2D7A3E;   --therapie-t:#E5F0E7;
+    --fragen:#7B3F9E;     --fragen-t:#F0E8F6;
+    --perlen:#B8860B;     --perlen-t:#F8F0D9;
+    --retrieval:#0F766E;  --retrieval-t:#E0F0EE;
+    --protokoll:#334155;  --protokoll-t:#E8EBF0;
+    --ok:#2D7A3E; --gap:#D97706; --miss:#C0392B;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:'Manrope',system-ui,sans-serif;
+    font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased;padding:0 18px 80px}
+  .wrap{max-width:860px;margin:0 auto}
+
+  header{padding:54px 0 22px}
+  .eyebrow{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--retrieval);margin-bottom:16px}
+  h1{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(34px,7vw,52px);line-height:1.04;letter-spacing:-.01em}
+  h1 .accent{font-style:italic;color:var(--grundlagen)}
+  .subtitle{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(17px,2.6vw,20px);color:var(--muted);margin-top:14px}
+  .meta{display:flex;flex-wrap:wrap;gap:6px 0;margin-top:20px;font-size:13px;color:var(--muted);font-weight:500}
+  .meta span:not(:last-child)::after{content:"•";margin:0 10px;color:var(--line);font-weight:700}
+
+
+  .tabs{display:flex;flex-wrap:wrap;gap:8px;position:sticky;top:0;z-index:30;background:linear-gradient(var(--bg) 72%,rgba(247,244,238,0));padding:12px 0 14px;margin-bottom:6px}
+  .tab{position:relative;font-size:13px;font-weight:600;border:1px solid var(--line);background:var(--card);color:var(--muted);padding:8px 15px;border-radius:999px;cursor:pointer;transition:all .15s;white-space:nowrap}
+  .tab:hover{border-color:#cfc6b6}
+  .tab.active{color:#fff;border-color:transparent}
+  .tab[data-c=retrieval].active{background:var(--retrieval)}
+  .tab[data-c=grundlagen].active{background:var(--grundlagen)}
+  .tab[data-c=klinik].active{background:var(--klinik)}
+  .tab[data-c=diagnostik].active{background:var(--diagnostik)}
+  .tab[data-c=therapie].active{background:var(--therapie)}
+  .tab[data-c=fragen].active{background:var(--fragen)}
+  .tab[data-c=perlen].active{background:var(--perlen)}
+  .tab[data-c=protokoll].active{background:var(--protokoll)}
+  .tab .badge{display:none;margin-left:7px;font-size:10px;font-weight:800;padding:1px 6px;border-radius:999px;vertical-align:middle}
+  .tab.flag-gap .badge{display:inline-block;background:var(--gap);color:#fff}
+  .tab.flag-ok .badge{display:inline-block;background:var(--ok);color:#fff}
+  .tab.active .badge{background:rgba(255,255,255,.28)!important;color:#fff}
+
+  .panel{display:none;animation:fade .25s ease}
+  .panel.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+  .panel-intro{font-family:'Fraunces',serif;font-style:italic;font-size:17px;color:var(--muted);margin:6px 0 18px;line-height:1.5}
+
+  /* ---- control bar (Pass 1 instrument) ---- */
+  .ctrl{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:14px 16px;margin-bottom:20px}
+  .ctrl-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+  .tally{font-size:13px;font-weight:700;display:flex;gap:12px;flex-wrap:wrap}
+  .tally i{font-style:normal;display:inline-flex;align-items:center;gap:5px}
+  .tally i::before{content:"";width:9px;height:9px;border-radius:50%}
+  .tally .t-ok::before{background:var(--ok)} .tally .t-gap::before{background:var(--gap)} .tally .t-miss::before{background:var(--miss)}
+  .spacer{flex:1 1 auto}
+  .btn{font-family:'Manrope';font-size:12.5px;font-weight:700;border:none;border-radius:999px;padding:9px 16px;cursor:pointer;transition:.15s}
+  .btn-primary{background:var(--retrieval);color:#fff}
+  .btn-primary:hover{filter:brightness(1.06)}
+  .btn-ghost{background:transparent;color:var(--muted);border:1px solid var(--line)}
+  .btn-ghost:hover{border-color:#cfc6b6}
+  .ctrl-status{margin-top:11px;font-size:13px;font-style:italic;color:var(--retrieval);min-height:18px}
+
+  /* ---- retrieval prompt ---- */
+  .rt{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:14px;transition:border-color .2s}
+  .rt[data-score=sicher]{border-left-color:var(--ok)}
+  .rt[data-score=lueckenhaft]{border-left-color:var(--gap)}
+  .rt[data-score=gefehlt]{border-left-color:var(--miss)}
+  .rt-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:8px}
+  .rt-n{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--retrieval)}
+  .rt-right{display:flex;align-items:center;gap:10px;white-space:nowrap}
+  .rt-ptr{font-size:11px;font-weight:600;color:var(--muted)}
+  .rt-q{font-size:15.5px;line-height:1.55}
+  .reveal{margin-top:12px;border-top:1px dashed var(--line);padding-top:0}
+  .reveal>summary{list-style:none;cursor:pointer;font-size:12.5px;font-weight:800;letter-spacing:.04em;color:var(--retrieval);padding:11px 0 0;user-select:none;display:inline-flex;align-items:center;gap:6px}
+  .reveal>summary::-webkit-details-marker{display:none}
+  .reveal>summary::before{content:"▸";transition:transform .2s;display:inline-block}
+  .reveal[open]>summary::before{transform:rotate(90deg)}
+  .reveal .ans{font-size:14.5px;line-height:1.6;color:#3c372f;padding-top:10px}
+  .reveal .ans b{color:var(--ink)}
+  .reveal .ans ul{list-style:none;padding-left:2px;margin:2px 0 0}
+  .reveal .ans li{position:relative;padding-left:18px;margin-bottom:8px;line-height:1.5}
+  .reveal .ans>ul>li::before{content:"";position:absolute;left:2px;top:8px;width:6px;height:6px;border-radius:50%;background:var(--retrieval)}
+  .reveal .ans li ul{margin:7px 0 2px}
+  .reveal .ans li li{padding-left:16px;margin-bottom:5px;font-size:13.8px;color:#4a443c}
+  .reveal .ans li li::before{content:"";position:absolute;left:0;top:7px;width:5px;height:5px;transform:rotate(45deg);background:#b9b0a1}
+  .score{display:flex;gap:7px;margin-top:12px;padding-top:11px;border-top:1px solid var(--line)}
+  .sbtn{flex:1;font-size:12px;font-weight:700;border:1px solid var(--line);background:var(--bg);color:var(--muted);border-radius:8px;padding:7px 4px;cursor:pointer;transition:.12s}
+  .sbtn:hover{border-color:#cfc6b6}
+  .sbtn[data-v=sicher].on{background:var(--ok);color:#fff;border-color:transparent}
+  .sbtn[data-v=lueckenhaft].on{background:var(--gap);color:#fff;border-color:transparent}
+  .sbtn[data-v=gefehlt].on{background:var(--miss);color:#fff;border-color:transparent}
+
+  /* ---- Schnellfragen ---- */
+  .sf-wrap{background:var(--retrieval-t);border:1px solid #BFE0DC;border-radius:13px;padding:18px 20px;margin-top:24px}
+  .sf-wrap h3{font-family:'Fraunces',serif;font-weight:500;font-size:20px;margin-bottom:3px}
+  .sf-wrap .sf-intro{font-size:13.5px;font-style:italic;color:#0c5d57;margin-bottom:14px}
+  .sf{border-bottom:1px solid #cfe4e1;padding:9px 0}
+  .sf:last-child{border-bottom:none}
+  .sf>summary{list-style:none;cursor:pointer;font-size:14.5px;font-weight:600;display:flex;justify-content:space-between;gap:10px;user-select:none}
+  .sf>summary::-webkit-details-marker{display:none}
+  .sf>summary::after{content:"+";color:var(--retrieval);font-weight:800}
+  .sf[open]>summary::after{content:"−"}
+  .sf .sfa{font-size:14px;color:#0c5d57;font-weight:700;padding-top:6px}
+
+  /* ---- content cards (v1) ---- */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:14px;overflow:hidden}
+  .card>summary{list-style:none;cursor:pointer;padding:18px 20px;display:flex;align-items:flex-start;gap:14px;user-select:none}
+  .card>summary::-webkit-details-marker{display:none}
+  .card .ct{flex:1}
+  .card .ctag{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:5px}
+  .card .ctitle{font-family:'Fraunces',serif;font-weight:500;font-size:17px;line-height:1.25}
+  .plus{flex:none;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:18px;line-height:1;transition:transform .2s;margin-top:2px}
+  .card[open] .plus{transform:rotate(45deg)}
+  .card .body{padding:0 20px 20px;border-top:1px solid var(--line);margin-top:-2px;padding-top:16px}
+  .card.grundlagen .ctag{color:var(--grundlagen)} .card.grundlagen .plus{background:var(--grundlagen-t);color:var(--grundlagen)}
+  .card.klinik .ctag{color:var(--klinik)} .card.klinik .plus{background:var(--klinik-t);color:var(--klinik)}
+  .card.diagnostik .ctag{color:var(--diagnostik)} .card.diagnostik .plus{background:var(--diagnostik-t);color:var(--diagnostik)}
+  .card.therapie .ctag{color:var(--therapie)} .card.therapie .plus{background:var(--therapie-t);color:var(--therapie)}
+  .card.fragen .ctag{color:var(--fragen)} .card.fragen .plus{background:var(--fragen-t);color:var(--fragen)}
+  .card.perlen .ctag{color:var(--perlen)} .card.perlen .plus{background:var(--perlen-t);color:var(--perlen)}
+
+  ul.b{list-style:none;padding-left:2px}
+  ul.b>li{position:relative;padding-left:20px;margin-bottom:8px;line-height:1.55}
+  ul.b>li::before{content:"";position:absolute;left:2px;top:9px;width:7px;height:7px;border-radius:50%}
+  .grundlagen ul.b>li::before{background:var(--grundlagen)} .klinik ul.b>li::before{background:var(--klinik)}
+  .diagnostik ul.b>li::before{background:var(--diagnostik)} .therapie ul.b>li::before{background:var(--therapie)}
+  ul.b ul{list-style:none;padding-left:18px;margin-top:7px}
+  ul.b ul>li{position:relative;padding-left:18px;margin-bottom:6px;font-size:15px;color:#4a443c}
+  ul.b ul>li::before{content:"";position:absolute;left:0;top:7px;width:6px;height:6px;transform:rotate(45deg);background:#b9b0a1}
+  strong{font-weight:700;color:var(--ink)}
+
+  .callout{border-radius:11px;padding:13px 16px;margin:14px 0;font-size:14.5px;line-height:1.55;border-left:4px solid}
+  .callout .lab{font-weight:800;font-size:11px;letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .critical{background:var(--grundlagen-t);border-color:var(--grundlagen)} .critical .lab{color:var(--grundlagen)}
+  .warning{background:var(--klinik-t);border-color:var(--klinik)} .warning .lab{color:var(--klinik)}
+  .fact{background:var(--diagnostik-t);border-color:var(--diagnostik)} .fact .lab{color:var(--diagnostik)}
+
+  .dd{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+  .dd th,.dd td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+  .dd th{background:var(--diagnostik-t);font-weight:700;color:var(--diagnostik);font-size:12px}
+  .dd td:first-child{font-weight:600}
+
+  .pk{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:16px}
+  .pk-meta{display:flex;flex-wrap:wrap;gap:6px 0;font-size:11.5px;font-weight:700;color:var(--protokoll);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+  .pk-meta span:not(:last-child)::after{content:"•";margin:0 8px;color:#c3c9d2}
+  .pk-badge{display:inline-block;background:var(--therapie-t);color:var(--therapie);font-size:10.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:2px 9px;border-radius:999px;margin-left:auto}
+  .pk-akte{font-size:14.5px;line-height:1.58;background:var(--protokoll-t);border-radius:9px;padding:12px 14px;margin-bottom:12px}
+  .pk-akte .lab,.pk-q .lab{font-weight:800;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--protokoll);display:block;margin-bottom:5px}
+  .pk-q ul{list-style:none;padding:0}
+  .pk-q li{position:relative;padding-left:18px;margin-bottom:7px;font-size:14.5px;line-height:1.5}
+  .pk-q li::before{content:"–";position:absolute;left:0;color:var(--protokoll);font-weight:700}
+  .pq{border-top:1px solid var(--line);padding:10px 0}
+  .pq-frage{position:relative;padding-left:18px;font-size:14.5px;font-weight:600;line-height:1.5}
+  .pq-frage::before{content:"–";position:absolute;left:0;color:var(--protokoll);font-weight:700}
+  .pq .reveal{margin-top:5px;border-top:none;padding-top:0}
+  .pq .reveal>summary{padding:5px 0 0}
+
+  .pearl{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--perlen);border-radius:12px;padding:16px 18px;margin-bottom:13px}
+  .pearl .ph{font-weight:800;font-size:13px;color:var(--perlen);margin-bottom:7px}
+  .pearl .pt{font-size:15px;line-height:1.55}
+  .pearl .mn{margin-top:9px;background:var(--perlen-t);border-radius:8px;padding:8px 12px;font-size:13.5px;font-style:italic;color:#7a5c08}
+  .pearl .mn b{font-style:normal;font-weight:800}
+
+  footer{margin-top:40px;padding-top:22px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted);line-height:1.6}
+  .back{display:inline-block;font-family:Manrope,system-ui,sans-serif;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);text-decoration:none;margin-bottom:18px}
+  .back:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a href="../../index.html" class="back">← Zurück zur Library</a>
+
+  <header>
+    <div class="eyebrow">Allgemein- und Viszeralchirurgie · R3 · Kurz + KP-Perlen + Protokolle</div>
+    <h1><span class="accent">Ileus</span></h1>
+    <div class="subtitle">Mechanisch vs. paralytisch, die Auskultation als Schlüssel und die Prokinetika-Falle (wortgleich mit R2) + KP-Perlen + die echten Mainz-Fragen — zum lauten Üben.</div>
+    <div class="meta">
+      <span>R3 von 5 · Superset von R2</span>
+      <span>~12–15 Min</span>
+      <span>Stand 06/2026</span>
+      <span>Stex + Mainz-Protokolle (Kridorf, Fischer)</span>
+    </div>
+  </header>
+
+  <div class="tabs">
+    <button class="tab active" data-c="grundlagen" data-tab="grundlagen">Grundlagen</button>
+    <button class="tab" data-c="klinik" data-tab="klinik">Klinik</button>
+    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik</button>
+    <button class="tab" data-c="therapie" data-tab="therapie">Therapie</button>
+    <button class="tab" data-c="perlen" data-tab="perlen">KP-Perlen</button>
+    <button class="tab" data-c="protokoll" data-tab="protokoll">Fragen &amp; Protokolle</button>
+  </div>
+
+  <section class="panel active" data-panel="grundlagen">
+    <p class="panel-intro">Mechanisch vs. paralytisch + Ursachen. Erst laut, dann aufklappen.</p>
+    <details class="card grundlagen" open><summary><span class="ct"><span class="ctag">Definition</span><span class="ctitle">Zwei Grundtypen</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">▲ Schlüsselsatz</span><strong>Jeder mechanische Ileus geht am Ende in einen paralytischen über.</strong> Darmwand-Distension → Ischämie → Lähmung. Daher ist Zeit entscheidend.</div>
+        <table class="dd"><tr><th>Typ</th><th>Mechanismus</th></tr>
+          <tr><td><strong>Mechanisch</strong></td><td>Darmpassagestörung durch ein echtes Hindernis</td></tr>
+          <tr><td><strong>Paralytisch</strong></td><td>Darmpassagestörung durch eine Motilitätsstörung (Lähmung)</td></tr></table>
+        <ul class="b">
+          <li>Ausprägung: kompletter Ileus vs. <strong>Subileus</strong> (inkomplett)</li>
+          <li>Lokalisation: hoher (Dünndarm) vs. tiefer (Dickdarm) Ileus</li>
+        </ul>
+      </div>
+    </details>
+    <details class="card grundlagen"><summary><span class="ct"><span class="ctag">Ätiologie</span><span class="ctitle">Ursachen — nach Häufigkeit</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">⚙ Merksatz</span><strong>Dünndarmileus → meist Briden. Dickdarmileus → meist Kolonkarzinom.</strong> Die zwei häufigsten Ursachen nach Etage.</div>
+        <table class="dd"><tr><th>Mechanisch</th><th>Beispiele</th></tr>
+          <tr><td><strong>Dünndarm (80 %)</strong></td><td>Verwachsungen/Briden (65 %), Hernien (15 %)</td></tr>
+          <tr><td><strong>Dickdarm (20 %)</strong></td><td>stenosierendes Kolonkarzinom (70 %), entzündlich (10 %)</td></tr>
+          <tr><td><strong>Strangulation</strong></td><td>inkarzerierte Hernie, Volvulus, Invagination</td></tr>
+          <tr><td><strong>Lumen</strong></td><td>Kotstein, Gallenstein (Gallensteinileus via Fistel), Fremdkörper</td></tr></table>
+        <table class="dd"><tr><th>Paralytisch</th><th>Beispiele</th></tr>
+          <tr><td><strong>Reflektorisch</strong></td><td>postoperativ, Peritonitis, Trauma, retroperitoneales Hämatom</td></tr>
+          <tr><td><strong>Metabolisch</strong></td><td>Hypokaliämie, Hyperkalzämie, Urämie, Diabetes/Ketoazidose</td></tr>
+          <tr><td><strong>Medikamentös</strong></td><td>Opioide, Anticholinergika, Neuroleptika</td></tr>
+          <tr><td><strong>Vaskulär</strong></td><td>Mesenterialinfarkt</td></tr></table>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ KLINIK ============ -->
+  <section class="panel" data-panel="klinik">
+    <p class="panel-intro">Auskultation trennt die Typen. Erst laut, dann abgleichen.</p>
+    <details class="card klinik" open><summary><span class="ct"><span class="ctag">Leitsymptome</span><span class="ctitle">Was unterscheidet mechanisch von paralytisch?</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout warning"><span class="lab">⚠ Auskultation — die Kernunterscheidung</span><strong>Mechanisch:</strong> hochgestellte, metallisch klingende, gesteigerte Darmgeräusche (anfangs). <strong>Paralytisch:</strong> fehlende Darmgeräusche über 3 Minuten — die „Totenstille".</div>
+        <table class="dd"><tr><th></th><th>Symptome</th></tr>
+          <tr><td><strong>Mechanisch</strong></td><td>kolikartige Bauchschmerzen</td></tr>
+          <tr><td><strong>Paralytisch</strong></td><td>kaum Schmerzen, eher dumpfes Druckgefühl</td></tr>
+          <tr><td><strong>Beide</strong></td><td>Übelkeit, Erbrechen, Miserere (Koterbrechen, Spätzeichen), Wind- und Stuhlverhalt, Meteorismus</td></tr></table>
+        <table class="dd"><tr><th></th><th>Verlauf</th></tr>
+          <tr><td><strong>Hoher (Dünndarm-)Ileus</strong></td><td>frühes schwallartiges Erbrechen, wenig Distension</td></tr>
+          <tr><td><strong>Tiefer (Dickdarm-)Ileus</strong></td><td>späte Symptome, starke Auftreibung, früher Windverhalt, Miserere spät</td></tr></table>
+      </div>
+    </details>
+    <details class="card klinik"><summary><span class="ct"><span class="ctag">Untersuchung</span><span class="ctitle">Inspektion → Auskultation → Perkussion → Palpation → DRU</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <table class="dd"><tr><th>Schritt</th><th>Befund</th></tr>
+          <tr><td><strong>Inspektion</strong></td><td>OP-Narben, sichtbare Hernien, geblähtes Abdomen</td></tr>
+          <tr><td><strong>Auskultation</strong></td><td>klingend (mechanisch) vs. Totenstille (paralytisch)</td></tr>
+          <tr><td><strong>Perkussion</strong></td><td>tympanitischer Klopfschall (Meteorismus)</td></tr>
+          <tr><td><strong>Palpation</strong></td><td>gebläht, ggf. Druckschmerz/Abwehrspannung (Peritonismus)</td></tr>
+          <tr><td><strong>DRU</strong></td><td>Ampulle leer, oft schmerzhaft; tastbares Rektumkarzinom? Blut am Fingerling?</td></tr></table>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ DIAGNOSTIK ============ -->
+  <section class="panel" data-panel="diagnostik">
+    <p class="panel-intro">Röntgen, Sono, CT als Goldstandard. Erst laut, dann abgleichen.</p>
+    <details class="card diagnostik" open><summary><span class="ct"><span class="ctag">Labor</span><span class="ctitle">Was bestelle ich?</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">▲ Merke</span><strong>Laktat ↑ ist das Alarmsignal für Darmischämie/Strangulation</strong> — dringliche OP-Indikation, nicht zuwarten.</div>
+        <ul class="b">
+          <li><strong>Elektrolyte:</strong> K⁺ (Hypokaliämie als Ursache/Folge), Ca²⁺</li>
+          <li>Entzündung: Leukos, CRP, PCT · Retention: Kreatinin · Gerinnung</li>
+          <li><strong>BGA:</strong> metabolische Azidose = schwere Erkrankung</li>
+          <li>Blutkulturen vor kalkulierter Antibiose</li>
+        </ul>
+      </div>
+    </details>
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Bildgebung</span><span class="ctitle">Sono → Röntgen → CT</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">⚙ Merksatz</span><strong>CT-Abdomen mit KM ist der Goldstandard</strong> beim mechanischen Ileus — zeigt den Kalibersprung und lokalisiert das Hindernis.</div>
+        <table class="dd"><tr><th>Modalität</th><th>Befund</th></tr>
+          <tr><td><strong>Sono-Abdomen</strong></td><td>erweiterte, flüssigkeitsgefüllte Darmschlingen, verdickte Wand; Pendelperistaltik (mechanisch) vs. fehlende Peristaltik (paralytisch); Klaviertasten-/Strickleiterphänomen (Kerckring-Falten)</td></tr>
+          <tr><td><strong>Röntgen (stehend/Linksseitenlage)</strong></td><td>stehende Darmschlingen mit Spiegelbildung; zentrale Spiegel → Dünndarm, Spiegel im Kolonrahmen → Dickdarm; freie Luft → Perforation</td></tr>
+          <tr><td><strong>CT-Abdomen mit KM</strong></td><td>Kalibersprung lokalisiert das Hindernis; zeigt Perforation, Strangulation, Peritonealkarzinose, Ischämie</td></tr></table>
+        <div class="callout fact"><span class="lab">⚙ Gastrografin-Passage</span>Wasserlösliches KM oral/rektal. Diagnostisch: KM-Abbruch spricht für mechanisch. Therapeutisch stark abführend — <strong>NICHT bei komplettem mechanischem Verschluss.</strong></div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ THERAPIE ============ -->
+  <section class="panel" data-panel="therapie">
+    <p class="panel-intro">Basistherapie immer — dann je nach Typ. Erst laut, dann abgleichen.</p>
+    <details class="card therapie" open><summary><span class="ct"><span class="ctag">Basis</span><span class="ctitle">Bei jedem Ileus gleich</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">▲ Kontraindikation — Mainz-Klassiker</span><strong>Prokinetika sind beim mechanischen Ileus kontraindiziert</strong> → Symptomverstärkung, Perforationsgefahr. Opioide vermeiden, keine orale Medikation.</div>
+        <ul class="b">
+          <li><strong>Nahrungs- und Flüssigkeitskarenz</strong></li>
+          <li><strong>Magensonde</strong> — Darmentlastung + Aspirationsschutz</li>
+          <li>Volumengabe i.v. (kristalloid), <strong>Elektrolytausgleich (v. a. K⁺)</strong></li>
+          <li>Analgesie: <strong>Metamizol</strong> i.v. — bevorzugt Nicht-Opioid</li>
+          <li>Thromboseprophylaxe, Antibiose bei Entzündungszeichen</li>
+        </ul>
+      </div>
+    </details>
+    <details class="card therapie"><summary><span class="ct"><span class="ctag">Mechanisch</span><span class="ctitle">Meist OP</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b">
+        <li>Bei komplettem Verschluss / Strangulation / Peritonitis: <strong>Notfall-Laparotomie (auch laparoskopisch möglich)</strong></li>
+        <li>Je nach Ursache: <strong>Adhäsiolyse/Bridenlösung</strong>, Hernienreposition, Darmteilresektion bei Tumor</li>
+        <li>Falls Passage nicht wiederherstellbar oder Peritonitis → <strong>Stoma-Anlage</strong></li>
+        <li>Dickdarmileus bei Kolon-Ca: rechts → Hemikolektomie rechts; links → <strong>Hartmann-OP</strong> wenn keine Primäranastomose möglich</li>
+      </ul></div>
+    </details>
+    <details class="card therapie"><summary><span class="ct"><span class="ctag">Paralytisch</span><span class="ctitle">Kausal + Prokinetika</span></span><span class="plus">+</span></summary>
+      <div class="body"><ul class="b">
+        <li><strong>Kausale Therapie:</strong> Hypokaliämie ausgleichen, Opioide absetzen, Auslöser behandeln</li>
+        <li><strong>Prokinetika:</strong> Neostigmin (AChE-Hemmer), MCP, Erythromycin i.v.</li>
+        <li>Magensonde, Klysma/Mikroklysma zur Entlastung</li>
+      </ul></div>
+    </details>
+  </section>
+
+  <!-- ============ KP-PERLEN ============ -->
+  <section class="panel" data-panel="perlen">
+    <p class="panel-intro">Acht Sätze, die punkten.</p>
+    <div class="pearl"><div class="ph">⭐ Perle 1 · Auskultation trennt</div><div class="pt"><strong>Klingend/metallisch = mechanisch · Totenstille = paralytisch.</strong> Das ist die schnellste klinische Unterscheidung.</div><div class="mn"><b>Merke:</b> Klingelt's = mechanisch, Stille = Lähmung</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 2 · Prokinetika-Falle</div><div class="pt"><strong>Beim mechanischen Ileus sind Prokinetika kontraindiziert.</strong> Die häufigste Fangfrage — niemals „MCP geben" beim Hindernis.</div><div class="mn"><b>Merke:</b> Gegen die Wand schieben macht es schlimmer</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 3 · Spiegel-Lokalisation</div><div class="pt"><strong>Zentrale Spiegel = Dünndarm, Spiegel im Kolonrahmen = Dickdarm.</strong> Freie Luft = Perforation.</div><div class="mn"><b>Merke:</b> Mitte = dünn, Rand = dick</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 4 · CT ist Goldstandard</div><div class="pt"><strong>CT-Abdomen mit KM</strong> ist der Goldstandard beim mechanischen Ileus — zeigt den Kalibersprung und das Hindernis.</div><div class="mn"><b>Merke:</b> Röntgen sieht's, CT lokalisiert's</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 5 · Briden + Tumor</div><div class="pt"><strong>Dünndarmileus → meist Briden/Verwachsungen. Dickdarmileus → meist Kolonkarzinom.</strong> Die zwei häufigsten Ursachen nach Etage.</div><div class="mn"><b>Merke:</b> Oben verklebt, unten Tumor</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 6 · Laktat = Ischämie</div><div class="pt"><strong>Laktat ↑ = Alarmsignal für Darmischämie/Strangulation.</strong> Dringliche OP-Indikation, nicht zuwarten.</div><div class="mn"><b>Merke:</b> Laktat hoch = Darm in Not</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 7 · Übergang</div><div class="pt"><strong>Jeder mechanische Ileus endet paralytisch.</strong> Distension → Ischämie → Lähmung. Deshalb ist Zeit kritisch.</div><div class="mn"><b>Merke:</b> Erst Stau, dann Stillstand</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 8 · Hartmann-OP</div><div class="pt">Bei linksseitigem Dickdarmileus mit Peritonitis: <strong>Hartmann-OP</strong> — Resektion + endständiges Kolostoma, keine Primäranastomose.</div><div class="mn"><b>Merke:</b> Keine Naht im entzündeten Feld</div></div>
+
+    <div class="sf-wrap">
+      <h3>Schnellfragen · Rapid-Fire</h3>
+      <div class="sf-intro">Atomare Einzelfakten — Ein-Wort-Abruf, keine Optionen. Laut, sofort, dann aufdecken.</div>
+      <details class="sf"><summary>Häufigste Ursache Dünndarmileus?</summary><div class="sfa">Briden/Verwachsungen</div></details>
+      <details class="sf"><summary>Häufigste Ursache Dickdarmileus?</summary><div class="sfa">stenosierendes Kolonkarzinom</div></details>
+      <details class="sf"><summary>Auskultation mechanisch?</summary><div class="sfa">hochgestellte, klingende Darmgeräusche</div></details>
+      <details class="sf"><summary>Auskultation paralytisch?</summary><div class="sfa">Totenstille (keine DG &gt; 3 min)</div></details>
+      <details class="sf"><summary>Gallensteinileus — wie gelangt der Stein ins Ileum?</summary><div class="sfa">über eine biliodigestive Fistel</div></details>
+      <details class="sf"><summary>Bildgebung-Goldstandard mechanischer Ileus?</summary><div class="sfa">CT-Abdomen mit Kontrastmittel</div></details>
+      <details class="sf"><summary>Zentrale Röntgen-Spiegel — welcher Darm?</summary><div class="sfa">Dünndarm</div></details>
+      <details class="sf"><summary>Sono-Zeichen mechanisch?</summary><div class="sfa">Pendelperistaltik</div></details>
+      <details class="sf"><summary>Kontraindizierte Medikamentenklasse bei mechanischem Ileus?</summary><div class="sfa">Prokinetika</div></details>
+      <details class="sf"><summary>Metabolische Ursachen paralytischer Ileus?</summary><div class="sfa">Hypokaliämie, Hyperkalzämie, Urämie, Diabetes/Ketoazidose</div></details>
+      <details class="sf"><summary>Warum verursacht Divertikulitis einen mechanischen Ileus?</summary><div class="sfa">Entzündung und Ödem verlegen das Lumen</div></details>
+      <details class="sf"><summary>Prokinetikum 1. Wahl beim paralytischen Ileus?</summary><div class="sfa">Neostigmin</div></details>
+      <details class="sf"><summary>Linksseitiger Dickdarmileus mit Peritonitis — OP?</summary><div class="sfa">Hartmann-OP</div></details>
+      <details class="sf"><summary>Anästhesiologisches Hauptrisiko beim Ileus?</summary><div class="sfa">Aspiration (voller Magen)</div></details>
+      <details class="sf"><summary>Was macht der Anästhesist deshalb?</summary><div class="sfa">Rapid Sequence Induction (Ileus-Einleitung)</div></details>
+      <details class="sf"><summary>Inkarzerierte Hernie — offen oder laparoskopisch?</summary><div class="sfa">beides möglich, je nach Situation</div></details>
+      <details class="sf"><summary>Vitamin-B12-Resorption — wo?</summary><div class="sfa">terminales Ileum</div></details>
+      <details class="sf"><summary>Miserere?</summary><div class="sfa">Koterbrechen — Spätzeichen des Ileus</div></details>
+    </div>
+  </section>
+
+  <!-- ============ PROTOKOLLE ============ -->
+  <section class="panel" data-panel="protokoll">
+    <p class="panel-intro">Generalprobe an drei dokumentierten Mainz-Sessions. Jede Frage einzeln laut beantworten, dann die Antwort aufdecken.</p>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · dokumentiert</span><span>Allgemein- und Viszeralchirurgie · Kridorf</span><span class="pk-badge">Bestanden</span></div>
+      <div class="pk-akte"><span class="lab">Fall</span>Patient mit Ileus-Symptomatik. Dr. Kridorf fragt Ursachen, klinische Unterscheidung, Bildgebung und die kontraindizierte Medikation ab — ein wiederkehrendes Muster in mehreren dokumentierten Sessions.</div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">„Ileus — Ursachen, Diagnostik, Therapie?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Mechanisch entsteht der Ileus meist durch Briden oder einen Tumor, paralytisch durch Entzündungen oder metabolische Ursachen, und ich sichere ihn mit CT als Goldstandard.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Wie unterscheiden Sie mechanischen und paralytischen Ileus klinisch?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Bei der Auskultation höre ich beim mechanischen Ileus klingende Darmgeräusche, beim paralytischen dagegen eine Totenstille.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Was sehen Sie im Röntgen-Abdomen?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich sehe stehende Darmschlingen mit Luft-Flüssigkeits-Spiegeln, wobei zentrale Spiegel für den Dünndarm und Spiegel im Kolonrahmen für den Dickdarm sprechen.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Welche Medikation ist beim mechanischen Ileus kontraindiziert, und warum?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Prokinetika sind kontraindiziert, weil sie gegen das Hindernis arbeiten und die Symptomatik bis zur Perforation verstärken können.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Häufigste Ursache des Dickdarmileus — und das operative Vorgehen?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Häufigste Ursache ist das stenosierende Kolonkarzinom, therapiert mit Hemikolektomie oder bei Notfallsituation mit einer Hartmann-Operation.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · dokumentiert</span><span>Anästhesiologie · Dr. Fischer</span><span class="pk-badge">Protokoll</span></div>
+      <div class="pk-akte"><span class="lab">Fall</span>Interdisziplinäre Fragen zum Ileus aus anästhesiologischer Sicht — das perioperative Aspirationsrisiko und die Kontrastmittelgabe bei Verdacht auf Mesenterialinfarkt.</div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">„Welche Anästhesie macht man bei einem Ileus, und was ist das Hauptproblem dabei?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Das Hauptproblem ist die Aspirationsgefahr durch den vollen Magen, deshalb führe ich eine Rapid Sequence Induction durch.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Welches Kontrastmittel geben Sie im CT bei Verdacht auf einen Mesenterialinfarkt?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich gebe intravenöses jodhaltiges Kontrastmittel und prüfe vorher die Nierenfunktion wegen der Nephropathie-Gefahr.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · weitere dokumentierte Fälle</span><span>2024–2026</span><span class="pk-badge">Protokoll</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">„Ein Patient hat einen Ileus bei inkarzerierter Leistenhernie — operieren Sie offen oder laparoskopisch?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Bei einer inkarzerierten Hernie mit Ileus ist grundsätzlich beides möglich, auch laparoskopisch mit TAPP-Technik.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Wie gelangt ein Gallenstein in das Ileum und verursacht dort einen Ileus?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Der Gallenstein gelangt über eine biliodigestive Fistel in den Darm und bleibt im engen terminalen Ileum stecken.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Was ist die häufigste metabolische Ursache eines paralytischen Ileus?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Häufig sind Hypokaliämie und die diabetische Ketoazidose, wobei jede Peritonitis einen paralytischen Ileus auslösen kann.</div></details></div>
+    </div>
+  </section>
+
+  <footer>
+    R3 · Ileus · Fragen &amp; Protokolle. Vier Kernstationen (wortgleich mit R2) + KP-Perlen mit Rapid-Fire + die echten dokumentierten Mainz-Fragen.
+  </footer>
+
+</div>
+<script>
+  const tabs = [...document.querySelectorAll('.tab')];
+  const panels = [...document.querySelectorAll('.panel')];
+  function showTab(name){
+    tabs.forEach(x=>x.classList.toggle('active', x.dataset.tab===name));
+    panels.forEach(p=>p.classList.toggle('active', p.dataset.panel===name));
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  tabs.forEach(t=>t.addEventListener('click',()=>showTab(t.dataset.tab)));
+</script>
+  <script src="/sync.js" defer></script>
+</body>
+</html>
