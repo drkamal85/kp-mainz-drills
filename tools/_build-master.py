@@ -78,7 +78,7 @@ FLAT=[
 (91,15,76,"Hämatologie","ALL / Leukämie","akute-leukaemien"),
 (89,37,52,"Drittes Fach","Aufklärung / Einwilligung / Betreuung","aufklaerung-einwilligung-betreuung"),
 (87,17,70,"Endokrinologie","Osteoporose",None),
-(87,6,81,"Hämatologie","Lymphom (NHL)","non-hodgkin-lymphome"),
+(87,6,81,"Hämatologie","Non-Hodgkin-Lymphom (NHL)","non-hodgkin-lymphome"),
 (84,16,68,"Gastroenterologie","Morbus Crohn","morbus-crohn"),
 (82,16,66,"Endokrinologie","Hypothyreose","hypothyreose"),
 (81,27,54,"Unfallchirurgie","Schädel-Hirn-Trauma","schaedel-hirn-trauma"),
