@@ -88,17 +88,6 @@
     "n": "Vor jeder ERCP zuerst die Antibiose, sonst lodert eine Cholangitis auf."
   },
   {
-    "slug": "cml",
-    "title": "CML",
-    "spec": "haematologie",
-    "acute": false,
-    "q": "Massive Leukozytose mit reifen Granulozyten und Splenomegalie?",
-    "w": "Myeloproliferative Neoplasie durch das Philadelphia-Chromosom mit der BCR-ABL-Tyrosinkinase.",
-    "v": "Sicherung über BCR-ABL in der PCR; die Therapie sind Tyrosinkinase-Inhibitoren wie Imatinib.",
-    "k": "t(9;22) führt zu BCR-ABL, dem Treiber und dem Therapieziel.",
-    "n": "Chronische Phase, Akzeleration und Blastenkrise — der Blastenanteil treibt den Verlauf."
-  },
-  {
     "slug": "copd",
     "title": "COPD · GOLD & AECOPD",
     "spec": "pneumologie",
@@ -185,17 +174,6 @@
     "v": "TSH erniedrigt, fT3 und fT4 erhöht; Thyreostatika wie Thiamazol, dann Radiojod oder eine OP.",
     "k": "Die Merseburger Trias aus Struma, Tachykardie und Exophthalmus ist Basedow.",
     "n": "Jod ist der Brandbeschleuniger — kein KM-CT ohne Schutz, sonst eine thyreotoxische Krise."
-  },
-  {
-    "slug": "hypertrophe-kardiomyopathie",
-    "title": "Hypertrophe Kardiomyopathie",
-    "spec": "kardiologie",
-    "acute": false,
-    "q": "Junger Sportler mit Belastungssynkope oder plötzlichem Herztod in der Familie?",
-    "w": "Genetisch bedingte Verdickung des Herzmuskels, vor allem des Septums, nicht durch Druck oder Klappe erklärbar.",
-    "v": "Echo und EKG; Betablocker zuerst, bei Risiko ein ICD.",
-    "k": "Häufigste Ursache des plötzlichen Herztods junger Sportler.",
-    "n": "Keine Vorlastsenker wie Nitrate oder Diuretika bei Obstruktion — sie verschlimmern sie."
   },
   {
     "slug": "hypothyreose",
@@ -317,28 +295,6 @@
     "v": "Lymphknotenexstirpation zur Histologie; die Therapie richtet sich nach der Aggressivität, oft mit Rituximab.",
     "k": "Keine Reed-Sternberg-Zellen — das trennt sie vom Hodgkin-Lymphom.",
     "n": "Indolent ist nicht heilbar aber langsam, aggressiv ist heilbar aber unbehandelt rasch tödlich."
-  },
-  {
-    "slug": "notfallpharmakologie",
-    "title": "Notfallpharmakologie",
-    "spec": "notfallmedizin",
-    "acute": true,
-    "q": "Reanimation — welche Medikamente gebe ich, und wann?",
-    "w": "CPR mit 30:2; eine Defibrillation nur bei Kammerflimmern oder pulsloser VT, nicht bei Asystolie oder PEA.",
-    "v": "Adrenalin 1 mg intravenös; bei Asystolie oder PEA sofort, bei VF oder pulsloser VT nach dem 3. Schock, dann alle 3 bis 5 Minuten.",
-    "k": "Amiodaron 300 mg nach dem 3. Schock; reversible Ursachen sind die 4 H und HITS.",
-    "n": "Kein Schock bei Asystolie oder PEA — nur weiterdrücken und Adrenalin."
-  },
-  {
-    "slug": "pleuraerguss",
-    "title": "Pleuraerguss",
-    "spec": "pneumologie",
-    "acute": false,
-    "q": "Dyspnoe mit basal abgeschwächtem Atemgeräusch und Klopfschalldämpfung?",
-    "w": "Flüssigkeit im Pleuraspalt; ein Transsudat als Druckproblem, ein Exsudat bei Entzündung oder Tumor.",
-    "v": "Die Sonografie ist der sensitivste Nachweis; eine Punktion mit den Light-Kriterien zur Einordnung.",
-    "k": "Nach Light genügt ein Kriterium für ein Exsudat.",
-    "n": "Maximal 1,5 Liter auf einmal ablassen und danach röntgen, um einen Pneumothorax auszuschließen."
   },
   {
     "slug": "pneumonie",

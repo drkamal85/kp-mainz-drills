@@ -56,8 +56,14 @@ def draft_from(t):
     return {'slug':re.sub(r'-r[0-9]+$','',t['id']), 'title':t['title'], 'spec':t['specialty'], 'acute':False,
             'q': t['title'] + ' — Kernprinzip?', 'w':w[:240], 'v':v[:200], 'k':'', 'n':n[:200], 'draft':True}
 
+# master curriculum slugs — only card Lernplan topics, exclude bonus reviews
+themen = json.load(io.open(os.path.join(ROOT,'api/themen.json'),encoding='utf-8'))
+master_slugs = {t['slug'] for t in themen['topics'] if t.get('slug')}
+
 cards_src = []
 for slug,(lvl,t) in sorted(bytopic.items()):
+    if slug not in master_slugs:
+        continue  # non-curriculum bonus review — no flashcard
     cards_src.append(authored[slug] if slug in authored else draft_from(t))
 
 # authored cards whose topic isn't in the feed (shouldn't happen) — keep + warn
