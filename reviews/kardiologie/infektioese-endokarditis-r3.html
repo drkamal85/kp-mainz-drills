@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Infektiöse Endokarditis · R3 · Klinischer Durchlauf</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F7F4EE; --card:#FFFDF8; --ink:#2A2724; --muted:#6B6358; --line:#E7E0D4;
+    --grundlagen:#C0392B; --grundlagen-t:#F7E9E6;
+    --klinik:#D97706;     --klinik-t:#FBEEDD;
+    --diagnostik:#1E5F9E; --diagnostik-t:#E4EDF6;
+    --therapie:#2D7A3E;   --therapie-t:#E5F0E7;
+    --fragen:#7B3F9E;     --fragen-t:#F0E8F6;
+    --perlen:#B8860B;     --perlen-t:#F8F0D9;
+    --retrieval:#0F766E;  --retrieval-t:#E0F0EE;
+    --protokoll:#334155;  --protokoll-t:#E8EBF0;
+    --ok:#2D7A3E; --gap:#D97706; --miss:#C0392B;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:'Manrope',system-ui,sans-serif;
+    font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased;padding:0 18px 80px}
+  .wrap{max-width:860px;margin:0 auto}
+
+  header{padding:54px 0 22px}
+  .eyebrow{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--retrieval);margin-bottom:16px}
+  h1{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(34px,7vw,52px);line-height:1.04;letter-spacing:-.01em}
+  h1 .accent{font-style:italic;color:var(--grundlagen)}
+  .subtitle{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(17px,2.6vw,20px);color:var(--muted);margin-top:14px}
+  .meta{display:flex;flex-wrap:wrap;gap:6px 0;margin-top:20px;font-size:13px;color:var(--muted);font-weight:500}
+  .meta span:not(:last-child)::after{content:"•";margin:0 10px;color:var(--line);font-weight:700}
+
+
+  .tabs{display:flex;flex-wrap:wrap;gap:8px;position:sticky;top:0;z-index:30;background:linear-gradient(var(--bg) 72%,rgba(247,244,238,0));padding:12px 0 14px;margin-bottom:6px}
+  .tab{position:relative;font-size:13px;font-weight:600;border:1px solid var(--line);background:var(--card);color:var(--muted);padding:8px 15px;border-radius:999px;cursor:pointer;transition:all .15s;white-space:nowrap}
+  .tab:hover{border-color:#cfc6b6}
+  .tab.active{color:#fff;border-color:transparent}
+  .tab[data-c=retrieval].active{background:var(--retrieval)}
+  .tab[data-c=grundlagen].active{background:var(--grundlagen)}
+  .tab[data-c=klinik].active{background:var(--klinik)}
+  .tab[data-c=diagnostik].active{background:var(--diagnostik)}
+  .tab[data-c=therapie].active{background:var(--therapie)}
+  .tab[data-c=fragen].active{background:var(--fragen)}
+  .tab[data-c=perlen].active{background:var(--perlen)}
+  .tab[data-c=protokoll].active{background:var(--protokoll)}
+  .tab .badge{display:none;margin-left:7px;font-size:10px;font-weight:800;padding:1px 6px;border-radius:999px;vertical-align:middle}
+  .tab.flag-gap .badge{display:inline-block;background:var(--gap);color:#fff}
+  .tab.flag-ok .badge{display:inline-block;background:var(--ok);color:#fff}
+  .tab.active .badge{background:rgba(255,255,255,.28)!important;color:#fff}
+
+  .panel{display:none;animation:fade .25s ease}
+  .panel.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+  .panel-intro{font-family:'Fraunces',serif;font-style:italic;font-size:17px;color:var(--muted);margin:6px 0 18px;line-height:1.5}
+
+  /* ---- control bar (Pass 1 instrument) ---- */
+  .ctrl{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:14px 16px;margin-bottom:20px}
+  .ctrl-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+  .tally{font-size:13px;font-weight:700;display:flex;gap:12px;flex-wrap:wrap}
+  .tally i{font-style:normal;display:inline-flex;align-items:center;gap:5px}
+  .tally i::before{content:"";width:9px;height:9px;border-radius:50%}
+  .tally .t-ok::before{background:var(--ok)} .tally .t-gap::before{background:var(--gap)} .tally .t-miss::before{background:var(--miss)}
+  .spacer{flex:1 1 auto}
+  .btn{font-family:'Manrope';font-size:12.5px;font-weight:700;border:none;border-radius:999px;padding:9px 16px;cursor:pointer;transition:.15s}
+  .btn-primary{background:var(--retrieval);color:#fff}
+  .btn-primary:hover{filter:brightness(1.06)}
+  .btn-ghost{background:transparent;color:var(--muted);border:1px solid var(--line)}
+  .btn-ghost:hover{border-color:#cfc6b6}
+  .ctrl-status{margin-top:11px;font-size:13px;font-style:italic;color:var(--retrieval);min-height:18px}
+
+  /* ---- retrieval prompt ---- */
+  .rt{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:14px;transition:border-color .2s}
+  .rt[data-score=sicher]{border-left-color:var(--ok)}
+  .rt[data-score=lueckenhaft]{border-left-color:var(--gap)}
+  .rt[data-score=gefehlt]{border-left-color:var(--miss)}
+  .rt-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:8px}
+  .rt-n{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--retrieval)}
+  .rt-right{display:flex;align-items:center;gap:10px;white-space:nowrap}
+  .rt-ptr{font-size:11px;font-weight:600;color:var(--muted)}
+  .rt-q{font-size:15.5px;line-height:1.55}
+  .reveal{margin-top:12px;border-top:1px dashed var(--line);padding-top:0}
+  .reveal>summary{list-style:none;cursor:pointer;font-size:12.5px;font-weight:800;letter-spacing:.04em;color:var(--retrieval);padding:11px 0 0;user-select:none;display:inline-flex;align-items:center;gap:6px}
+  .reveal>summary::-webkit-details-marker{display:none}
+  .reveal>summary::before{content:"▸";transition:transform .2s;display:inline-block}
+  .reveal[open]>summary::before{transform:rotate(90deg)}
+  .reveal .ans{font-size:14.5px;line-height:1.6;color:#3c372f;padding-top:10px}
+  .reveal .ans b{color:var(--ink)}
+  .reveal .ans ul{list-style:none;padding-left:2px;margin:2px 0 0}
+  .reveal .ans li{position:relative;padding-left:18px;margin-bottom:8px;line-height:1.5}
+  .reveal .ans>ul>li::before{content:"";position:absolute;left:2px;top:8px;width:6px;height:6px;border-radius:50%;background:var(--retrieval)}
+  .reveal .ans li ul{margin:7px 0 2px}
+  .reveal .ans li li{padding-left:16px;margin-bottom:5px;font-size:13.8px;color:#4a443c}
+  .reveal .ans li li::before{content:"";position:absolute;left:0;top:7px;width:5px;height:5px;transform:rotate(45deg);background:#b9b0a1}
+  .score{display:flex;gap:7px;margin-top:12px;padding-top:11px;border-top:1px solid var(--line)}
+  .sbtn{flex:1;font-size:12px;font-weight:700;border:1px solid var(--line);background:var(--bg);color:var(--muted);border-radius:8px;padding:7px 4px;cursor:pointer;transition:.12s}
+  .sbtn:hover{border-color:#cfc6b6}
+  .sbtn[data-v=sicher].on{background:var(--ok);color:#fff;border-color:transparent}
+  .sbtn[data-v=lueckenhaft].on{background:var(--gap);color:#fff;border-color:transparent}
+  .sbtn[data-v=gefehlt].on{background:var(--miss);color:#fff;border-color:transparent}
+
+  /* ---- Schnellfragen ---- */
+  .sf-wrap{background:var(--retrieval-t);border:1px solid #BFE0DC;border-radius:13px;padding:18px 20px;margin-top:24px}
+  .sf-wrap h3{font-family:'Fraunces',serif;font-weight:500;font-size:20px;margin-bottom:3px}
+  .sf-wrap .sf-intro{font-size:13.5px;font-style:italic;color:#0c5d57;margin-bottom:14px}
+  .sf{border-bottom:1px solid #cfe4e1;padding:9px 0}
+  .sf:last-child{border-bottom:none}
+  .sf>summary{list-style:none;cursor:pointer;font-size:14.5px;font-weight:600;display:flex;justify-content:space-between;gap:10px;user-select:none}
+  .sf>summary::-webkit-details-marker{display:none}
+  .sf>summary::after{content:"+";color:var(--retrieval);font-weight:800}
+  .sf[open]>summary::after{content:"−"}
+  .sf .sfa{font-size:14px;color:#0c5d57;font-weight:700;padding-top:6px}
+
+  /* ---- content cards (v1) ---- */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:14px;overflow:hidden}
+  .card>summary{list-style:none;cursor:pointer;padding:18px 20px;display:flex;align-items:flex-start;gap:14px;user-select:none}
+  .card>summary::-webkit-details-marker{display:none}
+  .card .ct{flex:1}
+  .card .ctag{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:5px}
+  .card .ctitle{font-family:'Fraunces',serif;font-weight:500;font-size:17px;line-height:1.25}
+  .plus{flex:none;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:18px;line-height:1;transition:transform .2s;margin-top:2px}
+  .card[open] .plus{transform:rotate(45deg)}
+  .card .body{padding:0 20px 20px;border-top:1px solid var(--line);margin-top:-2px;padding-top:16px}
+  .card.grundlagen .ctag{color:var(--grundlagen)} .card.grundlagen .plus{background:var(--grundlagen-t);color:var(--grundlagen)}
+  .card.klinik .ctag{color:var(--klinik)} .card.klinik .plus{background:var(--klinik-t);color:var(--klinik)}
+  .card.diagnostik .ctag{color:var(--diagnostik)} .card.diagnostik .plus{background:var(--diagnostik-t);color:var(--diagnostik)}
+  .card.therapie .ctag{color:var(--therapie)} .card.therapie .plus{background:var(--therapie-t);color:var(--therapie)}
+  .card.fragen .ctag{color:var(--fragen)} .card.fragen .plus{background:var(--fragen-t);color:var(--fragen)}
+  .card.perlen .ctag{color:var(--perlen)} .card.perlen .plus{background:var(--perlen-t);color:var(--perlen)}
+
+  ul.b{list-style:none;padding-left:2px}
+  ul.b>li{position:relative;padding-left:20px;margin-bottom:8px;line-height:1.55}
+  ul.b>li::before{content:"";position:absolute;left:2px;top:9px;width:7px;height:7px;border-radius:50%}
+  .grundlagen ul.b>li::before{background:var(--grundlagen)} .klinik ul.b>li::before{background:var(--klinik)}
+  .diagnostik ul.b>li::before{background:var(--diagnostik)} .therapie ul.b>li::before{background:var(--therapie)}
+  ul.b ul{list-style:none;padding-left:18px;margin-top:7px}
+  ul.b ul>li{position:relative;padding-left:18px;margin-bottom:6px;font-size:15px;color:#4a443c}
+  ul.b ul>li::before{content:"";position:absolute;left:0;top:7px;width:6px;height:6px;transform:rotate(45deg);background:#b9b0a1}
+  strong{font-weight:700;color:var(--ink)}
+
+  .callout{border-radius:11px;padding:13px 16px;margin:14px 0;font-size:14.5px;line-height:1.55;border-left:4px solid}
+  .callout .lab{font-weight:800;font-size:11px;letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .critical{background:var(--grundlagen-t);border-color:var(--grundlagen)} .critical .lab{color:var(--grundlagen)}
+  .warning{background:var(--klinik-t);border-color:var(--klinik)} .warning .lab{color:var(--klinik)}
+  .fact{background:var(--diagnostik-t);border-color:var(--diagnostik)} .fact .lab{color:var(--diagnostik)}
+
+  .dd{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+  .dd th,.dd td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+  .dd th{background:var(--diagnostik-t);font-weight:700;color:var(--diagnostik);font-size:12px}
+  .dd td:first-child{font-weight:600}
+
+  .pk{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:16px}
+  .pk-meta{display:flex;flex-wrap:wrap;gap:6px 0;font-size:11.5px;font-weight:700;color:var(--protokoll);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+  .pk-meta span:not(:last-child)::after{content:"•";margin:0 8px;color:#c3c9d2}
+  .pk-badge{display:inline-block;background:var(--therapie-t);color:var(--therapie);font-size:10.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:2px 9px;border-radius:999px;margin-left:auto}
+  .pk-akte{font-size:14.5px;line-height:1.58;background:var(--protokoll-t);border-radius:9px;padding:12px 14px;margin-bottom:12px}
+  .pk-akte .lab,.pk-q .lab{font-weight:800;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--protokoll);display:block;margin-bottom:5px}
+  .pk-q ul{list-style:none;padding:0}
+  .pk-q li{position:relative;padding-left:18px;margin-bottom:7px;font-size:14.5px;line-height:1.5}
+  .pk-q li::before{content:"–";position:absolute;left:0;color:var(--protokoll);font-weight:700}
+  .pq{border-top:1px solid var(--line);padding:10px 0}
+  .pq-frage{position:relative;padding-left:18px;font-size:14.5px;font-weight:600;line-height:1.5}
+  .pq-frage::before{content:"–";position:absolute;left:0;color:var(--protokoll);font-weight:700}
+  .pq .reveal{margin-top:5px;border-top:none;padding-top:0}
+  .pq .reveal>summary{padding:5px 0 0}
+
+  .pearl{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--perlen);border-radius:12px;padding:16px 18px;margin-bottom:13px}
+  .pearl .ph{font-weight:800;font-size:13px;color:var(--perlen);margin-bottom:7px}
+  .pearl .pt{font-size:15px;line-height:1.55}
+  .pearl .mn{margin-top:9px;background:var(--perlen-t);border-radius:8px;padding:8px 12px;font-size:13.5px;font-style:italic;color:#7a5c08}
+  .pearl .mn b{font-style:normal;font-weight:800}
+
+  footer{margin-top:40px;padding-top:22px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted);line-height:1.6}
+  .back{display:inline-block;font-family:Manrope,system-ui,sans-serif;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);text-decoration:none;margin-bottom:18px}
+  .back:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a href="../../index.html" class="back">← Zurück zur Library</a>
+
+  <header>
+    <div class="eyebrow">Kardiologie · R3 · Kurz + KP-Perlen + Protokolle</div>
+    <h1>Infektiöse <span class="accent">Endokarditis</span></h1>
+    <div class="subtitle">Acuta vs. lenta, die peripheren Stigmata, Duke und die lange Antibiose (wortgleich mit R2) + KP-Perlen + die echten Mainz-Fragen — zum lauten Üben.</div>
+    <div class="meta">
+      <span>R3 von 5 · Superset von R1 + R2</span>
+      <span>~12–15 Min</span>
+      <span>Stand 06/2026</span>
+      <span>Stex + Mainz-Protokolle (Hennekes, Chirurgie)</span>
+    </div>
+  </header>
+
+  <div class="tabs">
+    <button class="tab active" data-c="grundlagen" data-tab="grundlagen">Grundlagen</button>
+    <button class="tab" data-c="klinik" data-tab="klinik">Klinik</button>
+    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik</button>
+    <button class="tab" data-c="therapie" data-tab="therapie">Therapie</button>
+    <button class="tab" data-c="perlen" data-tab="perlen">KP-Perlen</button>
+    <button class="tab" data-c="protokoll" data-tab="protokoll">Fragen &amp; Protokolle</button>
+  </div>
+
+  <section class="panel active" data-panel="grundlagen">
+    <p class="panel-intro">Acuta vs. lenta + die Erreger. Erst laut, dann aufklappen.</p>
+    <details class="card grundlagen" open><summary><span class="ct"><span class="ctag">Definition</span><span class="ctitle">Acuta vs. lenta</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Merksatz</span><strong>Acuta = S. aureus, hochvirulent, zerstört die Klappe in Stunden. Lenta = S. viridans, schleichend über Wochen.</strong></div>
+        <ul class="b">
+          <li><strong>Definition:</strong> Entzündung des Endokards, v. a. der Herzklappen — meist bakteriell</li>
+          <li><strong>Pathophysiologie:</strong> sterile Vegetation auf vorgeschädigter Klappe → bakterielle Besiedelung → Mikroembolien + Immunkomplexe</li>
+          <li>Vor allem <strong>Linksherz</strong> (mechanische Beanspruchung); Ausnahme: i.v.-Drogen → <strong>Trikuspidalklappe</strong> (rechts)</li>
+        </ul>
+      </div>
+    </details>
+    <details class="card grundlagen"><summary><span class="ct"><span class="ctag">Erreger</span><span class="ctitle">Wer macht was</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Merksatz</span><strong>S. aureus (~50 %) = acuta. S. viridans (~30 %) = lenta. S. epidermidis = Klappenprothese/Katheter. Enterokokken = „Enterokokkenlücke".</strong></div>
+        <table class="dd"><tr><th>Erreger</th><th>Kontext</th></tr>
+          <tr><td><strong>S. aureus</strong> (45–65 %)</td><td>akut, hochvirulent, i.v.-Drogen</td></tr>
+          <tr><td><strong>S. viridans</strong> (~30 %)</td><td>subakut, nach Zahneingriff</td></tr>
+          <tr><td><strong>S. epidermidis</strong></td><td>Frühprothese, Venenkatheter</td></tr>
+          <tr><td><strong>Enterokokken</strong> (~10 %)</td><td>Enterokokkenlücke (Penicillin/Cephalosporin unwirksam)</td></tr>
+          <tr><td><strong>S. bovis/gallolyticus</strong></td><td>→ <strong>Koloskopie!</strong> (Kolon-Ca-Assoziation)</td></tr></table>
+        <div class="callout warning"><span class="lab">⚠ Risiko/Eintritt</span>Klappenvitien/-prothese, Z. n. Endokarditis, angeb. Herzfehler, i.v.-Drogen, Zahneingriffe, Venenkatheter, Infektfokus (z. B. Spondylodiszitis).</div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ KLINIK ============ -->
+  <section class="panel" data-panel="klinik">
+    <p class="panel-intro">Fieber + neues Geräusch + Stigmata. Erst laut, dann abgleichen.</p>
+    <details class="card klinik" open><summary><span class="ct"><span class="ctag">Leitbild</span><span class="ctitle">Die Leitkombination</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Unklares Fieber + neu aufgetretenes Herzgeräusch → immer an Endokarditis denken.</strong> Häufige Ursache eines „Fever of unknown origin".</div>
+        <ul class="b">
+          <li><strong>Allgemein:</strong> Fieber/Schüttelfrost, Abgeschlagenheit, Tachykardie</li>
+          <li><strong>Kardial:</strong> neues Herzgeräusch, akute Klappeninsuffizienz → Herzinsuffizienz</li>
+        </ul>
+      </div>
+    </details>
+    <details class="card klinik"><summary><span class="ct"><span class="ctag">Stigmata</span><span class="ctitle">Periphere Zeichen (Embolie/Immun)</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Merksatz</span><strong>Osler schmerzhaft (Ouch!), Janeway schmerzlos. Roth spots am Auge, Splinter am Nagel.</strong></div>
+        <table class="dd"><tr><th>Zeichen</th><th>Was</th></tr>
+          <tr><td><strong>Osler-Knötchen</strong></td><td>schmerzhafte Knötchen an Fingern/Zehen (immun)</td></tr>
+          <tr><td><strong>Janeway-Läsionen</strong></td><td>schmerzlose Flecken palmar/plantar (embolisch)</td></tr>
+          <tr><td><strong>Splinter-Hämorrhagien</strong></td><td>Splitterblutungen im Nagelbett</td></tr>
+          <tr><td><strong>Roth spots</strong></td><td>Retinaeinblutungen</td></tr></table>
+        <div class="callout fact"><span class="lab">⚙ Organembolien</span>ZNS (Herdenzephalitis/Schlaganfall), Niere (Infarkt, Glomerulonephritis), Milz (Infarkt), Lunge (bei Rechtsherz-EK).</div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ DIAGNOSTIK ============ -->
+  <section class="panel" data-panel="diagnostik">
+    <p class="panel-intro">Blutkulturen + TEE + Duke. Erst laut, dann abgleichen.</p>
+    <details class="card diagnostik" open><summary><span class="ct"><span class="ctag">Basis</span><span class="ctitle">Die zwei Säulen</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Blutkulturen (mind. 3 Paare, VOR Antibiose) + TEE (Vegetationen). Das sind die zwei Duke-Hauptkriterien.</strong></div>
+        <ul class="b">
+          <li><strong>Blutkulturen:</strong> 3–5 separate Paare (aerob + anaerob), vor Antibiose, in 85 % positiv</li>
+          <li><strong>TEE</strong> ist Basisbildgebung (TTE zu unempfindlich): Vegetationen, Abszess, Perforation</li>
+          <li><strong>Labor:</strong> Leukozytose, CRP/BSG ↑; Urin (Erythrozytenzylinder bei GN)</li>
+        </ul>
+      </div>
+    </details>
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Duke</span><span class="ctitle">Duke-Kriterien — 2 / 1+3 / 5</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Merksatz</span><strong>Diagnose: 2 Haupt- ODER 1 Haupt + 3 Neben- ODER 5 Nebenkriterien.</strong></div>
+        <table class="dd"><tr><th>Hauptkriterien (2)</th><th>Nebenkriterien (5)</th></tr>
+          <tr><td>positive Blutkulturen (typischer Erreger, 2×)</td><td>Prädisposition (Vitium/Prothese/i.v.-Drogen)</td></tr>
+          <tr><td>Endokardbeteiligung im TEE (Vegetation/Abszess)</td><td>Fieber ≥ 38 °C</td></tr>
+          <tr><td></td><td>Gefäßzeichen (Embolie, Janeway)</td></tr>
+          <tr><td></td><td>Immunphänomene (Osler, Roth, GN)</td></tr>
+          <tr><td></td><td>Mikrobiologie, die kein Hauptkriterium erfüllt</td></tr></table>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ THERAPIE ============ -->
+  <section class="panel" data-panel="therapie">
+    <p class="panel-intro">Antibiose lang, ggf. OP. Erst laut, dann abgleichen.</p>
+    <details class="card therapie" open><summary><span class="ct"><span class="ctag">Antibiose</span><span class="ctitle">Nativ vs. Prothese</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Schon bei Verdacht kalkuliert i.v. behandeln (hohe Letalität!). Nativ: Ampicillin + Flucloxacillin + Gentamicin. Prothese: Vancomycin + Gentamicin + Rifampicin.</strong></div>
+        <table class="dd"><tr><th></th><th>Antibiotika</th><th>Dauer</th></tr>
+          <tr><td><strong>Nativklappe</strong></td><td>Ampicillin + Flucloxacillin + Gentamicin</td><td>4–6 Wochen</td></tr>
+          <tr><td><strong>Prothese</strong></td><td>Vancomycin + Gentamicin + Rifampicin</td><td>≥ 6 Wochen</td></tr></table>
+        <div class="callout fact"><span class="lab">⚙ Anpassung</span>Nach Antibiogramm deeskalieren. S. viridans → Penicillin G/Ceftriaxon; MSSA → Flucloxacillin; Enterokokken → Ampicillin + Gentamicin.</div>
+      </div>
+    </details>
+    <details class="card therapie"><summary><span class="ct"><span class="ctag">OP</span><span class="ctitle">Chirurgische Sanierung</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>OP bei Komplikationen:</strong> therapierefraktäre Herzinsuffizienz, große/mobile Vegetation mit Embolierisiko, Abszess, Prothesenendokarditis, unkontrollierte Infektion.</div>
+        <ul class="b"><li>Durchführung: Vegetationsentfernung, Klappenrekonstruktion/-ersatz</li></ul>
+      </div>
+    </details>
+    <details class="card therapie"><summary><span class="ct"><span class="ctag">Prophylaxe</span><span class="ctitle">Nur Hochrisiko</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Merksatz</span><strong>Endokarditisprophylaxe nur für Hochrisiko: Klappenersatz, Z. n. Endokarditis, bestimmte angeborene Herzfehler.</strong></div>
+        <ul class="b">
+          <li><strong>Wann:</strong> vor zahnärztlichen Eingriffen (Schleimhaut/Gingiva)</li>
+          <li><strong>Womit:</strong> Amoxicillin p.o. (Ampicillin i.v.) 30–60 min vorher; Penicillinallergie → Clindamycin</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ KP-PERLEN ============ -->
+  <section class="panel" data-panel="perlen">
+    <p class="panel-intro">Acht Sätze, die punkten.</p>
+    <div class="pearl"><div class="ph">⭐ Perle 1 · Leitsatz</div><div class="pt">Unklares Fieber + <strong>neu aufgetretenes Herzgeräusch</strong> = bis zum Beweis des Gegenteils eine Endokarditis.</div><div class="mn"><b>Merke:</b> Fieber + neues Geräusch = Endokarditis</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 2 · Erste Schritte</div><div class="pt">Immer <strong>Blutkulturen VOR Antibiose</strong> (mind. 3 Paare) + TEE. Dann kalkuliert anbehandeln — nicht auf das Ergebnis warten.</div><div class="mn"><b>Merke:</b> Erst Kulturen, dann Antibiose</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 3 · acuta vs. lenta</div><div class="pt"><strong>S. aureus = acuta</strong> (Klappenzerstörung in Stunden). <strong>S. viridans = lenta</strong> (subakut, Wochen). S. epidermidis = Prothesen/Katheter.</div><div class="mn"><b>Merke:</b> Aureus akut, viridans langsam</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 4 · Duke 2-1-3-5</div><div class="pt"><strong>2</strong> Haupt · <strong>1</strong> Haupt + <strong>3</strong> Neben · <strong>5</strong> Neben = gesicherte Diagnose. Hauptkriterien = Blutkultur + Echo.</div><div class="mn"><b>Merke:</b> 2 – 1+3 – 5</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 5 · Janeway vs. Osler</div><div class="pt"><strong>Ja</strong>neway = schmerzlos (palmar/plantar). <strong>Osler = ouch</strong> (schmerzhafte Knötchen an Akren). Splinter = Nagelbett, Roth = Retina.</div><div class="mn"><b>Merke:</b> Janeway ja-schmerzlos, Osler = ouch</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 6 · Echo-Wahl</div><div class="pt"><strong>TEE schlägt TTE</strong> — das TTE ist für kleine Vegetationen nicht empfindlich genug.</div><div class="mn"><b>Merke:</b> Endokarditis-Verdacht → TEE</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 7 · Frühe Prothese</div><div class="pt">Frühe Prothesen-Endokarditis (&lt; 12 Mon.): <strong>Vancomycin + Gentamicin + Rifampicin</strong>, mind. 6 Wochen. Rifampicin gegen Biofilm.</div><div class="mn"><b>Merke:</b> Frühe Prothese = Vanco + Genta + Rifampicin</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 8 · OP-Indikation</div><div class="pt">Chirurgie bei <strong>Herzinsuffizienz durch Klappenzerstörung, großen Vegetationen (Embolie!), Abszess, therapierefraktärer Infektion</strong>.</div><div class="mn"><b>Merke:</b> Herzinsuffizienz, Embolie, Abszess → OP</div></div>
+
+    <div class="sf-wrap">
+      <h3>Schnellfragen · Rapid-Fire</h3>
+      <div class="sf-intro">Atomare Einzelfakten — Ein-Wort-Abruf, keine Optionen. Laut, sofort, dann aufdecken.</div>
+      <details class="sf"><summary>Erreger der Acuta?</summary><div class="sfa">Staphylococcus aureus</div></details>
+      <details class="sf"><summary>Erreger der Lenta?</summary><div class="sfa">Streptococcus viridans</div></details>
+      <details class="sf"><summary>Erreger bei Frühprothese/Katheter?</summary><div class="sfa">Staphylococcus epidermidis</div></details>
+      <details class="sf"><summary>Erreger mit Koloskopie-Pflicht?</summary><div class="sfa">S. bovis/gallolyticus (Kolon-Ca)</div></details>
+      <details class="sf"><summary>Enterokokkenlücke bedeutet?</summary><div class="sfa">Penicillin und Cephalosporine unwirksam</div></details>
+      <details class="sf"><summary>Welche Klappe bei i.v.-Drogen?</summary><div class="sfa">Trikuspidalklappe (Rechtsherz)</div></details>
+      <details class="sf"><summary>Osler — schmerzhaft oder schmerzlos?</summary><div class="sfa">schmerzhaft (Ouch!), immunvermittelt</div></details>
+      <details class="sf"><summary>Janeway — schmerzhaft oder schmerzlos?</summary><div class="sfa">schmerzlos, embolisch (palmar/plantar)</div></details>
+      <details class="sf"><summary>Roth spots — wo?</summary><div class="sfa">Retina (Augenhintergrund)</div></details>
+      <details class="sf"><summary>Splinter-Hämorrhagien — wo?</summary><div class="sfa">Nagelbett</div></details>
+      <details class="sf"><summary>Erster diagnostischer Schritt?</summary><div class="sfa">Blutkulturen (vor Antibiose) + Echo</div></details>
+      <details class="sf"><summary>Bestes bildgebendes Verfahren?</summary><div class="sfa">TEE (empfindlicher als TTE)</div></details>
+      <details class="sf"><summary>Duke — Zahlenregel?</summary><div class="sfa">2 Haupt · 1+3 · 5 Neben</div></details>
+      <details class="sf"><summary>Die zwei Duke-Hauptkriterien?</summary><div class="sfa">positive Blutkulturen + Endokardnachweis im Echo</div></details>
+      <details class="sf"><summary>Antibiose Nativklappe?</summary><div class="sfa">Ampicillin + Flucloxacillin + Gentamicin</div></details>
+      <details class="sf"><summary>Antibiose frühe Prothese?</summary><div class="sfa">Vancomycin + Gentamicin + Rifampicin</div></details>
+      <details class="sf"><summary>Prophylaxe — für wen?</summary><div class="sfa">nur Hochrisiko (Klappenersatz, Z. n. EK, best. Vitien)</div></details>
+      <details class="sf"><summary>Prophylaxe — womit vor Zahneingriff?</summary><div class="sfa">Amoxicillin p.o. (bei Allergie Clindamycin)</div></details>
+      <details class="sf"><summary>Mechanische vs. biologische Klappe?</summary><div class="sfa">mechanisch: lebenslange Antikoagulation · biologisch: degeneriert früher</div></details>
+    </div>
+  </section>
+
+  <!-- ============ PROTOKOLLE ============ -->
+  <section class="panel" data-panel="protokoll">
+    <p class="panel-intro">Generalprobe an drei dokumentierten Mainz-Sessions. Jede Frage einzeln laut beantworten, dann die Antwort aufdecken.</p>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · dokumentiert</span><span>Innere Medizin · Dr. Hennekes</span><span class="pk-badge">Bilder</span></div>
+      <div class="pk-akte"><span class="lab">Fall</span>Dr. Hennekes zeigt Bilder mit Janeway-Läsionen, Osler-Knötchen und Vegetationen und fragt ausführlich die Herzklappen, die Auskultation und die Endokarditis ab.</div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">„Beschreiben Sie die Auskultationspunkte der Herzklappen und ihre Fortleitung."</div><details class="reveal"><summary>Antwort</summary><div class="ans">Die Aortenklappe höre ich im 2. ICR rechts parasternal mit Fortleitung in die Karotiden, die Pulmonalklappe im 2. ICR links, die Trikuspidalklappe am 4. ICR rechts parasternal und die Mitralklappe über der Herzspitze mit Fortleitung in die Axilla.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Sie sehen diese Hautläsionen — was ist das, und woran denken Sie?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich sehe schmerzlose Janeway-Läsionen palmar und plantar, schmerzhafte Osler-Knötchen an den Akren und subunguale Splitterblutungen, und das lässt mich sofort an eine infektiöse Endokarditis denken.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Nennen Sie weitere Differenzialdiagnosen eines rezidivierenden Fiebers."</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich denke an eine Endokarditis, an Abszesse und andere okkulte Infektionen, an eine Tuberkulose, an Malignome wie Lymphome und an Autoimmunerkrankungen.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · dokumentiert</span><span>Chirurgie</span><span class="pk-badge">Bestanden</span></div>
+      <div class="pk-akte"><span class="lab">Fall</span>Ausgehend von einem rezidivierenden Fieber führt der Prüfer die dokumentierte Endokarditis-Reihe durch — Symptomatik, Erstdiagnostik, Erreger, Risiko, OP-Indikation und Duke.</div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">„Welche Symptomatik erwarten Sie bei einer Endokarditis, und worauf achten Sie bei der körperlichen Untersuchung?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich erwarte Fieber mit Abgeschlagenheit und ein neu aufgetretenes Herzgeräusch, und bei der Untersuchung achte ich besonders auf die Hautläsionen, also Janeway-Läsionen, Osler-Knötchen und subunguale Splitterblutungen.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Bei Verdacht auf eine Endokarditis — was machen Sie zuerst?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Zuerst nehme ich mehrere Blutkulturen ab und mache eine Echokardiografie, transthorakal und bei Bedarf transösophageal.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Wonach suchen Sie im Echo?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich suche nach Vegetationen, nach einer Klappenzerstörung mit Insuffizienz sowie nach Abszessen und einer Prothesendehiszenz.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Was sind die häufigsten Erreger?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich sehe am häufigsten Staphylokokken, vor allem Staphylococcus aureus bei der akuten Form, und Streptokokken wie Streptococcus viridans bei der subakuten Form.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Welche Risikofaktoren gibt es?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich nenne als Risikofaktoren einen Herzklappenersatz, angeborene oder erworbene Herzvitien, einen intravenösen Drogenabusus, eine durchgemachte Endokarditis und eine Immunsuppression.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Wann muss der Chirurg involviert werden, und was befürchten Sie bei großen Vegetationen?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Der Chirurg wird bei einer akuten Klappenfunktionsstörung mit Herzinsuffizienz, bei großen mobilen Vegetationen, einem Abszess oder einer therapierefraktären Infektion hinzugezogen, und bei großen Vegetationen fürchte ich vor allem septische Embolien.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Erklären Sie grob die Duke-Kriterien."</div><details class="reveal"><summary>Antwort</summary><div class="ans">Die Diagnose gilt als gesichert bei zwei Hauptkriterien, einem Hauptkriterium mit drei Nebenkriterien oder fünf Nebenkriterien, wobei die Hauptkriterien die positiven Blutkulturen und der Endokardnachweis im Echo sind.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · weitere dokumentierte Fragen</span><span>2024–2026</span><span class="pk-badge">Protokoll</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">„Welche Möglichkeiten des Herzklappenersatzes gibt es?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich unterscheide die mechanische Klappe, die sehr lange hält, aber eine lebenslange Antikoagulation braucht, von der biologischen Klappe, die keine dauerhafte Antikoagulation braucht, aber früher degeneriert.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Wie behandeln Sie kalkuliert — Nativklappe versus frühe Prothese?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich beginne schon bei Verdacht wegen der hohen Letalität, gebe bei der Nativklappe Ampicillin mit Flucloxacillin und Gentamicin und bei der frühen Prothese Vancomycin mit Gentamicin und Rifampicin.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Warum ist bei Staphylococcus bovis eine Koloskopie nötig?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Weil eine Endokarditis durch Streptococcus bovis oder gallolyticus mit einem kolorektalen Karzinom assoziiert ist, sodass ich immer eine Koloskopie zur Tumorsuche veranlasse.</div></details></div>
+    </div>
+  </section>
+
+  <footer>
+    R3 · Infektiöse Endokarditis · Fragen &amp; Protokolle. Vier Kernstationen (wortgleich mit R2) + KP-Perlen mit Rapid-Fire + die echten dokumentierten Mainz-Fragen.
+  </footer>
+
+</div>
+<script>
+  const tabs = [...document.querySelectorAll('.tab')];
+  const panels = [...document.querySelectorAll('.panel')];
+  function showTab(name){
+    tabs.forEach(x=>x.classList.toggle('active', x.dataset.tab===name));
+    panels.forEach(p=>p.classList.toggle('active', p.dataset.panel===name));
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  tabs.forEach(t=>t.addEventListener('click',()=>showTab(t.dataset.tab)));
+</script>
+  <script src="/sync.js" defer></script>
+</body>
+</html>
