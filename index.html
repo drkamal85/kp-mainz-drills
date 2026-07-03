@@ -1,408 +1,131 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KP Mainz · Drill Library</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <style>
-    /*
-     * KP Mainz · Design System (modernized 06/2026)
-     * DM Sans + DM Mono · cool-neutral clinical base · indigo accent
-     * Segmented tabs · monochrome filter pills · layered-depth cards
-     * Category hues stay inline on pills: oklch(.. .. H)
-     */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --bg:          oklch(98.6% 0.003 255);
-      --surface:     #ffffff;
-      --surface-2:   oklch(96.8% 0.005 255);
-      --border:      oklch(91% 0.006 255);
-      --border-hi:   oklch(78% 0.011 255);
-      --t1:          oklch(21% 0.014 265);
-      --t2:          oklch(46% 0.014 265);
-      --t3:          oklch(64% 0.010 265);
-      --blue:        oklch(50% 0.17 262);
-      --blue-bg:     oklch(96% 0.03 262);
-      --shadow-sm:   0 1px 2px oklch(0% 0 0 / 0.04), 0 1px 3px oklch(0% 0 0 / 0.03);
-      --shadow-lg:   0 4px 14px oklch(0% 0 0 / 0.06), 0 14px 34px oklch(0% 0 0 / 0.08);
-      --r:           14px;
-      --f:           'DM Sans', system-ui, sans-serif;
-      --m:           'DM Mono', 'Menlo', monospace;
-    }
-
-    html { font-family: var(--f); background: var(--bg); color: var(--t1); line-height: 1.5; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; scroll-behavior: smooth; }
-    body { min-height: 100vh; }
-    a { color: inherit; text-decoration: none; }
-    button { font: inherit; cursor: pointer; border: none; background: none; padding: 0; color: inherit; }
-    ::selection { background: var(--blue-bg); }
-    :focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; border-radius: 5px; }
-
-    .wrap { max-width: 1180px; margin: 0 auto; padding: 0 28px; }
-
-    /* ── Header ─────────────────────────────── */
-    .hdr {
-      border-bottom: 1px solid var(--border);
-      background: color-mix(in oklab, var(--bg) 78%, transparent);
-      backdrop-filter: blur(16px) saturate(1.5);
-      -webkit-backdrop-filter: blur(16px) saturate(1.5);
-      position: sticky; top: 0; z-index: 200;
-    }
-    .hdr-in { height: 60px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-    .logo { display: flex; align-items: baseline; gap: 9px; }
-    .logo-mark { font-size: 15.5px; font-weight: 600; letter-spacing: -0.02em; }
-    .logo-mark::before { content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--blue); margin-right: 9px; vertical-align: middle; }
-    .logo-sep  { color: var(--border-hi); font-weight: 300; }
-    .logo-sub  { font-size: 12.5px; color: var(--t3); }
-    .hdr-right { display: flex; align-items: center; gap: 10px; }
-    .exam-chip {
-      font-family: var(--m); font-size: 11.5px; font-weight: 500;
-      color: var(--blue); background: var(--blue-bg);
-      padding: 5px 11px; border-radius: 999px; white-space: nowrap;
-    }
-    .countdown-chip {
-      font-family: var(--m); font-size: 11px; color: var(--t3);
-      background: var(--surface-2); padding: 5px 11px; border-radius: 999px;
-      white-space: nowrap; border: 1px solid var(--border);
-    }
-    @media (max-width: 540px) { .countdown-chip, .logo-sub { display: none; } }
-
-    /* ── Hero ────────────────────────────────── */
-    .hero { position: relative; padding: 60px 0 44px; }
-    .hero::before {
-      content: ""; position: absolute; inset: -45% 0 auto -12%; height: 360px; z-index: -1;
-      background: radial-gradient(58% 80% at 16% 0%, oklch(62% 0.16 262 / 0.11), transparent 72%);
-      pointer-events: none;
-    }
-    .hero-kicker {
-      font-family: var(--m); font-size: 11.5px; font-weight: 500;
-      letter-spacing: 0.05em; color: var(--blue); text-transform: uppercase; margin-bottom: 16px;
-    }
-    .hero-h1 { font-size: clamp(28px, 4vw, 46px); font-weight: 600; letter-spacing: -0.035em; line-height: 1.05; margin-bottom: 12px; }
-    .hero-p  { font-size: 15.5px; color: var(--t2); margin-bottom: 0; max-width: 540px; line-height: 1.55; }
-
-    /* ── Tabs — segmented control ────────────── */
-    .tabs {
-      display: flex; width: max-content; max-width: 100%; gap: 3px; padding: 4px;
-      background: var(--surface-2); border: 1px solid var(--border); border-radius: 999px;
-      margin-bottom: 40px; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch;
-    }
-    .tabs::-webkit-scrollbar { display: none; }
-    .tab {
-      padding: 8px 16px; font-size: 13px; font-weight: 500; color: var(--t2);
-      border-radius: 999px; white-space: nowrap; display: flex; align-items: center; gap: 7px;
-      transition: color .15s, background .15s, box-shadow .15s; user-select: none;
-    }
-    .tab:hover { color: var(--t1); }
-    .tab.on { color: var(--t1); background: var(--surface); box-shadow: var(--shadow-sm); }
-    .tab-ct { font-family: var(--m); font-size: 10px; font-weight: 600; background: oklch(0% 0 0 / 0.05); color: var(--t3); padding: 1.5px 6px; border-radius: 999px; }
-    .tab.on .tab-ct { background: var(--blue-bg); color: var(--blue); }
-
-    /* ── Specialty filter pills ──────────────── */
-    .spe-nav { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 32px; }
-    .spe-pill {
-      padding: 7px 14px; font-size: 12.5px; font-weight: 500; color: var(--t2);
-      background: var(--surface); border: 1px solid var(--border); border-radius: 999px;
-      white-space: nowrap; user-select: none; transition: background .14s, color .14s, border-color .14s;
-    }
-    .spe-pill:hover { border-color: var(--border-hi); color: var(--t1); }
-    .spe-pill.on { background: var(--t1); color: var(--bg); border-color: var(--t1); }
-    .spe-pill .pill-ct { font-family: var(--m); font-size: 10px; font-weight: 600; margin-left: 7px; padding: 1.5px 6px; border-radius: 999px; background: oklch(0% 0 0 / 0.06); color: inherit; }
-    .spe-pill.on .pill-ct { background: oklch(100% 0 0 / 0.18); }
-    .spe[hidden] { display: none !important; }
-
-    /* ── Section ─────────────────────────────── */
-    .sec { margin-bottom: 60px; }
-    .sec[hidden] { display: none !important; }
-    .sec-lbl {
-      font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em;
-      color: var(--t3); margin-bottom: 22px; display: flex; align-items: center; gap: 14px;
-    }
-    .sec-lbl::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, var(--border), transparent); }
-
-    /* ── Grids ───────────────────────────────── */
-    .grid { display: grid; gap: 14px; }
-    .g4   { grid-template-columns: repeat(auto-fill, minmax(264px, 1fr)); }
-    .g3   { grid-template-columns: repeat(auto-fill, minmax(232px, 1fr)); }
-    .g2   { grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); }
-
-    /* ── Card ────────────────────────────────── */
-    .card {
-      background: var(--surface); border: 1px solid var(--border); border-radius: var(--r);
-      padding: 18px 20px; display: flex; flex-direction: column; gap: 11px;
-      box-shadow: var(--shadow-sm); transition: box-shadow .2s, transform .2s, border-color .2s; cursor: pointer;
-    }
-    .card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); border-color: var(--border-hi); }
-    .card:hover .c-arrow { transform: translateX(4px); color: var(--blue); }
-
-    .c-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
-    .c-tags { display: flex; gap: 5px; flex-wrap: wrap; align-items: center; }
-
-    .pill { font-family: var(--m); font-size: 10px; font-weight: 500; padding: 3px 7px; border-radius: 6px; border: 1px solid transparent; line-height: 1.5; letter-spacing: 0.01em; }
-    .p-type { background: var(--surface-2); color: var(--t2); border-color: var(--border); }
-
-    .lvl { font-family: var(--m); font-size: 9.5px; font-weight: 700; padding: 2.5px 6px; border-radius: 6px; text-transform: uppercase; letter-spacing: 0.04em; }
-    .r1 { background: oklch(95% 0.04 160); color: oklch(34% 0.12 160); }
-    .r2 { background: oklch(95% 0.045 245); color: oklch(34% 0.13 245); }
-    .r3 { background: oklch(95% 0.045 300); color: oklch(34% 0.14 300); }
-
-    .c-title { font-size: 15px; font-weight: 600; line-height: 1.32; letter-spacing: -0.015em; text-wrap: pretty; color: var(--t1); }
-    .c-foot { display: flex; align-items: center; justify-content: space-between; padding-top: 12px; border-top: 1px solid var(--border); margin-top: auto; gap: 8px; }
-    .c-meta { display: flex; gap: 10px; }
-    .c-meta span { font-family: var(--m); font-size: 11.5px; color: var(--t3); }
-    .c-arrow { font-size: 14px; color: var(--t3); transition: transform .18s, color .18s; line-height: 1; }
-
-    /* ── Specialty group (reviews) ───────────── */
-    .spe { margin-bottom: 34px; }
-    .spe:last-child { margin-bottom: 0; }
-    .spe-hd {
-      font-size: 12.5px; font-weight: 600; color: var(--t2);
-      padding-bottom: 11px; margin-bottom: 14px; border-bottom: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .spe-ct { font-family: var(--m); font-size: 10px; font-weight: 500; color: var(--t3); }
-
-    /* ── Tool card ───────────────────────────── */
-    .card-tool { background: linear-gradient(135deg, var(--blue-bg), color-mix(in oklab, var(--blue-bg) 55%, var(--surface))); border-color: oklch(88% 0.05 262); }
-
-    /* ── Footer ──────────────────────────────── */
-    .ftr { border-top: 1px solid var(--border); padding: 28px 0 40px; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 12px; color: var(--t3); }
-
-    /* ── Tweaks Panel ────────────────────────── */
-    .tw {
-      position: fixed; bottom: 24px; right: 24px; width: 236px; z-index: 500; display: none;
-      background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
-      box-shadow: 0 10px 36px oklch(0% 0 0 / 0.16), 0 2px 8px oklch(0% 0 0 / 0.08); padding: 18px 20px;
-    }
-    .tw.vis { display: block; }
-    .tw-hd  { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
-    .tw-h   { font-size: 13px; font-weight: 600; }
-    .tw-x   { width: 24px; height: 24px; border-radius: 50%; background: var(--surface-2); color: var(--t2); display: flex; align-items: center; justify-content: center; font-size: 15px; line-height: 1; }
-    .tw-row { margin-bottom: 14px; }
-    .tw-row:last-child { margin-bottom: 0; }
-    .tw-lbl { font-size: 10.5px; font-weight: 600; color: var(--t3); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px; }
-    .tw-seg { display: flex; gap: 4px; background: var(--surface-2); border: 1px solid var(--border); border-radius: 999px; padding: 3px; }
-    .tw-btn { flex: 1; padding: 6px 8px; font-size: 12px; font-weight: 500; border-radius: 999px; color: var(--t2); text-align: center; transition: background .12s, color .12s, box-shadow .12s; }
-    .tw-btn.on { background: var(--surface); color: var(--t1); box-shadow: var(--shadow-sm); }
-
-    /* ── Dark theme ──────────────────────────── */
-    [data-theme=dark] {
-      --bg:        oklch(15% 0.012 265);
-      --surface:   oklch(19% 0.013 265);
-      --surface-2: oklch(23% 0.012 265);
-      --border:    oklch(27% 0.012 265);
-      --border-hi: oklch(38% 0.015 265);
-      --t1:        oklch(94% 0.005 265);
-      --t2:        oklch(72% 0.010 265);
-      --t3:        oklch(54% 0.010 265);
-      --blue:      oklch(72% 0.14 262);
-      --blue-bg:   oklch(27% 0.05 262);
-      --shadow-sm: 0 1px 2px oklch(0% 0 0 / 0.3);
-      --shadow-lg: 0 10px 34px oklch(0% 0 0 / 0.5);
-    }
-    [data-theme=dark] .hdr { background: color-mix(in oklab, var(--bg) 74%, transparent); }
-    [data-theme=dark] .tab-ct, [data-theme=dark] .spe-pill .pill-ct { background: oklch(100% 0 0 / 0.08); }
-    [data-theme=dark] .card-tool { background: oklch(24% 0.05 262); border-color: oklch(34% 0.07 262); }
-
-    /* ── Compact density ─────────────────────── */
-    [data-density=compact] .card   { padding: 14px 16px; gap: 8px; }
-    [data-density=compact] .c-foot { padding-top: 9px; }
-    [data-density=compact] .grid   { gap: 9px; }
-    [data-density=compact] .hero   { padding: 40px 0 30px; }
-    [data-density=compact] .sec    { margin-bottom: 44px; }
-
-    /* ── Search + level filter ───────────────── */
-    .searchbar { position: relative; display: flex; align-items: center; margin: 0 0 20px; }
-    .search-ico { position: absolute; left: 15px; color: var(--t3); pointer-events: none; display: flex; }
-    .search-in { width: 100%; font-family: var(--m); font-size: 13.5px; color: var(--t1); background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 13px 42px; outline: none; box-shadow: var(--shadow-sm); transition: border-color .15s, box-shadow .15s; }
-    .search-in:focus { border-color: var(--blue); box-shadow: 0 0 0 3px var(--blue-bg); }
-    .search-in::placeholder { color: var(--t3); }
-    .search-in::-webkit-search-cancel-button { -webkit-appearance: none; display: none; }
-    .search-clr { position: absolute; right: 9px; width: 26px; height: 26px; border: none; border-radius: 50%; background: var(--surface-2); color: var(--t2); display: flex; align-items: center; justify-content: center; font-size: 17px; line-height: 1; cursor: pointer; }
-    .search-clr:hover { color: var(--t1); }
-    .lvl-nav { display: flex; flex-wrap: wrap; gap: 7px; align-items: center; margin: -20px 0 30px; }
-    .lvl-lbl { font-family: var(--m); font-size: 10.5px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--t3); margin-right: 4px; }
-    .no-hits { display: none; text-align: center; color: var(--t3); font-size: 14px; padding: 46px 0; font-family: var(--m); }
-    .no-hits.on { display: block; }
-
-    /* ── Responsive ──────────────────────────── */
-    @media (max-width: 900px) {
-      .g4 { grid-template-columns: repeat(auto-fill, minmax(224px, 1fr)); }
-    }
-    @media (max-width: 640px) {
-      .wrap { padding: 0 18px; }
-      .hero { padding: 40px 0 30px; }
-      .g4, .g3, .g2 { grid-template-columns: 1fr; }
-      .tw { bottom: 16px; right: 16px; width: 214px; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KP Mainz — Lernbibliothek</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-.cards-cta{display:flex;align-items:center;justify-content:space-between;gap:14px;text-decoration:none;background:linear-gradient(135deg,#2D7A3E,#1f5e2f);color:#fff;border-radius:20px;padding:18px 22px;margin:0 0 22px;box-shadow:0 8px 24px rgba(45,122,62,.22);transition:transform .12s,box-shadow .2s}
-.cards-cta:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(45,122,62,.30)}
-.cta-left{display:flex;align-items:center;gap:14px;min-width:0}
-.cta-icon{font-size:1.8rem;line-height:1;flex:none}
-.cta-title{font-weight:800;font-size:1.02rem}
-.cta-sub{font-size:.8rem;opacity:.88;font-weight:600;margin-top:2px}
-.cta-arrow{font-size:1.4rem;font-weight:700;opacity:.9;flex:none}
+  :root{
+    --bg:#F7F4EE; --surface:#FFFFFF; --surface-2:#F2EEE4;
+    --border:#E7E1D5; --border-hi:#D6CEBE;
+    --t1:#1F1B16; --t2:#5A544B; --t3:#8B8478;
+    --blue:#2563a8; --blue-bg:#E8EFF7;
+    --r:14px; --shadow-sm:0 1px 2px rgba(0,0,0,.05); --shadow-lg:0 10px 30px rgba(0,0,0,.09);
+    --m:'JetBrains Mono',ui-monospace,monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:oklch(15% 0.012 265); --surface:oklch(19% 0.013 265); --surface-2:oklch(23% 0.012 265);
+      --border:oklch(27% 0.012 265); --border-hi:oklch(38% 0.015 265);
+      --t1:oklch(94% 0.005 265); --t2:oklch(72% 0.01 265); --t3:oklch(54% 0.01 265);
+      --blue:oklch(72% 0.14 262); --blue-bg:oklch(27% 0.05 262);
+      --shadow-sm:0 1px 2px rgba(0,0,0,.3); --shadow-lg:0 10px 34px rgba(0,0,0,.5);
+    }
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--t1);font-family:'Manrope',system-ui,sans-serif;font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  .hdr{position:sticky;top:0;z-index:50;background:color-mix(in oklab,var(--bg) 82%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+  .hdr-in{max-width:1080px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .brand{font-family:'Fraunces',serif;font-weight:600;font-size:18px;letter-spacing:-.01em}
+  .brand .dot{color:var(--blue)}
+  .countdown{font-family:var(--m);font-size:12px;color:var(--t3);display:flex;align-items:center;gap:7px;white-space:nowrap}
+  .countdown b{color:var(--t1);font-weight:600}
+  .lead{padding:44px 0 22px}
+  .lead h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(30px,5vw,42px);letter-spacing:-.02em;line-height:1.05}
+  .lead p{color:var(--t2);margin-top:10px;font-size:15px;max-width:560px}
+  .searchbar{position:relative;display:flex;align-items:center;margin:0 0 18px}
+  .search-ico{position:absolute;left:16px;color:var(--t3);display:flex;pointer-events:none}
+  .search-in{width:100%;font-family:var(--m);font-size:14px;color:var(--t1);background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px 44px;outline:none;box-shadow:var(--shadow-sm);transition:border-color .15s,box-shadow .15s}
+  .search-in:focus{border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-bg)}
+  .search-in::placeholder{color:var(--t3)}
+  .search-in::-webkit-search-cancel-button{-webkit-appearance:none;display:none}
+  .search-clr{position:absolute;right:10px;width:28px;height:28px;border:none;border-radius:50%;background:var(--surface-2);color:var(--t2);display:flex;align-items:center;justify-content:center;font-size:17px;line-height:1;cursor:pointer}
+  .search-clr:hover{color:var(--t1)}
+  .cta{display:flex;align-items:center;justify-content:space-between;gap:14px;text-decoration:none;background:linear-gradient(135deg,#2D7A3E,#1f5e2f);color:#fff;border-radius:16px;padding:16px 20px;margin:0 0 44px;box-shadow:0 8px 22px rgba(45,122,62,.22);transition:transform .12s,box-shadow .2s}
+  .cta:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(45,122,62,.3)}
+  .cta-l{display:flex;align-items:center;gap:14px;min-width:0}
+  .cta-ic{font-size:1.7rem;line-height:1;flex:none}
+  .cta-t{font-weight:800;font-size:1rem}
+  .cta-s{font-size:.78rem;opacity:.9;font-weight:600;margin-top:2px}
+  .cta-a{font-size:1.3rem;font-weight:700;opacity:.9;flex:none}
+  .block{margin:0 0 46px}
+  .block-h{font-family:'Fraunces',serif;font-weight:600;font-size:22px;letter-spacing:-.01em;display:flex;align-items:baseline;gap:10px;margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+  .block-ct{font-family:var(--m);font-size:12px;font-weight:500;color:var(--t3)}
+  .spe{margin-bottom:26px}
+  .spe:last-child{margin-bottom:0}
+  .spe-h{font-size:13px;font-weight:600;color:var(--t2);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+  .spe-h span{font-family:var(--m);font-size:11px;font-weight:500;color:var(--t3)}
+  .grid{display:grid;gap:13px;grid-template-columns:repeat(auto-fill,minmax(228px,1fr))}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:17px 19px;display:flex;flex-direction:column;gap:11px;box-shadow:var(--shadow-sm);transition:box-shadow .2s,transform .2s,border-color .2s;cursor:pointer;text-decoration:none;color:inherit}
+  .card:hover{box-shadow:var(--shadow-lg);transform:translateY(-3px);border-color:var(--border-hi)}
+  .card:hover .c-arrow{transform:translateX(4px);color:var(--blue)}
+  .c-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+  .c-tags{display:flex;gap:5px;flex-wrap:wrap;align-items:center}
+  .pill{font-family:var(--m);font-size:10px;font-weight:500;padding:3px 7px;border-radius:6px;border:1px solid transparent;line-height:1.5}
+  .lvl{font-family:var(--m);font-size:9.5px;font-weight:700;padding:2.5px 6px;border-radius:6px;text-transform:uppercase;letter-spacing:.04em}
+  .r1{background:oklch(95% 0.04 160);color:oklch(34% 0.12 160)}
+  .r2{background:oklch(95% 0.045 245);color:oklch(34% 0.13 245)}
+  .r3{background:oklch(95% 0.045 300);color:oklch(34% 0.14 300)}
+  .c-title{font-size:14.5px;font-weight:600;line-height:1.32;letter-spacing:-.015em;color:var(--t1);text-wrap:pretty}
+  .c-foot{display:flex;align-items:center;justify-content:flex-end;padding-top:12px;border-top:1px solid var(--border);margin-top:auto}
+  .c-arrow{font-size:14px;color:var(--t3);transition:transform .18s,color .18s;line-height:1}
+  .card-tool{background:linear-gradient(135deg,var(--blue-bg),color-mix(in oklab,var(--blue-bg) 55%,var(--surface)));border-color:oklch(88% 0.05 262)}
+  .no-hits{display:none;text-align:center;color:var(--t3);font-family:var(--m);font-size:14px;padding:50px 0}
+  .no-hits.on{display:block}
+  .ftr{border-top:1px solid var(--border);padding:26px 0 44px;font-size:12px;color:var(--t3);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  @media(max-width:640px){
+    .wrap{padding:0 18px}.hdr-in{padding:12px 18px}
+    .grid{grid-template-columns:1fr}.lead{padding:32px 0 20px}
+  }
 </style>
 </head>
-<body style="font-size: 16px;">
+<body>
 
-<!-- ══ Header ══════════════════════════════════════════════ -->
 <header class="hdr">
-  <div class="wrap">
-    <div class="hdr-in">
-      <div class="logo">
-        <span class="logo-mark">KP Mainz</span>
-        <span class="logo-sep">·</span>
-        <span class="logo-sub">Drill Library</span>
-      </div>
-      <div class="hdr-right">
-        <span class="countdown-chip" id="countdown">— Tage</span>
-        <span class="exam-chip">Kenntnisprüfung · März 2027</span>
-      </div>
-    </div>
+  <div class="hdr-in">
+    <div class="brand">KP Mainz<span class="dot">.</span></div>
+    <div class="countdown">Kenntnisprüfung in <b id="cd">—</b></div>
   </div>
 </header>
 
-<!-- ══ Main ════════════════════════════════════════════════ -->
-<main>
-<div class="wrap">
+<main class="wrap">
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="hero-kicker">Kenntnisprüfung Mainz · Vorbereitung</div>
-    <h1 class="hero-h1">Lerneinheiten &amp; Reviews</h1>
-    <p class="hero-p">Drills, Reviews und Summaries für die mündliche Prüfung — strukturiert nach Fachgebiet und Wiederholungsstufe (R1 → R2 → R3).</p>
-  </section>
+  <div class="lead">
+    <h1>Lernbibliothek</h1>
+    <p>Reviews, Drills und Summaries für die mündliche Kenntnisprüfung. Suche ein Thema oder blättere nach Fachgebiet.</p>
+  </div>
 
-  <a class="cards-cta" href="flashcards.html">
-    <div class="cta-left">
-      <span class="cta-icon">🃏</span>
-      <div>
-        <div class="cta-title">KP Karten — Tägliches Training</div>
-        <div class="cta-sub">49 Kernprinzipien · 1 pro Thema · 10 pro Tag · Spaced Repetition</div>
-      </div>
-    </div>
-    <span class="cta-arrow">→</span>
-  </a>
-
-  <!-- Live search -->
   <div class="searchbar">
-    <span class="search-ico"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
-    <input type="search" id="q" class="search-in" placeholder="Thema suchen — z. B. Sepsis, Ileus, Endokarditis, EKG…" autocomplete="off" spellcheck="false">
+    <span class="search-ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
+    <input type="search" id="q" class="search-in" placeholder="Thema suchen — z. B. Sepsis, Polytrauma, Endokarditis, EKG…" autocomplete="off" spellcheck="false">
     <button class="search-clr" id="qClr" hidden aria-label="Suche löschen">×</button>
   </div>
 
-  <!-- Filter Tabs -->
-  <nav class="tabs" id="tabs">
-    <button class="tab on" data-f="all">Alle <span class="tab-ct">59</span></button>
-    <button class="tab" data-f="drills">Drills <span class="tab-ct">5</span></button>
-    <button class="tab" data-f="reviews">Reviews <span class="tab-ct">51</span></button>
-    <button class="tab" data-f="summaries">Summaries <span class="tab-ct">2</span></button>
-    <button class="tab" data-f="tools">Tools <span class="tab-ct">1</span></button>
-  </nav>
+  <a class="cta" href="flashcards.html">
+    <div class="cta-l">
+      <span class="cta-ic">🃏</span>
+      <div>
+        <div class="cta-t">KP Karten — Tägliches Training</div>
+        <div class="cta-s">52 Kernprinzipien · 1 pro Thema · Spaced Repetition</div>
+      </div>
+    </div>
+    <span class="cta-a">→</span>
+  </a>
 
   <p class="no-hits" id="noHits">Keine Treffer — versuche einen anderen Begriff.</p>
 
-  <!-- ══ Drills ═════════════════════════════════════════════ -->
-  <section class="sec" data-s="drills">
-    <p class="sec-lbl">Drills — 5 Einheiten</p>
-    <div class="grid g4">
-
-      <a class="card" href="drills/bga-komplett.html" data-id="bga-komplett">
-        <div class="c-top">
-          <div class="c-tags">
-            <span class="pill" style="background:oklch(96% 0.03 228);color:oklch(36% 0.12 228);border-color:oklch(90% 0.05 228)">BGA</span>
-          </div>
-        </div>
-        <div class="c-title">Blutgasanalyse — Komplettskript</div>
-        <div class="c-foot"><span class="c-arrow">→</span></div>
-      </a>
-
-      <a class="card" href="drills/echo-komplett.html" data-id="echo-komplett">
-        <div class="c-top">
-          <div class="c-tags">
-            <span class="pill" style="background:oklch(96% 0.03 175);color:oklch(34% 0.12 175);border-color:oklch(89% 0.05 175)">Echo</span>
-          </div>
-        </div>
-        <div class="c-title">Echokardiografie — Komplettskript</div>
-        <div class="c-foot"><span class="c-arrow">→</span></div>
-      </a>
-
-      <a class="card" href="drills/eeg-komplett.html" data-id="eeg-komplett">
-        <div class="c-top">
-          <div class="c-tags">
-            <span class="pill" style="background:oklch(96% 0.03 300);color:oklch(34% 0.12 300);border-color:oklch(89% 0.05 300)">EEG</span>
-          </div>
-        </div>
-        <div class="c-title">EEG-Grundlagen — Komplettskript</div>
-        <div class="c-foot"><span class="c-arrow">→</span></div>
-      </a>
-
-      <a class="card" href="drills/sono-komplett.html" data-id="sono-komplett">
-        <div class="c-top">
-          <div class="c-tags">
-            <span class="pill" style="background:oklch(96% 0.03 200);color:oklch(34% 0.12 200);border-color:oklch(89% 0.05 200)">Sono</span>
-          </div>
-        </div>
-        <div class="c-title">Abdomensonografie — Komplettskript</div>
-        <div class="c-foot"><span class="c-arrow">→</span></div>
-      </a>
-
-      <a class="card" href="drills/rechtsmedizin-komplett.html" data-id="rechtsmedizin-komplett">
-        <div class="c-top">
-          <div class="c-tags">
-            <span class="pill" style="background:oklch(96% 0.03 20);color:oklch(36% 0.12 20);border-color:oklch(90% 0.05 20)">Rechtsmedizin</span>
-          </div>
-        </div>
-        <div class="c-title">Rechtsmedizin — Komplettskript</div>
-        <div class="c-foot"><span class="c-arrow">→</span></div>
-      </a>
-
-    </div>
-  </section>
-
-  <!-- ══ Reviews ════════════════════════════════════════════ -->
-  <section class="sec" data-s="reviews">
-    <p class="sec-lbl">Themen-Reviews — 51 Einheiten</p>
-
-    <!-- Specialty filter buttons -->
-    <nav class="spe-nav" id="speNav">
-      <button class="spe-pill on" data-spe="all">Alle Fächer</button>
-      <button class="spe-pill" data-spe="kardio">Kardiologie <span class="pill-ct">10</span></button>
-      <button class="spe-pill" data-spe="pneumo">Pneumologie <span class="pill-ct">6</span></button>
-      <button class="spe-pill" data-spe="viszeral">Allgemein- und Viszeralchirurgie <span class="pill-ct">6</span></button>
-      <button class="spe-pill" data-spe="gastro">Gastroenterologie <span class="pill-ct">4</span></button>
-      <button class="spe-pill" data-spe="unfall">Unfallchirurgie <span class="pill-ct">6</span></button>
-      <button class="spe-pill" data-spe="notfall">Drittes Fach <span class="pill-ct">5</span></button>
-      <button class="spe-pill" data-spe="notfallmedizin">Notfallmedizin <span class="pill-ct">4</span></button>
-      <button class="spe-pill" data-spe="gefaess">Gefäßchirurgie <span class="pill-ct">1</span></button>
-      <button class="spe-pill" data-spe="neuro">Neurologie <span class="pill-ct">1</span></button>
-      <button class="spe-pill" data-spe="endokrin">Endokrinologie <span class="pill-ct">4</span></button>
-      <button class="spe-pill" data-spe="haem">Hämatologie <span class="pill-ct">4</span></button>
-    </nav>
-
-    <!-- Level (Reifegrad) filter -->
-    <nav class="lvl-nav" id="lvlNav">
-      <span class="lvl-lbl">Reifegrad</span>
-      <button class="spe-pill on" data-lvl="all">Alle</button>
-      <button class="spe-pill" data-lvl="r1">R1</button>
-      <button class="spe-pill" data-lvl="r2">R2</button>
-      <button class="spe-pill" data-lvl="r3">R3</button>
-    </nav>
-
-    <!-- Kardiologie -->
-    <div class="spe" data-spe="kardio">
-      <div class="spe-hd">
-        <span>Kardiologie</span>
-        <span class="spe-ct">10 Themen</span>
-      </div>
-      <div class="grid g3">
-
-        <a class="card" href="reviews/kardiologie/av-block-r2.html" data-id="av-block-r2">
+  <!-- Reviews -->
+  <section class="block" data-block="reviews">
+    <h2 class="block-h">Reviews <span class="block-ct">52 Themen</span></h2>
+      <div class="spe" data-spe="kardio">
+        <h3 class="spe-h">Kardiologie <span>10</span></h3>
+        <div class="grid">
+<a class="card" href="reviews/kardiologie/av-block-r2.html" data-id="av-block-r2">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 25);color:oklch(34% 0.13 25);border-color:oklch(89% 0.06 25)">Kardiologie</span>
@@ -412,8 +135,7 @@
           <div class="c-title">AV-Block</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-
-        <a class="card" href="reviews/kardiologie/herzklappenerkrankungen-r2.html" data-id="herzklappenerkrankungen-r2">
+<a class="card" href="reviews/kardiologie/herzklappenerkrankungen-r2.html" data-id="herzklappenerkrankungen-r2">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 25);color:oklch(34% 0.13 25);border-color:oklch(89% 0.06 25)">Kardiologie</span>
@@ -423,8 +145,7 @@
           <div class="c-title">Herzklappenerkrankungen</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-
-        <a class="card" href="reviews/kardiologie/infektioese-endokarditis-r3.html" data-id="infektioese-endokarditis-r3">
+<a class="card" href="reviews/kardiologie/infektioese-endokarditis-r3.html" data-id="infektioese-endokarditis-r3">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 25);color:oklch(34% 0.13 25);border-color:oklch(89% 0.06 25)">Kardiologie</span>
@@ -434,8 +155,7 @@
           <div class="c-title">Infektiöse Endokarditis</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-
-        <a class="card" href="reviews/kardiologie/arterielle-hypertonie-r2.html" data-id="arterielle-hypertonie-r2">
+<a class="card" href="reviews/kardiologie/arterielle-hypertonie-r2.html" data-id="arterielle-hypertonie-r2">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 25);color:oklch(34% 0.13 25);border-color:oklch(89% 0.06 25)">Kardiologie</span>
@@ -445,8 +165,7 @@
           <div class="c-title">Arterielle Hypertonie</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-
-        <a class="card" href="reviews/kardiologie/acs-myokardinfarkt-r2.html" data-id="acs-myokardinfarkt-r2">
+<a class="card" href="reviews/kardiologie/acs-myokardinfarkt-r2.html" data-id="acs-myokardinfarkt-r2">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 25);color:oklch(34% 0.13 25);border-color:oklch(89% 0.06 25)">Kardiologie</span>
@@ -456,8 +175,7 @@
           <div class="c-title">ACS / Myokardinfarkt</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-
-        <a class="card" href="reviews/kardiologie/synkope-r3.html" data-id="synkope-r3">
+<a class="card" href="reviews/kardiologie/synkope-r3.html" data-id="synkope-r3">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 25);color:oklch(34% 0.13 25);border-color:oklch(89% 0.06 25)">Kardiologie</span>
@@ -467,8 +185,7 @@
           <div class="c-title">Synkope</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-
-        <a class="card" href="reviews/kardiologie/herzinsuffizienz-r2.html" data-id="herzinsuffizienz-r2">
+<a class="card" href="reviews/kardiologie/herzinsuffizienz-r2.html" data-id="herzinsuffizienz-r2">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 25);color:oklch(34% 0.13 25);border-color:oklch(89% 0.06 25)">Kardiologie</span>
@@ -478,8 +195,7 @@
           <div class="c-title">Herzinsuffizienz</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-
-        <a class="card" href="reviews/kardiologie/khk-r2.html" data-id="khk-r2">
+<a class="card" href="reviews/kardiologie/khk-r2.html" data-id="khk-r2">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 25);color:oklch(34% 0.13 25);border-color:oklch(89% 0.06 25)">Kardiologie</span>
@@ -489,8 +205,7 @@
           <div class="c-title">KHK / Koronarsyndrom</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-
-        <a class="card" href="reviews/kardiologie/hypertrophe-kardiomyopathie-r2.html" data-id="hypertrophe-kardiomyopathie-r2">
+<a class="card" href="reviews/kardiologie/hypertrophe-kardiomyopathie-r2.html" data-id="hypertrophe-kardiomyopathie-r2">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 25);color:oklch(34% 0.13 25);border-color:oklch(89% 0.06 25)">Kardiologie</span>
@@ -500,8 +215,7 @@
           <div class="c-title">Hypertrophe Kardiomyopathie</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-
-        <a class="card" href="reviews/kardiologie/vorhofflimmern-r2.html" data-id="vorhofflimmern-r2">
+<a class="card" href="reviews/kardiologie/vorhofflimmern-r2.html" data-id="vorhofflimmern-r2">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 25);color:oklch(34% 0.13 25);border-color:oklch(89% 0.06 25)">Kardiologie</span>
@@ -511,19 +225,12 @@
           <div class="c-title">Vorhofflimmern</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-
       </div>
-    </div>
-
-    <!-- Chirurgie -->
-    <div class="spe" data-spe="viszeral">
-      <div class="spe-hd">
-        <span>Allgemein- und Viszeralchirurgie</span>
-        <span class="spe-ct">6 Themen</span>
       </div>
-      <div class="grid g3">
-
-        <a class="card" href="reviews/chirurgie/cholezystitis-r3.html" data-id="cholezystitis-r3">
+      <div class="spe" data-spe="viszeral">
+        <h3 class="spe-h">Allgemein- und Viszeralchirurgie <span>6</span></h3>
+        <div class="grid">
+<a class="card" href="reviews/chirurgie/cholezystitis-r3.html" data-id="cholezystitis-r3">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 35);color:oklch(34% 0.12 35);border-color:oklch(89% 0.05 35)">Allgemein- und Viszeralchirurgie</span>
@@ -533,8 +240,7 @@
           <div class="c-title">Cholezystitis</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-
-        <a class="card" href="reviews/chirurgie/appendizitis-r3.html" data-id="appendizitis-r3">
+<a class="card" href="reviews/chirurgie/appendizitis-r3.html" data-id="appendizitis-r3">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 35);color:oklch(34% 0.12 35);border-color:oklch(89% 0.05 35)">Allgemein- und Viszeralchirurgie</span>
@@ -544,8 +250,7 @@
           <div class="c-title">Appendizitis</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-
-        <a class="card" href="reviews/chirurgie/ileus-r3.html" data-id="ileus-r3">
+<a class="card" href="reviews/chirurgie/ileus-r3.html" data-id="ileus-r3">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 35);color:oklch(34% 0.12 35);border-color:oklch(89% 0.05 35)">Allgemein- und Viszeralchirurgie</span>
@@ -555,8 +260,7 @@
           <div class="c-title">Ileus</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-
-        <a class="card" href="reviews/chirurgie/leistenhernie-r3.html" data-id="leistenhernie-r3">
+<a class="card" href="reviews/chirurgie/leistenhernie-r3.html" data-id="leistenhernie-r3">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 35);color:oklch(34% 0.12 35);border-color:oklch(89% 0.05 35)">Allgemein- und Viszeralchirurgie</span>
@@ -566,8 +270,7 @@
           <div class="c-title">Leistenhernie</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-
-        <a class="card" href="reviews/chirurgie/divertikulitis-r1.html" data-id="divertikulitis-r1">
+<a class="card" href="reviews/chirurgie/divertikulitis-r1.html" data-id="divertikulitis-r1">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 35);color:oklch(34% 0.12 35);border-color:oklch(89% 0.05 35)">Allgemein- und Viszeralchirurgie</span>
@@ -577,8 +280,7 @@
           <div class="c-title">Divertikulitis</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-
-        <a class="card" href="reviews/chirurgie/kolonkarzinom-r1.html" data-id="kolonkarzinom-r1">
+<a class="card" href="reviews/chirurgie/kolonkarzinom-r1.html" data-id="kolonkarzinom-r1">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 35);color:oklch(34% 0.12 35);border-color:oklch(89% 0.05 35)">Allgemein- und Viszeralchirurgie</span>
@@ -588,19 +290,12 @@
           <div class="c-title">Kolonkarzinom</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-
       </div>
-    </div>
-
-    <!-- Further specialties -->
-    <div class="spe" data-spe="pneumo">
-      <div class="spe-hd">
-        <span>Pneumologie</span>
-        <span class="spe-ct">6 Themen</span>
       </div>
-      <div class="grid g3">
-
-        <a class="card" href="reviews/pneumologie/copd-r3.html" data-id="copd-r3">
+      <div class="spe" data-spe="pneumo">
+        <h3 class="spe-h">Pneumologie <span>6</span></h3>
+        <div class="grid">
+<a class="card" href="reviews/pneumologie/copd-r3.html" data-id="copd-r3">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 200);color:oklch(34% 0.12 200);border-color:oklch(89% 0.05 200)">Pneumologie</span>
@@ -610,8 +305,7 @@
           <div class="c-title">COPD</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-
-        <a class="card" href="reviews/pneumologie/pleuraerguss-r3.html" data-id="pleuraerguss-r3">
+<a class="card" href="reviews/pneumologie/pleuraerguss-r3.html" data-id="pleuraerguss-r3">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 200);color:oklch(34% 0.12 200);border-color:oklch(89% 0.05 200)">Pneumologie</span>
@@ -621,8 +315,7 @@
           <div class="c-title">Pleuraerguss</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-
-        <a class="card" href="reviews/pneumologie/pneumonie-r3.html" data-id="pneumonie-r3">
+<a class="card" href="reviews/pneumologie/pneumonie-r3.html" data-id="pneumonie-r3">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 200);color:oklch(34% 0.12 200);border-color:oklch(89% 0.05 200)">Pneumologie</span>
@@ -632,8 +325,7 @@
           <div class="c-title">Pneumonie</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-
-        <a class="card" href="reviews/pneumologie/pneumothorax-r3.html" data-id="pneumothorax-r3">
+<a class="card" href="reviews/pneumologie/pneumothorax-r3.html" data-id="pneumothorax-r3">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 200);color:oklch(34% 0.12 200);border-color:oklch(89% 0.05 200)">Pneumologie</span>
@@ -643,8 +335,7 @@
           <div class="c-title">Pneumothorax</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-
-        <a class="card" href="reviews/pneumologie/asthma-bronchiale-r3.html" data-id="asthma-bronchiale-r3">
+<a class="card" href="reviews/pneumologie/asthma-bronchiale-r3.html" data-id="asthma-bronchiale-r3">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 200);color:oklch(34% 0.12 200);border-color:oklch(89% 0.05 200)">Pneumologie</span>
@@ -654,8 +345,7 @@
           <div class="c-title">Asthma bronchiale</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-
-        <a class="card" href="reviews/pneumologie/lungenembolie-r3.html" data-id="lungenembolie-r3">
+<a class="card" href="reviews/pneumologie/lungenembolie-r3.html" data-id="lungenembolie-r3">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 200);color:oklch(34% 0.12 200);border-color:oklch(89% 0.05 200)">Pneumologie</span>
@@ -665,18 +355,12 @@
           <div class="c-title">Lungenembolie</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-
       </div>
-    </div>
-
-    <div class="spe" data-spe="unfall">
-      <div class="spe-hd">
-        <span>Unfallchirurgie / Orthopädie</span>
-        <span class="spe-ct">6 Themen</span>
       </div>
-      <div class="grid g3">
-
-        <a class="card" href="reviews/unfallchirurgie/proximale-femurfraktur-r3.html" data-id="proximale-femurfraktur-r3">
+      <div class="spe" data-spe="unfall">
+        <h3 class="spe-h">Unfallchirurgie / Orthopädie <span>6</span></h3>
+        <div class="grid">
+<a class="card" href="reviews/unfallchirurgie/proximale-femurfraktur-r3.html" data-id="proximale-femurfraktur-r3">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 50);color:oklch(34% 0.12 50);border-color:oklch(89% 0.05 50)">Unfallchirurgie</span>
@@ -686,8 +370,7 @@
           <div class="c-title">Proximale Femurfraktur</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-
-        <a class="card" href="reviews/unfallchirurgie/distale-radiusfraktur-r3.html" data-id="distale-radiusfraktur-r3">
+<a class="card" href="reviews/unfallchirurgie/distale-radiusfraktur-r3.html" data-id="distale-radiusfraktur-r3">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 50);color:oklch(34% 0.12 50);border-color:oklch(89% 0.05 50)">Unfallchirurgie</span>
@@ -697,8 +380,7 @@
           <div class="c-title">Distale Radiusfraktur</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-
-        <a class="card" href="reviews/unfallchirurgie/beckenringfrakturen-r3.html" data-id="beckenringfrakturen-r3">
+<a class="card" href="reviews/unfallchirurgie/beckenringfrakturen-r3.html" data-id="beckenringfrakturen-r3">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 50);color:oklch(34% 0.12 50);border-color:oklch(89% 0.05 50)">Unfallchirurgie</span>
@@ -708,8 +390,7 @@
           <div class="c-title">Beckenringfrakturen</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-
-        <a class="card" href="reviews/unfallchirurgie/wirbelsaeulenverletzungen-r3.html" data-id="wirbelsaeulenverletzungen-r3">
+<a class="card" href="reviews/unfallchirurgie/wirbelsaeulenverletzungen-r3.html" data-id="wirbelsaeulenverletzungen-r3">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 50);color:oklch(34% 0.12 50);border-color:oklch(89% 0.05 50)">Unfallchirurgie</span>
@@ -719,8 +400,7 @@
           <div class="c-title">Wirbelsäulenverletzungen</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-
-        <a class="card" href="reviews/unfallchirurgie/sprunggelenksfraktur-r3.html" data-id="sprunggelenksfraktur-r3">
+<a class="card" href="reviews/unfallchirurgie/sprunggelenksfraktur-r3.html" data-id="sprunggelenksfraktur-r3">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 50);color:oklch(34% 0.12 50);border-color:oklch(89% 0.05 50)">Unfallchirurgie</span>
@@ -730,8 +410,7 @@
           <div class="c-title">Sprunggelenksfraktur</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-
-        <a class="card" href="reviews/unfallchirurgie/allgemeine-frakturlehre-r3.html" data-id="allgemeine-frakturlehre-r3">
+<a class="card" href="reviews/unfallchirurgie/allgemeine-frakturlehre-r3.html" data-id="allgemeine-frakturlehre-r3">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 50);color:oklch(34% 0.12 50);border-color:oklch(89% 0.05 50)">Unfallchirurgie</span>
@@ -741,18 +420,12 @@
           <div class="c-title">Allgemeine Frakturlehre</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-
       </div>
-    </div>
-
-    <div class="spe" data-spe="notfall">
-      <div class="spe-hd">
-        <span>Drittes Fach</span>
-        <span class="spe-ct">5 Themen</span>
       </div>
-      <div class="grid g3">
-
-        <a class="card" href="reviews/drittes-fach/strahlenschutz-r2.html" data-id="strahlenschutz-r2">
+      <div class="spe" data-spe="notfall">
+        <h3 class="spe-h">Drittes Fach <span>5</span></h3>
+        <div class="grid">
+<a class="card" href="reviews/drittes-fach/strahlenschutz-r2.html" data-id="strahlenschutz-r2">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 18);color:oklch(34% 0.12 18);border-color:oklch(89% 0.05 18)">Drittes Fach</span>
@@ -762,8 +435,7 @@
           <div class="c-title">Strahlenschutz</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-
-        <a class="card" href="reviews/drittes-fach/rechtsmedizin-r2.html" data-id="rechtsmedizin-r2">
+<a class="card" href="reviews/drittes-fach/rechtsmedizin-r2.html" data-id="rechtsmedizin-r2">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 18);color:oklch(34% 0.12 18);border-color:oklch(89% 0.05 18)">Drittes Fach</span>
@@ -773,8 +445,7 @@
           <div class="c-title">Rechtsmedizin</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-
-        <a class="card" href="reviews/drittes-fach/sozialrecht-hygiene-r1.html" data-id="sozialrecht-hygiene-r1">
+<a class="card" href="reviews/drittes-fach/sozialrecht-hygiene-r1.html" data-id="sozialrecht-hygiene-r1">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 18);color:oklch(34% 0.12 18);border-color:oklch(89% 0.05 18)">Drittes Fach</span>
@@ -784,8 +455,7 @@
           <div class="c-title">Sozialrecht, Unfallversicherung &amp; Hygiene</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-
-        <a class="card" href="reviews/drittes-fach/impfungen-stiko-r3.html" data-id="impfungen-stiko-r3">
+<a class="card" href="reviews/drittes-fach/impfungen-stiko-r3.html" data-id="impfungen-stiko-r3">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 18);color:oklch(34% 0.12 18);border-color:oklch(89% 0.05 18)">Drittes Fach</span>
@@ -795,8 +465,7 @@
           <div class="c-title">Impfungen / STIKO</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-
-        <a class="card" href="reviews/drittes-fach/aufklaerung-einwilligung-betreuung-r2.html" data-id="aufklaerung-einwilligung-betreuung-r2">
+<a class="card" href="reviews/drittes-fach/aufklaerung-einwilligung-betreuung-r2.html" data-id="aufklaerung-einwilligung-betreuung-r2">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 18);color:oklch(34% 0.12 18);border-color:oklch(89% 0.05 18)">Drittes Fach</span>
@@ -806,20 +475,12 @@
           <div class="c-title">Aufklärung, Einwilligung &amp; Betreuung</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-
       </div>
-    </div>
-
-
-    <!-- Notfallmedizin -->
-    <div class="spe" data-spe="notfallmedizin">
-      <div class="spe-hd">
-        <span>Notfallmedizin</span>
-        <span class="spe-ct">4 Themen</span>
       </div>
-      <div class="grid g3">
-
-        <a class="card" href="reviews/notfallmedizin/schock-r3.html" data-id="schock-r3">
+      <div class="spe" data-spe="notfallmedizin">
+        <h3 class="spe-h">Notfallmedizin <span>5</span></h3>
+        <div class="grid">
+<a class="card" href="reviews/notfallmedizin/schock-r3.html" data-id="schock-r3">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 255);color:oklch(34% 0.12 255);border-color:oklch(89% 0.05 255)">Notfallmedizin</span>
@@ -829,8 +490,7 @@
           <div class="c-title">Schock (alle Typen)</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-
-        <a class="card" href="reviews/notfallmedizin/notfallpharmakologie-r2.html" data-id="notfallpharmakologie-r2">
+<a class="card" href="reviews/notfallmedizin/notfallpharmakologie-r2.html" data-id="notfallpharmakologie-r2">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 255);color:oklch(34% 0.12 255);border-color:oklch(89% 0.05 255)">Notfallmedizin</span>
@@ -840,8 +500,7 @@
           <div class="c-title">Notfallpharmakologie</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-
-        <a class="card" href="reviews/notfallmedizin/sepsis-r3.html" data-id="sepsis-r3">
+<a class="card" href="reviews/notfallmedizin/sepsis-r3.html" data-id="sepsis-r3">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 255);color:oklch(34% 0.12 255);border-color:oklch(89% 0.05 255)">Notfallmedizin</span>
@@ -851,8 +510,7 @@
           <div class="c-title">Sepsis</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-
-        <a class="card" href="reviews/notfallmedizin/schaedel-hirn-trauma-r3.html" data-id="schaedel-hirn-trauma-r3">
+<a class="card" href="reviews/notfallmedizin/schaedel-hirn-trauma-r3.html" data-id="schaedel-hirn-trauma-r3">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 255);color:oklch(34% 0.12 255);border-color:oklch(89% 0.05 255)">Notfallmedizin</span>
@@ -862,20 +520,22 @@
           <div class="c-title">Schädel-Hirn-Trauma</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-
+        <a class="card" href="reviews/notfallmedizin/polytrauma-abcde-r3.html" data-id="polytrauma-abcde-r3">
+          <div class="c-top">
+            <div class="c-tags">
+              <span class="pill" style="background:oklch(96% 0.03 255);color:oklch(34% 0.12 255);border-color:oklch(89% 0.05 255)">Notfallmedizin</span>
+            </div>
+            <span class="lvl r3">R3</span>
+          </div>
+          <div class="c-title">Polytrauma / ABCDE</div>
+          <div class="c-foot"><span class="c-arrow">→</span></div>
+        </a>
       </div>
-    </div>
-
-
-    <!-- Gefäßchirurgie -->
-    <div class="spe" data-spe="gefaess">
-      <div class="spe-hd">
-        <span>Gefäßchirurgie</span>
-        <span class="spe-ct">1 Thema</span>
       </div>
-      <div class="grid g3">
-
-        <a class="card" href="reviews/gefaesschirurgie/aortendissektion-r3.html" data-id="aortendissektion-r3">
+      <div class="spe" data-spe="gefaess">
+        <h3 class="spe-h">Gefäßchirurgie <span>1</span></h3>
+        <div class="grid">
+<a class="card" href="reviews/gefaesschirurgie/aortendissektion-r3.html" data-id="aortendissektion-r3">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 10);color:oklch(34% 0.13 10);border-color:oklch(89% 0.06 10)">Gefäßchirurgie</span>
@@ -885,19 +545,12 @@
           <div class="c-title">Aortendissektion</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-
       </div>
-    </div>
-
-    <!-- Neurologie -->
-    <div class="spe" data-spe="neuro">
-      <div class="spe-hd">
-        <span>Neurologie</span>
-        <span class="spe-ct">1 Thema</span>
       </div>
-      <div class="grid g3">
-
-        <a class="card" href="reviews/neurologie/schlaganfall-r3.html" data-id="schlaganfall-r3">
+      <div class="spe" data-spe="neuro">
+        <h3 class="spe-h">Neurologie <span>1</span></h3>
+        <div class="grid">
+<a class="card" href="reviews/neurologie/schlaganfall-r3.html" data-id="schlaganfall-r3">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 300);color:oklch(34% 0.12 300);border-color:oklch(89% 0.05 300)">Neurologie</span>
@@ -907,19 +560,12 @@
           <div class="c-title">Schlaganfall / Apoplex</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-
       </div>
-    </div>
-
-    <!-- Endokrinologie -->
-    <div class="spe" data-spe="endokrin">
-      <div class="spe-hd">
-        <span>Endokrinologie</span>
-        <span class="spe-ct">4 Themen</span>
       </div>
-      <div class="grid g3">
-
-        <a class="card" href="reviews/endokrinologie/diabetes-mellitus-r2.html" data-id="diabetes-mellitus-r2">
+      <div class="spe" data-spe="endokrin">
+        <h3 class="spe-h">Endokrinologie <span>4</span></h3>
+        <div class="grid">
+<a class="card" href="reviews/endokrinologie/diabetes-mellitus-r2.html" data-id="diabetes-mellitus-r2">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 330);color:oklch(34% 0.13 330);border-color:oklch(89% 0.05 330)">Endokrinologie</span>
@@ -929,8 +575,7 @@
           <div class="c-title">Diabetes mellitus</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-
-        <a class="card" href="reviews/endokrinologie/hyperthyreose-r3.html" data-id="hyperthyreose-r3">
+<a class="card" href="reviews/endokrinologie/hyperthyreose-r3.html" data-id="hyperthyreose-r3">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 330);color:oklch(34% 0.13 330);border-color:oklch(89% 0.05 330)">Endokrinologie</span>
@@ -940,8 +585,7 @@
           <div class="c-title">Hyperthyreose</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-
-        <a class="card" href="reviews/endokrinologie/hypothyreose-r3.html" data-id="hypothyreose-r3">
+<a class="card" href="reviews/endokrinologie/hypothyreose-r3.html" data-id="hypothyreose-r3">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 330);color:oklch(34% 0.13 330);border-color:oklch(89% 0.05 330)">Endokrinologie</span>
@@ -951,8 +595,7 @@
           <div class="c-title">Hypothyreose</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-
-        <a class="card" href="reviews/endokrinologie/cushing-syndrom-r3.html" data-id="cushing-syndrom-r3">
+<a class="card" href="reviews/endokrinologie/cushing-syndrom-r3.html" data-id="cushing-syndrom-r3">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 330);color:oklch(34% 0.13 330);border-color:oklch(89% 0.05 330)">Endokrinologie</span>
@@ -962,19 +605,12 @@
           <div class="c-title">Cushing-Syndrom</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-
       </div>
-    </div>
-
-    <!-- Hämatologie -->
-    <div class="spe" data-spe="haem">
-      <div class="spe-hd">
-        <span>Hämatologie</span>
-        <span class="spe-ct">4 Themen</span>
       </div>
-      <div class="grid g3">
-
-        <a class="card" href="reviews/haematologie/eisenmangelanaemie-r3.html" data-id="eisenmangelanaemie-r3">
+      <div class="spe" data-spe="haem">
+        <h3 class="spe-h">Hämatologie <span>4</span></h3>
+        <div class="grid">
+<a class="card" href="reviews/haematologie/eisenmangelanaemie-r3.html" data-id="eisenmangelanaemie-r3">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 350);color:oklch(34% 0.13 350);border-color:oklch(89% 0.06 350)">Hämatologie</span>
@@ -984,8 +620,7 @@
           <div class="c-title">Eisenmangelanämie</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-
-        <a class="card" href="reviews/haematologie/cml-r2.html" data-id="cml-r2">
+<a class="card" href="reviews/haematologie/cml-r2.html" data-id="cml-r2">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 350);color:oklch(34% 0.13 350);border-color:oklch(89% 0.06 350)">Hämatologie</span>
@@ -995,8 +630,7 @@
           <div class="c-title">CML</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-
-        <a class="card" href="reviews/haematologie/akute-leukaemien-r2.html" data-id="akute-leukaemien-r2">
+<a class="card" href="reviews/haematologie/akute-leukaemien-r2.html" data-id="akute-leukaemien-r2">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 350);color:oklch(34% 0.13 350);border-color:oklch(89% 0.06 350)">Hämatologie</span>
@@ -1006,8 +640,7 @@
           <div class="c-title">Akute Leukämien</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-
-        <a class="card" href="reviews/haematologie/non-hodgkin-lymphome-r1.html" data-id="non-hodgkin-lymphome-r1">
+<a class="card" href="reviews/haematologie/non-hodgkin-lymphome-r1.html" data-id="non-hodgkin-lymphome-r1">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 350);color:oklch(34% 0.13 350);border-color:oklch(89% 0.06 350)">Hämatologie</span>
@@ -1017,19 +650,12 @@
           <div class="c-title">Non-Hodgkin-Lymphome</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-
       </div>
-    </div>
-
-    <!-- Gastroenterologie -->
-    <div class="spe" data-spe="gastro">
-      <div class="spe-hd">
-        <span>Gastroenterologie</span>
-        <span class="spe-ct">4 Themen</span>
       </div>
-      <div class="grid g3">
-
-        <a class="card" href="reviews/gastroenterologie/morbus-crohn-r2.html" data-id="morbus-crohn-r2">
+      <div class="spe" data-spe="gastro">
+        <h3 class="spe-h">Gastroenterologie <span>4</span></h3>
+        <div class="grid">
+<a class="card" href="reviews/gastroenterologie/morbus-crohn-r2.html" data-id="morbus-crohn-r2">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 150);color:oklch(34% 0.13 150);border-color:oklch(89% 0.06 150)">Gastroenterologie</span>
@@ -1039,8 +665,7 @@
           <div class="c-title">Morbus Crohn</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-
-        <a class="card" href="reviews/gastroenterologie/gi-blutung-r3.html" data-id="gi-blutung-r3">
+<a class="card" href="reviews/gastroenterologie/gi-blutung-r3.html" data-id="gi-blutung-r3">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 150);color:oklch(34% 0.13 150);border-color:oklch(89% 0.06 150)">Gastroenterologie</span>
@@ -1050,8 +675,7 @@
           <div class="c-title">GI-Blutung</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-
-        <a class="card" href="reviews/gastroenterologie/ikterus-cholestase-r3.html" data-id="ikterus-cholestase-r3">
+<a class="card" href="reviews/gastroenterologie/ikterus-cholestase-r3.html" data-id="ikterus-cholestase-r3">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 150);color:oklch(34% 0.13 150);border-color:oklch(89% 0.06 150)">Gastroenterologie</span>
@@ -1061,8 +685,7 @@
           <div class="c-title">Ikterus + Cholestase</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-
-        <a class="card" href="reviews/gastroenterologie/leberzirrhose-r3.html" data-id="leberzirrhose-r3">
+<a class="card" href="reviews/gastroenterologie/leberzirrhose-r3.html" data-id="leberzirrhose-r3">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 150);color:oklch(34% 0.13 150);border-color:oklch(89% 0.06 150)">Gastroenterologie</span>
@@ -1072,18 +695,67 @@
           <div class="c-title">Die Leberzirrhose</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-
       </div>
-    </div>
-
+      </div>
   </section>
 
-  <!-- ══ Summaries ══════════════════════════════════════════ -->
-  <section class="sec" data-s="summaries">
-    <p class="sec-lbl">1-Seiten-Summaries — 2 Einheiten</p>
-    <div class="grid g2">
+  <!-- Drills -->
+  <section class="block" data-block="drills">
+    <h2 class="block-h">Drills <span class="block-ct">5 Skripte</span></h2>
+    <div class="grid">
+<a class="card" href="drills/bga-komplett.html" data-id="bga-komplett">
+        <div class="c-top">
+          <div class="c-tags">
+            <span class="pill" style="background:oklch(96% 0.03 228);color:oklch(36% 0.12 228);border-color:oklch(90% 0.05 228)">BGA</span>
+          </div>
+        </div>
+        <div class="c-title">Blutgasanalyse — Komplettskript</div>
+        <div class="c-foot"><span class="c-arrow">→</span></div>
+      </a>
+<a class="card" href="drills/echo-komplett.html" data-id="echo-komplett">
+        <div class="c-top">
+          <div class="c-tags">
+            <span class="pill" style="background:oklch(96% 0.03 175);color:oklch(34% 0.12 175);border-color:oklch(89% 0.05 175)">Echo</span>
+          </div>
+        </div>
+        <div class="c-title">Echokardiografie — Komplettskript</div>
+        <div class="c-foot"><span class="c-arrow">→</span></div>
+      </a>
+<a class="card" href="drills/eeg-komplett.html" data-id="eeg-komplett">
+        <div class="c-top">
+          <div class="c-tags">
+            <span class="pill" style="background:oklch(96% 0.03 300);color:oklch(34% 0.12 300);border-color:oklch(89% 0.05 300)">EEG</span>
+          </div>
+        </div>
+        <div class="c-title">EEG-Grundlagen — Komplettskript</div>
+        <div class="c-foot"><span class="c-arrow">→</span></div>
+      </a>
+<a class="card" href="drills/sono-komplett.html" data-id="sono-komplett">
+        <div class="c-top">
+          <div class="c-tags">
+            <span class="pill" style="background:oklch(96% 0.03 200);color:oklch(34% 0.12 200);border-color:oklch(89% 0.05 200)">Sono</span>
+          </div>
+        </div>
+        <div class="c-title">Abdomensonografie — Komplettskript</div>
+        <div class="c-foot"><span class="c-arrow">→</span></div>
+      </a>
+<a class="card" href="drills/rechtsmedizin-komplett.html" data-id="rechtsmedizin-komplett">
+        <div class="c-top">
+          <div class="c-tags">
+            <span class="pill" style="background:oklch(96% 0.03 20);color:oklch(36% 0.12 20);border-color:oklch(90% 0.05 20)">Rechtsmedizin</span>
+          </div>
+        </div>
+        <div class="c-title">Rechtsmedizin — Komplettskript</div>
+        <div class="c-foot"><span class="c-arrow">→</span></div>
+      </a>
+    </div>
+  </section>
 
-      <a class="card" href="summaries/kardiologie/synkope.html" data-id="synkope">
+  <!-- Summaries -->
+  <section class="block" data-block="summaries">
+    <h2 class="block-h">1-Seiten-Summaries <span class="block-ct">2</span></h2>
+    <div class="grid">
+<a class="card" href="summaries/kardiologie/synkope.html" data-id="synkope">
         <div class="c-top">
           <div class="c-tags">
             <span class="pill" style="background:oklch(96% 0.03 10);color:oklch(34% 0.12 10);border-color:oklch(89% 0.05 10)">Kardiologie</span>
@@ -1092,8 +764,7 @@
         <div class="c-title">Synkope</div>
         <div class="c-foot"><span class="c-arrow">→</span></div>
       </a>
-
-      <a class="card" href="summaries/neurologie/meningitis-enzephalitis.html" data-id="meningitis-enzephalitis">
+<a class="card" href="summaries/neurologie/meningitis-enzephalitis.html" data-id="meningitis-enzephalitis">
         <div class="c-top">
           <div class="c-tags">
             <span class="pill" style="background:oklch(96% 0.03 284);color:oklch(34% 0.12 284);border-color:oklch(89% 0.05 284)">Neurologie</span>
@@ -1102,16 +773,14 @@
         <div class="c-title">Meningitis / Enzephalitis</div>
         <div class="c-foot"><span class="c-arrow">→</span></div>
       </a>
-
     </div>
   </section>
 
-  <!-- ══ Tools ══════════════════════════════════════════════ -->
-  <section class="sec" data-s="tools">
-    <p class="sec-lbl">Studienplanung</p>
-    <div class="grid g2">
-
-      <a class="card card-tool" href="tools/master-themenliste.html" data-id="master-themenliste">
+  <!-- Tools -->
+  <section class="block" data-block="tools">
+    <h2 class="block-h">Werkzeuge</h2>
+    <div class="grid">
+<a class="card card-tool" href="tools/master-themenliste.html" data-id="master-themenliste">
         <div class="c-top">
           <div class="c-tags">
           </div>
@@ -1119,177 +788,41 @@
         <div class="c-title">Master-Themenliste</div>
         <div class="c-foot"><span class="c-arrow">→</span></div>
       </a>
-
     </div>
   </section>
 
-</div>
+  <footer class="ftr">
+    <span>KP-Mainz · Lernbibliothek</span>
+    <span>60 Einheiten · Prüfung März 2027</span>
+  </footer>
+
 </main>
 
-<!-- ══ Footer ══════════════════════════════════════════════ -->
-<footer>
-  <div class="wrap">
-    <div class="ftr">
-      <span>KP Mainz · Drill Library</span>
-      <span>Aktualisiert Juni 2026</span>
-    </div>
-  </div>
-</footer>
-
-<!-- ══ Tweaks Panel ═════════════════════════════════════════ -->
-<div class="tw" id="twPanel">
-  <div class="tw-hd">
-    <span class="tw-h">Tweaks</span>
-    <button class="tw-x" id="twClose" aria-label="Schließen">×</button>
-  </div>
-
-  <div class="tw-row">
-    <p class="tw-lbl">Darstellung</p>
-    <div class="tw-seg">
-      <button class="tw-btn on" data-tw="theme" data-val="light">Hell</button>
-      <button class="tw-btn"    data-tw="theme" data-val="dark">Dunkel</button>
-    </div>
-  </div>
-
-  <div class="tw-row">
-    <p class="tw-lbl">Dichte</p>
-    <div class="tw-seg">
-      <button class="tw-btn on" data-tw="density" data-val="comfortable">Normal</button>
-      <button class="tw-btn"    data-tw="density" data-val="compact">Kompakt</button>
-    </div>
-  </div>
-</div>
-
 <script>
-  /* ── Exam countdown ──────────────────────────────────────── */
+  /* Countdown */
   (function () {
-    const exam = new Date('2027-03-01');
-    const diff = Math.ceil((exam - Date.now()) / 86400000);
-    document.getElementById('countdown').textContent = diff > 0 ? diff + ' Tage' : 'Prüfung jetzt';
+    var exam = new Date('2027-03-01');
+    var d = Math.ceil((exam - Date.now()) / 86400000);
+    document.getElementById('cd').textContent = d > 0 ? d + ' Tagen' : 'jetzt';
   })();
 
-  /* ── Unified filtering: search + type + specialty + level ── */
-  var typeF = 'all', speF = 'all', lvlF = 'all', q = '';
-  function norm(s) { return (s || '').toLowerCase(); }
-  var noHits = document.getElementById('noHits');
-
-  function applyFilters() {
-    var searching = q.length > 0;
-    document.querySelectorAll('.card').forEach(function (card) {
-      var vis;
-      if (searching) {
-        var titleEl = card.querySelector('.c-title');
-        var pillEl = card.querySelector('.pill');
-        var t = norm(titleEl && titleEl.textContent);
-        var p = norm(pillEl && pillEl.textContent);
-        vis = t.indexOf(q) >= 0 || p.indexOf(q) >= 0;
-      } else {
-        vis = true;
-        var sec = card.closest('.sec');
-        var secType = sec ? sec.dataset.s : '';
-        if (typeF !== 'all' && secType !== typeF) vis = false;
-        var grp = card.closest('.spe'); /* only review cards live in a .spe group */
-        if (vis && grp && speF !== 'all' && grp.dataset.spe !== speF) vis = false;
-        if (vis && grp && lvlF !== 'all') {
-          var lv = card.querySelector('.lvl');
-          if (!lv || !lv.classList.contains(lvlF)) vis = false;
-        }
-      }
-      card.hidden = !vis;
+  /* Live search */
+  var q = '', qEl = document.getElementById('q'), qClr = document.getElementById('qClr'), noHits = document.getElementById('noHits');
+  function apply() {
+    var s = q.length > 0;
+    document.querySelectorAll('.card').forEach(function (c) {
+      if (!s) { c.hidden = false; return; }
+      var titleEl = c.querySelector('.c-title'), pillEl = c.querySelector('.pill');
+      var hay = ((titleEl ? titleEl.textContent : '') + ' ' + (pillEl ? pillEl.textContent : '')).toLowerCase();
+      c.hidden = hay.indexOf(q) < 0;
     });
-    document.querySelectorAll('.spe').forEach(function (g) {
-      g.hidden = !g.querySelector('.card:not([hidden])');
-    });
-    document.querySelectorAll('.sec').forEach(function (s) {
-      s.hidden = searching ? !s.querySelector('.card:not([hidden])')
-                           : !(typeF === 'all' || s.dataset.s === typeF);
-    });
+    document.querySelectorAll('.spe').forEach(function (g) { g.hidden = !g.querySelector('.card:not([hidden])'); });
+    document.querySelectorAll('.block').forEach(function (b) { b.hidden = !b.querySelector('.card:not([hidden])'); });
     noHits.classList.toggle('on', !document.querySelector('.card:not([hidden])'));
   }
-
-  /* Type tabs */
-  document.getElementById('tabs').addEventListener('click', function (e) {
-    var tab = e.target.closest('.tab');
-    if (!tab) return;
-    typeF = tab.dataset.f;
-    this.querySelectorAll('.tab').forEach(function (t) { t.classList.toggle('on', t === tab); });
-    applyFilters();
-  });
-
-  /* Specialty pills (within Reviews) */
-  document.getElementById('speNav').addEventListener('click', function (e) {
-    var pill = e.target.closest('.spe-pill');
-    if (!pill) return;
-    speF = pill.dataset.spe;
-    this.querySelectorAll('.spe-pill').forEach(function (p) { p.classList.toggle('on', p === pill); });
-    applyFilters();
-  });
-
-  /* Level (Reifegrad) pills — scoped to its own container so it doesn't collide with speNav */
-  document.getElementById('lvlNav').addEventListener('click', function (e) {
-    var pill = e.target.closest('.spe-pill');
-    if (!pill) return;
-    lvlF = pill.dataset.lvl;
-    this.querySelectorAll('.spe-pill').forEach(function (p) { p.classList.toggle('on', p === pill); });
-    applyFilters();
-  });
-
-  /* Live search */
-  var qEl = document.getElementById('q'), qClr = document.getElementById('qClr');
-  qEl.addEventListener('input', function () {
-    q = norm(qEl.value.trim());
-    qClr.hidden = q.length === 0;
-    applyFilters();
-  });
-  qClr.addEventListener('click', function () {
-    qEl.value = ''; q = ''; qClr.hidden = true; applyFilters(); qEl.focus();
-  });
-  qEl.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && q) { qEl.value = ''; q = ''; qClr.hidden = true; applyFilters(); }
-  });
-
-  /* ── Tweaks ──────────────────────────────────────────────── */
-  var TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
-    "theme": "light",
-    "density": "comfortable"
-  }/*EDITMODE-END*/;
-
-  var tweaks = Object.assign({}, TWEAK_DEFAULTS);
-
-  function applyTweaks() {
-    document.documentElement.dataset.theme   = tweaks.theme;
-    document.documentElement.dataset.density = tweaks.density;
-    document.querySelectorAll('.tw-btn[data-tw="theme"]').forEach(function (b) {
-      b.classList.toggle('on', b.dataset.val === tweaks.theme);
-    });
-    document.querySelectorAll('.tw-btn[data-tw="density"]').forEach(function (b) {
-      b.classList.toggle('on', b.dataset.val === tweaks.density);
-    });
-  }
-
-  document.querySelectorAll('.tw-btn').forEach(function (b) {
-    b.addEventListener('click', function () {
-      tweaks[b.dataset.tw] = b.dataset.val;
-      applyTweaks();
-      window.parent.postMessage({ type: '__edit_mode_set_keys', edits: tweaks }, '*');
-    });
-  });
-  document.getElementById('twClose').addEventListener('click', function () {
-    document.getElementById('twPanel').classList.remove('vis');
-    window.parent.postMessage({ type: '__edit_mode_dismissed' }, '*');
-  });
-
-  /* ── Host protocol ───────────────────────────────────────── */
-  window.addEventListener('message', function (e) {
-    if (!e.data) return;
-    if (e.data.type === '__activate_edit_mode')   document.getElementById('twPanel').classList.add('vis');
-    if (e.data.type === '__deactivate_edit_mode') document.getElementById('twPanel').classList.remove('vis');
-  });
-  window.parent.postMessage({ type: '__edit_mode_available' }, '*');
-
-  /* ── Init ────────────────────────────────────────────────── */
-  applyTweaks();
-  applyFilters();
+  qEl.addEventListener('input', function () { q = qEl.value.trim().toLowerCase(); qClr.hidden = q.length === 0; apply(); });
+  qClr.addEventListener('click', function () { qEl.value = ''; q = ''; qClr.hidden = true; apply(); qEl.focus(); });
+  qEl.addEventListener('keydown', function (e) { if (e.key === 'Escape' && q) { qEl.value = ''; q = ''; qClr.hidden = true; apply(); } });
 </script>
 </body>
 </html>

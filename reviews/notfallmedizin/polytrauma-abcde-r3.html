@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polytrauma / ABCDE · R3 · Schockraum-Durchlauf</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F7F4EE; --card:#FFFDF8; --ink:#2A2724; --muted:#6B6358; --line:#E7E0D4;
+    --grundlagen:#C0392B; --grundlagen-t:#F7E9E6;
+    --klinik:#D97706;     --klinik-t:#FBEEDD;
+    --diagnostik:#1E5F9E; --diagnostik-t:#E4EDF6;
+    --therapie:#2D7A3E;   --therapie-t:#E5F0E7;
+    --fragen:#7B3F9E;     --fragen-t:#F0E8F6;
+    --perlen:#B8860B;     --perlen-t:#F8F0D9;
+    --retrieval:#0F766E;  --retrieval-t:#E0F0EE;
+    --protokoll:#334155;  --protokoll-t:#E8EBF0;
+    --ok:#2D7A3E; --gap:#D97706; --miss:#C0392B;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:'Manrope',system-ui,sans-serif;
+    font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased;padding:0 18px 80px}
+  .wrap{max-width:860px;margin:0 auto}
+
+  header{padding:54px 0 22px}
+  .eyebrow{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--retrieval);margin-bottom:16px}
+  h1{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(34px,7vw,52px);line-height:1.04;letter-spacing:-.01em}
+  h1 .accent{font-style:italic;color:var(--grundlagen)}
+  .subtitle{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(17px,2.6vw,20px);color:var(--muted);margin-top:14px}
+  .meta{display:flex;flex-wrap:wrap;gap:6px 0;margin-top:20px;font-size:13px;color:var(--muted);font-weight:500}
+  .meta span:not(:last-child)::after{content:"•";margin:0 10px;color:var(--line);font-weight:700}
+
+
+  .tabs{display:flex;flex-wrap:wrap;gap:8px;position:sticky;top:0;z-index:30;background:linear-gradient(var(--bg) 72%,rgba(247,244,238,0));padding:12px 0 14px;margin-bottom:6px}
+  .tab{position:relative;font-size:13px;font-weight:600;border:1px solid var(--line);background:var(--card);color:var(--muted);padding:8px 15px;border-radius:999px;cursor:pointer;transition:all .15s;white-space:nowrap}
+  .tab:hover{border-color:#cfc6b6}
+  .tab.active{color:#fff;border-color:transparent}
+  .tab[data-c=retrieval].active{background:var(--retrieval)}
+  .tab[data-c=grundlagen].active{background:var(--grundlagen)}
+  .tab[data-c=klinik].active{background:var(--klinik)}
+  .tab[data-c=diagnostik].active{background:var(--diagnostik)}
+  .tab[data-c=therapie].active{background:var(--therapie)}
+  .tab[data-c=fragen].active{background:var(--fragen)}
+  .tab[data-c=perlen].active{background:var(--perlen)}
+  .tab[data-c=protokoll].active{background:var(--protokoll)}
+  .tab .badge{display:none;margin-left:7px;font-size:10px;font-weight:800;padding:1px 6px;border-radius:999px;vertical-align:middle}
+  .tab.flag-gap .badge{display:inline-block;background:var(--gap);color:#fff}
+  .tab.flag-ok .badge{display:inline-block;background:var(--ok);color:#fff}
+  .tab.active .badge{background:rgba(255,255,255,.28)!important;color:#fff}
+
+  .panel{display:none;animation:fade .25s ease}
+  .panel.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+  .panel-intro{font-family:'Fraunces',serif;font-style:italic;font-size:17px;color:var(--muted);margin:6px 0 18px;line-height:1.5}
+
+  /* ---- control bar (Pass 1 instrument) ---- */
+  .ctrl{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:14px 16px;margin-bottom:20px}
+  .ctrl-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+  .tally{font-size:13px;font-weight:700;display:flex;gap:12px;flex-wrap:wrap}
+  .tally i{font-style:normal;display:inline-flex;align-items:center;gap:5px}
+  .tally i::before{content:"";width:9px;height:9px;border-radius:50%}
+  .tally .t-ok::before{background:var(--ok)} .tally .t-gap::before{background:var(--gap)} .tally .t-miss::before{background:var(--miss)}
+  .spacer{flex:1 1 auto}
+  .btn{font-family:'Manrope';font-size:12.5px;font-weight:700;border:none;border-radius:999px;padding:9px 16px;cursor:pointer;transition:.15s}
+  .btn-primary{background:var(--retrieval);color:#fff}
+  .btn-primary:hover{filter:brightness(1.06)}
+  .btn-ghost{background:transparent;color:var(--muted);border:1px solid var(--line)}
+  .btn-ghost:hover{border-color:#cfc6b6}
+  .ctrl-status{margin-top:11px;font-size:13px;font-style:italic;color:var(--retrieval);min-height:18px}
+
+  /* ---- retrieval prompt ---- */
+  .rt{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:14px;transition:border-color .2s}
+  .rt[data-score=sicher]{border-left-color:var(--ok)}
+  .rt[data-score=lueckenhaft]{border-left-color:var(--gap)}
+  .rt[data-score=gefehlt]{border-left-color:var(--miss)}
+  .rt-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:8px}
+  .rt-n{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--retrieval)}
+  .rt-right{display:flex;align-items:center;gap:10px;white-space:nowrap}
+  .rt-ptr{font-size:11px;font-weight:600;color:var(--muted)}
+  .rt-q{font-size:15.5px;line-height:1.55}
+  .reveal{margin-top:12px;border-top:1px dashed var(--line);padding-top:0}
+  .reveal>summary{list-style:none;cursor:pointer;font-size:12.5px;font-weight:800;letter-spacing:.04em;color:var(--retrieval);padding:11px 0 0;user-select:none;display:inline-flex;align-items:center;gap:6px}
+  .reveal>summary::-webkit-details-marker{display:none}
+  .reveal>summary::before{content:"▸";transition:transform .2s;display:inline-block}
+  .reveal[open]>summary::before{transform:rotate(90deg)}
+  .reveal .ans{font-size:14.5px;line-height:1.6;color:#3c372f;padding-top:10px}
+  .reveal .ans b{color:var(--ink)}
+  .reveal .ans ul{list-style:none;padding-left:2px;margin:2px 0 0}
+  .reveal .ans li{position:relative;padding-left:18px;margin-bottom:8px;line-height:1.5}
+  .reveal .ans>ul>li::before{content:"";position:absolute;left:2px;top:8px;width:6px;height:6px;border-radius:50%;background:var(--retrieval)}
+  .reveal .ans li ul{margin:7px 0 2px}
+  .reveal .ans li li{padding-left:16px;margin-bottom:5px;font-size:13.8px;color:#4a443c}
+  .reveal .ans li li::before{content:"";position:absolute;left:0;top:7px;width:5px;height:5px;transform:rotate(45deg);background:#b9b0a1}
+  .score{display:flex;gap:7px;margin-top:12px;padding-top:11px;border-top:1px solid var(--line)}
+  .sbtn{flex:1;font-size:12px;font-weight:700;border:1px solid var(--line);background:var(--bg);color:var(--muted);border-radius:8px;padding:7px 4px;cursor:pointer;transition:.12s}
+  .sbtn:hover{border-color:#cfc6b6}
+  .sbtn[data-v=sicher].on{background:var(--ok);color:#fff;border-color:transparent}
+  .sbtn[data-v=lueckenhaft].on{background:var(--gap);color:#fff;border-color:transparent}
+  .sbtn[data-v=gefehlt].on{background:var(--miss);color:#fff;border-color:transparent}
+
+  /* ---- Schnellfragen ---- */
+  .sf-wrap{background:var(--retrieval-t);border:1px solid #BFE0DC;border-radius:13px;padding:18px 20px;margin-top:24px}
+  .sf-wrap h3{font-family:'Fraunces',serif;font-weight:500;font-size:20px;margin-bottom:3px}
+  .sf-wrap .sf-intro{font-size:13.5px;font-style:italic;color:#0c5d57;margin-bottom:14px}
+  .sf{border-bottom:1px solid #cfe4e1;padding:9px 0}
+  .sf:last-child{border-bottom:none}
+  .sf>summary{list-style:none;cursor:pointer;font-size:14.5px;font-weight:600;display:flex;justify-content:space-between;gap:10px;user-select:none}
+  .sf>summary::-webkit-details-marker{display:none}
+  .sf>summary::after{content:"+";color:var(--retrieval);font-weight:800}
+  .sf[open]>summary::after{content:"−"}
+  .sf .sfa{font-size:14px;color:#0c5d57;font-weight:700;padding-top:6px}
+
+  /* ---- content cards (v1) ---- */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:14px;overflow:hidden}
+  .card>summary{list-style:none;cursor:pointer;padding:18px 20px;display:flex;align-items:flex-start;gap:14px;user-select:none}
+  .card>summary::-webkit-details-marker{display:none}
+  .card .ct{flex:1}
+  .card .ctag{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:5px}
+  .card .ctitle{font-family:'Fraunces',serif;font-weight:500;font-size:17px;line-height:1.25}
+  .plus{flex:none;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:18px;line-height:1;transition:transform .2s;margin-top:2px}
+  .card[open] .plus{transform:rotate(45deg)}
+  .card .body{padding:0 20px 20px;border-top:1px solid var(--line);margin-top:-2px;padding-top:16px}
+  .card.grundlagen .ctag{color:var(--grundlagen)} .card.grundlagen .plus{background:var(--grundlagen-t);color:var(--grundlagen)}
+  .card.klinik .ctag{color:var(--klinik)} .card.klinik .plus{background:var(--klinik-t);color:var(--klinik)}
+  .card.diagnostik .ctag{color:var(--diagnostik)} .card.diagnostik .plus{background:var(--diagnostik-t);color:var(--diagnostik)}
+  .card.therapie .ctag{color:var(--therapie)} .card.therapie .plus{background:var(--therapie-t);color:var(--therapie)}
+  .card.fragen .ctag{color:var(--fragen)} .card.fragen .plus{background:var(--fragen-t);color:var(--fragen)}
+  .card.perlen .ctag{color:var(--perlen)} .card.perlen .plus{background:var(--perlen-t);color:var(--perlen)}
+
+  ul.b{list-style:none;padding-left:2px}
+  ul.b>li{position:relative;padding-left:20px;margin-bottom:8px;line-height:1.55}
+  ul.b>li::before{content:"";position:absolute;left:2px;top:9px;width:7px;height:7px;border-radius:50%}
+  .grundlagen ul.b>li::before{background:var(--grundlagen)} .klinik ul.b>li::before{background:var(--klinik)}
+  .diagnostik ul.b>li::before{background:var(--diagnostik)} .therapie ul.b>li::before{background:var(--therapie)}
+  ul.b ul{list-style:none;padding-left:18px;margin-top:7px}
+  ul.b ul>li{position:relative;padding-left:18px;margin-bottom:6px;font-size:15px;color:#4a443c}
+  ul.b ul>li::before{content:"";position:absolute;left:0;top:7px;width:6px;height:6px;transform:rotate(45deg);background:#b9b0a1}
+  strong{font-weight:700;color:var(--ink)}
+
+  .callout{border-radius:11px;padding:13px 16px;margin:14px 0;font-size:14.5px;line-height:1.55;border-left:4px solid}
+  .callout .lab{font-weight:800;font-size:11px;letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .critical{background:var(--grundlagen-t);border-color:var(--grundlagen)} .critical .lab{color:var(--grundlagen)}
+  .warning{background:var(--klinik-t);border-color:var(--klinik)} .warning .lab{color:var(--klinik)}
+  .fact{background:var(--diagnostik-t);border-color:var(--diagnostik)} .fact .lab{color:var(--diagnostik)}
+
+  .dd{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+  .dd th,.dd td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+  .dd th{background:var(--diagnostik-t);font-weight:700;color:var(--diagnostik);font-size:12px}
+  .dd td:first-child{font-weight:600}
+
+  .pk{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:16px}
+  .pk-meta{display:flex;flex-wrap:wrap;gap:6px 0;font-size:11.5px;font-weight:700;color:var(--protokoll);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+  .pk-meta span:not(:last-child)::after{content:"•";margin:0 8px;color:#c3c9d2}
+  .pk-badge{display:inline-block;background:var(--therapie-t);color:var(--therapie);font-size:10.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:2px 9px;border-radius:999px;margin-left:auto}
+  .pk-akte{font-size:14.5px;line-height:1.58;background:var(--protokoll-t);border-radius:9px;padding:12px 14px;margin-bottom:12px}
+  .pk-akte .lab,.pk-q .lab{font-weight:800;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--protokoll);display:block;margin-bottom:5px}
+  .pk-q ul{list-style:none;padding:0}
+  .pk-q li{position:relative;padding-left:18px;margin-bottom:7px;font-size:14.5px;line-height:1.5}
+  .pk-q li::before{content:"–";position:absolute;left:0;color:var(--protokoll);font-weight:700}
+  .pq{border-top:1px solid var(--line);padding:10px 0}
+  .pq-frage{position:relative;padding-left:18px;font-size:14.5px;font-weight:600;line-height:1.5}
+  .pq-frage::before{content:"–";position:absolute;left:0;color:var(--protokoll);font-weight:700}
+  .pq .reveal{margin-top:5px;border-top:none;padding-top:0}
+  .pq .reveal>summary{padding:5px 0 0}
+
+  .pearl{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--perlen);border-radius:12px;padding:16px 18px;margin-bottom:13px}
+  .pearl .ph{font-weight:800;font-size:13px;color:var(--perlen);margin-bottom:7px}
+  .pearl .pt{font-size:15px;line-height:1.55}
+  .pearl .mn{margin-top:9px;background:var(--perlen-t);border-radius:8px;padding:8px 12px;font-size:13.5px;font-style:italic;color:#7a5c08}
+  .pearl .mn b{font-style:normal;font-weight:800}
+
+  footer{margin-top:40px;padding-top:22px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted);line-height:1.6}
+  .back{display:inline-block;font-family:Manrope,system-ui,sans-serif;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);text-decoration:none;margin-bottom:18px}
+  .back:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a href="../../index.html" class="back">← Zurück zur Library</a>
+
+  <header>
+    <div class="eyebrow">Notfallmedizin · R3 · Kurz + KP-Perlen + Protokolle</div>
+    <h1>Polytrauma / <span class="accent">ABCDE</span></h1>
+    <div class="subtitle">„Treat first what kills first" — das cABCDE-Schema, die Schockraum-Diagnostik und das Blutungsmanagement + KP-Perlen + die echten Mainz-Fragen zum lauten Üben.</div>
+    <div class="meta">
+      <span>R3 von 5 · Notfall & Schockraum</span>
+      <span>~12–15 Min</span>
+      <span>Stand 06/2026</span>
+      <span>Amboss + Mainz-Protokolle (Kirdorf, Fischer)</span>
+    </div>
+  </header>
+
+  <div class="tabs">
+    <button class="tab active" data-c="grundlagen" data-tab="grundlagen">Grundlagen</button>
+    <button class="tab" data-c="klinik" data-tab="klinik">Klinik</button>
+    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik</button>
+    <button class="tab" data-c="therapie" data-tab="therapie">Therapie</button>
+    <button class="tab" data-c="perlen" data-tab="perlen">KP-Perlen</button>
+    <button class="tab" data-c="protokoll" data-tab="protokoll">Fragen &amp; Protokolle</button>
+  </div>
+
+  <section class="panel active" data-panel="grundlagen">
+    <p class="panel-intro">Definition + das Leitprinzip. Erst laut, dann aufklappen.</p>
+    <details class="card grundlagen" open><summary><span class="ct"><span class="ctag">Definition</span><span class="ctitle">Polytrauma + Leitprinzip</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Polytrauma = gleichzeitige Verletzungen mehrerer Körperregionen, von denen mindestens eine lebensbedrohlich ist. Leitprinzip: „Treat first what kills first" — nach dem (c)ABCDE-Schema.</strong></div>
+        <ul class="b">
+          <li>Das vorangestellte <strong>„c"</strong> = <strong>catastrophic haemorrhage</strong> — kritische äußere Blutung zuerst stoppen (Tourniquet, Druckverband)</li>
+          <li>Ablauf: <strong>Unfallort</strong> (Rettungsdienst) → <strong>Schockraum</strong> (interdisziplinäres Team)</li>
+          <li>Höchste Gefahr ist die <strong>Blutung → hämorrhagischer Schock</strong></li>
+        </ul>
+      </div>
+    </details>
+    <details class="card grundlagen"><summary><span class="ct"><span class="ctag">Unfallort</span><span class="ctitle">Erstes Vorgehen</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Merksatz</span><strong>Zuerst Eigenschutz und Unfallstelle sichern, dann Bewusstsein prüfen und den Zustand entscheidet das Vorgehen.</strong></div>
+        <table class="dd"><tr><th>Bewusstseinszustand</th><th>Vorgehen</th></tr>
+          <tr><td><strong>Wach</strong></td><td>ABCDE-Schema</td></tr>
+          <tr><td><strong>Bewusstlos, atmet</strong></td><td>ABCDE-Schema, ggf. Intubation</td></tr>
+          <tr><td><strong>Bewusstlos, keine Atmung</strong></td><td>Reanimation (BLS → ALS)</td></tr></table>
+        <div class="callout fact"><span class="lab">⚙ Immer</span>GCS erheben, Monitoring (EKG, SpO2, RR), großlumige Zugänge, Wärmeerhalt.</div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ KLINIK ============ -->
+  <section class="panel" data-panel="klinik">
+    <p class="panel-intro">Das ABCDE — Schritt für Schritt. Erst laut, dann abgleichen.</p>
+    <details class="card klinik" open><summary><span class="ct"><span class="ctag">Primary Survey</span><span class="ctitle">Das ABCDE-Schema</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Bei jedem Buchstaben gilt: erkennen und sofort behandeln, bevor der nächste kommt.</strong> A Airway + HWS · B Breathing · C Circulation + Blutung · D Disability · E Exposure.</div>
+        <table class="dd"><tr><th>Schritt</th><th>Beurteilung + Maßnahme</th></tr>
+          <tr><td><strong>A — Airway</strong></td><td>Atemweg freimachen und sichern, <strong>HWS-Immobilisation</strong> (Stifneck)</td></tr>
+          <tr><td><strong>B — Breathing</strong></td><td>Auskultation, SpO2, Sauerstoff; <strong>Spannungspneumothorax / Hämatothorax entlasten</strong></td></tr>
+          <tr><td><strong>C — Circulation</strong></td><td>Blutung stoppen, 2 großlumige Zugänge, Volumen + <strong>Erythrozytenkonzentrate</strong>, Beckengurt</td></tr>
+          <tr><td><strong>D — Disability</strong></td><td>GCS, Pupillen, Blutzucker (neurologisches Defizit)</td></tr>
+          <tr><td><strong>E — Exposure</strong></td><td>komplett entkleiden, Ganzkörper, <strong>Wärmeerhalt</strong></td></tr></table>
+      </div>
+    </details>
+    <details class="card klinik"><summary><span class="ct"><span class="ctag">Tödliche Diagnosen</span><span class="ctitle">Was bei B und C sofort tötet</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout warning"><span class="lab">⚠ Merksatz</span><strong>Bei B an den Spannungspneumothorax denken (sofortige Entlastungspunktion), bei C an die Perikardtamponade und die massive Blutung.</strong></div>
+        <ul class="b">
+          <li><strong>Spannungspneumothorax:</strong> gestaute Halsvenen, fehlendes Atemgeräusch, Kreislaufkollaps → Entlastung im 2. ICR medioklavikulär</li>
+          <li><strong>Perikardtamponade:</strong> Beck-Trias (Hypotonie, gestaute Halsvenen, leise Herztöne) → Perikardpunktion</li>
+          <li><strong>Blutungsquellen:</strong> Thorax, Abdomen, Becken, Femur, „on the floor" (äußere Blutung)</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ DIAGNOSTIK ============ -->
+  <section class="panel" data-panel="diagnostik">
+    <p class="panel-intro">Schockraum-Diagnostik. Erst laut, dann abgleichen.</p>
+    <details class="card diagnostik" open><summary><span class="ct"><span class="ctag">Basis</span><span class="ctitle">Was im Schockraum läuft</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>eFAST + Polytrauma-CT (Traumaspirale) sind die Schlüsseluntersuchungen.</strong> eFAST sucht sofort freie Flüssigkeit, das CT liefert die Gesamtübersicht.</div>
+        <table class="dd"><tr><th>Untersuchung</th><th>Frage</th></tr>
+          <tr><td><strong>eFAST-Sono</strong></td><td>freie Flüssigkeit in Abdomen, Perikard, Pleura</td></tr>
+          <tr><td><strong>Röntgen Thorax + Becken</strong></td><td>Pneu/Hämatothorax, instabiles Becken</td></tr>
+          <tr><td><strong>Polytrauma-CT</strong> (Ganzkörper mit KM)</td><td>Traumaspirale — alle Verletzungen</td></tr>
+          <tr><td><strong>Labor</strong></td><td>BGA, Laktat, Gerinnung, Blutgruppe + Kreuzprobe, BB</td></tr></table>
+      </div>
+    </details>
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">eFAST</span><span class="ctitle">Die vier Fenster</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Merksatz</span><strong>eFAST = extended FAST: sucht freie Flüssigkeit (Blut) und beim „e" zusätzlich den Pneumothorax.</strong></div>
+        <ul class="b">
+          <li><strong>RUQ (Morison-Pouch):</strong> freie Flüssigkeit um Leber/Niere</li>
+          <li><strong>LUQ:</strong> perisplenisch</li>
+          <li><strong>Subxiphoidal:</strong> Perikarderguss/Tamponade</li>
+          <li><strong>Suprapubisch + Pleura:</strong> Douglas-Raum, Pneumothorax (fehlendes Lungengleiten)</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ THERAPIE ============ -->
+  <section class="panel" data-panel="therapie">
+    <p class="panel-intro">Blutung stoppen, warm halten, ggf. reanimieren. Erst laut, dann abgleichen.</p>
+    <details class="card therapie" open><summary><span class="ct"><span class="ctag">Management</span><span class="ctitle">Schockraum + Blutung</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Übergabe Notarzt → Teamleiter, dann nach ABCDE stabilisieren. Die höchste Gefahr ist die Blutung — Blutungskontrolle und Massivtransfusion stehen im Zentrum.</strong></div>
+        <ul class="b">
+          <li><strong>Blutungskontrolle:</strong> mechanisch/operativ, <strong>Beckengurt/-zwinge</strong> bei instabiler Beckenfraktur</li>
+          <li><strong>Massivtransfusion:</strong> Erythrozytenkonzentrate (Kreuzprobe vorher), Gerinnungsfaktoren, <strong>Tranexamsäure</strong></li>
+          <li><strong>Permissive Hypotension</strong> bis zur chirurgischen Blutstillung; <strong>Wärmeerhalt</strong></li>
+          <li>Analgesie (Metamizol/Morphin), Tetanusschutz prüfen</li>
+        </ul>
+      </div>
+    </details>
+    <details class="card therapie"><summary><span class="ct"><span class="ctag">Atemweg</span><span class="ctitle">Intubationskriterien beim Polytrauma</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout warning"><span class="lab">⚠ Merksatz</span><strong>Intubation bei: Apnoe / AF &lt; 6 / Schnappatmung · SpO2 &lt; 90 % trotz O2 (nach Ausschluss Spannungspneumothorax) · GCS &lt; 9 · persistierende hämodynamische Instabilität.</strong></div>
+        <ul class="b"><li><strong>Koniotomie</strong> als Ultima Ratio bei „cannot ventilate, cannot intubate"</li></ul>
+      </div>
+    </details>
+    <details class="card therapie"><summary><span class="ct"><span class="ctag">Reanimation</span><span class="ctitle">Reversible Ursachen — 4H &amp; HITS</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Merksatz</span><strong>Bei Kreislaufstillstand BLS → ALS und immer die reversiblen Ursachen abarbeiten: 4H + HITS.</strong></div>
+        <table class="dd"><tr><th>4 H</th><th>HITS</th></tr>
+          <tr><td>Hypoxie</td><td>Herzbeuteltamponade</td></tr>
+          <tr><td>Hypovolämie</td><td>Intoxikation</td></tr>
+          <tr><td>Hypo-/Hyperkaliämie</td><td>Thromboembolie</td></tr>
+          <tr><td>Hypothermie</td><td>Spannungspneumothorax</td></tr></table>
+        <div class="callout warning"><span class="lab">⚠ Trauma-Triade</span>Die tödliche Trias aus <strong>Hypothermie, Azidose und Koagulopathie</strong> verstärkt sich gegenseitig — früh warmhalten und Gerinnung stabilisieren.</div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ KP-PERLEN ============ -->
+  <section class="panel" data-panel="perlen">
+    <p class="panel-intro">Acht Sätze, die im Schockraum gewinnen.</p>
+    <div class="pearl"><div class="ph">⭐ Perle 1 · Leitprinzip</div><div class="pt"><strong>„Treat first what kills first"</strong> — strukturiert nach cABCDE, jeden Buchstaben erst lösen, dann weiter.</div><div class="mn"><b>Merke:</b> Erst das, was am schnellsten tötet</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 2 · Definition</div><div class="pt"><strong>Polytrauma = mehrere verletzte Körperregionen, mindestens eine lebensbedrohlich.</strong></div><div class="mn"><b>Merke:</b> Mehrere Regionen + eine tödlich</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 3 · Höchste Gefahr</div><div class="pt">Die größte Gefahr ist die <strong>Blutung → hämorrhagischer Schock</strong>. Deshalb steht das „c" (Blutungskontrolle) ganz vorne.</div><div class="mn"><b>Merke:</b> Polytrauma stirbt an Blutung</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 4 · Blutverlust-Mengen</div><div class="pt"><strong>Becken instabil 3–4 L, Femur 1–2 L</strong> — schon zwei Regionen können einen letalen Blutverlust verursachen.</div><div class="mn"><b>Merke:</b> Becken 3–4, Femur 2</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 5 · eFAST + Traumaspirale</div><div class="pt"><strong>eFAST</strong> sucht sofort freie Flüssigkeit (Abdomen, Perikard, Pleura), die <strong>Polytrauma-CT</strong> liefert die Gesamtübersicht.</div><div class="mn"><b>Merke:</b> Erst Sono, dann Traumaspirale</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 6 · Intubationskriterien</div><div class="pt"><strong>GCS &lt; 9, SpO2 &lt; 90 % trotz O2, RR systolisch &lt; 90, Apnoe/AF &lt; 6</strong> — dann Atemweg sichern.</div><div class="mn"><b>Merke:</b> 9 – 90 – 90</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 7 · Trauma-Triade des Todes</div><div class="pt"><strong>Hypothermie + Azidose + Koagulopathie</strong> verstärken sich — Wärmeerhalt und Gerinnung von Anfang an mitdenken.</div><div class="mn"><b>Merke:</b> Kalt, sauer, blutet</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 8 · Vor Transfusion</div><div class="pt">Vor jeder Bluttransfusion <strong>Kreuzprobe + Bedside-Test</strong>. Bei Massivblutung EKs, Plasma und Tranexamsäure.</div><div class="mn"><b>Merke:</b> Ohne Kreuzprobe kein Blut</div></div>
+
+    <div class="sf-wrap">
+      <h3>Schnellfragen · Rapid-Fire</h3>
+      <div class="sf-intro">Atomare Einzelfakten — Ein-Wort-Abruf, keine Optionen. Laut, sofort, dann aufdecken.</div>
+      <details class="sf"><summary>Wofür steht ABCDE?</summary><div class="sfa">Airway · Breathing · Circulation · Disability · Exposure</div></details>
+      <details class="sf"><summary>Wofür das „c" in cABCDE?</summary><div class="sfa">catastrophic haemorrhage (kritische Blutung zuerst)</div></details>
+      <details class="sf"><summary>Leitprinzip in einem Satz?</summary><div class="sfa">Treat first what kills first</div></details>
+      <details class="sf"><summary>Polytrauma-Definition?</summary><div class="sfa">mehrere Regionen, ≥ 1 lebensbedrohlich</div></details>
+      <details class="sf"><summary>Höchste Gefahr beim Polytrauma?</summary><div class="sfa">Blutung → hämorrhagischer Schock</div></details>
+      <details class="sf"><summary>Was gehört zu A neben dem Atemweg?</summary><div class="sfa">HWS-Immobilisation</div></details>
+      <details class="sf"><summary>Tödliche B-Diagnose?</summary><div class="sfa">Spannungspneumothorax</div></details>
+      <details class="sf"><summary>Entlastung des Spannungspneumothorax — wo?</summary><div class="sfa">2. ICR medioklavikulär</div></details>
+      <details class="sf"><summary>Beck-Trias?</summary><div class="sfa">Hypotonie, gestaute Halsvenen, leise Herztöne</div></details>
+      <details class="sf"><summary>Was zeigt die eFAST?</summary><div class="sfa">freie Flüssigkeit (Abdomen, Perikard, Pleura) + Pneu</div></details>
+      <details class="sf"><summary>Bildgebung der Wahl beim Polytrauma?</summary><div class="sfa">Polytrauma-CT (Traumaspirale)</div></details>
+      <details class="sf"><summary>Blutverlust instabiles Becken?</summary><div class="sfa">3–4 Liter</div></details>
+      <details class="sf"><summary>Mechanische Beckenstabilisierung?</summary><div class="sfa">Beckengurt/-zwinge, Fixateur externe</div></details>
+      <details class="sf"><summary>Intubationsgrenzen (Zahlen)?</summary><div class="sfa">GCS &lt; 9, SpO2 &lt; 90 %, RR &lt; 90</div></details>
+      <details class="sf"><summary>Ultima Ratio Atemweg?</summary><div class="sfa">Koniotomie</div></details>
+      <details class="sf"><summary>Vor Bluttransfusion?</summary><div class="sfa">Kreuzprobe + Bedside-Test</div></details>
+      <details class="sf"><summary>Reversible Ursachen — Schemata?</summary><div class="sfa">4 H und HITS</div></details>
+      <details class="sf"><summary>Trauma-Triade des Todes?</summary><div class="sfa">Hypothermie, Azidose, Koagulopathie</div></details>
+    </div>
+  </section>
+
+  <!-- ============ PROTOKOLLE ============ -->
+  <section class="panel" data-panel="protokoll">
+    <p class="panel-intro">Generalprobe an drei dokumentierten Mainz-Sessions. Jede Frage einzeln laut beantworten, dann die Antwort aufdecken.</p>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · dokumentiert</span><span>Chirurgie · Herr Kirdorf</span><span class="pk-badge">Bestanden</span></div>
+      <div class="pk-akte"><span class="lab">Fall</span>Herr Kirdorf geht das Polytrauma systematisch durch — Definition, die größte Gefahr, der Blutverlust und die Versorgung des hämorrhagischen Schocks.</div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">„Was ist die Definition eines Polytraumas?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ein Polytrauma sind gleichzeitige Verletzungen mehrerer Körperregionen, von denen mindestens eine für sich allein lebensbedrohlich ist.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Was ist die höchste Gefahr beim Polytrauma?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Die höchste Gefahr ist die Blutung, die in einen hämorrhagischen Schock führt.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Wie viel Blut kann man bei einer Femur- oder Beckenfraktur verlieren?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Bei einer Femurfraktur verliere ich etwa 1 bis 2 Liter und bei einer instabilen Beckenfraktur 3 bis 4 Liter oder mehr.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Wie behandeln Sie den hämorrhagischen Schock?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich lege zwei großlumige Zugänge, gebe Volumen und vor allem Erythrozytenkonzentrate und stille die Blutungsquelle mechanisch oder operativ.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Was müssen Sie vor einer Bluttransfusion machen?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Vor der Transfusion mache ich eine Kreuzprobe und einen Bedside-Test, um die Blutgruppenverträglichkeit zu sichern.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · dokumentiert</span><span>Notfallmedizin · Dr. Fischer</span><span class="pk-badge">Schockraum</span></div>
+      <div class="pk-akte"><span class="lab">Fall</span>Ein im Schockraum behandelter Patient wird vorgestellt; der Prüfer fragt Begründung, Vorgehen, Diagnostik und die FAST-Sonografie mit Perikardtamponade ab.</div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">„Warum wird dieser Patient im Schockraum behandelt, und was bedeutet Polytrauma?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Er wird im Schockraum behandelt, weil ein Polytrauma vorliegt, also mehrere verletzte Körperregionen mit mindestens einer lebensbedrohlichen Verletzung, die eine sofortige interdisziplinäre Versorgung brauchen.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Wie gehen Sie beim Polytrauma-Patienten grundsätzlich vor?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich arbeite konsequent nach dem cABCDE-Schema und versorge zuerst das, was am schnellsten tötet.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Welche Diagnostik machen Sie im Schockraum?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich mache eine eFAST-Sonografie, ein Röntgen von Thorax und Becken und ein Polytrauma-CT als Ganzkörperspirale, dazu Labor mit BGA, Gerinnung und Kreuzprobe.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Was zeigt die FAST-Sonografie?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Die FAST zeigt freie Flüssigkeit im Abdomen, im Perikard und in der Pleura, also vor allem eine innere Blutung oder eine Perikardtamponade.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Was ist die Beck-Trias der Perikardtamponade?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Die Beck-Trias besteht aus einer Hypotonie, gestauten Halsvenen und leisen Herztönen.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · weitere dokumentierte Fragen</span><span>2024–2026</span><span class="pk-badge">Protokoll</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">„Ein Patient ist bewusstlos und atmet nicht — was tun Sie?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Dann beginne ich sofort mit der Reanimation nach BLS und ALS und suche parallel die reversiblen Ursachen nach dem 4H- und HITS-Schema.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Nennen Sie die reversiblen Ursachen eines Kreislaufstillstands."</div><details class="reveal"><summary>Antwort</summary><div class="ans">Die vier H sind Hypoxie, Hypovolämie, Hypo- oder Hyperkaliämie und Hypothermie, und HITS steht für Herzbeuteltamponade, Intoxikation, Thromboembolie und Spannungspneumothorax.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Wann intubieren Sie einen Polytrauma-Patienten?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich intubiere bei Apnoe oder einer Atemfrequenz unter 6, bei einer Sättigung unter 90 Prozent trotz Sauerstoff, bei einem GCS unter 9 und bei persistierender Kreislaufinstabilität.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Was ist die Trauma-Triade des Todes?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Die tödliche Trias besteht aus Hypothermie, Azidose und Koagulopathie, die sich gegenseitig verstärken, weshalb ich den Patienten früh warmhalte und die Gerinnung stabilisiere.</div></details></div>
+    </div>
+  </section>
+
+  <footer>
+    R3 · Polytrauma / ABCDE · Fragen &amp; Protokolle. Vier Kernstationen + KP-Perlen mit Rapid-Fire + die echten dokumentierten Mainz-Fragen.
+  </footer>
+
+</div>
+<script>
+  const tabs = [...document.querySelectorAll('.tab')];
+  const panels = [...document.querySelectorAll('.panel')];
+  function showTab(name){
+    tabs.forEach(x=>x.classList.toggle('active', x.dataset.tab===name));
+    panels.forEach(p=>p.classList.toggle('active', p.dataset.panel===name));
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  tabs.forEach(t=>t.addEventListener('click',()=>showTab(t.dataset.tab)));
+</script>
+  <script src="/sync.js" defer></script>
+</body>
+</html>

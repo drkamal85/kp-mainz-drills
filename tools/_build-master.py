@@ -83,7 +83,7 @@ FLAT=[
 (82,16,66,"Endokrinologie","Hypothyreose","hypothyreose"),
 (81,27,54,"Unfallchirurgie","Schädel-Hirn-Trauma","schaedel-hirn-trauma"),
 (81,22,59,"Pneumologie","Tuberkulose",None),
-(81,16,65,"Unfallchirurgie","Sturz / Polytrauma",None),
+(81,16,65,"Unfallchirurgie","Sturz / Polytrauma","polytrauma-abcde"),
 (74,22,52,"Unfallchirurgie","Kompartmentsyndrom",None),
 (73,11,62,"Angiologie","Aortendissektion","aortendissektion"),
 (68,12,56,"Unfallchirurgie","Allg. Frakturlehre","allgemeine-frakturlehre"),
