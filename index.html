@@ -213,6 +213,20 @@
     [data-density=compact] .hero   { padding: 40px 0 30px; }
     [data-density=compact] .sec    { margin-bottom: 44px; }
 
+    /* ── Search + level filter ───────────────── */
+    .searchbar { position: relative; display: flex; align-items: center; margin: 0 0 20px; }
+    .search-ico { position: absolute; left: 15px; color: var(--t3); pointer-events: none; display: flex; }
+    .search-in { width: 100%; font-family: var(--m); font-size: 13.5px; color: var(--t1); background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 13px 42px; outline: none; box-shadow: var(--shadow-sm); transition: border-color .15s, box-shadow .15s; }
+    .search-in:focus { border-color: var(--blue); box-shadow: 0 0 0 3px var(--blue-bg); }
+    .search-in::placeholder { color: var(--t3); }
+    .search-in::-webkit-search-cancel-button { -webkit-appearance: none; display: none; }
+    .search-clr { position: absolute; right: 9px; width: 26px; height: 26px; border: none; border-radius: 50%; background: var(--surface-2); color: var(--t2); display: flex; align-items: center; justify-content: center; font-size: 17px; line-height: 1; cursor: pointer; }
+    .search-clr:hover { color: var(--t1); }
+    .lvl-nav { display: flex; flex-wrap: wrap; gap: 7px; align-items: center; margin: -20px 0 30px; }
+    .lvl-lbl { font-family: var(--m); font-size: 10.5px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--t3); margin-right: 4px; }
+    .no-hits { display: none; text-align: center; color: var(--t3); font-size: 14px; padding: 46px 0; font-family: var(--m); }
+    .no-hits.on { display: block; }
+
     /* ── Responsive ──────────────────────────── */
     @media (max-width: 900px) {
       .g4 { grid-template-columns: repeat(auto-fill, minmax(224px, 1fr)); }
@@ -275,6 +289,13 @@
     <span class="cta-arrow">→</span>
   </a>
 
+  <!-- Live search -->
+  <div class="searchbar">
+    <span class="search-ico"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
+    <input type="search" id="q" class="search-in" placeholder="Thema suchen — z. B. Sepsis, Ileus, Endokarditis, EKG…" autocomplete="off" spellcheck="false">
+    <button class="search-clr" id="qClr" hidden aria-label="Suche löschen">×</button>
+  </div>
+
   <!-- Filter Tabs -->
   <nav class="tabs" id="tabs">
     <button class="tab on" data-f="all">Alle <span class="tab-ct">59</span></button>
@@ -283,6 +304,8 @@
     <button class="tab" data-f="summaries">Summaries <span class="tab-ct">2</span></button>
     <button class="tab" data-f="tools">Tools <span class="tab-ct">1</span></button>
   </nav>
+
+  <p class="no-hits" id="noHits">Keine Treffer — versuche einen anderen Begriff.</p>
 
   <!-- ══ Drills ═════════════════════════════════════════════ -->
   <section class="sec" data-s="drills">
@@ -360,6 +383,15 @@
       <button class="spe-pill" data-spe="neuro">Neurologie <span class="pill-ct">1</span></button>
       <button class="spe-pill" data-spe="endokrin">Endokrinologie <span class="pill-ct">4</span></button>
       <button class="spe-pill" data-spe="haem">Hämatologie <span class="pill-ct">4</span></button>
+    </nav>
+
+    <!-- Level (Reifegrad) filter -->
+    <nav class="lvl-nav" id="lvlNav">
+      <span class="lvl-lbl">Reifegrad</span>
+      <button class="spe-pill on" data-lvl="all">Alle</button>
+      <button class="spe-pill" data-lvl="r1">R1</button>
+      <button class="spe-pill" data-lvl="r2">R2</button>
+      <button class="spe-pill" data-lvl="r3">R3</button>
     </nav>
 
     <!-- Kardiologie -->
@@ -1136,26 +1168,84 @@
     document.getElementById('countdown').textContent = diff > 0 ? diff + ' Tage' : 'Prüfung jetzt';
   })();
 
-  /* ── Filter tabs ─────────────────────────────────────────── */
+  /* ── Unified filtering: search + type + specialty + level ── */
+  var typeF = 'all', speF = 'all', lvlF = 'all', q = '';
+  function norm(s) { return (s || '').toLowerCase(); }
+  var noHits = document.getElementById('noHits');
+
+  function applyFilters() {
+    var searching = q.length > 0;
+    document.querySelectorAll('.card').forEach(function (card) {
+      var vis;
+      if (searching) {
+        var titleEl = card.querySelector('.c-title');
+        var pillEl = card.querySelector('.pill');
+        var t = norm(titleEl && titleEl.textContent);
+        var p = norm(pillEl && pillEl.textContent);
+        vis = t.indexOf(q) >= 0 || p.indexOf(q) >= 0;
+      } else {
+        vis = true;
+        var sec = card.closest('.sec');
+        var secType = sec ? sec.dataset.s : '';
+        if (typeF !== 'all' && secType !== typeF) vis = false;
+        var grp = card.closest('.spe'); /* only review cards live in a .spe group */
+        if (vis && grp && speF !== 'all' && grp.dataset.spe !== speF) vis = false;
+        if (vis && grp && lvlF !== 'all') {
+          var lv = card.querySelector('.lvl');
+          if (!lv || !lv.classList.contains(lvlF)) vis = false;
+        }
+      }
+      card.hidden = !vis;
+    });
+    document.querySelectorAll('.spe').forEach(function (g) {
+      g.hidden = !g.querySelector('.card:not([hidden])');
+    });
+    document.querySelectorAll('.sec').forEach(function (s) {
+      s.hidden = searching ? !s.querySelector('.card:not([hidden])')
+                           : !(typeF === 'all' || s.dataset.s === typeF);
+    });
+    noHits.classList.toggle('on', !document.querySelector('.card:not([hidden])'));
+  }
+
+  /* Type tabs */
   document.getElementById('tabs').addEventListener('click', function (e) {
     var tab = e.target.closest('.tab');
     if (!tab) return;
-    var f = tab.dataset.f;
-    document.querySelectorAll('.tab').forEach(function (t) { t.classList.toggle('on', t === tab); });
-    document.querySelectorAll('.sec').forEach(function (s) {
-      f === 'all' ? s.removeAttribute('hidden') : s.toggleAttribute('hidden', s.dataset.s !== f);
-    });
+    typeF = tab.dataset.f;
+    this.querySelectorAll('.tab').forEach(function (t) { t.classList.toggle('on', t === tab); });
+    applyFilters();
   });
 
-  /* ── Specialty filter (within Reviews) ───────────────────── */
+  /* Specialty pills (within Reviews) */
   document.getElementById('speNav').addEventListener('click', function (e) {
     var pill = e.target.closest('.spe-pill');
     if (!pill) return;
-    var key = pill.dataset.spe;
-    document.querySelectorAll('.spe-pill').forEach(function (p) { p.classList.toggle('on', p === pill); });
-    document.querySelectorAll('.spe').forEach(function (g) {
-      key === 'all' ? g.removeAttribute('hidden') : g.toggleAttribute('hidden', g.dataset.spe !== key);
-    });
+    speF = pill.dataset.spe;
+    this.querySelectorAll('.spe-pill').forEach(function (p) { p.classList.toggle('on', p === pill); });
+    applyFilters();
+  });
+
+  /* Level (Reifegrad) pills — scoped to its own container so it doesn't collide with speNav */
+  document.getElementById('lvlNav').addEventListener('click', function (e) {
+    var pill = e.target.closest('.spe-pill');
+    if (!pill) return;
+    lvlF = pill.dataset.lvl;
+    this.querySelectorAll('.spe-pill').forEach(function (p) { p.classList.toggle('on', p === pill); });
+    applyFilters();
+  });
+
+  /* Live search */
+  var qEl = document.getElementById('q'), qClr = document.getElementById('qClr');
+  qEl.addEventListener('input', function () {
+    q = norm(qEl.value.trim());
+    qClr.hidden = q.length === 0;
+    applyFilters();
+  });
+  qClr.addEventListener('click', function () {
+    qEl.value = ''; q = ''; qClr.hidden = true; applyFilters(); qEl.focus();
+  });
+  qEl.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && q) { qEl.value = ''; q = ''; qClr.hidden = true; applyFilters(); }
   });
 
   /* ── Tweaks ──────────────────────────────────────────────── */
@@ -1199,6 +1289,7 @@
 
   /* ── Init ────────────────────────────────────────────────── */
   applyTweaks();
+  applyFilters();
 </script>
 </body>
 </html>
