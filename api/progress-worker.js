@@ -47,19 +47,19 @@ export async function handleApi(request, env, url) {
   // ---- public: native content feed (no auth) — bundled into the Worker, CORS + cache ----
   if (url.pathname === '/api/content') {
     if (request.method !== 'GET') return jsonRes({ error: 'method_not_allowed' }, 405, ch);
-    return new Response(TOPICS_JSON, { status: 200, headers: { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'public, max-age=300', ...ch } });
+    return new Response(TOPICS_JSON, { status: 200, headers: { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-cache', ...ch } });
   }
 
   // ---- public: master curriculum list (no auth) — bundled, CORS + cache ----
   if (url.pathname === '/api/themen') {
     if (request.method !== 'GET') return jsonRes({ error: 'method_not_allowed' }, 405, ch);
-    return new Response(THEMEN_JSON, { status: 200, headers: { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'public, max-age=300', ...ch } });
+    return new Response(THEMEN_JSON, { status: 200, headers: { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-cache', ...ch } });
   }
 
   // ---- public: Kernprinzip flashcard deck (no auth) — bundled, CORS + cache ----
   if (url.pathname === '/api/deck') {
     if (request.method !== 'GET') return jsonRes({ error: 'method_not_allowed' }, 405, ch);
-    return new Response(DECK_JSON, { status: 200, headers: { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'public, max-age=300', ...ch } });
+    return new Response(DECK_JSON, { status: 200, headers: { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-cache', ...ch } });
   }
 
   // ---- shared backend<->frontend comms: contract (bundled) + message log (KV) ----
