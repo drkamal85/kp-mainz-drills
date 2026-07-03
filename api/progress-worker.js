@@ -122,9 +122,33 @@ export async function handleApi(request, env, url) {
       let body;
       try { body = await request.json(); } catch { return jsonRes({ error: 'bad_json' }, 400, ch); }
       if (!body || typeof body !== 'object' || Array.isArray(body)) return jsonRes({ error: 'bad_body' }, 400, ch);
-      body.updatedAt = new Date().toISOString();
-      await env.PROGRESS.put(key, JSON.stringify(body));
-      return jsonRes(body, 200, ch);
+      // merge instead of blind overwrite — card-level last-write-wins by box (higher = more learned)
+      const existing = normalizeState(await readJson(env.PROGRESS, key));
+      const incoming = normalizeState(body);
+      // merge cards: keep whichever entry has the higher box (more progress)
+      const mergedCards = { ...existing.cards };
+      for (const id in incoming.cards) {
+        const e = existing.cards[id], ic = incoming.cards[id];
+        mergedCards[id] = (!e || ic.box >= e.box) ? ic : e;
+      }
+      // merge day: keep the one with the higher count on the same date; if different dates keep most recent
+      let mergedDay;
+      if (existing.day.date === incoming.day.date) {
+        mergedDay = incoming.day.count >= existing.day.count ? incoming.day : existing.day;
+      } else {
+        mergedDay = incoming.day.date > existing.day.date ? incoming.day : existing.day;
+      }
+      const merged = {
+        v: 2,
+        cards: mergedCards,
+        day: mergedDay,
+        streak: Math.max(existing.streak || 0, incoming.streak || 0),
+        lastDone: incoming.lastDone > existing.lastDone ? incoming.lastDone : existing.lastDone,
+        totalKnown: Math.max(existing.totalKnown || 0, incoming.totalKnown || 0),
+        updatedAt: new Date().toISOString(),
+      };
+      await env.PROGRESS.put(key, JSON.stringify(merged));
+      return jsonRes(merged, 200, ch);
     }
     return jsonRes({ error: 'method_not_allowed' }, 405, ch);
   }
