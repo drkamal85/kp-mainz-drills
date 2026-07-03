@@ -1326,7 +1326,8 @@ class Component extends DCLogic {
     const openCards = () => this.loadCardSession();
 
     const masteredCount = Object.values(p.reviews).filter(v => v === 'mastered').length;
-    const totalTopics = C.topics.length || 0;
+    const _thm = this.state.themen;
+    const totalTopics = (_thm && _thm.covered != null) ? _thm.covered : (C.topics.length || 0);
     const pct = totalTopics ? Math.round((masteredCount / totalTopics) * 100) : 0;
     const cardsPctNum = p.cards.goal ? Math.min(100, Math.round((p.cards.doneToday / p.cards.goal) * 100)) : 0;
 
