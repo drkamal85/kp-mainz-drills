@@ -66,7 +66,7 @@ FLAT=[
 (120,36,84,"Gastroenterologie","Gastritis (Typ A/B/C)",None),
 (119,31,88,"Drittes Fach","Sozialrecht / Hygiene","sozialrecht-hygiene"),
 (117,24,93,"Angiologie","pAVK",None),
-(111,37,74,"Angiologie","TVT / Phlebothrombose",None),
+(111,37,74,"Angiologie","TVT / Phlebothrombose","tvt"),
 (108,35,73,"Kardiologie","Arterielle Hypertonie","arterielle-hypertonie"),
 (102,15,87,"Pneumologie","Asthma","asthma-bronchiale"),
 (100,35,65,"Pneumologie","Bronchialkarzinom",None),

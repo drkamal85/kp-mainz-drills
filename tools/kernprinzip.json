@@ -570,5 +570,16 @@
     "v": "Nach dem cABCDE-Schema — treat first what kills first: kritische Blutung stillen, Atemweg mit HWS-Schutz, Atmung, Kreislauf, dann Disability und Exposure.",
     "k": "eFAST und Polytrauma-CT sichern die Diagnostik; Blutungskontrolle und Massivtransfusion sind das Zentrum der Therapie.",
     "n": "Vor der Bluttransfusion die Kreuzprobe, und Wärmeerhalt gegen die Trauma-Triade aus Hypothermie, Azidose und Koagulopathie."
+  },
+  {
+    "slug": "tvt",
+    "title": "Tiefe Beinvenenthrombose (TVT)",
+    "spec": "gefaesschirurgie",
+    "acute": true,
+    "q": "Akut einseitig geschwollenes, schmerzhaftes Bein?",
+    "w": "Thrombotischer Verschluss tiefer Beinvenen nach der Virchow-Trias; Gefahr sind Lungenembolie und postthrombotisches Syndrom.",
+    "v": "Wells-Score, dann D-Dimer zum Ausschluss, dann Kompressionssonografie als Goldstandard; sofort antikoagulieren.",
+    "k": "DOAK ist erste Wahl; Marcumar ist nur bei mechanischer Herzklappe oder Antiphospholipid-Syndrom zwingend.",
+    "n": "Bei unprovozierter Thrombose immer an einen versteckten Tumor denken und eine Tumorsuche veranlassen."
   }
 ]
