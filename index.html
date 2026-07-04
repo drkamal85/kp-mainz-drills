@@ -34,6 +34,17 @@
   .brand{font-family:'Fraunces',serif;font-weight:600;font-size:18px;letter-spacing:-.01em}
   .brand .dot{color:var(--blue)}
   .countdown{font-family:var(--m);font-size:12px;color:var(--t3);display:flex;align-items:center;gap:7px;white-space:nowrap}
+  .hdr-right{display:flex;align-items:center;gap:12px}
+  .focus{display:inline-flex;align-items:center;gap:6px;font-family:var(--m);font-size:12px;font-weight:600;color:var(--t2);background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:6px 10px;cursor:pointer;line-height:1;-webkit-appearance:none;-webkit-tap-highlight-color:transparent;transition:border-color .15s,color .15s,background .15s}
+  .focus:hover{border-color:var(--border-hi);color:var(--t1)}
+  .focus-ico{font-size:13px;line-height:1}
+  .focus-label{font-variant-numeric:tabular-nums;min-width:38px;text-align:center}
+  .focus-reset{display:none;font-size:13px;opacity:.55}
+  .focus.running .focus-reset,.focus.done .focus-reset{display:inline}
+  .focus-reset:hover{opacity:1}
+  .focus.running{border-color:#2D7A3E;color:#2D7A3E;background:oklch(96% 0.04 150)}
+  .focus.done{border-color:#B45309;color:#B45309;background:oklch(96% 0.06 60);animation:focusPulse 1.1s ease-in-out infinite}
+  @keyframes focusPulse{0%,100%{opacity:1}50%{opacity:.45}}
   .countdown b{color:var(--t1);font-weight:600}
   .lead{padding:44px 0 22px}
   .lead h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(30px,5vw,42px);letter-spacing:-.02em;line-height:1.05}
@@ -79,7 +90,7 @@
   .no-hits.on{display:block}
   .ftr{border-top:1px solid var(--border);padding:26px 0 44px;font-size:12px;color:var(--t3);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   @media(max-width:640px){
-    .wrap{padding:0 18px}.hdr-in{padding:12px 18px}
+    .wrap{padding:0 18px}.hdr-in{padding:12px 18px}.cd-pre{display:none}.hdr-right{gap:9px}
     .grid{grid-template-columns:1fr}.lead{padding:32px 0 20px}
   }
 </style>
@@ -89,7 +100,12 @@
 <header class="hdr">
   <div class="hdr-in">
     <div class="brand">KP Mainz<span class="dot">.</span></div>
-    <div class="countdown">Kenntnisprüfung in <b id="cd">—</b></div>
+    <div class="hdr-right">
+      <button class="focus" id="focusTimer" type="button" title="25-Minuten-Fokus — tippen zum Starten oder Pausieren">
+        <span class="focus-ico">🍅</span><span class="focus-label" id="focusLabel">25:00</span><span class="focus-reset" id="focusReset" title="Zurücksetzen">↺</span>
+      </button>
+      <div class="countdown"><span class="cd-pre">Prüfung in </span><b id="cd">—</b></div>
+    </div>
   </div>
 </header>
 
@@ -814,6 +830,41 @@
     var exam = new Date('2027-03-01');
     var d = Math.ceil((exam - Date.now()) / 86400000);
     document.getElementById('cd').textContent = d > 0 ? d + ' Tagen' : 'jetzt';
+  })();
+
+  /* Focus timer — 25-min Pomodoro */
+  (function () {
+    var FOCUS = 25 * 60;
+    var remaining = FOCUS, ticking = null, running = false;
+    var el = document.getElementById('focusTimer');
+    var label = document.getElementById('focusLabel');
+    var resetBtn = document.getElementById('focusReset');
+    if (!el) return;
+    function fmt(s) { var m = Math.floor(s / 60), ss = s % 60; return m + ':' + (ss < 10 ? '0' : '') + ss; }
+    function render() { label.textContent = el.classList.contains('done') ? 'Fertig' : fmt(remaining); }
+    function clearTick() { if (ticking) { clearInterval(ticking); ticking = null; } }
+    function pause() { running = false; el.classList.remove('running'); clearTick(); }
+    function finish() {
+      pause(); el.classList.add('done'); render();
+      try { if (navigator.vibrate) navigator.vibrate([180, 90, 180]); } catch (e) {}
+      if (window.Notification && Notification.permission === 'granted') { try { new Notification('Fokus fertig 🍅', { body: '25 Minuten geschafft — kurze Pause.' }); } catch (e) {} }
+    }
+    function start() {
+      running = true; el.classList.remove('done'); el.classList.add('running'); render();
+      clearTick();
+      ticking = setInterval(function () { remaining--; if (remaining <= 0) { remaining = 0; finish(); } else render(); }, 1000);
+    }
+    function reset() { pause(); el.classList.remove('done'); remaining = FOCUS; render(); }
+    resetBtn.addEventListener('click', function (e) { e.stopPropagation(); reset(); });
+    el.addEventListener('click', function () {
+      if (el.classList.contains('done')) { reset(); return; }
+      if (running) { pause(); }
+      else {
+        if (window.Notification && Notification.permission === 'default') { try { Notification.requestPermission(); } catch (e) {} }
+        start();
+      }
+    });
+    render();
   })();
 
   /* Live search */
