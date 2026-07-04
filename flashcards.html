@@ -331,5 +331,6 @@ function queuePush(){ clearTimeout(_pushT); _pushT=setTimeout(pushRemote,800); }
 function syncNow(){ var msg=document.getElementById('syncmsg'); msg.className='syncmsg'; msg.textContent='Synchronisiere…'; Promise.resolve().then(pullRemote).then(pushRemote).then(function(){ msg.className='syncmsg ok'; msg.textContent='Synchronisiert ✓'; }).catch(function(){ msg.className='syncmsg err'; msg.textContent='Sync-Fehler'; }); }
 (function(){ var c=syncCfg(); if(c.api) document.getElementById('syncapi').value=c.api; if(c.token) document.getElementById('synctok').value=c.token; setSyncStat(); if(c.api&&c.token) pullRemote(); })();
 </script>
+  <script src="/focus-timer.js" defer></script>
 </body>
 </html>

@@ -13,5 +13,7 @@
   Cache-Control: no-cache
 /summaries/*
   Cache-Control: no-cache
+/focus-timer.js
+  Cache-Control: no-cache
 /tools/*
   Cache-Control: no-cache
