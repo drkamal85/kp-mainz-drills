@@ -3,616 +3,376 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Notfallpharmakologie · R3 Review</title>
+<title>Notfallpharmakologie · R3 · Diagnostischer Durchlauf</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg: #F7F4EE;
-    --paper: #FFFFFF;
-    --ink: #1A1A1A;
-    --ink-muted: #5C5C5C;
-    --ink-soft: #8A8A8A;
-    --rule: #E8E2D6;
-    --grundlagen: #C0392B; --grundlagen-soft: #FBEAE7;
-    --klinik: #D97706;     --klinik-soft: #FDF2E2;
-    --diagnostik: #1E5F9E; --diagnostik-soft: #E5EEF7;
-    --therapie: #2D7A3E;   --therapie-soft: #E3F1E6;
-    --fragen: #7B3F9E;     --fragen-soft: #EFE5F7;
-    --perlen: #B8860B;     --perlen-soft: #FBF2D9;
+  :root{
+    --bg:#F7F4EE; --card:#FFFDF8; --ink:#2A2724; --muted:#6B6358; --line:#E7E0D4;
+    --grundlagen:#C0392B; --grundlagen-t:#F7E9E6;
+    --klinik:#D97706;     --klinik-t:#FBEEDD;
+    --diagnostik:#1E5F9E; --diagnostik-t:#E4EDF6;
+    --therapie:#2D7A3E;   --therapie-t:#E5F0E7;
+    --fragen:#7B3F9E;     --fragen-t:#F0E8F6;
+    --perlen:#B8860B;     --perlen-t:#F8F0D9;
+    --retrieval:#0F766E;  --retrieval-t:#E0F0EE;
+    --protokoll:#334155;  --protokoll-t:#E8EBF0;
+    --ok:#2D7A3E; --gap:#D97706; --miss:#C0392B;
   }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    background: var(--bg); color: var(--ink);
-    font-family: 'Fraunces', Georgia, serif;
-    font-size: 16.5px; line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
-  .container { max-width: 860px; margin: 0 auto; padding: 40px 24px 70px; }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:'Manrope',system-ui,sans-serif;
+    font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased;padding:0 18px 80px}
+  .wrap{max-width:860px;margin:0 auto}
 
-  /* HEADER */
-  .back {
-    display: inline-block;
-    font-family: 'Manrope', sans-serif;
-    font-size: 11px; font-weight: 700;
-    letter-spacing: 0.16em; text-transform: uppercase;
-    color: var(--ink-muted); text-decoration: none;
-    margin-bottom: 22px;
-  }
-  .back:hover { color: var(--ink); }
-  .eyebrow {
-    font-family: 'Manrope', sans-serif;
-    font-size: 11px; font-weight: 700;
-    letter-spacing: 0.22em; text-transform: uppercase;
-    color: var(--ink-muted); margin-bottom: 12px;
-  }
-  .eyebrow::before { content: "— "; }
-  h1 {
-    font-family: 'Fraunces', serif; font-weight: 600;
-    font-size: clamp(32px, 5vw, 46px);
-    line-height: 1.05; letter-spacing: -0.02em;
-    margin-bottom: 12px;
-  }
-  h1 .accent { font-style: italic; color: var(--grundlagen); }
-  .subtitle {
-    font-family: 'Fraunces', serif; font-style: italic;
-    font-size: 17px; color: var(--ink-muted);
-    margin-bottom: 18px; max-width: 640px;
-  }
-  .meta {
-    font-family: 'Manrope', sans-serif;
-    font-size: 12.5px; color: var(--ink-soft);
-    display: flex; flex-wrap: wrap; gap: 0; align-items: center;
-    margin-bottom: 30px;
-  }
-  .meta span + span::before { content: "•"; margin: 0 12px; }
+  header{padding:54px 0 22px}
+  .eyebrow{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--retrieval);margin-bottom:16px}
+  h1{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(34px,7vw,52px);line-height:1.04;letter-spacing:-.01em}
+  h1 .accent{font-style:italic;color:var(--grundlagen)}
+  .subtitle{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(17px,2.6vw,20px);color:var(--muted);margin-top:14px}
+  .meta{display:flex;flex-wrap:wrap;gap:6px 0;margin-top:20px;font-size:13px;color:var(--muted);font-weight:500}
+  .meta span:not(:last-child)::after{content:"•";margin:0 10px;color:var(--line);font-weight:700}
 
-  /* TABS */
-  .tabs {
-    display: flex; flex-wrap: wrap; gap: 4px;
-    margin-bottom: 28px;
-    background: var(--paper);
-    padding: 5px; border-radius: 50px;
-    border: 1px solid var(--rule);
-  }
-  .tab {
-    flex: 1; min-width: 95px;
-    padding: 10px 8px;
-    font-family: 'Manrope', sans-serif;
-    font-size: 11.5px; font-weight: 600;
-    letter-spacing: 0.04em; text-transform: uppercase;
-    color: var(--ink-muted);
-    background: transparent; border: none;
-    border-radius: 50px; cursor: pointer;
-    text-align: center; transition: all 0.2s ease;
-  }
-  .tab:hover { color: var(--ink); }
-  .tab.active { color: white; }
-  .tab[data-s="1"].active { background: var(--grundlagen); }
-  .tab[data-s="2"].active { background: var(--klinik); }
-  .tab[data-s="3"].active { background: var(--diagnostik); }
-  .tab[data-s="4"].active { background: var(--therapie); }
-  .tab[data-s="5"].active { background: var(--fragen); }
-  .tab[data-s="6"].active { background: var(--perlen); }
 
-  /* STATION */
-  .station { display: none; animation: fadeIn 0.25s ease; }
-  .station.active { display: block; }
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(4px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .station-header {
-    display: flex; justify-content: space-between; align-items: flex-end;
-    padding-bottom: 12px; margin-bottom: 22px;
-    border-bottom: 2px solid; gap: 16px;
-  }
-  .station-eyebrow {
-    font-family: 'Fraunces', serif; font-style: italic;
-    font-size: 13px; color: var(--ink-muted);
-    margin-bottom: 4px;
-  }
-  .station-title {
-    font-family: 'Fraunces', serif; font-weight: 600;
-    font-size: 26px; line-height: 1.1; letter-spacing: -0.01em;
-  }
-  .station-tagline {
-    font-family: 'Fraunces', serif; font-style: italic;
-    font-size: 13.5px; color: var(--ink-muted);
-    text-align: right; max-width: 220px;
-  }
-  #s1 .station-header { border-bottom-color: var(--grundlagen); } #s1 .station-title { color: var(--grundlagen); }
-  #s2 .station-header { border-bottom-color: var(--klinik); }     #s2 .station-title { color: var(--klinik); }
-  #s3 .station-header { border-bottom-color: var(--diagnostik); } #s3 .station-title { color: var(--diagnostik); }
-  #s4 .station-header { border-bottom-color: var(--therapie); }   #s4 .station-title { color: var(--therapie); }
-  #s5 .station-header { border-bottom-color: var(--fragen); }     #s5 .station-title { color: var(--fragen); }
-  #s6 .station-header { border-bottom-color: var(--perlen); }     #s6 .station-title { color: var(--perlen); }
+  .tabs{display:flex;flex-wrap:wrap;gap:8px;position:sticky;top:0;z-index:30;background:linear-gradient(var(--bg) 72%,rgba(247,244,238,0));padding:12px 0 14px;margin-bottom:6px}
+  .tab{position:relative;font-size:13px;font-weight:600;border:1px solid var(--line);background:var(--card);color:var(--muted);padding:8px 15px;border-radius:999px;cursor:pointer;transition:all .15s;white-space:nowrap}
+  .tab:hover{border-color:#cfc6b6}
+  .tab.active{color:#fff;border-color:transparent}
+  .tab[data-c=retrieval].active{background:var(--retrieval)}
+  .tab[data-c=grundlagen].active{background:var(--grundlagen)}
+  .tab[data-c=klinik].active{background:var(--klinik)}
+  .tab[data-c=diagnostik].active{background:var(--diagnostik)}
+  .tab[data-c=therapie].active{background:var(--therapie)}
+  .tab[data-c=fragen].active{background:var(--fragen)}
+  .tab[data-c=perlen].active{background:var(--perlen)}
+  .tab[data-c=protokoll].active{background:var(--protokoll)}
+  .tab .badge{display:none;margin-left:7px;font-size:10px;font-weight:800;padding:1px 6px;border-radius:999px;vertical-align:middle}
+  .tab.flag-gap .badge{display:inline-block;background:var(--gap);color:#fff}
+  .tab.flag-ok .badge{display:inline-block;background:var(--ok);color:#fff}
+  .tab.active .badge{background:rgba(255,255,255,.28)!important;color:#fff}
 
-  /* CARDS */
-  .card {
-    background: var(--paper);
-    border: 1px solid var(--rule);
-    border-radius: 12px;
-    margin-bottom: 14px;
-    overflow: hidden;
-  }
-  .card-head {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 14px 18px; cursor: pointer; gap: 12px;
-  }
-  .card-tag {
-    display: inline-block;
-    font-family: 'Manrope', sans-serif;
-    font-size: 10px; font-weight: 700;
-    letter-spacing: 0.16em; text-transform: uppercase;
-    padding: 3px 8px; border-radius: 3px;
-    margin-bottom: 4px;
-  }
-  #s1 .card-tag { background: var(--grundlagen-soft); color: var(--grundlagen); }
-  #s2 .card-tag { background: var(--klinik-soft); color: var(--klinik); }
-  #s3 .card-tag { background: var(--diagnostik-soft); color: var(--diagnostik); }
-  #s4 .card-tag { background: var(--therapie-soft); color: var(--therapie); }
-  .card-title {
-    font-family: 'Fraunces', serif; font-weight: 500;
-    font-size: 17.5px; line-height: 1.3;
-  }
-  .toggle {
-    font-family: 'Manrope', sans-serif;
-    font-size: 22px; font-weight: 300;
-    color: var(--ink-muted);
-    transition: transform 0.25s ease;
-    flex-shrink: 0;
-  }
-  .card.open .toggle { transform: rotate(45deg); }
-  .card-body { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
-  .card.open .card-body { max-height: 4000px; }
-  .card-body-inner { padding: 2px 18px 18px; }
+  .panel{display:none;animation:fade .25s ease}
+  .panel.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+  .panel-intro{font-family:'Fraunces',serif;font-style:italic;font-size:17px;color:var(--muted);margin:6px 0 18px;line-height:1.5}
 
-  h4 {
-    font-family: 'Manrope', sans-serif;
-    font-size: 10.5px; font-weight: 700;
-    letter-spacing: 0.16em; text-transform: uppercase;
-    color: var(--ink-muted); margin: 14px 0 8px;
-  }
-  .card-body-inner > h4:first-child { margin-top: 4px; }
-  ul { list-style: none; padding-left: 2px; margin-bottom: 10px; }
-  li {
-    position: relative; padding-left: 20px;
-    margin-bottom: 5px; line-height: 1.5;
-    font-size: 15.5px;
-  }
-  li::before {
-    content: ""; position: absolute;
-    left: 5px; top: 9px;
-    width: 6px; height: 6px; border-radius: 50%;
-  }
-  #s1 li::before { background: var(--grundlagen); }
-  #s2 li::before { background: var(--klinik); }
-  #s3 li::before { background: var(--diagnostik); }
-  #s4 li::before { background: var(--therapie); }
-  li ul { margin-top: 5px; margin-bottom: 6px; }
-  li ul li::before {
-    width: 5px; height: 5px; border-radius: 0;
-    transform: rotate(45deg);
-    background: var(--ink-soft) !important; top: 11px;
-  }
-  strong { font-weight: 600; }
-  em.h {
-    font-style: normal;
-    background-image: linear-gradient(to top, var(--grundlagen-soft) 60%, transparent 60%);
-    padding: 0 2px; font-weight: 500;
-  }
-  kbd {
-    font-family: 'JetBrains Mono', monospace; font-size: 12.5px;
-    background: #F0EBE0; padding: 1px 5px;
-    border-radius: 3px; border: 1px solid var(--rule);
-  }
+  /* ---- control bar (Pass 1 instrument) ---- */
+  .ctrl{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:14px 16px;margin-bottom:20px}
+  .ctrl-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+  .tally{font-size:13px;font-weight:700;display:flex;gap:12px;flex-wrap:wrap}
+  .tally i{font-style:normal;display:inline-flex;align-items:center;gap:5px}
+  .tally i::before{content:"";width:9px;height:9px;border-radius:50%}
+  .tally .t-ok::before{background:var(--ok)} .tally .t-gap::before{background:var(--gap)} .tally .t-miss::before{background:var(--miss)}
+  .spacer{flex:1 1 auto}
+  .btn{font-family:'Manrope';font-size:12.5px;font-weight:700;border:none;border-radius:999px;padding:9px 16px;cursor:pointer;transition:.15s}
+  .btn-primary{background:var(--retrieval);color:#fff}
+  .btn-primary:hover{filter:brightness(1.06)}
+  .btn-ghost{background:transparent;color:var(--muted);border:1px solid var(--line)}
+  .btn-ghost:hover{border-color:#cfc6b6}
+  .ctrl-status{margin-top:11px;font-size:13px;font-style:italic;color:var(--retrieval);min-height:18px}
 
-  table {
-    width: 100%; border-collapse: collapse;
-    font-family: 'Manrope', sans-serif; font-size: 13.5px;
-    margin: 8px 0 12px;
-  }
-  th {
-    background: #F0EBE0;
-    text-transform: uppercase;
-    font-size: 10px; letter-spacing: 0.12em;
-    color: var(--ink-muted);
-    text-align: left; padding: 8px 10px;
-    font-weight: 700;
-    border-bottom: 1px solid var(--rule);
-  }
-  td {
-    padding: 8px 10px;
-    border-bottom: 1px solid var(--rule);
-    vertical-align: top;
-  }
-  tr:last-child td { border-bottom: none; }
-
-  /* CALLOUTS */
-  .callout {
-    border-left: 3px solid;
-    padding: 12px 16px; margin: 12px 0;
-    border-radius: 0 8px 8px 0;
-    font-family: 'Fraunces', serif;
-    font-style: italic; font-size: 14.5px;
-    line-height: 1.5;
-  }
-  .callout-label {
-    font-family: 'Manrope', sans-serif; font-style: normal;
-    font-size: 10px; font-weight: 700;
-    letter-spacing: 0.16em; text-transform: uppercase;
-    display: block; margin-bottom: 5px;
-  }
-  .callout.critical { border-color: var(--grundlagen); background: var(--grundlagen-soft); }
-  .callout.critical .callout-label { color: var(--grundlagen); }
-  .callout.warning { border-color: var(--klinik); background: var(--klinik-soft); }
-  .callout.warning .callout-label { color: var(--klinik); }
-  .callout.fact { border-color: var(--diagnostik); background: var(--diagnostik-soft); }
-  .callout.fact .callout-label { color: var(--diagnostik); }
-  .callout.pearl { border-color: var(--perlen); background: var(--perlen-soft); }
-  .callout.pearl .callout-label { color: var(--perlen); }
-
-  /* Q&A */
-  .qa {
-    background: var(--fragen-soft);
-    border-left: 4px solid var(--fragen);
-    border-radius: 0 10px 10px 0;
-    padding: 14px 18px; margin: 14px 0;
-  }
-  .qa-q {
-    font-family: 'Fraunces', serif; font-style: italic;
-    font-size: 15.5px; line-height: 1.45; margin-bottom: 10px;
-  }
-  .qa-q::before {
-    content: "Prüfer:";
-    font-family: 'Manrope', sans-serif; font-style: normal;
-    font-size: 10px; font-weight: 700;
-    letter-spacing: 0.16em; color: var(--fragen);
-    display: block; margin-bottom: 3px; text-transform: uppercase;
-  }
-  .qa-a {
-    font-family: 'Fraunces', serif; font-size: 15px;
-    line-height: 1.55; padding-top: 10px;
-    border-top: 1px dashed rgba(123,63,158,0.4);
-  }
-  .qa-a::before {
-    content: "Ideale Antwort:";
-    font-family: 'Manrope', sans-serif; font-size: 10px;
-    font-weight: 700; letter-spacing: 0.16em;
-    color: var(--fragen);
-    display: block; margin-bottom: 5px; text-transform: uppercase;
-  }
-  .qa-meta {
-    font-family: 'Manrope', sans-serif; font-size: 11px;
-    color: var(--ink-soft); margin-top: 10px;
-    padding-top: 8px; border-top: 1px solid rgba(123,63,158,0.15);
-    font-style: italic;
-  }
-
-  /* PERLE */
-  .pearl-card {
-    background: var(--perlen-soft);
-    border: 1px solid rgba(184,134,11,0.3);
-    border-radius: 10px;
-    padding: 14px 18px; margin: 12px 0;
-  }
-  .pearl-label {
-    font-family: 'Manrope', sans-serif;
-    font-size: 10.5px; font-weight: 700;
-    letter-spacing: 0.16em; text-transform: uppercase;
-    color: var(--perlen); margin-bottom: 8px;
-  }
-  .pearl-content {
-    font-family: 'Fraunces', serif;
-    font-size: 15.5px; line-height: 1.5;
-    margin-bottom: 8px;
-  }
-  .pearl-content strong { color: #6A4C00; }
-  .pearl-mnemonic {
-    background: rgba(255,255,255,0.6);
-    border-radius: 6px;
-    padding: 8px 12px;
-    font-family: 'Fraunces', serif; font-style: italic;
-    font-size: 14px; color: var(--ink-muted);
-  }
-  .pearl-mnemonic::before {
-    content: "✦ ";
-    color: var(--perlen);
-    font-weight: 700; font-style: normal;
-  }
-
-  footer {
-    margin-top: 50px;
-    padding-top: 20px;
-    border-top: 1px solid var(--rule);
-    font-family: 'Manrope', sans-serif;
-    font-size: 11.5px; color: var(--ink-soft);
-    text-align: center;
-  }
-
-  @media (max-width: 600px) {
-    .container { padding: 28px 16px 50px; }
-    .station-header { flex-direction: column; align-items: flex-start; }
-    .station-tagline { text-align: left; max-width: none; }
-    .tab { font-size: 10.5px; padding: 9px 6px; }
-  }
-
-  .pk{margin:0 0 24px}
-  .pk-meta{display:flex;gap:8px;flex-wrap:wrap;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.04em;color:#94A3B8;margin-bottom:14px}
-  .pk-meta span{background:#F1F5F9;padding:3px 9px;border-radius:6px}
-  .pk-akte{background:#FFF7ED;border:1px solid #FED7AA;border-radius:12px;padding:12px 15px;margin-bottom:14px;font-size:14px;line-height:1.6;color:#7C2D12}
-  .pk-akte .lab{display:block;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.06em;color:#C2410C;margin-bottom:5px}
-  .pq{background:#FFFDF8;border:1px solid rgba(15,23,42,.08);border-radius:12px;padding:14px 16px;margin-bottom:10px}
-  .pq-frage{font-size:15px;font-weight:600;color:#0F172A;line-height:1.5}
-  .reveal>summary{cursor:pointer;list-style:none;color:#B45309;font-size:13px;font-weight:600;margin-top:9px;display:inline-block}
+  /* ---- retrieval prompt ---- */
+  .rt{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:14px;transition:border-color .2s}
+  .rt[data-score=sicher]{border-left-color:var(--ok)}
+  .rt[data-score=lueckenhaft]{border-left-color:var(--gap)}
+  .rt[data-score=gefehlt]{border-left-color:var(--miss)}
+  .rt-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:8px}
+  .rt-n{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--retrieval)}
+  .rt-right{display:flex;align-items:center;gap:10px;white-space:nowrap}
+  .rt-ptr{font-size:11px;font-weight:600;color:var(--muted)}
+  .rt-q{font-size:15.5px;line-height:1.55}
+  .reveal{margin-top:12px;border-top:1px dashed var(--line);padding-top:0}
+  .reveal>summary{list-style:none;cursor:pointer;font-size:12.5px;font-weight:800;letter-spacing:.04em;color:var(--retrieval);padding:11px 0 0;user-select:none;display:inline-flex;align-items:center;gap:6px}
   .reveal>summary::-webkit-details-marker{display:none}
-  .reveal[open]>summary{color:#94A3B8}
-  .ans{margin-top:11px;padding-top:11px;border-top:1px solid rgba(15,23,42,.08);font-size:14.5px;line-height:1.65;color:#334155}
+  .reveal>summary::before{content:"▸";transition:transform .2s;display:inline-block}
+  .reveal[open]>summary::before{transform:rotate(90deg)}
+  .reveal .ans{font-size:14.5px;line-height:1.6;color:#3c372f;padding-top:10px}
+  .reveal .ans b{color:var(--ink)}
+  .reveal .ans ul{list-style:none;padding-left:2px;margin:2px 0 0}
+  .reveal .ans li{position:relative;padding-left:18px;margin-bottom:8px;line-height:1.5}
+  .reveal .ans>ul>li::before{content:"";position:absolute;left:2px;top:8px;width:6px;height:6px;border-radius:50%;background:var(--retrieval)}
+  .reveal .ans li ul{margin:7px 0 2px}
+  .reveal .ans li li{padding-left:16px;margin-bottom:5px;font-size:13.8px;color:#4a443c}
+  .reveal .ans li li::before{content:"";position:absolute;left:0;top:7px;width:5px;height:5px;transform:rotate(45deg);background:#b9b0a1}
+  .score{display:flex;gap:7px;margin-top:12px;padding-top:11px;border-top:1px solid var(--line)}
+  .sbtn{flex:1;font-size:12px;font-weight:700;border:1px solid var(--line);background:var(--bg);color:var(--muted);border-radius:8px;padding:7px 4px;cursor:pointer;transition:.12s}
+  .sbtn:hover{border-color:#cfc6b6}
+  .sbtn[data-v=sicher].on{background:var(--ok);color:#fff;border-color:transparent}
+  .sbtn[data-v=lueckenhaft].on{background:var(--gap);color:#fff;border-color:transparent}
+  .sbtn[data-v=gefehlt].on{background:var(--miss);color:#fff;border-color:transparent}
+
+  /* ---- Schnellfragen ---- */
+  .sf-wrap{background:var(--retrieval-t);border:1px solid #BFE0DC;border-radius:13px;padding:18px 20px;margin-top:24px}
+  .sf-wrap h3{font-family:'Fraunces',serif;font-weight:500;font-size:20px;margin-bottom:3px}
+  .sf-wrap .sf-intro{font-size:13.5px;font-style:italic;color:#0c5d57;margin-bottom:14px}
+  .sf{border-bottom:1px solid #cfe4e1;padding:9px 0}
+  .sf:last-child{border-bottom:none}
+  .sf>summary{list-style:none;cursor:pointer;font-size:14.5px;font-weight:600;display:flex;justify-content:space-between;gap:10px;user-select:none}
+  .sf>summary::-webkit-details-marker{display:none}
+  .sf>summary::after{content:"+";color:var(--retrieval);font-weight:800}
+  .sf[open]>summary::after{content:"−"}
+  .sf .sfa{font-size:14px;color:#0c5d57;font-weight:700;padding-top:6px}
+
+  /* ---- content cards (v1) ---- */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:14px;overflow:hidden}
+  .card>summary{list-style:none;cursor:pointer;padding:18px 20px;display:flex;align-items:flex-start;gap:14px;user-select:none}
+  .card>summary::-webkit-details-marker{display:none}
+  .card .ct{flex:1}
+  .card .ctag{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:5px}
+  .card .ctitle{font-family:'Fraunces',serif;font-weight:500;font-size:17px;line-height:1.25}
+  .plus{flex:none;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:18px;line-height:1;transition:transform .2s;margin-top:2px}
+  .card[open] .plus{transform:rotate(45deg)}
+  .card .body{padding:0 20px 20px;border-top:1px solid var(--line);margin-top:-2px;padding-top:16px}
+  .card.grundlagen .ctag{color:var(--grundlagen)} .card.grundlagen .plus{background:var(--grundlagen-t);color:var(--grundlagen)}
+  .card.klinik .ctag{color:var(--klinik)} .card.klinik .plus{background:var(--klinik-t);color:var(--klinik)}
+  .card.diagnostik .ctag{color:var(--diagnostik)} .card.diagnostik .plus{background:var(--diagnostik-t);color:var(--diagnostik)}
+  .card.therapie .ctag{color:var(--therapie)} .card.therapie .plus{background:var(--therapie-t);color:var(--therapie)}
+  .card.fragen .ctag{color:var(--fragen)} .card.fragen .plus{background:var(--fragen-t);color:var(--fragen)}
+  .card.perlen .ctag{color:var(--perlen)} .card.perlen .plus{background:var(--perlen-t);color:var(--perlen)}
+
+  ul.b{list-style:none;padding-left:2px}
+  ul.b>li{position:relative;padding-left:20px;margin-bottom:8px;line-height:1.55}
+  ul.b>li::before{content:"";position:absolute;left:2px;top:9px;width:7px;height:7px;border-radius:50%}
+  .grundlagen ul.b>li::before{background:var(--grundlagen)} .klinik ul.b>li::before{background:var(--klinik)}
+  .diagnostik ul.b>li::before{background:var(--diagnostik)} .therapie ul.b>li::before{background:var(--therapie)}
+  ul.b ul{list-style:none;padding-left:18px;margin-top:7px}
+  ul.b ul>li{position:relative;padding-left:18px;margin-bottom:6px;font-size:15px;color:#4a443c}
+  ul.b ul>li::before{content:"";position:absolute;left:0;top:7px;width:6px;height:6px;transform:rotate(45deg);background:#b9b0a1}
+  strong{font-weight:700;color:var(--ink)}
+
+  .callout{border-radius:11px;padding:13px 16px;margin:14px 0;font-size:14.5px;line-height:1.55;border-left:4px solid}
+  .callout .lab{font-weight:800;font-size:11px;letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .critical{background:var(--grundlagen-t);border-color:var(--grundlagen)} .critical .lab{color:var(--grundlagen)}
+  .warning{background:var(--klinik-t);border-color:var(--klinik)} .warning .lab{color:var(--klinik)}
+  .fact{background:var(--diagnostik-t);border-color:var(--diagnostik)} .fact .lab{color:var(--diagnostik)}
+
+  .dd{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+  .dd th,.dd td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+  .dd th{background:var(--diagnostik-t);font-weight:700;color:var(--diagnostik);font-size:12px}
+  .dd td:first-child{font-weight:600}
+
+  .pk{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:16px}
+  .pk-meta{display:flex;flex-wrap:wrap;gap:6px 0;font-size:11.5px;font-weight:700;color:var(--protokoll);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+  .pk-meta span:not(:last-child)::after{content:"•";margin:0 8px;color:#c3c9d2}
+  .pk-badge{display:inline-block;background:var(--therapie-t);color:var(--therapie);font-size:10.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:2px 9px;border-radius:999px;margin-left:auto}
+  .pk-akte{font-size:14.5px;line-height:1.58;background:var(--protokoll-t);border-radius:9px;padding:12px 14px;margin-bottom:12px}
+  .pk-akte .lab,.pk-q .lab{font-weight:800;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--protokoll);display:block;margin-bottom:5px}
+  .pk-q ul{list-style:none;padding:0}
+  .pk-q li{position:relative;padding-left:18px;margin-bottom:7px;font-size:14.5px;line-height:1.5}
+  .pk-q li::before{content:"–";position:absolute;left:0;color:var(--protokoll);font-weight:700}
+  .pq{border-top:1px solid var(--line);padding:10px 0}
+  .pq-frage{position:relative;padding-left:18px;font-size:14.5px;font-weight:600;line-height:1.5}
+  .pq-frage::before{content:"–";position:absolute;left:0;color:var(--protokoll);font-weight:700}
+  .pq .reveal{margin-top:5px;border-top:none;padding-top:0}
+  .pq .reveal>summary{padding:5px 0 0}
+
+  .pearl{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--perlen);border-radius:12px;padding:16px 18px;margin-bottom:13px}
+  .pearl .ph{font-weight:800;font-size:13px;color:var(--perlen);margin-bottom:7px}
+  .pearl .pt{font-size:15px;line-height:1.55}
+  .pearl .mn{margin-top:9px;background:var(--perlen-t);border-radius:8px;padding:8px 12px;font-size:13.5px;font-style:italic;color:#7a5c08}
+  .pearl .mn b{font-style:normal;font-weight:800}
+
+  footer{margin-top:40px;padding-top:22px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted);line-height:1.6}
+  .back{display:inline-block;font-family:Manrope,system-ui,sans-serif;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);text-decoration:none;margin-bottom:18px}
+  .back:hover{color:var(--ink)}
 </style>
 </head>
 <body>
-<div class="container">
+<div class="wrap">
 
   <a href="../../index.html" class="back">← Zurück zur Library</a>
 
   <header>
-    <div class="eyebrow">R3 Review · Notfallmedizin · Drittes Fach</div>
+    <div class="eyebrow">Notfallmedizin · Drittes Fach · R3 · Kurz + KP-Perlen + Protokolle</div>
     <h1>Notfall<span class="accent">pharmakologie</span></h1>
-    <p class="subtitle">Die Medikamente und Dosen, die im Notfall sitzen müssen: Reanimation, Katecholamine, Anaphylaxie, Antidote. Drittes-Fach-Pflichtstoff.</p>
-    <div class="meta"><span>~ 15 min</span><span>7 Stationen</span><span>R3</span></div>
+    <div class="subtitle">Die Medikamente und Dosen, die im Notfall sitzen müssen — Reanimation, Katecholamine, Anaphylaxie, Antidote + KP-Perlen + die dokumentierten Mainz-Fragen.</div>
+    <div class="meta">
+      <span>R3 von 5 · Superset von R2</span>
+      <span>~12–15 Min</span>
+      <span>Stand 06/2026</span>
+      <span>Stex + Vorbereitung + Mainz-Protokolle</span>
+    </div>
   </header>
 
-  <nav class="tabs">
-    <button class="tab active" data-s="1">01 · Reani</button>
-    <button class="tab" data-s="2">02 · Schock</button>
-    <button class="tab" data-s="3">03 · Anaph</button>
-    <button class="tab" data-s="4">04 · Antidote</button>
-    <button class="tab" data-s="5">05 · KP-Fragen</button>
-    <button class="tab" data-s="6">06 · KP-Perlen</button>
-    <button class="tab" data-s="7">07 · Protokolle</button>
-  </nav>
+  <div class="tabs">
+    <button class="tab active" data-c="grundlagen" data-tab="grundlagen">Grundlagen</button>
+    <button class="tab" data-c="klinik" data-tab="klinik">Klinik</button>
+    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik</button>
+    <button class="tab" data-c="therapie" data-tab="therapie">Therapie</button>
+    <button class="tab" data-c="perlen" data-tab="perlen">KP-Perlen</button>
+    <button class="tab" data-c="protokoll" data-tab="protokoll">Fragen &amp; Protokolle</button>
+  </div>
 
-  <!-- STATION 1: GRUNDLAGEN -->
-  <section class="station active" id="s1">
-    <div class="station-header"><div><div class="station-eyebrow">Station 01</div><div class="station-title">Reanimation</div></div><div class="station-tagline">ALS &mdash; Adrenalin + Amiodaron.</div></div>
+  <section class="panel active" data-panel="grundlagen">
+    <p class="panel-intro">Prinzip, Reanimationsmedikamente, Rhythmen. Erst laut, dann aufklappen.</p>
+    <details class="card grundlagen" open><summary><span class="ct"><span class="ctag">Prinzip</span><span class="ctitle">Ansatz + Wirkstoffgruppen</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Im Notfall behandelt man die Situation, nicht die Diagnose. Erst Zugang und Monitoring, dann die passende Substanz — intravenös, intraossär, intramuskulär oder inhalativ.</strong></div>
+        <table class="dd"><tr><th>Gruppe</th><th>Beispiele</th></tr>
+          <tr><td><strong>Katecholamine</strong></td><td>Adrenalin, Noradrenalin, Dobutamin</td></tr>
+          <tr><td><strong>Antiarrhythmika</strong></td><td>Amiodaron, Atropin, Adenosin</td></tr>
+          <tr><td><strong>Sedativa / Antikonvulsiva</strong></td><td>Benzodiazepine</td></tr>
+          <tr><td><strong>Antidote</strong></td><td>Naloxon, Flumazenil, N-Acetylcystein</td></tr></table>
+      </div>
+    </details>
+    <details class="card grundlagen"><summary><span class="ct"><span class="ctag">Reanimation</span><span class="ctitle">Die zwei Reanimationsmedikamente</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Adrenalin 1 mg i.v. — bei Asystolie/PEA sofort, dann alle 3–5 min. Bei VF/pulsloser VT erst nach dem 3. Schock. Amiodaron 300 mg nach dem 3. Schock.</strong></div>
+        <table class="dd"><tr><th>Medikament</th><th>Dosis</th><th>Wann</th></tr>
+          <tr><td><strong>Adrenalin</strong></td><td>1 mg i.v./i.o.</td><td>Asystolie/PEA sofort; VF/pVT nach 3. Schock</td></tr>
+          <tr><td><strong>Amiodaron</strong></td><td>300 mg (Repeat 150 mg)</td><td>nach 3. Schock (VF/pVT)</td></tr></table>
+      </div>
+    </details>
+    <details class="card grundlagen"><summary><span class="ct"><span class="ctag">Rhythmen</span><span class="ctitle">Defibrillierbar vs. nicht</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Defibrillierbar: Kammerflimmern und pulslose VT → Schock.<br>Nicht-defibrillierbar: Asystolie und PEA → kein Schock, nur Adrenalin und CPR.</strong></div>
+        <ul class="b"><li>Torsades de pointes → <strong>Magnesium</strong> i.v.</li></ul>
+      </div>
+    </details>
+  </section>
 
-    <div class="card open">
-      <div class="card-head"><div><span class="card-tag">&#9733; Anker</span><div class="card-title">Die zwei Reanimations-Medikamente</div></div><span class="toggle">+</span></div>
-      <div class="card-body"><div class="card-body-inner">
-        <div class="callout critical"><span class="callout-label">&#9733; Merksatz</span><strong>Adrenalin 1 mg i.v. &middot; bei nicht-defibrillierbarem Rhythmus (Asystolie/PEA) SOFORT, dann alle 3&ndash;5 min.<br>Bei VF/pulsloser VT erst nach dem 3. Schock.<br>Amiodaron 300 mg nach dem 3. Schock.</strong></div>
-        <table>
-          <thead><tr><th>Medikament</th><th>Dosis</th><th>Wann</th></tr></thead>
-          <tbody>
-            <tr><td><strong>Adrenalin</strong></td><td>1 mg i.v./i.o., alle 3&ndash;5 min</td><td>Asystolie/PEA sofort; VF/pVT nach 3. Schock</td></tr>
-            <tr><td><strong>Amiodaron</strong></td><td>300 mg i.v. (Repeat 150 mg)</td><td>nach 3. Schock (VF/pVT)</td></tr>
-          </tbody>
-        </table>
-        <div class="callout fact"><span class="callout-label">&#9881; Ablauf</span>Thoraxkompression <strong>30:2</strong>, Defibrillation bei VF/pVT (kein Schock bei Asystolie/PEA), 2-min-Zyklen, reversible Ursachen <strong>4 H + HITS</strong>.</div>
-      </div></div>
-    </div>
+  <!-- ============ KLINIK ============ -->
+  <section class="panel" data-panel="klinik">
+    <p class="panel-intro">Die Notfallsituationen und ihre Leitsubstanz. Erst laut, dann abgleichen.</p>
+    <details class="card klinik" open><summary><span class="ct"><span class="ctag">Anaphylaxie</span><span class="ctitle">Adrenalin i.m. zuerst</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Adrenalin 0,5 mg intramuskulär in den lateralen Oberschenkel ist die wichtigste Sofortmaßnahme — nicht intravenös.</strong></div>
+        <ul class="b"><li>Dazu Volumengabe, ein Antihistaminikum und ein Glukokortikoid</li></ul>
+      </div>
+    </details>
+    <details class="card klinik"><summary><span class="ct"><span class="ctag">Weitere</span><span class="ctitle">Leitsubstanzen nach Situation</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Merksatz</span><strong>Jede Notfallsituation hat ihre Erstsubstanz.</strong></div>
+        <table class="dd"><tr><th>Situation</th><th>Substanz</th></tr>
+          <tr><td><strong>Symptomatische Bradykardie</strong></td><td>Atropin 0,5–1,0 mg i.v. (max. 3 mg)</td></tr>
+          <tr><td><strong>Krampfanfall / Status</strong></td><td>Benzodiazepine (Lorazepam, Midazolam)</td></tr>
+          <tr><td><strong>Hypoglykämie</strong></td><td>Glukose i.v. oder Glukagon i.m.</td></tr>
+          <tr><td><strong>Akutes Lungenödem</strong></td><td>O₂, Nitrate, Furosemid, Morphin</td></tr></table>
+      </div>
+    </details>
+  </section>
 
-    <div class="card">
-      <div class="card-head"><div><span class="card-tag">Rhythmen</span><div class="card-title">Defibrillierbar vs. nicht</div></div><span class="toggle">+</span></div>
-      <div class="card-body"><div class="card-body-inner">
-        <div class="callout fact"><span class="callout-label">&#9733; Merksatz</span><strong>Defibrillierbar: Kammerflimmern (VF) + pulslose VT &rarr; Schock.<br>Nicht-defibrillierbar: Asystolie + PEA &rarr; kein Schock, nur Adrenalin + CPR.</strong></div>
-        <ul>
-          <li><strong>Stabile</strong> VT &rarr; Amiodaron; <strong>instabile</strong> VT &rarr; elektrische Kardioversion</li>
-          <li>Torsades de pointes &rarr; Magnesium i.v.</li>
-        </ul>
-      </div></div>
+  <!-- ============ DIAGNOSTIK ============ -->
+  <section class="panel" data-panel="diagnostik">
+    <p class="panel-intro">Schockform erkennen, Katecholamin wählen. Erst laut, dann abgleichen.</p>
+    <details class="card diagnostik" open><summary><span class="ct"><span class="ctag">Katecholamine</span><span class="ctitle">Welches Katecholamin nach Schockform</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Sepsis → Noradrenalin. Kardiogener Schock → Dobutamin. Anaphylaxie und Reanimation → Adrenalin.</strong></div>
+        <table class="dd"><tr><th>Substanz</th><th>Rezeptor</th><th>Einsatz</th></tr>
+          <tr><td><strong>Noradrenalin</strong></td><td>α1 ↑↑↑</td><td>septischer Schock (Vasopressor)</td></tr>
+          <tr><td><strong>Adrenalin</strong></td><td>α + β</td><td>Reanimation, Anaphylaxie</td></tr>
+          <tr><td><strong>Dobutamin</strong></td><td>β1 ↑↑↑</td><td>kardiogener Schock (inotrop)</td></tr></table>
+      </div>
+    </details>
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Grenzen</span><span class="ctitle">Titration + Atropin-Grenze</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout warning"><span class="lab">▲ Merksatz</span><strong>Noradrenalin auf einen mittleren arteriellen Druck über 65 mmHg titrieren.</strong> Atropin wirkt beim breiten, infrahisären AV-Block NICHT → Adrenalin oder transkutaner Schrittmacher.</div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ THERAPIE ============ -->
+  <section class="panel" data-panel="therapie">
+    <p class="panel-intro">Antidote und Intoxikation. Erst laut, dann abgleichen.</p>
+    <details class="card therapie" open><summary><span class="ct"><span class="ctag">Antidote</span><span class="ctitle">Gift und Gegenmittel</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Naloxon bei Opioiden, Flumazenil bei Benzodiazepinen, N-Acetylcystein bei Paracetamol, Vitamin K und PPSB bei Marcumar.</strong></div>
+        <table class="dd"><tr><th>Vergiftung</th><th>Antidot</th></tr>
+          <tr><td>Opioide</td><td>Naloxon</td></tr>
+          <tr><td>Benzodiazepine</td><td>Flumazenil</td></tr>
+          <tr><td>Paracetamol</td><td>N-Acetylcystein</td></tr>
+          <tr><td>Cumarine (Marcumar)</td><td>Vitamin K + PPSB</td></tr></table>
+      </div>
+    </details>
+    <details class="card therapie"><summary><span class="ct"><span class="ctag">DOAK</span><span class="ctitle">Antagonisierung der DOAK</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Faktor-Xa-Hemmer → Andexanet alfa. Dabigatran → Idarucizumab.</strong></div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ KP-PERLEN ============ -->
+  <section class="panel" data-panel="perlen">
+    <p class="panel-intro">Acht Sätze, die punkten.</p>
+    <div class="pearl"><div class="ph">⭐ Perle 1 · Reanimation</div><div class="pt"><strong>Adrenalin 1 mg</strong> (Asystolie/PEA sofort, VF/pVT nach dem 3. Schock), <strong>Amiodaron 300 mg</strong> nach dem 3. Schock.</div><div class="mn"><b>Merke:</b> Adrenalin immer, Amiodaron nach dem 3. Schock</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 2 · Anaphylaxie</div><div class="pt"><strong>Adrenalin 0,5 mg intramuskulär</strong> in den Oberschenkel — nicht intravenös.</div><div class="mn"><b>Merke:</b> Anaphylaxie = Adrenalin i.m.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 3 · Katecholamine</div><div class="pt"><strong>Noradrenalin</strong> beim septischen, <strong>Dobutamin</strong> beim kardiogenen Schock, <strong>Adrenalin</strong> bei Reanimation und Anaphylaxie.</div><div class="mn"><b>Merke:</b> Sepsis Nora, Herz Dobu</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 4 · Bradykardie</div><div class="pt"><strong>Atropin 0,5–1,0 mg</strong> (max. 3 mg) — wirkt aber beim breiten AV-Block nicht, dann Adrenalin oder Schrittmacher.</div><div class="mn"><b>Merke:</b> Breiter Block → Atropin nutzlos</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 5 · Antidote</div><div class="pt"><strong>Naloxon</strong> (Opioide), <strong>Flumazenil</strong> (Benzos), <strong>N-Acetylcystein</strong> (Paracetamol), <strong>Vitamin K + PPSB</strong> (Marcumar).</div><div class="mn"><b>Merke:</b> Opioid → Naloxon</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 6 · DOAK-Antidote</div><div class="pt"><strong>Andexanet alfa</strong> für die Faktor-Xa-Hemmer, <strong>Idarucizumab</strong> für Dabigatran.</div><div class="mn"><b>Merke:</b> Xa → Andexanet, Dabigatran → Idarucizumab</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 7 · Torsades</div><div class="pt">Bei <strong>Torsades de pointes</strong> ist Magnesium intravenös das Mittel der Wahl.</div><div class="mn"><b>Merke:</b> Torsades → Magnesium</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 8 · Fallen</div><div class="pt"><strong>O₂ nur bei SpO₂ &lt; 90 %; Nitrate nicht bei Hypotonie.</strong> Betablocker nicht mit Verapamil kombinieren.</div><div class="mn"><b>Merke:</b> Nitrate nur mit Druck</div></div>
+
+    <div class="sf-wrap">
+      <h3>Schnellfragen · Rapid-Fire</h3>
+      <div class="sf-intro">Atomare Einzelfakten — Ein-Wort-Abruf, keine Optionen. Laut, sofort, dann aufdecken.</div>
+      <details class="sf"><summary>Adrenalin-Dosis bei Reanimation?</summary><div class="sfa">1 mg i.v.</div></details>
+      <details class="sf"><summary>Amiodaron — wann und wie viel?</summary><div class="sfa">300 mg nach dem 3. Schock</div></details>
+      <details class="sf"><summary>Adrenalin bei Asystolie — wann?</summary><div class="sfa">sofort</div></details>
+      <details class="sf"><summary>Torsades de pointes?</summary><div class="sfa">Magnesium i.v.</div></details>
+      <details class="sf"><summary>Anaphylaxie — Medikament + Weg?</summary><div class="sfa">Adrenalin 0,5 mg i.m.</div></details>
+      <details class="sf"><summary>Katecholamin beim septischen Schock?</summary><div class="sfa">Noradrenalin</div></details>
+      <details class="sf"><summary>Katecholamin beim kardiogenen Schock?</summary><div class="sfa">Dobutamin</div></details>
+      <details class="sf"><summary>MAP-Ziel unter Noradrenalin?</summary><div class="sfa">&gt; 65 mmHg</div></details>
+      <details class="sf"><summary>Symptomatische Bradykardie?</summary><div class="sfa">Atropin 0,5–1,0 mg</div></details>
+      <details class="sf"><summary>Atropin-Maximaldosis?</summary><div class="sfa">3 mg</div></details>
+      <details class="sf"><summary>Krampfanfall / Status?</summary><div class="sfa">Benzodiazepine</div></details>
+      <details class="sf"><summary>Hypoglykämie ohne Zugang?</summary><div class="sfa">Glukagon i.m.</div></details>
+      <details class="sf"><summary>Antidot bei Opioiden?</summary><div class="sfa">Naloxon</div></details>
+      <details class="sf"><summary>Antidot bei Benzodiazepinen?</summary><div class="sfa">Flumazenil</div></details>
+      <details class="sf"><summary>Antidot bei Paracetamol?</summary><div class="sfa">N-Acetylcystein</div></details>
+      <details class="sf"><summary>Antidot bei Marcumar-Blutung?</summary><div class="sfa">Vitamin K + PPSB</div></details>
+      <details class="sf"><summary>Antidot bei Faktor-Xa-Hemmern?</summary><div class="sfa">Andexanet alfa</div></details>
+      <details class="sf"><summary>Antidot bei Dabigatran?</summary><div class="sfa">Idarucizumab</div></details>
     </div>
   </section>
 
-  <!-- STATION 2: SCHOCK & KATECHOLAMINE -->
-  <section class="station" id="s2">
-    <div class="station-header"><div><div class="station-eyebrow">Station 02</div><div class="station-title">Schock &amp; Katecholamine</div></div><div class="station-tagline">Welches Katecholamin wofür.</div></div>
-
-    <div class="card open">
-      <div class="card-head"><div><span class="card-tag">&#9733; Anker</span><div class="card-title">Katecholamine nach Schockform</div></div><span class="toggle">+</span></div>
-      <div class="card-body"><div class="card-body-inner">
-        <div class="callout fact"><span class="callout-label">&#9733; Merksatz</span><strong>Sepsis &rarr; Noradrenalin.<br>Kardiogener Schock &rarr; Dobutamin.<br>Anaphylaxie &amp; Reanimation &rarr; Adrenalin.</strong></div>
-        <table>
-          <thead><tr><th>Substanz</th><th>Rezeptor-Profil</th><th>Einsatz</th></tr></thead>
-          <tbody>
-            <tr><td><strong>Noradrenalin</strong></td><td>&alpha;1 &uarr;&uarr;&uarr; (&beta;1 +)</td><td>septischer Schock (Vasopressor)</td></tr>
-            <tr><td><strong>Adrenalin</strong></td><td>&alpha; + &beta; (alle)</td><td>Reanimation, Anaphylaxie</td></tr>
-            <tr><td><strong>Dobutamin</strong></td><td>&beta;1 &uarr;&uarr;&uarr; (inotrop)</td><td>kardiogener Schock</td></tr>
-            <tr><td><strong>Dopamin</strong></td><td>dosisabh&auml;ngig</td><td>kaum noch (obsolet)</td></tr>
-          </tbody>
-        </table>
-        <div class="callout fact"><span class="callout-label">&#9881; Perfusor-Dosen</span>Dobutamin 2,5&ndash;10 &micro;g/kg/min; Noradrenalin titrieren auf MAP &gt; 65 mmHg.</div>
-      </div></div>
-    </div>
-
-    <div class="card">
-      <div class="card-head"><div><span class="card-tag">&#9733; Bradykardie</span><div class="card-title">Atropin &mdash; und seine Grenze</div></div><span class="toggle">+</span></div>
-      <div class="card-body"><div class="card-body-inner">
-        <div class="callout critical"><span class="callout-label">&#9733; Merksatz</span><strong>Symptomatische Bradykardie: Atropin 0,5&ndash;1,0 mg i.v. (max. 3 mg).<br>ABER beim infrahisären AV-Block (breiter QRS) wirkt Atropin NICHT &rarr; Adrenalin / transkutaner Schrittmacher.</strong></div>
-        <ul>
-          <li>Adrenalin-Dauerinfusion 2&ndash;10 &micro;g/min als &Uuml;berbr&uuml;ckung</li>
-          <li>Definitiv: temporärer &rarr; permanenter (DDD-)Schrittmacher</li>
-        </ul>
-      </div></div>
-    </div>
-
-    <div class="card">
-      <div class="card-head"><div><span class="card-tag">Kardial</span><div class="card-title">Akute HI / Lungen&ouml;dem / Hochdruck</div></div><span class="toggle">+</span></div>
-      <div class="card-body"><div class="card-body-inner">
-        <div class="callout fact"><span class="callout-label">&#9733; Merksatz</span><strong>Lungen&ouml;dem: O&#8322; + Oberk&ouml;rper hoch + Nitroglycerin (RR-abh.) + Furosemid 40 mg i.v. + Morphin.<br>Hypertensiver Notfall: Urapidil.</strong></div>
-      </div></div>
-    </div>
-  </section>
-
-  <!-- STATION 3: ANAPHYLAXIE -->
-  <section class="station" id="s3">
-    <div class="station-header"><div><div class="station-eyebrow">Station 03</div><div class="station-title">Anaphylaxie</div></div><div class="station-tagline">Adrenalin i.m. zuerst.</div></div>
-
-    <div class="card open">
-      <div class="card-head"><div><span class="card-tag">&#9733; Anker</span><div class="card-title">Das Anaphylaxie-Schema</div></div><span class="toggle">+</span></div>
-      <div class="card-body"><div class="card-body-inner">
-        <div class="callout critical"><span class="callout-label">&#9733; Merksatz</span><strong>Adrenalin 0,5 mg i.m. in den lateralen Oberschenkel = ERSTE und wichtigste Ma&szlig;nahme</strong> (Kinder 0,01 mg/kg, max. 0,5). Wiederholung nach 5&ndash;15 min. Plus: Allergenzufuhr stoppen, O&#8322;, Volumen.</div>
-        <table>
-          <thead><tr><th>Schritt</th><th>Medikament / Dosis</th></tr></thead>
-          <tbody>
-            <tr><td><strong>1. Adrenalin</strong></td><td>0,5 mg <em class="h">i.m.</em> Oberschenkel (Wdh. 5&ndash;15 min)</td></tr>
-            <tr><td><strong>2. Volumen</strong></td><td>NaCl 0,9 % 500&ndash;1000 ml rasch i.v.</td></tr>
-            <tr><td><strong>3. H1-Antihistaminikum</strong></td><td>Dimetinden 4 mg i.v. (o. Clemastin 2 mg)</td></tr>
-            <tr><td><strong>4. Glucocorticoid</strong></td><td>Prednisolon 100&ndash;250(&ndash;1000) mg i.v.</td></tr>
-            <tr><td><strong>5. bei Bronchospasmus</strong></td><td>Salbutamol inhalativ</td></tr>
-          </tbody>
-        </table>
-        <div class="callout warning"><span class="callout-label">&#9888; Adrenalin i.v.</span>NUR bei manifestem Schock unter Monitoring (0,05&ndash;0,1 mg, verd&uuml;nnt) &mdash; sonst <strong>immer i.m.</strong><br>Glucocorticoid wirkt nicht sofort (verhindert biphasische Reaktion).</div>
-      </div></div>
-    </div>
-
-    <div class="card">
-      <div class="card-head"><div><span class="card-tag">Stadien + Nachsorge</span><div class="card-title">Grad I&ndash;IV &amp; Entlassung</div></div><span class="toggle">+</span></div>
-      <div class="card-body"><div class="card-body-inner">
-        <ul>
-          <li>Grad I (Haut) &rarr; IV (Kreislaufstillstand). Ab Grad &ge; II stationäre &Uuml;berwachung; mind. 6 h bei Grad I</li>
-          <li>Lagerung: instabil &rarr; flach/Trendelenburg; Atemnot &rarr; sitzend</li>
-          <li><strong>Notfallset bei Entlassung:</strong> Adrenalin-Autoinjektor + Antihistaminikum + Glucocorticoid; Anaphylaxiepass; ggf. Hyposensibilisierung</li>
-        </ul>
-      </div></div>
-    </div>
-  </section>
-
-  <!-- STATION 4: ANTIDOTE & ANALGOSEDIERUNG -->
-  <section class="station" id="s4">
-    <div class="station-header"><div><div class="station-eyebrow">Station 04</div><div class="station-title">Antidote &amp; Analgosedierung</div></div><div class="station-tagline">Gegengifte + Notfall-Sedierung.</div></div>
-
-    <div class="card open">
-      <div class="card-head"><div><span class="card-tag">&#9733; Anker</span><div class="card-title">Antidote</div></div><span class="toggle">+</span></div>
-      <div class="card-body"><div class="card-body-inner">
-        <div class="callout fact"><span class="callout-label">&#9733; Merksatz</span><strong>Opioide &rarr; Naloxon.<br>Benzodiazepine &rarr; Flumazenil.<br>Paracetamol &rarr; N-Acetylcystein.<br>Dabigatran &rarr; Idarucizumab.<br>Faktor-Xa-Hemmer &rarr; Andexanet alfa.</strong></div>
-        <table>
-          <thead><tr><th>Gift / Substanz</th><th>Antidot</th></tr></thead>
-          <tbody>
-            <tr><td>Opioide</td><td><strong>Naloxon</strong></td></tr>
-            <tr><td>Benzodiazepine</td><td><strong>Flumazenil</strong></td></tr>
-            <tr><td>Paracetamol</td><td><strong>N-Acetylcystein</strong> (bis 16 h)</td></tr>
-            <tr><td>Dabigatran</td><td><strong>Idarucizumab</strong></td></tr>
-            <tr><td>Faktor-Xa-Hemmer</td><td><strong>Andexanet alfa</strong></td></tr>
-            <tr><td>Heparin</td><td><strong>Protamin</strong></td></tr>
-            <tr><td>Marcumar (Vit-K-Antagonist)</td><td><strong>Vitamin K / PPSB</strong></td></tr>
-            <tr><td>Organophosphate (E605)</td><td><strong>Atropin</strong> (+ Obidoxim)</td></tr>
-          </tbody>
-        </table>
-        <div class="callout fact"><span class="callout-label">&#9881; Dekontamination</span>Aktivkohle nur fr&uuml;h sinnvoll (Paracetamol bis ~1 h). DOAK brauchen kein INR-Monitoring.</div>
-      </div></div>
-    </div>
-
-    <div class="card">
-      <div class="card-head"><div><span class="card-tag">&#9733; Analgosedierung</span><div class="card-title">Ketamin, Midazolam, Morphin</div></div><span class="toggle">+</span></div>
-      <div class="card-body"><div class="card-body-inner">
-        <div class="callout fact"><span class="callout-label">&#9733; Merksatz</span><strong>Ketamin = Analgesie + Anästhesie bei instabilem Kreislauf (kreislaufstabil); kombiniert mit Midazolam, um Halluzinationen/Unruhe zu d&auml;mpfen.</strong></div>
-        <ul>
-          <li><strong>Morphin:</strong> Analgesie (auch bei ACS/Lungen&ouml;dem)</li>
-          <li><strong>Nasal applizierbar</strong> (bei schwierigem Venenzugang): Midazolam, Fentanyl, Naloxon</li>
-        </ul>
-      </div></div>
-    </div>
-
-    <div class="card">
-      <div class="card-head"><div><span class="card-tag">&#9733; Krampfanfall</span><div class="card-title">Status epilepticus</div></div><span class="toggle">+</span></div>
-      <div class="card-body"><div class="card-body-inner">
-        <div class="callout critical"><span class="callout-label">&#9733; Merksatz</span><strong>1. Wahl Benzodiazepin: Lorazepam i.v. (o. Diazepam / Midazolam, auch nasal/buccal).<br>2. Stufe: Levetiracetam / (Phenytoin / Valproat).</strong></div>
-        <div class="callout fact"><span class="callout-label">&#9881; Hypoglyk&auml;mie</span>Bewusstlos &rarr; Glukose 40 % i.v. (kein Bolus, Venenreizung) o. Glukagon i.m.; immer BZ messen!</div>
-      </div></div>
-    </div>
-  </section>
-
-  <!-- STATION 5: KP-FRAGEN -->
-  <section class="station" id="s5">
-    <div class="station-header"><div><div class="station-eyebrow">Station 05</div><div class="station-title">KP-Fragen</div></div><div class="station-tagline">Echte Mainz-Prüferfragen.</div></div>
-
-    <div class="qa"><div class="qa-q">&bdquo;Adrenalin bei der Anaphylaxie &mdash; wohin, welche Dosis, darf man wiederholen?&ldquo;</div><div class="qa-a"><strong>0,5 mg i.m. in den lateralen Oberschenkel (M. vastus lateralis).</strong> Wiederholung: i.m. nach 5&ndash;15 min, i.v. (nur im Schock, 0,05&ndash;0,1 mg, Monitoring) bereits nach 3&ndash;5 min. Kinder 0,01 mg/kg (max. 0,5). <span class="qa-meta">Mainz &middot; der Klassiker</span></div></div>
-
-    <div class="qa"><div class="qa-q">&bdquo;Komplette Anaphylaxie-Therapie &mdash; in welcher Reihenfolge?&ldquo;</div><div class="qa-a">Allergenzufuhr stoppen + Lagerung &rarr; <strong>Adrenalin i.m.</strong> &rarr; O&#8322; + i.v.-Zugang + Volumen (NaCl 500&ndash;1000 ml) &rarr; H1-Antihistaminikum (Dimetinden 4 mg) &rarr; Glucocorticoid (Prednisolon 100&ndash;250 mg, kein Soforteffekt) &rarr; Salbutamol bei Bronchospasmus. <span class="qa-meta">Mainz &middot; Innere/Notfall</span></div></div>
-
-    <div class="qa"><div class="qa-q">&bdquo;Bradykardie &mdash; warum hilft Atropin manchmal nicht?&ldquo;</div><div class="qa-a">Atropin wirkt am <strong>AV-Knoten</strong>. Beim <strong>infrahisären Block (breiter QRS)</strong> liegt die Blockierung distal &rarr; Atropin unwirksam (sogar kontraindiziert) &rarr; direkt <strong>Adrenalin / transkutaner Schrittmacher</strong>. <span class="qa-meta">Mainz &middot; Frau Unglaube</span></div></div>
-
-    <div class="qa"><div class="qa-q">&bdquo;Welches Katecholamin bei welchem Schock?&ldquo;</div><div class="qa-a"><strong>Sepsis &rarr; Noradrenalin. Kardiogener Schock &rarr; Dobutamin</strong> (bei unzureichendem Effekt + Noradrenalin). <strong>Anaphylaxie &amp; Reanimation &rarr; Adrenalin.</strong> Dopamin gilt als obsolet. <span class="qa-meta">Mainz &middot; Innere</span></div></div>
-
-    <div class="qa"><div class="qa-q">&bdquo;Reanimation &mdash; welche Medikamente, in welcher Dosis, wann?&ldquo;</div><div class="qa-a"><strong>Adrenalin 1 mg i.v.</strong>: bei Asystolie/PEA sofort, bei VF/pulsloser VT erst nach dem 3. Schock; dann alle 3&ndash;5 min. <strong>Amiodaron 300 mg</strong> nach dem 3. Schock (Repeat 150 mg). Thoraxkompression 30:2. <span class="qa-meta">Mainz &middot; Notfall</span></div></div>
-
-    <div class="qa"><div class="qa-q">&bdquo;Nennen Sie wichtige Antidote.&ldquo;</div><div class="qa-a">Opioide &rarr; <strong>Naloxon</strong>; Benzodiazepine &rarr; <strong>Flumazenil</strong>; Paracetamol &rarr; <strong>N-Acetylcystein</strong> (bis 16 h); Dabigatran &rarr; <strong>Idarucizumab</strong>; Faktor-Xa-Hemmer &rarr; <strong>Andexanet alfa</strong>; Heparin &rarr; Protamin; Marcumar &rarr; Vit. K / PPSB; Organophosphate &rarr; Atropin. <span class="qa-meta">Mainz &middot; Innere</span></div></div>
-
-    <div class="qa"><div class="qa-q">&bdquo;Ein Patient krampft anhaltend &mdash; Ihr Vorgehen?&ldquo;</div><div class="qa-a">Atemwege sichern + O&#8322;, <strong>Benzodiazepin (Lorazepam i.v., alternativ Midazolam buccal/nasal oder Diazepam)</strong>; 2. Stufe Levetiracetam (o. Phenytoin/Valproat). Immer <strong>BZ messen</strong> (Hypoglykämie ausschlie&szlig;en). <span class="qa-meta">Mainz &middot; Notfall</span></div></div>
-  </section>
-
-  <!-- STATION 6: KP-PERLEN -->
-  <section class="station" id="s6">
-    <div class="station-header"><div><div class="station-eyebrow">Station 06</div><div class="station-title">KP-Perlen</div></div><div class="station-tagline">Prägnante Merksätze.</div></div>
-
-    <div class="pearl-card"><div class="pearl-label">⭐ Perle 1 · Anaphylaxie</div><div class="pearl-content"><strong>Adrenalin 0,5 mg i.m. lateraler Oberschenkel = erste und wichtigste Ma&szlig;nahme.</strong> i.v. nur im manifesten Schock unter Monitoring.<div class="pearl-mnemonic">„Immer erst i.m. in den Oberschenkel“</div></div></div>
-
-    <div class="pearl-card"><div class="pearl-label">⭐ Perle 2 · Adrenalin-Dosen</div><div class="pearl-content"><strong>Reanimation: 1 mg i.v.<br>Anaphylaxie: 0,5 mg i.m.</strong> &mdash; nicht verwechseln!<div class="pearl-mnemonic">„1 i.v. beim Stillstand, 0,5 i.m. bei Allergie“</div></div></div>
-
-    <div class="pearl-card"><div class="pearl-label">⭐ Perle 3 · Atropin-Grenze</div><div class="pearl-content">Atropin wirkt am AV-Knoten &mdash; beim <strong>infrahisären Block (breiter QRS) unwirksam</strong> &rarr; Adrenalin / Schrittmacher.<div class="pearl-mnemonic">„Breiter QRS? Atropin lässt dich im Stich“</div></div></div>
-
-    <div class="pearl-card"><div class="pearl-label">⭐ Perle 4 · Katecholamin nach Schock</div><div class="pearl-content"><strong>Sepsis &rarr; Noradrenalin.<br>Kardiogen &rarr; Dobutamin.<br>Anaphylaxie/Reanimation &rarr; Adrenalin.</strong><div class="pearl-mnemonic">„Nor-Sepsis, Dobu-Pumpe, Adrenalin-Allergie“</div></div></div>
-
-    <div class="pearl-card"><div class="pearl-label">⭐ Perle 5 · Reanimations-Timing</div><div class="pearl-content">Adrenalin: <strong>nicht-defibrillierbar (Asystolie/PEA) sofort; defibrillierbar (VF/pVT) erst nach dem 3. Schock.</strong> Amiodaron 300 mg nach dem 3. Schock.<div class="pearl-mnemonic">„Schockbar? Erst 3 Schocks, dann Adrenalin“</div></div></div>
-
-    <div class="pearl-card"><div class="pearl-label">⭐ Perle 6 · Antidot-Paare</div><div class="pearl-content">Naloxon&ndash;Opioid, Flumazenil&ndash;Benzo, NAC&ndash;Paracetamol, Idarucizumab&ndash;Dabigatran, Andexanet&ndash;Xa-Hemmer.<div class="pearl-mnemonic">„Jedes Gift hat seinen Gegenspieler“</div></div></div>
-
-    <div class="pearl-card"><div class="pearl-label">⭐ Perle 7 · Glucocorticoid</div><div class="pearl-content">Bei Anaphylaxie wirkt das Glucocorticoid <strong>nicht sofort</strong> &mdash; es verhindert die <strong>biphasische Reaktion</strong> (Spätrezidiv).<div class="pearl-mnemonic">„Kortison gegen die zweite Welle“</div></div></div>
-
-    <div class="pearl-card"><div class="pearl-label">⭐ Perle 8 · O&#8322; &amp; Nitrate</div><div class="pearl-content"><strong>O&#8322; nur bei SpO&#8322; &lt; 90 %; Nitrate nicht bei Hypotonie / PDE5-Hemmer / Rechtsherzinfarkt.</strong> Nicht routinemä&szlig;ig geben.<div class="pearl-mnemonic">„O&#8322; und Nitro nur mit Indikation“</div></div></div>
-  </section>
-
-  <!-- STATION 7: FRAGEN & PROTOKOLLE -->
-  <section class="station" id="s7">
-    <div class="station-header"><div><div class="station-eyebrow">Station 07</div><div class="station-title">Fragen &amp; Protokolle</div></div><div class="station-tagline">Die Notfall-Medikamentenfragen aus den dokumentierten Mainz-Fällen — laut beantworten, dann aufdecken.</div></div>
+  <!-- ============ PROTOKOLLE ============ -->
+  <section class="panel" data-panel="protokoll">
+    <p class="panel-intro">Die Notfall-Medikamentenfragen aus den dokumentierten Mainz-Fällen. Einzeln laut beantworten, dann aufdecken.</p>
 
     <div class="pk">
       <div class="pk-meta"><span>Mainz · dokumentiert</span><span>Notfallmedizin · Reanimation</span><span>Drittes Fach</span></div>
       <div class="pk-akte"><span class="lab">Kontext</span>Beim bewusstlosen Patienten und in der Reanimation gefragt: welche Medikamente, wann und in welcher Dosis.</div>
-      <div class="pq"><div class="pq-frage">„Welche Medikamente geben Sie bei der Reanimation?"</div><details class="reveal"><summary>Antwort zeigen</summary><div class="ans">Ich gebe Adrenalin 1 mg intravenös, bei Asystolie oder PEA sofort und dann alle drei bis fünf Minuten. Bei Kammerflimmern oder pulsloser Tachykardie kommt Amiodaron 300 mg nach dem dritten Schock dazu.</div></details></div>
-      <div class="pq"><div class="pq-frage">„Wann geben Sie Amiodaron und in welcher Dosis?"</div><details class="reveal"><summary>Antwort zeigen</summary><div class="ans">Amiodaron gebe ich bei einem defibrillierbaren Rhythmus nach dem dritten erfolglosen Schock in einer Dosis von 300 mg intravenös.</div></details></div>
-      <div class="pq"><div class="pq-frage">„Was geben Sie bei Torsades de pointes?"</div><details class="reveal"><summary>Antwort zeigen</summary><div class="ans">Bei Torsades de pointes gebe ich Magnesium intravenös.</div></details></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">„Welche Medikamente geben Sie bei der Reanimation?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich gebe Adrenalin 1 mg intravenös, bei Asystolie oder PEA sofort und dann alle drei bis fünf Minuten. Bei Kammerflimmern oder pulsloser Tachykardie kommt Amiodaron 300 mg nach dem dritten Schock dazu.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Wann geben Sie Amiodaron und in welcher Dosis?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Amiodaron gebe ich bei einem defibrillierbaren Rhythmus nach dem dritten erfolglosen Schock in einer Dosis von 300 mg intravenös.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Was geben Sie bei Torsades de pointes?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Bei Torsades de pointes gebe ich Magnesium intravenös.</div></details></div>
     </div>
 
     <div class="pk">
       <div class="pk-meta"><span>Mainz · dokumentiert</span><span>Schock · Dr. Fischer</span><span>Bradykardie</span></div>
       <div class="pk-akte"><span class="lab">Kontext</span>In den Schock- und Bradykardie-Fällen abgefragt: das richtige Katecholamin und die Grenzen von Atropin.</div>
-      <div class="pq"><div class="pq-frage">„Welches Katecholamin geben Sie bei welchem Schock?"</div><details class="reveal"><summary>Antwort zeigen</summary><div class="ans">Beim septischen Schock gebe ich Noradrenalin als Vasopressor. Beim kardiogenen Schock gebe ich Dobutamin zur Steigerung der Kontraktilität. Bei Anaphylaxie und Reanimation ist Adrenalin das Mittel der Wahl.</div></details></div>
-      <div class="pq"><div class="pq-frage">„Auf welchen Zielwert titrieren Sie Noradrenalin?"</div><details class="reveal"><summary>Antwort zeigen</summary><div class="ans">Ich titriere Noradrenalin auf einen mittleren arteriellen Druck über 65 mmHg.</div></details></div>
-      <div class="pq"><div class="pq-frage">„Wie behandeln Sie eine symptomatische Bradykardie?"</div><details class="reveal"><summary>Antwort zeigen</summary><div class="ans">Ich gebe Atropin 0,5 bis 1,0 mg intravenös, maximal 3 mg. Wenn Atropin nicht wirkt, etwa beim breiten AV-Block, gebe ich Adrenalin oder lege einen transkutanen Schrittmacher.</div></details></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">„Welches Katecholamin geben Sie bei welchem Schock?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Beim septischen Schock gebe ich Noradrenalin als Vasopressor. Beim kardiogenen Schock gebe ich Dobutamin zur Steigerung der Kontraktilität. Bei Anaphylaxie und Reanimation ist Adrenalin das Mittel der Wahl.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Auf welchen Zielwert titrieren Sie Noradrenalin?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich titriere Noradrenalin auf einen mittleren arteriellen Druck über 65 mmHg.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Wie behandeln Sie eine symptomatische Bradykardie?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich gebe Atropin 0,5 bis 1,0 mg intravenös, maximal 3 mg. Wenn Atropin nicht wirkt, etwa beim breiten AV-Block, gebe ich Adrenalin oder lege einen transkutanen Schrittmacher.</div></details></div>
     </div>
 
     <div class="pk">
       <div class="pk-meta"><span>Mainz · dokumentiert</span><span>Anaphylaxie · Antidote</span><span>Drittes Fach</span></div>
       <div class="pk-akte"><span class="lab">Kontext</span>Klassische Drittes-Fach-Fragen: das Notfallmedikament der Anaphylaxie und die wichtigsten Antidote.</div>
-      <div class="pq"><div class="pq-frage">„Was ist das wichtigste Medikament bei der Anaphylaxie?"</div><details class="reveal"><summary>Antwort zeigen</summary><div class="ans">Das wichtigste Medikament ist Adrenalin, 0,5 mg intramuskulär in den lateralen Oberschenkel.</div></details></div>
-      <div class="pq"><div class="pq-frage">„Nennen Sie wichtige Antidote und ihre Vergiftungen."</div><details class="reveal"><summary>Antwort zeigen</summary><div class="ans">Bei einer Opioidvergiftung gebe ich Naloxon und bei Benzodiazepinen Flumazenil. Bei einer Paracetamolvergiftung gebe ich N-Acetylcystein und bei einer Marcumar-Blutung Vitamin K und PPSB.</div></details></div>
-      <div class="pq"><div class="pq-frage">„Was ist das Antidot bei einer Blutung unter DOAK?"</div><details class="reveal"><summary>Antwort zeigen</summary><div class="ans">Für die Faktor-Xa-Hemmer gibt es Andexanet alfa und für Dabigatran gibt es Idarucizumab.</div></details></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">„Was ist das wichtigste Medikament bei der Anaphylaxie?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Das wichtigste Medikament ist Adrenalin, 0,5 mg intramuskulär in den lateralen Oberschenkel.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Nennen Sie wichtige Antidote und ihre Vergiftungen."</div><details class="reveal"><summary>Antwort</summary><div class="ans">Bei einer Opioidvergiftung gebe ich Naloxon und bei Benzodiazepinen Flumazenil. Bei einer Paracetamolvergiftung gebe ich N-Acetylcystein und bei einer Marcumar-Blutung Vitamin K und PPSB.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Was ist das Antidot bei einer Blutung unter DOAK?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Für die Faktor-Xa-Hemmer gibt es Andexanet alfa und für Dabigatran gibt es Idarucizumab.</div></details></div>
     </div>
   </section>
 
-  <footer>KP-Mainz Drills · Notfallpharmakologie R3 · Stex + Vorbereitung + Mainz-Protokolle (Unglaube u.a.)</footer>
+  <footer>
+    R3 · Notfallpharmakologie · Fragen &amp; Protokolle. Vier Kernstationen + KP-Perlen mit Rapid-Fire + die dokumentierten Notfall-Medikamentenfragen.
+  </footer>
 
 </div>
-
 <script>
-  const tabs = document.querySelectorAll('.tab');
-  const stations = document.querySelectorAll('.station');
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      tabs.forEach(t => t.classList.remove('active'));
-      stations.forEach(s => s.classList.remove('active'));
-      tab.classList.add('active');
-      document.getElementById('s' + tab.dataset.s).classList.add('active');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  });
-  document.querySelectorAll('.card-head').forEach(head => {
-    head.addEventListener('click', () => head.closest('.card').classList.toggle('open'));
-  });
+  const tabs = [...document.querySelectorAll('.tab')];
+  const panels = [...document.querySelectorAll('.panel')];
+  function showTab(name){
+    tabs.forEach(x=>x.classList.toggle('active', x.dataset.tab===name));
+    panels.forEach(p=>p.classList.toggle('active', p.dataset.panel===name));
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  tabs.forEach(t=>t.addEventListener('click',()=>showTab(t.dataset.tab)));
 </script>
   <script src="/sync.js" defer></script>
   <script src="/focus-timer.js" defer></script>
