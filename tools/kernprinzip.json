@@ -506,6 +506,17 @@
     "n": "Keine Koloskopie im akuten Schub — erst nach 4 bis 6 Wochen zum Karzinomausschluss; bei kotiger Peritonitis die Hartmann-OP."
   },
   {
+    "slug": "pankreatitis",
+    "title": "Pankreatitis",
+    "spec": "chirurgie",
+    "acute": true,
+    "q": "Gürtelförmiger Oberbauchschmerz mit Ausstrahlung in den Rücken, Übelkeit und Erbrechen?",
+    "w": "Akute Entzündung des Pankreas mit Selbstverdauung, meist durch Gallensteine oder Alkohol.",
+    "v": "Lipase mindestens dreifach über der Norm (spezifischer als Amylase), Sonografie auf Gallensteine, Kontrastmittel-CT für die Nekrose.",
+    "k": "Aggressive Volumengabe, Analgesie und frühe enterale Ernährung; ERCP nur bei biliärer Obstruktion, Antibiotika nur bei infizierter Nekrose.",
+    "n": "Die Enzymhöhe korreliert nicht mit der Schwere — der CRP nach 48 Stunden schon."
+  },
+  {
     "slug": "kolonkarzinom",
     "title": "Kolonkarzinom",
     "spec": "chirurgie",

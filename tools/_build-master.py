@@ -46,7 +46,7 @@ FLAT=[
 (224,118,106,"Drittes Fach","Rechtsmedizin / Leichenschau","rechtsmedizin"),
 (220,76,144,"Angiologie","Lungenembolie","lungenembolie"),
 (218,88,130,"Allgemein- und Viszeralchirurgie","Gastroduodenales Ulkus",None),
-(203,74,129,"Allgemein- und Viszeralchirurgie","Pankreatitis",None),
+(203,74,129,"Allgemein- und Viszeralchirurgie","Pankreatitis","pankreatitis"),
 (203,68,135,"Allgemein- und Viszeralchirurgie","Divertikulitis","divertikulitis"),
 (202,55,147,"Endokrinologie","Schilddrüse (allg.)",None),
 (171,46,125,"Gastroenterologie","Leberzirrhose","leberzirrhose"),
