@@ -517,6 +517,17 @@
     "n": "Jede Eisenmangelanämie beim Mann oder bei der postmenopausalen Frau gilt als Kolonkarzinom bis zum Beweis des Gegenteils."
   },
   {
+    "slug": "rektumkarzinom",
+    "title": "Rektumkarzinom",
+    "spec": "chirurgie",
+    "acute": false,
+    "q": "Peranale hellrote Blutung mit Tenesmen und Bleistiftstühlen?",
+    "w": "Ein maligner Tumor des Rektums unterhalb von 16 cm ab der Anokutanlinie, meist ein Adenokarzinom.",
+    "v": "Digital-rektale Untersuchung und starre Rektoskopie mit Biopsie; lokales Staging mit MRT-Becken und Endosonografie, dann TME.",
+    "k": "Das Rektum bekommt neoadjuvante Radiochemotherapie und eine TME — anders als das Kolon mit adjuvanter Chemo.",
+    "n": "Jede peranale Blutung abklären, niemals blind als Hämorrhoiden abtun."
+  },
+  {
     "slug": "polytrauma-abcde",
     "title": "Polytrauma / ABCDE",
     "spec": "notfallmedizin",

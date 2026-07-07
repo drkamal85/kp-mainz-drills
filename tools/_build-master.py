@@ -89,7 +89,7 @@ FLAT=[
 (68,12,56,"Unfallchirurgie","Allgemeine Frakturlehre","allgemeine-frakturlehre"),
 (67,12,55,"Nephrologie","Harnwegsinfekt / Pyelonephritis",None),
 (65,22,43,"Endokrinologie","Schilddrüsenkarzinom",None),
-(62,15,47,"Allgemein- und Viszeralchirurgie","Rektumkarzinom",None),
+(62,15,47,"Allgemein- und Viszeralchirurgie","Rektumkarzinom","rektumkarzinom"),
 (60,15,45,"Unfallchirurgie","Humerusfraktur",None),
 (59,11,48,"Gastroenterologie","GERD / Refluxkrankheit",None),
 (59,7,52,"Kardiologie","Infektiöse Endokarditis","infektioese-endokarditis"),
