@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diabetes mellitus · R3 Review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F7F4EE; --card:#FFFDF8; --ink:#2A2724; --muted:#6B6358; --line:#E7E0D4;
+    --grundlagen:#C0392B; --grundlagen-t:#F7E9E6;
+    --klinik:#D97706;     --klinik-t:#FBEEDD;
+    --diagnostik:#1E5F9E; --diagnostik-t:#E4EDF6;
+    --therapie:#2D7A3E;   --therapie-t:#E5F0E7;
+    --fragen:#7B3F9E;     --fragen-t:#F0E8F6;
+    --perlen:#B8860B;     --perlen-t:#F8F0D9;
+    --retrieval:#0F766E;  --retrieval-t:#E0F0EE;
+    --protokoll:#334155;  --protokoll-t:#E8EBF0;
+    --ok:#2D7A3E; --gap:#D97706; --miss:#C0392B;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:'Manrope',system-ui,sans-serif;
+    font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased;padding:0 18px 80px}
+  .wrap{max-width:860px;margin:0 auto}
+
+  header{padding:54px 0 22px}
+  .eyebrow{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--retrieval);margin-bottom:16px}
+  h1{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(34px,7vw,52px);line-height:1.04;letter-spacing:-.01em}
+  h1 .accent{font-style:italic;color:var(--grundlagen)}
+  .subtitle{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(17px,2.6vw,20px);color:var(--muted);margin-top:14px}
+  .meta{display:flex;flex-wrap:wrap;gap:6px 0;margin-top:20px;font-size:13px;color:var(--muted);font-weight:500}
+  .meta span:not(:last-child)::after{content:"•";margin:0 10px;color:var(--line);font-weight:700}
+
+
+  .tabs{display:flex;flex-wrap:wrap;gap:8px;position:sticky;top:0;z-index:30;background:linear-gradient(var(--bg) 72%,rgba(247,244,238,0));padding:12px 0 14px;margin-bottom:6px}
+  .tab{position:relative;font-size:13px;font-weight:600;border:1px solid var(--line);background:var(--card);color:var(--muted);padding:8px 15px;border-radius:999px;cursor:pointer;transition:all .15s;white-space:nowrap}
+  .tab:hover{border-color:#cfc6b6}
+  .tab.active{color:#fff;border-color:transparent}
+  .tab[data-c=retrieval].active{background:var(--retrieval)}
+  .tab[data-c=grundlagen].active{background:var(--grundlagen)}
+  .tab[data-c=klinik].active{background:var(--klinik)}
+  .tab[data-c=diagnostik].active{background:var(--diagnostik)}
+  .tab[data-c=therapie].active{background:var(--therapie)}
+  .tab[data-c=fragen].active{background:var(--fragen)}
+  .tab[data-c=perlen].active{background:var(--perlen)}
+  .tab[data-c=protokoll].active{background:var(--protokoll)}
+  .tab .badge{display:none;margin-left:7px;font-size:10px;font-weight:800;padding:1px 6px;border-radius:999px;vertical-align:middle}
+  .tab.flag-gap .badge{display:inline-block;background:var(--gap);color:#fff}
+  .tab.flag-ok .badge{display:inline-block;background:var(--ok);color:#fff}
+  .tab.active .badge{background:rgba(255,255,255,.28)!important;color:#fff}
+
+  .panel{display:none;animation:fade .25s ease}
+  .panel.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+  .panel-intro{font-family:'Fraunces',serif;font-style:italic;font-size:17px;color:var(--muted);margin:6px 0 18px;line-height:1.5}
+
+  /* ---- control bar (Pass 1 instrument) ---- */
+  .ctrl{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:14px 16px;margin-bottom:20px}
+  .ctrl-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+  .tally{font-size:13px;font-weight:700;display:flex;gap:12px;flex-wrap:wrap}
+  .tally i{font-style:normal;display:inline-flex;align-items:center;gap:5px}
+  .tally i::before{content:"";width:9px;height:9px;border-radius:50%}
+  .tally .t-ok::before{background:var(--ok)} .tally .t-gap::before{background:var(--gap)} .tally .t-miss::before{background:var(--miss)}
+  .spacer{flex:1 1 auto}
+  .btn{font-family:'Manrope';font-size:12.5px;font-weight:700;border:none;border-radius:999px;padding:9px 16px;cursor:pointer;transition:.15s}
+  .btn-primary{background:var(--retrieval);color:#fff}
+  .btn-primary:hover{filter:brightness(1.06)}
+  .btn-ghost{background:transparent;color:var(--muted);border:1px solid var(--line)}
+  .btn-ghost:hover{border-color:#cfc6b6}
+  .ctrl-status{margin-top:11px;font-size:13px;font-style:italic;color:var(--retrieval);min-height:18px}
+
+  /* ---- retrieval prompt ---- */
+  .rt{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:14px;transition:border-color .2s}
+  .rt[data-score=sicher]{border-left-color:var(--ok)}
+  .rt[data-score=lueckenhaft]{border-left-color:var(--gap)}
+  .rt[data-score=gefehlt]{border-left-color:var(--miss)}
+  .rt-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:8px}
+  .rt-n{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--retrieval)}
+  .rt-right{display:flex;align-items:center;gap:10px;white-space:nowrap}
+  .rt-ptr{font-size:11px;font-weight:600;color:var(--muted)}
+  .rt-q{font-size:15.5px;line-height:1.55}
+  .reveal{margin-top:12px;border-top:1px dashed var(--line);padding-top:0}
+  .reveal>summary{list-style:none;cursor:pointer;font-size:12.5px;font-weight:800;letter-spacing:.04em;color:var(--retrieval);padding:11px 0 0;user-select:none;display:inline-flex;align-items:center;gap:6px}
+  .reveal>summary::-webkit-details-marker{display:none}
+  .reveal>summary::before{content:"▸";transition:transform .2s;display:inline-block}
+  .reveal[open]>summary::before{transform:rotate(90deg)}
+  .reveal .ans{font-size:14.5px;line-height:1.6;color:#3c372f;padding-top:10px}
+  .reveal .ans b{color:var(--ink)}
+  .reveal .ans ul{list-style:none;padding-left:2px;margin:2px 0 0}
+  .reveal .ans li{position:relative;padding-left:18px;margin-bottom:8px;line-height:1.5}
+  .reveal .ans>ul>li::before{content:"";position:absolute;left:2px;top:8px;width:6px;height:6px;border-radius:50%;background:var(--retrieval)}
+  .reveal .ans li ul{margin:7px 0 2px}
+  .reveal .ans li li{padding-left:16px;margin-bottom:5px;font-size:13.8px;color:#4a443c}
+  .reveal .ans li li::before{content:"";position:absolute;left:0;top:7px;width:5px;height:5px;transform:rotate(45deg);background:#b9b0a1}
+  .score{display:flex;gap:7px;margin-top:12px;padding-top:11px;border-top:1px solid var(--line)}
+  .sbtn{flex:1;font-size:12px;font-weight:700;border:1px solid var(--line);background:var(--bg);color:var(--muted);border-radius:8px;padding:7px 4px;cursor:pointer;transition:.12s}
+  .sbtn:hover{border-color:#cfc6b6}
+  .sbtn[data-v=sicher].on{background:var(--ok);color:#fff;border-color:transparent}
+  .sbtn[data-v=lueckenhaft].on{background:var(--gap);color:#fff;border-color:transparent}
+  .sbtn[data-v=gefehlt].on{background:var(--miss);color:#fff;border-color:transparent}
+
+  /* ---- Schnellfragen ---- */
+  .sf-wrap{background:var(--retrieval-t);border:1px solid #BFE0DC;border-radius:13px;padding:18px 20px;margin-top:24px}
+  .sf-wrap h3{font-family:'Fraunces',serif;font-weight:500;font-size:20px;margin-bottom:3px}
+  .sf-wrap .sf-intro{font-size:13.5px;font-style:italic;color:#0c5d57;margin-bottom:14px}
+  .sf{border-bottom:1px solid #cfe4e1;padding:9px 0}
+  .sf:last-child{border-bottom:none}
+  .sf>summary{list-style:none;cursor:pointer;font-size:14.5px;font-weight:600;display:flex;justify-content:space-between;gap:10px;user-select:none}
+  .sf>summary::-webkit-details-marker{display:none}
+  .sf>summary::after{content:"+";color:var(--retrieval);font-weight:800}
+  .sf[open]>summary::after{content:"−"}
+  .sf .sfa{font-size:14px;color:#0c5d57;font-weight:700;padding-top:6px}
+
+  /* ---- content cards (v1) ---- */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:14px;overflow:hidden}
+  .card>summary{list-style:none;cursor:pointer;padding:18px 20px;display:flex;align-items:flex-start;gap:14px;user-select:none}
+  .card>summary::-webkit-details-marker{display:none}
+  .card .ct{flex:1}
+  .card .ctag{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:5px}
+  .card .ctitle{font-family:'Fraunces',serif;font-weight:500;font-size:17px;line-height:1.25}
+  .plus{flex:none;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:18px;line-height:1;transition:transform .2s;margin-top:2px}
+  .card[open] .plus{transform:rotate(45deg)}
+  .card .body{padding:0 20px 20px;border-top:1px solid var(--line);margin-top:-2px;padding-top:16px}
+  .card.grundlagen .ctag{color:var(--grundlagen)} .card.grundlagen .plus{background:var(--grundlagen-t);color:var(--grundlagen)}
+  .card.klinik .ctag{color:var(--klinik)} .card.klinik .plus{background:var(--klinik-t);color:var(--klinik)}
+  .card.diagnostik .ctag{color:var(--diagnostik)} .card.diagnostik .plus{background:var(--diagnostik-t);color:var(--diagnostik)}
+  .card.therapie .ctag{color:var(--therapie)} .card.therapie .plus{background:var(--therapie-t);color:var(--therapie)}
+  .card.fragen .ctag{color:var(--fragen)} .card.fragen .plus{background:var(--fragen-t);color:var(--fragen)}
+  .card.perlen .ctag{color:var(--perlen)} .card.perlen .plus{background:var(--perlen-t);color:var(--perlen)}
+
+  ul.b{list-style:none;padding-left:2px}
+  ul.b>li{position:relative;padding-left:20px;margin-bottom:8px;line-height:1.55}
+  ul.b>li::before{content:"";position:absolute;left:2px;top:9px;width:7px;height:7px;border-radius:50%}
+  .grundlagen ul.b>li::before{background:var(--grundlagen)} .klinik ul.b>li::before{background:var(--klinik)}
+  .diagnostik ul.b>li::before{background:var(--diagnostik)} .therapie ul.b>li::before{background:var(--therapie)}
+  ul.b ul{list-style:none;padding-left:18px;margin-top:7px}
+  ul.b ul>li{position:relative;padding-left:18px;margin-bottom:6px;font-size:15px;color:#4a443c}
+  ul.b ul>li::before{content:"";position:absolute;left:0;top:7px;width:6px;height:6px;transform:rotate(45deg);background:#b9b0a1}
+  strong{font-weight:700;color:var(--ink)}
+
+  .callout{border-radius:11px;padding:13px 16px;margin:14px 0;font-size:14.5px;line-height:1.55;border-left:4px solid}
+  .callout .lab{font-weight:800;font-size:11px;letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .critical{background:var(--grundlagen-t);border-color:var(--grundlagen)} .critical .lab{color:var(--grundlagen)}
+  .warning{background:var(--klinik-t);border-color:var(--klinik)} .warning .lab{color:var(--klinik)}
+  .fact{background:var(--diagnostik-t);border-color:var(--diagnostik)} .fact .lab{color:var(--diagnostik)}
+
+  .dd{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+  .dd th,.dd td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+  .dd th{background:var(--diagnostik-t);font-weight:700;color:var(--diagnostik);font-size:12px}
+  .dd td:first-child{font-weight:600}
+
+  .pk{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:16px}
+  .pk-meta{display:flex;flex-wrap:wrap;gap:6px 0;font-size:11.5px;font-weight:700;color:var(--protokoll);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+  .pk-meta span:not(:last-child)::after{content:"•";margin:0 8px;color:#c3c9d2}
+  .pk-badge{display:inline-block;background:var(--therapie-t);color:var(--therapie);font-size:10.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:2px 9px;border-radius:999px;margin-left:auto}
+  .pk-akte{font-size:14.5px;line-height:1.58;background:var(--protokoll-t);border-radius:9px;padding:12px 14px;margin-bottom:12px}
+  .pk-akte .lab,.pk-q .lab{font-weight:800;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--protokoll);display:block;margin-bottom:5px}
+  .pk-q ul{list-style:none;padding:0}
+  .pk-q li{position:relative;padding-left:18px;margin-bottom:7px;font-size:14.5px;line-height:1.5}
+  .pk-q li::before{content:"–";position:absolute;left:0;color:var(--protokoll);font-weight:700}
+  .pq{border-top:1px solid var(--line);padding:10px 0}
+  .pq-frage{position:relative;padding-left:18px;font-size:14.5px;font-weight:600;line-height:1.5}
+  .pq-frage::before{content:"–";position:absolute;left:0;color:var(--protokoll);font-weight:700}
+  .pq .reveal{margin-top:5px;border-top:none;padding-top:0}
+  .pq .reveal>summary{padding:5px 0 0}
+
+  .pearl{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--perlen);border-radius:12px;padding:16px 18px;margin-bottom:13px}
+  .pearl .ph{font-weight:800;font-size:13px;color:var(--perlen);margin-bottom:7px}
+  .pearl .pt{font-size:15px;line-height:1.55}
+  .pearl .mn{margin-top:9px;background:var(--perlen-t);border-radius:8px;padding:8px 12px;font-size:13.5px;font-style:italic;color:#7a5c08}
+  .pearl .mn b{font-style:normal;font-weight:800}
+
+  footer{margin-top:40px;padding-top:22px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted);line-height:1.6}
+  .back{display:inline-block;font-family:Manrope,system-ui,sans-serif;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);text-decoration:none;margin-bottom:18px}
+  .back:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a href="../../index.html" class="back">← Zurück zur Library</a>
+
+  <header>
+    <div class="eyebrow">Endokrinologie · R3 · Synthese + Fragen & Protokolle</div>
+    <h1>Diabetes <span class="accent">mellitus</span></h1>
+    <div class="subtitle">Typ 1 gegen Typ 2, die Diagnosekriterien, das Stufenschema — und die Notfälle DKA, HHS und Hypoglykämie.</div>
+    <div class="meta">
+      <span>R3 · 6 Tabs · Superset von R2</span>
+      <span>~15 Min</span>
+      <span>Stand 06/2026</span>
+      <span>Stex + Vorbereitung + Mainz-Protokolle</span>
+    </div>
+  </header>
+
+  <div class="tabs">
+    <button class="tab active" data-c="grundlagen" data-tab="grundlagen">Grundlagen</button>
+    <button class="tab" data-c="klinik" data-tab="klinik">Klinik</button>
+    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik</button>
+    <button class="tab" data-c="therapie" data-tab="therapie">Therapie</button>
+    <button class="tab" data-c="perlen" data-tab="perlen">KP-Perlen</button>
+    <button class="tab" data-c="protokoll" data-tab="protokoll">Fragen &amp; Protokolle</button>
+  </div>
+
+  <!-- ============ GRUNDLAGEN ============ -->
+  <section class="panel active" data-panel="grundlagen">
+    <p class="panel-intro">Typ 1 gegen Typ 2 — absoluter gegen relativen Insulinmangel. Daran hängt fast alles Weitere.</p>
+    <details class="card grundlagen" open><summary><span class="ct"><span class="ctag">★ Anker</span><span class="ctitle">Typ 1 vs. Typ 2</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Merksatz</span><strong>Typ 1 = absoluter Insulinmangel</strong> (Autoimmun-Destruktion der β-Zellen), schlank, jung.<br><strong>Typ 2 = relativer Mangel + Insulinresistenz</strong>, adipös, metabolisches Syndrom.</div>
+        <table class="dd"><tr><th></th><th>Typ 1</th><th>Typ 2</th></tr>
+          <tr><td><strong>Mechanismus</strong></td><td>absoluter Insulinmangel (Autoimmun)</td><td>Insulinresistenz + relativer Mangel</td></tr>
+          <tr><td><strong>Habitus / Alter</strong></td><td>schlank, jung</td><td>adipös, älter (↑ auch jünger)</td></tr>
+          <tr><td><strong>C-Peptid</strong></td><td>niedrig / fehlend</td><td>anfangs hoch, dann fallend</td></tr>
+          <tr><td><strong>Autoantikörper</strong></td><td>GAD65, IA-2, ICA</td><td>negativ</td></tr>
+          <tr><td><strong>Erstmanifestation</strong></td><td>oft Ketoazidose</td><td>Zufallsbefund</td></tr>
+        </table>
+        <div class="callout fact"><span class="lab">⚙ LADA</span><strong>Latent Autoimmune Diabetes in Adults</strong> = Typ-1-Sonderform beim Erwachsenen, langsamer Verlauf, GAD65-AK positiv — wird oft als „Typ 2" verkannt.</div>
+      </div>
+    </details>
+    <details class="card grundlagen"><summary><span class="ct"><span class="ctag">★ Marker</span><span class="ctitle">C-Peptid &amp; GAD65 — wozu?</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Merksatz</span><strong>C-Peptid misst die Eigeninsulin-Produktion</strong> (1:1 mit Insulin). <strong>GAD65-AK sichern die autoimmune Genese</strong> (Typ 1 / LADA).</div>
+        <ul class="b">
+          <li>C-Peptid niedrig → Typ 1; C-Peptid (noch) hoch → Typ 2</li>
+          <li>Antikörper (nur bei unklarer Diagnose): GAD65, IA-2, ICA, Insulinautoantikörper</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ KLINIK ============ -->
+  <section class="panel" data-panel="klinik">
+    <p class="panel-intro">Leitsymptome, die drei Entgleisungen — und die Spätschäden an großen und kleinen Gefäßen.</p>
+    <details class="card klinik" open><summary><span class="ct"><span class="ctag">★ Anker</span><span class="ctitle">Leitsymptome</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Merksatz</span><strong>Polyurie + Polydipsie + Gewichtsverlust + Müdigkeit.</strong> Glukose über der Nierenschwelle (~180 mg/dl) zieht Wasser → osmotische Diurese.</div>
+        <ul class="b">
+          <li><strong>Typ 1:</strong> rasch, oft Ketoazidose als Erstmanifestation, Gewichtsverlust</li>
+          <li><strong>Typ 2:</strong> schleichend, häufig Zufallsbefund (HbA1c / Nüchtern-BZ)</li>
+        </ul>
+      </div>
+    </details>
+    <details class="card klinik"><summary><span class="ct"><span class="ctag">▲ Notfälle</span><span class="ctitle">DKA vs. HHS vs. Hypoglykämie</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">▲ Merksatz</span><strong>DKA (Typ 1):</strong> Ketoazidose, Kußmaul-Atmung, Azetongeruch, Pseudoperitonitis, BZ &lt; 700.<br><strong>HHS (Typ 2):</strong> hyperosmolar OHNE Ketose, BZ &gt; 700, höhere Letalität.<br><strong>Hypoglykämie:</strong> BZ &lt; 50, Sympathikus (Tremor, Schwitzen, Heißhunger).</div>
+        <table class="dd"><tr><th></th><th>DKA</th><th>HHS</th></tr>
+          <tr><td><strong>Typ</strong></td><td>v. a. Typ 1</td><td>v. a. Typ 2</td></tr>
+          <tr><td><strong>BZ</strong></td><td>&lt; 700 mg/dl</td><td>&gt; 700 mg/dl</td></tr>
+          <tr><td><strong>Ketose / Azidose</strong></td><td>ja (Kußmaul, Azeton)</td><td>nein (Restinsulin)</td></tr>
+          <tr><td><strong>Letalität</strong></td><td>~15 %</td><td>~60 %</td></tr>
+        </table>
+        <div class="callout warning"><span class="lab">⚠ Kalium</span>Bei DKA Gesamt-Kalium <em>erniedrigt</em>, Serum-Kalium scheinbar normal/hoch („wo H ist, ist auch K") — unter Insulin fällt es rasch → substituieren.</div>
+      </div>
+    </details>
+    <details class="card klinik"><summary><span class="ct"><span class="ctag">★ Spätkomplikationen</span><span class="ctitle">Makro- &amp; Mikroangiopathie</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Merksatz</span><strong>Makro = große Gefäße</strong> (KHK, pAVK, Schlaganfall).<br><strong>Mikro = Auge, Niere, Nerv</strong> (Retinopathie, Nephropathie, Neuropathie) + diabetischer Fuß.</div>
+        <ul class="b">
+          <li><strong>Retinopathie:</strong> häufigste Erblindungsursache im Erwachsenenalter</li>
+          <li><strong>Nephropathie:</strong> Mikroalbuminurie als Frühzeichen → ACE-Hemmer nephroprotektiv</li>
+          <li><strong>Neuropathie:</strong> strumpfförmige PNP, autonom (stummer Infarkt, Gastroparese)</li>
+          <li><strong>Diab. Fuß:</strong> neuropathisch (warm, trocken, Malum perforans) vs. ischämisch (kühl, pulslos)</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ DIAGNOSTIK ============ -->
+  <section class="panel" data-panel="diagnostik">
+    <p class="panel-intro">Vier Wege zur Diagnose — und danach das, was alle 3–6 Monate kontrolliert gehört.</p>
+    <details class="card diagnostik" open><summary><span class="ct"><span class="ctag">★ Anker</span><span class="ctitle">Die Diagnosekriterien</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Merksatz</span><strong>Diabetes ist gesichert, sobald einer dieser vier Werte erreicht ist</strong> (siehe Tabelle).</div>
+        <table class="dd"><tr><th>Test</th><th>Diabetes</th><th>Normal</th></tr>
+          <tr><td><strong>HbA1c</strong></td><td>≥ 6,5 %</td><td>&lt; 5,7 %</td></tr>
+          <tr><td><strong>Nüchtern-BZ</strong></td><td>≥ 126 mg/dl</td><td>&lt; 100 mg/dl</td></tr>
+          <tr><td><strong>Gelegenheits-BZ</strong></td><td>≥ 200 + Symptome</td><td>—</td></tr>
+          <tr><td><strong>oGTT 2-h</strong></td><td>≥ 200 mg/dl</td><td>&lt; 140 mg/dl</td></tr>
+        </table>
+        <div class="callout fact"><span class="lab">⚙ HbA1c</span>Glykiertes Hämoglobin = BZ-„Gedächtnis" der letzten 3–4 Monate (Erythrozyten-Lebensdauer 120 d). oGTT nur bei unklarer Diagnose / Gestationsdiabetes.</div>
+      </div>
+    </details>
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">★ Verlauf</span><span class="ctitle">Verlaufskontrolle + Screening</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <ul class="b">
+          <li><strong>Alle 3–6 Monate:</strong> HbA1c + Nüchtern-BZ</li>
+          <li><strong>1×/Jahr:</strong> Augenhintergrund, Fuß, Niere (Albuminurie/GFR), Lipide, RR, EKG / kardiovaskulär</li>
+          <li>Urin: Glukosurie (ab Nierenschwelle 150–180), Mikroalbuminurie (frühe Nephropathie)</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ THERAPIE ============ -->
+  <section class="panel" data-panel="therapie">
+    <p class="panel-intro">Typ 2 nach Stufenschema, Typ 1 immer Insulin — und das Notfallmanagement von DKA und Hypoglykämie.</p>
+    <details class="card therapie" open><summary><span class="ct"><span class="ctag">★ Typ 2</span><span class="ctitle">Stufenschema</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Merksatz</span><strong>Lebensstil → Metformin → Kombination → Insulin.</strong> Ziel-HbA1c meist 6,5–7,5 %, jede Stufe 3–6 Monate.</div>
+        <table class="dd"><tr><th>Stufe</th><th>Therapie</th></tr>
+          <tr><td><strong>1</strong></td><td>Lebensstil: Gewicht ↓, Bewegung, Ernährung, Schulung</td></tr>
+          <tr><td><strong>2</strong></td><td>Metformin (1. Wahl)</td></tr>
+          <tr><td><strong>3</strong></td><td>Metformin + 2. OAD <em>oder</em> + Insulin</td></tr>
+          <tr><td><strong>4</strong></td><td>(intensivierte) Insulintherapie</td></tr>
+        </table>
+        <div class="callout fact"><span class="lab">⚙ OAD-Klassen</span>Metformin (Biguanid)<br>SGLT2-Hemmer („-flozin", kardio-/nephroprotektiv)<br>GLP-1-Analoga &amp; DPP-4-Hemmer (glukoseabhängig, keine Hypo)<br>Sulfonylharnstoffe / Glinide (Hypo + Gewicht ↑)<br>Glitazone · Acarbose</div>
+      </div>
+    </details>
+    <details class="card therapie"><summary><span class="ct"><span class="ctag">⚠ Metformin</span><span class="ctitle">Vorteile + Kontraindikationen</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">★ Merksatz</span><strong>Metformin = 1. Wahl:</strong> keine Hypoglykämie, keine Gewichtszunahme. Gefürchtete NW: Laktatazidose.</div>
+        <div class="callout warning"><span class="lab">⚠ KI (Laktatazidose-Gefahr)</span>GFR &lt; 30 ml/min<br>dekompensierte Herzinsuffizienz<br>respiratorische Insuffizienz<br>Alkoholismus<br>schwere Infekte<br><strong>48 h vor KM-Gabe / OP absetzen</strong>, Insulin-Bridging.</div>
+      </div>
+    </details>
+    <details class="card therapie"><summary><span class="ct"><span class="ctag">★ Typ 1</span><span class="ctitle">Insulintherapie</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">▲ Merksatz</span><strong>Typ 1 braucht immer Insulin — bevorzugt ICT (Basis-Bolus).</strong><br>Basal: Glargin/Detemir.<br>Mahlzeit: Normalinsulin (30 min Spritz-Ess-Abstand) oder schnelle Analoga Lispro/Aspart („die mit S sind schnell").</div>
+        <ul class="b">
+          <li><strong>ICT</strong> (intensiviert): physiologisch, flexibel, gute Compliance nötig</li>
+          <li><strong>CT</strong> (konventionell): Mischinsulin, fester Essplan, morgens ⅔ / abends ⅓</li>
+          <li><strong>Dawn</strong> (Wachstumshormon-bedingt) vs. <strong>Somogyi</strong> (Insulin-Überdosis → reaktive Hyperglykämie)</li>
+        </ul>
+      </div>
+    </details>
+    <details class="card therapie"><summary><span class="ct"><span class="ctag">▲ Notfall</span><span class="ctitle">DKA- &amp; Hypoglykämie-Management</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">▲ DKA</span><strong>Flüssigkeit (NaCl 0,9 %) zuerst → Low-Dose-Insulin i.v. → Kalium substituieren.</strong> BZ max. um ~50 mg/dl/h senken (Cave Hirnödem); Bikarbonat nur bei pH &lt; 7.</div>
+        <div class="callout fact"><span class="lab">★ Hypoglykämie</span><strong>Wach:</strong> Glukose p.o. (Saft/Traubenzucker).<br><strong>Bewusstlos:</strong> Glukose 40 % i.v. (kein Bolus — Venenreizung), dann 5 % Dauerinfusion; alternativ Glukagon s.c./i.m.</div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ KP-PERLEN ============ -->
+  <section class="panel" data-panel="perlen">
+    <div class="pearl"><div class="ph">⭐ Perle 1 · Typ-1-Falle</div><div class="pt">Verlassen Sie sich nie allein auf den Habitus: Auch <strong>Typ-1-Diabetiker können adipös</strong> sein. Die <strong>LADA</strong> ist eine Typ-1-Sonderform des Erwachsenen — GAD65-positiv, langsamer Verlauf, oft als Typ 2 fehletikettiert.</div><div class="mn"><b>Faktoid:</b> In Mainz wurde gezielt nachgehakt, als ein Kandidat Typ 1 nur als „jung und schlank" beschrieb.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 2 · Kalium-Paradox</div><div class="pt">Bei DKA ist das Serum-Kalium scheinbar normal oder hoch, der <strong>Gesamtkörper-Bestand aber erniedrigt</strong>. Unter Insulin wandert Kalium in die Zelle und der Spiegel fällt rasch ab → engmaschig kontrollieren und substituieren.</div><div class="mn"><b>Eselsbrücke:</b> „Wo H⁺ ist, ist auch K⁺" — die Azidose treibt Kalium aus der Zelle.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 3 · DKA-Reihenfolge</div><div class="pt">Die Behandlungsreihenfolge der Ketoazidose ist prüfungsrelevant: <strong>erst Flüssigkeit, dann Insulin, dann Kalium</strong>. Bei Kalium &lt; 3,3 mmol/l wird Insulin zurückgestellt, bis Kalium substituiert ist — sonst droht eine bedrohliche Hypokaliämie.</div><div class="mn"><b>Eselsbrücke:</b> „Erst Wasser, dann Insulin, dann Kalium" — Volumen rettet die Niere zuerst.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 4 · Tempo-Limit</div><div class="pt">Den Blutzucker bei DKA nur <strong>langsam senken — max. ~50 mg/dl pro Stunde</strong>. Zu schnelles Absenken zieht osmotisch Wasser ins Gehirn → Hirnödem (und Risiko der Netzhautablösung).</div><div class="mn"><b>Faktoid:</b> Ein Mainz-Prüfer formulierte das Limit als „maximal 300 mg/dl pro 24 Stunden — warum? Gefahr Hirnödem".</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 5 · -flozin</div><div class="pt"><strong>SGLT2-Hemmer („-flozin")</strong> spülen Glukose über die Niere aus — insulinunabhängig, gewichtssenkend, kardio- und nephroprotektiv. Schattenseite: Genitalmykosen, Harnwegsinfekte und die tückische euglykämische Ketoazidose.</div><div class="mn"><b>Eselsbrücke:</b> „DapagliFLOZIN wie flow — spült den Zucker raus".</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 6 · Das i.v.-Insulin</div><div class="pt"><strong>Normalinsulin</strong> (Altinsulin, z. B. Actrapid) ist das <strong>einzige Insulin, das intravenös</strong> gegeben werden darf — daher das Insulin der Wahl bei DKA, im Korrekturschema und intraoperativ. Spritz-Ess-Abstand 15–30 min.</div><div class="mn"><b>Faktoid:</b> Analoga und Verzögerungsinsuline gehören NICHT in die Vene.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 7 · Schnell vs. lang</div><div class="pt"><strong>Bolus-Analoga</strong> Lispro, Aspart, Glulisin: Wirkbeginn 5–15 min, kein Spritz-Ess-Abstand.<br><strong>Basalinsuline</strong> Glargin und Detemir: ~24 h mit flachem Plateau. Bevorzugte Therapie bei Typ 1 ist die ICT.</div><div class="mn"><b>Eselsbrücke:</b> „die kurzen -pro/-art für die Mahlzeit, die langen -gin/-mir fürs Fundament".</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 8 · Metformin</div><div class="pt"><strong>Metformin ist 1. Wahl bei Typ 2: keine Hypoglykämie, keine Gewichtszunahme.</strong> Gefürchtete NW ist die Laktatazidose → 48 h vor KM/OP pausieren; KI bei GFR &lt; 30, dekompensierter Herzinsuffizienz, respiratorischer Insuffizienz und Alkoholismus.</div><div class="mn"><b>Faktoid:</b> Metformin macht NICHT dick und NICHT hypoglyk — das trennt es von den Sulfonylharnstoffen.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 9 · Diabetischer Fuß</div><div class="pt"><strong>Neuropathisch:</strong> warm, trocken, gut durchblutet, Malum perforans an Druckstellen, Fußpulse tastbar.<br><strong>Ischämisch:</strong> kühl, blass, pulslos, akrale/laterale Nekrosen, schmerzhaft.</div><div class="mn"><b>Eselsbrücke:</b> warm &amp; trocken = Nerv, kühl &amp; pulslos = Gefäß.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 10 · Letalitäts-Falle HHS</div><div class="pt">Das hyperosmolare Syndrom (HHS) hat die <strong>höhere Letalität (~60 %)</strong> — trotz fehlender Azidose. Grund: ältere Patienten, späte Diagnose, ausgeprägte Exsikkose und Elektrolytentgleisung.</div><div class="mn"><b>Faktoid:</b> Die „harmlosere" Entgleisung ohne Ketose ist die tödlichere.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 11 · Sulfonylharnstoffe</div><div class="pt"><strong>Sulfonylharnstoffe (Glibenclamid, Glimepirid) machen Hypoglykämien und Gewichtszunahme</strong> — das Gegenteil von Metformin und SGLT2-Hemmern, weil sie die Insulinsekretion glukose-unabhängig erzwingen.</div><div class="mn"><b>Eselsbrücke:</b> Harnstoff peitscht Insulin raus → Hunger, Hypo, Hüftgold.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 12 · Pseudoperitonitis diabetica</div><div class="pt">Eine DKA kann mit Bauchschmerzen und Abwehrspannung ein <strong>akutes Abdomen vortäuschen</strong> (Ketonkörper reizen das Peritoneum). Erst BZ, Ketone und BGA — nicht vorschnell operieren.</div><div class="mn"><b>Faktoid:</b> Das Ketoazidose-Abdomen braucht Insulin, kein Skalpell.</div></div>
+    <div class="sf-wrap">
+      <h3>Rapid-Fire</h3>
+      <div class="sf-intro">Atomare Einzelfakten — Ein-Wort-Abruf. Laut, sofort, dann aufdecken.</div>
+      <details class="sf"><summary>Typ 1 — Mechanismus?</summary><div class="sfa">absoluter Insulinmangel (autoimmun)</div></details>
+      <details class="sf"><summary>Typ 2 — Mechanismus?</summary><div class="sfa">Insulinresistenz + relativer Mangel</div></details>
+      <details class="sf"><summary>HbA1c — Diagnosegrenze?</summary><div class="sfa">≥ 6,5 %</div></details>
+      <details class="sf"><summary>Nüchtern-BZ — Diagnosegrenze?</summary><div class="sfa">≥ 126 mg/dl</div></details>
+      <details class="sf"><summary>oGTT-2-h — Diagnosegrenze?</summary><div class="sfa">≥ 200 mg/dl</div></details>
+      <details class="sf"><summary>C-Peptid bei Typ 1?</summary><div class="sfa">niedrig / fehlend</div></details>
+      <details class="sf"><summary>Wichtigster Autoantikörper?</summary><div class="sfa">GAD65</div></details>
+      <details class="sf"><summary>LADA?</summary><div class="sfa">autoimmuner Typ-1-Diabetes des Erwachsenen</div></details>
+      <details class="sf"><summary>Typ-2-Therapie — 1. Wahl?</summary><div class="sfa">Metformin</div></details>
+      <details class="sf"><summary>Metformin — gefürchtete NW?</summary><div class="sfa">Laktatazidose</div></details>
+      <details class="sf"><summary>Metformin vor KM / OP?</summary><div class="sfa">48 h vorher absetzen</div></details>
+      <details class="sf"><summary>SGLT2-Hemmer — Endung?</summary><div class="sfa">„-flozin"</div></details>
+      <details class="sf"><summary>DKA — typischer Typ?</summary><div class="sfa">Typ 1</div></details>
+      <details class="sf"><summary>HHS — typischer Typ?</summary><div class="sfa">Typ 2</div></details>
+      <details class="sf"><summary>DKA — Atemmuster?</summary><div class="sfa">Kußmaul-Atmung</div></details>
+      <details class="sf"><summary>DKA — Erstmaßnahme?</summary><div class="sfa">Flüssigkeit (NaCl 0,9 %)</div></details>
+      <details class="sf"><summary>BZ-Senkung bei DKA — Tempo?</summary><div class="sfa">max. ~50 mg/dl pro Stunde</div></details>
+      <details class="sf"><summary>Hypoglykämie — Definition?</summary><div class="sfa">BZ &lt; 50 mg/dl</div></details>
+      <details class="sf"><summary>Bewusstlose Hypoglykämie — Therapie?</summary><div class="sfa">Glukose 40 % i.v. (oder Glukagon)</div></details>
+    </div>
+  </section>
+
+  <section class="panel" data-panel="protokoll">
+    <p class="panel-intro">Generalprobe an den dokumentierten Mainz-Sessions (Protokolle 2024–2026). Jede Frage einzeln laut beantworten, dann aufdecken.</p>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · dokumentiert</span><span>Innere</span><span>Diagnose &amp; Antikörper</span></div>
+      <div class="pk-akte"><span class="lab">Kontext</span>Dokumentiert wurde: Diagnose des DM, Antikörperbestimmung mit Namen der Antikörper und die DD zwischen Typ 1 und Typ 2.</div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">„Wie sichern Sie die Diagnose eines Diabetes mellitus?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ein Diabetes ist gesichert bei einem HbA1c über 6,5 Prozent, einem Nüchternblutzucker über 126, einem oGTT-Zweistundenwert über 200 oder einem Gelegenheitszucker über 200 mit Symptomen.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Nennen Sie die Antikörper und trennen Sie Typ 1 von Typ 2."</div><details class="reveal"><summary>Antwort</summary><div class="ans">Beim Typ 1 finde ich Antikörper gegen die Glutamatdecarboxylase, gegen die Tyrosinphosphatase IA-2 und Inselzellantikörper. Der Typ 1 hat einen absoluten Insulinmangel mit niedrigem C-Peptid, der Typ 2 eine Insulinresistenz mit anfangs hohem C-Peptid.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Was ist ein LADA, und warum bestimmen Sie C-Peptid und GAD65?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Der LADA ist eine langsam verlaufende Typ-1-Form beim Erwachsenen mit positiven GAD65-Antikörpern. Das C-Peptid misst die Eigeninsulinproduktion, die GAD65-Antikörper sichern die autoimmune Genese.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · dokumentiert</span><span>Innere</span><span>Ketoazidose &amp; HHS</span></div>
+      <div class="pk-akte"><span class="lab">Kontext</span>Dokumentiert wurde: „alles über das ketoazidotische und das hyperosmolare Koma, Therapie bei beiden" samt Management der Ketoazidose.</div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">„Wie unterscheiden Sie das ketoazidotische vom hyperosmolaren Koma?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Das ketoazidotische Koma tritt beim Typ 1 auf, mit Ketonkörpern, Azidose und Kußmaul-Atmung. Das hyperosmolare Koma tritt beim Typ 2 auf, mit sehr hohem Blutzucker, aber ohne relevante Ketose.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Wie behandeln Sie die diabetische Ketoazidose?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich gebe zuerst reichlich Volumen als Kochsalzlösung, dann Insulin intravenös, und ich substituiere frühzeitig Kalium. Den Blutzucker senke ich langsam, um ein Hirnödem zu vermeiden.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Warum ist das Kalium in der Ketoazidose gefährlich?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Das Gesamtkalium ist erniedrigt, das Serumkalium erscheint aber normal oder erhöht. Unter der Insulintherapie fällt es rasch ab, deshalb muss ich es früh substituieren.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · dokumentiert</span><span>Innere · Pharmakologie</span><span>Antidiabetika</span></div>
+      <div class="pk-akte"><span class="lab">Kontext</span>Dokumentiert wurde: „Mechanismen von Biguaniden und SGLT2-Hemmern, Nebenwirkungen von Antidiabetika".</div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">„Wie wirkt Metformin, und welche Nebenwirkung fürchten Sie?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Metformin hemmt die Glukoseneubildung in der Leber und verbessert die Insulinsensitivität. Die gefürchtete, seltene Nebenwirkung ist die Laktatazidose, vor allem bei Niereninsuffizienz.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Wie wirken die SGLT2-Hemmer?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Die SGLT2-Hemmer blockieren die Glukoserückresorption in der Niere und führen so zu einer Glukosurie. Sie wirken zusätzlich kardio- und nephroprotektiv.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Welche Substanzen bevorzugen Sie bei einer Herz- oder Nierenerkrankung?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Bei einer Herz- oder Nierenerkrankung bevorzuge ich SGLT2-Hemmer und GLP-1-Rezeptoragonisten, weil sie unabhängig vom Blutzucker die Prognose verbessern.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · dokumentiert</span><span>Innere</span><span>Insulin &amp; Spätschäden</span></div>
+      <div class="pk-akte"><span class="lab">Kontext</span>Dokumentiert wurde: „Therapie bei Typ I — CT und ICT", die Nephropathie bei DM und das diabetische Fußsyndrom.</div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">„Wie behandeln Sie den Typ-1-Diabetes?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Den Typ-1-Diabetes behandle ich lebenslang mit Insulin, meist als intensivierte Therapie mit einem Basalinsulin und einem Bolusinsulin zu den Mahlzeiten.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Was ist das Frühzeichen der diabetischen Nephropathie, und wie schützen Sie die Niere?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Das Frühzeichen ist die Mikroalbuminurie. Zum Schutz der Niere gebe ich einen ACE-Hemmer oder einen AT1-Blocker.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Wie unterscheiden Sie den neuropathischen vom ischämischen diabetischen Fuß?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Der neuropathische Fuß ist warm, trocken und gut durchblutet, oft mit einem Malum perforans an der Druckstelle. Der ischämische Fuß ist kühl, blass und pulslos.</div></details></div>
+    </div>
+  </section>
+
+  <footer>
+    R3 · Diabetes mellitus · Fragen &amp; Protokolle. Vier Kernstationen + KP-Perlen mit Rapid-Fire + die dokumentierten Mainz-Prüfungsfragen. Quelle: Stex Lernkarten (Elsevier) + Vorbereitung zur KB + Mainz-Protokolle 2024–2026.
+  </footer>
+
+</div>
+<script>
+  const tabs = [...document.querySelectorAll('.tab')];
+  const panels = [...document.querySelectorAll('.panel')];
+  function showTab(name){
+    tabs.forEach(x=>x.classList.toggle('active', x.dataset.tab===name));
+    panels.forEach(p=>p.classList.toggle('active', p.dataset.panel===name));
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  tabs.forEach(t=>t.addEventListener('click',()=>showTab(t.dataset.tab)));
+</script>
+  <script src="/sync.js" defer></script>
+  <script src="/focus-timer.js" defer></script>
+</body>
+</html>
