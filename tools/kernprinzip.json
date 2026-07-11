@@ -121,6 +121,17 @@
     "n": "Die Ketoazidose und die Hypoglykämie sind die Notfälle — beide sofort behandeln."
   },
   {
+    "slug": "schilddruesenkarzinom",
+    "title": "Schilddrüsenkarzinom",
+    "spec": "endokrinologie",
+    "acute": false,
+    "q": "Solitärer, harter Schilddrüsenknoten, der sich in der Szintigrafie als kalt zeigt?",
+    "w": "Bösartiger Tumor der Schilddrüse; papillär und follikulär differenziert, medullär aus C-Zellen, anaplastisch hochaggressiv.",
+    "v": "Sonografie, Szintigrafie und Feinnadelpunktion; Calcitonin beim medullären, Thyreoglobulin als Verlaufsmarker der differenzierten nach Thyreoidektomie.",
+    "k": "Totale Thyreoidektomie, bei differenzierten Karzinomen Radiojodtherapie, danach L-Thyroxin zur TSH-Suppression.",
+    "n": "Papillär streut lymphogen, follikulär hämatogen; vor Operation des medullären Karzinoms ein Phäochromozytom ausschließen."
+  },
+  {
     "slug": "distale-radiusfraktur",
     "title": "Distale Radiusfraktur",
     "spec": "unfallchirurgie",

@@ -88,7 +88,7 @@ FLAT=[
 (73,11,62,"Angiologie","Aortendissektion","aortendissektion"),
 (68,12,56,"Unfallchirurgie","Allgemeine Frakturlehre","allgemeine-frakturlehre"),
 (67,12,55,"Nephrologie","Harnwegsinfekt / Pyelonephritis",None),
-(65,22,43,"Endokrinologie","Schilddrüsenkarzinom",None),
+(65,22,43,"Endokrinologie","Schilddrüsenkarzinom","schilddruesenkarzinom"),
 (62,15,47,"Allgemein- und Viszeralchirurgie","Rektumkarzinom","rektumkarzinom"),
 (60,15,45,"Unfallchirurgie","Humerusfraktur",None),
 (59,11,48,"Gastroenterologie","GERD / Refluxkrankheit",None),
