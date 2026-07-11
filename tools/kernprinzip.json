@@ -517,6 +517,17 @@
     "n": "Die Enzymhöhe korreliert nicht mit der Schwere — der CRP nach 48 Stunden schon."
   },
   {
+    "slug": "magenkarzinom",
+    "title": "Magenkarzinom",
+    "spec": "chirurgie",
+    "acute": false,
+    "q": "Uncharakteristische Oberbauchbeschwerden mit Fleischabneigung, Gewichtsverlust und Anämie?",
+    "w": "Bösartiger Tumor des Magens, meist ein Adenokarzinom; wichtigster Risikofaktor ist Helicobacter pylori.",
+    "v": "Ösophagogastroduodenoskopie mit multiplen Biopsien; jedes Magenulkus biopsieren und endoskopisch kontrollieren.",
+    "k": "Kurativ ist die Gastrektomie mit D2-Lymphadenektomie, bei lokal fortgeschrittenem Tumor perioperative Chemotherapie nach FLOT.",
+    "n": "Virchow-Lymphknoten, Krukenberg-Tumor und Sister-Mary-Joseph-Knoten verraten die Metastasierung."
+  },
+  {
     "slug": "kolonkarzinom",
     "title": "Kolonkarzinom",
     "spec": "chirurgie",

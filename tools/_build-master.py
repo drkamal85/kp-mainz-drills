@@ -96,7 +96,7 @@ FLAT=[
 (57,17,40,"Allgemein- und Viszeralchirurgie","Diarrhoe / Gastroenteritis",None),
 (56,15,41,"Allgemein- und Viszeralchirurgie","Pankreaskarzinom",None),
 (56,11,45,"Allgemein- und Viszeralchirurgie","Hämorrhoiden",None),
-(55,11,44,"Allgemein- und Viszeralchirurgie","Magenkarzinom",None),
+(55,11,44,"Allgemein- und Viszeralchirurgie","Magenkarzinom","magenkarzinom"),
 (55,9,46,"Hämatologie","Morbus Hodgkin",None),
 (54,19,35,"Notfallmedizin","Verbrennung",None),
 (52,5,47,"Gastroenterologie","Colitis ulcerosa",None),
