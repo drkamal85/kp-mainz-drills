@@ -528,6 +528,17 @@
     "n": "Virchow-Lymphknoten, Krukenberg-Tumor und Sister-Mary-Joseph-Knoten verraten die Metastasierung."
   },
   {
+    "slug": "pankreaskarzinom",
+    "title": "Pankreaskarzinom",
+    "spec": "chirurgie",
+    "acute": false,
+    "q": "Schmerzloser Ikterus mit tastbarer, praller Gallenblase und Gewichtsverlust?",
+    "w": "Meist ein duktales Adenokarzinom des Pankreas mit schlechter Prognose, zu ~70 % im Pankreaskopf.",
+    "v": "Sonografie und Kontrastmittel-CT im Pankreas-Protokoll zur Resektabilität; CA 19-9 nur zur Verlaufskontrolle.",
+    "k": "Kurativ nur die Operation (Whipple beim Kopf) mit adjuvanter Chemotherapie — nur etwa 20 % sind resektabel.",
+    "n": "Das Courvoisier-Zeichen (prall-elastische, schmerzlose Gallenblase mit Ikterus) spricht für einen malignen Verschluss."
+  },
+  {
     "slug": "kolonkarzinom",
     "title": "Kolonkarzinom",
     "spec": "chirurgie",
