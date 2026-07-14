@@ -1065,7 +1065,7 @@ class Component extends DCLogic {
     openId: null, station: null, revealed: {},
     session: null,
     deck: { status: 'idle', cards: [], stats: null, today: null },
-    progress: { streak: 0, examDate: '2027-03-02', reviews: {}, cards: { doneToday: 0, goal: 10, mastered: 0, total: 199, dueTomorrow: 0 } },
+    progress: { streak: 0, examDate: '2027-03-02', reviews: {}, cards: { doneToday: 0, goal: 5, mastered: 0, total: 199, dueTomorrow: 0 } },
     content: { specialties: [], topics: [], master: [] },
     themen: { total: 0, covered: 0, coveragePct: 0, topics: [], extras: [] }, themen_status: 'idle',
   };
@@ -1256,7 +1256,7 @@ class Component extends DCLogic {
   }
   async loadCardSession() {
     const today = this.localToday();
-    const goal = this.state.progress.cards.goal || 10;
+    const goal = this.state.progress.cards.goal || 5;
     this.setState({ session: { loading: true, error: false, cards: [], i: 0, flipped: false, hit: 0, done: false, today, stats: null } });
     try {
       const r = await fetch(
@@ -1287,7 +1287,7 @@ class Component extends DCLogic {
     this.setState(s => {
       const se = s.session; if (!se) return {};
       const card = se.cards[se.i];
-      if (card && card.id) this._postReview(card.id, ok ? 'known' : 'again', se.today, s.progress.cards.goal || 10);
+      if (card && card.id) this._postReview(card.id, ok ? 'known' : 'again', se.today, s.progress.cards.goal || 5);
       const hit = se.hit + (ok ? 1 : 0);
       const ni = se.i + 1;
       const done = ni >= se.cards.length;

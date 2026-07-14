@@ -26,7 +26,7 @@ const DEFAULTS = () => ({
   streak: 0,
   examDate: null,
   reviews: {},
-  cards: { doneToday: 0, goal: 10, mastered: 0, total: 0, dueTomorrow: 0 },
+  cards: { doneToday: 0, goal: 5, mastered: 0, total: 0, dueTomorrow: 0 },
   dueToday: []
 });
 
@@ -202,7 +202,7 @@ async function readJson(kv, key) { const v = await kv.get(key); if (!v) return n
 
 // ---- spaced-repetition engine (server-authoritative; mirrors the client byte-for-byte) ----
 const INTERVALS = [1, 3, 7, 16, 35];
-const GOAL_DEFAULT = 10;
+const GOAL_DEFAULT = 5;
 function todayUTC() { return new Date().toISOString().slice(0, 10); }
 function dayParam(v) { return (typeof v === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(v)) ? v : todayUTC(); }
 function clampGoal(v) { const n = parseInt(v, 10); return Number.isFinite(n) ? Math.min(100, Math.max(1, n)) : GOAL_DEFAULT; }
