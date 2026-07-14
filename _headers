@@ -1,19 +1,17 @@
-# KP study app (PWA)
-/app/*
-  Cache-Control: no-cache
-
-# Content pages — always revalidate so updates appear immediately (no stale edge cache)
-/index.html
-  Cache-Control: no-cache
-/flashcards.html
-  Cache-Control: no-cache
+# Force revalidation of HTML so page edits show up immediately (no stale cache).
+# Static-asset Worker serves the repo root; these rules match request paths
+# (Workers Assets html_handling serves both /foo and /foo.html).
 /reviews/*
   Cache-Control: no-cache
 /drills/*
   Cache-Control: no-cache
 /summaries/*
   Cache-Control: no-cache
-/focus-timer.js
+/app/*
   Cache-Control: no-cache
-/tools/*
+/
+  Cache-Control: no-cache
+/index.html
+  Cache-Control: no-cache
+/flashcards.html
   Cache-Control: no-cache
