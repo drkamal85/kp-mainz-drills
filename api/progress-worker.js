@@ -285,7 +285,7 @@ function mergeProgress(cur, inc) {
   if ('streak' in inc) out.streak = inc.streak;
   if ('examDate' in inc) out.examDate = inc.examDate;
   out.reviews = { ...(cur.reviews || {}), ...(inc.reviews || {}) };          // last-write-wins per reviewId
-  out.cards = { ...DEFAULTS().cards, ...(cur.cards || {}), ...(inc.cards || {}) };
+  out.cards = { ...DEFAULTS().cards, ...(cur.cards || {}), ...(inc.cards || {}), goal: DEFAULTS().cards.goal };
   out.dueToday = ('dueToday' in inc) ? inc.dueToday : (cur.dueToday || []);  // replace when provided
   return out;
 }
