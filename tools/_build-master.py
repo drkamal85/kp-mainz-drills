@@ -12,12 +12,18 @@ for f in sorted(glob.glob('reviews/**/*-r[0-9].html',recursive=True)):
     path,slug,lvl=m.group(1),m.group(2),int(m.group(3))
     if slug not in repo or lvl>repo[slug][0]: repo[slug]=(lvl,path)
 
+# Topics that completed the R4 audio drill (activity-only tier — no separate file by design,
+# so this can't be glob-detected like R1-R3). Badge/level display ONLY: repo[slug][1] (the real
+# file path) and reviewId always still resolve to the actual highest file (r3), never a fake r4.
+R4_TOPICS={"distale-radiusfraktur"}
+def _badge_lvl(slug,filelvl): return 4 if slug in R4_TOPICS else filelvl
+
 DRILL={"Rechtsmedizin / Leichenschau"}
 def esc(s): return s.replace('&','&amp;')
 def trow(rank, treffer, chat, prot, fach, thema, slug):
     info=repo.get(slug); badges=""; done=""; topic=esc(thema)
     if info:
-        lvl,path=info; topic=f'<a href="../{path}">{esc(thema)}</a>'; badges+=f'<span class="have">✓ R{lvl}</span>'; done=" done"
+        lvl,path=info; topic=f'<a href="../{path}">{esc(thema)}</a>'; badges+=f'<span class="have">✓ R{_badge_lvl(slug,lvl)}</span>'; done=" done"
     if thema in DRILL: badges+='<span class="have drill">Drill</span>'
     rk=f'<td class="rk">{rank}</td>' if rank else '<td class="rk">·</td>'
     cnt=f'<span class="n">{treffer}</span><span class="src">{chat}·{prot}</span>' if treffer else '<span class="src">gebaut</span>'
@@ -256,7 +262,7 @@ h=html
 import json as _json, datetime as _dt
 def _cov(s): return bool(s) and s in repo
 def _rid(s): return (f'{s}-r{repo[s][0]}' if _cov(s) else None)
-def _lvl(s): return (repo[s][0] if _cov(s) else None)
+def _lvl(s): return (_badge_lvl(s,repo[s][0]) if _cov(s) else None)
 _themen=[{
   'tier':'core','rank':rk,'treffer':t,'fach':f,'thema':th,
   'slug':s,'covered':_cov(s),'level':_lvl(s),'reviewId':_rid(s)
