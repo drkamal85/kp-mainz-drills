@@ -15,7 +15,7 @@ def clean(s):
     s=re.sub(r'\s*·\s*',' · ',s)              # normalise bullet spacing
     return re.sub(r'\s+',' ',s).strip(' ·')
 deck=[]
-for f in sorted(glob.glob('reviews/**/*-r3.html',recursive=True)):
+for f in sorted(glob.glob('reviews/**/*.html',recursive=True)):
     h=io.open(f,encoding='utf-8').read()
     folder=re.search(r'reviews/([a-z-]+)/',f).group(1)
     label,hue=GROUPS.get(folder,(folder.title(),200))

@@ -106,7 +106,7 @@ def parse_fragen(h, spec_name):
 
 # --- build from the index card list (so the feed == the library) ---
 idx = io.open('index.html', encoding='utf-8').read()
-cards = re.findall(r'<a class="card" href="(reviews/([a-z-]+)/([a-z0-9-]+-r(\d))\.html)" data-id="', idx)
+cards = re.findall(r'<a class="card" href="(reviews/([a-z-]+)/([a-z0-9-]+)\.html)" data-id="[a-z0-9-]+" data-lvl="(\d)"', idx)
 specs = OrderedDict()
 topics = []
 for path, folder, slug, lvl in cards:
@@ -120,7 +120,7 @@ for path, folder, slug, lvl in cards:
     _st = parse_stations(h)
     _present = [k for k in ('grundlagen','klinik','diagnostik','therapie') if _st.get(k)]
     topics.append({
-        'id': slug, 'title': title, 'specialty': folder, 'level': 'R'+lvl, 'minutes': minutes,
+        'id': f'{slug}-r{lvl}', 'title': title, 'specialty': folder, 'level': 'R'+lvl, 'minutes': minutes,
         'complete': len(_present) == 4, 'stationsPresent': _present,
         'stations': _st,
         'perlen': parse_perlen(h),

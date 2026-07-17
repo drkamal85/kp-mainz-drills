@@ -30,7 +30,7 @@ def violations(answer):
     if wc < 5 or (at and at[-1] not in '.!?'): reasons.append('fragment')
     return reasons
 
-files = glob.glob('reviews/**/*-r3.html', recursive=True)
+files = glob.glob('reviews/**/*.html', recursive=True)
 bad = []
 total = 0
 for f in sorted(set(files)):

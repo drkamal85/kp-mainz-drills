@@ -6,11 +6,9 @@
 import io, glob, re
 
 repo={}
-for f in sorted(glob.glob('reviews/**/*-r[0-9].html',recursive=True)):
-    m=re.search(r'(reviews/[a-z-]+/([a-z0-9-]+)-r(\d)\.html)$',f)
-    if not m: continue
-    path,slug,lvl=m.group(1),m.group(2),int(m.group(3))
-    if slug not in repo or lvl>repo[slug][0]: repo[slug]=(lvl,path)
+_idx=io.open('index.html',encoding='utf-8').read()
+for path,_fl,slug,lvl in re.findall(r'<a class="card" href="(reviews/([a-z-]+)/([a-z0-9-]+)\.html)" data-id="[a-z0-9-]+" data-lvl="(\d)"', _idx):
+    repo[slug]=(int(lvl),path)
 
 # Topics that completed the R4 audio drill (activity-only tier — no separate file by design,
 # so this can't be glob-detected like R1-R3). Badge/level display ONLY: repo[slug][1] (the real
