@@ -172,9 +172,23 @@ CSS = """
   .kp .lab{font-size:9.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--key);display:block;margin-bottom:3px}
   .folgt{font-family:'Manrope',sans-serif;font-size:14px;color:var(--ink-soft);font-style:italic}
   strong{font-weight:600}
+  .tabs{display:flex;flex-wrap:wrap;gap:4px;margin:0 0 6px;background:var(--paper);padding:5px;border-radius:50px;border:1px solid var(--rule);position:sticky;top:8px;z-index:20}
+  .tab{flex:1;min-width:150px;padding:12px 10px;font-family:'Manrope',sans-serif;font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-muted);background:transparent;border:none;border-radius:50px;cursor:pointer;text-align:center;transition:all .2s ease}
+  .tab:hover{color:var(--ink)}
+  .tab.active{color:#fff;background:var(--accent)}
+  .tab .c{opacity:.6;font-weight:800;margin-left:5px}
+  .panel{display:none}
+  .panel.active{display:block;animation:fadeIn .25s ease}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+  .panel-note{font-family:'Manrope',sans-serif;font-size:12.5px;color:var(--ink-soft);margin:16px 0 18px;padding-left:2px;line-height:1.5}
+  .panel-note b{color:var(--key);font-weight:700}
   footer{margin-top:46px;padding-top:20px;border-top:1px solid var(--rule);font-family:'Manrope',sans-serif;font-size:11.5px;color:var(--ink-soft);text-align:center}
   @media(max-width:600px){.container{padding:28px 16px 60px}.imgwrap img{max-height:70vh}}
 """
+
+# Sono block = pages 117-135 (contiguous ultrasound run) + 147.
+SONO_PAGES = set(range(117, 136)) | {147}
+
 
 def render_bf(num):
     e = EXPL.get(num)
@@ -198,20 +212,25 @@ def render_bf(num):
             f'<details class="bf"><summary>Befund aufdecken</summary>'
             f'<div class="bf-inner">{inner}</div></details>')
 
+def build_card(i):
+    img = f"hoffart/p{i:03d}.jpg"
+    modtag, bf = render_bf(i)
+    return (
+        f'<div class="card" id="bild-{i}">'
+        f'<div class="card-top"><span class="num">Bild {i}</span>{modtag}</div>'
+        f'<div class="imgwrap"><a href="{img}" target="_blank" rel="noopener">'
+        f'<img src="{img}" loading="lazy" alt="Prüfungsbild {i}"></a></div>'
+        f'{bf}</div>'
+    )
+
+
 def main():
-    cards = []
-    for i in range(1, N + 1):
-        img = f"hoffart/p{i:03d}.jpg"
-        modtag, bf = render_bf(i)
-        cards.append(
-            f'<div class="card" id="bild-{i}">'
-            f'<div class="card-top"><span class="num">Bild {i}</span>{modtag}</div>'
-            f'<div class="imgwrap"><a href="{img}" target="_blank" rel="noopener">'
-            f'<img src="{img}" loading="lazy" alt="Prüfungsbild {i}"></a></div>'
-            f'{bf}</div>'
-        )
+    sono = [i for i in range(1, N + 1) if i in SONO_PAGES]
+    rest = [i for i in range(1, N + 1) if i not in SONO_PAGES]
+    sono_cards = "\n".join(build_card(i) for i in sono)
+    rest_cards = "\n".join(build_card(i) for i in rest)
+    sono_done = sum(1 for i in sono if i in EXPL)
     done = sum(1 for i in range(1, N + 1) if i in EXPL)
-    body = "\n".join(cards)
     doc = f"""<!DOCTYPE html>
 <html lang="de">
 <head>
@@ -230,26 +249,46 @@ def main():
     <div class="eyebrow">Hoffart · Bildatlas</div>
     <h1>Prüfungs<span class="accent">bilder</span></h1>
     <p class="subtitle">Die {N} Bilder aus der Sammlung von Dr. Hoffart — genau die Sono-, CT- und Röntgenbilder, die in Mainz gezeigt werden. Bild ansehen, Befund laut formulieren, dann aufdecken.</p>
-    <div class="meta"><span>{N} Bilder</span><span>Sono · CT · Röntgen · Klinik</span><span>Befunde wachsen laufend</span></div>
+    <div class="meta"><span>{N} Bilder</span><span>Sono zuerst</span><span>Befunde wachsen laufend</span></div>
   </header>
 
   <div class="howto"><span class="lab">So nutzen</span>
   Das ist ein <b>Erkennungs-Drill</b>, kein Text zum Durchlesen: Bild anschauen, in einem Satz den Befund und die Verdachtsdiagnose sagen (<i>„Ich sehe … das spricht für …"</i>), <b>dann</b> „Befund aufdecken". Zum Vergrößern aufs Bild tippen.</div>
 
   <div class="disc"><span class="lab">Wichtig</span>
-  Die aufgedeckten Befunde sind Claudes <b>Erstlesung</b> und tragen bis zu deiner fachlichen Bestätigung den Hinweis „bitte bestätigen". Bilder ohne Befund zeigen „Befund folgt" — die ergänze ich batch-weise nach geprüftem Durchgang.</div>
+  Die aufgedeckten Befunde sind Claudes <b>Erstlesung</b> und tragen bis zu deiner fachlichen Bestätigung den Hinweis „bitte bestätigen". Bilder ohne Befund zeigen „Befund folgt".</div>
 
-  <p class="progress">Befunde ergänzt: <b>{done}</b> von {N} · Sono-Batch läuft — als Nächstes die reinen Ultraschall-Serien (Niere · Leber · Galle).</p>
+  <div class="tabs">
+    <button class="tab active" data-t="sono">Sonografie<span class="c">{len(sono)}</span></button>
+    <button class="tab" data-t="rest">Übrige Bilder<span class="c">{len(rest)}</span></button>
+  </div>
 
-{body}
+  <section class="panel active" data-p="sono">
+    <p class="panel-note">Alle Ultraschallbilder der Sammlung ({len(sono)}) — Niere · Galle · Leber · Pankreas · Milz · FAST · Pleura. Befunde: <b>{sono_done}/{len(sono)}</b>.</p>
+{sono_cards}
+  </section>
+
+  <section class="panel" data-p="rest">
+    <p class="panel-note">Die übrigen {len(rest)} Bilder in Seitenreihenfolge — Röntgen, CT, klinische Fotos, EKG, Schemata. Befunde folgen nach den Sono-Bildern.</p>
+{rest_cards}
+  </section>
 
   <footer>Hoffart-Bildatlas · {N} Prüfungsbilder · Quelle: Bilder Dr. Hoffart (WhatsApp-Gruppe) · Befunde: Claude-Erstlesung, fachlich zu bestätigen</footer>
 </div>
+<script>
+  const tabs=[...document.querySelectorAll('.tab')];
+  const panels=[...document.querySelectorAll('.panel')];
+  tabs.forEach(t=>t.addEventListener('click',()=>{{
+    tabs.forEach(x=>x.classList.toggle('active',x===t));
+    panels.forEach(p=>p.classList.toggle('active',p.dataset.p===t.dataset.t));
+    window.scrollTo({{top:0,behavior:'smooth'}});
+  }}));
+</script>
 </body>
 </html>
 """
     OUT.write_text(doc, encoding="utf-8")
-    print(f"wrote {OUT.relative_to(REPO)}  ({N} cards, {done} Befunde seeded)")
+    print(f"wrote {OUT.relative_to(REPO)}  (Sono tab: {len(sono)} Bilder, {sono_done} Befunde | Übrige: {len(rest)})")
 
 if __name__ == "__main__":
     main()
