@@ -39,6 +39,16 @@ EXPL = {
     #     image itself (reliable). Un-captioned US series (Niere 117-122,
     #     Leber 125-128, Galle 135, p147) follow next pass, read at full res.
     #     All entries are Claude-Erstlesung until Mohamed confirms (ok=True).
+    123: {
+        "mod": "Sono · Niere",
+        "dx": "Nierenzyste — echofreie, glatt begrenzte Raumforderung mit dorsaler Schallverstärkung; ein zartes Septum bleibt noch benigne.",
+        "look": [
+            "Echofrei (schwarz), scharf begrenzt, mit dünner oder kaum sichtbarer Wand",
+            "Dorsale Schallverstärkung hinter der Zyste — beweist die Flüssigkeit",
+            "Ein einzelnes zartes Septum entspricht Bosniak II: kontrollbedürftig, nicht operationspflichtig",
+        ],
+        "kp": "Nierenzyste vs. Nierenkarzinom ist die klassische Diskriminierung — echofrei + Schallverstärkung + glatt = benigne; echoarm-solide mit Binnenechos = karzinomverdächtig, dann CT/MRT.",
+    },
     124: {
         "mod": "Sono · Pleura",
         "dx": "Pleuraerguss — echofreie Flüssigkeitssichel über dem Zwerchfell im Recessus costodiaphragmaticus.",
@@ -93,6 +103,16 @@ EXPL = {
             "Oft ein schmaler echoarmer Randsaum (Kapsel-Halo); der Gang ist eng, nicht dilatiert",
         ],
         "kp": "IgG4-assoziiert und steroidsensibel. Wichtige DD zum Pankreaskarzinom — dort umschriebene echoarme Raumforderung mit Gangabbruch (double-duct sign).",
+    },
+    135: {
+        "mod": "Sono · Galle",
+        "dx": "Cholezystolithiasis — Konkrement in der Gallenblase: echoreicher Reflex mit komplettem dorsalem Schallschatten.",
+        "look": [
+            "Echoreiches (helles) Areal im Gallenblasenlumen mit glattem Reflex",
+            "Dahinter vollständige dorsale Schallauslöschung — das Beweiszeichen des Steins",
+            "Lageabhängig: der Stein rollt beim Umlagern nach — so grenzt man ihn vom wandständigen Polypen ab, der haftet und keinen Schatten wirft",
+        ],
+        "kp": "DAS Top-Sono in Mainz. Kette weiter: symptomatische Steine → OP-Indikation → Cholezystektomie. Eine zusätzlich verdickte Gallenblasenwand (> 3 mm) spricht für eine Cholezystitis.",
     },
 }
 
