@@ -35,7 +35,65 @@ N = len(sorted(IMG_DIR.glob("p*.jpg")))
 # stay "folgt" until read at full resolution in a verified batch.
 # ---------------------------------------------------------------------------
 EXPL = {
-    # --- seeded from the first verified pass; all still "Erstlesung" ---
+    # --- Sono batch 1: images whose Diagnose is captioned/annotated on the
+    #     image itself (reliable). Un-captioned US series (Niere 117-122,
+    #     Leber 125-128, Galle 135, p147) follow next pass, read at full res.
+    #     All entries are Claude-Erstlesung until Mohamed confirms (ok=True).
+    124: {
+        "mod": "Sono · Pleura",
+        "dx": "Pleuraerguss — echofreie Flüssigkeitssichel über dem Zwerchfell im Recessus costodiaphragmaticus.",
+        "look": [
+            "Echofreier (schwarzer) Saum zwischen Lunge und Zwerchfell im Recessus costodiaphragmaticus",
+            "Darüber die Pleuralinie; die belüftete Lunge wirft darunter Schallartefakte",
+            "Bei größerem Erguss flottiert die kollabierte Lunge im Erguss — das „Quallenzeichen“",
+        ],
+        "kp": "Sono erkennt schon ~50 ml und ist damit sensitiver als das Röntgen. Transsudat vs. Exsudat klärt die Punktion über die Light-Kriterien.",
+    },
+    129: {
+        "mod": "Sono · FAST",
+        "dx": "Positiver FAST — freie Flüssigkeit im Morison-Pouch, dem hepatorenalen Recessus zwischen Leber und rechter Niere.",
+        "look": [
+            "Echofreier Streifen genau an der Grenze zwischen Leberunterrand und Nierenkapsel",
+            "Der Morison-Pouch ist beim liegenden Patienten der tiefste Punkt des rechten Oberbauchs — hier sammelt sich Blut zuerst",
+        ],
+        "kp": "Die vier FAST-Fenster: Morison-Pouch, Koller-Pouch (perisplenisch), Douglas-Raum und Perikard. Positiver FAST plus instabiler Patient bedeutet sofortige Laparotomie.",
+    },
+    130: {
+        "mod": "Sono · FAST",
+        "dx": "Rechtes Oberbauch-Fenster — Leber und rechte Niere mit dem hepatorenalen Recessus (Morison-Pouch) dazwischen.",
+        "look": [
+            "Die Leber ist echoreicher als das Nierenparenchym — das ist der normale Kontrast",
+            "Der Pfeil markiert die hepatorenale Grenzfläche; genau hier auf einen echofreien Saum als Zeichen freier Flüssigkeit achten",
+        ],
+        "kp": "Das erste und wichtigste FAST-Fenster. Schallkopf in die rechte mittlere Axillarlinie, subkostal bis interkostal geführt.",
+    },
+    131: {
+        "mod": "Sono · Milz",
+        "dx": "Sonographische Darstellung der Milz — homogenes, echoarmes Parenchym unter dem linken Zwerchfell.",
+        "look": [
+            "Normale Milz: glatt begrenzt, homogen, Poldistanz bis etwa 11 cm",
+            "Splenomegalie ab etwa 12–13 cm; die Pole runden sich und wölben sich über die Nierenlinie vor",
+        ],
+        "kp": "Im linken Oberbauch-Fenster (Koller-Pouch) sammelt sich freie Flüssigkeit perisplenisch. Die Milzruptur ist die häufigste Organverletzung beim stumpfen Bauchtrauma.",
+    },
+    132: {
+        "mod": "Sono · Pankreas",
+        "dx": "Normales Pankreas — quer angeschnitten vor der V. lienalis und der Aorta, homogen und glatt begrenzt.",
+        "look": [
+            "Leitstruktur: die V. lienalis läuft dorsal am Pankreaskorpus entlang und führt einen zum Organ",
+            "Homogenes Parenchym, isoechogen bis leicht echoreicher als die Leber; der Ductus pancreaticus ist zart (< 2 mm)",
+        ],
+        "kp": "Der Pankreasschwanz ist wegen Luftüberlagerung oft schwer einsehbar. Bei V.a. Pankreatitis oder Tumor ergänzt das CT.",
+    },
+    134: {
+        "mod": "Sono · Pankreas",
+        "dx": "Autoimmunpankreatitis — diffus vergrößertes, echoarmes „wurstförmiges“ Pankreas ohne umschriebene Raumforderung.",
+        "look": [
+            "Plump geschwollenes, homogen echoarmes Organ (sausage-shaped) mit glattem Rand",
+            "Oft ein schmaler echoarmer Randsaum (Kapsel-Halo); der Gang ist eng, nicht dilatiert",
+        ],
+        "kp": "IgG4-assoziiert und steroidsensibel. Wichtige DD zum Pankreaskarzinom — dort umschriebene echoarme Raumforderung mit Gangabbruch (double-duct sign).",
+    },
 }
 
 # ---------------------------------------------------------------------------
@@ -161,7 +219,7 @@ def main():
   <div class="disc"><span class="lab">Wichtig</span>
   Die aufgedeckten Befunde sind Claudes <b>Erstlesung</b> und tragen bis zu deiner fachlichen Bestätigung den Hinweis „bitte bestätigen". Bilder ohne Befund zeigen „Befund folgt" — die ergänze ich batch-weise nach geprüftem Durchgang.</div>
 
-  <p class="progress">Befunde ergänzt: <b>{done}</b> von {N} · Rest folgt (nächster Batch: Sonografie).</p>
+  <p class="progress">Befunde ergänzt: <b>{done}</b> von {N} · Sono-Batch läuft — als Nächstes die reinen Ultraschall-Serien (Niere · Leber · Galle).</p>
 
 {body}
 
