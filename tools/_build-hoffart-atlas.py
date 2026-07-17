@@ -39,6 +39,62 @@ EXPL = {
     #     image itself (reliable). Un-captioned US series (Niere 117-122,
     #     Leber 125-128, Galle 135, p147) follow next pass, read at full res.
     #     All entries are Claude-Erstlesung until Mohamed confirms (ok=True).
+    117: {
+        "mod": "Sono · Niere",
+        "dx": "Harnstauungsniere (Hydronephrose) — erweitertes, echofreies Nierenbeckenkelchsystem.",
+        "look": [
+            "Zentral im Nierensinus echofreie, miteinander kommunizierende Räume — das aufgestaute Hohlsystem",
+            "Je nach Ausmaß nur das Nierenbecken oder auch die Kelche ballonartig erweitert",
+        ],
+        "kp": "Immer die Ursache suchen — prä-, intra- oder postrenal. Beim postrenalen Aufstau ist der häufigste Grund ein Konkrement, bei älteren Männern die Prostata.",
+    },
+    118: {
+        "mod": "Sono · Niere",
+        "dx": "Gradeinteilung der Harnstauung nach dem sonografischen Ausmaß der Dilatation.",
+        "look": [
+            "Grad I: nur das Nierenbecken erweitert",
+            "Grad II: zusätzlich die Kelche, Fornices noch spitz",
+            "Grad III: plumpe, kolbige Kelche, Parenchym noch erhalten",
+            "Grad IV: hochgradige Erweiterung mit Parenchymverschmälerung",
+        ],
+        "kp": "Bei kompletter Obstruktion mit Fieber und Sepsis ist die Entlastung ein Notfall (infizierter Aufstau).",
+    },
+    119: {
+        "mod": "Sono · Niere",
+        "dx": "Höhergradige Harnstauung — kolbig aufgetriebene Kelche.",
+        "look": [
+            "Die Kelche sind plump und rund, nicht mehr spitz",
+            "Bei chronischem Aufstau wird der Parenchymsaum zunehmend schmaler",
+        ],
+        "kp": "Chronische Obstruktion führt zur Druckatrophie — irreversibler Parenchymverlust, daher zeitnahe Entlastung.",
+    },
+    120: {
+        "mod": "Sono · Niere",
+        "dx": "Fortgeschrittene Hydronephrose mit Parenchymverschmälerung (Grad IV).",
+        "look": [
+            "Nur noch ein schmaler Parenchymsaum um das massiv erweiterte Hohlsystem",
+            "„Wasserballon-Niere“ beim terminalen Aufstau",
+        ],
+        "kp": "Einseitig kompensiert die Gegenseite; beidseitiger Aufstau droht ins postrenale Nierenversagen mit Urämie zu kippen.",
+    },
+    121: {
+        "mod": "Sono · Niere",
+        "dx": "Harnstauungsniere — Ursachensuche entlang der ableitenden Harnwege.",
+        "look": [
+            "Postrenal: Konkrement, Ureter- oder Blasentumor, Prostatahyperplasie, Schwangerschaft",
+            "Auf einen Harnleiterstein oder eine prall gefüllte Harnblase als Abflusshindernis achten",
+        ],
+        "kp": "Schallschatten-tragendes Konkrement + gestaute Niere + Flankenschmerz = Nierenkolik. Weiter mit dem Nativ-CT der Harnwege.",
+    },
+    122: {
+        "mod": "Sono · Niere",
+        "dx": "Harnstauungsniere — Therapie: Entlastung des gestauten Systems.",
+        "look": [
+            "Innere Schienung mit Doppel-J-Katheter (retrograd eingelegt)",
+            "Perkutane Nephrostomie, wenn retrograd nicht möglich oder bei Urosepsis",
+        ],
+        "kp": "Doppel-J ist die klassische Prüfungsantwort auf „Harnstauung Grad 4, Therapie“. Beim infizierten Aufstau: sofortige Entlastung plus Antibiose.",
+    },
     123: {
         "mod": "Sono · Niere",
         "dx": "Nierenzyste — echofreie, glatt begrenzte Raumforderung mit dorsaler Schallverstärkung; ein zartes Septum bleibt noch benigne.",
@@ -58,6 +114,43 @@ EXPL = {
             "Bei größerem Erguss flottiert die kollabierte Lunge im Erguss — das „Quallenzeichen“",
         ],
         "kp": "Sono erkennt schon ~50 ml und ist damit sensitiver als das Röntgen. Transsudat vs. Exsudat klärt die Punktion über die Light-Kriterien.",
+    },
+    125: {
+        "mod": "Sono · Leber",
+        "dx": "Umschriebene Leberläsion — die Sono-Morphologie entscheidet über die Differentialdiagnose.",
+        "look": [
+            "Echofrei + glatt + dorsale Schallverstärkung → einfache Leberzyste",
+            "Echoreich + scharf begrenzt + homogen → Hämangiom",
+            "Echoarm mit hellem Randsaum (Halo) → Metastase",
+        ],
+        "kp": "Häufigste benigne solide Läsion ist das Hämangiom, häufigste maligne die Metastase. Bei Unklarheit: Kontrastmittel-Sono (CEUS) oder CT/MRT.",
+    },
+    126: {
+        "mod": "Sono · Leber",
+        "dx": "Leberzyste — echofreie, glatt begrenzte Läsion mit dorsaler Schallverstärkung.",
+        "look": [
+            "Scharf begrenzt, echofrei, mit dünner oder fehlender Wand",
+            "Dorsale Schallverstärkung; keine Binnenechos, kein Randsaum",
+        ],
+        "kp": "Die einfache Zyste ist ein Zufallsbefund ohne Konsequenz. Septen, Wandknoten oder Binnenechos machen sie abklärungsbedürftig (Echinokokkus, zystischer Tumor).",
+    },
+    127: {
+        "mod": "Sono · Leber",
+        "dx": "Lebermetastase — echoarmer Rundherd, oft mit echoreichem Randsaum („Halo“).",
+        "look": [
+            "Echoarme oder inhomogene Herde, meist mehrere",
+            "Der Halo spricht für Malignität; „Bull's-eye“-Aspekt ist typisch für Metastasen",
+        ],
+        "kp": "Bei Metastasen immer den Primarius suchen — Kolon, Magen, Pankreas, Mamma, Lunge. Weiter mit CT/MRT und Tumormarkern.",
+    },
+    128: {
+        "mod": "Sono · Leber",
+        "dx": "Multiple Lebermetastasen — mehrere echoarme Herde in beiden Leberlappen.",
+        "look": [
+            "Disseminierte Herde unterschiedlicher Größe",
+            "Bei Konfluenz ein „Schweizer-Käse“-Muster der Leber",
+        ],
+        "kp": "Multiple Herde bedeuten fortgeschrittene Metastasierung. Kommt eine Gallengangs-/Pankreasgangdilatation dazu (double-duct sign), lenkt das zum Pankreaskarzinom.",
     },
     129: {
         "mod": "Sono · FAST",
@@ -94,6 +187,15 @@ EXPL = {
             "Homogenes Parenchym, isoechogen bis leicht echoreicher als die Leber; der Ductus pancreaticus ist zart (< 2 mm)",
         ],
         "kp": "Der Pankreasschwanz ist wegen Luftüberlagerung oft schwer einsehbar. Bei V.a. Pankreatitis oder Tumor ergänzt das CT.",
+    },
+    133: {
+        "mod": "Sono · Pankreas",
+        "dx": "Pankreas-Sonographie — systematische Beurteilung von Größe, Echogenität und Gang.",
+        "look": [
+            "Leitgefäß V. lienalis dorsal am Korpus; Kopf rechts, Schwanz nach links",
+            "Beurteilen: homogenes Parenchym? Ductus < 2 mm? umschriebene Raumforderung? peripankreatische Flüssigkeit?",
+        ],
+        "kp": "Akute Pankreatitis: vergrößert, echoarm, peripankreatische Flüssigkeit. Pankreaskarzinom: echoarme Raumforderung mit Gangabbruch (double-duct sign).",
     },
     134: {
         "mod": "Sono · Pankreas",
@@ -154,13 +256,7 @@ CSS = """
   .imgwrap{background:#0d0d0d;text-align:center;line-height:0}
   .imgwrap a{display:block}
   .imgwrap img{max-width:100%;max-height:560px;height:auto;object-fit:contain}
-  .bf{border-top:1px solid var(--rule)}
-  .bf>summary{cursor:pointer;list-style:none;padding:12px 16px;font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--key);display:flex;align-items:center;gap:8px}
-  .bf>summary::-webkit-details-marker{display:none}
-  .bf>summary::before{content:"▸";color:var(--key);font-weight:700}
-  .bf[open]>summary::before{content:"▾"}
-  .bf[open]>summary{border-bottom:1px dashed var(--rule)}
-  .bf-inner{padding:14px 18px 18px}
+  .bf-open{border-top:1px solid var(--rule);padding:14px 18px 18px}
   .dx{font-family:'Fraunces',serif;font-weight:600;font-size:18px;line-height:1.3;color:var(--ink);margin-bottom:4px}
   .flag{display:inline-block;font-family:'Manrope',sans-serif;font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--warn);background:var(--warn-soft);border:1px solid #f2d9b3;padding:2px 7px;border-radius:4px;margin-bottom:10px}
   .flag.done{color:var(--key);background:var(--key-soft);border-color:#bfe0c6}
@@ -194,9 +290,7 @@ def render_bf(num):
     e = EXPL.get(num)
     if not e:
         return ('<span class="modtag todo">Befund folgt</span>',
-                '<details class="bf"><summary>Befund aufdecken</summary>'
-                '<div class="bf-inner"><p class="folgt">Befund wird in einem '
-                'geprüften Durchgang ergänzt.</p></div></details>')
+                '<div class="bf-open"><p class="folgt">Befund folgt.</p></div>')
     modtag = f'<span class="modtag">{html.escape(e["mod"])}</span>'
     ok = e.get("ok")
     flag = ('<span class="flag done">bestätigt</span>' if ok
@@ -208,9 +302,7 @@ def render_bf(num):
     if e.get("kp"):
         parts.append(f'<div class="kp"><span class="lab">KP-Anschluss</span>{e["kp"]}</div>')
     inner = ''.join(parts)
-    return (modtag,
-            f'<details class="bf"><summary>Befund aufdecken</summary>'
-            f'<div class="bf-inner">{inner}</div></details>')
+    return (modtag, f'<div class="bf-open">{inner}</div>')
 
 def build_card(i):
     img = f"hoffart/p{i:03d}.jpg"
@@ -253,7 +345,7 @@ def main():
   </header>
 
   <div class="howto"><span class="lab">So nutzen</span>
-  Das ist ein <b>Erkennungs-Drill</b>, kein Text zum Durchlesen: Bild anschauen, in einem Satz den Befund und die Verdachtsdiagnose sagen (<i>„Ich sehe … das spricht für …"</i>), <b>dann</b> „Befund aufdecken". Zum Vergrößern aufs Bild tippen.</div>
+  Bild anschauen, in einem Satz den Befund und die Verdachtsdiagnose formulieren (<i>„Ich sehe … das spricht für …"</i>), dann mit dem Befund direkt darunter vergleichen. Zum Vergrößern aufs Bild tippen.</div>
 
   <div class="disc"><span class="lab">Wichtig</span>
   Die aufgedeckten Befunde sind Claudes <b>Erstlesung</b> und tragen bis zu deiner fachlichen Bestätigung den Hinweis „bitte bestätigen". Bilder ohne Befund zeigen „Befund folgt".</div>
