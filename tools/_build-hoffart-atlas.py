@@ -79,24 +79,27 @@ EXPL = {
     },
     121: {
         "mod": "Sono · Niere",
-        "dx": "Harnstauungsniere — Ursachensuche entlang der ableitenden Harnwege.",
+        "src": "caption",
+        "dx": "Nephrolithiasis — Nierenstein am oberen Pol: echoreiche Raumforderung mit dorsalem Schallschatten, ohne Harnstau.",
         "look": [
-            "Postrenal: Konkrement, Ureter- oder Blasentumor, Prostatahyperplasie, Schwangerschaft",
-            "Auf einen Harnleiterstein oder eine prall gefüllte Harnblase als Abflusshindernis achten",
+            "Echoreicher Fokus im Nierenparenchym mit dorsalem Schallschatten (transhepatischer Längsschnitt rechts)",
+            "Die zentralen Nierenanteile sind nicht dilatiert → keine Obstruktion",
         ],
-        "kp": "Schallschatten-tragendes Konkrement + gestaute Niere + Flankenschmerz = Nierenkolik. Weiter mit dem Nativ-CT der Harnwege.",
+        "kp": "Bei Beschwerdefreiheit ohne Stau abwartend. Symptomatischer oder obstruierender Stein: je nach Größe/Lage ESWL, URS oder Doppel-J.",
     },
     122: {
         "mod": "Sono · Niere",
-        "dx": "Harnstauungsniere — Therapie: Entlastung des gestauten Systems.",
+        "src": "caption",
+        "dx": "Nierentumor — solide Raumforderung der Niere, malignitätsverdächtig bis zum Beweis des Gegenteils.",
         "look": [
-            "Innere Schienung mit Doppel-J-Katheter (retrograd eingelegt)",
-            "Perkutane Nephrostomie, wenn retrograd nicht möglich oder bei Urosepsis",
+            "Solide, oft echoarm-inhomogene Raumforderung, die die Nierenkontur vorwölbt",
+            "Abgrenzung zur Zyste: solide statt echofrei, keine dorsale Schallverstärkung",
         ],
-        "kp": "Doppel-J ist die klassische Prüfungsantwort auf „Harnstauung Grad 4, Therapie“. Beim infizierten Aufstau: sofortige Entlastung plus Antibiose.",
+        "kp": "Häufigster maligner Nierentumor ist das Nierenzellkarzinom. Weiter mit KM-CT/MRT; Therapie meist (partielle) Nephrektomie.",
     },
     123: {
         "mod": "Sono · Niere",
+        "src": "caption",
         "dx": "Nierenzyste — echofreie, glatt begrenzte Raumforderung mit dorsaler Schallverstärkung; ein zartes Septum bleibt noch benigne.",
         "look": [
             "Echofrei (schwarz), scharf begrenzt, mit dünner oder kaum sichtbarer Wand",
@@ -107,6 +110,7 @@ EXPL = {
     },
     124: {
         "mod": "Sono · Pleura",
+        "src": "caption",
         "dx": "Pleuraerguss — echofreie Flüssigkeitssichel über dem Zwerchfell im Recessus costodiaphragmaticus.",
         "look": [
             "Echofreier (schwarzer) Saum zwischen Lunge und Zwerchfell im Recessus costodiaphragmaticus",
@@ -117,43 +121,47 @@ EXPL = {
     },
     125: {
         "mod": "Sono · Leber",
-        "dx": "Umschriebene Leberläsion — die Sono-Morphologie entscheidet über die Differentialdiagnose.",
+        "src": "caption",
+        "dx": "Leberzyste — große echofreie Raumforderung am kaudalen Leberrand mit dorsaler Schallverstärkung.",
         "look": [
-            "Echofrei + glatt + dorsale Schallverstärkung → einfache Leberzyste",
-            "Echoreich + scharf begrenzt + homogen → Hämangiom",
-            "Echoarm mit hellem Randsaum (Halo) → Metastase",
+            "Echofrei, glatt begrenzt, dorsale Schallverstärkung → benigne Zyste (schräger Oberbauchschnitt rechts)",
+            "Darmgas-Schallauslöschung kann den kaudalen Zystenrand verdecken",
         ],
-        "kp": "Häufigste benigne solide Läsion ist das Hämangiom, häufigste maligne die Metastase. Bei Unklarheit: Kontrastmittel-Sono (CEUS) oder CT/MRT.",
+        "kp": "Einfache Zyste = Zufallsbefund ohne Konsequenz. Septen, Wandknoten oder Binnenechos machen sie abklärungsbedürftig (Echinokokkus, zystischer Tumor).",
     },
     126: {
         "mod": "Sono · Leber",
-        "dx": "Leberzyste — echofreie, glatt begrenzte Läsion mit dorsaler Schallverstärkung.",
+        "src": "caption",
+        "dx": "Lebermetastase — echoreiche Raumforderung mit echoarmem Randsaum („Halo“) nahe der Bauchwand.",
         "look": [
-            "Scharf begrenzt, echofrei, mit dünner oder fehlender Wand",
-            "Dorsale Schallverstärkung; keine Binnenechos, kein Randsaum",
+            "Der echoarme Halo spricht für Malignität",
+            "Bei Metastasenverdacht: sonografisch gesteuerte Punktion (Stichkanal einplanen)",
         ],
-        "kp": "Die einfache Zyste ist ein Zufallsbefund ohne Konsequenz. Septen, Wandknoten oder Binnenechos machen sie abklärungsbedürftig (Echinokokkus, zystischer Tumor).",
+        "kp": "Immer den Primarius suchen. Die Feinnadelpunktion sichert die Histologie; posteriore Schallverstärkung nicht mit einer Zyste verwechseln.",
     },
     127: {
         "mod": "Sono · Leber",
-        "dx": "Lebermetastase — echoarmer Rundherd, oft mit echoreichem Randsaum („Halo“).",
+        "src": "caption",
+        "dx": "Lebermetastase eines klarzelligen Nierenzellkarzinoms — massive, inhomogene, infiltrierend wachsende Raumforderung.",
         "look": [
-            "Echoarme oder inhomogene Herde, meist mehrere",
-            "Der Halo spricht für Malignität; „Bull's-eye“-Aspekt ist typisch für Metastasen",
+            "Große Raumforderung mit echoreichen und echoarmen Arealen (inhomogen)",
+            "Infiltratives Wachstum in das Leberparenchym",
         ],
-        "kp": "Bei Metastasen immer den Primarius suchen — Kolon, Magen, Pankreas, Mamma, Lunge. Weiter mit CT/MRT und Tumormarkern.",
+        "kp": "Das klarzellige Nierenzellkarzinom metastasiert häufig hämatogen (Leber, Lunge, Knochen). Staging mit CT Thorax/Abdomen.",
     },
     128: {
         "mod": "Sono · Leber",
-        "dx": "Multiple Lebermetastasen — mehrere echoarme Herde in beiden Leberlappen.",
+        "src": "caption",
+        "dx": "Multiple Lebermetastasen — mehrere Rundherde unterschiedlicher Echogenität, normales Parenchym kaum noch abgrenzbar.",
         "look": [
-            "Disseminierte Herde unterschiedlicher Größe",
-            "Bei Konfluenz ein „Schweizer-Käse“-Muster der Leber",
+            "Disseminierte Herde verschiedener Größe und Echogenität (Längsschnitt)",
+            "Bei Konfluenz ist normales Leberparenchym nicht mehr abzugrenzen",
         ],
-        "kp": "Multiple Herde bedeuten fortgeschrittene Metastasierung. Kommt eine Gallengangs-/Pankreasgangdilatation dazu (double-duct sign), lenkt das zum Pankreaskarzinom.",
+        "kp": "Multiple Herde bedeuten fortgeschrittene Metastasierung. Primariussuche (Kolon, Magen, Pankreas, Mamma, Lunge) und Tumormarker.",
     },
     129: {
         "mod": "Sono · FAST",
+        "src": "caption",
         "dx": "Positiver FAST — freie Flüssigkeit im Morison-Pouch, dem hepatorenalen Recessus zwischen Leber und rechter Niere.",
         "look": [
             "Echofreier Streifen genau an der Grenze zwischen Leberunterrand und Nierenkapsel",
@@ -181,6 +189,7 @@ EXPL = {
     },
     132: {
         "mod": "Sono · Pankreas",
+        "src": "caption",
         "dx": "Normales Pankreas — quer angeschnitten vor der V. lienalis und der Aorta, homogen und glatt begrenzt.",
         "look": [
             "Leitstruktur: die V. lienalis läuft dorsal am Pankreaskorpus entlang und führt einen zum Organ",
@@ -199,6 +208,7 @@ EXPL = {
     },
     134: {
         "mod": "Sono · Pankreas",
+        "src": "caption",
         "dx": "Autoimmunpankreatitis — diffus vergrößertes, echoarmes „wurstförmiges“ Pankreas ohne umschriebene Raumforderung.",
         "look": [
             "Plump geschwollenes, homogen echoarmes Organ (sausage-shaped) mit glattem Rand",
@@ -208,6 +218,7 @@ EXPL = {
     },
     135: {
         "mod": "Sono · Galle",
+        "src": "caption",
         "dx": "Cholezystolithiasis — Konkrement in der Gallenblase: echoreicher Reflex mit komplettem dorsalem Schallschatten.",
         "look": [
             "Echoreiches (helles) Areal im Gallenblasenlumen mit glattem Reflex",
@@ -260,6 +271,7 @@ CSS = """
   .dx{font-family:'Fraunces',serif;font-weight:600;font-size:18px;line-height:1.3;color:var(--ink);margin-bottom:4px}
   .flag{display:inline-block;font-family:'Manrope',sans-serif;font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--warn);background:var(--warn-soft);border:1px solid #f2d9b3;padding:2px 7px;border-radius:4px;margin-bottom:10px}
   .flag.done{color:var(--key);background:var(--key-soft);border-color:#bfe0c6}
+  .flag.cap{color:var(--accent);background:var(--accent-soft);border-color:#b9d4ec}
   h4{font-family:'Manrope',sans-serif;font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-muted);margin:12px 0 6px}
   ul{list-style:none;padding-left:2px;margin-bottom:4px}
   li{position:relative;padding-left:18px;margin-bottom:5px;line-height:1.5;font-size:15px;font-family:'Manrope',sans-serif}
@@ -292,9 +304,12 @@ def render_bf(num):
         return ('<span class="modtag todo">Befund folgt</span>',
                 '<div class="bf-open"><p class="folgt">Befund folgt.</p></div>')
     modtag = f'<span class="modtag">{html.escape(e["mod"])}</span>'
-    ok = e.get("ok")
-    flag = ('<span class="flag done">bestätigt</span>' if ok
-            else '<span class="flag">Erstlesung · bitte bestätigen</span>')
+    if e.get("ok"):
+        flag = '<span class="flag done">bestätigt</span>'
+    elif e.get("src") == "caption":
+        flag = '<span class="flag cap">aus Bildlegende (OCR)</span>'
+    else:
+        flag = '<span class="flag">Erstlesung · bitte bestätigen</span>'
     parts = [f'<div class="dx">{html.escape(e["dx"])}</div>', flag]
     if e.get("look"):
         parts.append('<h4>Worauf achten</h4><ul>'
