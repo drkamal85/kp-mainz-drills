@@ -116,10 +116,22 @@ FLAT=[
 (23,3,20,"Unfallchirurgie","Wirbelsäulenverletzungen","wirbelsaeulenverletzungen"),
 (13,8,5,"Drittes Fach","KI in der Medizin",None),
 (12,10,2,"Drittes Fach","EBM",None),
+# --- added July 2026 (confirmed vs WhatsApp chat + protocols; Parkinson excluded = WPW false positive) ---
+(47,13,34,"Neurologie","Status epilepticus / Epilepsie","epilepsie"),
+(32,15,17,"Rheumatologie","Gicht / Podagra","gicht"),
+(29,12,17,"Neurologie","Meningitis","meningitis"),
+(17,8,9,"Hämatologie","Multiples Myelom","multiples-myelom"),
+(14,4,10,"Neurologie","Demenz / Alzheimer","demenz"),
+(13,6,7,"Infektiologie","Erysipel / Phlegmone","erysipel-phlegmone"),
+(9,4,5,"Gastroenterologie","Ösophaguskarzinom","oesophaguskarzinom"),
+(9,0,9,"Unfallchirurgie","Kreuzbandruptur","kreuzbandruptur"),
+(7,4,3,"Neurologie","Fazialisparese","fazialisparese"),
+(4,2,2,"Neurologie","Migräne","migraene"),
 ]
 EXTRA=[("Notfallmedizin","Pleuraerguss","pleuraerguss"),("Kardiologie","Hypertrophe Kardiomyopathie","hypertrophe-kardiomyopathie"),("Notfallmedizin","Notfallpharmakologie","notfallpharmakologie"),("Hämatologie","CML","cml")]
 
 # rank + tier split
+FLAT.sort(key=lambda r:-r[0])  # keep ranking correct after additions
 ranked=[(i+1,)+row for i,row in enumerate(FLAT)]
 def tier(lo,hi): return [r for r in ranked if lo<=r[1]<hi]   # r[1]=treffer
 T1=[r for r in ranked if r[1]>=200]; T2=[r for r in ranked if 120<=r[1]<200]; T3=[r for r in ranked if 60<=r[1]<120]; T4=[r for r in ranked if r[1]<60]
