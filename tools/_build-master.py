@@ -116,17 +116,10 @@ FLAT=[
 (23,3,20,"Unfallchirurgie","Wirbelsäulenverletzungen","wirbelsaeulenverletzungen"),
 (13,8,5,"Drittes Fach","KI in der Medizin",None),
 (12,10,2,"Drittes Fach","EBM",None),
-# --- added July 2026 (confirmed vs WhatsApp chat + protocols; Parkinson excluded = WPW false positive) ---
-(47,13,34,"Neurologie","Status epilepticus / Epilepsie","epilepsie"),
-(32,15,17,"Rheumatologie","Gicht / Podagra","gicht"),
-(29,12,17,"Neurologie","Meningitis","meningitis"),
-(17,8,9,"Hämatologie","Multiples Myelom","multiples-myelom"),
-(14,4,10,"Neurologie","Demenz / Alzheimer","demenz"),
-(13,6,7,"Infektiologie","Erysipel / Phlegmone","erysipel-phlegmone"),
-(9,4,5,"Gastroenterologie","Ösophaguskarzinom","oesophaguskarzinom"),
-(9,0,9,"Unfallchirurgie","Kreuzbandruptur","kreuzbandruptur"),
-(7,4,3,"Neurologie","Fazialisparese","fazialisparese"),
-(4,2,2,"Neurologie","Migräne","migraene"),
+# --- added July 2026 (revised per Mohamed's protocol-frequency check: only these 3 justified) ---
+(30,0,30,"Unfallchirurgie","Kreuzbandruptur","kreuzbandruptur"),
+(10,0,10,"Neurologie","Status epilepticus / Epilepsie","epilepsie"),
+(6,0,6,"Rheumatologie","Gicht / Podagra","gicht"),
 ]
 EXTRA=[("Notfallmedizin","Pleuraerguss","pleuraerguss"),("Kardiologie","Hypertrophe Kardiomyopathie","hypertrophe-kardiomyopathie"),("Notfallmedizin","Notfallpharmakologie","notfallpharmakologie"),("Hämatologie","CML","cml")]
 
