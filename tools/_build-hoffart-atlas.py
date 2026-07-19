@@ -297,6 +297,33 @@ CSS = """
 # Sono block = pages 117-135 (contiguous ultrasound run) + 147.
 SONO_PAGES = set(range(117, 136)) | {147}
 
+# Non-Sono images placed into category tabs (OCR captions + contact-sheet survey).
+_G = {
+ "thorax": [1,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,102],
+ "neuro":  [2,3,4,5,7,8,9,10,11,12,75,91,96,97,98,99,100,101,116],
+ "skelett":[39,40,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,92,93,94,95,103,104,105,106,107,108],
+ "haut":   [6,41,42,59,60,61,68,69,70,71,72,73,74,136,137,138,139,140,141,142,143,144,145,146],
+ "auge":   [62,63,64,65,66,67],
+ "blut":   [109,110,111,112,113,114,115],
+ "schema": [148,149],
+}
+GROUPS = [
+ ("sono","Sonografie","Alle Ultraschallbilder — Niere · Galle · Leber · Pankreas · Milz · FAST · Pleura.", sorted(SONO_PAGES)),
+ ("thorax","Thorax","Röntgen- und CT-Thorax — Pneumonie, Lungenembolie, Metastasen, COVID, NNH-nah.", _G["thorax"]),
+ ("neuro","Neuro / Schädel","Schädel-CT/-MRT und -Röntgen — Hirntumoren, Blutungen, NNH/Sinus.", _G["neuro"]),
+ ("skelett","Skelett / Trauma","Knochen- und Gelenk-Röntgen — Frakturen, Metastasen, Myelom, Osteosarkom, Gefäße.", _G["skelett"]),
+ ("haut","Haut / Klinik","Klinische Fotos — Exantheme, Gesicht, Nägel/Hände, Weichteile.", _G["haut"]),
+ ("auge","Auge","Fundoskopie — Netzhaut- und Papillenbefunde.", _G["auge"]),
+ ("blut","Blut / Labor","Blutausstriche und Zellschemata — Hämatologie.", _G["blut"]),
+ ("schema","Schemata","Diagramme und Kurven.", _G["schema"]),
+]
+# safety net: any page not placed lands in a 'Sonstiges' tab
+_placed = set(SONO_PAGES)
+for _k,_l,_n,_ps in GROUPS: _placed.update(_ps)
+_missing = [i for i in range(1,150) if i not in _placed]
+if _missing:
+    GROUPS.append(("sonstiges","Sonstiges","Noch nicht zugeordnet.", _missing))
+
 
 def render_bf(num):
     e = EXPL.get(num)
@@ -332,12 +359,18 @@ def build_card(i):
 
 
 def main():
-    sono = [i for i in range(1, N + 1) if i in SONO_PAGES]
-    rest = [i for i in range(1, N + 1) if i not in SONO_PAGES]
-    sono_cards = "\n".join(build_card(i) for i in sono)
-    rest_cards = "\n".join(build_card(i) for i in rest)
-    sono_done = sum(1 for i in sono if i in EXPL)
     done = sum(1 for i in range(1, N + 1) if i in EXPL)
+    tabs_list, panels_list = [], []
+    for gi, (key, label, note, pages) in enumerate(GROUPS):
+        pages = [p for p in pages if 1 <= p <= N]
+        act = " active" if gi == 0 else ""
+        gdone = sum(1 for p in pages if p in EXPL)
+        tabs_list.append(f'<button class="tab{act}" data-t="{key}">{label}<span class="c">{len(pages)}</span></button>')
+        cards = "\n".join(build_card(p) for p in pages)
+        bfnote = f' Befunde: <b>{gdone}/{len(pages)}</b>.' if gdone else ' Befunde folgen.'
+        panels_list.append(f'<section class="panel{act}" data-p="{key}">\n    <p class="panel-note">{note} ({len(pages)} Bilder).{bfnote}</p>\n{cards}\n  </section>')
+    tabs_block = "\n    ".join(tabs_list)
+    panels_block = "\n\n  ".join(panels_list)
     doc = f"""<!DOCTYPE html>
 <html lang="de">
 <head>
@@ -356,7 +389,7 @@ def main():
     <div class="eyebrow">Hoffart · Bildatlas</div>
     <h1>Prüfungs<span class="accent">bilder</span></h1>
     <p class="subtitle">Die {N} Bilder aus der Sammlung von Dr. Hoffart — genau die Sono-, CT- und Röntgenbilder, die in Mainz gezeigt werden. Bild ansehen, Befund laut formulieren, dann aufdecken.</p>
-    <div class="meta"><span>{N} Bilder</span><span>Sono zuerst</span><span>Befunde wachsen laufend</span></div>
+    <div class="meta"><span>{N} Bilder</span><span>nach Kategorie</span><span>Befunde wachsen laufend</span></div>
   </header>
 
   <div class="howto"><span class="lab">So nutzen</span>
@@ -366,19 +399,10 @@ def main():
   Die aufgedeckten Befunde sind Claudes <b>Erstlesung</b> und tragen bis zu deiner fachlichen Bestätigung den Hinweis „bitte bestätigen". Bilder ohne Befund zeigen „Befund folgt".</div>
 
   <div class="tabs">
-    <button class="tab active" data-t="sono">Sonografie<span class="c">{len(sono)}</span></button>
-    <button class="tab" data-t="rest">Übrige Bilder<span class="c">{len(rest)}</span></button>
+    {tabs_block}
   </div>
 
-  <section class="panel active" data-p="sono">
-    <p class="panel-note">Alle Ultraschallbilder der Sammlung ({len(sono)}) — Niere · Galle · Leber · Pankreas · Milz · FAST · Pleura. Befunde: <b>{sono_done}/{len(sono)}</b>.</p>
-{sono_cards}
-  </section>
-
-  <section class="panel" data-p="rest">
-    <p class="panel-note">Die übrigen {len(rest)} Bilder in Seitenreihenfolge — Röntgen, CT, klinische Fotos, EKG, Schemata. Befunde folgen nach den Sono-Bildern.</p>
-{rest_cards}
-  </section>
+  {panels_block}
 
   <footer>Hoffart-Bildatlas · {N} Prüfungsbilder · Quelle: Bilder Dr. Hoffart (WhatsApp-Gruppe) · Befunde: Claude-Erstlesung, fachlich zu bestätigen</footer>
 </div>
@@ -395,7 +419,7 @@ def main():
 </html>
 """
     OUT.write_text(doc, encoding="utf-8")
-    print(f"wrote {OUT.relative_to(REPO)}  (Sono tab: {len(sono)} Bilder, {sono_done} Befunde | Übrige: {len(rest)})")
+    print(f"wrote {OUT.relative_to(REPO)}  (" + " | ".join(f"{l} {len([p for p in ps if 1<=p<=N])}" for _,l,_,ps in GROUPS) + ")")
 
 if __name__ == "__main__":
     main()
