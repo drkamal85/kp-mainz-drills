@@ -13,7 +13,7 @@ for path,_fl,slug,lvl in re.findall(r'<a class="card" href="(reviews/([a-z-]+)/(
 # Topics that completed the R4 audio drill (activity-only tier — no separate file by design,
 # so this can't be glob-detected like R1-R3). Badge/level display ONLY: repo[slug][1] (the real
 # file path) and reviewId always still resolve to the actual highest file (r3), never a fake r4.
-R4_TOPICS={"distale-radiusfraktur","schock","copd","lungenembolie","cholezystitis","appendizitis","ileus","wirbelsaeulenverletzungen","allgemeine-frakturlehre","polytrauma-abcde","leistenhernie","pleuraerguss","asthma-bronchiale","tvt","hypothyreose","hyperthyreose","ikterus-cholestase","proximale-femurfraktur","leberzirrhose","beckenringfrakturen","sprunggelenksfraktur","pneumothorax","pneumonie","aortendissektion","schaedel-hirn-trauma"}
+R4_TOPICS={"distale-radiusfraktur","schock","copd","lungenembolie","cholezystitis","appendizitis","ileus","wirbelsaeulenverletzungen","allgemeine-frakturlehre","polytrauma-abcde","leistenhernie","pleuraerguss","asthma-bronchiale","tvt","hypothyreose","hyperthyreose","ikterus-cholestase","proximale-femurfraktur","leberzirrhose","beckenringfrakturen","sprunggelenksfraktur","pneumothorax","pneumonie","aortendissektion","schaedel-hirn-trauma","cushing-syndrom"}
 def _badge_lvl(slug,filelvl): return 4 if slug in R4_TOPICS else filelvl
 
 DRILL={"Rechtsmedizin / Leichenschau"}
