@@ -299,19 +299,19 @@ SONO_PAGES = set(range(117, 136)) | {147}
 
 # Non-Sono images placed into category tabs (OCR captions + contact-sheet survey).
 _G = {
- "thorax": [1,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,102],
- "neuro":  [2,3,4,5,7,8,9,10,11,12,75,91,96,97,98,99,100,101,116],
- "skelett":[39,40,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,92,93,94,95,103,104,105,106,107,108],
- "haut":   [6,41,42,59,60,61,68,69,70,71,72,73,74,136,137,138,139,140,141,142,143,144,145,146],
- "auge":   [62,63,64,65,66,67],
- "blut":   [109,110,111,112,113,114,115],
- "schema": [148,149],
+ "roentgen": [1,3,4,5,8,10,13,14,15,16,17,18,19,27,28,29,31,32,33,34,35,36,37,38,39,40,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,76,77,78,79,80,85,86,87,88,89,90,92,93,94,95,103,104,105,106,107,108],
+ "ct":       [2,7,9,11,12,20,21,22,23,24,25,26,30,81,82,83,84,91,97,98,99,100,101,102],
+ "mrt":      [75,96,116],
+ "haut":     [6,41,42,59,60,61,68,69,70,71,72,73,74,136,137,138,139,140,141,142,143,144,145,146],
+ "auge":     [62,63,64,65,66,67],
+ "blut":     [109,110,111,112,113,114,115],
+ "schema":   [148,149],
 }
 GROUPS = [
  ("sono","Sonografie","Alle Ultraschallbilder — Niere · Galle · Leber · Pankreas · Milz · FAST · Pleura.", sorted(SONO_PAGES)),
- ("thorax","Thorax","Röntgen- und CT-Thorax — Pneumonie, Lungenembolie, Metastasen, COVID, NNH-nah.", _G["thorax"]),
- ("neuro","Neuro / Schädel","Schädel-CT/-MRT und -Röntgen — Hirntumoren, Blutungen, NNH/Sinus.", _G["neuro"]),
- ("skelett","Skelett / Trauma","Knochen- und Gelenk-Röntgen — Frakturen, Metastasen, Myelom, Osteosarkom, Gefäße.", _G["skelett"]),
+ ("roentgen","Röntgen","Projektionsaufnahmen — Thorax, Schädel/NNH, Skelett und Gelenke.", _G["roentgen"]),
+ ("ct","CT","Computertomografie — Schädel, NNH, Thorax, Gefäße.", _G["ct"]),
+ ("mrt","MRT","Magnetresonanztomografie — v. a. Schädel.", _G["mrt"]),
  ("haut","Haut / Klinik","Klinische Fotos — Exantheme, Gesicht, Nägel/Hände, Weichteile.", _G["haut"]),
  ("auge","Auge","Fundoskopie — Netzhaut- und Papillenbefunde.", _G["auge"]),
  ("blut","Blut / Labor","Blutausstriche und Zellschemata — Hämatologie.", _G["blut"]),
