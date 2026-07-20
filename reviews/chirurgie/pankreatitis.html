@@ -3,256 +3,354 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pankreatitis · R1 Review</title>
+<title>Pankreatitis · R2 · Kurz + KP-Perlen</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg: #F7F4EE; --paper: #FFFFFF; --ink: #1A1A1A;
-    --ink-muted: #5C5C5C; --ink-soft: #8A8A8A; --rule: #E8E2D6;
-    --grundlagen: #C0392B; --grundlagen-soft: #FBEAE7;
-    --klinik: #D97706;     --klinik-soft: #FDF2E2;
-    --diagnostik: #1E5F9E; --diagnostik-soft: #E5EEF7;
-    --therapie: #2D7A3E;   --therapie-soft: #E3F1E6;
+  :root{
+    --bg:#F7F4EE; --card:#FFFDF8; --ink:#2A2724; --muted:#6B6358; --line:#E7E0D4;
+    --grundlagen:#C0392B; --grundlagen-t:#F7E9E6;
+    --klinik:#D97706;     --klinik-t:#FBEEDD;
+    --diagnostik:#1E5F9E; --diagnostik-t:#E4EDF6;
+    --therapie:#2D7A3E;   --therapie-t:#E5F0E7;
+    --fragen:#7B3F9E;     --fragen-t:#F0E8F6;
+    --perlen:#B8860B;     --perlen-t:#F8F0D9;
+    --retrieval:#0F766E;  --retrieval-t:#E0F0EE;
+    --protokoll:#334155;  --protokoll-t:#E8EBF0;
+    --ok:#2D7A3E; --gap:#D97706; --miss:#C0392B;
   }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body { background: var(--bg); color: var(--ink); font-family: 'Fraunces', Georgia, serif; font-size: 16.5px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
-  .container { max-width: 860px; margin: 0 auto; padding: 40px 24px 70px; }
-  .back { display: inline-block; font-family: 'Manrope', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-muted); text-decoration: none; margin-bottom: 22px; }
-  .back:hover { color: var(--ink); }
-  .eyebrow { font-family: 'Manrope', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 12px; }
-  .eyebrow::before { content: "— "; }
-  h1 { font-family: 'Fraunces', serif; font-weight: 600; font-size: clamp(30px, 5vw, 44px); line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 12px; }
-  h1 .accent { font-style: italic; color: var(--diagnostik); }
-  .subtitle { font-family: 'Fraunces', serif; font-style: italic; font-size: 17px; color: var(--ink-muted); margin-bottom: 18px; max-width: 640px; }
-  .meta { font-family: 'Manrope', sans-serif; font-size: 12.5px; color: var(--ink-soft); display: flex; flex-wrap: wrap; gap: 0; align-items: center; margin-bottom: 30px; }
-  .meta span + span::before { content: "•"; margin: 0 12px; }
-  .tabs { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 28px; background: var(--paper); padding: 5px; border-radius: 50px; border: 1px solid var(--rule); }
-  .tab { flex: 1; min-width: 95px; padding: 10px 8px; font-family: 'Manrope', sans-serif; font-size: 11.5px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink-muted); background: transparent; border: none; border-radius: 50px; cursor: pointer; text-align: center; transition: all 0.2s ease; }
-  .tab:hover { color: var(--ink); }
-  .tab.active { color: white; }
-  .tab[data-s="1"].active { background: var(--grundlagen); }
-  .tab[data-s="2"].active { background: var(--klinik); }
-  .tab[data-s="3"].active { background: var(--diagnostik); }
-  .tab[data-s="4"].active { background: var(--therapie); }
-  .station { display: none; animation: fadeIn 0.25s ease; }
-  .station.active { display: block; }
-  @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
-  .station-header { display: flex; justify-content: space-between; align-items: flex-end; padding-bottom: 12px; margin-bottom: 22px; border-bottom: 2px solid; gap: 16px; }
-  .station-eyebrow { font-family: 'Fraunces', serif; font-style: italic; font-size: 13px; color: var(--ink-muted); margin-bottom: 4px; }
-  .station-title { font-family: 'Fraunces', serif; font-weight: 600; font-size: 26px; line-height: 1.1; letter-spacing: -0.01em; }
-  .station-tagline { font-family: 'Fraunces', serif; font-style: italic; font-size: 13.5px; color: var(--ink-muted); text-align: right; max-width: 220px; }
-  #s1 .station-header { border-bottom-color: var(--grundlagen); } #s1 .station-title { color: var(--grundlagen); }
-  #s2 .station-header { border-bottom-color: var(--klinik); }     #s2 .station-title { color: var(--klinik); }
-  #s3 .station-header { border-bottom-color: var(--diagnostik); } #s3 .station-title { color: var(--diagnostik); }
-  #s4 .station-header { border-bottom-color: var(--therapie); }   #s4 .station-title { color: var(--therapie); }
-  .card { background: var(--paper); border: 1px solid var(--rule); border-radius: 12px; margin-bottom: 14px; overflow: hidden; }
-  .card-head { display: flex; justify-content: space-between; align-items: center; padding: 14px 18px; cursor: pointer; gap: 12px; }
-  .card-tag { display: inline-block; font-family: 'Manrope', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; padding: 3px 8px; border-radius: 3px; margin-bottom: 4px; }
-  #s1 .card-tag { background: var(--grundlagen-soft); color: var(--grundlagen); }
-  #s2 .card-tag { background: var(--klinik-soft); color: var(--klinik); }
-  #s3 .card-tag { background: var(--diagnostik-soft); color: var(--diagnostik); }
-  #s4 .card-tag { background: var(--therapie-soft); color: var(--therapie); }
-  .card-title { font-family: 'Fraunces', serif; font-weight: 500; font-size: 17.5px; line-height: 1.3; }
-  .toggle { font-family: 'Manrope', sans-serif; font-size: 22px; font-weight: 300; color: var(--ink-muted); transition: transform 0.25s ease; flex-shrink: 0; }
-  .card.open .toggle { transform: rotate(45deg); }
-  .card-body { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
-  .card.open .card-body { max-height: 4000px; }
-  .card-body-inner { padding: 2px 18px 18px; }
-  h4 { font-family: 'Manrope', sans-serif; font-size: 10.5px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-muted); margin: 14px 0 8px; }
-  .card-body-inner > h4:first-child { margin-top: 4px; }
-  ul { list-style: none; padding-left: 2px; margin-bottom: 10px; }
-  li { position: relative; padding-left: 20px; margin-bottom: 5px; line-height: 1.5; font-size: 15.5px; }
-  li::before { content: ""; position: absolute; left: 5px; top: 9px; width: 6px; height: 6px; border-radius: 50%; }
-  #s1 li::before { background: var(--grundlagen); }
-  #s2 li::before { background: var(--klinik); }
-  #s3 li::before { background: var(--diagnostik); }
-  #s4 li::before { background: var(--therapie); }
-  li ul { margin-top: 5px; margin-bottom: 6px; }
-  li ul li::before { width: 5px; height: 5px; border-radius: 0; transform: rotate(45deg); background: var(--ink-soft) !important; top: 11px; }
-  strong { font-weight: 600; }
-  em.h { font-style: normal; background-image: linear-gradient(to top, var(--diagnostik-soft) 60%, transparent 60%); padding: 0 2px; font-weight: 500; }
-  table { width: 100%; border-collapse: collapse; font-family: 'Manrope', sans-serif; font-size: 13.5px; margin: 8px 0 12px; }
-  th { background: #F0EBE0; text-transform: uppercase; font-size: 10px; letter-spacing: 0.12em; color: var(--ink-muted); text-align: left; padding: 8px 10px; font-weight: 700; border-bottom: 1px solid var(--rule); }
-  td { padding: 8px 10px; border-bottom: 1px solid var(--rule); vertical-align: top; }
-  tr:last-child td { border-bottom: none; }
-  .callout { border-left: 3px solid; padding: 12px 16px; margin: 12px 0; border-radius: 0 8px 8px 0; font-family: 'Fraunces', serif; font-style: italic; font-size: 14.5px; line-height: 1.5; }
-  .callout-label { font-family: 'Manrope', sans-serif; font-style: normal; font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; display: block; margin-bottom: 5px; }
-  .callout.critical { border-color: var(--grundlagen); background: var(--grundlagen-soft); } .callout.critical .callout-label { color: var(--grundlagen); }
-  .callout.warning { border-color: var(--klinik); background: var(--klinik-soft); } .callout.warning .callout-label { color: var(--klinik); }
-  .callout.fact { border-color: var(--diagnostik); background: var(--diagnostik-soft); } .callout.fact .callout-label { color: var(--diagnostik); }
-  footer { margin-top: 50px; padding-top: 20px; border-top: 1px solid var(--rule); font-family: 'Manrope', sans-serif; font-size: 11.5px; color: var(--ink-soft); text-align: center; }
-  @media (max-width: 600px) { .container { padding: 28px 16px 50px; } .station-header { flex-direction: column; align-items: flex-start; } .station-tagline { text-align: left; max-width: none; } .tab { font-size: 10.5px; padding: 9px 6px; } }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:'Manrope',system-ui,sans-serif;
+    font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased;padding:0 18px 80px}
+  .wrap{max-width:860px;margin:0 auto}
+
+  header{padding:54px 0 22px}
+  .eyebrow{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--retrieval);margin-bottom:16px}
+  h1{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(34px,7vw,52px);line-height:1.04;letter-spacing:-.01em}
+  h1 .accent{font-style:italic;color:var(--grundlagen)}
+  .subtitle{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(17px,2.6vw,20px);color:var(--muted);margin-top:14px}
+  .meta{display:flex;flex-wrap:wrap;gap:6px 0;margin-top:20px;font-size:13px;color:var(--muted);font-weight:500}
+  .meta span:not(:last-child)::after{content:"•";margin:0 10px;color:var(--line);font-weight:700}
+
+
+  .tabs{display:flex;flex-wrap:wrap;gap:8px;position:sticky;top:0;z-index:30;background:linear-gradient(var(--bg) 72%,rgba(247,244,238,0));padding:12px 0 14px;margin-bottom:6px}
+  .tab{position:relative;font-size:13px;font-weight:600;border:1px solid var(--line);background:var(--card);color:var(--muted);padding:8px 15px;border-radius:999px;cursor:pointer;transition:all .15s;white-space:nowrap}
+  .tab:hover{border-color:#cfc6b6}
+  .tab.active{color:#fff;border-color:transparent}
+  .tab[data-c=retrieval].active{background:var(--retrieval)}
+  .tab[data-c=grundlagen].active{background:var(--grundlagen)}
+  .tab[data-c=klinik].active{background:var(--klinik)}
+  .tab[data-c=diagnostik].active{background:var(--diagnostik)}
+  .tab[data-c=therapie].active{background:var(--therapie)}
+  .tab[data-c=fragen].active{background:var(--fragen)}
+  .tab[data-c=perlen].active{background:var(--perlen)}
+  .tab[data-c=protokoll].active{background:var(--protokoll)}
+  .tab .badge{display:none;margin-left:7px;font-size:10px;font-weight:800;padding:1px 6px;border-radius:999px;vertical-align:middle}
+  .tab.flag-gap .badge{display:inline-block;background:var(--gap);color:#fff}
+  .tab.flag-ok .badge{display:inline-block;background:var(--ok);color:#fff}
+  .tab.active .badge{background:rgba(255,255,255,.28)!important;color:#fff}
+
+  .panel{display:none;animation:fade .25s ease}
+  .panel.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+  .panel-intro{font-family:'Fraunces',serif;font-style:italic;font-size:17px;color:var(--muted);margin:6px 0 18px;line-height:1.5}
+
+  /* ---- control bar (Pass 1 instrument) ---- */
+  .ctrl{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:14px 16px;margin-bottom:20px}
+  .ctrl-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+  .tally{font-size:13px;font-weight:700;display:flex;gap:12px;flex-wrap:wrap}
+  .tally i{font-style:normal;display:inline-flex;align-items:center;gap:5px}
+  .tally i::before{content:"";width:9px;height:9px;border-radius:50%}
+  .tally .t-ok::before{background:var(--ok)} .tally .t-gap::before{background:var(--gap)} .tally .t-miss::before{background:var(--miss)}
+  .spacer{flex:1 1 auto}
+  .btn{font-family:'Manrope';font-size:12.5px;font-weight:700;border:none;border-radius:999px;padding:9px 16px;cursor:pointer;transition:.15s}
+  .btn-primary{background:var(--retrieval);color:#fff}
+  .btn-primary:hover{filter:brightness(1.06)}
+  .btn-ghost{background:transparent;color:var(--muted);border:1px solid var(--line)}
+  .btn-ghost:hover{border-color:#cfc6b6}
+  .ctrl-status{margin-top:11px;font-size:13px;font-style:italic;color:var(--retrieval);min-height:18px}
+
+  /* ---- retrieval prompt ---- */
+  .rt{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:14px;transition:border-color .2s}
+  .rt[data-score=sicher]{border-left-color:var(--ok)}
+  .rt[data-score=lueckenhaft]{border-left-color:var(--gap)}
+  .rt[data-score=gefehlt]{border-left-color:var(--miss)}
+  .rt-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:8px}
+  .rt-n{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--retrieval)}
+  .rt-right{display:flex;align-items:center;gap:10px;white-space:nowrap}
+  .rt-ptr{font-size:11px;font-weight:600;color:var(--muted)}
+  .rt-q{font-size:15.5px;line-height:1.55}
+  .reveal{margin-top:12px;border-top:1px dashed var(--line);padding-top:0}
+  .reveal>summary{list-style:none;cursor:pointer;font-size:12.5px;font-weight:800;letter-spacing:.04em;color:var(--retrieval);padding:11px 0 0;user-select:none;display:inline-flex;align-items:center;gap:6px}
+  .reveal>summary::-webkit-details-marker{display:none}
+  .reveal>summary::before{content:"▸";transition:transform .2s;display:inline-block}
+  .reveal[open]>summary::before{transform:rotate(90deg)}
+  .reveal .ans{font-size:14.5px;line-height:1.6;color:#3c372f;padding-top:10px}
+  .reveal .ans b{color:var(--ink)}
+  .reveal .ans ul{list-style:none;padding-left:2px;margin:2px 0 0}
+  .reveal .ans li{position:relative;padding-left:18px;margin-bottom:8px;line-height:1.5}
+  .reveal .ans>ul>li::before{content:"";position:absolute;left:2px;top:8px;width:6px;height:6px;border-radius:50%;background:var(--retrieval)}
+  .reveal .ans li ul{margin:7px 0 2px}
+  .reveal .ans li li{padding-left:16px;margin-bottom:5px;font-size:13.8px;color:#4a443c}
+  .reveal .ans li li::before{content:"";position:absolute;left:0;top:7px;width:5px;height:5px;transform:rotate(45deg);background:#b9b0a1}
+  .score{display:flex;gap:7px;margin-top:12px;padding-top:11px;border-top:1px solid var(--line)}
+  .sbtn{flex:1;font-size:12px;font-weight:700;border:1px solid var(--line);background:var(--bg);color:var(--muted);border-radius:8px;padding:7px 4px;cursor:pointer;transition:.12s}
+  .sbtn:hover{border-color:#cfc6b6}
+  .sbtn[data-v=sicher].on{background:var(--ok);color:#fff;border-color:transparent}
+  .sbtn[data-v=lueckenhaft].on{background:var(--gap);color:#fff;border-color:transparent}
+  .sbtn[data-v=gefehlt].on{background:var(--miss);color:#fff;border-color:transparent}
+
+  /* ---- Schnellfragen ---- */
+  .sf-wrap{background:var(--retrieval-t);border:1px solid #BFE0DC;border-radius:13px;padding:18px 20px;margin-top:24px}
+  .sf-wrap h3{font-family:'Fraunces',serif;font-weight:500;font-size:20px;margin-bottom:3px}
+  .sf-wrap .sf-intro{font-size:13.5px;font-style:italic;color:#0c5d57;margin-bottom:14px}
+  .sf{border-bottom:1px solid #cfe4e1;padding:9px 0}
+  .sf:last-child{border-bottom:none}
+  .sf>summary{list-style:none;cursor:pointer;font-size:14.5px;font-weight:600;display:flex;justify-content:space-between;gap:10px;user-select:none}
+  .sf>summary::-webkit-details-marker{display:none}
+  .sf>summary::after{content:"+";color:var(--retrieval);font-weight:800}
+  .sf[open]>summary::after{content:"−"}
+  .sf .sfa{font-size:14px;color:#0c5d57;font-weight:700;padding-top:6px}
+
+  /* ---- content cards (v1) ---- */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:14px;overflow:hidden}
+  .card>summary{list-style:none;cursor:pointer;padding:18px 20px;display:flex;align-items:flex-start;gap:14px;user-select:none}
+  .card>summary::-webkit-details-marker{display:none}
+  .card .ct{flex:1}
+  .card .ctag{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:5px}
+  .card .ctitle{font-family:'Fraunces',serif;font-weight:500;font-size:17px;line-height:1.25}
+  .plus{flex:none;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:18px;line-height:1;transition:transform .2s;margin-top:2px}
+  .card[open] .plus{transform:rotate(45deg)}
+  .card .body{padding:0 20px 20px;border-top:1px solid var(--line);margin-top:-2px;padding-top:16px}
+  .card.grundlagen .ctag{color:var(--grundlagen)} .card.grundlagen .plus{background:var(--grundlagen-t);color:var(--grundlagen)}
+  .card.klinik .ctag{color:var(--klinik)} .card.klinik .plus{background:var(--klinik-t);color:var(--klinik)}
+  .card.diagnostik .ctag{color:var(--diagnostik)} .card.diagnostik .plus{background:var(--diagnostik-t);color:var(--diagnostik)}
+  .card.therapie .ctag{color:var(--therapie)} .card.therapie .plus{background:var(--therapie-t);color:var(--therapie)}
+  .card.fragen .ctag{color:var(--fragen)} .card.fragen .plus{background:var(--fragen-t);color:var(--fragen)}
+  .card.perlen .ctag{color:var(--perlen)} .card.perlen .plus{background:var(--perlen-t);color:var(--perlen)}
+
+  ul.b{list-style:none;padding-left:2px}
+  ul.b>li{position:relative;padding-left:20px;margin-bottom:8px;line-height:1.55}
+  ul.b>li::before{content:"";position:absolute;left:2px;top:9px;width:7px;height:7px;border-radius:50%}
+  .grundlagen ul.b>li::before{background:var(--grundlagen)} .klinik ul.b>li::before{background:var(--klinik)}
+  .diagnostik ul.b>li::before{background:var(--diagnostik)} .therapie ul.b>li::before{background:var(--therapie)}
+  ul.b ul{list-style:none;padding-left:18px;margin-top:7px}
+  ul.b ul>li{position:relative;padding-left:18px;margin-bottom:6px;font-size:15px;color:#4a443c}
+  ul.b ul>li::before{content:"";position:absolute;left:0;top:7px;width:6px;height:6px;transform:rotate(45deg);background:#b9b0a1}
+  strong{font-weight:700;color:var(--ink)}
+
+  .callout{border-radius:11px;padding:13px 16px;margin:14px 0;font-size:14.5px;line-height:1.55;border-left:4px solid}
+  .callout .lab{font-weight:800;font-size:11px;letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .critical{background:var(--grundlagen-t);border-color:var(--grundlagen)} .critical .lab{color:var(--grundlagen)}
+  .warning{background:var(--klinik-t);border-color:var(--klinik)} .warning .lab{color:var(--klinik)}
+  .fact{background:var(--diagnostik-t);border-color:var(--diagnostik)} .fact .lab{color:var(--diagnostik)}
+
+  .dd{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+  .dd th,.dd td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+  .dd th{background:var(--diagnostik-t);font-weight:700;color:var(--diagnostik);font-size:12px}
+  .dd td:first-child{font-weight:600}
+
+  .pk{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:16px}
+  .pk-meta{display:flex;flex-wrap:wrap;gap:6px 0;font-size:11.5px;font-weight:700;color:var(--protokoll);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+  .pk-meta span:not(:last-child)::after{content:"•";margin:0 8px;color:#c3c9d2}
+  .pk-badge{display:inline-block;background:var(--therapie-t);color:var(--therapie);font-size:10.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:2px 9px;border-radius:999px;margin-left:auto}
+  .pk-akte{font-size:14.5px;line-height:1.58;background:var(--protokoll-t);border-radius:9px;padding:12px 14px;margin-bottom:12px}
+  .pk-akte .lab,.pk-q .lab{font-weight:800;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--protokoll);display:block;margin-bottom:5px}
+  .pk-q ul{list-style:none;padding:0}
+  .pk-q li{position:relative;padding-left:18px;margin-bottom:7px;font-size:14.5px;line-height:1.5}
+  .pk-q li::before{content:"–";position:absolute;left:0;color:var(--protokoll);font-weight:700}
+  .pq{border-top:1px solid var(--line);padding:10px 0}
+  .pq-frage{position:relative;padding-left:18px;font-size:14.5px;font-weight:600;line-height:1.5}
+  .pq-frage::before{content:"–";position:absolute;left:0;color:var(--protokoll);font-weight:700}
+  .pq .reveal{margin-top:5px;border-top:none;padding-top:0}
+  .pq .reveal>summary{padding:5px 0 0}
+
+  .pearl{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--perlen);border-radius:12px;padding:16px 18px;margin-bottom:13px}
+  .pearl .ph{font-weight:800;font-size:13px;color:var(--perlen);margin-bottom:7px}
+  .pearl .pt{font-size:15px;line-height:1.55}
+  .pearl .mn{margin-top:9px;background:var(--perlen-t);border-radius:8px;padding:8px 12px;font-size:13.5px;font-style:italic;color:#7a5c08}
+  .pearl .mn b{font-style:normal;font-weight:800}
+
+  footer{margin-top:40px;padding-top:22px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted);line-height:1.6}
+  .back{display:inline-block;font-family:Manrope,system-ui,sans-serif;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);text-decoration:none;margin-bottom:18px}
+  .back:hover{color:var(--ink)}
 </style>
 </head>
 <body>
-<div class="container">
+<div class="wrap">
+
   <a href="../../index.html" class="back">← Zurück zur Library</a>
+
   <header>
-    <div class="eyebrow">R1 Review · Allgemein- und Viszeralchirurgie</div>
-    <h1>Pankreatitis<span class="accent"> · Erstreview</span></h1>
-    <p class="subtitle">Gallensteine und Alkohol als Auslöser, der gürtelförmige Schmerz, die Lipase als Leitwert und die konservative Therapie mit Volumen — plus wann ERCP und wann Antibiotika.</p>
-    <div class="meta"><span>~ 12 min</span><span>4 Stationen</span><span>R1 Erstreview</span></div>
+    <div class="eyebrow">Allgemein- und Viszeralchirurgie · R2 · Kurz + KP-Perlen</div>
+    <h1>Akute <span class="accent">Pankreatitis</span></h1>
+    <div class="subtitle">Selbstverdauung durch Gallensteine oder Alkohol — die 2-von-3-Diagnose mit Lipase, Sono vor CT, Volumen statt Antibiotika, ERCP nur biliär, und die infizierte Nekrose als Wendepunkt. Vier Stationen + KP-Perlen.</div>
+    <div class="meta">
+      <span>R2 von 5 · Superset von R1</span>
+      <span>~12–15 Min</span>
+      <span>Stand 07/2026</span>
+      <span>Amboss KP-Lernplan + Mainz-Protokolle</span>
+    </div>
   </header>
-  <nav class="tabs">
-    <button class="tab active" data-s="1">01 · Grund</button>
-    <button class="tab" data-s="2">02 · Klinik</button>
-    <button class="tab" data-s="3">03 · Diagn</button>
-    <button class="tab" data-s="4">04 · Th</button>
-  </nav>
 
-  <!-- STATION 1: GRUNDLAGEN -->
-  <section class="station active" id="s1">
-    <div class="station-header"><div><div class="station-eyebrow">Station 01</div><div class="station-title">Grundlagen</div></div><div class="station-tagline">Zwei Ursachen, zwei Formen.</div></div>
+  <div class="tabs">
+    <button class="tab active" data-c="grundlagen" data-tab="grundlagen">Grundlagen</button>
+    <button class="tab" data-c="klinik" data-tab="klinik">Klinik</button>
+    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik</button>
+    <button class="tab" data-c="therapie" data-tab="therapie">Therapie</button>
+    <button class="tab" data-c="perlen" data-tab="perlen">KP-Perlen</button>
+  </div>
 
-    <div class="card open">
-      <div class="card-head"><div><span class="card-tag">Definition</span><div class="card-title">Akute Pankreatitis + Ätiologie</div></div><span class="toggle">+</span></div>
-      <div class="card-body"><div class="card-body-inner">
-        <div class="callout critical">
-          <span class="callout-label">★ Merksatz</span>
-          Akute Entzündung des Pankreas mit <strong>Selbstverdauung durch vorzeitig aktivierte Enzyme</strong>. Die zwei häufigsten Ursachen sind <strong>Gallensteine und Alkohol</strong> (zusammen ~80 %).
-        </div>
-        <table class="dd"><tr><th>Ursache</th><th>Anteil / Beispiel</th></tr>
-          <tr><td><strong>Biliär</strong> (Gallensteine)</td><td>~40 %</td></tr>
-          <tr><td><strong>Alkohol</strong></td><td>~30 %</td></tr>
-          <tr><td><strong>Andere</strong></td><td>Hypertriglyzeridämie, Hyperkalzämie, post-ERCP, Medikamente, Trauma</td></tr></table>
-      </div></div>
-    </div>
+  <section class="panel active" data-panel="grundlagen">
+    <p class="panel-intro">Definition, die zwei Hauptursachen, die Atlanta-Schweregrade. Erst laut, dann aufklappen.</p>
+    <details class="card grundlagen" open><summary><span class="ct"><span class="ctag">Definition</span><span class="ctitle">Autodigestion</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Die akute Pankreatitis ist eine Selbstverdauung des Organs</strong> — durch vorzeitige intrapankreatische Aktivierung der Verdauungsenzyme (v. a. Trypsin).</div>
+        <div class="callout fact"><span class="lab">⚙ Zwei Formen</span><strong>Ödematös-interstitiell</strong> (~80 %, mild) vs. <strong>nekrotisierend</strong> (~20 %, schwer) — die nekrotisierende Form bestimmt Komplikationen und Prognose.</div>
+      </div>
+    </details>
+    <details class="card grundlagen"><summary><span class="ct"><span class="ctag">Ätiologie</span><span class="ctitle">Gallensteine + Alkohol</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Gallensteine (~45 %) und Alkohol (~35 %) machen zusammen ~80 %.</strong></div>
+        <ul class="b"><li><strong>Seltener:</strong> Hypertriglyzeridämie, Hyperkalzämie, iatrogen (Post-ERCP), Medikamente, Trauma; sonst idiopathisch</li></ul>
+      </div>
+    </details>
+    <details class="card grundlagen"><summary><span class="ct"><span class="ctag">Schweregrad</span><span class="ctitle">Atlanta-Klassifikation</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <table class="dd"><tr><th>Grad</th><th>Kriterium</th></tr>
+          <tr><td><strong>mild</strong></td><td>kein Organversagen, keine Komplikationen</td></tr>
+          <tr><td><strong>moderat</strong></td><td>transientes Organversagen (&lt;48 h) oder lokale Komplikation</td></tr>
+          <tr><td><strong>schwer</strong></td><td>persistierendes Organversagen (&gt;48 h)</td></tr></table>
+      </div>
+    </details>
+  </section>
 
-    <div class="card">
-      <div class="card-head"><div><span class="card-tag">Formen</span><div class="card-title">Leicht vs. schwer</div></div><span class="toggle">+</span></div>
-      <div class="card-body"><div class="card-body-inner">
-        <div class="callout critical">
-          <span class="callout-label">★ Merksatz</span>
-          <strong>Leicht = ödematös-interstitiell</strong> (Mehrzahl, gute Prognose).<br><strong>Schwer = nekrotisierend</strong> (Organversagen, hohe Letalität).
-        </div>
-      </div></div>
-    </div>
+  <!-- ============ KLINIK ============ -->
+  <section class="panel" data-panel="klinik">
+    <p class="panel-intro">Der gürtelförmige Schmerz, die Hautzeichen, die Komplikationen. Erst laut, dann aufklappen.</p>
+    <details class="card klinik" open><summary><span class="ct"><span class="ctag">Leitsymptom</span><span class="ctitle">Gürtelförmiger Oberbauchschmerz</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Akuter, heftiger Oberbauchschmerz mit gürtelförmiger Ausstrahlung in den Rücken</strong>, dazu Übelkeit und Erbrechen.</div>
+        <ul class="b"><li>„Gummibauch" (elastische Abwehrspannung), Meteorismus bis paralytischer (Sub-)Ileus</li></ul>
+      </div>
+    </details>
+    <details class="card klinik"><summary><span class="ct"><span class="ctag">Hautzeichen</span><span class="ctitle">Cullen &amp; Grey-Turner</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">⚙ Hämorrhagische Zeichen</span><strong>Cullen-Zeichen = periumbilikal</strong>, <strong>Grey-Turner-Zeichen = Flanken</strong> — Hauteinblutungen bei schwerer/nekrotisierend-hämorrhagischer Verlaufsform, meist Spätzeichen.</div>
+        <div class="callout warning"><span class="lab">▲ Merke</span>Diese Zeichen sind selten, aber ein <strong>Mainz-Klassiker</strong> („welche Hautzeichen?"). Fox-Zeichen = Leiste.</div>
+      </div>
+    </details>
+    <details class="card klinik"><summary><span class="ct"><span class="ctag">Komplikationen</span><span class="ctitle">Lokal &amp; systemisch</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <table class="dd"><tr><th>Lokal</th><th>Systemisch</th></tr>
+          <tr><td>Nekrose → <strong>infizierte Nekrose</strong>, Pseudozyste, Abszess, Milz-/Pfortadervenenthrombose</td><td>SIRS, ARDS, akutes Nierenversagen, Multiorganversagen, Hypokalzämie</td></tr></table>
+        <div class="callout warning"><span class="lab">⚠ Pflicht</span>Die <strong>infizierte Nekrose</strong> ist die gefürchtete, prognosebestimmende Komplikation — daran denken bei Sepsis im Verlauf.</div>
+      </div>
+    </details>
+  </section>
 
-    <div class="card">
-      <div class="card-head"><div><span class="card-tag">Chronisch</span><div class="card-title">Chronische Pankreatitis</div></div><span class="toggle">+</span></div>
-      <div class="card-body"><div class="card-body-inner">
-        <div class="callout fact">
-          <span class="callout-label">⚙ Abgrenzung</span>
-          Die chronische Pankreatitis (meist <strong>Alkohol</strong>) führt zu irreversiblem Parenchymverlust mit <strong>exokriner Insuffizienz</strong> (Maldigestion, Steatorrhö) und <strong>endokriner Insuffizienz</strong> (Diabetes).
-        </div>
-      </div></div>
+  <!-- ============ DIAGNOSTIK ============ -->
+  <section class="panel" data-panel="diagnostik">
+    <p class="panel-intro">Die 2-von-3-Diagnose, Lipase &amp; CRP, Sono und das Timing des CT. Erst laut, dann aufklappen.</p>
+    <details class="card diagnostik" open><summary><span class="ct"><span class="ctag">Diagnose</span><span class="ctitle">2 von 3 Kriterien</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Diagnose bei 2 von 3:</strong> typische Klinik · <strong>Lipase &gt; 3× der Norm</strong> · passende Bildgebung.</div>
+      </div>
+    </details>
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Labor</span><span class="ctitle">Lipase vor Amylase</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Lipase ist spezifischer und länger erhöht als Amylase.</strong> <strong>Die Höhe korreliert NICHT mit dem Schweregrad.</strong></div>
+        <div class="callout fact"><span class="lab">⚙ CRP</span><strong>CRP &gt; 150 mg/l nach 48 h</strong> spricht für eine Nekrose und einen schweren Verlauf. Zusätzlich: Kalzium, Triglyzeride (Ursache), Transaminasen/Cholestase (biliär).</div>
+      </div>
+    </details>
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Bildgebung</span><span class="ctitle">Sono zuerst, CT später</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Sono zuerst — vor allem, um Gallensteine als Ursache zu finden</strong>; das Pankreas erscheint aufgetrieben und echoarm, oft mit freier Flüssigkeit.</div>
+        <div class="callout warning"><span class="lab">⚠ Timing</span><strong>Kontrast-CT erst nach ~72 h</strong> — erst dann demarkiert sich die Nekrose; ein zu frühes CT unterschätzt das Ausmaß.</div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ THERAPIE ============ -->
+  <section class="panel" data-panel="therapie">
+    <p class="panel-intro">Volumen als Basis, keine AB-Prophylaxe, ERCP nur biliär, Nekrose im Step-up. Erst laut, dann aufklappen.</p>
+    <details class="card therapie" open><summary><span class="ct"><span class="ctag">Basis</span><span class="ctitle">Volumen, Analgesie, Ernährung</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Die wichtigste Maßnahme ist die aggressive Flüssigkeitssubstitution</strong> (Ringer-Laktat), dazu suffiziente Analgesie und Antiemese.</div>
+        <div class="callout fact"><span class="lab">⚙ Ernährung</span><strong>Frühe enterale Ernährung</strong>, sobald toleriert — die alte strikte Nahrungskarenz ist verlassen.</div>
+      </div>
+    </details>
+    <details class="card therapie"><summary><span class="ct"><span class="ctag">Antibiotika</span><span class="ctitle">Keine Prophylaxe</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Keine prophylaktischen Antibiotika</strong> — nur bei nachgewiesener infizierter Nekrose (dann z. B. Carbapenem) plus Intervention.</div>
+      </div>
+    </details>
+    <details class="card therapie"><summary><span class="ct"><span class="ctag">Biliär</span><span class="ctitle">ERCP + Cholezystektomie</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Biliäre Pankreatitis mit Cholangitis oder Gallengangsobstruktion → dringliche ERCP mit Steinextraktion.</strong></div>
+        <ul class="b"><li>Cholezystektomie zur Rezidivprophylaxe: bei milder Form noch im selben Aufenthalt, sonst nach Abklingen</li></ul>
+      </div>
+    </details>
+    <details class="card therapie"><summary><span class="ct"><span class="ctag">Nekrose</span><span class="ctitle">Step-up-Approach</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Infizierte Nekrose: Step-up</strong> — erst perkutane Drainage, dann minimalinvasive Nekrosektomie; die offene OP so spät wie möglich.</div>
+        <ul class="b"><li>Pseudozyste nur bei Symptomen oder Komplikationen drainieren (frühestens nach ~6 Wochen)</li></ul>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ KP-PERLEN ============ -->
+  <section class="panel" data-panel="perlen">
+    <p class="panel-intro">Acht Sätze, die punkten.</p>
+    <div class="pearl"><div class="ph">⭐ Perle 1 · Ätiologie</div><div class="pt"><strong>Gallensteine + Alkohol = ~80 %</strong> der akuten Pankreatitiden.</div><div class="mn"><b>Merke:</b> Steine und Schnaps</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 2 · Lipase</div><div class="pt"><strong>Lipase schlägt Amylase</strong> (spezifischer, länger erhöht) — aber die <strong>Höhe sagt nichts über den Schweregrad</strong>.</div><div class="mn"><b>Merke:</b> Hoch ≠ schwer</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 3 · CRP</div><div class="pt"><strong>CRP &gt; 150 mg/l nach 48 h</strong> = Hinweis auf Nekrose und schweren Verlauf.</div><div class="mn"><b>Merke:</b> 150 nach 2 Tagen = Nekrose</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 4 · CT-Timing</div><div class="pt"><strong>Kontrast-CT erst nach 72 h</strong> — vorher demarkiert sich die Nekrose nicht.</div><div class="mn"><b>Merke:</b> 3 Tage warten aufs CT</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 5 · Volumen</div><div class="pt"><strong>Aggressive Flüssigkeit ist die wichtigste Therapie</strong> — nicht Antibiotika, nicht OP.</div><div class="mn"><b>Merke:</b> Wässern, wässern, wässern</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 6 · Keine AB-Prophylaxe</div><div class="pt"><strong>Keine prophylaktischen Antibiotika</strong> — erst bei infizierter Nekrose.</div><div class="mn"><b>Merke:</b> AB nur bei Infekt-Beweis</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 7 · Biliär → ERCP</div><div class="pt"><strong>Biliäre Pankreatitis + Cholangitis/Obstruktion → ERCP</strong>, danach Cholezystektomie.</div><div class="mn"><b>Merke:</b> Stein im Gang = ERCP</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 8 · Hautzeichen</div><div class="pt"><strong>Cullen (Nabel) &amp; Grey-Turner (Flanke)</strong> = hämorrhagische, schwere Verlaufsform.</div><div class="mn"><b>Merke:</b> Blaue Flanke = böse</div></div>
+
+    <div class="sf-wrap">
+      <h3>Schnellfragen · Rapid-Fire</h3>
+      <div class="sf-intro">Atomare Einzelfakten — Ein-Wort-Abruf, keine Optionen. Laut, sofort, dann aufdecken.</div>
+      <details class="sf"><summary>Zwei häufigste Ursachen?</summary><div class="sfa">Gallensteine + Alkohol</div></details>
+      <details class="sf"><summary>Wichtigster Laborwert?</summary><div class="sfa">Lipase (&gt; 3× Norm)</div></details>
+      <details class="sf"><summary>Lipase oder Amylase — was ist besser?</summary><div class="sfa">Lipase (spezifischer, länger)</div></details>
+      <details class="sf"><summary>Korreliert die Lipasehöhe mit der Schwere?</summary><div class="sfa">nein</div></details>
+      <details class="sf"><summary>Diagnosekriterien?</summary><div class="sfa">2 von 3: Klinik · Lipase · Bildgebung</div></details>
+      <details class="sf"><summary>Schweremarker im Labor nach 48 h?</summary><div class="sfa">CRP &gt; 150 mg/l</div></details>
+      <details class="sf"><summary>Erste Bildgebung — und warum?</summary><div class="sfa">Sono (Gallensteine suchen)</div></details>
+      <details class="sf"><summary>Wann Kontrast-CT?</summary><div class="sfa">nach ~72 h (Nekrose-Demarkation)</div></details>
+      <details class="sf"><summary>Schmerzausstrahlung?</summary><div class="sfa">gürtelförmig in den Rücken</div></details>
+      <details class="sf"><summary>Cullen-Zeichen?</summary><div class="sfa">periumbilikale Einblutung</div></details>
+      <details class="sf"><summary>Grey-Turner-Zeichen?</summary><div class="sfa">Flankeneinblutung</div></details>
+      <details class="sf"><summary>Wichtigste Erstmaßnahme?</summary><div class="sfa">aggressive Volumengabe</div></details>
+      <details class="sf"><summary>Prophylaktische Antibiotika?</summary><div class="sfa">nein</div></details>
+      <details class="sf"><summary>Wann Antibiotika?</summary><div class="sfa">bei infizierter Nekrose</div></details>
+      <details class="sf"><summary>Ernährung heute?</summary><div class="sfa">früh enteral</div></details>
+      <details class="sf"><summary>Biliäre Pankreatitis + Cholangitis?</summary><div class="sfa">ERCP</div></details>
+      <details class="sf"><summary>Rezidivprophylaxe bei biliärer Genese?</summary><div class="sfa">Cholezystektomie</div></details>
+      <details class="sf"><summary>Therapie der infizierten Nekrose?</summary><div class="sfa">Step-up: Drainage → Nekrosektomie</div></details>
+      <details class="sf"><summary>Gefürchtetste lokale Komplikation?</summary><div class="sfa">infizierte Nekrose</div></details>
     </div>
   </section>
 
-  <!-- STATION 2: KLINIK -->
-  <section class="station" id="s2">
-    <div class="station-header"><div><div class="station-eyebrow">Station 02</div><div class="station-title">Klinik</div></div><div class="station-tagline">Gürtelschmerz — und die Einblutungszeichen.</div></div>
-
-    <div class="card open">
-      <div class="card-head"><div><span class="card-tag">Leitbild</span><div class="card-title">Leitsymptom</div></div><span class="toggle">+</span></div>
-      <div class="card-body"><div class="card-body-inner">
-        <div class="callout critical">
-          <span class="callout-label">★ Merksatz</span>
-          Akuter, heftiger Oberbauchschmerz — <strong>gürtelförmig, mit Ausstrahlung in den Rücken</strong>, dazu Übelkeit und Erbrechen.
-        </div>
-        <ul>
-          <li>Meteorismus, elastische Bauchdeckenspannung („<strong>Gummibauch</strong>")</li>
-        </ul>
-      </div></div>
-    </div>
-
-    <div class="card">
-      <div class="card-head"><div><span class="card-tag">Schwere</span><div class="card-title">Einblutungszeichen + Komplikationen</div></div><span class="toggle">+</span></div>
-      <div class="card-body"><div class="card-body-inner">
-        <div class="callout warning">
-          <span class="callout-label">⚠ Merksatz</span>
-          Hämorrhagische Verläufe zeigen Einblutungen: <strong>Cullen-Zeichen</strong> (periumbilikal), <strong>Grey-Turner-Zeichen</strong> (Flanken). Systemisch drohen SIRS, Schock und Organversagen.
-        </div>
-        <ul>
-          <li><strong>Komplikationen:</strong> Nekrose, Pseudozyste, Abszess, ARDS, Nierenversagen, Hypokalzämie</li>
-        </ul>
-      </div></div>
-    </div>
-  </section>
-
-  <!-- STATION 3: DIAGNOSTIK -->
-  <section class="station" id="s3">
-    <div class="station-header"><div><div class="station-eyebrow">Station 03</div><div class="station-title">Diagnostik</div></div><div class="station-tagline">Lipase führt, das CT stagt die Nekrose.</div></div>
-
-    <div class="card open">
-      <div class="card-head"><div><span class="card-tag">Labor</span><div class="card-title">Die Lipase</div></div><span class="toggle">+</span></div>
-      <div class="card-body"><div class="card-body-inner">
-        <div class="callout critical">
-          <span class="callout-label">★ Merksatz</span>
-          Die Diagnose stützt sich auf die <strong>Lipase</strong> — spezifischer als die Amylase, mindestens <strong>dreifach über der Norm</strong>. Die Enzymhöhe sagt nichts über die Schwere.
-        </div>
-        <ul>
-          <li><strong>CRP</strong> als Schweremarker (&gt; 150 mg/l nach 48 h = schwer), <strong>Kalzium</strong> (niedrig = schwer)</li>
-          <li>Triglyzeride, Leberwerte (biliär), Blutbild, Hämatokrit</li>
-        </ul>
-      </div></div>
-    </div>
-
-    <div class="card">
-      <div class="card-head"><div><span class="card-tag">Bildgebung</span><div class="card-title">Sonografie + CT</div></div><span class="toggle">+</span></div>
-      <div class="card-body"><div class="card-body-inner">
-        <div class="callout critical">
-          <span class="callout-label">★ Merksatz</span>
-          Die <strong>Sonografie</strong> sucht Gallensteine als Ursache und freie Flüssigkeit. Das <strong>Kontrastmittel-CT</strong> beurteilt die Nekrose (am besten nach 72 h) und die Komplikationen.
-        </div>
-        <ul>
-          <li>Diagnose = 2 von 3: typischer Schmerz + Lipase ≥ 3× + passende Bildgebung</li>
-          <li>Schwere-Scores: Ranson, APACHE II, BISAP</li>
-        </ul>
-      </div></div>
-    </div>
-  </section>
-
-  <!-- STATION 4: THERAPIE -->
-  <section class="station" id="s4">
-    <div class="station-header"><div><div class="station-eyebrow">Station 04</div><div class="station-title">Therapie</div></div><div class="station-tagline">Volumen, Schmerz, essen — und wann ERCP.</div></div>
-
-    <div class="card open">
-      <div class="card-head"><div><span class="card-tag">Konservativ</span><div class="card-title">Die Basistherapie</div></div><span class="toggle">+</span></div>
-      <div class="card-body"><div class="card-body-inner">
-        <div class="callout critical">
-          <span class="callout-label">★ Merksatz</span>
-          Die Therapie ist überwiegend konservativ: <strong>aggressive Volumengabe (Ringer!)</strong>, Analgesie, <strong>frühe enterale Ernährung</strong> statt langer Nahrungskarenz, engmaschiges Monitoring.
-        </div>
-        <ul>
-          <li>Elektrolytkontrolle; Intensivüberwachung beim schweren Verlauf</li>
-        </ul>
-      </div></div>
-    </div>
-
-    <div class="card">
-      <div class="card-head"><div><span class="card-tag">Ursache</span><div class="card-title">ERCP, Antibiotika, Nekrose</div></div><span class="toggle">+</span></div>
-      <div class="card-body"><div class="card-body-inner">
-        <div class="callout critical">
-          <span class="callout-label">★ Merksatz</span>
-          Bei biliärer Pankreatitis mit Cholangitis oder Obstruktion → <strong>ERCP mit Papillotomie und Steinentfernung</strong>, danach die Cholezystektomie. <strong>Antibiotika nur bei infizierter Nekrose</strong>, nicht prophylaktisch.
-        </div>
-        <ul>
-          <li>Infizierte Nekrose → Drainage oder Nekrosektomie (Step-up-Verfahren)</li>
-          <li>Chronisch: Alkoholkarenz, Enzymsubstitution (Kreon), Insulin bei Diabetes</li>
-        </ul>
-      </div></div>
-    </div>
-  </section>
-
-  <footer>
-    R1 · Pankreatitis · Erstreview. Vier Kernstationen (Grundlagen · Klinik · Diagnostik · Therapie).
+<footer>
+    R2 · Divertikulitis · Kurz + KP-Perlen. Vier Kernstationen (wortgleich in R3 getragen) + KP-Perlen mit Rapid-Fire.
   </footer>
+
 </div>
 <script>
-  const tabs = document.querySelectorAll('.tab');
-  const stations = document.querySelectorAll('.station');
-  tabs.forEach(tab => { tab.addEventListener('click', () => {
-    tabs.forEach(t => t.classList.remove('active'));
-    stations.forEach(s => s.classList.remove('active'));
-    tab.classList.add('active');
-    document.getElementById('s' + tab.dataset.s).classList.add('active');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }); });
-  document.querySelectorAll('.card-head').forEach(head => { head.addEventListener('click', () => head.closest('.card').classList.toggle('open')); });
+  const tabs = [...document.querySelectorAll('.tab')];
+  const panels = [...document.querySelectorAll('.panel')];
+  function showTab(name){
+    tabs.forEach(x=>x.classList.toggle('active', x.dataset.tab===name));
+    panels.forEach(p=>p.classList.toggle('active', p.dataset.panel===name));
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  tabs.forEach(t=>t.addEventListener('click',()=>showTab(t.dataset.tab)));
 </script>
   <script src="/sync.js" defer></script>
   <script src="/focus-timer.js" defer></script>
