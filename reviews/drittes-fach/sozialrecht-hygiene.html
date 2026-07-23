@@ -3,528 +3,426 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sozialrecht, Unfallversicherung & Hygiene · R1 Review</title>
+<title>Sozialrecht · Unfallversicherung · Hygiene · R3</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg: #F7F4EE;
-    --paper: #FFFFFF;
-    --ink: #1A1A1A;
-    --ink-muted: #5C5C5C;
-    --ink-soft: #8A8A8A;
-    --rule: #E8E2D6;
-    --grundlagen: #C0392B; --grundlagen-soft: #FBEAE7;
-    --klinik: #D97706;     --klinik-soft: #FDF2E2;
-    --diagnostik: #1E5F9E; --diagnostik-soft: #E5EEF7;
-    --therapie: #2D7A3E;   --therapie-soft: #E3F1E6;
-    --fragen: #7B3F9E;     --fragen-soft: #EFE5F7;
-    --perlen: #B8860B;     --perlen-soft: #FBF2D9;
+  :root{
+    --bg:#F7F4EE; --card:#FFFDF8; --ink:#2A2724; --muted:#6B6358; --line:#E7E0D4;
+    --grundlagen:#C0392B; --grundlagen-t:#F7E9E6;
+    --klinik:#D97706;     --klinik-t:#FBEEDD;
+    --diagnostik:#1E5F9E; --diagnostik-t:#E4EDF6;
+    --therapie:#2D7A3E;   --therapie-t:#E5F0E7;
+    --fragen:#7B3F9E;     --fragen-t:#F0E8F6;
+    --perlen:#B8860B;     --perlen-t:#F8F0D9;
+    --retrieval:#0F766E;  --retrieval-t:#E0F0EE;
+    --protokoll:#334155;  --protokoll-t:#E8EBF0;
+    --ok:#2D7A3E; --gap:#D97706; --miss:#C0392B;
   }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    background: var(--bg); color: var(--ink);
-    font-family: 'Fraunces', Georgia, serif;
-    font-size: 16.5px; line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
-  .container { max-width: 860px; margin: 0 auto; padding: 40px 24px 70px; }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:'Manrope',system-ui,sans-serif;
+    font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased;padding:0 18px 80px}
+  .wrap{max-width:860px;margin:0 auto}
 
-  /* HEADER */
-  .back {
-    display: inline-block;
-    font-family: 'Manrope', sans-serif;
-    font-size: 11px; font-weight: 700;
-    letter-spacing: 0.16em; text-transform: uppercase;
-    color: var(--ink-muted); text-decoration: none;
-    margin-bottom: 22px;
-  }
-  .back:hover { color: var(--ink); }
-  .eyebrow {
-    font-family: 'Manrope', sans-serif;
-    font-size: 11px; font-weight: 700;
-    letter-spacing: 0.22em; text-transform: uppercase;
-    color: var(--ink-muted); margin-bottom: 12px;
-  }
-  .eyebrow::before { content: "— "; }
-  h1 {
-    font-family: 'Fraunces', serif; font-weight: 600;
-    font-size: clamp(32px, 5vw, 46px);
-    line-height: 1.05; letter-spacing: -0.02em;
-    margin-bottom: 12px;
-  }
-  h1 .accent { font-style: italic; color: var(--grundlagen); }
-  .subtitle {
-    font-family: 'Fraunces', serif; font-style: italic;
-    font-size: 17px; color: var(--ink-muted);
-    margin-bottom: 18px; max-width: 640px;
-  }
-  .meta {
-    font-family: 'Manrope', sans-serif;
-    font-size: 12.5px; color: var(--ink-soft);
-    display: flex; flex-wrap: wrap; gap: 0; align-items: center;
-    margin-bottom: 30px;
-  }
-  .meta span + span::before { content: "•"; margin: 0 12px; }
+  header{padding:54px 0 22px}
+  .eyebrow{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--retrieval);margin-bottom:16px}
+  h1{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(34px,7vw,52px);line-height:1.04;letter-spacing:-.01em}
+  h1 .accent{font-style:italic;color:var(--grundlagen)}
+  .subtitle{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(17px,2.6vw,20px);color:var(--muted);margin-top:14px}
+  .meta{display:flex;flex-wrap:wrap;gap:6px 0;margin-top:20px;font-size:13px;color:var(--muted);font-weight:500}
+  .meta span:not(:last-child)::after{content:"•";margin:0 10px;color:var(--line);font-weight:700}
 
-  /* TABS */
-  .tabs {
-    display: flex; flex-wrap: wrap; gap: 4px;
-    margin-bottom: 28px;
-    background: var(--paper);
-    padding: 5px; border-radius: 50px;
-    border: 1px solid var(--rule);
-  }
-  .tab {
-    flex: 1; min-width: 95px;
-    padding: 10px 8px;
-    font-family: 'Manrope', sans-serif;
-    font-size: 11.5px; font-weight: 600;
-    letter-spacing: 0.04em; text-transform: uppercase;
-    color: var(--ink-muted);
-    background: transparent; border: none;
-    border-radius: 50px; cursor: pointer;
-    text-align: center; transition: all 0.2s ease;
-  }
-  .tab:hover { color: var(--ink); }
-  .tab.active { color: white; }
-  .tab[data-s="1"].active { background: var(--grundlagen); }
-  .tab[data-s="2"].active { background: var(--klinik); }
-  .tab[data-s="3"].active { background: var(--diagnostik); }
-  .tab[data-s="4"].active { background: var(--therapie); }
-  .tab[data-s="5"].active { background: var(--fragen); }
-  .tab[data-s="6"].active { background: var(--perlen); }
 
-  /* STATION */
-  .station { display: none; animation: fadeIn 0.25s ease; }
-  .station.active { display: block; }
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(4px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .station-header {
-    display: flex; justify-content: space-between; align-items: flex-end;
-    padding-bottom: 12px; margin-bottom: 22px;
-    border-bottom: 2px solid; gap: 16px;
-  }
-  .station-eyebrow {
-    font-family: 'Fraunces', serif; font-style: italic;
-    font-size: 13px; color: var(--ink-muted);
-    margin-bottom: 4px;
-  }
-  .station-title {
-    font-family: 'Fraunces', serif; font-weight: 600;
-    font-size: 26px; line-height: 1.1; letter-spacing: -0.01em;
-  }
-  .station-tagline {
-    font-family: 'Fraunces', serif; font-style: italic;
-    font-size: 13.5px; color: var(--ink-muted);
-    text-align: right; max-width: 220px;
-  }
-  #s1 .station-header { border-bottom-color: var(--grundlagen); } #s1 .station-title { color: var(--grundlagen); }
-  #s2 .station-header { border-bottom-color: var(--klinik); }     #s2 .station-title { color: var(--klinik); }
-  #s3 .station-header { border-bottom-color: var(--diagnostik); } #s3 .station-title { color: var(--diagnostik); }
-  #s4 .station-header { border-bottom-color: var(--therapie); }   #s4 .station-title { color: var(--therapie); }
-  #s5 .station-header { border-bottom-color: var(--fragen); }     #s5 .station-title { color: var(--fragen); }
-  #s6 .station-header { border-bottom-color: var(--perlen); }     #s6 .station-title { color: var(--perlen); }
+  .tabs{display:flex;flex-wrap:wrap;gap:8px;position:sticky;top:0;z-index:30;background:linear-gradient(var(--bg) 72%,rgba(247,244,238,0));padding:12px 0 14px;margin-bottom:6px}
+  .tab{position:relative;font-size:13px;font-weight:600;border:1px solid var(--line);background:var(--card);color:var(--muted);padding:8px 15px;border-radius:999px;cursor:pointer;transition:all .15s;white-space:nowrap}
+  .tab:hover{border-color:#cfc6b6}
+  .tab.active{color:#fff;border-color:transparent}
+  .tab[data-c=retrieval].active{background:var(--retrieval)}
+  .tab[data-c=grundlagen].active{background:var(--grundlagen)}
+  .tab[data-c=klinik].active{background:var(--klinik)}
+  .tab[data-c=diagnostik].active{background:var(--diagnostik)}
+  .tab[data-c=therapie].active{background:var(--therapie)}
+  .tab[data-c=fragen].active{background:var(--fragen)}
+  .tab[data-c=perlen].active{background:var(--perlen)}
+  .tab[data-c=protokoll].active{background:var(--protokoll)}
+  .tab .badge{display:none;margin-left:7px;font-size:10px;font-weight:800;padding:1px 6px;border-radius:999px;vertical-align:middle}
+  .tab.flag-gap .badge{display:inline-block;background:var(--gap);color:#fff}
+  .tab.flag-ok .badge{display:inline-block;background:var(--ok);color:#fff}
+  .tab.active .badge{background:rgba(255,255,255,.28)!important;color:#fff}
 
-  /* CARDS */
-  .card {
-    background: var(--paper);
-    border: 1px solid var(--rule);
-    border-radius: 12px;
-    margin-bottom: 14px;
-    overflow: hidden;
-  }
-  .card-head {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 14px 18px; cursor: pointer; gap: 12px;
-  }
-  .card-tag {
-    display: inline-block;
-    font-family: 'Manrope', sans-serif;
-    font-size: 10px; font-weight: 700;
-    letter-spacing: 0.16em; text-transform: uppercase;
-    padding: 3px 8px; border-radius: 3px;
-    margin-bottom: 4px;
-  }
-  #s1 .card-tag { background: var(--grundlagen-soft); color: var(--grundlagen); }
-  #s2 .card-tag { background: var(--klinik-soft); color: var(--klinik); }
-  #s3 .card-tag { background: var(--diagnostik-soft); color: var(--diagnostik); }
-  #s4 .card-tag { background: var(--therapie-soft); color: var(--therapie); }
-  .card-title {
-    font-family: 'Fraunces', serif; font-weight: 500;
-    font-size: 17.5px; line-height: 1.3;
-  }
-  .toggle {
-    font-family: 'Manrope', sans-serif;
-    font-size: 22px; font-weight: 300;
-    color: var(--ink-muted);
-    transition: transform 0.25s ease;
-    flex-shrink: 0;
-  }
-  .card.open .toggle { transform: rotate(45deg); }
-  .card-body { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
-  .card.open .card-body { max-height: 4000px; }
-  .card-body-inner { padding: 2px 18px 18px; }
+  .panel{display:none;animation:fade .25s ease}
+  .panel.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+  .panel-intro{font-family:'Fraunces',serif;font-style:italic;font-size:17px;color:var(--muted);margin:6px 0 18px;line-height:1.5}
 
-  h4 {
-    font-family: 'Manrope', sans-serif;
-    font-size: 10.5px; font-weight: 700;
-    letter-spacing: 0.16em; text-transform: uppercase;
-    color: var(--ink-muted); margin: 14px 0 8px;
-  }
-  .card-body-inner > h4:first-child { margin-top: 4px; }
-  ul { list-style: none; padding-left: 2px; margin-bottom: 10px; }
-  li {
-    position: relative; padding-left: 20px;
-    margin-bottom: 5px; line-height: 1.5;
-    font-size: 15.5px;
-  }
-  li::before {
-    content: ""; position: absolute;
-    left: 5px; top: 9px;
-    width: 6px; height: 6px; border-radius: 50%;
-  }
-  #s1 li::before { background: var(--grundlagen); }
-  #s2 li::before { background: var(--klinik); }
-  #s3 li::before { background: var(--diagnostik); }
-  #s4 li::before { background: var(--therapie); }
-  li ul { margin-top: 5px; margin-bottom: 6px; }
-  li ul li::before {
-    width: 5px; height: 5px; border-radius: 0;
-    transform: rotate(45deg);
-    background: var(--ink-soft) !important; top: 11px;
-  }
-  strong { font-weight: 600; }
-  em.h {
-    font-style: normal;
-    background-image: linear-gradient(to top, var(--grundlagen-soft) 60%, transparent 60%);
-    padding: 0 2px; font-weight: 500;
-  }
-  kbd {
-    font-family: 'JetBrains Mono', monospace; font-size: 12.5px;
-    background: #F0EBE0; padding: 1px 5px;
-    border-radius: 3px; border: 1px solid var(--rule);
-  }
+  /* ---- control bar (Pass 1 instrument) ---- */
+  .ctrl{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:14px 16px;margin-bottom:20px}
+  .ctrl-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+  .tally{font-size:13px;font-weight:700;display:flex;gap:12px;flex-wrap:wrap}
+  .tally i{font-style:normal;display:inline-flex;align-items:center;gap:5px}
+  .tally i::before{content:"";width:9px;height:9px;border-radius:50%}
+  .tally .t-ok::before{background:var(--ok)} .tally .t-gap::before{background:var(--gap)} .tally .t-miss::before{background:var(--miss)}
+  .spacer{flex:1 1 auto}
+  .btn{font-family:'Manrope';font-size:12.5px;font-weight:700;border:none;border-radius:999px;padding:9px 16px;cursor:pointer;transition:.15s}
+  .btn-primary{background:var(--retrieval);color:#fff}
+  .btn-primary:hover{filter:brightness(1.06)}
+  .btn-ghost{background:transparent;color:var(--muted);border:1px solid var(--line)}
+  .btn-ghost:hover{border-color:#cfc6b6}
+  .ctrl-status{margin-top:11px;font-size:13px;font-style:italic;color:var(--retrieval);min-height:18px}
 
-  table {
-    width: 100%; border-collapse: collapse;
-    font-family: 'Manrope', sans-serif; font-size: 13.5px;
-    margin: 8px 0 12px;
-  }
-  th {
-    background: #F0EBE0;
-    text-transform: uppercase;
-    font-size: 10px; letter-spacing: 0.12em;
-    color: var(--ink-muted);
-    text-align: left; padding: 8px 10px;
-    font-weight: 700;
-    border-bottom: 1px solid var(--rule);
-  }
-  td {
-    padding: 8px 10px;
-    border-bottom: 1px solid var(--rule);
-    vertical-align: top;
-  }
-  tr:last-child td { border-bottom: none; }
+  /* ---- retrieval prompt ---- */
+  .rt{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:14px;transition:border-color .2s}
+  .rt[data-score=sicher]{border-left-color:var(--ok)}
+  .rt[data-score=lueckenhaft]{border-left-color:var(--gap)}
+  .rt[data-score=gefehlt]{border-left-color:var(--miss)}
+  .rt-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:8px}
+  .rt-n{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--retrieval)}
+  .rt-right{display:flex;align-items:center;gap:10px;white-space:nowrap}
+  .rt-ptr{font-size:11px;font-weight:600;color:var(--muted)}
+  .rt-q{font-size:15.5px;line-height:1.55}
+  .reveal{margin-top:12px;border-top:1px dashed var(--line);padding-top:0}
+  .reveal>summary{list-style:none;cursor:pointer;font-size:12.5px;font-weight:800;letter-spacing:.04em;color:var(--retrieval);padding:11px 0 0;user-select:none;display:inline-flex;align-items:center;gap:6px}
+  .reveal>summary::-webkit-details-marker{display:none}
+  .reveal>summary::before{content:"▸";transition:transform .2s;display:inline-block}
+  .reveal[open]>summary::before{transform:rotate(90deg)}
+  .reveal .ans{font-size:14.5px;line-height:1.6;color:#3c372f;padding-top:10px}
+  .reveal .ans b{color:var(--ink)}
+  .reveal .ans ul{list-style:none;padding-left:2px;margin:2px 0 0}
+  .reveal .ans li{position:relative;padding-left:18px;margin-bottom:8px;line-height:1.5}
+  .reveal .ans>ul>li::before{content:"";position:absolute;left:2px;top:8px;width:6px;height:6px;border-radius:50%;background:var(--retrieval)}
+  .reveal .ans li ul{margin:7px 0 2px}
+  .reveal .ans li li{padding-left:16px;margin-bottom:5px;font-size:13.8px;color:#4a443c}
+  .reveal .ans li li::before{content:"";position:absolute;left:0;top:7px;width:5px;height:5px;transform:rotate(45deg);background:#b9b0a1}
+  .score{display:flex;gap:7px;margin-top:12px;padding-top:11px;border-top:1px solid var(--line)}
+  .sbtn{flex:1;font-size:12px;font-weight:700;border:1px solid var(--line);background:var(--bg);color:var(--muted);border-radius:8px;padding:7px 4px;cursor:pointer;transition:.12s}
+  .sbtn:hover{border-color:#cfc6b6}
+  .sbtn[data-v=sicher].on{background:var(--ok);color:#fff;border-color:transparent}
+  .sbtn[data-v=lueckenhaft].on{background:var(--gap);color:#fff;border-color:transparent}
+  .sbtn[data-v=gefehlt].on{background:var(--miss);color:#fff;border-color:transparent}
 
-  /* CALLOUTS */
-  .callout {
-    border-left: 3px solid;
-    padding: 12px 16px; margin: 12px 0;
-    border-radius: 0 8px 8px 0;
-    font-family: 'Fraunces', serif;
-    font-style: italic; font-size: 14.5px;
-    line-height: 1.5;
-  }
-  .callout-label {
-    font-family: 'Manrope', sans-serif; font-style: normal;
-    font-size: 10px; font-weight: 700;
-    letter-spacing: 0.16em; text-transform: uppercase;
-    display: block; margin-bottom: 5px;
-  }
-  .callout.critical { border-color: var(--grundlagen); background: var(--grundlagen-soft); }
-  .callout.critical .callout-label { color: var(--grundlagen); }
-  .callout.warning { border-color: var(--klinik); background: var(--klinik-soft); }
-  .callout.warning .callout-label { color: var(--klinik); }
-  .callout.fact { border-color: var(--diagnostik); background: var(--diagnostik-soft); }
-  .callout.fact .callout-label { color: var(--diagnostik); }
-  .callout.pearl { border-color: var(--perlen); background: var(--perlen-soft); }
-  .callout.pearl .callout-label { color: var(--perlen); }
+  /* ---- Schnellfragen ---- */
+  .sf-wrap{background:var(--retrieval-t);border:1px solid #BFE0DC;border-radius:13px;padding:18px 20px;margin-top:24px}
+  .sf-wrap h3{font-family:'Fraunces',serif;font-weight:500;font-size:20px;margin-bottom:3px}
+  .sf-wrap .sf-intro{font-size:13.5px;font-style:italic;color:#0c5d57;margin-bottom:14px}
+  .sf{border-bottom:1px solid #cfe4e1;padding:9px 0}
+  .sf:last-child{border-bottom:none}
+  .sf>summary{list-style:none;cursor:pointer;font-size:14.5px;font-weight:600;display:flex;justify-content:space-between;gap:10px;user-select:none}
+  .sf>summary::-webkit-details-marker{display:none}
+  .sf>summary::after{content:"+";color:var(--retrieval);font-weight:800}
+  .sf[open]>summary::after{content:"−"}
+  .sf .sfa{font-size:14px;color:#0c5d57;font-weight:700;padding-top:6px}
 
-  /* Q&A */
-  .qa {
-    background: var(--fragen-soft);
-    border-left: 4px solid var(--fragen);
-    border-radius: 0 10px 10px 0;
-    padding: 14px 18px; margin: 14px 0;
-  }
-  .qa-q {
-    font-family: 'Fraunces', serif; font-style: italic;
-    font-size: 15.5px; line-height: 1.45; margin-bottom: 10px;
-  }
-  .qa-q::before {
-    content: "Prüfer:";
-    font-family: 'Manrope', sans-serif; font-style: normal;
-    font-size: 10px; font-weight: 700;
-    letter-spacing: 0.16em; color: var(--fragen);
-    display: block; margin-bottom: 3px; text-transform: uppercase;
-  }
-  .qa-a {
-    font-family: 'Fraunces', serif; font-size: 15px;
-    line-height: 1.55; padding-top: 10px;
-    border-top: 1px dashed rgba(123,63,158,0.4);
-  }
-  .qa-a::before {
-    content: "Ideale Antwort:";
-    font-family: 'Manrope', sans-serif; font-size: 10px;
-    font-weight: 700; letter-spacing: 0.16em;
-    color: var(--fragen);
-    display: block; margin-bottom: 5px; text-transform: uppercase;
-  }
-  .qa-meta {
-    font-family: 'Manrope', sans-serif; font-size: 11px;
-    color: var(--ink-soft); margin-top: 10px;
-    padding-top: 8px; border-top: 1px solid rgba(123,63,158,0.15);
-    font-style: italic;
-  }
+  /* ---- content cards (v1) ---- */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:14px;overflow:hidden}
+  .card>summary{list-style:none;cursor:pointer;padding:18px 20px;display:flex;align-items:flex-start;gap:14px;user-select:none}
+  .card>summary::-webkit-details-marker{display:none}
+  .card .ct{flex:1}
+  .card .ctag{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:5px}
+  .card .ctitle{font-family:'Fraunces',serif;font-weight:500;font-size:17px;line-height:1.25}
+  .plus{flex:none;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:18px;line-height:1;transition:transform .2s;margin-top:2px}
+  .card[open] .plus{transform:rotate(45deg)}
+  .card .body{padding:0 20px 20px;border-top:1px solid var(--line);margin-top:-2px;padding-top:16px}
+  .card.grundlagen .ctag{color:var(--grundlagen)} .card.grundlagen .plus{background:var(--grundlagen-t);color:var(--grundlagen)}
+  .card.klinik .ctag{color:var(--klinik)} .card.klinik .plus{background:var(--klinik-t);color:var(--klinik)}
+  .card.diagnostik .ctag{color:var(--diagnostik)} .card.diagnostik .plus{background:var(--diagnostik-t);color:var(--diagnostik)}
+  .card.therapie .ctag{color:var(--therapie)} .card.therapie .plus{background:var(--therapie-t);color:var(--therapie)}
+  .card.fragen .ctag{color:var(--fragen)} .card.fragen .plus{background:var(--fragen-t);color:var(--fragen)}
+  .card.perlen .ctag{color:var(--perlen)} .card.perlen .plus{background:var(--perlen-t);color:var(--perlen)}
 
-  /* PERLE */
-  .pearl-card {
-    background: var(--perlen-soft);
-    border: 1px solid rgba(184,134,11,0.3);
-    border-radius: 10px;
-    padding: 14px 18px; margin: 12px 0;
-  }
-  .pearl-label {
-    font-family: 'Manrope', sans-serif;
-    font-size: 10.5px; font-weight: 700;
-    letter-spacing: 0.16em; text-transform: uppercase;
-    color: var(--perlen); margin-bottom: 8px;
-  }
-  .pearl-content {
-    font-family: 'Fraunces', serif;
-    font-size: 15.5px; line-height: 1.5;
-    margin-bottom: 8px;
-  }
-  .pearl-content strong { color: #6A4C00; }
-  .pearl-mnemonic {
-    background: rgba(255,255,255,0.6);
-    border-radius: 6px;
-    padding: 8px 12px;
-    font-family: 'Fraunces', serif; font-style: italic;
-    font-size: 14px; color: var(--ink-muted);
-  }
-  .pearl-mnemonic::before {
-    content: "✦ ";
-    color: var(--perlen);
-    font-weight: 700; font-style: normal;
-  }
+  ul.b{list-style:none;padding-left:2px}
+  ul.b>li{position:relative;padding-left:20px;margin-bottom:8px;line-height:1.55}
+  ul.b>li::before{content:"";position:absolute;left:2px;top:9px;width:7px;height:7px;border-radius:50%}
+  .grundlagen ul.b>li::before{background:var(--grundlagen)} .klinik ul.b>li::before{background:var(--klinik)}
+  .diagnostik ul.b>li::before{background:var(--diagnostik)} .therapie ul.b>li::before{background:var(--therapie)}
+  ul.b ul{list-style:none;padding-left:18px;margin-top:7px}
+  ul.b ul>li{position:relative;padding-left:18px;margin-bottom:6px;font-size:15px;color:#4a443c}
+  ul.b ul>li::before{content:"";position:absolute;left:0;top:7px;width:6px;height:6px;transform:rotate(45deg);background:#b9b0a1}
+  strong{font-weight:700;color:var(--ink)}
 
-  footer {
-    margin-top: 50px;
-    padding-top: 20px;
-    border-top: 1px solid var(--rule);
-    font-family: 'Manrope', sans-serif;
-    font-size: 11.5px; color: var(--ink-soft);
-    text-align: center;
-  }
+  .callout{border-radius:11px;padding:13px 16px;margin:14px 0;font-size:14.5px;line-height:1.55;border-left:4px solid}
+  .callout .lab{font-weight:800;font-size:11px;letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .critical{background:var(--grundlagen-t);border-color:var(--grundlagen)} .critical .lab{color:var(--grundlagen)}
+  .warning{background:var(--klinik-t);border-color:var(--klinik)} .warning .lab{color:var(--klinik)}
+  .fact{background:var(--diagnostik-t);border-color:var(--diagnostik)} .fact .lab{color:var(--diagnostik)}
 
-  @media (max-width: 600px) {
-    .container { padding: 28px 16px 50px; }
-    .station-header { flex-direction: column; align-items: flex-start; }
-    .station-tagline { text-align: left; max-width: none; }
-    .tab { font-size: 10.5px; padding: 9px 6px; }
-  }
+  .dd{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+  .dd th,.dd td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+  .dd th{background:var(--diagnostik-t);font-weight:700;color:var(--diagnostik);font-size:12px}
+  .dd td:first-child{font-weight:600}
+
+  .pk{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:16px}
+  .pk-meta{display:flex;flex-wrap:wrap;gap:6px 0;font-size:11.5px;font-weight:700;color:var(--protokoll);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+  .pk-meta span:not(:last-child)::after{content:"•";margin:0 8px;color:#c3c9d2}
+  .pk-badge{display:inline-block;background:var(--therapie-t);color:var(--therapie);font-size:10.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:2px 9px;border-radius:999px;margin-left:auto}
+  .pk-akte{font-size:14.5px;line-height:1.58;background:var(--protokoll-t);border-radius:9px;padding:12px 14px;margin-bottom:12px}
+  .pk-akte .lab,.pk-q .lab{font-weight:800;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--protokoll);display:block;margin-bottom:5px}
+  .pk-q ul{list-style:none;padding:0}
+  .pk-q li{position:relative;padding-left:18px;margin-bottom:7px;font-size:14.5px;line-height:1.5}
+  .pk-q li::before{content:"–";position:absolute;left:0;color:var(--protokoll);font-weight:700}
+  .pq{border-top:1px solid var(--line);padding:10px 0}
+  .pq-frage{position:relative;padding-left:18px;font-size:14.5px;font-weight:600;line-height:1.5}
+  .pq-frage::before{content:"–";position:absolute;left:0;color:var(--protokoll);font-weight:700}
+  .pq .reveal{margin-top:5px;border-top:none;padding-top:0}
+  .pq .reveal>summary{padding:5px 0 0}
+
+  .pearl{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--perlen);border-radius:12px;padding:16px 18px;margin-bottom:13px}
+  .pearl .ph{font-weight:800;font-size:13px;color:var(--perlen);margin-bottom:7px}
+  .pearl .pt{font-size:15px;line-height:1.55}
+  .pearl .mn{margin-top:9px;background:var(--perlen-t);border-radius:8px;padding:8px 12px;font-size:13.5px;font-style:italic;color:#7a5c08}
+  .pearl .mn b{font-style:normal;font-weight:800}
+
+  footer{margin-top:40px;padding-top:22px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted);line-height:1.6}
+  .back{display:inline-block;font-family:Manrope,system-ui,sans-serif;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);text-decoration:none;margin-bottom:18px}
+  .back:hover{color:var(--ink)}
+  .r4pill{display:inline-block;font-family:var(--m,'Manrope',sans-serif);font-size:12px;font-weight:800;letter-spacing:.04em;background:#2D7A3E;color:#fff;padding:3px 10px;border-radius:999px;vertical-align:middle;margin-left:10px}
 </style>
 </head>
 <body>
-<div class="container">
+<div class="wrap">
 
   <a href="../../index.html" class="back">← Zurück zur Library</a>
 
   <header>
-    <div class="eyebrow">R1 Review · Querschnitt · Drittes Fach</div>
-    <h1>Sozialrecht &amp; <span class="accent">Hygiene</span></h1>
-    <p class="subtitle">Die fünf Säulen der Sozialversicherung, die gesetzliche Unfallversicherung (BG, D-Arzt, Wegeunfall) und Krankenhaushygiene (Händedesinfektion, MRE, PEP). Drittes-Fach-Dauerbrenner.</p>
-    <div class="meta"><span>~ 12 min</span><span>4 Stationen</span><span>R1 Kurz</span></div>
+    <div class="eyebrow">Drittes Fach · R3 · Kurz + KP-Perlen + Protokolle</div>
+    <h1>Sozialrecht · Unfall<span class="accent">versicherung</span> · Hygiene</h1>
+    <div class="subtitle">Die fünf Säulen und wer sie zahlt, der Weg vom Arbeitsunfall über den D-Arzt zur Berufsgenossenschaft, und die Krankenhaushygiene von den fünf Momenten bis zur PEP nach Nadelstich. Vier Stationen + KP-Perlen + dokumentierte Mainz-Fragen.</div>
+    <div class="meta">
+      <span>R3 von 5 · Superset von R2</span>
+      <span>~15–18 Min</span>
+      <span>Stand 07/2026</span>
+      <span>Mainz-Protokolle + Stex + Fadi Jarbouh</span>
+    </div>
   </header>
 
-  <nav class="tabs">
-    <button class="tab active" data-s="1">01 · Sozialvers</button>
-    <button class="tab" data-s="2">02 · Unfallvers</button>
-    <button class="tab" data-s="3">03 · Hygiene</button>
-    <button class="tab" data-s="4">04 · MRE & PEP</button>
-  </nav>
+  <div class="tabs">
+    <button class="tab active" data-c="grundlagen" data-tab="grundlagen">Sozialrecht</button>
+    <button class="tab" data-c="klinik" data-tab="klinik">Unfallversicherung</button>
+    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Hygiene</button>
+    <button class="tab" data-c="therapie" data-tab="therapie">MRE &amp; Schutz</button>
+    <button class="tab" data-c="perlen" data-tab="perlen">KP-Perlen</button>
+    <button class="tab" data-c="protokoll" data-tab="protokoll">Fragen &amp; Protokolle</button>
+  </div>
+  <section class="panel active" data-panel="grundlagen">
+    <p class="panel-intro">Die fünf Säulen, wer zahlt, und was bei Krankheit passiert. Erst laut, dann aufklappen.</p>
+    <details class="card grundlagen" open><summary><span class="ct"><span class="ctag">Anker</span><span class="ctitle">Die fünf Säulen der Sozialversicherung</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Kranken-, Pflege-, Renten-, Unfall- und Arbeitslosenversicherung.</strong> Die Beiträge teilen sich Arbeitnehmer und Arbeitgeber — mit einer Ausnahme: die Unfallversicherung zahlt der Arbeitgeber allein.</div>
+        <table class="dd"><tr><th>Säule</th><th>SGB</th><th>Wer zahlt</th></tr>
+          <tr><td>Krankenversicherung</td><td>SGB V</td><td>Arbeitnehmer + Arbeitgeber je zur Hälfte</td></tr>
+          <tr><td>Pflegeversicherung</td><td>SGB XI</td><td>AN + AG (Zuschlag für Kinderlose allein AN)</td></tr>
+          <tr><td>Rentenversicherung</td><td>SGB VI</td><td>AN + AG, dazu Bundeszuschuss</td></tr>
+          <tr><td><strong>Unfallversicherung</strong></td><td>SGB VII</td><td><strong>nur der Arbeitgeber</strong></td></tr>
+          <tr><td>Arbeitslosenversicherung</td><td>SGB III</td><td>AN + AG je zur Hälfte</td></tr></table>
+      </div>
+    </details>
+    <details class="card grundlagen"><summary><span class="ct"><span class="ctag">GKV/PKV</span><span class="ctitle">Solidar- vs. Äquivalenzprinzip</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout fact"><span class="lab">⚙ Merke</span><strong>Die GKV folgt dem Solidarprinzip</strong> — der Beitrag richtet sich nach dem Einkommen, Familienangehörige sind beitragsfrei mitversichert. <strong>In der PKV richtet sich der Beitrag nach Risiko und Alter</strong>, jede Person zahlt einzeln.</div>
+      </div>
+    </details>
+    <details class="card grundlagen"><summary><span class="ct"><span class="ctag">AU + Rente</span><span class="ctitle">Arbeitsunfähigkeit &amp; Erwerbsminderung</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Arbeitsunfähigkeit heißt: vorübergehend krankheitsbedingt nicht arbeitsfähig, ärztlich bescheinigt.</strong> Bei allgemeiner Krankheit zahlt der Arbeitgeber sechs Wochen Entgeltfortzahlung, danach die Krankenkasse Krankengeld bis zu achtundsiebzig Wochen.</div>
+        <table class="dd"><tr><th>Begriff</th><th>Kriterium</th></tr>
+          <tr><td>teilweise Erwerbsminderung</td><td>Restleistungsvermögen unter sechs Stunden täglich</td></tr>
+          <tr><td>volle Erwerbsminderung</td><td>unter drei Stunden täglich</td></tr>
+          <tr><td>Schwerbehinderung</td><td>ab GdB 50, festgestellt vom Versorgungsamt</td></tr></table>
+      </div>
+    </details>
+  </section>
 
-  <!-- STATION 1: GRUNDLAGEN -->
-  <section class="station active" id="s1">
-    <div class="station-header"><div><div class="station-eyebrow">Station 01</div><div class="station-title">Sozialversicherung</div></div><div class="station-tagline">Die f&uuml;nf S&auml;ulen &mdash; wer zahlt.</div></div>
+  <!-- ============ UNFALLVERSICHERUNG ============ -->
+  <section class="panel" data-panel="klinik">
+    <p class="panel-intro">BG, D-Arzt, Arbeits- und Wegeunfall. Erst laut, dann aufklappen.</p>
+    <details class="card klinik" open><summary><span class="ct"><span class="ctag">Träger</span><span class="ctitle">Berufsgenossenschaft &amp; Auftrag</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Träger sind die Berufsgenossenschaften, im öffentlichen Bereich die Unfallkassen — finanziert allein vom Arbeitgeber, Rechtsgrundlage ist das SGB VII.</strong> Auftrag ist, Arbeitsunfälle und Berufskrankheiten zu verhüten und danach medizinisch, beruflich und sozial zu rehabilitieren.</div>
+        <div class="callout fact"><span class="lab">⚙ Grundsatz</span><strong>„Rehabilitation vor Rente"</strong> — und mit allen geeigneten Mitteln, ohne Rücksicht auf die Kosten.</div>
+      </div>
+    </details>
+    <details class="card klinik"><summary><span class="ct"><span class="ctag">Begriffe</span><span class="ctitle">Arbeitsunfall · Wegeunfall · Berufskrankheit</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <table class="dd"><tr><th>Begriff</th><th>Definition</th></tr>
+          <tr><td><strong>Arbeitsunfall</strong></td><td>Unfall bei der versicherten beruflichen Tätigkeit (§ 8 SGB VII)</td></tr>
+          <tr><td><strong>Wegeunfall</strong></td><td>auf dem direkten Weg zur oder von der Arbeit</td></tr>
+          <tr><td><strong>Berufskrankheit</strong></td><td>beruflich verursacht <em>und</em> in der Berufskrankheitenverordnung gelistet</td></tr></table>
+        <div class="callout warning"><span class="lab">▲ Stolperstein</span><strong>Ein privater Umweg — Einkaufen, Freunde besuchen — hebt den Versicherungsschutz auf.</strong> Ein notwendiger Umweg wie das Bringen des Kindes zur Kita oder eine Fahrgemeinschaft bleibt dagegen versichert.</div>
+        <ul class="b"><li>Versichert sind Beschäftigte, Auszubildende, Schüler (Unterricht und Pausen), Studierende, Ehrenamtliche und Ersthelfer</li></ul>
+      </div>
+    </details>
+    <details class="card klinik"><summary><span class="ct"><span class="ctag">D-Arzt</span><span class="ctitle">Durchgangsarzt &amp; Meldeweg</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Der Durchgangsarzt ist ein Facharzt für Chirurgie beziehungsweise Unfallchirurgie oder Orthopädie, den die Berufsgenossenschaft zugelassen hat.</strong> Er übernimmt nach der Erstversorgung die Beurteilung und Steuerung jedes Arbeits- und Schulunfalls.</div>
+        <table class="dd"><tr><th>Wer</th><th>Meldet was</th></tr>
+          <tr><td>Arbeitgeber</td><td>Unfallanzeige an die BG (bei mehr als drei Tagen Arbeitsunfähigkeit)</td></tr>
+          <tr><td>Durchgangsarzt</td><td>D-Arzt-Bericht an die BG</td></tr>
+          <tr><td>jeder Arzt</td><td>Verdacht auf eine Berufskrankheit — Anzeige an BG oder Gewerbeärztlichen Dienst</td></tr></table>
+      </div>
+    </details>
+    <details class="card klinik"><summary><span class="ct"><span class="ctag">Leistungen</span><span class="ctitle">Verletztengeld, MdE, Verletztenrente</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Nach dem Arbeitsunfall zahlt der Arbeitgeber sechs Wochen Entgeltfortzahlung, danach übernimmt die Unfallversicherung mit dem Verletztengeld.</strong> Bleibt ein Dauerschaden, wird die Minderung der Erwerbsfähigkeit begutachtet.</div>
+        <div class="callout fact"><span class="lab">⚙ Schwelle</span><strong>Eine Verletztenrente gibt es ab einer MdE von zwanzig Prozent</strong>, und zwar über die dreizehnte Woche nach dem Unfall hinaus.</div>
+      </div>
+    </details>
+  </section>
 
-    <div class="card open">
-      <div class="card-head"><div><span class="card-tag">&#9733; Anker</span><div class="card-title">Die 5 S&auml;ulen</div></div><span class="toggle">+</span></div>
-      <div class="card-body"><div class="card-body-inner">
-        <div class="callout fact"><span class="callout-label">&#9733; Merksatz</span><strong>Kranken- &middot; Pflege- &middot; Renten- &middot; Unfall- &middot; Arbeitslosenversicherung.</strong> Beitr&auml;ge teilen sich AN + AG &mdash; <strong>Ausnahme: die Unfallversicherung zahlt allein der Arbeitgeber.</strong></div>
-        <table>
-          <thead><tr><th>S&auml;ule</th><th>Wer zahlt</th></tr></thead>
-          <tbody>
-            <tr><td>Krankenversicherung</td><td>Arbeitnehmer + Arbeitgeber</td></tr>
-            <tr><td>Pflegeversicherung</td><td>Arbeitnehmer + Arbeitgeber</td></tr>
-            <tr><td>Rentenversicherung</td><td>AN + AG (+ Bundeszuschuss)</td></tr>
-            <tr><td><strong>Unfallversicherung</strong></td><td><strong>nur der Arbeitgeber</strong></td></tr>
-            <tr><td>Arbeitslosenversicherung</td><td>Arbeitnehmer + Arbeitgeber</td></tr>
-          </tbody>
-        </table>
-        <div class="callout fact"><span class="callout-label">&#9881; GKV vs. PKV</span>GKV: Solidarprinzip, Beitrag einkommensabh&auml;ngig, Familienangeh&ouml;rige mitversichert. PKV: Beitrag risiko-/altersabh&auml;ngig. Versicherungspflichtgrenze ~&euro;&nbsp;Bruttoeinkommen; Beamte/Selbstst&auml;ndige Sonderregeln.</div>
-      </div></div>
-    </div>
+  <!-- ============ HYGIENE ============ -->
+  <section class="panel" data-panel="diagnostik">
+    <p class="panel-intro">Händehygiene und nosokomiale Infektionen. Erst laut, dann aufklappen.</p>
+    <details class="card diagnostik" open><summary><span class="ct"><span class="ctag">Anker</span><span class="ctitle">Die fünf Momente der Händedesinfektion</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Die Händedesinfektion ist die wichtigste Einzelmaßnahme gegen nosokomiale Infektionen</strong> — der wichtigste Übertragungsweg sind kontaminierte Hände.</div>
+        <ul class="b"><li>vor Patientenkontakt</li><li>vor aseptischer Tätigkeit</li><li>nach Kontakt mit potenziell infektiösem Material</li><li>nach Patientenkontakt</li><li>nach Kontakt mit der Patientenumgebung</li></ul>
+        <div class="callout warning"><span class="lab">▲ Stolperstein</span><strong>Alkoholische Desinfektion ist Standard — bei Clostridioides difficile und Norovirus muss man zusätzlich die Hände waschen</strong>, weil Sporen und unbehüllte Viren alkoholresistent sind und mechanisch entfernt werden müssen.</div>
+      </div>
+    </details>
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Nosokomial</span><span class="ctitle">Definition &amp; Risikofaktoren</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Eine nosokomiale Infektion wird im zeitlichen Zusammenhang mit einer stationären oder pflegerischen Versorgung erworben</strong> — bei der Pneumonie gilt die Grenze von achtundvierzig Stunden nach Aufnahme.</div>
+        <table class="dd"><tr><th>Häufigste Formen</th><th>Auslöser</th></tr>
+          <tr><td>Pneumonie</td><td>Beatmung</td></tr>
+          <tr><td>Harnwegsinfektion</td><td>Blasenkatheter</td></tr>
+          <tr><td>Wundinfektion</td><td>Operation</td></tr>
+          <tr><td>Katheter-assoziierte Sepsis</td><td>ZVK</td></tr></table>
+        <ul class="b"><li>Risiko: hohes Alter, lange Liegedauer, Diabetes und Immunsuppression, Fremdkörper wie ZVK, Blasenkatheter, Tubus</li><li>Empfehlungen gibt die KRINKO am Robert-Koch-Institut; die Surveillance regelt das IfSG</li></ul>
+      </div>
+    </details>
+  </section>
 
-    <div class="card">
-      <div class="card-head"><div><span class="card-tag">AU + Rente</span><div class="card-title">Arbeitsunf&auml;higkeit &amp; Erwerbsminderung</div></div><span class="toggle">+</span></div>
-      <div class="card-body"><div class="card-body-inner">
-        <div class="callout fact"><span class="callout-label">&#9733; Merksatz</span><strong>AU = vor&uuml;bergehend krankheitsbedingt arbeitsunf&auml;hig (&auml;rztlich bescheinigt). Bei allgemeiner Krankheit: 6 Wochen Entgeltfortzahlung durch den AG, danach Krankengeld der GKV (bis 78 Wochen).</strong></div>
-        <ul>
-          <li><strong>Erwerbsminderungsrente</strong> (Rentenversicherung) nach Restleistungsverm&ouml;gen: teilweise EM &lt; 6 h/Tag, volle EM &lt; 3 h/Tag</li>
-          <li>GdB / Schwerbehinderung ab GdB 50 (Versorgungsamt)</li>
-        </ul>
-      </div></div>
+  <!-- ============ MRE & SCHUTZ ============ -->
+  <section class="panel" data-panel="therapie">
+    <p class="panel-intro">Multiresistente Erreger, Isolation, Nadelstich. Erst laut, dann aufklappen.</p>
+    <details class="card therapie" open><summary><span class="ct"><span class="ctag">MRE</span><span class="ctitle">MRSA und die anderen</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>MRSA ist ein Staphylococcus aureus mit Resistenz gegen Beta-Laktam-Antibiotika.</strong> Die Kolonisation von Haut und Nase hat keinen Krankheitswert und ist streng von der Infektion zu trennen.</div>
+        <ul class="b"><li>Screening: Nasen- und Rachenabstrich, Kultur oder PCR</li><li>Risiko: Krankenhausaufenthalt über vier Tage, Beatmung, Intensivstation, Dialyse, Pflegeheim, bekannte Kolonisation</li><li>Sanierung: Mupirocin-Nasensalbe und antiseptische Ganzkörperwaschung über etwa fünf Tage</li><li>Weitere MRE: VRE sowie 3-MRGN und 4-MRGN bei gramnegativen Erregern</li></ul>
+        <div class="callout fact"><span class="lab">⚙ Therapie</span>Bei MRSA-Infektion <strong>Vancomycin oder Linezolid</strong>, bei VRE Linezolid oder Daptomycin.</div>
+      </div>
+    </details>
+    <details class="card therapie"><summary><span class="ct"><span class="ctag">Isolation</span><span class="ctitle">Standard + erweiterte Maßnahmen</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Die Standardhygiene gilt immer; die erweiterte Isolation richtet sich nach dem Übertragungsweg.</strong></div>
+        <table class="dd"><tr><th>Art</th><th>Beispiele</th></tr>
+          <tr><td>Kontakt</td><td>MRSA und andere MRE, C. difficile, Norovirus</td></tr>
+          <tr><td>Tröpfchen</td><td>Influenza, Meningokokken, Pertussis</td></tr>
+          <tr><td>Aerogen (Unterdruckzimmer)</td><td>Tuberkulose, Masern, Varizellen</td></tr></table>
+      </div>
+    </details>
+    <details class="card therapie"><summary><span class="ct"><span class="ctag">Nadelstich</span><span class="ctitle">Verletzung &amp; PEP</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz (Dreier-Regel)</span><strong>Übertragungsrisiko nach Nadelstich: HIV etwa null Komma drei Prozent, Hepatitis C etwa drei Prozent, Hepatitis B etwa dreißig Prozent</strong> — gegen HBV schützt die Impfung.</div>
+        <ul class="b"><li>Sofort: Blutung fördern, Wunde spülen und desinfizieren</li><li>Indexpatient und Mitarbeiter auf HIV, HBV und HCV testen</li><li>HIV-PEP möglichst innerhalb von zwei Stunden, spätestens nach vierundzwanzig bis zweiundsiebzig Stunden</li><li>HBV: bei Ungeimpften Immunglobulin plus Aktivimpfung — HCV: keine PEP, nur Verlaufskontrolle</li></ul>
+        <div class="callout warning"><span class="lab">▲ Pflicht</span><strong>Der Nadelstich ist ein Arbeitsunfall</strong> und muss beim D-Arzt oder Betriebsarzt dokumentiert werden — sonst gibt es später keinen Versicherungsschutz.</div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ KP-PERLEN ============ -->
+  <section class="panel" data-panel="perlen">
+    <p class="panel-intro">Acht Sätze, die punkten.</p>
+    <div class="pearl"><div class="ph">⭐ Perle 1 · Die Ausnahme</div><div class="pt">Vier Säulen teilen sich AN und AG — <strong>die Unfallversicherung zahlt der Arbeitgeber allein.</strong></div><div class="mn"><b>Merke:</b> Unfall zahlt der Chef</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 2 · SGB VII</div><div class="pt">Die gesetzliche Unfallversicherung steht im <strong>SGB VII</strong>, der Arbeitsunfall in <strong>§ 8</strong>.</div><div class="mn"><b>Merke:</b> Sieben = Unfall</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 3 · Umweg</div><div class="pt"><strong>Privater Umweg hebt den Schutz auf, notwendiger Umweg (Kita, Fahrgemeinschaft) nicht.</strong></div><div class="mn"><b>Merke:</b> Kind ja, Einkauf nein</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 4 · MdE 20 %</div><div class="pt">Die <strong>Verletztenrente beginnt ab einer MdE von 20 Prozent</strong>.</div><div class="mn"><b>Merke:</b> Zwanzig für die Rente</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 5 · 6 Wochen</div><div class="pt"><strong>Sechs Wochen Entgeltfortzahlung durch den Arbeitgeber</strong> — danach Krankengeld der GKV, beim Arbeitsunfall Verletztengeld der Unfallversicherung.</div><div class="mn"><b>Merke:</b> Sechs Wochen Chef, dann Kasse</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 6 · Sporen</div><div class="pt">Alkohol wirkt nicht gegen Sporen — <strong>bei C. difficile und Norovirus zusätzlich Hände waschen.</strong></div><div class="mn"><b>Merke:</b> Sporen wäscht man weg</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 7 · 48 Stunden</div><div class="pt">Die nosokomiale Pneumonie beginnt <strong>frühestens 48 Stunden nach Aufnahme.</strong></div><div class="mn"><b>Merke:</b> Zwei Tage, dann nosokomial</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 8 · Dreier-Regel</div><div class="pt">Nadelstich: <strong>HIV 0,3 % · HCV 3 % · HBV 30 %</strong> — jeweils Faktor zehn.</div><div class="mn"><b>Merke:</b> 0,3 – 3 – 30</div></div>
+
+    <div class="sf-wrap">
+      <h3>Schnellfragen · Rapid-Fire</h3>
+      <div class="sf-intro">Atomare Einzelfakten — Ein-Wort-Abruf, keine Optionen. Laut, sofort, dann aufdecken.</div>
+      <details class="sf"><summary>Die fünf Säulen?</summary><div class="sfa">Kranken · Pflege · Renten · Unfall · Arbeitslosen</div></details>
+      <details class="sf"><summary>SGB der Unfallversicherung?</summary><div class="sfa">SGB VII</div></details>
+      <details class="sf"><summary>SGB der Krankenversicherung?</summary><div class="sfa">SGB V</div></details>
+      <details class="sf"><summary>Wer zahlt die Unfallversicherung?</summary><div class="sfa">allein der Arbeitgeber</div></details>
+      <details class="sf"><summary>Träger der gesetzlichen UV?</summary><div class="sfa">Berufsgenossenschaft / Unfallkasse</div></details>
+      <details class="sf"><summary>Arbeitsunfall — welcher Paragraph?</summary><div class="sfa">§ 8 SGB VII</div></details>
+      <details class="sf"><summary>Fachgebiet des D-Arztes?</summary><div class="sfa">Chirurgie/Unfallchirurgie oder Orthopädie</div></details>
+      <details class="sf"><summary>Wer erstattet die Unfallanzeige?</summary><div class="sfa">der Arbeitgeber</div></details>
+      <details class="sf"><summary>Verletztenrente ab welcher MdE?</summary><div class="sfa">20 %</div></details>
+      <details class="sf"><summary>Entgeltfortzahlung wie lange?</summary><div class="sfa">6 Wochen</div></details>
+      <details class="sf"><summary>Krankengeld maximal?</summary><div class="sfa">78 Wochen</div></details>
+      <details class="sf"><summary>Volle Erwerbsminderung?</summary><div class="sfa">unter 3 Stunden täglich</div></details>
+      <details class="sf"><summary>Teilweise Erwerbsminderung?</summary><div class="sfa">unter 6 Stunden täglich</div></details>
+      <details class="sf"><summary>Schwerbehinderung ab GdB?</summary><div class="sfa">50</div></details>
+      <details class="sf"><summary>Wichtigste Hygienemaßnahme?</summary><div class="sfa">Händedesinfektion</div></details>
+      <details class="sf"><summary>Wie viele Momente der Händehygiene?</summary><div class="sfa">fünf (WHO)</div></details>
+      <details class="sf"><summary>Wann zusätzlich waschen?</summary><div class="sfa">C. difficile · Norovirus</div></details>
+      <details class="sf"><summary>Nosokomiale Pneumonie ab wann?</summary><div class="sfa">48 h nach Aufnahme</div></details>
+      <details class="sf"><summary>Häufigste nosokomiale Infektion?</summary><div class="sfa">Pneumonie (beatmungsassoziiert)</div></details>
+      <details class="sf"><summary>Empfehlungsgremium für Hygiene?</summary><div class="sfa">KRINKO (am RKI)</div></details>
+      <details class="sf"><summary>MRSA — Resistenz wogegen?</summary><div class="sfa">Beta-Laktame</div></details>
+      <details class="sf"><summary>MRSA-Sanierung womit?</summary><div class="sfa">Mupirocin-Nasensalbe + antiseptische Waschung</div></details>
+      <details class="sf"><summary>MRSA-Therapie?</summary><div class="sfa">Vancomycin oder Linezolid</div></details>
+      <details class="sf"><summary>Isolation bei offener TB?</summary><div class="sfa">aerogen, Unterdruckzimmer</div></details>
+      <details class="sf"><summary>HIV-Risiko nach Nadelstich?</summary><div class="sfa">~0,3 %</div></details>
+      <details class="sf"><summary>HBV-Risiko nach Nadelstich?</summary><div class="sfa">~30 %</div></details>
+      <details class="sf"><summary>HIV-PEP wie schnell?</summary><div class="sfa">möglichst &lt; 2 h</div></details>
+      <details class="sf"><summary>PEP bei Hepatitis C?</summary><div class="sfa">keine — nur Verlaufskontrolle</div></details>
     </div>
   </section>
 
-  <!-- STATION 2: UNFALLVERSICHERUNG -->
-  <section class="station" id="s2">
-    <div class="station-header"><div><div class="station-eyebrow">Station 02</div><div class="station-title">Unfallversicherung</div></div><div class="station-tagline">BG, D-Arzt, Arbeits- &amp; Wegeunfall.</div></div>
+  <section class="panel" data-panel="protokoll">
+    <p class="panel-intro">Generalprobe an drei dokumentierten Mainz-Themenblöcken. Jede Frage einzeln laut beantworten, dann die Antwort aufdecken.</p>
 
-    <div class="card open">
-      <div class="card-head"><div><span class="card-tag">&#9733; Anker</span><div class="card-title">Tr&auml;ger &amp; Aufgabe</div></div><span class="toggle">+</span></div>
-      <div class="card-body"><div class="card-body-inner">
-        <div class="callout fact"><span class="callout-label">&#9733; Merksatz</span><strong>Tr&auml;ger = Berufsgenossenschaften (gewerblich) bzw. Unfallkassen (&ouml;ffentlich), finanziert allein vom Arbeitgeber. Rechtsgrundlage: SGB VII.</strong> Aufgabe: Arbeitsunf&auml;lle und Berufskrankheiten verh&uuml;ten + medizinisch/beruflich/sozial rehabilitieren.</div>
-        <table>
-          <thead><tr><th>Begriff</th><th>Definition</th></tr></thead>
-          <tbody>
-            <tr><td><strong>Arbeitsunfall</strong></td><td>Unfall bei versicherter (beruflicher) T&auml;tigkeit (&sect; 8 SGB VII)</td></tr>
-            <tr><td><strong>Wegeunfall</strong></td><td>auf direktem Weg zur/von der Arbeit</td></tr>
-            <tr><td><strong>Berufskrankheit</strong></td><td>beruflich verursacht + in der Berufskrankheiten-VO gelistet</td></tr>
-          </tbody>
-        </table>
-        <div class="callout fact"><span class="callout-label">&#9881; Versichert</span>Besch&auml;ftigte, Azubis, <strong>Sch&uuml;ler (Unterricht + Pausen) und Studierende</strong>, Ehrenamtliche, Ersthelfer. Privater Umweg (Einkauf, Freunde) hebt den Schutz auf; notwendiger Umweg (Kinderbetreuung, Fahrgemeinschaft) bleibt versichert.</div>
-      </div></div>
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · mehrfach dokumentiert</span><span>Drittes Fach · Sozialrecht</span><span class="pk-badge">Bestanden</span></div>
+      <div class="pk-akte"><span class="lab">Fall</span>Der Sozialrecht-Block kommt in Mainz regelmäßig als Frageserie ohne eigenen Fall — mehrfach dokumentiert als „die fünf Säulen der Sozialversicherung in Deutschland, mit den passenden SGB-Artikeln und der Beitragsverteilung".</div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">„Was sind die fünf Säulen der Sozialversicherung in Deutschland?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Das sind die Kranken-, die Pflege-, die Renten-, die Unfall- und die Arbeitslosenversicherung. Sie stehen im SGB fünf, elf, sechs, sieben und drei.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Bei der Krankenversicherung — wer bezahlt?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Arbeitnehmer und Arbeitgeber tragen den Beitrag je zur Hälfte.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Und wer bezahlt die Rentenversicherung, wer die Berufsgenossenschaft?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Die Rentenversicherung finanzieren Arbeitnehmer und Arbeitgeber gemeinsam, dazu kommt ein Zuschuss aus dem Bundeshaushalt. Die Berufsgenossenschaft wird dagegen ausschließlich vom Arbeitgeber finanziert.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Was ist Arbeitsunfähigkeit, und wie lange wird der Lohn fortgezahlt?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Arbeitsunfähigkeit ist der vorübergehende, ärztlich bescheinigte Zustand, in dem jemand krankheitsbedingt seine beruflichen Pflichten nicht erfüllen kann. Der Arbeitgeber zahlt sechs Wochen den vollen Lohn weiter, danach zahlt die Krankenkasse Krankengeld für längstens achtundsiebzig Wochen.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Wie unterscheiden Sie teilweise und volle Erwerbsminderung?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Das richtet sich nach dem Restleistungsvermögen: bei unter sechs Stunden täglich besteht eine teilweise, bei unter drei Stunden eine volle Erwerbsminderung.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Was ist eine Berufskrankheit?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Eine beruflich verursachte Krankheit, die in der Berufskrankheitenverordnung gelistet ist und von der gesetzlichen Unfallversicherung anerkannt und entschädigt wird.</div></details></div>
     </div>
 
-    <div class="card">
-      <div class="card-head"><div><span class="card-tag">&#9733; D-Arzt</span><div class="card-title">Durchgangsarzt &amp; Meldeweg</div></div><span class="toggle">+</span></div>
-      <div class="card-body"><div class="card-body-inner">
-        <div class="callout critical"><span class="callout-label">&#9733; Merksatz</span><strong>D-Arzt = Facharzt f&uuml;r Chirurgie/Unfallchirurgie (Orthop&auml;die), von der BG zugelassen. Er &uuml;bernimmt nach der Erstversorgung die Beurteilung/Steuerung jedes Arbeits- und Schulunfalls.</strong></div>
-        <ul>
-          <li>Unfallanzeige an die BG erstattet der <strong>Arbeitgeber</strong> (der D-Arzt erstattet den D-Arzt-Bericht)</li>
-          <li><strong>Leistungen:</strong> Heilbehandlung · Reha.</li>
-          <li><strong>Verletztengeld</strong> — Lohnersatz durch die UV nach Ablauf der Entgeltfortzahlung.</li>
-          <li>Verletztenrente bei <strong>MdE &ge; 20 %</strong>.</li>
-        </ul>
-      </div></div>
-    </div>
-  </section>
-
-  <!-- STATION 3: KRANKENHAUSHYGIENE -->
-  <section class="station" id="s3">
-    <div class="station-header"><div><div class="station-eyebrow">Station 03</div><div class="station-title">Krankenhaushygiene</div></div><div class="station-tagline">H&auml;ndehygiene &amp; nosokomiale Infektionen.</div></div>
-
-    <div class="card open">
-      <div class="card-head"><div><span class="card-tag">&#9733; Anker</span><div class="card-title">Die 5 Momente der H&auml;ndedesinfektion (WHO)</div></div><span class="toggle">+</span></div>
-      <div class="card-body"><div class="card-body-inner">
-        <div class="callout critical"><span class="callout-label">&#9733; Merksatz</span><strong>Die H&auml;ndedesinfektion ist die wichtigste Einzelma&szlig;nahme gegen nosokomiale Infektionen.</strong> Wichtigster &Uuml;bertragungsweg sind kontaminierte H&auml;nde.</div>
-        <ul>
-          <li>1. <strong>vor</strong> Patientenkontakt</li>
-          <li>2. <strong>vor</strong> aseptischer T&auml;tigkeit</li>
-          <li>3. <strong>nach</strong> Kontakt mit (potenziell) infekti&ouml;sem Material</li>
-          <li>4. <strong>nach</strong> Patientenkontakt</li>
-          <li>5. <strong>nach</strong> Kontakt mit der Patientenumgebung</li>
-        </ul>
-        <div class="callout fact"><span class="callout-label">&#9881; Desinfektion vs. Waschen</span>Alkoholische H&auml;ndedesinfektion ist Standard. Bei <strong>Clostridioides difficile</strong> (Sporen) und Norovirus zus&auml;tzlich <strong>H&auml;nde waschen</strong> (mechanische Entfernung).</div>
-      </div></div>
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · Dr. Müller-Forell u. a.</span><span>Drittes Fach · Unfallversicherung</span><span class="pk-badge">Bestanden</span></div>
+      <div class="pk-akte"><span class="lab">Fall</span>Dokumentiertes Szenario: Ein Patient kommt in die Praxis und hat sich auf dem Heimweg von der Arbeit verletzt. Daran hängen die Prüfer die gesamte Unfallversicherung auf — D-Arzt-Verfahren, Berufsgenossenschaft, Meldeweg und Leistungen.</div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">„Ein Patient verletzt sich auf dem Heimweg von der Arbeit und kommt zu Ihnen — was machen Sie?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich leiste die Erstversorgung und überweise den Patienten anschließend zum Durchgangsarzt, weil es sich um einen Wegeunfall und damit um einen Arbeitsunfall handelt.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Was ist ein Arbeitsunfall, und was gehört noch dazu?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ein Arbeitsunfall ist ein Unfall bei der versicherten beruflichen Tätigkeit nach Paragraph acht des SGB sieben. Dazu zählt auch der Wegeunfall auf dem direkten Weg zur und von der Arbeit.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Zählt jeder Weg? Was ist mit einem Umweg?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Versichert ist der direkte Weg. Ein privater Umweg zum Einkaufen oder zu Freunden hebt den Schutz auf, ein notwendiger Umweg wie das Bringen des Kindes zur Betreuung oder eine Fahrgemeinschaft bleibt dagegen versichert.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Welche Gruppen sind überhaupt unfallversichert?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Beschäftigte und Auszubildende, außerdem Schüler während Unterricht und Pausen sowie Studierende, dazu Ehrenamtliche und Ersthelfer.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Was ist ein Durchgangsarzt, und welches Fachgebiet hat er?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Der Durchgangsarzt ist ein von der Berufsgenossenschaft zugelassener Facharzt für Chirurgie beziehungsweise Unfallchirurgie oder Orthopädie. Er beurteilt und steuert nach der Erstversorgung die Behandlung von Unfallverletzten.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Wer meldet den Arbeitsunfall an wen?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Die Unfallanzeige an die Berufsgenossenschaft erstattet der Arbeitgeber, wenn die Arbeitsunfähigkeit mehr als drei Tage dauert. Der Durchgangsarzt erstattet zusätzlich seinen eigenen D-Arzt-Bericht.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Wer zahlt nach einem Arbeitsunfall, wenn der Patient nicht arbeiten kann?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Zunächst zahlt der Arbeitgeber sechs Wochen den vollen Lohn weiter. Danach übernimmt die gesetzliche Unfallversicherung mit dem Verletztengeld.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Was bedeutet MdE, und ab wann gibt es eine Rente?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Die MdE ist die Minderung der Erwerbsfähigkeit und beschreibt, wie stark die Fähigkeit zur Arbeit dauerhaft eingeschränkt ist. Eine Verletztenrente wird ab einer MdE von zwanzig Prozent gezahlt.</div></details></div>
     </div>
 
-    <div class="card">
-      <div class="card-head"><div><span class="card-tag">Nosokomial</span><div class="card-title">Definition &amp; Risikofaktoren</div></div><span class="toggle">+</span></div>
-      <div class="card-body"><div class="card-body-inner">
-        <div class="callout fact"><span class="callout-label">&#9733; Merksatz</span><strong>Nosokomiale Infektion = im zeitlichen Zusammenhang mit station&auml;rer Versorgung erworben (auch Pflegeheim).</strong> H&auml;ufig: Pneumonie (Beatmung), Harnwegs- (Katheter), Wund- und Katheter-assoziierte Infektionen.</div>
-        <ul>
-          <li>Risiko: hohes Alter, lange Liegedauer, Diabetes/Immunsuppression, <strong>Fremdk&ouml;rper</strong> (ZVK, Blasenkatheter, Tubus)</li>
-          <li>&Uuml;berwachung + Empfehlungen: <strong>KRINKO</strong> (am RKI); Surveillance nach IfSG</li>
-        </ul>
-      </div></div>
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · Hygieneblock</span><span>Drittes Fach · Krankenhaushygiene</span><span class="pk-badge">Bestanden</span></div>
+      <div class="pk-akte"><span class="lab">Fall</span>Der Hygieneblock hängt meist an einem Infektionsfall — dokumentiert unter anderem als nosokomiale Pneumonie, als Clostridien-Verdacht und als Tuberkulose-Fall. Gefragt wird nach Händehygiene, Definitionen und Isolationsmaßnahmen.</div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">„Wann desinfizieren Sie Ihre Hände?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Nach den fünf Momenten der WHO: vor Patientenkontakt, vor einer aseptischen Tätigkeit, nach Kontakt mit potenziell infektiösem Material, nach Patientenkontakt und nach Kontakt mit der Patientenumgebung.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Desinfizieren oder waschen?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Standard ist die alkoholische Händedesinfektion. Bei Clostridioides difficile und Norovirus wasche ich zusätzlich die Hände, weil Sporen und unbehüllte Viren alkoholresistent sind und mechanisch entfernt werden müssen.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Was bedeutet nosokomial?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Nosokomial heißt im zeitlichen Zusammenhang mit einer stationären oder pflegerischen Versorgung erworben. Bei der Pneumonie gilt die Grenze von achtundvierzig Stunden nach der Aufnahme.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Welche nosokomialen Infektionen sehen Sie am häufigsten?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Die beatmungsassoziierte Pneumonie, die katheterassoziierte Harnwegsinfektion, die postoperative Wundinfektion und die ZVK-assoziierte Sepsis.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Was ist MRSA, und wie gehen Sie damit um?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">MRSA ist ein Staphylococcus aureus mit Resistenz gegen Beta-Laktame, wobei ich die Kolonisation ohne Krankheitswert von der Infektion trenne. Ich screene mit Nasen- und Rachenabstrich, isoliere als Kontaktisolierung und saniere mit Mupirocin-Nasensalbe und antiseptischer Ganzkörperwaschung.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Welche Isolationsarten kennen Sie?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Die Kontaktisolierung bei MRE, Clostridien und Noroviren, die Tröpfchenisolierung bei Influenza, Meningokokken und Pertussis, und die aerogene Isolierung im Unterdruckzimmer bei Tuberkulose, Masern und Varizellen.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Offene Tuberkulose — wann isolieren Sie, und wem melden Sie?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Offen heißt, dass Erreger im Sputum nachweisbar sind, dann isoliere ich aerogen im Unterdruckzimmer. Die Erkrankung ist namentlich an das Gesundheitsamt meldepflichtig.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Sie stechen sich an einer Kanüle — was tun Sie?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich fördere die Blutung, spüle und desinfiziere die Wunde und lasse Indexpatient und mich auf HIV, Hepatitis B und C testen. Die HIV-PEP beginne ich möglichst innerhalb von zwei Stunden, und ich dokumentiere den Vorfall als Arbeitsunfall beim D-Arzt oder Betriebsarzt.</div></details></div>
     </div>
   </section>
 
-  <!-- STATION 4: MRE & SCHUTZ -->
-  <section class="station" id="s4">
-    <div class="station-header"><div><div class="station-eyebrow">Station 04</div><div class="station-title">MRE &amp; Schutz</div></div><div class="station-tagline">Multiresistente Erreger, Isolation, PEP.</div></div>
-
-    <div class="card open">
-      <div class="card-head"><div><span class="card-tag">&#9733; Anker</span><div class="card-title">MRSA &amp; multiresistente Erreger</div></div><span class="toggle">+</span></div>
-      <div class="card-body"><div class="card-body-inner">
-        <div class="callout fact"><span class="callout-label">&#9733; Merksatz</span><strong>MRSA = Staphylococcus aureus mit Resistenz gegen Beta-Laktame. Kolonisation (Haut/Nase, kein Krankheitswert) ist von Infektion zu unterscheiden.</strong></div>
-        <ul>
-          <li><strong>Screening:</strong> Nasen-/Rachenabstrich · Kultur oder PCR.</li>
-          <li><strong>Risiko:</strong> Hospitalisierung &gt; 4 d · Beatmung · Intensiv · Dialyse · Pflegeheim · bekannte Kolonisation.</li>
-          <li>Sanierung: Mupirocin-Nasensalbe + antiseptische Ganzk&ouml;rperwaschung (~5 Tage)</li>
-          <li>Weitere MRE: VRE, <strong>MRGN</strong> (3-/4-MRGN gramnegativ)</li>
-        </ul>
-      </div></div>
-    </div>
-
-    <div class="card">
-      <div class="card-head"><div><span class="card-tag">&#9733; Isolation</span><div class="card-title">Standard + erweiterte Ma&szlig;nahmen</div></div><span class="toggle">+</span></div>
-      <div class="card-body"><div class="card-body-inner">
-        <div class="callout fact"><span class="callout-label">&#9733; Merksatz</span><strong>Standardhygiene gilt immer; erweiterte Isolation je nach &Uuml;bertragungsweg.</strong></div>
-        <table>
-          <thead><tr><th>Art</th><th>Beispiele</th></tr></thead>
-          <tbody>
-            <tr><td><strong>Kontakt</strong></td><td>MRSA/MRE, C. difficile, Noro</td></tr>
-            <tr><td><strong>Tr&ouml;pfchen</strong></td><td>Influenza, Meningokokken, Pertussis</td></tr>
-            <tr><td><strong>Aerogen</strong> (Unterdruck)</td><td>Tuberkulose, Masern, Varizellen</td></tr>
-          </tbody>
-        </table>
-      </div></div>
-    </div>
-
-    <div class="card">
-      <div class="card-head"><div><span class="card-tag">&#9733; Nadelstich</span><div class="card-title">Verletzung &amp; PEP</div></div><span class="toggle">+</span></div>
-      <div class="card-body"><div class="card-body-inner">
-        <div class="callout critical"><span class="callout-label">&#9733; Merksatz (3er-Regel)</span><strong>&Uuml;bertragungsrisiko bei Nadelstich: HIV ~0,3 % &middot; HCV ~3 % &middot; HBV ~30 %</strong> (HBV-Impfung sch&uuml;tzt).</div>
-        <ul>
-          <li>Sofort: Wunde sp&uuml;len/desinfizieren, Blutung f&ouml;rdern; Indexpatient + Mitarbeiter testen (HIV/HBV/HCV)</li>
-          <li><strong>HIV-PEP</strong> m&ouml;glichst &lt; 2 h (sp&auml;testens 24&ndash;48 h).</li>
-          <li><strong>HBV:</strong> bei Ungeimpften Immunglobulin + Aktivimpfung.</li>
-          <li><strong>HCV:</strong> keine PEP, Verlaufskontrolle.</li>
-          <li>Als <strong>Arbeitsunfall</strong> beim D-Arzt/Betriebsarzt dokumentieren</li>
-        </ul>
-      </div></div>
-    </div>
-  </section>
-
-  <footer>KP-Mainz Drills · Sozialrecht, Unfallversicherung & Hygiene R1 · Stex + Vorbereitung + Mainz-Protokolle (Fadi Jarbouh)</footer>
+<footer>
+    R3 · Sozialrecht · Unfallversicherung · Hygiene. Vier Stationen + KP-Perlen mit Rapid-Fire + dokumentierte Mainz-Fragen.
+  </footer>
 
 </div>
-
 <script>
-  const tabs = document.querySelectorAll('.tab');
-  const stations = document.querySelectorAll('.station');
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      tabs.forEach(t => t.classList.remove('active'));
-      stations.forEach(s => s.classList.remove('active'));
-      tab.classList.add('active');
-      document.getElementById('s' + tab.dataset.s).classList.add('active');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  });
-  document.querySelectorAll('.card-head').forEach(head => {
-    head.addEventListener('click', () => head.closest('.card').classList.toggle('open'));
-  });
+  const tabs = [...document.querySelectorAll('.tab')];
+  const panels = [...document.querySelectorAll('.panel')];
+  function showTab(name){
+    tabs.forEach(x=>x.classList.toggle('active', x.dataset.tab===name));
+    panels.forEach(p=>p.classList.toggle('active', p.dataset.panel===name));
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  tabs.forEach(t=>t.addEventListener('click',()=>showTab(t.dataset.tab)));
 </script>
   <script src="/sync.js" defer></script>
   <script src="/focus-timer.js" defer></script>
