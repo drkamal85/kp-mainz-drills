@@ -844,7 +844,25 @@
       <div style="padding:4px 20px 44px;">
         <!-- STATION BLOCKS -->
         <sc-if value="{{ review.isStation }}" hint-placeholder-val="{{ true }}">
-          <sc-for list="{{ review.blocks }}" as="b" hint-placeholder-count="4">
+          <sc-if value="{{ review.hasIntro }}" hint-placeholder-val="{{ true }}">
+            <div class="kp-rich" style="font-size:13.5px; color:#94A3B8; line-height:1.55; margin:0 2px 14px;">{{ review.introNode }}</div>
+          </sc-if>
+
+          <sc-if value="{{ review.hasCards }}" hint-placeholder-val="{{ true }}">
+            <sc-for list="{{ review.stationCards }}" as="c" hint-placeholder-count="3">
+              <div style="margin-bottom:12px; background:#FFFFFF; border:1px solid #E7E1D5; border-left:3px solid {{ c.accent }}; border-radius:14px; box-shadow:0 1px 2px rgba(0,0,0,0.05); overflow:hidden;">
+                <div onclick="{{ c.toggle }}" style="display:flex; align-items:center; gap:10px; padding:13px 15px; cursor:pointer;">
+                  <div style="flex:1; min-width:0;">
+                    <sc-if value="{{ c.hasTag }}" hint-placeholder-val="{{ true }}">
+                      <div style="font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:{{ c.accent }}; margin-bottom:3px;">{{ c.tag }}</div>
+                    </sc-if>
+                    <div style="font-family:'Space Grotesk',sans-serif; font-size:15.5px; font-weight:600; color:#0F172A; line-height:1.3;">{{ c.title }}</div>
+                  </div>
+                  <span style="font-size:19px; font-weight:400; color:{{ c.accent }}; line-height:1;">{{ c.sign }}</span>
+                </div>
+                <sc-if value="{{ c.open }}" hint-placeholder-val="{{ true }}">
+                  <div style="padding:12px 15px 4px; border-top:1px solid #EFEAE0;">
+                    <sc-for list="{{ c.blocks }}" as="b" hint-placeholder-count="2">
             <sc-if value="{{ b.isText }}" hint-placeholder-val="{{ false }}">
               <div style="margin-bottom:18px;">
                 <sc-if value="{{ b.hasTitle }}" hint-placeholder-val="{{ false }}"><div style="font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:600; color:#0F172A; margin-bottom:6px;">{{ b.title }}</div></sc-if>
@@ -869,6 +887,39 @@
               </div>
             </sc-if>
           </sc-for>
+                  </div>
+                </sc-if>
+              </div>
+            </sc-for>
+          </sc-if>
+
+          <sc-if value="{{ review.hasNoCards }}" hint-placeholder-val="{{ false }}">
+            <sc-for list="{{ review.blocks }}" as="b" hint-placeholder-count="4">
+            <sc-if value="{{ b.isText }}" hint-placeholder-val="{{ false }}">
+              <div style="margin-bottom:18px;">
+                <sc-if value="{{ b.hasTitle }}" hint-placeholder-val="{{ false }}"><div style="font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:600; color:#0F172A; margin-bottom:6px;">{{ b.title }}</div></sc-if>
+                <div class="kp-rich" style="font-size:14.5px; color:#475569; line-height:1.62;">{{ b.bodyNode }}</div>
+              </div>
+            </sc-if>
+            <sc-if value="{{ b.isCallout }}" hint-placeholder-val="{{ false }}">
+              <div style="margin-bottom:16px; border-radius:16px; padding:14px 16px; background:{{ b.bg }}; border:1px solid {{ b.border }}; border-left:3px solid {{ b.accent }};">
+                <div style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.08em; text-transform:uppercase; font-weight:600; color:{{ b.accent }}; margin-bottom:7px;">{{ b.title }}</div>
+                <div class="kp-rich" style="font-size:14px; color:#3F4A5A; line-height:1.58;">{{ b.bodyNode }}</div>
+              </div>
+            </sc-if>
+            <sc-if value="{{ b.isTable }}" hint-placeholder-val="{{ false }}">
+              <div style="margin-bottom:16px; border-radius:14px; overflow:hidden; border:1px solid rgba(15,23,42,0.10); background:#FFFFFF;">
+                <sc-for list="{{ b.rows }}" as="row" hint-placeholder-count="3">
+                  <div style="display:flex; border-top:1px solid rgba(15,23,42,0.06);">
+                    <sc-for list="{{ row.cells }}" as="cell" hint-placeholder-count="2">
+                      <div class="kp-rich" style="flex:1; padding:10px 13px; font-size:13px; line-height:1.42; color:{{ cell.color }}; font-weight:{{ cell.weight }}; border-left:1px solid rgba(15,23,42,0.06);">{{ cell.node }}</div>
+                    </sc-for>
+                  </div>
+                </sc-for>
+              </div>
+            </sc-if>
+          </sc-for>
+          </sc-if>
         </sc-if>
 
         <!-- PERLEN -->
@@ -1213,6 +1264,7 @@ class Component extends DCLogic {
       stationLabel: this.STAT[station] ? this.STAT[station].label : '',
       blocks: [], perlen: [], fragen: [], fragenGroups: [],
       rapidfire: [], hasRapidfire: false,
+      stationCards: [], hasCards: false, hasNoCards: false, hasIntro: false, introNode: '',
     };
 
     if (station === 'perlen') {
@@ -1245,6 +1297,34 @@ class Component extends DCLogic {
       out.fragenGroups = fg;
     } else {
       out.isStation = true;
+      const mkBlocks = (arr) => (arr || []).map(b => {
+        if (b.type === 'callout') {
+          const cs = this.calloutStyle(b.variant);
+          return { isCallout: true, title: b.title || '\u2605 Merksatz', accent: cs.accent, bg: cs.bg, border: cs.border, bodyNode: this.rich(b.body) };
+        }
+        if (b.type === 'table') {
+          const rows = (b.rows || []).map(r => ({ cells: r.map((c, ci) => ({ node: this.richInline(c), weight: ci === 0 ? 700 : 500, color: ci === 0 ? '#0F172A' : '#64748B' })) }));
+          return { isTable: true, rows };
+        }
+        return { isText: true, hasTitle: !!b.title, title: b.title || '', bodyNode: this.rich(b.body) };
+      });
+      const stCards = ((topic.cards || {})[station]) || [];
+      const introTxt = ((topic.intros || {})[station]) || '';
+      out.hasIntro = !!introTxt;
+      out.introNode = introTxt ? this.rich(introTxt) : '';
+      out.hasCards = stCards.length > 0;
+      out.hasNoCards = !out.hasCards;
+      out.stationCards = stCards.map((c, i) => {
+        const key = station + ':' + i;
+        const open = this.state.openCards ? this.state.openCards[key] !== false : i === 0;
+        return {
+          tag: c.tag || '', hasTag: !!c.tag, title: c.title || '',
+          open: open, closed: !open, sign: open ? '\u2212' : '+',
+          accent: this.STAT[station] ? this.STAT[station].color : '#0891B2',
+          toggle: () => this.setState(st => ({ openCards: { ...(st.openCards || {}), [key]: !(st.openCards ? st.openCards[key] !== false : i === 0) } })),
+          blocks: mkBlocks(c.blocks),
+        };
+      });
       out.blocks = (sObj[station] || []).map(b => {
         if (b.type === 'callout') {
           const cs = this.calloutStyle(b.variant);
@@ -1256,7 +1336,7 @@ class Component extends DCLogic {
         }
         return { isText: true, hasTitle: !!b.title, title: b.title || '', bodyNode: this.rich(b.body) };
       });
-      out.stationEmpty = out.blocks.length === 0;
+      out.stationEmpty = out.blocks.length === 0 && !out.hasCards;
     }
     return out;
   }

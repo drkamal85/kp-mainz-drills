@@ -46,6 +46,45 @@ def card_to_blocks(title, body_html):
         if rows: blocks.append({'type':'table','title':title,'rows':rows})
     return blocks
 
+def parse_station_cards(h):
+    """Wie parse_stations, aber KARTENGRENZEN bleiben erhalten (Tag + Titel + eigene Blocks).
+    Die App rendert daraus auf-/zuklappbare Karten wie die Website."""
+    cards = {k: [] for k in STATION_KEYS}
+    intros = {}
+    if 'data-panel=' in h:  # proto (R2/R3)
+        for key in STATION_KEYS:
+            pm = re.search(r'<section class="panel[^"]*" data-panel="'+key+r'">(.*?)</section>', h, re.S)
+            if not pm: continue
+            panel = pm.group(1)
+            intro = re.search(r'<p class="panel-intro">(.*?)</p>', panel, re.S)
+            if intro:
+                t = md(intro.group(1))
+                if t: intros[key] = t
+            for cm in re.finditer(r'<details class="card[^"]*"[^>]*>(.*?)</details>', panel, re.S):
+                inner = cm.group(1)
+                tg = re.search(r'<span class="ctag">(.*?)</span>', inner, re.S)
+                tt = re.search(r'<span class="ctitle">(.*?)</span>', inner, re.S)
+                bm = re.search(r'<div class="body">(.*)</div>\s*$', inner, re.S)
+                blocks = card_to_blocks('', bm.group(1) if bm else '')
+                if not blocks: continue
+                cards[key].append({'tag': md(tg.group(1)) if tg else '',
+                                   'title': md(tt.group(1)) if tt else '',
+                                   'blocks': blocks})
+    else:  # v1 (R1)
+        secs = re.findall(r'<section class="station[^"]*"[^>]*>(.*?)</section>', h, re.S)
+        for idx, sec in enumerate(secs[:4]):
+            key = STATION_KEYS[idx]
+            for ch in re.split(r'(?=<div class="card[ "])', sec):
+                tm = re.search(r'<div class="card-title">(.*?)</div>', ch, re.S)
+                if not tm: continue
+                tagm = re.search(r'<span class="card-tag">(.*?)</span>', ch, re.S)
+                bm = re.search(r'<div class="card-body-inner">(.*)', ch, re.S)
+                blocks = card_to_blocks('', bm.group(1) if bm else '')
+                if not blocks: continue
+                cards[key].append({'tag': md(tagm.group(1)) if tagm else '',
+                                   'title': md(tm.group(1)), 'blocks': blocks})
+    return cards, intros
+
 def parse_stations(h):
     stations = {k: [] for k in STATION_KEYS}
     if 'data-panel=' in h:  # proto (R2/R3)
@@ -134,11 +173,13 @@ for path, folder, slug, lvl in cards:
     words = len(re.findall(r'\w+', re.sub(r'<[^>]+>',' ',h)))
     minutes = int(mm.group(1)) if mm else max(3, round(words/180))
     _st = parse_stations(h)
+    _cards, _intros = parse_station_cards(h)
     _present = [k for k in ('grundlagen','klinik','diagnostik','therapie') if _st.get(k)]
     topics.append({
         'id': f'{slug}-r{lvl}', 'title': title, 'specialty': folder, 'level': 'R'+lvl, 'minutes': minutes,
         'complete': len(_present) == 4, 'stationsPresent': _present,
         'stations': _st,
+        'cards': _cards, 'intros': _intros,
         'perlen': parse_perlen(h),
         'rapidfire': parse_rapidfire(h),
         'fragen': parse_fragen(h, name),
