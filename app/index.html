@@ -710,13 +710,15 @@
           </div>
           <div style="display:flex; flex-direction:column; gap:10px;">
             <sc-for list="{{ grp.items }}" as="it" hint-placeholder-count="3">
-              <div onclick="{{ it.onOpen }}" style="display:flex; align-items:center; gap:12px; padding:14px 16px; background:#FFFFFF; border:1px solid rgba(15,23,42,0.07); border-radius:14px; box-shadow:0 1px 2px rgba(15,23,42,0.04); cursor:{{ it.cursor }};">
-                <span style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; border-radius:7px; padding:3px 8px; color:{{ it.pillColor }}; background:{{ it.pillBg }}; border:1px solid {{ it.pillBorder }};">{{ it.pill }}</span>
-                <div style="flex:1; min-width:0;">
-                  <div style="font-size:15px; font-weight:600; color:{{ it.titleColor }}; line-height:1.25;">{{ it.title }}</div>
-                  <div style="font-size:12px; color:{{ it.metaColor }}; font-weight:500; margin-top:2px;">{{ it.metaText }}</div>
+              <div onclick="{{ it.onOpen }}" style="background:#FFFFFF; border:1px solid #E7E1D5; border-radius:14px; padding:14px 15px; display:flex; flex-direction:column; gap:9px; box-shadow:0 1px 2px rgba(0,0,0,0.05); cursor:{{ it.cursor }};">
+                <div style="display:flex; align-items:flex-start; justify-content:flex-end;">
+                  <span style="font-family:'JetBrains Mono',monospace; font-size:9.5px; font-weight:700; padding:2.5px 6px; border-radius:6px; text-transform:uppercase; letter-spacing:0.04em; color:{{ it.pillColor }}; background:{{ it.pillBg }}; border:1px solid {{ it.pillBorder }};">{{ it.pill }}</span>
                 </div>
-                <sc-if value="{{ it.tappable }}" hint-placeholder-val="{{ true }}"><span style="color:#0891B2; font-size:16px;">›</span></sc-if>
+                <div style="font-size:14.5px; font-weight:600; line-height:1.32; letter-spacing:-0.015em; color:{{ it.titleColor }}; text-wrap:pretty;">{{ it.title }}</div>
+                <div style="display:flex; align-items:center; justify-content:space-between; gap:8px; padding-top:9px; border-top:1px solid #E7E1D5; margin-top:auto;">
+                  <span style="font-size:12px; color:{{ it.metaColor }}; font-weight:500;">{{ it.metaText }}</span>
+                  <sc-if value="{{ it.tappable }}" hint-placeholder-val="{{ true }}"><span style="font-size:14px; color:#8B8478; line-height:1;">→</span></sc-if>
+                </div>
               </div>
             </sc-for>
           </div>
@@ -1157,9 +1159,9 @@ class Component extends DCLogic {
   richInline(s) { return React.createElement('span', { dangerouslySetInnerHTML: { __html: this.mdInline(s) } }); }
 
   specColor(hue) { return (hue == null) ? '#64748B' : `oklch(56% 0.16 ${hue})`; }
-  levelColor(lvl) { return lvl === 'R3' ? '#E11D48' : (lvl === 'R2' ? '#2563EB' : '#D97706'); }
-  levelBg(lvl) { return lvl === 'R3' ? 'rgba(244,63,94,0.10)' : (lvl === 'R2' ? 'rgba(59,130,246,0.10)' : 'rgba(245,158,11,0.12)'); }
-  levelBorder(lvl) { return lvl === 'R3' ? 'rgba(244,63,94,0.24)' : (lvl === 'R2' ? 'rgba(59,130,246,0.24)' : 'rgba(245,158,11,0.28)'); }
+  levelColor(lvl) { return lvl === 'R4' ? 'oklch(34% 0.13 75)' : lvl === 'R3' ? 'oklch(34% 0.14 300)' : lvl === 'R2' ? 'oklch(34% 0.13 245)' : 'oklch(34% 0.12 160)'; }
+  levelBg(lvl) { return lvl === 'R4' ? 'oklch(95% 0.045 75)' : lvl === 'R3' ? 'oklch(95% 0.045 300)' : lvl === 'R2' ? 'oklch(95% 0.045 245)' : 'oklch(95% 0.04 160)'; }
+  levelBorder(lvl) { return 'transparent'; }
   calloutStyle(variant) {
     if (variant === 'cave') return { accent: '#E11D48', bg: 'rgba(244,63,94,0.06)', border: 'rgba(244,63,94,0.20)' };
     if (variant === 'fakt') return { accent: '#2563EB', bg: 'rgba(59,130,246,0.06)', border: 'rgba(59,130,246,0.18)' };
