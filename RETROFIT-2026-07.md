@@ -150,6 +150,62 @@ Bedeutung der Retikulozyten als Therapiekontrolle.
 
 ---
 
+## Batch 3 — 9 Themen · +28 Fragen
+
+| Thema | Level | vorher | nachher | neu |
+|---|---|--:|--:|--:|
+| Allgemeine Frakturlehre | R3 | 13 | 17 | +4 |
+| Divertikulitis | R3 | 18 | 22 | +4 |
+| Synkope | R4 | 8 | 12 | +4 |
+| Tiefe Beinvenenthrombose | R3 | 12 | 15 | +3 |
+| Lungenembolie | R4 | 9 | 12 | +3 |
+| Leberzirrhose | R3 | 18 | 21 | +3 |
+| Kolonkarzinom | R3 | 18 | 21 | +3 |
+| Hyperthyreose | R3 | 13 | 15 | +2 |
+| Pneumonie | R3 | 17 | 19 | +2 |
+
+### Allgemeine Frakturlehre · +4
+Marknagel bei offener Fraktur (ab Grad II kritisch, erst Fixateur externe) · Gustilo-Anderson-
+Einteilung und Therapie · winkelstabil vs. winkelinstabil · Karpaltunnelsyndrom zwei Jahre nach
+Unterarmfraktur — Kausalität.
+
+### Divertikulitis · +4
+Akutes Abdomen nach allen vier Quadranten inkl. gynäkologischer und urologischer Ursachen ·
+„Was ist vor der Divertikulitis?" → Divertikel/Divertikulose · Kokardenphänomen im Sono ·
+Meckel-Divertikel.
+
+### Synkope · +4
+Fünf Ursachen für Bewusstlosigkeit (Prüfer freute sich über Herzstillstand zuerst) · Zug-Szenario
+mit aggressiver betrunkener Person → Eigenschutz · Fünf-W-Regel beim Notruf · Synkope nach Impfung
+mit Abgrenzung zur Anaphylaxie.
+
+### Tiefe Beinvenenthrombose · +3
+Bild des geschwollenen, zyanotischen Beins mit DD inkl. Phlegmasia cerulea dolens · Risikofaktoren
+nach Virchow-Trias · häufigste Komplikation und postthrombotisches Syndrom.
+
+### Lungenembolie · +3
+Was bei Verdacht als Erstes zu prüfen ist (Stabilität steuert den Weg) · EKG-Zeichen der
+Rechtsherzbelastung · Epidemiologie, Inzidenz und Prävalenz.
+
+### Leberzirrhose · +3
+Ursachen vollständig (Wilson, Hämochromatose, PBC, PSC, Alpha-1-AT) · welche Hepatitis am
+häufigsten zur Zirrhose führt und welche nie · Lebersono mit zwei Raumforderungen unterschiedlicher
+Echogenität (Halozeichen).
+
+### Kolonkarzinom · +3
+Doppelläufiges vs. endständiges Stoma · Bedeutung von T, N, M und R · Entscheidung zur adjuvanten
+Chemotherapie und Prognose nach Stadium.
+
+### Hyperthyreose · +2
+Warum Amiodaron eine Hyperthyreose auslöst (Typ 1 Jodexzess vs. Typ 2 Thyreoiditis, unterschiedliche
+Therapie) · weitere Amiodaron-Komplikationen.
+
+### Pneumonie · +2
+Lobärpneumonie im Röntgen mit CURB-65-gesteuertem Vorgehen · febrile Neutropenie als onkologischer
+Notfall.
+
+---
+
 ## Offene Punkte
 
 - **Gastroduodenales Ulkus** hat mit 28 Treffern das höchste ungeminte Volumen der ganzen
@@ -166,7 +222,7 @@ Bedeutung der Retikulozyten als Therapiekontrolle.
 
 ## Verbleibend
 
-**36 der 53** R3/R4-Themen stehen noch aus (17 erledigt, +68 Fragen).
+**27 der 53** R3/R4-Themen stehen noch aus (**26 erledigt, +96 Fragen**).
 Nächste nach Volumen im 2026er Band: tvt (9), allgemeine-frakturlehre (9), lungenembolie (8),
 leberzirrhose (8), kolonkarzinom (8), hyperthyreose (8), divertikulitis (8), pneumonie (7),
 synkope (6), akute-leukaemien (6), sepsis (5), schilddruesenkarzinom (5), ikterus-cholestase (5),
