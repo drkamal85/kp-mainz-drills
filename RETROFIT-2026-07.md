@@ -319,7 +319,7 @@ zu Herzinsuffizienz/Klappen). — `rektumkarzinom` steht auf R2 und gehörte nie
 
 **Alle 53 R3/R4-Themen sind gegen die drei neuen Quellen geprüft.**
 **46 Themen** erhielten neue Fragen, **7** waren bereits vollständig.
-**Gesamtzuwachs: +144 dokumentierte Fragen.** Validator `tools/_check-fragen.py` durchgehend grün,
+**Gesamtzuwachs: +141 dokumentierte Fragen.** Validator `tools/_check-fragen.py` durchgehend grün,
 zuletzt 830 geprüfte Antworten über 60 Dateien.
 
 > **Korrektur (nachträglich):** Die Batch-5-Tabelle nannte zunächst „13 Themen · +30 Fragen"
@@ -362,3 +362,43 @@ beckenringfrakturen (1).
 Ohne eigenes Muster in der ersten Zählung und noch zu prüfen: sozialrecht-hygiene,
 polytrauma-abcde, pleuraerguss, non-hodgkin-lymphome, khk, herzklappenerkrankungen,
 cholezystitis, copd, av-block, vorhofflimmern, schock, schlaganfall (erledigt), ileus (erledigt).
+
+
+---
+
+## Nachlauf: Dublettenprüfung und Antwortkürzung
+
+Nach Abschluss der fünf Batches wurden zwei Prüfungen nachgeholt, die der Validator
+`tools/_check-fragen.py` **nicht** abdeckt — er prüft nur Sprechbarkeit, weder Länge noch Dubletten.
+
+### Dubletten — drei echte, entfernt
+
+| Deck | entfernte Ergänzung | war schon vorhanden als |
+|---|---|---|
+| divertikulitis | „Was ist ein Meckel-Divertikel, und wie behandeln Sie es?" | „Und was ist ein Meckel-Divertikel?" |
+| morbus-crohn | „DD Crohn vs. Colitis in Diagnostik und Therapie" | „Wie grenzen Sie den Crohn von der Colitis ab?" |
+| allgemeine-frakturlehre | „Wie teilen Sie offene Frakturen ein, und wie behandeln Sie sie?" | „Wie behandeln Sie eine offene Fraktur?" |
+
+Geprüft wurde auf drei Achsen: neue Frage gegen Altbestand im selben Deck, neue gegen neue im
+selben Deck, und neue gegen neue über Decks hinweg (Themendrift). Kreuz-Deck-Drift: keine.
+Vier weitere Treffer der Ähnlichkeitsmetrik erwiesen sich beim Vergleich der **Antworten** als
+Fehlalarme (Antwort-Überlappung 0,10–0,30) und blieben stehen.
+
+### Antwortlänge — alle 141 überarbeitet
+
+Die Ergänzungen lagen mit **Median 55 Wörtern** deutlich über dem Bibliotheksmaß von 23 und
+reizten fast durchgehend die Drei-Satz-Obergrenze aus, statt sie echten Mehrteilern vorzubehalten.
+Zwölf Antworten lagen über 70 Wörtern.
+
+| | vorher | nachher | Bestand |
+|---|--:|--:|--:|
+| Median Wörter | 55 | **36** | 23 |
+| Maximum | 95 | **50** | 63 |
+| über 55 Wörter | 41 | **0** | 1 |
+
+Alle 141 Antworten wurden gekürzt, ohne medizinische Substanz zu streichen — entfernt wurden
+Füllsätze, doppelte Begründungen und Aufzählungen jenseits des Gefragten. Der Median liegt jetzt
+über dem Bibliotheksmaß, weil ein großer Teil der 2026er Protokollfragen tatsächlich mehrteilig
+gestellt wurde („Klinik? Formen? Therapie?") und zwei bis drei Sätze braucht.
+
+Validator nach der Überarbeitung: **827 Antworten, PASS.**
