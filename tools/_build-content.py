@@ -89,6 +89,15 @@ def parse_perlen(h):
         out.append(p)
     return out
 
+def parse_rapidfire(h):
+    """Schnellfragen / Rapid-Fire aus dem KP-Perlen-Tab (<details class="sf">)."""
+    out = []
+    pm = re.search(r'<section class="panel[^"]*" data-panel="perlen">(.*?)</section>', h, re.S)
+    scope = pm.group(1) if pm else h
+    for m in re.finditer(r'<details class="sf"><summary>(.*?)</summary><div class="sfa">(.*?)</div></details>', scope, re.S):
+        out.append({'frage': md(m.group(1)), 'antwort': md(m.group(2))})
+    return out
+
 def parse_fragen(h, spec_name):
     out = []
     pm = re.search(r'<section class="panel[^"]*" data-panel="protokoll">(.*?)</section>', h, re.S)
@@ -124,6 +133,7 @@ for path, folder, slug, lvl in cards:
         'complete': len(_present) == 4, 'stationsPresent': _present,
         'stations': _st,
         'perlen': parse_perlen(h),
+        'rapidfire': parse_rapidfire(h),
         'fragen': parse_fragen(h, name),
     })
 
@@ -135,8 +145,8 @@ io.open('api/topics.json','w',encoding='utf-8').write(out)  # bundled into the k
 
 # report
 print('topics:', len(topics), '| specialties:', len(specs), '| bytes:', len(out.encode()), '(', round(len(out.encode())/1024), 'KB )')
-withf = sum(1 for t in topics if t['fragen']); withp = sum(1 for t in topics if t['perlen'])
-print('with fragen:', withf, '| with perlen:', withp)
+withf = sum(1 for t in topics if t['fragen']); withp = sum(1 for t in topics if t['perlen']); withr = sum(1 for t in topics if t['rapidfire'])
+print('with fragen:', withf, '| with perlen:', withp, '| with rapid-fire:', withr)
 import collections
 blk = collections.Counter(b['type'] for t in topics for k in t['stations'] for b in t['stations'][k])
 print('station blocks:', dict(blk))
