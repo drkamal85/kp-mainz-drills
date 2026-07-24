@@ -261,7 +261,7 @@ Volvulus: Definition, häufigste Lokalisationen (Sigma, Magen, Zökum), Kaffeebo
 
 ---
 
-## Batch 5 (Abschluss) — 13 Themen · +30 Fragen
+## Batch 5 (Abschluss) — 11 Themen mit Zuwachs · +27 Fragen
 
 | Thema | Level | vorher | nachher | neu |
 |---|---|--:|--:|--:|
@@ -310,17 +310,27 @@ Metastasen. **Schock:** hämorrhagischer Schock klinisch erkennen · kristalloid
 
 ### Ohne neues Material — geprüft, kein Update
 `copd` (4 Treffer, nur Randerwähnungen), `asthma-bronchiale` (1), `cushing-syndrom` (1),
-`cml` (1), `hypothyreose` (1), `infektioese-endokarditis` (1), `rektumkarzinom` (6, alle
-bereits im Deck), `khk` (6, alle Treffer gehören zu Herzinsuffizienz/Klappen).
+`cml` (1), `hypothyreose` (1), `infektioese-endokarditis` (1), `khk` (6, alle Treffer gehören
+zu Herzinsuffizienz/Klappen). — `rektumkarzinom` steht auf R2 und gehörte nie zum Umfang.
 
 ---
 
 ## Abschluss
 
 **Alle 53 R3/R4-Themen sind gegen die drei neuen Quellen geprüft.**
-48 Themen erhielten neue Fragen, 8 waren bereits vollständig.
-**Gesamtzuwachs: +147 dokumentierte Fragen.** Validator `tools/_check-fragen.py` durchgehend grün,
+**46 Themen** erhielten neue Fragen, **7** waren bereits vollständig.
+**Gesamtzuwachs: +144 dokumentierte Fragen.** Validator `tools/_check-fragen.py` durchgehend grün,
 zuletzt 830 geprüfte Antworten über 60 Dateien.
+
+> **Korrektur (nachträglich):** Die Batch-5-Tabelle nannte zunächst „13 Themen · +30 Fragen"
+> und in der Summe 48 Themen / +147 Fragen. Die Nachzählung direkt aus den publizierten Dateien
+> ergab **11 Themen mit Zuwachs in Batch 5 (+27)** und in der Summe **46 Themen / +144 Fragen**.
+> Zusätzlich war `rektumkarzinom` fälschlich unter „geprüft, kein Zuwachs" gelistet — es steht
+> auf **R2** und lag damit nie im Retrofit-Umfang. Maßgeblich sind die hier korrigierten Zahlen
+> und die Seite `retrofit-2026-07.html`, die direkt aus den Review-Dateien erzeugt wird.
+
+**Publiziert als Seite:** `retrofit-2026-07.html` (aus den Review-Dateien generiert, daher immer
+deckungsgleich mit dem tatsächlichen Stand), verlinkt unter „Werkzeuge" auf der Startseite.
 
 ---
 
