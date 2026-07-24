@@ -206,6 +206,61 @@ Notfall.
 
 ---
 
+## Batch 4 — 9 Themen · +21 Fragen
+
+| Thema | Level | vorher | nachher | neu |
+|---|---|--:|--:|--:|
+| Akute Leukämien (ALL) | R3 | 20 | 24 | +4 |
+| Schilddrüsenkarzinom | R4 | 12 | 15 | +3 |
+| Schädel-Hirn-Trauma | R3 | 18 | 21 | +3 |
+| Wirbelsäulenverletzungen | R4 | 11 | 14 | +3 |
+| Ikterus & Cholestase | R4 | 18 | 20 | +2 |
+| Sprunggelenksfraktur (OSG) | R3 | 13 | 15 | +2 |
+| Morbus Crohn | R3 | 12 | 14 | +2 |
+| Sepsis & septischer Schock | R3 | 21 | 22 | +1 |
+| Aortendissektion | R3 | 11 | 12 | +1 |
+
+### Akute Leukämien · +4
+Kompletter Block „onkologische Notfälle" aus dem 2026er Band: Aufzählung der Notfälle ·
+Tumorlysesyndrom mit Labor-Viererbande und Prophylaxe (Hydrierung, Allopurinol, Rasburicase) ·
+Leukostasesyndrom mit Schwellenwerten und Leukapherese · Definition der opportunistischen Infektion.
+
+### Schilddrüsenkarzinom · +3
+Warum Radiojodtherapie beim differenzierten Karzinom wirkt · postoperative Schwellung, Rötung,
+Schmerz und Heiserkeit (Nachblutung vs. Infekt vs. Recurrensparese) · Vorgehen bei sehr
+umfangreicher Akte in begrenzter Vorbereitungszeit.
+
+### Schädel-Hirn-Trauma · +3
+Bild der intubierten Patientin: Indikation GCS < 9 und **fehlende HWS-Schiene** · Was der
+Schockraum ist und wie er abläuft · xABCDE mit Bedeutung des vorangestellten x.
+
+### Wirbelsäulenverletzungen · +3
+Wirbelsäulen-Röntgen mit rundlichen Raumforderungen und die drei häufigsten Primärtumoren ·
+drohende Rückenmarkkompression mit Früh- und Spätzeichen, sofort Dexamethason · Komplikationen
+von Knochenzement (Zementembolie, erschwerte Re-OP).
+
+### Ikterus & Cholestase · +2
+Cholezystitis plus Choledocholithiasis bei erfolgloser ERCP → offene Choledochotomie mit
+T-Drainage für ca. fünf Tage · 15-Jährige mit Erbrechen und auffälligem Leberlabor — nicht
+Hepatitis, sondern Paracetamol-Intoxikation.
+
+### Sprunggelenksfraktur · +2
+Foto der dislozierten OSG-Fraktur: dringliche Reposition vor Bildgebung, Hautnekrosegefahr ·
+Frakturmechanismus der Weber-C-Fraktur mit Volkmann-Dreieck.
+
+### Morbus Crohn · +2
+Diarrhö-DD vollständig mit Stuhldiagnostik · systematische Gegenüberstellung Crohn vs.
+Colitis ulcerosa in Diagnostik und Therapie.
+
+### Sepsis · +1
+Die fünf Entzündungszeichen (Standardfrage des Anästhesisten) — mit dem Hinweis, dass sie
+bei Immunsupprimierten fehlen können.
+
+### Aortendissektion · +1
+Volvulus: Definition, häufigste Lokalisationen (Sigma, Magen, Zökum), Kaffeebohnenzeichen.
+
+---
+
 ## Offene Punkte
 
 - **Gastroduodenales Ulkus** hat mit 28 Treffern das höchste ungeminte Volumen der ganzen
@@ -222,7 +277,7 @@ Notfall.
 
 ## Verbleibend
 
-**27 der 53** R3/R4-Themen stehen noch aus (**26 erledigt, +96 Fragen**).
+**18 der 53** R3/R4-Themen stehen noch aus (**35 erledigt, +117 Fragen**).
 Nächste nach Volumen im 2026er Band: tvt (9), allgemeine-frakturlehre (9), lungenembolie (8),
 leberzirrhose (8), kolonkarzinom (8), hyperthyreose (8), divertikulitis (8), pneumonie (7),
 synkope (6), akute-leukaemien (6), sepsis (5), schilddruesenkarzinom (5), ikterus-cholestase (5),

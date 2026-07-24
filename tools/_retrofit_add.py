@@ -26,7 +26,7 @@ def main():
     path, blockfile = sys.argv[1], sys.argv[2]
     spec = json.load(io.open(blockfile, encoding='utf-8'))
     h = io.open(path, encoding='utf-8').read()
-    m = re.search(r'(<section class="panel[^"]*" data-panel="protokoll".*?)(\n  </section>)', h, re.S)
+    m = re.search(r'(<section class="panel[^"]*" data-panel="protokoll".*?)(\n\s*</section>)', h, re.S)
     if not m:
         sys.exit('FAIL: no protokoll panel in %s' % path)
     before = len(re.findall(r'<div class="pq-frage">', m.group(1)))
