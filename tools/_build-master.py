@@ -77,7 +77,7 @@ FLAT=[
 (95,18,77,"Kardiologie","Synkope","synkope"),
 (93,40,53,"Unfallchirurgie","Distale Radiusfraktur","distale-radiusfraktur"),
 (93,30,63,"Drittes Fach","Schmerztherapie / WHO-Schema",None),
-(92,30,62,"Notfallmedizin","Akuttoxikologie / Intoxikation",None),
+(92,30,62,"Notfallmedizin","Akuttoxikologie / Intoxikation","akuttoxikologie"),
 (92,21,71,"Kardiologie","Ventr. Tachykardie / Kammerflimmern",None),
 (91,15,76,"Hämatologie","Akute Leukämien (ALL)","akute-leukaemien"),
 (89,37,52,"Drittes Fach","Aufklärung, Einwilligung & Betreuung","aufklaerung-einwilligung-betreuung"),
