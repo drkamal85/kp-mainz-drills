@@ -261,14 +261,78 @@ Volvulus: Definition, häufigste Lokalisationen (Sigma, Magen, Zökum), Kaffeebo
 
 ---
 
+## Batch 5 (Abschluss) — 13 Themen · +30 Fragen
+
+| Thema | Level | vorher | nachher | neu |
+|---|---|--:|--:|--:|
+| Notfallpharmakologie | R3 | 9 | 13 | +4 |
+| Vorhofflimmern | R3 | 11 | 14 | +3 |
+| Herzklappenerkrankungen | R3 | 11 | 14 | +3 |
+| Sozialrecht & Hygiene | R3 | 16 | 19 | +3 |
+| Cholezystitis | R4 | 14 | 16 | +2 |
+| Polytrauma / ABCDE | R3 | 14 | 16 | +2 |
+| Non-Hodgkin-Lymphome | R3 | 12 | 14 | +2 |
+| Beckenringfrakturen | R4 | 9 | 11 | +2 |
+| Schock | R4 | 10 | 12 | +2 |
+| AV-Block | R3 | 10 | 12 | +2 |
+| Pleuraerguss | R3 | 9 | 11 | +2 |
+| COPD · Asthma · Cushing · CML · Hypothyreose · Endokarditis · Rektumkarzinom · KHK | — | — | — | 0 (geprüft) |
+
+### Notfallpharmakologie · +4
+**Sonderfall:** Diese Datei nutzt die ältere Architektur mit `<section class="station" id="s1..s7">`
+statt `data-panel`, weshalb das Standardwerkzeug nicht greift — Einfügung in s7 erfolgte manuell.
+Inhalte: BTM-Rezepte (dreiteiliges Formular, BTM-Nummer, 8 Tage gültig, 3 Jahre Aufbewahrung) ·
+WHO-Stufenschema mit ALLEN Medikamenten, Nebenwirkungen und Koanalgetika (der Prüfer hakte bei
+vergessenem Paracetamol nach) · NSAR-Nebenwirkungen und Vorsicht beim alten Patienten ·
+Antikoagulanzien mit Wirkmechanismus und Antidot.
+
+### Vorhofflimmern · +3
+Vier Antiarrhythmika-Klassen · Interaktion Betablocker plus Verapamil · Antikoagulation trotz
+Hb-Abfall — Abwägung.
+
+### Herzklappenerkrankungen · +3
+Auskultationsbefunde Mitralklappeninsuffizienz vs. Aortenklappenstenose mit Punctum maximum und
+Fortleitung · mechanische Klappe plus Ulkus · warum Mitralvitien Vorhofflimmern machen.
+
+### Sozialrecht & Hygiene · +3
+Wegeunfall versichert vs. nicht versichert, D-Arzt und wer ihn ernennt · Versicherungen auf der
+Gehaltsabrechnung, Pflegekasse und ihre Leistungen · Stichverletzung mit HIV-Verdacht → **D-Arzt,
+nicht Betriebsarzt**.
+
+### Weitere
+**Cholezystitis:** Calot-Dreieck und Critical View of Safety · Indikationen zur Cholezystektomie
+im Sonobild. **Polytrauma:** Log-Roll-Manöver · Erkennen von Wirbelfehlstellungen.
+**NHL:** B-Symptomatik und ihre Bedeutung für die Therapieintensität · EBV vollständig.
+**Beckenring:** Symphysenabstand und Diastasis über 10 mm · Osteolysen vs. osteoblastische
+Metastasen. **Schock:** hämorrhagischer Schock klinisch erkennen · kristalloid vs. kolloidal.
+**AV-Block:** vollständige EKG-Interpretation AV-Block I · Schrittmachertypen AAI/VVI/DDD.
+**Pleuraerguss:** Qualitätsbeurteilung eines schlechten Röntgen-Thorax · Hämatothorax vs. Erguss.
+
+### Ohne neues Material — geprüft, kein Update
+`copd` (4 Treffer, nur Randerwähnungen), `asthma-bronchiale` (1), `cushing-syndrom` (1),
+`cml` (1), `hypothyreose` (1), `infektioese-endokarditis` (1), `rektumkarzinom` (6, alle
+bereits im Deck), `khk` (6, alle Treffer gehören zu Herzinsuffizienz/Klappen).
+
+---
+
+## Abschluss
+
+**Alle 53 R3/R4-Themen sind gegen die drei neuen Quellen geprüft.**
+48 Themen erhielten neue Fragen, 8 waren bereits vollständig.
+**Gesamtzuwachs: +147 dokumentierte Fragen.** Validator `tools/_check-fragen.py` durchgehend grün,
+zuletzt 830 geprüfte Antworten über 60 Dateien.
+
+---
+
 ## Offene Punkte
 
 - **Gastroduodenales Ulkus** hat mit 28 Treffern das höchste ungeminte Volumen der ganzen
   Bibliothek (u. a. blutendes Gefäß bei Ulcus duodeni vs. ventriculi, chirurgisches Vorgehen
   bei Blutung, Ulkus unter mechanischer Herzklappe) — steht aber auf **R1** und hat gar kein
   tab 6. Braucht R2 → R3, nicht Retrofit.
-- **`notfallpharmakologie`** ist als R3 gebadged, hat aber eine abweichende Dateistruktur
-  ohne Tabs. Vor Retrofit gesondert prüfen.
+- ~~**`notfallpharmakologie`** abweichende Dateistruktur~~ — **erledigt in Batch 5**: nutzt
+  `<section class="station" id="s7">` statt `data-panel`; Einfügung manuell. Sollte bei Gelegenheit
+  auf die Standardarchitektur der übrigen R3 umgestellt werden.
 - **`akuttoxikologie`** steht auf **R1** (nur vier Tabs) und fällt damit aus dem Retrofit-Umfang,
   obwohl im 2026er Band Material vorliegt (Paracetamol-Intoxikation als Fehldiagnose Hepatitis,
   Naloxon als diagnostischer Test, Flumazenil, Giftnotruf bei Tablettensuizid). Braucht R2 → R3.
@@ -277,7 +341,7 @@ Volvulus: Definition, häufigste Lokalisationen (Sigma, Magen, Zökum), Kaffeebo
 
 ## Verbleibend
 
-**18 der 53** R3/R4-Themen stehen noch aus (**35 erledigt, +117 Fragen**).
+**Keine.** Alle 53 R3/R4-Themen sind abgearbeitet (**+147 Fragen**).
 Nächste nach Volumen im 2026er Band: tvt (9), allgemeine-frakturlehre (9), lungenembolie (8),
 leberzirrhose (8), kolonkarzinom (8), hyperthyreose (8), divertikulitis (8), pneumonie (7),
 synkope (6), akute-leukaemien (6), sepsis (5), schilddruesenkarzinom (5), ikterus-cholestase (5),
