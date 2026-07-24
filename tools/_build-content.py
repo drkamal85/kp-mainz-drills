@@ -101,13 +101,20 @@ def parse_rapidfire(h):
 def parse_fragen(h, spec_name):
     out = []
     pm = re.search(r'<section class="panel[^"]*" data-panel="protokoll">(.*?)</section>', h, re.S)
-    if not pm: return out
+    if pm:
+        scope = pm.group(1)
+    else:
+        # Altformat (data-s Stationen statt data-panel): sonst gingen die Fragen still verloren.
+        sm = [m.group(1) for m in re.finditer(r'<section class="station[^"]*"[^>]*>(.*?)</section>', h, re.S)
+              if 'class="pq"' in m.group(1)]
+        if not sm: return out
+        scope = '\n'.join(sm)
     tag = 'MAINZ · ' + spec_name.upper()
-    for chunk in re.split(r'(?=<div class="pk">)', pm.group(1)):
+    for chunk in re.split(r'(?=<div class="pk">)', scope):
         if 'class="pq"' not in chunk: continue
-        akte = re.search(r'<div class="pk-akte"><span class="lab">Fall</span>(.*?)</div>', chunk, re.S)
+        akte = re.search(r'<div class="pk-akte"><span class="lab">[^<]*</span>(.*?)</div>', chunk, re.S)
         fall = md(akte.group(1)) if akte else ''
-        for q in re.finditer(r'<div class="pq"><div class="pq-frage">(.*?)</div><details class="reveal"><summary>Antwort</summary><div class="ans">(.*?)</div></details></div>', chunk, re.S):
+        for q in re.finditer(r'<div class="pq"><div class="pq-frage">(.*?)</div><details class="reveal"><summary>[^<]*</summary><div class="ans">(.*?)</div></details></div>', chunk, re.S):
             item = {'frage': md(q.group(1)), 'antwort': md(q.group(2)), 'tag': tag}
             if fall: item['fall'] = fall
             out.append(item)
