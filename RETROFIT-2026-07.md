@@ -92,6 +92,64 @@ Quelle: 2026-Band (Unfallchirurgie-Block mit Bildfragen).
 
 ---
 
+## Batch 2 — 9 Themen · +33 Fragen
+
+| Thema | Level | vorher | nachher | neu |
+|---|---|--:|--:|--:|
+| Strahlenschutz | R3 | 13 | 18 | +5 |
+| Distale Radiusfraktur | R4 | 7 | 11 | +4 |
+| Diabetes mellitus | R3 | 12 | 16 | +4 |
+| Arterielle Hypertonie | R3 | 11 | 15 | +4 |
+| Rechtsmedizin / Leichenschau | R3 | 12 | 16 | +4 |
+| Appendizitis | R4 | 10 | 14 | +4 |
+| GI-Blutung | R3 | 25 | 28 | +3 |
+| Herzinsuffizienz | R3 | 10 | 13 | +3 |
+| Eisenmangelanämie | R3 | 11 | 13 | +2 |
+
+### Strahlenschutz · +5
+ALARA englisch und deutsch mit Erklärung jedes A · Röntgenbild mit fehlender Einblendung
+(„wo ist der Strahlenschutz gebrochen?") · strahlenempfindliche Organe und ihr Schutz ·
+Kontrastmittelkomplikationen inkl. Vorgehen bei anaphylaktischer Reaktion · Nuklearmedizin
+(Szintigraphie, PET, Radiojodtherapie).
+
+### Distale Radiusfraktur · +4
+AO-Klassifikation und Bedeutung von 23A3 · klinischer Befund Colles (Bajonett-/Fourchette-Stellung)
+vs. Smith · Barton-Fraktur und warum operativ · Abriss Processus styloideus ulnae, DRUG-Instabilität
+und Arthroseprophylaxe.
+
+### Diabetes mellitus · +4
+Somogyi-Phänomen (nächtliche Hypoglykämie mit morgendlicher Hyperglykämie) · Abgrenzung zum
+Dawn-Phänomen · Insulinbedarf bei Niereninsuffizienz · diabetische Retinopathie mit Screening-Intervallen.
+
+### Arterielle Hypertonie · +4
+RAAS-Wirkmechanismus im Detail · Ramipril: Gruppe, Indikation, Nebenwirkungen, Kontraindikationen ·
+Kombinationspartner und Nebenwirkungen der Kalziumantagonisten · Hypertonie in der Schwangerschaft
+(Präeklampsie, HELLP, Therapie, KI von ACE-Hemmern).
+
+### Rechtsmedizin / Leichenschau · +4
+Warum ein Leichnam nicht kräftig bewegt werden darf · komplett roter Verstorbener (CO/Zyanid, Kälte) ·
+weitere Totenfleckenfarben und ihre Bedeutung · häufigste Todesursachen im Schockraum.
+
+### Appendizitis · +4
+Stadien und stadiengerechte Therapie inkl. Intervallappendektomie · retrozäkale Lage als häufigste
+und ihre klinischen Folgen · Appendizitis links (Situs inversus) · FAST-Sonografie mit Morrison-
+und Koller-Pouch.
+
+### GI-Blutung · +3
+Forrest Ib: endoskopische Blutstillung mit Suprarenin plus zweitem Verfahren · ASS-assoziierte
+ischämische Duodenitis · GI-Blutung unter Apixaban bei akut-auf-chronischem Nierenversagen
+(Andexanet alfa, Medikamentenanpassung).
+
+### Herzinsuffizienz · +3
+Typen und Ursachen im Überblick · Untersuchungs- und Auskultationsbefund bei Anasarka und
+Tachykardie · respiratorische Alkalose bei Hyperventilation und Indikation zur NIV.
+
+### Eisenmangelanämie · +2
+Warum das CRP zum Ferritin mitbestellt wird (Akute-Phase-Protein, funktioneller Eisenmangel) ·
+Bedeutung der Retikulozyten als Therapiekontrolle.
+
+---
+
 ## Offene Punkte
 
 - **Gastroduodenales Ulkus** hat mit 28 Treffern das höchste ungeminte Volumen der ganzen
@@ -100,12 +158,22 @@ Quelle: 2026-Band (Unfallchirurgie-Block mit Bildfragen).
   tab 6. Braucht R2 → R3, nicht Retrofit.
 - **`notfallpharmakologie`** ist als R3 gebadged, hat aber eine abweichende Dateistruktur
   ohne Tabs. Vor Retrofit gesondert prüfen.
+- **`akuttoxikologie`** steht auf **R1** (nur vier Tabs) und fällt damit aus dem Retrofit-Umfang,
+  obwohl im 2026er Band Material vorliegt (Paracetamol-Intoxikation als Fehldiagnose Hepatitis,
+  Naloxon als diagnostischer Test, Flumazenil, Giftnotruf bei Tablettensuizid). Braucht R2 → R3.
 - **Ohne Treffer im 2026er Band** (geprüft, kein Update nötig): `cushing-syndrom`, `cml`,
   `asthma-bronchiale`.
 
 ## Verbleibend
 
-45 der 53 R3/R4-Themen stehen noch aus. Nächste nach Volumen: gi-blutung (14),
-eisenmangelanaemie (14), distale-radiusfraktur (13), diabetes-mellitus (13),
-arterielle-hypertonie (12), akuttoxikologie (11), strahlenschutz (10), rechtsmedizin (10),
-herzinsuffizienz (10), appendizitis (10).
+**36 der 53** R3/R4-Themen stehen noch aus (17 erledigt, +68 Fragen).
+Nächste nach Volumen im 2026er Band: tvt (9), allgemeine-frakturlehre (9), lungenembolie (8),
+leberzirrhose (8), kolonkarzinom (8), hyperthyreose (8), divertikulitis (8), pneumonie (7),
+synkope (6), akute-leukaemien (6), sepsis (5), schilddruesenkarzinom (5), ikterus-cholestase (5),
+sprunggelenksfraktur (4), schaedel-hirn-trauma (4), morbus-crohn (4), wirbelsaeulenverletzungen (3),
+aortendissektion (3), rektumkarzinom (1), infektioese-endokarditis (1), hypothyreose (1),
+beckenringfrakturen (1).
+
+Ohne eigenes Muster in der ersten Zählung und noch zu prüfen: sozialrecht-hygiene,
+polytrauma-abcde, pleuraerguss, non-hodgkin-lymphome, khk, herzklappenerkrankungen,
+cholezystitis, copd, av-block, vorhofflimmern, schock, schlaganfall (erledigt), ileus (erledigt).
