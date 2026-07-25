@@ -198,9 +198,10 @@ print('with fragen:', withf, '| with perlen:', withp, '| with rapid-fire:', with
 import collections
 blk = collections.Counter(b['type'] for t in topics for k in t['stations'] for b in t['stations'][k])
 print('station blocks:', dict(blk))
-s = topics[[i for i,t in enumerate(topics) if t['id']=='synkope-r3'][0]]
-print('--- sample synkope-r3 ---')
-print('  grundlagen[0]:', json.dumps(s['stations']['grundlagen'][0], ensure_ascii=False)[:160])
-print('  grundlagen[1]:', json.dumps(s['stations']['grundlagen'][1], ensure_ascii=False)[:160])
-print('  perle[0]:', json.dumps(s['perlen'][0], ensure_ascii=False)[:140])
-print('  frage[0]:', json.dumps(s['fragen'][0], ensure_ascii=False)[:200] if s['fragen'] else 'none')
+_sample = [i for i,t in enumerate(topics) if t['id'].startswith('synkope')]
+if _sample:
+    s = topics[_sample[0]]
+    print('--- sample', s['id'], '---')
+    print('  grundlagen[0]:', json.dumps(s['stations']['grundlagen'][0], ensure_ascii=False)[:160])
+    print('  perle[0]:', json.dumps(s['perlen'][0], ensure_ascii=False)[:140] if s['perlen'] else 'none')
+    print('  frage[0]:', json.dumps(s['fragen'][0], ensure_ascii=False)[:200] if s['fragen'] else 'none')
