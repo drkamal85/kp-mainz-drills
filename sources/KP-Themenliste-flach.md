@@ -1,6 +1,6 @@
 # KP MAINZ — THEMENLISTE (FLACH, EINE RANGLISTE)
 
-Alle **97 Themen** in einer Rangliste nach **Korpus-Treffer** (WhatsApp-Chat + Protokolle). Aktuell **55 von 97** mit Review abgedeckt (~57 %).
+Alle **97 Themen** in einer Rangliste nach **Korpus-Treffer** (WhatsApp-Chat + Protokolle). Aktuell **56 von 97** mit Review abgedeckt (~58 %).
 
 > **Juli 2026 (a):** 3 Themen ergänzt (nach Protokoll-Frequenz-Check bestätigt): **Kreuzbandruptur** (Unfallchirurgie, 30 Protokoll-Treffer, VKB:21), **Status epilepticus/Epilepsie** (Neurologie, 10), **Gicht/Podagra** (Rheumatologie, 6). *Verworfen* (zu niedrig/abwesend): Meningitis, Demenz, Erysipel, Fazialisparese, Ösophaguskarzinom, Multiples Myelom, Migräne, Parkinson.
 
@@ -114,7 +114,7 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 84 | 47 | 8 | 39 | Endokrinologie | Struma | — |
 | 85 | 43 | 19 | 24 | Kardiologie | Paroxysmale SVT / AVNRT-AVRT | — |
 | 86 | 43 | 13 | 30 | Querschnitt | Check-up / Prävention | — |
-| 87 | 40 | 10 | 30 | Angiologie | Aortenaneurysma (AAA) | — |
+| 87 | 40 | 10 | 30 | Angiologie | Aortenaneurysma (AAA) | ✓ R1 |
 | 88 | 40 | 7 | 33 | Unfallchirurgie | Beckenringfrakturen | ✓ R4 |
 | 89 | 37 | 12 | 25 | Notfallmedizin | Delir | — |
 | 90 | 32 | 5 | 27 | Endokrinologie | Cushing-Syndrom | ✓ R3 |
