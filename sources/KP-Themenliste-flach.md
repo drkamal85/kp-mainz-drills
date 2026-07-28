@@ -114,7 +114,7 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 84 | 47 | 8 | 39 | Endokrinologie | Struma | — |
 | 85 | 43 | 19 | 24 | Kardiologie | Paroxysmale SVT / AVNRT-AVRT | — |
 | 86 | 43 | 13 | 30 | Querschnitt | Check-up / Prävention | — |
-| 87 | 40 | 10 | 30 | Angiologie | Aortenaneurysma (AAA) | ✓ R1 |
+| 87 | 40 | 10 | 30 | Angiologie | Aortenaneurysma (AAA) | ✓ R2 |
 | 88 | 40 | 7 | 33 | Unfallchirurgie | Beckenringfrakturen | ✓ R4 |
 | 89 | 37 | 12 | 25 | Notfallmedizin | Delir | — |
 | 90 | 32 | 5 | 27 | Endokrinologie | Cushing-Syndrom | ✓ R3 |

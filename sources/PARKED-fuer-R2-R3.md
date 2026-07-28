@@ -28,7 +28,7 @@ Weitere Perlen-Kandidaten (aus R1 entfernt, weil zu detailliert für die Basis):
 - Hybridverankerung als dritte Option
 - Intraartikuläre Glukokortikoide nur zurückhaltend
 
-## Aortenaneurysma (AAA)
+## Aortenaneurysma (AAA) — ⚠ R2 gebaut 07/2026, Perlen verbraucht; Rest bleibt für R3 Tab 6
 
 **Dr. Dahm (Chirurgie)** — Komplikationen eines unbehandelten Aortenaneurysmas:
 rupturiertes AAA und **abdominelles Kompartmentsyndrom** (>20 mmHg, Blasendruckmessung,
