@@ -55,7 +55,7 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 35 | 130 | 31 | 99 | Pneumologie | COPD | ✓ R4 |
 | 36 | 127 | 44 | 83 | Unfallchirurgie | Sprunggelenksfraktur (OSG) | ✓ R3 |
 | 37 | 122 | 39 | 83 | Endokrinologie | Hyperthyreose | ✓ R4 |
-| 38 | 120 | 40 | 80 | Unfallchirurgie | Hüft- / Knie-TEP | ✓ R1 |
+| 38 | 120 | 40 | 80 | Unfallchirurgie | Hüft- / Knie-TEP | ✓ R2 |
 | 39 | 120 | 36 | 84 | Gastroenterologie | Gastritis (Typ A/B/C) | — |
 
 ## TIER 3 · mittlere Präsenz (60–119)

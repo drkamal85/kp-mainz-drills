@@ -7,7 +7,7 @@ Bau der höheren Level nicht verloren geht.
 
 ---
 
-## Hüft-/Knie-TEP
+## Hüft-/Knie-TEP — ⚠ R2 gebaut 07/2026, Perlen verbraucht; Fall-7-Verlauf bleibt für R3 Tab 6
 
 **Mainz Fall 7 · Dr. Tannert · 31.03.2023 — kompletter Verlauf**
 67-jährige Patientin, Hüft-TEP rechts am 18.01. → am 16.02. Schmerzen, Rötung, Schwellung
