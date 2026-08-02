@@ -93,7 +93,7 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 68 | 65 | 22 | 43 | Endokrinologie | Schilddrüsenkarzinom | ✓ R3 |
 | 69 | 64 | 29 | 35 | Allgemein- und Viszeralchirurgie | Akutes Abdomen | — |
 | 70 | 63 | 25 | 38 | Notfallmedizin | Anaphylaxie | — |
-| 71 | 62 | 15 | 47 | Allgemein- und Viszeralchirurgie | Rektumkarzinom | ✓ R2 |
+| 71 | 62 | 15 | 47 | Allgemein- und Viszeralchirurgie | Rektumkarzinom | ✓ R3 |
 | 72 | 60 | 15 | 45 | Unfallchirurgie | Humerusfraktur | — |
 
 ## TIER 4 · geringere Präsenz (<60)
