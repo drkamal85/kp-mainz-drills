@@ -30,8 +30,25 @@ def violations(answer):
     if wc < 5 or (at and at[-1] not in '.!?'): reasons.append('fragment')
     return reasons
 
+
+NUMWORD = re.compile(r'\b(zwanzig|drei\u00dfig|vierzig|f\u00fcnfzig|sechzig|siebzig|achtzig|neunzig|hundert|tausend|zweihundert|dreihundert|vierhundert|f\u00fcnfhundert|vierundzwanzig|achtundvierzig|zweiundsiebzig|zweihundertf\u00fcnfzig|f\u00fcnfundsechzig|f\u00fcnfundzwanzig)\\w*', re.I)
+
+def style_warnings(answer):
+    """Hausstil-Pruefungen laut tools/TAB6-ANTWORTFORMAT.md. Warnung, kein FAIL."""
+    at = clean(answer); w = []
+    n = NUMWORD.findall(at)
+    if n: w.append('ausgeschriebene-Zahl(%s)' % '/'.join(n[:2]))
+    wc = len(at.split())
+    if wc > 36: w.append('zu-lang(%dW)' % wc)
+    for sent in re.split(r'(?<=[.!?])\s+', at):
+        glieder = sent.count(',') + len(re.findall(r'\b(und|sowie|oder)\b', sent))
+        if glieder > 4: w.append('lange-Aufzaehlung(%d)' % glieder)
+        if len(sent.split()) > 22: w.append('langer-Satz(%dW)' % len(sent.split()))
+    return w
+
 files = glob.glob('reviews/**/*.html', recursive=True)
 bad = []
+warn = []
 total = 0
 for f in sorted(set(files)):
     h = io.open(f, encoding='utf-8').read()
@@ -40,6 +57,9 @@ for f in sorted(set(files)):
         v = violations(a)
         if v:
             bad.append((f.split('/')[-1], clean(q)[:50], v, clean(a)[:80]))
+        sw = style_warnings(a)
+        if sw:
+            warn.append((f.split('/')[-1], clean(q)[:46], sw))
 
 print('Fragen answers checked: %d across %d files' % (total, len(set(files))))
 if bad:
@@ -49,5 +69,13 @@ if bad:
         print('      A: %s' % a)
 else:
     print('  all answers are flowing speakable sentences (Option A)')
+if warn:
+    print('STIL-WARNUNGEN (%d) -- siehe tools/TAB6-ANTWORTFORMAT.md:' % len(warn))
+    for fn, q, w in warn[:25]:
+        print('  [%s] %s :: %s' % ('/'.join(w), fn, q))
+    if len(warn) > 25:
+        print('  ... und %d weitere' % (len(warn) - 25))
+else:
+    print('  Hausstil: Zahlen, Laenge und Aufzaehlungen in Ordnung')
 print('RESULT:', 'PASS' if not bad else 'FAIL')
 sys.exit(0 if not bad else 1)
