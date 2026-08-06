@@ -1,6 +1,6 @@
 # KP MAINZ — THEMENLISTE (FLACH, EINE RANGLISTE)
 
-Alle **97 Themen** in einer Rangliste nach **Korpus-Treffer** (WhatsApp-Chat + Protokolle). Aktuell **56 von 97** mit Review abgedeckt (~58 %).
+Alle **97 Themen** in einer Rangliste nach **Korpus-Treffer** (WhatsApp-Chat + Protokolle). Aktuell **57 von 97** mit Review abgedeckt (~59 %).
 
 > **Juli 2026 (a):** 3 Themen ergänzt (nach Protokoll-Frequenz-Check bestätigt): **Kreuzbandruptur** (Unfallchirurgie, 30 Protokoll-Treffer, VKB:21), **Status epilepticus/Epilepsie** (Neurologie, 10), **Gicht/Podagra** (Rheumatologie, 6). *Verworfen* (zu niedrig/abwesend): Meningitis, Demenz, Erysipel, Fazialisparese, Ösophaguskarzinom, Multiples Myelom, Migräne, Parkinson.
 
@@ -20,7 +20,7 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 5 | 298 | 88 | 210 | Allgemein- und Viszeralchirurgie | Ileus | ✓ R4 |
 | 6 | 296 | 56 | 240 | Notfallmedizin | Sepsis & septischer Schock | ✓ R3 |
 | 7 | 282 | 103 | 179 | Drittes Fach | Bluttransfusion | — |
-| 8 | 279 | 90 | 189 | Drittes Fach | Anästhesie & Atemwegssicherung | — |
+| 8 | 279 | 90 | 189 | Drittes Fach | Anästhesie & Atemwegssicherung | ✓ R1 |
 | 9 | 278 | 74 | 204 | Endokrinologie | Diabetes mellitus | ✓ R3 |
 | 10 | 264 | 98 | 166 | Drittes Fach | Impfungen / STIKO | ✓ R3 |
 | 11 | 255 | 84 | 171 | Pneumologie | Pneumothorax | ✓ R3 |
