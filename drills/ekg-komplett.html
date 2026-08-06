@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EKG Komplett · Systematische Befundung</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F7F4EE; --paper: #FFFFFF; --ink: #1A1A1A;
+    --ink-muted: #5C5C5C; --ink-soft: #8A8A8A; --rule: #E8E2D6;
+    --accent: #1E5F9E; --accent-soft: #E5EEF7;
+    --key: #2D7A3E; --key-soft: #E3F1E6;
+    --warn: #D97706; --warn-soft: #FDF2E2;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--ink); font-family: 'Fraunces', Georgia, serif; font-size: 16.5px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .container { max-width: 800px; margin: 0 auto; padding: 40px 24px 80px; }
+  .back { display: inline-block; font-family: 'Manrope', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-muted); text-decoration: none; margin-bottom: 22px; }
+  .back:hover { color: var(--ink); }
+  .eyebrow { font-family: 'Manrope', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 12px; }
+  .eyebrow::before { content: "— "; }
+  h1 { font-family: 'Fraunces', serif; font-weight: 600; font-size: clamp(30px, 5vw, 44px); line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 12px; }
+  h1 .accent { font-style: italic; color: var(--accent); }
+  .subtitle { font-family: 'Fraunces', serif; font-style: italic; font-size: 17px; color: var(--ink-muted); margin-bottom: 18px; max-width: 600px; }
+  .meta { font-family: 'Manrope', sans-serif; font-size: 12.5px; color: var(--ink-soft); display: flex; flex-wrap: wrap; gap: 0; align-items: center; margin-bottom: 28px; }
+  .meta span + span::before { content: "•"; margin: 0 12px; }
+  .tabs { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 28px; background: var(--paper); padding: 5px; border-radius: 50px; border: 1px solid var(--rule); }
+  .tab { flex: 1; min-width: 120px; padding: 11px 8px; font-family: 'Manrope', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink-muted); background: transparent; border: none; border-radius: 50px; cursor: pointer; text-align: center; transition: all 0.2s ease; }
+  .tab:hover { color: var(--ink); }
+  .tab.active { color: white; background: var(--accent); }
+  .chapter { display: none; animation: fadeIn 0.25s ease; }
+  .chapter.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+  .chapter-head { display: flex; align-items: baseline; gap: 12px; padding-bottom: 10px; margin-bottom: 18px; border-bottom: 2px solid var(--accent); }
+  .chapter-num { font-family: 'Manrope', sans-serif; font-size: 12px; font-weight: 800; letter-spacing: 0.1em; color: white; background: var(--accent); padding: 3px 9px; border-radius: 5px; }
+  .chapter-title { font-family: 'Fraunces', serif; font-weight: 600; font-size: 25px; color: var(--accent); }
+  .card { background: var(--paper); border: 1px solid var(--rule); border-radius: 12px; margin-bottom: 14px; overflow: hidden; }
+  .card-head { display: flex; justify-content: space-between; align-items: center; padding: 14px 18px; cursor: pointer; gap: 12px; }
+  .card-tag { display: inline-block; font-family: 'Manrope', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; padding: 3px 8px; border-radius: 3px; margin-bottom: 4px; background: var(--accent-soft); color: var(--accent); }
+  .card-title { font-family: 'Fraunces', serif; font-weight: 500; font-size: 17.5px; line-height: 1.3; }
+  .toggle { font-family: 'Manrope', sans-serif; font-size: 22px; font-weight: 300; color: var(--ink-muted); transition: transform 0.25s ease; flex-shrink: 0; }
+  .card.open .toggle { transform: rotate(45deg); }
+  .card-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+  .card.open .card-body { max-height: 3000px; }
+  .card-body-inner { padding: 2px 18px 18px; }
+  h4 { font-family: 'Manrope', sans-serif; font-size: 10.5px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-muted); margin: 14px 0 8px; }
+  .card-body-inner > h4:first-child { margin-top: 4px; }
+  ul { list-style: none; padding-left: 2px; margin-bottom: 10px; }
+  li { position: relative; padding-left: 20px; margin-bottom: 6px; line-height: 1.5; font-size: 15.5px; }
+  li::before { content: ""; position: absolute; left: 5px; top: 9px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+  strong { font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-family: 'Manrope', sans-serif; font-size: 14px; margin: 8px 0 12px; }
+  th { background: #F0EBE0; text-transform: uppercase; font-size: 10px; letter-spacing: 0.12em; color: var(--ink-muted); text-align: left; padding: 8px 10px; font-weight: 700; border-bottom: 1px solid var(--rule); }
+  td { padding: 9px 10px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  .swatch { display: inline-block; width: 14px; height: 14px; border-radius: 3px; vertical-align: middle; margin-right: 6px; border: 1px solid var(--rule); }
+  .callout { border-left: 3px solid; padding: 12px 16px; margin: 12px 0; border-radius: 0 8px 8px 0; font-family: 'Fraunces', serif; font-style: italic; font-size: 14.5px; line-height: 1.5; }
+  .callout-label { font-family: 'Manrope', sans-serif; font-style: normal; font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; display: block; margin-bottom: 5px; }
+  .callout.fact { border-color: var(--accent); background: var(--accent-soft); } .callout.fact .callout-label { color: var(--accent); }
+  .callout.key { border-color: var(--key); background: var(--key-soft); } .callout.key .callout-label { color: var(--key); }
+  .callout.warn { border-color: var(--warn); background: var(--warn-soft); } .callout.warn .callout-label { color: var(--warn); }
+  .qa { background: var(--key-soft); border-left: 4px solid var(--key); border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 12px 0; }
+  .qa .q { font-family: 'Manrope', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--key); display: block; margin-bottom: 5px; }
+  .qa .q-text { font-family: 'Fraunces', serif; font-style: italic; font-size: 15px; margin-bottom: 8px; }
+  .qa .a { border-top: 1px dashed var(--rule); padding-top: 8px; font-size: 14.5px; }
+  .qa .a-label { font-family: 'Manrope', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); display: block; margin-bottom: 4px; }
+  .bf-intro { font-family: 'Manrope', sans-serif; font-size: 13px; color: var(--ink-soft); margin-bottom: 10px; }
+  .bf { border: 1px solid var(--rule); border-radius: 8px; margin-bottom: 6px; background: var(--paper); }
+  .bf > summary { cursor: pointer; list-style: none; padding: 10px 14px; font-family: 'Manrope', sans-serif; font-size: 14.5px; font-weight: 600; color: var(--ink); }
+  .bf > summary::-webkit-details-marker { display: none; }
+  .bf > summary::before { content: "\25B8  "; color: var(--accent); font-weight: 700; }
+  .bf[open] > summary::before { content: "\25BE  "; }
+  .bf[open] > summary { border-bottom: 1px dashed var(--rule); }
+  .bf .bfa { padding: 9px 14px; font-family: 'Manrope', sans-serif; font-size: 14.5px; font-weight: 600; color: var(--key); }
+  footer { margin-top: 50px; padding-top: 20px; border-top: 1px solid var(--rule); font-family: 'Manrope', sans-serif; font-size: 11.5px; color: var(--ink-soft); text-align: center; }
+  @media (max-width: 600px) { .container { padding: 28px 16px 50px; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <a href="../index.html" class="back">← Zurück zur Library</a>
+  <header>
+    <div class="eyebrow">EKG · Komplettskript</div>
+    <h1>Systematische <span class="accent">EKG-Befundung</span></h1>
+    <p class="subtitle">Acht Schritte, immer in derselben Reihenfolge — vom Rhythmus bis zur T-Welle. Wer laut mitspricht, übersieht nichts und wirkt souverän. Vor der Prüfung einmal durchlesen.</p>
+    <div class="meta"><span>8 Kapitel</span><span>nach dem Schema von Khaled Ibrahim</span></div>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab active" data-k="k1">Systematik</button>
+    <button class="tab" data-k="k2">1 · Rhythmus</button>
+    <button class="tab" data-k="k3">2 · Frequenz</button>
+    <button class="tab" data-k="k4">3 · P-Welle</button>
+    <button class="tab" data-k="k5">4 · Lagetyp</button>
+    <button class="tab" data-k="k6">5 · PQ &amp; AV-Block</button>
+    <button class="tab" data-k="k7">6 · QRS</button>
+    <button class="tab" data-k="k8">7 · ST-Strecke</button>
+    <button class="tab" data-k="k9">8 · T-Welle</button>
+  </nav>
+
+  <section class="chapter active" id="k1">
+    <div class="chapter-head"><span class="chapter-num">0</span><span class="chapter-title">Systematik — der Ablauf</span></div>
+
+    <div class="card open">
+      <div class="card-head"><div><span class="card-tag">System</span><div class="card-title">Die acht Schritte — immer in dieser Reihenfolge</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <div class="callout critical"><span class="callout-label">★ Der Ablauf</span><strong>Rhythmus, Frequenz, P-Welle, Lagetyp, PQ, QRS, ST-Strecke, T-Welle.</strong> Wer diese Reihenfolge laut mitspricht, wirkt souverän und übersieht nichts.</div>
+        <table>
+          <thead><tr><th>#</th><th>Schritt</th><th>Kernfrage</th></tr></thead>
+          <tbody><tr><td>1</td><td>Rhythmus</td><td>Vor jedem QRS eine P-Welle? RR regelmäßig?</td></tr><tr><td>2</td><td>Frequenz</td><td>300 geteilt durch große Kästchen</td></tr><tr><td>3</td><td>P-Welle</td><td>zu hoch oder zu breit?</td></tr><tr><td>4</td><td>Lagetyp</td><td>I, II, III positiv oder negativ?</td></tr><tr><td>5</td><td>PQ</td><td>120 bis 200 ms? Fällt ein QRS aus?</td></tr><tr><td>6</td><td>QRS</td><td>breiter als 120 ms? Q-Zacke? Hypertrophie?</td></tr><tr><td>7</td><td>ST-Strecke</td><td>Hebung monophasisch? Welche Ableitungen?</td></tr><tr><td>8</td><td>T-Welle</td><td>negativ, überhöht, QT verlängert?</td></tr></tbody>
+        </table>
+        <div class="callout fact"><span class="callout-label">⚙ Papiergeschwindigkeit</span>Standard sind <strong>25 mm/s</strong>. Ein großes Kästchen entspricht dann 0,2 Sekunden, ein kleines 0,04 Sekunden. Bei 50 mm/s halbiert sich beides.</div>
+
+      </div></div>
+    </div>
+
+  </section>
+
+  <section class="chapter" id="k2">
+    <div class="chapter-head"><span class="chapter-num">1</span><span class="chapter-title">Rhythmus</span></div>
+
+    <div class="card open">
+      <div class="card-head"><div><span class="card-tag">Schritt 1</span><div class="card-title">Ist der Rhythmus sinusförmig?</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <div class="callout critical"><span class="callout-label">★ Die eine Frage</span><strong>Steht vor jedem QRS-Komplex eine regelmäßige P-Welle?</strong> Nein heißt nicht-sinusförmig. Ja heißt weiter zur nächsten Frage.</div>
+        <table>
+          <thead><tr><th>Befund</th><th>Diagnose</th></tr></thead>
+          <tbody><tr><td>keine P-Wellen, Flimmerwellen, RR absolut irregulär</td><td><strong>Vorhofflimmern</strong></td></tr><tr><td>sägezahnförmige P mit 240 bis 280 pro Minute</td><td><strong>Vorhofflattern</strong></td></tr><tr><td>P vorhanden, aber ein QRS fehlt</td><td>AV-Block, siehe Schritt 5</td></tr><tr><td>vorzeitiger schmaler QRS</td><td>supraventrikuläre Extrasystole</td></tr><tr><td>vorzeitiger breiter QRS</td><td>ventrikuläre Extrasystole</td></tr></tbody>
+        </table>
+        <div class="callout warning"><span class="callout-label">⚠ Stolperstein</span>Auch beim <strong>AV-Block ersten Grades</strong> steht vor jedem QRS eine P-Welle. Der Rhythmus bleibt sinusförmig, die Überleitung ist nur verlängert.</div>
+
+      </div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div><span class="card-tag">Regelmäßigkeit</span><div class="card-title">Sind die RR-Intervalle gleich?</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <div class="callout critical"><span class="callout-label">★ Trennschärfe</span><strong>Gleiche RR-Abstände heißen regelmäßig.</strong> Vollständig unregelmäßige Abstände ohne P-Wellen sind die absolute Arrhythmie bei Vorhofflimmern.</div>
+
+      </div></div>
+    </div>
+
+  </section>
+
+  <section class="chapter" id="k3">
+    <div class="chapter-head"><span class="chapter-num">2</span><span class="chapter-title">Frequenz</span></div>
+
+    <div class="card open">
+      <div class="card-head"><div><span class="card-tag">Schritt 2</span><div class="card-title">Frequenz berechnen</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <div class="callout critical"><span class="callout-label">★ Regelmäßiger Rhythmus</span><strong>300 geteilt durch die Zahl großer Kästchen zwischen zwei R-Zacken.</strong> Vier Kästchen ergeben also 75 pro Minute. Bei 50 mm/s rechne ich mit 600.</div>
+        <div class="callout fact"><span class="callout-label">⚙ Unregelmäßiger Rhythmus</span>Ich zähle die QRS-Komplexe in 10 großen Kästchen und multipliziere mit 30. Bei 50 mm/s multipliziere ich mit 60.</div>
+        <table>
+          <thead><tr><th>Grenze</th><th>Wert</th></tr></thead>
+          <tbody><tr><td>Bradykardie</td><td>unter 50 pro Minute</td></tr><tr><td>Normofrequenz</td><td>50 bis 100</td></tr><tr><td>Tachykardie</td><td>über 100 pro Minute</td></tr></tbody>
+        </table>
+
+      </div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div><span class="card-tag">Triage</span><div class="card-title">Tachykardie einordnen</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <div class="callout critical"><span class="callout-label">★ Zwei Fragen</span><strong>Sinusförmig? Dann Sinustachykardie.</strong> Wenn nicht: schmaler QRS heißt supraventrikulär, breiter QRS heißt ventrikulär.</div>
+        <div class="callout warning"><span class="callout-label">⚠ Im Zweifel</span>Jede Breitkomplextachykardie behandle ich wie eine ventrikuläre Tachykardie, weil das die gefährlichere Annahme ist.</div>
+
+      </div></div>
+    </div>
+
+  </section>
+
+  <section class="chapter" id="k4">
+    <div class="chapter-head"><span class="chapter-num">3</span><span class="chapter-title">P-Welle</span></div>
+
+    <div class="card open">
+      <div class="card-head"><div><span class="card-tag">Schritt 3</span><div class="card-title">P-Welle und Vorhofbelastung</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <div class="callout critical"><span class="callout-label">★ Norm</span><strong>Unter 110 ms breit, unter 0,25 mV hoch</strong>, in aVR negativ, in V1 biphasisch.</div>
+        <table>
+          <thead><tr><th>Befund</th><th>Bedeutung</th><th>Name</th></tr></thead>
+          <tbody><tr><td>über 0,25 mV in II, III, aVF und V1</td><td>rechtsatriale Hypertrophie</td><td>P dextroatriale, P pulmonale</td></tr><tr><td>über 110 ms, doppelgipflig in I und II</td><td>linksatriale Hypertrophie</td><td>P sinistroatriale, P mitrale</td></tr><tr><td>beides zugleich</td><td>biatriale Hypertrophie</td><td>P biatriale</td></tr></tbody>
+        </table>
+        <div class="callout fact"><span class="callout-label">⚙ Merkhilfe</span>Ein <strong>hohes</strong> P zeigt nach rechts, ein <strong>breites</strong> P nach links.</div>
+
+      </div></div>
+    </div>
+
+  </section>
+
+  <section class="chapter" id="k5">
+    <div class="chapter-head"><span class="chapter-num">4</span><span class="chapter-title">Lagetyp</span></div>
+
+    <div class="card open">
+      <div class="card-head"><div><span class="card-tag">Schritt 4</span><div class="card-title">Lagetyp bestimmen</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <div class="callout critical"><span class="callout-label">★ So geht es</span><strong>Nur I, II und III ansehen</strong> und notieren, ob der QRS-Komplex überwiegt positiv oder negativ ist.</div>
+        <table>
+          <thead><tr><th>Lagetyp</th><th>I</th><th>II</th><th>III</th></tr></thead>
+          <tbody><tr><td>Steiltyp</td><td>+</td><td>+</td><td>+ (III größer als I)</td></tr><tr><td>Indifferenztyp</td><td>+</td><td>+</td><td>+ (II am größten)</td></tr><tr><td>Linkstyp</td><td>+</td><td>+</td><td>−</td></tr><tr><td>überdrehter Linkstyp</td><td>+</td><td>−</td><td>−</td></tr><tr><td>Rechtstyp</td><td>−</td><td>+</td><td>+</td></tr><tr><td>überdrehter Rechtstyp</td><td>−</td><td>+ oder −</td><td>+</td></tr></tbody>
+        </table>
+        <div class="callout fact"><span class="callout-label">⚙ Was normal ist</span>Beim Erwachsenen Links- und Indifferenztyp, beim jungen Erwachsenen auch Steiltyp, beim Kind auch Rechtstyp.</div>
+
+      </div></div>
+    </div>
+
+  </section>
+
+  <section class="chapter" id="k6">
+    <div class="chapter-head"><span class="chapter-num">5</span><span class="chapter-title">PQ-Intervall und AV-Blöcke</span></div>
+
+    <div class="card open">
+      <div class="card-head"><div><span class="card-tag">Schritt 5</span><div class="card-title">PQ-Intervall und AV-Blöcke</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <div class="callout critical"><span class="callout-label">★ Norm</span><strong>120 bis 200 ms.</strong> Länger heißt Überleitungsstörung.</div>
+        <table>
+          <thead><tr><th>Befund</th><th>Diagnose</th></tr></thead>
+          <tbody><tr><td>über 200 ms, alle gleich, kein Ausfall</td><td><strong>AV-Block I. Grades</strong></td></tr><tr><td>PQ wird zunehmend länger, dann fällt ein QRS aus</td><td><strong>AV-Block II Typ Wenckebach</strong></td></tr><tr><td>PQ konstant, dann fällt plötzlich ein QRS aus</td><td><strong>AV-Block II Typ Mobitz</strong></td></tr><tr><td>nur jede zweite oder dritte P wird übergeleitet</td><td>fortgeschrittener AV-Block II</td></tr><tr><td>P und QRS ohne Beziehung, unabhängig</td><td><strong>AV-Block III, totaler Block</strong></td></tr></tbody>
+        </table>
+        <div class="callout warning"><span class="callout-label">⚠ Klinische Konsequenz</span>Mobitz und der totale Block sind schrittmacherpflichtig, Wenckebach meist nicht.</div>
+
+      </div></div>
+    </div>
+
+  </section>
+
+  <section class="chapter" id="k7">
+    <div class="chapter-head"><span class="chapter-num">6</span><span class="chapter-title">QRS-Komplex</span></div>
+
+    <div class="card open">
+      <div class="card-head"><div><span class="card-tag">Schritt 6a</span><div class="card-title">QRS-Dauer und Schenkelblöcke</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <div class="callout critical"><span class="callout-label">★ Norm</span><strong>60 bis 100 ms.</strong> Über 120 ms liegt eine Störung der ventrikulären Erregungsausbreitung vor.</div>
+        <table>
+          <thead><tr><th>Befund in V1 bzw. V6</th><th>Diagnose</th></tr></thead>
+          <tbody><tr><td>RsR&#8242; in V1, oberer Umschlagpunkt über 30 ms</td><td><strong>Rechtsschenkelblock</strong></td></tr><tr><td>monomorpher breiter QRS in V5 und V6, Umschlagpunkt über 50 ms</td><td><strong>Linksschenkelblock</strong></td></tr><tr><td>dasselbe Muster bei 100 bis 120 ms</td><td>inkompletter Block</td></tr></tbody>
+        </table>
+        <div class="callout fact"><span class="callout-label">⚙ Der Unterschied</span>Zwischen inkomplettem und komplettem Block entscheidet fast nur die QRS-Dauer.</div>
+
+      </div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div><span class="card-tag">Schritt 6b</span><div class="card-title">Hemiblöcke</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <div class="callout critical"><span class="callout-label">★ Wann daran denken</span><strong>Bei überdrehtem Lagetyp und normaler QRS-Dauer.</strong></div>
+        <table>
+          <thead><tr><th>Befund</th><th>Diagnose</th></tr></thead>
+          <tbody><tr><td>überdrehter Linkstyp, kleines Q in I und aVL, S-Persistenz in V6</td><td><strong>linksanteriorer Hemiblock</strong></td></tr><tr><td>überdrehter Rechtstyp, kleines Q in III, tiefes S in I und aVL</td><td><strong>linksposteriorer Hemiblock</strong></td></tr></tbody>
+        </table>
+
+      </div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div><span class="card-tag">Schritt 6c</span><div class="card-title">Q-Zacke — die Infarktnarbe</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <div class="callout critical"><span class="callout-label">★ Norm</span><strong>Bis 40 ms breit, bis 0,2 mV tief, unter 25 Prozent der R-Zacke.</strong> In V1 bis V3 darf gar keine Q-Zacke sein.</div>
+        <div class="callout warning"><span class="callout-label">⚠ Pathologisch</span>Eine Q-Zacke in V1 bis V3, oder anderswo breiter als 40 ms, tiefer als 0,2 mV oder über 25 Prozent der R-Zacke spricht für einen <strong>abgelaufenen Infarkt</strong>, älter als 6 Stunden.</div>
+
+      </div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div><span class="card-tag">Schritt 6d</span><div class="card-title">R/S-Umschlag und Hypertrophie</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <div class="callout critical"><span class="callout-label">★ Norm</span><strong>Der Umschlag von S nach R liegt bei V3 oder V4.</strong></div>
+        <table>
+          <thead><tr><th>Frage</th><th>Wenn ja</th></tr></thead>
+          <tbody><tr><td>S größer als R noch in V4?</td><td>Linksherzbelastung, Infarktnarbe oder Linksschenkelblock</td></tr><tr><td>R-Zacke fehlt ab V2?</td><td>Vorderwandnarbe oder Linksschenkelblock</td></tr><tr><td>R in V1 über 0,7 mV?</td><td>rechtsventrikuläre Hypertrophie</td></tr></tbody>
+        </table>
+        <div class="callout fact"><span class="callout-label">⚙ Sokolow-Index</span><strong>Rechts:</strong> R in V1 oder V2 plus S in V5 oder V6 über 1,05 mV. <strong>Links:</strong> R in V5 plus S in V1 oder V2 über 3,5 mV.</div>
+
+      </div></div>
+    </div>
+
+  </section>
+
+  <section class="chapter" id="k8">
+    <div class="chapter-head"><span class="chapter-num">7</span><span class="chapter-title">ST-Strecke</span></div>
+
+    <div class="card open">
+      <div class="card-head"><div><span class="card-tag">Schritt 7</span><div class="card-title">ST-Strecke und Infarktlokalisation</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <div class="callout critical"><span class="callout-label">★ Wo gemessen wird</span><strong>60 ms nach dem J-Punkt</strong>, also nach dem Ende der S-Zacke.</div>
+        <div class="callout warning"><span class="callout-label">⚠ Die Regel</span>Bei jeder ST-Hebung denke ich zuerst an den Myokardinfarkt, auch wenn es Differenzialdiagnosen gibt. Typisch ist die <strong>monophasische, aszendierende</strong> Hebung mit begleitenden Q- und T-Veränderungen.</div>
+        <table>
+          <thead><tr><th>Ableitungen</th><th>Wand</th><th>Gefäß</th></tr></thead>
+          <tbody><tr><td>V1 bis V4</td><td>Vorderwand</td><td>LAD</td></tr><tr><td>I, aVL, V5, V6</td><td>Seitenwand</td><td>RCX</td></tr><tr><td>II, III, aVF</td><td>Hinterwand, inferior</td><td>RCA</td></tr><tr><td>spiegelbildliche Senkung in V1 und V2</td><td>posterior</td><td>RCA oder RCX</td></tr></tbody>
+        </table>
+
+      </div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div><span class="card-tag">Differenzialdiagnose</span><div class="card-title">Wenn es kein Infarkt ist</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <table>
+          <thead><tr><th>Befund</th><th>Diagnose</th></tr></thead>
+          <tbody><tr><td>Hebungen in fast allen Ableitungen, nicht monophasisch</td><td><strong>Perikarditis</strong></td></tr><tr><td>Hebung aus tiefem S in V1 bis V4, QRS verbreitert</td><td>Linksherzhypertrophie</td></tr><tr><td>dasselbe mit komplettem Linksschenkelblock</td><td><strong>Linksschenkelblock</strong></td></tr></tbody>
+        </table>
+        <div class="callout warning"><span class="callout-label">⚠ Wichtig</span>Beim Linksschenkelblock sind ST-Veränderungen <strong>nicht verwertbar</strong>, um andere Pathologien zu erkennen.</div>
+
+      </div></div>
+    </div>
+
+  </section>
+
+  <section class="chapter" id="k9">
+    <div class="chapter-head"><span class="chapter-num">8</span><span class="chapter-title">T-Welle und Blickdiagnosen</span></div>
+
+    <div class="card open">
+      <div class="card-head"><div><span class="card-tag">Schritt 8</span><div class="card-title">T-Welle und QT-Zeit</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <div class="callout critical"><span class="callout-label">★ Norm</span><strong>Die T-Welle ist meist positiv, außer in aVR.</strong></div>
+        <table>
+          <thead><tr><th>Befund</th><th>Bedeutung</th></tr></thead>
+          <tbody><tr><td>zeltförmig überhöht</td><td>Hyperkaliämie</td></tr><tr><td>abgeflacht, U-Welle</td><td>Hypokaliämie</td></tr><tr><td>terminal negativ</td><td>Ischämie, Zwischenstadium nach Infarkt</td></tr><tr><td>QT verlängert</td><td>Torsade-de-pointes-Gefahr, etwa unter Amiodaron</td></tr></tbody>
+        </table>
+
+      </div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div><span class="card-tag">Blickdiagnosen</span><div class="card-title">Was in Mainz auf dem Tisch liegt</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <table>
+          <thead><tr><th>Bild</th><th>Diagnose</th></tr></thead>
+          <tbody><tr><td>Flimmerwellen, absolute Arrhythmie</td><td>Vorhofflimmern</td></tr><tr><td>Sägezähne mit 240 bis 280</td><td>Vorhofflattern</td></tr><tr><td>breite, regelmäßige Tachykardie</td><td>ventrikuläre Tachykardie</td></tr><tr><td>ungeordnete Undulationen ohne QRS</td><td>Kammerflimmern</td></tr><tr><td>SI-QIII-Typ, neuer Rechtsschenkelblock</td><td>Lungenembolie</td></tr><tr><td>Delta-Welle, kurzes PQ</td><td>WPW-Syndrom</td></tr><tr><td>R-Verlust mit terminal negativem T</td><td>subakuter Infarkt</td></tr></tbody>
+        </table>
+        <div class="callout warning"><span class="callout-label">⚠ Reihenfolge im Gespräch</span>Erst systematisch beschreiben, dann die Diagnose nennen. Wer sofort die Diagnose ruft und danebenliegt, verliert die Struktur.</div>
+
+      </div></div>
+    </div>
+
+  </section>
+
+  <footer>KP-Mainz Drills · EKG Komplettskript · acht Schritte von Rhythmus bis T-Welle · Quelle: Schema Khaled Ibrahim + Mainz-Protokolle</footer>
+</div>
+<script>
+  const tabs = document.querySelectorAll('.tab');
+  const chapters = document.querySelectorAll('.chapter');
+  tabs.forEach(tab => { tab.addEventListener('click', () => {
+    tabs.forEach(t => t.classList.remove('active'));
+    chapters.forEach(c => c.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById(tab.dataset.k).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }); });
+  document.querySelectorAll('.card-head').forEach(head => { head.addEventListener('click', () => head.closest('.card').classList.toggle('open')); });
+</script>
+  <script src="/focus-timer.js" defer></script>
+</body>
+</html>
