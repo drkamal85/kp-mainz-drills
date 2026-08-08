@@ -200,18 +200,31 @@ DRILL_META = {
 }
 
 def _drill_blocks(seg):
-    """Karten eines Kapitels als Textbloecke."""
+    """Kapitelkarten in echte Bloecke — nutzt denselben Konverter wie die Reviews,
+    damit Callouts und Tabellen erhalten bleiben statt zu Fliesstext zu zerfallen."""
     out = []
     for m in re.finditer(r'<div class="card-title">(.*?)</div>.*?<div class="card-body-inner">(.*?)</div></div>', seg, re.S):
-        title = md(m.group(1))
-        body = md(m.group(2))
-        if body:
-            out.append({'type': 'text', 'title': title, 'body': body[:4000]})
+        out.extend(card_to_blocks(md(m.group(1)), m.group(2)))
+    if not out:  # Layouts ohne card-body-inner (Bildatlas, Rechtsmedizin)
+        for m in re.finditer(r'<div class="card-(?:hd|head)">(.*?)</div>\s*<div class="card-(?:bd|body)">(.*?)</div>', seg, re.S):
+            out.extend(card_to_blocks(md(m.group(1)), m.group(2)))
+    if not out:  # Bildatlas: eine Karte je Bild
+        for m in re.finditer(r'<span class="num">([^<]+)</span><span class="modtag[^"]*">([^<]*)</span>.*?<div class="bf-open">(.*?)</div>\s*</div>', seg, re.S):
+            num, mod, body = md(m.group(1)), md(m.group(2)), m.group(3)
+            dx = re.search(r'<div class="dx">(.*?)</div>', body, re.S)
+            pts = re.findall(r'<li>(.*?)</li>', body, re.S)
+            kp = re.search(r'<div class="kp">.*?</span>(.*?)</div>', body, re.S)
+            if not dx:
+                continue
+            txtb = md(dx.group(1))
+            if pts:
+                txtb += '\n' + '\n'.join('- ' + md(x) for x in pts)
+            if kp:
+                txtb += '\n\nKP-Anschluss: ' + md(kp.group(1))
+            out.append({'type': 'text', 'title': '%s · %s' % (num, mod), 'body': txtb})
     if not out:
-        body = md(seg)
-        if body:
-            out.append({'type': 'text', 'title': '', 'body': body[:4000]})
-    return out
+        out = card_to_blocks('', seg)
+    return [b for b in out if (b.get('body') or b.get('rows'))]
 
 drill_topics = []
 for f in sorted(glob.glob('drills/*.html')):
