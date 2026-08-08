@@ -2,7 +2,7 @@
 """Build content/topics.json — the native-content feed for the mobile app.
 Mirrors the index (one entry per shown review), id = review slug (matches the progress API).
 Stations -> flat blocks (text|table|callout); plus perlen and fragen."""
-import re, glob, json, io, html
+import re, glob, json, io, html, os
 from collections import OrderedDict
 
 GROUPS = {
@@ -184,6 +184,85 @@ for path, folder, slug, lvl in cards:
         'rapidfire': parse_rapidfire(h),
         'fragen': parse_fragen(h, name),
     })
+
+# ---------------------------------------------------------------- Drills
+# Drills (drills/*-komplett.html, hoffart-bildatlas) haben Kapitel statt Stationen.
+# Sie werden mit eigenen stationOrder/stationLabels ausgeliefert; die App faellt
+# fuer unbekannte Stationsnamen auf das Label aus stationLabels zurueck.
+DRILL_META = {
+    'bga-komplett':          ('BGA Komplett', 'Blutgasanalyse in 5 Schritten'),
+    'ekg-komplett':          ('EKG Komplett', 'Systematische EKG-Befundung'),
+    'echo-komplett':         ('Echo Komplett', 'Echokardiografie'),
+    'sono-komplett':         ('Sono Komplett', 'Abdomensonografie'),
+    'eeg-komplett':          ('EEG Komplett', 'Elektroenzephalografie'),
+    'rechtsmedizin-komplett':('Rechtsmedizin Komplett', 'Leichenschau und Recht'),
+    'hoffart-bildatlas':     ('Hoffart-Bildatlas', 'Prüfungsbilder nach Modalität'),
+}
+
+def _drill_blocks(seg):
+    """Karten eines Kapitels als Textbloecke."""
+    out = []
+    for m in re.finditer(r'<div class="card-title">(.*?)</div>.*?<div class="card-body-inner">(.*?)</div></div>', seg, re.S):
+        title = md(m.group(1))
+        body = md(m.group(2))
+        if body:
+            out.append({'type': 'text', 'title': title, 'body': body[:4000]})
+    if not out:
+        body = md(seg)
+        if body:
+            out.append({'type': 'text', 'title': '', 'body': body[:4000]})
+    return out
+
+drill_topics = []
+for f in sorted(glob.glob('drills/*.html')):
+    slug = os.path.basename(f)[:-5]
+    if slug not in DRILL_META:
+        continue
+    h = io.open(f, encoding='utf-8').read()
+    title, sub = DRILL_META[slug]
+    chapters = re.findall(
+        r'<section class="(?:chapter|panel)[^"]*"[^>]*id="([a-z0-9]+)"[^>]*>(.*?)(?=\n\s*</section>)', h, re.S)
+    if not chapters:
+        chapters = [(m.group(1), m.group(2)) for m in re.finditer(
+            r'<section class="[^"]*"[^>]*data-p="([a-z0-9]+)"[^>]*>(.*?)(?=\n\s*</section>)', h, re.S)]
+    if not chapters:  # rechtsmedizin-komplett: div.tab-panel mit id="panelN"
+        chapters = [(m.group(1), m.group(2)) for m in re.finditer(
+            r'<div class="tab-panel[^"]*" id="(panel\d+)">(.*?)(?=<div class="tab-panel|<footer|</div>\s*</div>\s*<script|<script>)', h, re.S)]
+    labels = {}
+    for k, v in re.findall(r'data-[kstp]="([a-z0-9]+)"[^>]*>([^<]{1,40})', h):
+        v = v.strip()
+        if v and k not in labels:
+            labels[k] = v
+    for i, lb in enumerate(re.findall(r'<button class="tab-btn[^"]*"[^>]*>([^<]{2,40})</button>', h)):
+        labels.setdefault('panel%d' % i, lb)
+    order, stations, slabels = [], {}, {}
+    for key, seg in chapters:
+        blocks = _drill_blocks(seg)
+        if not blocks:
+            continue
+        order.append(key)
+        stations[key] = blocks
+        lab = labels.get(key) or ''
+        if not lab.strip():
+            ct = re.search(r'id="%s"[^>]*>.{0,400}?<span class="chapter-title">([^<]+)</span>' % re.escape(key), h, re.S)
+            lab = ct.group(1) if ct else ''
+        lab = re.sub(r'^\s*\d+\s*·\s*', '', md(lab)).strip()
+        lab = re.sub(r'^[^\wÄÖÜäöü]+', '', lab).strip()
+        slabels[key] = lab or key.upper()
+    if not order:
+        continue
+    drill_topics.append({
+        'id': slug, 'title': title, 'specialty': 'drills', 'level': 'Drill',
+        'minutes': max(8, min(30, 3 * len(order))), 'complete': True,
+        'stationsPresent': order, 'stationOrder': order, 'stationLabels': slabels,
+        'stations': stations, 'cards': {}, 'intros': {'__sub': sub},
+        'perlen': [], 'rapidfire': [], 'fragen': [],
+    })
+
+if drill_topics:
+    specs['drills'] = {'id': 'drills', 'name': 'Drills & Atlanten', 'hue': 285}
+    topics.extend(drill_topics)
+
 
 feed = {'version': 1, 'updatedAt': __import__('datetime').datetime.now(__import__('datetime').timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'),
         'specialties': list(specs.values()), 'topics': topics}

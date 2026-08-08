@@ -14,7 +14,10 @@ for x in themen['topics'] + themen.get('extras', []):
 content_ids = {t['id'] for t in content['topics']}
 
 missing_body = sorted(themen_ids - content_ids)      # themen says covered, but no body -> would not open
-unreachable  = sorted(content_ids - themen_ids)       # body exists, but not listed in themen -> hidden
+# Drills (BGA, EKG, Sono, Echo, EEG, Rechtsmedizin, Bildatlas) sind bewusst nicht
+# in themen.json — sie sind Nachschlagewerke, keine der 97 Pruefungsthemen.
+DRILL_IDS = {t['id'] for t in content['topics'] if t.get('specialty') == 'drills'}
+unreachable  = sorted(content_ids - themen_ids - DRILL_IDS)  # body exists, but not listed in themen -> hidden
 incomplete   = sorted(t['id'] for t in content['topics'] if not t.get('complete', True))
 
 ok = not missing_body and not unreachable
