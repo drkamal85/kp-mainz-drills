@@ -3,7 +3,8 @@
 # RUN FROM REPO ROOT:  python3 tools/_build-master.py
 # Re-globs reviews/ for live R-levels; review column + analytics read LIVE from the repo.
 # Topic universe/frequencies mirror KP-Master-Themenliste.md (88 topics, project knowledge).
-import io, glob, re
+import io
+import os as _os, glob, re
 
 repo={}
 _idx=io.open('index.html',encoding='utf-8').read()
@@ -281,6 +282,23 @@ _extras=[{
   'tier':'extra','fach':f,'thema':th,
   'slug':s,'covered':_cov(s),'level':_lvl(s),'reviewId':_rid(s)
 } for f,th,s in EXTRA]
+
+# Drills und Atlanten erscheinen in der App unter den Extras — sie sind keine
+# der 97 Pruefungsthemen, muessen aber in themen.json stehen, weil die App ihre
+# Bibliotheksliste aus diesem Feed baut und topics.json nur als Inhaltsspeicher nutzt.
+DRILLS = [
+  ('Drills & Atlanten','EKG Komplett','ekg-komplett'),
+  ('Drills & Atlanten','BGA Komplett','bga-komplett'),
+  ('Drills & Atlanten','Sono Komplett','sono-komplett'),
+  ('Drills & Atlanten','Echo Komplett','echo-komplett'),
+  ('Drills & Atlanten','EEG Komplett','eeg-komplett'),
+  ('Drills & Atlanten','Rechtsmedizin Komplett','rechtsmedizin-komplett'),
+  ('Drills & Atlanten','Hoffart-Bildatlas','hoffart-bildatlas'),
+]
+_extras += [{'tier':'drill','fach':f,'thema':th,'slug':s2,
+             'covered':_os.path.exists('drills/%s.html' % s2),'level':None,'reviewId':s2}
+            for f,th,s2 in DRILLS]
+
 _out={'version':2,'updatedAt':_dt.datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ'),
       'total':len(ranked),'covered':sum(1 for x in _themen if x['covered']),'coveragePct':cov_pct,
       'extrasTotal':len(_extras),'extrasCovered':sum(1 for x in _extras if x['covered']),
