@@ -93,3 +93,26 @@ Notfallkoffer Atemwegssicherung · Indikationen für Intubation · Tracheotomie 
 **Grenzt an andere Reviews, dort NICHT doppeln:** Defibrillation vs. Kardioversion (Vorhofflimmern),
 Anaphylaxie und Adrenalindosis (Notfallmedizin), intraossärer Zugang und ABCDE (Polytrauma),
 Reanimationsalgorithmus (eigenes Thema, noch ungedeckt).
+
+
+## Milzruptur / Splenektomie — R1 gebaut 07/2026, Protokollstoff für R2/R3
+
+**Dokumentiert gefragt (mehrere Prüfer):**
+- Dr. Dahm (Chirurgie): Milzruptur im Block mit Aortenaneurysma und abdominellem Kompartmentsyndrom
+- Dr. Danjana Alt (Chirurgie): Milzruptur neben Leistenhernie und Halswirbeltrauma
+- Dr. Stefan Hofer: Milzruptur zusammen mit Polytrauma und Bluttransfusion
+- Herr Diettrich: „Klinische Zeichen und Sonografie bei Milzruptur"
+- Dr. Dietrich: „Funktionelle Asplenie — Verlust der Milzfunktion, z. B. bei Sichelzellanämie"
+- Impfungen nach Splenektomie kamen in mindestens zwei getrennten Prüfungen vor
+  (Pneumokokken, Meningokokken, Hib, Influenza; lebenslange Antibiotikaprophylaxe)
+
+**Amboss-Zuschnitt aus dem Protokoll (wörtlich dokumentiert):**
+AAST-Grade I–V · Einteilung in leichte Verletzung (I/II, stabil), mittlere (III, stabil) und
+schwere (IV/V, instabil) · FAST zum Nachweis freier Flüssigkeit · CT mit Kontrastmittel zur
+genaueren Einschätzung · konservativ mit Überwachung und Fibrinkleber · operativ Splenektomie
+oder Splenorrhaphie bei hämodynamischer Instabilität.
+
+**Grenzt an andere Reviews, dort NICHT doppeln:** FAST-Sonografie und Morrison-/Koller-Pouch
+stehen bereits in Appendizitis und Polytrauma · Impfungen nach Splenektomie stehen in
+Impfungen/STIKO und in Pankreaskarzinom (distale Pankreatektomie) · Schockzeichen in Schock ·
+Mononukleose und Milzruptur-Sportverbot in Non-Hodgkin-Lymphome (EBV-Frage).
