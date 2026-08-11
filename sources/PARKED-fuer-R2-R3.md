@@ -116,3 +116,29 @@ oder Splenorrhaphie bei hämodynamischer Instabilität.
 stehen bereits in Appendizitis und Polytrauma · Impfungen nach Splenektomie stehen in
 Impfungen/STIKO und in Pankreaskarzinom (distale Pankreatektomie) · Schockzeichen in Schock ·
 Mononukleose und Milzruptur-Sportverbot in Non-Hodgkin-Lymphome (EBV-Frage).
+
+
+## Borreliose / FSME / Zeckenbiss — R1 gebaut 07/2026, Protokollstoff für R2/R3
+
+**Dr. Hilbert (Pädiatrie und ergänzende Fächer), dokumentierter Block:**
+„Zeckenübertragene Erkrankungen" —
+- Borreliose: Nervenschädigung des **N. facialis** mit peripherer Fazialisparese ·
+  Symptome Erythema migrans, Arthritis, Neuroborreliose · **Bildbeschreibung Erythema migrans** ·
+  Therapie Erwachsene Doxycyclin, Kinder Amoxicillin
+- FSME: Diagnose klinisch und serologisch · Zeichen der Meningitis mit Nackensteifigkeit,
+  Kopfschmerz, Photophobie, Übelkeit · **Kernig- und Brudzinski-Zeichen** ·
+  Liquorbefund Zellvermehrung, Lymphozytose, erhöhtes Eiweiß
+- Im selben Block: Impfungen ab 60 Jahren (Influenza, Pneumokokken, Herpes zoster, SARS-CoV-2)
+
+**Weiterer dokumentierter Block:** „Fragen zu Malaria und Borreliose" — beide zusammen abgefragt,
+Malaria mit Erreger, dickem Tropfen und Artemisinin-Derivaten.
+
+**Aus dem Meningitis-Kontext:** Zeckenerkrankungen als Aufzählung — Borreliose, FSME,
+Babesiose, Anaplasmose.
+
+**Bildfrage:** Das Erythema migrans wird als Bild vorgelegt und soll beschrieben werden —
+gehört in Tab 6 als Bildbefund-Anker.
+
+**Grenzt an andere Reviews, dort NICHT doppeln:** Fazialisparese zentral vs. peripher steht
+bereits in Schlaganfall · Meningitis-Zeichen und Liquorbefund im Meningitis-Kontext ·
+FSME-Impfung und STIKO-Empfehlung in Impfungen/STIKO · AV-Block in AV-Block.

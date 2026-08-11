@@ -92,7 +92,7 @@ FLAT=[
 (81,22,59,"Pneumologie","Tuberkulose",None),
 (81,16,65,"Unfallchirurgie","Polytrauma / ABCDE (Sturz)","polytrauma-abcde"),
 (81,24,57,"Allgemein- und Viszeralchirurgie","Milzruptur / Splenektomie","milzruptur-splenektomie"),
-(77,37,40,"Drittes Fach","Borreliose / FSME / Zeckenbiss",None),
+(77,37,40,"Drittes Fach","Borreliose / FSME / Zeckenbiss","borreliose-fsme"),
 (76,29,47,"Notfallmedizin","Reanimation / CPR",None),
 (74,22,52,"Unfallchirurgie","Kompartmentsyndrom",None),
 (73,11,62,"Angiologie","Aortendissektion","aortendissektion"),
