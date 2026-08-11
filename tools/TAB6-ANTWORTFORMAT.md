@@ -9,13 +9,17 @@ Der 3-Zug ist eine Struktur, keine Wortzahl. Er darf die Antwort nicht verlänge
 
 | Typ | Erkennungsmerkmal | Format | Länge |
 |---|---|---|---|
-| **Einstieg** | „Wie gehen Sie vor?", „Patient mit X — was tun Sie?" | 3-Zug | 30–36 W |
-| **Entscheidungsgrenze** | „Wann A, wann B?", „Ab wann operieren Sie?" | Antwort zuerst | 25–32 W |
-| **Bildbefund** | „Was sehen Sie?", „Beschreiben Sie das CT" | Antwort zuerst | 25–32 W |
-| **Kurzabfrage** | Zahl, Klassifikation, Antidot, Zeitfenster | ein Satz | 12–18 W |
+| **Einstieg** | „Wie gehen Sie vor?", „Patient mit X — was tun Sie?" | 3-Zug | 24–30 W |
+| **Entscheidungsgrenze** | „Wann A, wann B?", „Ab wann operieren Sie?" | Antwort zuerst | 20–28 W |
+| **Bildbefund** | „Was sehen Sie?", „Beschreiben Sie das CT" | Antwort zuerst | 20–28 W |
+| **Kurzabfrage** | Zahl, Klassifikation, Antidot, Zeitfenster | ein Satz | 10–16 W |
 
-**Deckel:** Median über das ganze Deck ≤ 28 W, keine Einzelantwort > 36 W.
-Weil Kurzabfragen auf 12–18 fallen, bleibt der Median trotz 3-Zug im Rahmen.
+**Deckel (verschärft 07/2026 auf Mohameds Anweisung „always short, simple, speakable"):**
+Median über das ganze Deck **≤ 24 W**, keine Einzelantwort **> 30 W**,
+längster Satz **≤ 18 W**, durchschnittliche Satzlänge **10–13 W**.
+
+Im Zweifel kürzen. Eine Antwort, die im Drill flüssig gesprochen wird, schlägt eine
+vollständige, die stockt. Fehlende Details holt die Nebenfrage.
 
 ---
 
@@ -47,14 +51,14 @@ Keine Einleitung, keine Begründung, kein Rahmen.
 - **Ziffern, keine ausgeschriebenen Zahlen.** „48 Stunden", nicht „achtundvierzig Stunden".
   „200 µg/g", nicht „zweihundert Mikrogramm pro Gramm". Hausbefund 07/2026: ausgeschriebene
   Zahlen blähten die Länge auf und machten Sätze zäh.
-- **Höchstens 4 Aufzählungsglieder je Satz**, im 3-Zug-Kern besser 3. Mehr sprengt den Sprechatem.
+- **Höchstens 3 Aufzählungsglieder je Satz.** Mehr sprengt den Sprechatem.
 - **Jeder Satz braucht ein finites Verb.** Keine Nominalketten wie „Metamizol 1000 mg als Basis,
   bei stärkeren Schmerzen Piritramid" — daraus wird „Ich gebe Metamizol 1000 mg intravenös,
   bei stärkeren Schmerzen Piritramid."
 - **Kandidatenstimme**, also „Ich gebe…", „Ich schließe aus…".
 - **Fachbegriffe im Fließtext**, keine Hervorhebung (entschieden 07/2026).
 - Keine telegrafischen Marker (`=`, `→`, `+`, Label-Doppelpunkte, Semikolonketten).
-- Ø Satzlänge 11–15 Wörter, längster Satz ≤ 22 (Bibliotheks-p90, gemessen 07/2026).
+- Ø Satzlänge 10–13 Wörter, längster Satz ≤ 18.
 
 ---
 

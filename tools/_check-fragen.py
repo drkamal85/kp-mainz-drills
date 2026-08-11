@@ -39,11 +39,11 @@ def style_warnings(answer):
     n = NUMWORD.findall(at)
     if n: w.append('ausgeschriebene-Zahl(%s)' % '/'.join(n[:2]))
     wc = len(at.split())
-    if wc > 36: w.append('zu-lang(%dW)' % wc)
+    if wc > 30: w.append('zu-lang(%dW)' % wc)
     for sent in re.split(r'(?<=[.!?])\s+', at):
         glieder = sent.count(',') + len(re.findall(r'\b(und|sowie|oder)\b', sent))
-        if glieder > 4: w.append('lange-Aufzaehlung(%d)' % glieder)
-        if len(sent.split()) > 22: w.append('langer-Satz(%dW)' % len(sent.split()))
+        if glieder > 3: w.append('lange-Aufzaehlung(%d)' % glieder)
+        if len(sent.split()) > 18: w.append('langer-Satz(%dW)' % len(sent.split()))
     return w
 
 files = glob.glob('reviews/**/*.html', recursive=True)
