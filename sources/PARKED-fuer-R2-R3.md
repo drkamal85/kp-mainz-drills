@@ -142,3 +142,28 @@ gehört in Tab 6 als Bildbefund-Anker.
 **Grenzt an andere Reviews, dort NICHT doppeln:** Fazialisparese zentral vs. peripher steht
 bereits in Schlaganfall · Meningitis-Zeichen und Liquorbefund im Meningitis-Kontext ·
 FSME-Impfung und STIKO-Empfehlung in Impfungen/STIKO · AV-Block in AV-Block.
+
+
+## Reanimation / CPR — R1 gebaut 07/2026, Protokollstoff für R2/R3
+
+**Dokumentiert gefragt:**
+- Dr. Brill (ergänzende Fächer): „Patient bewusstlos auf der Straße" → **Puls vorhanden: cABCDE ·
+  Kein Puls: Reanimation.** Im selben Block intrakranielle Blutung, Einklemmungszeichen und
+  Cushing-Trias
+- Herr David Weimer (ergänzende Fächer): Reanimation zusammen mit intrakranieller Blutung und
+  Röntgenbildern (Pneumothorax, Pneumonie, ZVK-Fehllage, Radiusfraktur)
+- Frau Zorbach / Kommission: Reanimation als eigener Themenpunkt
+- **Druckpunkt untere Sternumhälfte, Tiefe 5–6 cm, Frequenz 100–120/min** — wörtlich dokumentiert
+- Adrenalin alle 3–5 Minuten bei Asystolie oder ab dem 3. Schock, dann zusammen mit Amiodaron 300 mg
+- Intraossärer Zugang proximale Tibia medial, maximal 24 h
+- Myoklonischer Status epilepticus bei hypoxisch-ischämischer Enzephalopathie nach Reanimation,
+  oft schlechte Prognose
+
+**Grenzt an andere Reviews — dort steht es schon, hier NICHT doppeln:**
+- **notfallpharmakologie**: Adrenalin- und Amiodarondosen, defibrillierbare Rhythmen,
+  ERC-2025-Updatekarte, Antidote
+- **ekg-komplett**: Kammerflimmern, pulslose VT, Torsade, Defibrillationsalgorithmus,
+  anterior-posteriore Elektrodenposition
+- **polytrauma-abcde**: xABCDE, Schockraum, Log-Roll
+- **anaesthesie-atemweg**: Atemwegssicherung, Larynxmaske, Koniotomie, Präoxygenierung
+- **schock**: Schockformen, Volumentherapie, Katecholamine

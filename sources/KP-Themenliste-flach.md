@@ -1,6 +1,6 @@
 # KP MAINZ — THEMENLISTE (FLACH, EINE RANGLISTE)
 
-Alle **97 Themen** in einer Rangliste nach **Korpus-Treffer** (WhatsApp-Chat + Protokolle). Aktuell **59 von 97** mit Review abgedeckt (~61 %).
+Alle **97 Themen** in einer Rangliste nach **Korpus-Treffer** (WhatsApp-Chat + Protokolle). Aktuell **60 von 97** mit Review abgedeckt (~62 %).
 
 > **Juli 2026 (a):** 3 Themen ergänzt (nach Protokoll-Frequenz-Check bestätigt): **Kreuzbandruptur** (Unfallchirurgie, 30 Protokoll-Treffer, VKB:21), **Status epilepticus/Epilepsie** (Neurologie, 10), **Gicht/Podagra** (Rheumatologie, 6). *Verworfen* (zu niedrig/abwesend): Meningitis, Demenz, Erysipel, Fazialisparese, Ösophaguskarzinom, Multiples Myelom, Migräne, Parkinson.
 
@@ -85,7 +85,7 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 60 | 81 | 16 | 65 | Unfallchirurgie | Polytrauma / ABCDE (Sturz) | ✓ R4 |
 | 61 | 81 | 24 | 57 | Allgemein- und Viszeralchirurgie | Milzruptur / Splenektomie | ✓ R1 |
 | 62 | 77 | 37 | 40 | Drittes Fach | Borreliose / FSME / Zeckenbiss | ✓ R1 |
-| 63 | 76 | 29 | 47 | Notfallmedizin | Reanimation / CPR | — |
+| 63 | 76 | 29 | 47 | Notfallmedizin | Reanimation / CPR | ✓ R1 |
 | 64 | 74 | 22 | 52 | Unfallchirurgie | Kompartmentsyndrom | — |
 | 65 | 73 | 11 | 62 | Angiologie | Aortendissektion | ✓ R3 |
 | 66 | 68 | 12 | 56 | Unfallchirurgie | Allgemeine Frakturlehre | ✓ R4 |
