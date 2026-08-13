@@ -167,3 +167,35 @@ FSME-Impfung und STIKO-Empfehlung in Impfungen/STIKO · AV-Block in AV-Block.
 - **polytrauma-abcde**: xABCDE, Schockraum, Log-Roll
 - **anaesthesie-atemweg**: Atemwegssicherung, Larynxmaske, Koniotomie, Präoxygenierung
 - **schock**: Schockformen, Volumentherapie, Katecholamine
+
+
+## Akutes Abdomen — R1 gebaut 07/2026, Protokollstoff für R2/R3
+
+**Dr. Kirdorf, wörtliche Definition aus dem Protokoll:**
+„Akuter Schmerz im Bauchbereich, der aufgrund seiner Intensität und Bedrohlichkeit notfallmäßig
+abgeklärt und entsprechend therapiert werden muss."
+
+**Dr. Dahm (Chirurgie):** Akutes Abdomen — Diagnostik: klinische Untersuchung, Labor mit
+Leukozyten und CRP, Bildgebung mit Sonografie und CT. Direkt danach Hohlorganperforation:
+Klinik akutes Abdomen, freie Luft im Röntgen oder CT, Therapie Notfalloperation plus Antibiotikum
+(Piperacillin/Tazobactam 4,5 g alle 6–8 h oder Ceftriaxon 2 g täglich).
+
+**2026er Band, kompletter Frageblock nach dem Kolonkarzinom:**
+- „Akutes Abdomen: Definition? Ursachen? (**alle nennen**)"
+- „FAST-Sonografie: Was genau beurteilen Sie dabei? Koller-Pouch, Morrison-Pouch — wo genau?"
+- „Was können Sie in der Abdomensonografie sehen? Zeichen einer Appendizitis? Zeichen einer
+  Cholezystitis? Laborwerte bei Cholezystitis?"
+- „Was sehen Sie häufig bei der körperlichen Untersuchung? **Was ist eine Abwehrspannung?
+  Wann ist sie lokal, wann diffus?**"
+
+**Zweiter Block:** „Sie sind in der chirurgischen Ambulanz und bekommen eine Überweisung mit
+akutem Abdomen. Was ist das? → Sagen Sie mir je Quadrant eine Erkrankung."
+
+**Weiterer Fall:** Ältere Patientin nach Sturz mit subkapsulärem Leberhämatom — FAST, stumpfes
+Bauchtrauma, akutes Abdomen, **Urinstatus besonders wichtig**, danach Ileus mit Ursachen,
+Häufigkeiten in Prozent, Diagnostik und Therapie.
+
+**Grenzt an andere Reviews, dort NICHT doppeln:** Die Quadranten-Aufzählung steht bereits als
+Tab-6-Frage in **divertikulitis** · FAST mit Morrison- und Koller-Pouch in **appendizitis**,
+**polytrauma-abcde** und **milzruptur-splenektomie** · Ileusursachen in **ileus** ·
+Perforationsklinik in **gastroduodenales-ulkus** · Cholezystitiszeichen in **cholezystitis**.
