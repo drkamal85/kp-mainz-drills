@@ -635,11 +635,13 @@
             <span style="font-size:14px; color:#64748B; font-weight:500;">{{ themenSub }}</span>
           </div>
           <div style="display:flex; height:9px; border-radius:99px; overflow:hidden; background:#E6ECF3;">
+            <div style="width:{{ r4W }}; background:#16A34A;"></div>
             <div style="width:{{ r3W }}; background:#F43F5E;"></div>
             <div style="width:{{ r2W }}; background:#3B82F6;"></div>
             <div style="width:{{ r1W }}; background:#F59E0B;"></div>
           </div>
           <div style="display:flex; gap:13px; margin-top:14px; font-size:12px; font-weight:600; white-space:nowrap;">
+            <span style="color:#15803D;">● {{ r4 }} R4</span>
             <span style="color:#E11D48;">● {{ r3 }} R3</span>
             <span style="color:#2563EB;">● {{ r2 }} R2</span>
             <span style="color:#D97706;">● {{ r1 }} R1</span>
@@ -1468,7 +1470,7 @@ class Component extends DCLogic {
     const offen = Math.max(0, plannedCount - builtCount);
     const extrasCount = extras.length;
     const cntCov = lv => core.filter(m => m.covered && m.level === lv).length;
-    const r3 = cntCov('R3'), r2 = cntCov('R2'), r1 = cntCov('R1');
+    const r4 = cntCov('R4'), r3 = cntCov('R3'), r2 = cntCov('R2'), r1 = cntCov('R1');
     const w = n => n / (plannedCount || 1) * 100 + '%';
     const themenSub = 'von ' + plannedCount + ' geplant';
 
@@ -1588,7 +1590,7 @@ class Component extends DCLogic {
       cardsMastered: p.cards.mastered, cardsTotal: p.cards.total, cardsDueTomorrow: p.cards.dueTomorrow,
       streakDays: p.streak, masteredCount, totalTopics, pctLabel: pct + '%',
       ringStyle: `conic-gradient(#06B6D4 ${cardsPctNum}%, #E6ECF3 0)`,
-      specStats, specCount, builtCount, plannedCount, themenSub, hasMaster: hasThemen, offen, coveragePct, extrasCount, hasExtras: extrasCount > 0, r3, r2, r1, r3W: w(r3), r2W: w(r2), r1W: w(r1), daysLeft,
+      specStats, specCount, builtCount, plannedCount, themenSub, hasMaster: hasThemen, offen, coveragePct, extrasCount, hasExtras: extrasCount > 0, r4, r3, r2, r1, r4W: w(r4), r3W: w(r3), r2W: w(r2), r1W: w(r1), daysLeft,
       query: this.state.query, onQuery: e => this.setState({ query: e.target.value }),
       groups, libLoading: loading, libCountLabel,
       examFmt, syncLabel, syncColor, contentLabel, contentColor,
