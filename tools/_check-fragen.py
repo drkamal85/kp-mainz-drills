@@ -31,11 +31,14 @@ def violations(answer):
     return reasons
 
 
+META = re.compile(r'(wurde[^.]{0,30}(gefragt|gebohrt)|Zwischenfragen|im Protokoll|Der Prüfer wollte|der Kandidat|Mainzer Fall|wie im Fall)', re.I)
+
 NUMWORD = re.compile(r'\b(zwanzig|drei\u00dfig|vierzig|f\u00fcnfzig|sechzig|siebzig|achtzig|neunzig|hundert|tausend|zweihundert|dreihundert|vierhundert|f\u00fcnfhundert|vierundzwanzig|achtundvierzig|zweiundsiebzig|zweihundertf\u00fcnfzig|f\u00fcnfundsechzig|f\u00fcnfundzwanzig)\\w*', re.I)
 
 def style_warnings(answer):
     """Hausstil-Pruefungen laut tools/TAB6-ANTWORTFORMAT.md. Warnung, kein FAIL."""
     at = clean(answer); w = []
+    if META.search(at): w.append('Meta-Kommentar')
     n = NUMWORD.findall(at)
     if n: w.append('ausgeschriebene-Zahl(%s)' % '/'.join(n[:2]))
     wc = len(at.split())
