@@ -199,3 +199,28 @@ Häufigkeiten in Prozent, Diagnostik und Therapie.
 Tab-6-Frage in **divertikulitis** · FAST mit Morrison- und Koller-Pouch in **appendizitis**,
 **polytrauma-abcde** und **milzruptur-splenektomie** · Ileusursachen in **ileus** ·
 Perforationsklinik in **gastroduodenales-ulkus** · Cholezystitiszeichen in **cholezystitis**.
+
+
+## Anaphylaxie — R1 gebaut 07/2026, Protokollstoff für R2/R3
+
+**Dokumentierter Fall (Drittes Fach, 2026):** Frau nach Chinarestaurantbesuch und Auslandsreise
+mit Dyspnoe und Hautausschlag → Verdacht anaphylaktischer Schock. Gefragt wurden
+**Klassifikation** und **Therapie inklusive aller Medikamentendosierungen** — der Kandidat
+vergaß nur die Antihistaminikadosis.
+
+**Weitere dokumentierte Fragen:**
+- „Adrenalin — 2 Einsatzbereiche?" → Reanimation und Anaphylaxie ·
+  „Jeweilige Dosierungen?" → **1 mg bei Reanimation ab dem 3. Schock, 0,5 mg bei Anaphylaxie**
+- „Anaphylaktischer Schock — Vorgehen (alle Medikamente). Was soll der Patient danach bekommen?"
+  → Notfallplan, Notfallset, Ausweis. Direkt im Anschluss: „Wo melden Sie eine Impfreaktion?"
+- „Patient wurde geimpft und bekommt plötzlich eine Synkope — Ihre Überlegungen?"
+  (Abgrenzung vasovagal gegen anaphylaktisch)
+- Dr. Hilbert: Anaphylaxie-Schweregrade nach Ring und Messmer, Überwachung mindestens 6 Stunden
+  bei Grad I, stationär ab Grad II
+- Im Kontext Kontrastmittel: „Komplikationen von Kontrastmitteln · Behandlung eines
+  anaphylaktischen Schocks"
+- Metamizol-Nebenwirkungen mit anaphylaktischem Schock als seltene Folge
+
+**Grenzt an andere Reviews, dort NICHT doppeln:** Adrenalindosen und Notfallset stehen in
+**notfallpharmakologie** · Schockformen und Volumentherapie in **schock** · vasovagale Synkope
+nach Impfung in **synkope** und **impfungen-stiko** · Kontrastmittelreaktion in **strahlenschutz**.
