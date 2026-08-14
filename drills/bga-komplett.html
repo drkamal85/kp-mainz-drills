@@ -89,273 +89,254 @@
   .half.acid { background: var(--grundlagen-soft, #FBEAE7); color: var(--grundlagen, #C0392B); }
   .half.alk { background: var(--diagnostik-soft, #E5EEF7); color: var(--diagnostik, #1E5F9E); }
   .half-mid { display: flex; align-items: center; padding: 0 8px; font-weight: 800; font-size: 12px; color: var(--ink); background: #F0EBE0; }
+
+  /* ---- Spielelemente ---- */
+  .rule{background:linear-gradient(135deg,#1E5F9E,#2D7A3E);color:#fff;border-radius:16px;padding:22px 24px;margin:20px 0 8px;text-align:center}
+  .rule .big{font-size:21px;font-weight:800;line-height:1.4;font-family:'Manrope',system-ui,sans-serif}
+  .rule .sub{font-size:14px;opacity:.9;margin-top:8px;font-family:'Manrope',system-ui,sans-serif}
+  .arrows{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
+  .arrow{background:var(--paper);border:2px solid var(--rule);border-radius:14px;padding:14px;text-align:center}
+  .arrow .sym{font-size:26px;font-weight:800;letter-spacing:2px;font-family:'Manrope',system-ui,sans-serif}
+  .arrow .lbl{font-size:12.5px;color:var(--ink-muted);margin-top:4px;font-family:'Manrope',system-ui,sans-serif}
+  .arrow.resp{border-color:#1E5F9E}.arrow.resp .sym{color:#1E5F9E}
+  .arrow.meta{border-color:#2D7A3E}.arrow.meta .sym{color:#2D7A3E}
+
+  .calc{background:var(--paper);border:1px solid var(--rule);border-radius:16px;padding:20px;margin:16px 0}
+  .calc h4{font-family:'Manrope',system-ui,sans-serif;font-size:14px;margin-bottom:12px;color:var(--ink-muted);text-transform:uppercase;letter-spacing:.06em}
+  .cin{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  .cin label{display:block;font-size:12px;color:var(--ink-soft);margin-bottom:4px;font-family:'Manrope',system-ui,sans-serif}
+  .cin input{width:100%;padding:10px;border:2px solid var(--rule);border-radius:10px;font-size:17px;font-family:'Manrope',system-ui,sans-serif;font-weight:700;text-align:center;background:#FCFAF6;color:var(--ink)}
+  .cin input:focus{outline:none;border-color:var(--accent)}
+  .cout{margin-top:14px;padding:14px;border-radius:12px;background:#F4F1EA;font-family:'Manrope',system-ui,sans-serif;font-size:15px;line-height:1.5;min-height:52px}
+  .cout b{font-size:16.5px}
+
+  .quiz{background:var(--paper);border:1px solid var(--rule);border-radius:16px;padding:20px;margin:16px 0}
+  .qhead{display:flex;justify-content:space-between;align-items:center;font-family:'Manrope',system-ui,sans-serif;font-size:13px;color:var(--ink-muted);margin-bottom:12px}
+  .streak{font-weight:800;color:#2D7A3E}
+  .vals{display:grid;grid-template-columns:repeat(auto-fit,minmax(74px,1fr));gap:8px;margin-bottom:8px}
+  .val{background:#F4F1EA;border-radius:10px;padding:9px 6px;text-align:center;font-family:'Manrope',system-ui,sans-serif}
+  .val .k{font-size:10.5px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.05em}
+  .val .v{font-size:17px;font-weight:800;margin-top:2px}
+  .vign{font-size:14.5px;color:var(--ink-muted);margin:10px 0 14px;font-family:'Manrope',system-ui,sans-serif}
+  .opts{display:grid;gap:8px}
+  .opt{background:#FCFAF6;border:2px solid var(--rule);border-radius:12px;padding:12px 14px;text-align:left;cursor:pointer;font-family:'Manrope',system-ui,sans-serif;font-size:14.5px;font-weight:600;color:var(--ink);transition:.15s}
+  .opt:hover{border-color:var(--accent)}
+  .opt.right{background:var(--key-soft);border-color:#2D7A3E}
+  .opt.wrong{background:#FBE9E7;border-color:#C0392B}
+  .fb{margin-top:12px;padding:13px 15px;border-radius:12px;font-family:'Manrope',system-ui,sans-serif;font-size:14px;line-height:1.55;display:none}
+  .fb.on{display:block}
+  .fb.ok{background:var(--key-soft);color:#1E5B2A}
+  .fb.no{background:#FBE9E7;color:#8A2418}
+  .qbtn{margin-top:12px;background:var(--accent);color:#fff;border:none;border-radius:12px;padding:12px 20px;font-family:'Manrope',system-ui,sans-serif;font-size:14.5px;font-weight:700;cursor:pointer;display:none}
+  .qbtn.on{display:inline-block}
+  .bar{height:6px;background:var(--rule);border-radius:99px;overflow:hidden;margin-top:14px}
+  .bar>i{display:block;height:100%;background:linear-gradient(90deg,#1E5F9E,#2D7A3E);width:0;transition:.3s}
 </style>
 </head>
 <body>
 <div class="container">
   <a href="../index.html" class="back">← Zurück zur Library</a>
   <header>
-    <div class="eyebrow">BGA · Komplettskript</div>
-    <h1>Blutgasanalyse <span class="accent">in 5 Schritten</span></h1>
-    <p class="subtitle">Eine Regel entscheidet fast alles: Bewegen sich pH und pCO₂ gegensinnig, ist die Störung respiratorisch — gleichsinnig heißt metabolisch. Der Rest ist Reihenfolge. Sechs durchgerechnete Fälle am Ende.</p>
-    <div class="meta"><span>6 Kapitel</span><span>6 Fälle</span><span>5-Schritte-System nach Dr. Sturm</span></div>
+    <div class="eyebrow">BGA · interaktiver Trainer</div>
+    <h1>Blutgasanalyse — <span class="accent">eine Regel</span></h1>
+    <p class="subtitle">Bewegen sich pH und pCO₂ gegensinnig, ist die Störung respiratorisch. Gleichsinnig heißt metabolisch. Mehr braucht es für drei von vier Fällen nicht. Rechner zum Ausprobieren, 12 Fälle zum Selbstbefunden.</p>
+    <div class="meta"><span>6 Kapitel</span><span>12 Trainingsfälle</span><span>System nach Dr. Sturm</span></div>
   </header>
 
   <nav class="tabs">
-    <button class="tab active" data-k="k1">Das System</button>
-    <button class="tab" data-k="k2">Oxygenierung</button>
-    <button class="tab" data-k="k3">Atmung</button>
-    <button class="tab" data-k="k4">Stoffwechsel</button>
-    <button class="tab" data-k="k5">Kompensation</button>
-    <button class="tab" data-k="k6">Fälle</button>
+    <button class="tab active" data-k="k1">Die Regel</button>
+    <button class="tab" data-k="k2">🎯 Training</button>
+    <button class="tab" data-k="k3">Oxygenierung</button>
+    <button class="tab" data-k="k4">Atmung</button>
+    <button class="tab" data-k="k5">Stoffwechsel</button>
+    <button class="tab" data-k="k6">Kompensation</button>
   </nav>
 
   <section class="chapter active" id="k1">
-    <div class="chapter-head"><span class="chapter-num">1</span><span class="chapter-title">Das System — eine Regel und fünf Schritte</span></div>
+    <div class="chapter-head"><span class="chapter-num">1</span><span class="chapter-title">Die eine Regel</span></div>
 
     <div class="card open">
-      <div class="card-head"><div><span class="card-tag">Der Trick</span><div class="card-title">Eine Regel, die alles entscheidet</div></div><span class="toggle">+</span></div>
+      <div class="card-head"><div><span class="card-tag">Die eine Regel</span><div class="card-title">Alles hängt an dieser Zeile</div></div><span class="toggle">+</span></div>
       <div class="card-body"><div class="card-body-inner">
-        <div class="callout critical"><span class="callout-label">★ Die eine Regel</span><strong>Bewegen sich pH und pCO₂ in <u>entgegengesetzte</u> Richtung, ist die Störung respiratorisch. Bewegen sie sich gleichsinnig, ist sie metabolisch.</strong></div>
-        <table>
-          <thead><tr><th>pH</th><th>pCO₂</th><th>Richtung</th><th>Störung</th></tr></thead>
-          <tbody><tr><td>↓</td><td>↑</td><td>gegensinnig</td><td><strong>respiratorische Azidose</strong></td></tr><tr><td>↑</td><td>↓</td><td>gegensinnig</td><td><strong>respiratorische Alkalose</strong></td></tr><tr><td>↓</td><td>↓</td><td>gleichsinnig</td><td><strong>metabolische Azidose</strong></td></tr><tr><td>↑</td><td>↑</td><td>gleichsinnig</td><td><strong>metabolische Alkalose</strong></td></tr></tbody>
-        </table>
-        <div class="callout fact"><span class="callout-label">⚙ Warum das funktioniert</span>CO₂ ist eine Säure. Steigt es an und der pH fällt, ist die Lunge der Täter. Fällt der pH und das CO₂ fällt mit, dann atmet die Lunge nur gegen ein Stoffwechselproblem an — sie kompensiert.</div>
+        <div class="rule">
+          <div class="big">pH und pCO₂ <u>gegensinnig</u> → respiratorisch<br>pH und pCO₂ <u>gleichsinnig</u> → metabolisch</div>
+          <div class="sub">Diese eine Regel entscheidet drei von vier Fällen.</div>
+        </div>
+        <div class="arrows">
+          <div class="arrow resp"><div class="sym">pH↓ CO₂↑</div><div class="lbl">respiratorische Azidose</div></div>
+          <div class="arrow resp"><div class="sym">pH↑ CO₂↓</div><div class="lbl">respiratorische Alkalose</div></div>
+          <div class="arrow meta"><div class="sym">pH↓ CO₂↓</div><div class="lbl">metabolische Azidose</div></div>
+          <div class="arrow meta"><div class="sym">pH↑ CO₂↑</div><div class="lbl">metabolische Alkalose</div></div>
+        </div>
+        <div class="callout fact"><span class="callout-label">⚙ Warum das funktioniert</span>CO₂ ist eine Säure. Steigt es und der pH fällt, ist die Lunge der Täter. Fällt der pH und das CO₂ fällt mit, atmet die Lunge nur gegen ein Stoffwechselproblem an.</div>
       </div></div>
     </div>
 
     <div class="card">
-      <div class="card-head"><div><span class="card-tag">Systematik</span><div class="card-title">Die 5 Schritte</div></div><span class="toggle">+</span></div>
+      <div class="card-head"><div><span class="card-tag">Ausprobieren</span><div class="card-title">Rechner — tipp deine Werte ein</div></div><span class="toggle">+</span></div>
       <div class="card-body"><div class="card-body-inner">
-        <div class="callout critical"><span class="callout-label">★ So gehst du jede BGA an</span>Diese Reihenfolge wurde in Mainz genau so abgefragt. Wer sie laut mitspricht, übersieht nichts.</div>
-        <table>
-          <thead><tr><th>#</th><th>Schritt</th><th>Frage</th></tr></thead>
-          <tbody><tr><td>1</td><td>Kontext</td><td>Wie geht es dem Patienten? Arteriell oder venös abgenommen?</td></tr><tr><td>2</td><td>Oxygenierung</td><td>Liegt eine Hypoxie vor? pO₂ ansehen</td></tr><tr><td>3</td><td>pH</td><td>Azidose oder Alkalose?</td></tr><tr><td>4</td><td>pCO₂</td><td>Ist die Lunge der Täter?</td></tr><tr><td>5</td><td>BE und HCO₃⁻</td><td>Ist der Stoffwechsel der Täter?</td></tr></tbody>
-        </table>
-        <div class="callout warning"><span class="callout-label">⚠ Arteriell oder venös</span>Venös liegt der pO₂ bei etwa 40 mmHg und ist zur Oxygenierungsbeurteilung <strong>unbrauchbar</strong>. pH, pCO₂ und BE sind venös noch grob verwertbar.</div>
+        <div class="calc">
+          <h4>Selbst eintippen — die Auswertung läuft mit</h4>
+          <div class="cin">
+            <div><label>pH</label><input id="i-ph" inputmode="decimal" placeholder="7,28"></div>
+            <div><label>pCO₂ mmHg</label><input id="i-co2" inputmode="decimal" placeholder="68"></div>
+            <div><label>HCO₃⁻ mmol/l</label><input id="i-hco3" inputmode="decimal" placeholder="31"></div>
+          </div>
+          <div class="cout" id="c-out">Werte eingeben …</div>
+        </div>
       </div></div>
     </div>
 
     <div class="card">
       <div class="card-head"><div><span class="card-tag">Normwerte</span><div class="card-title">Die sechs Zahlen</div></div><span class="toggle">+</span></div>
       <div class="card-body"><div class="card-body-inner">
-        <div class="callout critical"><span class="callout-label">★ Auswendig</span><strong>pH 7,35 bis 7,45 · pCO₂ 40 ± 5 · HCO₃⁻ 24 ± 2 · BE 0 ± 2 · pO₂ 80 bis 100 · SaO₂ über 95 %</strong></div>
-        <table>
-          <thead><tr><th>Wert</th><th>Norm</th><th>Was er sagt</th></tr></thead>
-          <tbody><tr><td>pH</td><td>7,35–7,45</td><td>sauer oder basisch</td></tr><tr><td>pCO₂</td><td>35–45 mmHg</td><td>die Lunge</td></tr><tr><td>HCO₃⁻</td><td>22–26 mmol/l</td><td>der Stoffwechsel</td></tr><tr><td>BE</td><td>−2 bis +2</td><td>der Stoffwechsel, gleiche Aussage wie HCO₃⁻</td></tr><tr><td>pO₂</td><td>80–100 mmHg</td><td>die Sauerstoffaufnahme</td></tr><tr><td>SaO₂</td><td>über 95 %</td><td>wie voll das Hämoglobin beladen ist</td></tr></tbody>
-        </table>
-        <div class="callout fact"><span class="callout-label">⚙ BE oder HCO₃⁻</span>Beide sagen dasselbe. Der Base Excess ist die praktischere Zahl, weil er negativ wird, wenn Säure da ist — minus heißt Azidose.</div>
+        <div class="callout critical"><span class="callout-label">★ Auswendig</span><strong>pH 7,35–7,45 · pCO₂ 40±5 · HCO₃⁻ 24±2 · BE 0±2 · pO₂ 80–100 · SaO₂ &gt;95 %</strong></div>
+        <div class="callout fact"><span class="callout-label">⚙ BE oder HCO₃⁻</span>Beide sagen dasselbe. Der BE ist praktischer, weil er negativ wird, wenn Säure da ist — minus heißt Azidose.</div>
       </div></div>
     </div>
 
   </section>
 
   <section class="chapter" id="k2">
-    <div class="chapter-head"><span class="chapter-num">2</span><span class="chapter-title">Schritt 2 — Oxygenierung</span></div>
+    <div class="chapter-head"><span class="chapter-num">2</span><span class="chapter-title">Training — 12 Fälle</span></div>
 
     <div class="card open">
-      <div class="card-head"><div><span class="card-tag">Schritt 2</span><div class="card-title">Wie schwer ist die Hypoxämie?</div></div><span class="toggle">+</span></div>
+      <div class="card-head"><div><span class="card-tag">Training</span><div class="card-title">12 echte BGAs — selbst befunden</div></div><span class="toggle">+</span></div>
       <div class="card-body"><div class="card-body-inner">
-        <div class="callout critical"><span class="callout-label">★ Die Grenzen</span><strong>Normal 80 bis 100 mmHg. Leicht 60 bis 80, mittelschwer 40 bis 60, schwer unter 40 mmHg.</strong> Genau diese Staffelung wurde dokumentiert abgefragt.</div>
-        <div class="callout fact"><span class="callout-label">⚙ Sättigung dazu</span>Unter einem pO₂ von 60 mmHg fällt die Sättigung steil ab — das ist der Knick der Sauerstoffbindungskurve. Deshalb ist 60 mmHg die Schwelle, ab der es kritisch wird.</div>
-        <div class="callout warning"><span class="callout-label">⚠ Zwei verschiedene Probleme</span><strong>Oxygenierung und Ventilation sind nicht dasselbe.</strong> Der pO₂ sagt, ob genug Sauerstoff ankommt. Der pCO₂ sagt, ob genug abgeatmet wird. Beides kann getrennt gestört sein.</div>
-      </div></div>
-    </div>
-
-    <div class="card">
-      <div class="card-head"><div><span class="card-tag">Beim Beatmeten</span><div class="card-title">Horovitz-Index und ARDS</div></div><span class="toggle">+</span></div>
-      <div class="card-body"><div class="card-body-inner">
-        <div class="callout critical"><span class="callout-label">★ Die Formel</span><strong>Horovitz = pO₂ geteilt durch FiO₂.</strong> Bei Raumluft ist FiO₂ 0,21, unter 40 Prozent Sauerstoff 0,4.</div>
-        <table>
-          <thead><tr><th>Horovitz</th><th>Bedeutung</th></tr></thead>
-          <tbody><tr><td>über 300</td><td>normal</td></tr><tr><td>200–300</td><td>mildes ARDS</td></tr><tr><td>100–200</td><td>moderates ARDS</td></tr><tr><td>unter 100</td><td>schweres ARDS</td></tr></tbody>
-        </table>
-        <div class="callout fact"><span class="callout-label">⚙ Berlin-Kriterien</span>ARDS braucht alle vier: akute Verschlechterung innerhalb von 7 Tagen, beidseitige Infiltrate, keine rein kardiale Ursache, und Horovitz unter 300 bei mindestens 5 cm PEEP.</div>
+        <div class="callout critical"><span class="callout-label">★ So geht es</span>Werte ansehen, Regel anwenden, antworten. Die Serie zählt mit — jeder Fehler setzt sie zurück.</div>
+        <div class="quiz">
+          <div class="qhead"><span id="q-count">Fall 1 von 12</span><span class="streak" id="q-streak">Serie 0</span></div>
+          <div class="vals" id="q-vals"></div>
+          <div class="vign" id="q-vign"></div>
+          <div class="opts" id="q-opts"></div>
+          <div class="fb" id="q-fb"></div>
+          <button class="qbtn" id="q-next">Nächster Fall →</button>
+          <div class="bar"><i id="q-bar"></i></div>
+        </div>
       </div></div>
     </div>
 
   </section>
 
   <section class="chapter" id="k3">
-    <div class="chapter-head"><span class="chapter-num">3</span><span class="chapter-title">Schritte 3 und 4 — die Atmungsachse</span></div>
+    <div class="chapter-head"><span class="chapter-num">3</span><span class="chapter-title">Oxygenierung</span></div>
 
     <div class="card open">
-      <div class="card-head"><div><span class="card-tag">Respiratorische Azidose</span><div class="card-title">Die Lunge atmet zu wenig ab</div></div><span class="toggle">+</span></div>
+      <div class="card-head"><div><span class="card-tag">Schritt 2</span><div class="card-title">Wie schwer ist die Hypoxämie?</div></div><span class="toggle">+</span></div>
       <div class="card-body"><div class="card-body-inner">
-        <div class="callout critical"><span class="callout-label">★ Erkennen</span><strong>pH runter, pCO₂ hoch.</strong> Der Patient hypoventiliert — das CO₂ staut sich und säuert das Blut an.</div>
-        <table>
-          <thead><tr><th>Ursachengruppe</th><th>Beispiele</th></tr></thead>
-          <tbody><tr><td>Atemwege verlegt</td><td>COPD-Exazerbation, Asthmaanfall, Fremdkörper</td></tr><tr><td>Atemantrieb gedämpft</td><td>Opioide, Benzodiazepine, Narkose, Schädel-Hirn-Trauma</td></tr><tr><td>Atempumpe schwach</td><td>Guillain-Barré, Myasthenie, Zwerchfelllähmung</td></tr><tr><td>Thorax gestört</td><td>Rippenserienfraktur, Pneumothorax, Adipositas</td></tr></tbody>
-        </table>
-        <div class="callout fact"><span class="callout-label">⚙ Therapie</span>Ursache beheben und die Ventilation verbessern — beim COPD-Patienten mit nichtinvasiver Beatmung, bei Opioidüberdosis mit Naloxon.</div>
+        <div class="callout critical"><span class="callout-label">★ Die Staffelung</span><strong>Normal 80–100 · leicht 60–80 · mittelschwer 40–60 · schwer unter 40 mmHg.</strong></div>
+        <div class="callout fact"><span class="callout-label">⚙ Warum 60 die Grenze ist</span>Darunter fällt die Sättigung steil ab — das ist der Knick der Sauerstoffbindungskurve.</div>
+        <div class="callout warning"><span class="callout-label">⚠ Zwei Dinge trennen</span><strong>pO₂ = Oxygenierung. pCO₂ = Ventilation.</strong> Beides kann getrennt gestört sein.</div>
       </div></div>
     </div>
 
     <div class="card">
-      <div class="card-head"><div><span class="card-tag">Respiratorische Alkalose</span><div class="card-title">Die Lunge atmet zu viel ab</div></div><span class="toggle">+</span></div>
+      <div class="card-head"><div><span class="card-tag">Beim Beatmeten</span><div class="card-title">Horovitz-Index</div></div><span class="toggle">+</span></div>
       <div class="card-body"><div class="card-body-inner">
-        <div class="callout critical"><span class="callout-label">★ Erkennen</span><strong>pH hoch, pCO₂ runter.</strong> Der Patient hyperventiliert.</div>
+        <div class="callout critical"><span class="callout-label">★ Die Formel</span><strong>Horovitz = pO₂ ÷ FiO₂.</strong> Raumluft 0,21 · 40 % Sauerstoff 0,4.</div>
         <table>
-          <thead><tr><th>Ursachengruppe</th><th>Beispiele</th></tr></thead>
-          <tbody><tr><td>Hypoxie treibt an</td><td>Lungenembolie, Pneumonie, Lungenödem, Höhe</td></tr><tr><td>Zentral getriggert</td><td>Angst, Schmerz, Fieber, Sepsis, Salicylate</td></tr><tr><td>Beatmung</td><td>zu hohes Atemminutenvolumen</td></tr></tbody>
+          <thead><tr><th>Horovitz</th><th>ARDS</th></tr></thead>
+          <tbody><tr><td>&gt; 300</td><td>keins</td></tr><tr><td>200–300</td><td>mild</td></tr><tr><td>100–200</td><td>moderat</td></tr><tr><td>&lt; 100</td><td>schwer</td></tr></tbody>
         </table>
-        <div class="callout warning"><span class="callout-label">⚠ Die wichtigste Falle</span>Bei plötzlicher Dyspnoe mit respiratorischer Alkalose und niedrigem pO₂ denke ich zuerst an die <strong>Lungenembolie</strong> — der Patient hyperventiliert gegen die Hypoxie an. Ein niedriges CO₂ beruhigt hier nicht, es alarmiert.</div>
-      </div></div>
-    </div>
-
-    <div class="card">
-      <div class="card-head"><div><span class="card-tag">Zeitachse</span><div class="card-title">Akut oder chronisch?</div></div><span class="toggle">+</span></div>
-      <div class="card-body"><div class="card-body-inner">
-        <div class="callout critical"><span class="callout-label">★ Der Unterschied</span><strong>Die Niere braucht 2 bis 3 Tage, um zu kompensieren.</strong> Ein normales Bikarbonat bei erhöhtem CO₂ heißt akut, ein deutlich erhöhtes heißt chronisch.</div>
-        <table>
-          <thead><tr><th></th><th>akut</th><th>chronisch</th></tr></thead>
-          <tbody><tr><td>pCO₂</td><td>↑</td><td>↑</td></tr><tr><td>HCO₃⁻</td><td>normal</td><td>deutlich ↑</td></tr><tr><td>pH</td><td>deutlich ↓</td><td>nur leicht ↓</td></tr><tr><td>typisch</td><td>Opioid, Asthmaanfall</td><td>COPD seit Jahren</td></tr></tbody>
-        </table>
-        <div class="callout fact"><span class="callout-label">⚙ Praktisch</span>Beim COPD-Patienten mit pCO₂ 60 und HCO₃⁻ 32 und fast normalem pH ist die Störung alt. Ich behandle die Exazerbation, nicht die Zahl.</div>
       </div></div>
     </div>
 
   </section>
 
   <section class="chapter" id="k4">
-    <div class="chapter-head"><span class="chapter-num">4</span><span class="chapter-title">Schritt 5 — die Stoffwechselachse</span></div>
+    <div class="chapter-head"><span class="chapter-num">4</span><span class="chapter-title">Die Atmungsachse</span></div>
 
     <div class="card open">
-      <div class="card-head"><div><span class="card-tag">Metabolische Azidose</span><div class="card-title">Zu viel Säure oder zu wenig Base</div></div><span class="toggle">+</span></div>
+      <div class="card-head"><div><span class="card-tag">Atmung</span><div class="card-title">Respiratorische Azidose — zu wenig abgeatmet</div></div><span class="toggle">+</span></div>
       <div class="card-body"><div class="card-body-inner">
-        <div class="callout critical"><span class="callout-label">★ Erkennen</span><strong>pH runter, HCO₃⁻ und BE runter.</strong> Das CO₂ fällt mit — das ist die Kompensation durch schnelleres Atmen, nicht die Ursache.</div>
-        <div class="callout fact"><span class="callout-label">⚙ Kußmaul-Atmung</span>Die tiefe, schwere Atmung des ketoazidotischen Patienten ist genau diese Kompensation. Sie zeigt an, dass der Körper gegensteuert.</div>
-        <div class="callout critical"><span class="callout-label">★ Die Anionenlücke teilt das Feld</span><strong>Anionenlücke = Natrium minus Chlorid minus Bikarbonat.</strong> Normal sind 8 bis 12 mmol/l.</div>
+        <div class="callout critical"><span class="callout-label">★ Erkennen</span><strong>pH ↓, pCO₂ ↑.</strong> Der Patient hypoventiliert.</div>
         <table>
-          <thead><tr><th>Anionenlücke</th><th>Mechanismus</th><th>Ursachen</th></tr></thead>
-          <tbody><tr><td><strong>erhöht</strong></td><td>Säure wurde zugefügt</td><td>Ketoazidose, Laktatazidose bei Schock oder Sepsis, Nierenversagen, Intoxikation</td></tr><tr><td><strong>normal</strong></td><td>Bikarbonat ging verloren</td><td>schwere Diarrhö, renal-tubuläre Azidose, Infusion großer Kochsalzmengen</td></tr></tbody>
+          <thead><tr><th>Ursache</th><th>Beispiele</th></tr></thead>
+          <tbody><tr><td>Atemweg verlegt</td><td>COPD, Asthma, Fremdkörper</td></tr><tr><td>Antrieb gedämpft</td><td>Opioide, Benzodiazepine, Narkose</td></tr><tr><td>Pumpe schwach</td><td>Guillain-Barré, Myasthenie</td></tr><tr><td>Thorax gestört</td><td>Rippenserienfraktur, Pneumothorax</td></tr></tbody>
         </table>
-        <div class="callout fact"><span class="callout-label">⚙ Merkhilfe</span>Erhöhte Lücke heißt <strong>etwas Neues ist dazugekommen</strong>. Normale Lücke heißt <strong>Bikarbonat ist weggelaufen</strong>.</div>
       </div></div>
     </div>
 
     <div class="card">
-      <div class="card-head"><div><span class="card-tag">Metabolische Alkalose</span><div class="card-title">Zu wenig Säure oder zu viel Base</div></div><span class="toggle">+</span></div>
+      <div class="card-head"><div><span class="card-tag">Atmung</span><div class="card-title">Respiratorische Alkalose — zu viel abgeatmet</div></div><span class="toggle">+</span></div>
       <div class="card-body"><div class="card-body-inner">
-        <div class="callout critical"><span class="callout-label">★ Erkennen</span><strong>pH hoch, HCO₃⁻ und BE hoch.</strong> Das CO₂ steigt kompensatorisch mit, weil der Patient flacher atmet.</div>
+        <div class="callout critical"><span class="callout-label">★ Erkennen</span><strong>pH ↑, pCO₂ ↓.</strong> Der Patient hyperventiliert.</div>
+        <div class="callout warning"><span class="callout-label">⚠ Die wichtigste Falle</span>Plötzliche Dyspnoe mit respiratorischer Alkalose und <strong>niedrigem pO₂</strong> heißt Lungenembolie. Ein tiefes CO₂ beruhigt hier nicht, es alarmiert.</div>
+      </div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div><span class="card-tag">Zeitachse</span><div class="card-title">Akut oder chronisch?</div></div><span class="toggle">+</span></div>
+      <div class="card-body"><div class="card-body-inner">
+        <div class="callout critical"><span class="callout-label">★ Der Unterschied</span><strong>Die Niere braucht 2 bis 3 Tage.</strong> Normales Bikarbonat bei hohem CO₂ heißt akut, deutlich erhöhtes heißt chronisch.</div>
         <table>
-          <thead><tr><th>Ursache</th><th>Erklärung</th></tr></thead>
-          <tbody><tr><td>Erbrechen, Magensonde</td><td>Salzsäure geht verloren</td></tr><tr><td>Schleifen- und Thiaziddiuretika</td><td>die häufigste Ursache im Alltag</td></tr><tr><td>Hypokaliämie</td><td>Kalium wandert aus der Zelle, Wasserstoff hinein</td></tr><tr><td>Hyperaldosteronismus</td><td>vermehrte Säureausscheidung in der Niere</td></tr></tbody>
+          <thead><tr><th></th><th>akut</th><th>chronisch</th></tr></thead>
+          <tbody><tr><td>HCO₃⁻</td><td>normal</td><td>deutlich ↑</td></tr><tr><td>pH</td><td>deutlich ↓</td><td>nur leicht ↓</td></tr><tr><td>typisch</td><td>Opioid, Asthma</td><td>COPD seit Jahren</td></tr></tbody>
         </table>
-        <div class="callout fact"><span class="callout-label">⚙ Therapie</span>Volumen und Kalium ausgleichen, meist mit Kochsalzlösung. Das reicht in den allermeisten Fällen.</div>
       </div></div>
     </div>
 
   </section>
 
   <section class="chapter" id="k5">
-    <div class="chapter-head"><span class="chapter-num">5</span><span class="chapter-title">Kompensation und gemischte Störungen</span></div>
+    <div class="chapter-head"><span class="chapter-num">5</span><span class="chapter-title">Die Stoffwechselachse</span></div>
 
     <div class="card open">
-      <div class="card-head"><div><span class="card-tag">Kompensation</span><div class="card-title">Wer ist Täter, wer ist Helfer?</div></div><span class="toggle">+</span></div>
+      <div class="card-head"><div><span class="card-tag">Stoffwechsel</span><div class="card-title">Metabolische Azidose</div></div><span class="toggle">+</span></div>
       <div class="card-body"><div class="card-body-inner">
-        <div class="callout critical"><span class="callout-label">★ Die Denkfigur</span><strong>Der Täter zieht den pH in die Richtung, in die er zeigt. Der Helfer zieht dagegen.</strong> Wer mit dem pH übereinstimmt, ist die Ursache.</div>
+        <div class="callout critical"><span class="callout-label">★ Erkennen</span><strong>pH ↓, HCO₃⁻ ↓.</strong> Das mitfallende CO₂ ist die Kompensation, nicht die Ursache — die Kußmaul-Atmung.</div>
+        <div class="callout critical"><span class="callout-label">★ Anionenlücke</span><strong>Na⁻ minus Cl⁻ minus HCO₃⁻, normal 8 bis 12.</strong></div>
         <table>
-          <thead><tr><th>Beispiel</th><th>pH</th><th>pCO₂</th><th>HCO₃⁻</th><th>Deutung</th></tr></thead>
-          <tbody><tr><td>A</td><td>7,25</td><td>60</td><td>26</td><td>pCO₂ passt zum sauren pH → <strong>respiratorische Azidose, akut</strong></td></tr><tr><td>B</td><td>7,32</td><td>60</td><td>32</td><td>wie A, aber HCO₃⁻ hoch → <strong>chronisch, teilkompensiert</strong></td></tr><tr><td>C</td><td>7,20</td><td>28</td><td>12</td><td>HCO₃⁻ passt zum sauren pH → <strong>metabolische Azidose</strong>, CO₂ kompensiert</td></tr><tr><td>D</td><td>7,50</td><td>48</td><td>36</td><td>HCO₃⁻ passt zum basischen pH → <strong>metabolische Alkalose</strong></td></tr></tbody>
+          <thead><tr><th>Lücke</th><th>Heißt</th><th>Ursachen</th></tr></thead>
+          <tbody><tr><td><strong>erhöht</strong></td><td>Säure kam dazu</td><td>Ketoazidose, Laktat, Niere, Intoxikation</td></tr><tr><td><strong>normal</strong></td><td>Bikarbonat lief weg</td><td>Diarrhö, renal-tubuläre Azidose, viel NaCl</td></tr></tbody>
         </table>
-        <div class="callout warning"><span class="callout-label">⚠ Kompensation normalisiert nie ganz</span><strong>Der Körper korrigiert den pH nie über die Mitte hinaus.</strong> Liegt der pH auf der falschen Seite, liegt eine zweite Störung vor.</div>
+        <div class="callout fact"><span class="callout-label">⚙ Merkhilfe</span>Erhöhte Lücke = <strong>etwas Neues ist dazugekommen</strong>. Normale Lücke = <strong>Bikarbonat ist weggelaufen</strong>.</div>
       </div></div>
     </div>
 
     <div class="card">
-      <div class="card-head"><div><span class="card-tag">Gemischt</span><div class="card-title">Wenn beide Achsen kippen</div></div><span class="toggle">+</span></div>
+      <div class="card-head"><div><span class="card-tag">Stoffwechsel</span><div class="card-title">Metabolische Alkalose</div></div><span class="toggle">+</span></div>
       <div class="card-body"><div class="card-body-inner">
-        <div class="callout critical"><span class="callout-label">★ Erkennen</span><strong>pCO₂ und HCO₃⁻ zeigen in entgegengesetzte Richtungen und verstärken beide denselben pH-Fehler.</strong></div>
+        <div class="callout critical"><span class="callout-label">★ Erkennen</span><strong>pH ↑, HCO₃⁻ ↑.</strong> Das CO₂ steigt kompensatorisch mit.</div>
         <table>
-          <thead><tr><th>Konstellation</th><th>Typisch bei</th></tr></thead>
-          <tbody><tr><td>pCO₂ ↑ und HCO₃⁻ ↓, pH stark ↓</td><td>Reanimation, kardiogener Schock</td></tr><tr><td>pCO₂ ↓ und HCO₃⁻ ↑, pH stark ↑</td><td>Leberzirrhose mit Erbrechen und Hyperventilation</td></tr><tr><td>pCO₂ ↓ und HCO₃⁻ ↓, pH fast normal</td><td>Sepsis mit Laktatazidose und Hyperventilation</td></tr></tbody>
+          <thead><tr><th>Ursache</th><th>Warum</th></tr></thead>
+          <tbody><tr><td>Erbrechen, Magensonde</td><td>Salzsäure geht verloren</td></tr><tr><td>Schleifen- und Thiaziddiuretika</td><td>häufigste Ursache im Alltag</td></tr><tr><td>Hypokaliämie</td><td>Kalium raus, Wasserstoff rein</td></tr></tbody>
         </table>
-        <div class="callout fact"><span class="callout-label">⚙ Faustregel</span>Ein extrem entgleister pH bei zwei gegenläufigen Werten spricht immer für eine gemischte Störung — und für einen schwerkranken Patienten.</div>
+        <div class="callout fact"><span class="callout-label">⚙ Therapie</span>Volumen und Kalium ausgleichen — meist reicht Kochsalzlösung.</div>
       </div></div>
     </div>
 
   </section>
 
   <section class="chapter" id="k6">
-    <div class="chapter-head"><span class="chapter-num">6</span><span class="chapter-title">Sechs Fälle zum Durchrechnen</span></div>
+    <div class="chapter-head"><span class="chapter-num">6</span><span class="chapter-title">Kompensation</span></div>
 
-    <div class="card">
-      <div class="card-head"><div><span class="card-tag">Fall</span><div class="card-title">68 J. · COPD · zunehmende Dyspnoe und Sputum</div></div><span class="toggle">+</span></div>
+    <div class="card open">
+      <div class="card-head"><div><span class="card-tag">Kompensation</span><div class="card-title">Wer ist Täter, wer ist Helfer?</div></div><span class="toggle">+</span></div>
       <div class="card-body"><div class="card-body-inner">
+        <div class="callout critical"><span class="callout-label">★ Die Denkfigur</span><strong>Wer mit dem pH übereinstimmt, ist die Ursache.</strong> Wer dagegen zieht, kompensiert.</div>
         <table>
-          <thead><tr><th>pH</th><th>pCO₂</th><th>HCO₃⁻</th><th>BE</th><th>pO₂</th></tr></thead>
-          <tbody><tr><td>7,28</td><td>68</td><td>31</td><td>+5</td><td>54</td></tr></tbody>
+          <thead><tr><th>pH</th><th>pCO₂</th><th>HCO₃⁻</th><th>Deutung</th></tr></thead>
+          <tbody><tr><td>7,25</td><td>60</td><td>26</td><td>CO₂ passt zum sauren pH → <strong>respiratorisch, akut</strong></td></tr><tr><td>7,32</td><td>60</td><td>32</td><td>wie oben, aber HCO₃⁻ hoch → <strong>chronisch</strong></td></tr><tr><td>7,20</td><td>28</td><td>12</td><td>HCO₃⁻ passt zum pH → <strong>metabolisch</strong></td></tr><tr><td>7,50</td><td>48</td><td>36</td><td>HCO₃⁻ passt zum pH → <strong>metabolische Alkalose</strong></td></tr></tbody>
         </table>
-        <div class="callout critical"><span class="callout-label">★ Diagnose</span><strong>Akut auf chronisch dekompensierte respiratorische Azidose</strong> mit Hypoxämie.</div>
-        <div class="callout fact"><span class="callout-label">⚙ So kommst du drauf</span>pH sauer, pCO₂ hoch — gegensinnig, also respiratorisch. Das HCO₃⁻ von 31 zeigt, dass die Niere seit Langem kompensiert, der pH ist trotzdem entgleist. Also eine Exazerbation auf chronischem Boden. Therapie ist die nichtinvasive Beatmung.</div>
+        <div class="callout warning"><span class="callout-label">⚠ Nie über die Mitte</span>Der Körper korrigiert den pH nie über die Mitte hinaus. Liegt er auf der falschen Seite, ist eine zweite Störung im Spiel.</div>
       </div></div>
     </div>
 
     <div class="card">
-      <div class="card-head"><div><span class="card-tag">Fall</span><div class="card-title">24 J. · Polyurie, Übelkeit, tiefe Atmung</div></div><span class="toggle">+</span></div>
+      <div class="card-head"><div><span class="card-tag">Gemischt</span><div class="card-title">Wenn beide Achsen kippen</div></div><span class="toggle">+</span></div>
       <div class="card-body"><div class="card-body-inner">
+        <div class="callout critical"><span class="callout-label">★ Erkennen</span><strong>pCO₂ und HCO₃⁻ zeigen gegeneinander und verstärken beide denselben pH-Fehler.</strong></div>
         <table>
-          <thead><tr><th>pH</th><th>pCO₂</th><th>HCO₃⁻</th><th>BE</th><th>pO₂</th></tr></thead>
-          <tbody><tr><td>7,10</td><td>23</td><td>7</td><td>−21</td><td>96</td></tr></tbody>
+          <thead><tr><th>Konstellation</th><th>Typisch bei</th></tr></thead>
+          <tbody><tr><td>CO₂ ↑ und HCO₃⁻ ↓, pH stark ↓</td><td>Reanimation, kardiogener Schock</td></tr><tr><td>CO₂ ↓ und HCO₃⁻ ↓, pH fast normal</td><td>Sepsis, Salicylatvergiftung</td></tr></tbody>
         </table>
-        <div class="callout critical"><span class="callout-label">★ Diagnose</span><strong>Metabolische Azidose mit erhöhter Anionenlücke</strong> — diabetische Ketoazidose.</div>
-        <div class="callout fact"><span class="callout-label">⚙ So kommst du drauf</span>pH sauer, HCO₃⁻ tief — gleichsinnig, also metabolisch. Das pCO₂ von 23 ist die Kußmaul-Atmung als Kompensation. Ich messe Glukose und Ketone und beginne mit Flüssigkeit, Insulin und Kaliumkontrolle.</div>
-      </div></div>
-    </div>
-
-    <div class="card">
-      <div class="card-head"><div><span class="card-tag">Fall</span><div class="card-title">58 J. · seit Tagen Erbrechen · Exsikkose</div></div><span class="toggle">+</span></div>
-      <div class="card-body"><div class="card-body-inner">
-        <table>
-          <thead><tr><th>pH</th><th>pCO₂</th><th>HCO₃⁻</th><th>BE</th><th>pO₂</th></tr></thead>
-          <tbody><tr><td>7,52</td><td>48</td><td>38</td><td>+13</td><td>88</td></tr></tbody>
-        </table>
-        <div class="callout critical"><span class="callout-label">★ Diagnose</span><strong>Metabolische Alkalose</strong> durch Verlust von Magensäure.</div>
-        <div class="callout fact"><span class="callout-label">⚙ So kommst du drauf</span>pH basisch, HCO₃⁻ hoch — gleichsinnig, also metabolisch. Das leicht erhöhte pCO₂ ist die flachere Atmung als Kompensation. Behandelt wird mit Kochsalzlösung und Kalium.</div>
-      </div></div>
-    </div>
-
-    <div class="card">
-      <div class="card-head"><div><span class="card-tag">Fall</span><div class="card-title">60 J. · 4 Tage nach Operation · plötzliche Dyspnoe</div></div><span class="toggle">+</span></div>
-      <div class="card-body"><div class="card-body-inner">
-        <table>
-          <thead><tr><th>pH</th><th>pCO₂</th><th>HCO₃⁻</th><th>BE</th><th>pO₂</th></tr></thead>
-          <tbody><tr><td>7,49</td><td>29</td><td>22</td><td>−1</td><td>58</td></tr></tbody>
-        </table>
-        <div class="callout critical"><span class="callout-label">★ Diagnose</span><strong>Respiratorische Alkalose mit Hypoxämie</strong> — dringender Verdacht auf Lungenembolie.</div>
-        <div class="callout fact"><span class="callout-label">⚙ So kommst du drauf</span>pH basisch, pCO₂ tief — gegensinnig, also respiratorisch. Entscheidend ist der niedrige pO₂ trotz Hyperventilation. Der Patient atmet gegen die Hypoxie an. Ich prüfe die Kreislaufstabilität und veranlasse die CT-Angiographie.</div>
-      </div></div>
-    </div>
-
-    <div class="card">
-      <div class="card-head"><div><span class="card-tag">Fall</span><div class="card-title">72 J. · Pneumonie · Fieber und Hypotonie</div></div><span class="toggle">+</span></div>
-      <div class="card-body"><div class="card-body-inner">
-        <table>
-          <thead><tr><th>pH</th><th>pCO₂</th><th>HCO₃⁻</th><th>BE</th><th>pO₂</th></tr></thead>
-          <tbody><tr><td>7,31</td><td>30</td><td>15</td><td>−9</td><td>62</td></tr></tbody>
-        </table>
-        <div class="callout critical"><span class="callout-label">★ Diagnose</span><strong>Metabolische Azidose bei Sepsis</strong> mit respiratorischer Kompensation.</div>
-        <div class="callout fact"><span class="callout-label">⚙ So kommst du drauf</span>pH sauer, HCO₃⁻ tief — metabolisch. Das tiefe pCO₂ kompensiert. Die Anionenlücke ist erhöht, weil Laktat anfällt. Ich denke an Sepsis, messe Laktat und beginne die Bündeltherapie.</div>
-      </div></div>
-    </div>
-
-    <div class="card">
-      <div class="card-head"><div><span class="card-tag">Fall</span><div class="card-title">30 J. · Tinnitus, Hyperventilation, Übelkeit</div></div><span class="toggle">+</span></div>
-      <div class="card-body"><div class="card-body-inner">
-        <table>
-          <thead><tr><th>pH</th><th>pCO₂</th><th>HCO₃⁻</th><th>BE</th><th>pO₂</th></tr></thead>
-          <tbody><tr><td>7,44</td><td>22</td><td>15</td><td>−7</td><td>98</td></tr></tbody>
-        </table>
-        <div class="callout critical"><span class="callout-label">★ Diagnose</span><strong>Gemischte Störung</strong> — respiratorische Alkalose plus metabolische Azidose, typisch für die Salicylatvergiftung.</div>
-        <div class="callout fact"><span class="callout-label">⚙ So kommst du drauf</span>Der pH ist fast normal, aber beide Werte sind deutlich erniedrigt. Das passt zu keiner Reinform. Salicylate stimulieren das Atemzentrum und erzeugen zugleich eine Azidose. Der Tinnitus ist der Schlüssel.</div>
       </div></div>
     </div>
 
   </section>
 
-  <footer>KP-Mainz Drills · BGA Komplettskript · eine Regel, fünf Schritte, sechs Fälle · System nach Dr. Sturm (Innere Medizin), Fälle an Mainz-Protokollen kalibriert</footer>
+  <footer>KP-Mainz Drills · BGA-Trainer · eine Regel, ein Rechner, 12 Fälle · System nach Dr. Sturm, Fälle an Mainz-Protokollen kalibriert</footer>
 </div>
 <script>
   const tabs = document.querySelectorAll('.tab');
@@ -365,10 +346,71 @@
     chapters.forEach(c => c.classList.remove('active'));
     tab.classList.add('active');
     document.getElementById(tab.dataset.k).classList.add('active');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }); });
-  document.querySelectorAll('.card-head').forEach(head => { head.addEventListener('click', () => head.closest('.card').classList.toggle('open')); });
+    window.scrollTo({top:0,behavior:'smooth'});
+  });});
+  document.querySelectorAll('.card-head').forEach(h => h.addEventListener('click', () => h.parentElement.classList.toggle('open')));
 </script>
+<script>
+(function(){
+  var num=function(s){return parseFloat(String(s).replace(',','.'));};
+  var ph=document.getElementById('i-ph'),co=document.getElementById('i-co2'),hc=document.getElementById('i-hco3'),out=document.getElementById('c-out');
+  function judge(){
+    var p=num(ph.value),c=num(co.value),h=num(hc.value);
+    if(isNaN(p)||isNaN(c)){out.innerHTML='Werte eingeben …';return;}
+    var acid=p<7.35,alk=p>7.45,co2hi=c>45,co2lo=c<35,txt='';
+    if(!acid&&!alk){
+      txt=(co2hi||co2lo)?'<b>pH normal, aber CO₂ verschoben</b> — vollständig kompensiert oder gemischt. Beide Achsen ansehen.':'<b>Normalbefund</b> — alles im Referenzbereich.';
+    } else if(acid&&co2hi&&!isNaN(h)&&h<22){ txt='<b>Gemischte Azidose</b> — CO₂ hoch <u>und</u> HCO₃⁻ tief. Beide treiben den pH in dieselbe Richtung. Zeichen des schwerkranken Patienten.'; }
+      else if(alk&&co2lo&&!isNaN(h)&&h>26){ txt='<b>Gemischte Alkalose</b> — CO₂ tief <u>und</u> HCO₃⁻ hoch. Beide treiben den pH in dieselbe Richtung.'; }
+      else if(acid&&co2hi){ txt='<b>Respiratorische Azidose</b> — gegensinnig. Die Lunge atmet zu wenig ab.'+(!isNaN(h)&&h>26?' Das erhöhte HCO₃⁻ spricht für einen chronischen Verlauf.':''); }
+      else if(alk&&co2lo){ txt='<b>Respiratorische Alkalose</b> — gegensinnig. Die Lunge atmet zu viel ab.'; }
+      else if(acid&&co2lo){ txt='<b>Metabolische Azidose</b> — gleichsinnig. Das tiefe CO₂ ist die Kompensation.'; }
+      else if(alk&&co2hi){ txt='<b>Metabolische Alkalose</b> — gleichsinnig. Das hohe CO₂ ist die Kompensation.'; }
+      else { txt=(acid?'<b>Azidose</b>':'<b>Alkalose</b>')+' bei normalem CO₂ — der Stoffwechsel ist der Täter, die Lunge hat noch nicht reagiert.'; }
+    if(!isNaN(h)){
+      txt+='<br><span style="color:#5C5C5C">HCO₃⁻ '+(h<22?'erniedrigt':(h>26?'erhöht':'normal'))+' · ';
+      txt+=(acid&&h<22)||(alk&&h>26)?'passt zum pH → metabolischer Anteil bestätigt.':'gegenläufig zum pH → spricht für Kompensation.';
+      txt+='</span>';
+    }
+    out.innerHTML=txt;
+  }
+  [ph,co,hc].forEach(function(e){e&&e.addEventListener('input',judge);});
+
+  var C=[{"v": {"pH": "7,28", "co2": "68", "hco3": "31", "be": "+5", "po2": "54"}, "t": "68 J., COPD, seit Tagen mehr Luftnot und Auswurf", "o": ["Respiratorische Azidose", "Metabolische Azidose", "Respiratorische Alkalose", "Metabolische Alkalose"], "a": 0, "e": "pH sauer, pCO2 hoch — gegensinnig, also respiratorisch. Das HCO3 von 31 zeigt: Die Niere kompensiert seit Langem, es ist eine Exazerbation auf chronischem Boden."}, {"v": {"pH": "7,10", "co2": "23", "hco3": "7", "be": "−21", "po2": "96"}, "t": "24 J., Polyurie, Übelkeit, tiefe schwere Atmung", "o": ["Respiratorische Azidose", "Metabolische Azidose", "Gemischte Störung", "Metabolische Alkalose"], "a": 1, "e": "pH sauer, HCO3 tief — gleichsinnig, also metabolisch. Das tiefe pCO2 ist die Kußmaul-Atmung als Kompensation. Denk an die Ketoazidose."}, {"v": {"pH": "7,52", "co2": "48", "hco3": "38", "be": "+13", "po2": "88"}, "t": "58 J., seit Tagen Erbrechen, exsikkiert", "o": ["Respiratorische Alkalose", "Metabolische Azidose", "Metabolische Alkalose", "Normalbefund"], "a": 2, "e": "pH basisch, HCO3 hoch — gleichsinnig, also metabolisch. Salzsäure ging durch Erbrechen verloren. Therapie: Kochsalz und Kalium."}, {"v": {"pH": "7,49", "co2": "29", "hco3": "22", "be": "−1", "po2": "58"}, "t": "60 J., 4 Tage nach OP, plötzlich Luftnot", "o": ["Respiratorische Alkalose", "Metabolische Alkalose", "Respiratorische Azidose", "Gemischte Störung"], "a": 0, "e": "pH basisch, pCO2 tief — respiratorisch. Entscheidend ist der niedrige pO2 trotz Hyperventilation: Der Patient atmet gegen die Hypoxie an. Verdacht Lungenembolie."}, {"v": {"pH": "7,31", "co2": "30", "hco3": "15", "be": "−9", "po2": "62"}, "t": "72 J., Pneumonie, Fieber, RR 85/50", "o": ["Respiratorische Azidose", "Metabolische Azidose", "Metabolische Alkalose", "Normalbefund"], "a": 1, "e": "pH sauer, HCO3 tief — metabolisch, das tiefe pCO2 kompensiert. Die Anionenlücke ist erhöht, weil Laktat anfällt. Sepsis."}, {"v": {"pH": "7,44", "co2": "22", "hco3": "15", "be": "−7", "po2": "98"}, "t": "30 J., Tinnitus, hyperventiliert, Übelkeit", "o": ["Respiratorische Alkalose", "Metabolische Azidose", "Gemischte Störung", "Normalbefund"], "a": 2, "e": "Der pH ist fast normal, aber beide Werte sind deutlich tief. Das passt zu keiner Reinform: Salicylate treiben das Atemzentrum an und machen zugleich eine Azidose. Der Tinnitus ist der Schlüssel."}, {"v": {"pH": "7,38", "co2": "41", "hco3": "24", "be": "0", "po2": "92"}, "t": "45 J., Routinekontrolle vor OP", "o": ["Normalbefund", "Kompensierte Azidose", "Respiratorische Alkalose", "Metabolische Alkalose"], "a": 0, "e": "Alles im Referenzbereich. Den Normalbefund muss man genauso sicher benennen wie die Pathologie — wer krampfhaft eine Störung sucht, verliert Glaubwürdigkeit."}, {"v": {"pH": "7,33", "co2": "60", "hco3": "32", "be": "+6", "po2": "61"}, "t": "71 J., COPD seit Jahren, heute stabil", "o": ["Akute respiratorische Azidose", "Chronische, teilkompensierte respiratorische Azidose", "Metabolische Alkalose", "Gemischte Störung"], "a": 1, "e": "pCO2 hoch, aber HCO3 deutlich erhöht und der pH nur leicht sauer. Die Niere hatte Tage Zeit — also chronisch. Ich behandle den Patienten, nicht die Zahl."}, {"v": {"pH": "7,21", "co2": "55", "hco3": "21", "be": "−7", "po2": "48"}, "t": "Reanimation, 12 Minuten Kreislaufstillstand", "o": ["Respiratorische Azidose", "Metabolische Azidose", "Gemischte Azidose", "Metabolische Alkalose"], "a": 2, "e": "pCO2 hoch UND HCO3 tief — beide treiben den pH in dieselbe saure Richtung. Das ist die gemischte Störung des schwerkranken Patienten."}, {"v": {"pH": "7,47", "co2": "31", "hco3": "22", "be": "−1", "po2": "95"}, "t": "22 J., Panikattacke, Kribbeln um den Mund", "o": ["Respiratorische Alkalose", "Metabolische Alkalose", "Normalbefund", "Respiratorische Azidose"], "a": 0, "e": "pH basisch, pCO2 tief, pO2 normal. Reine Hyperventilation ohne Hypoxie. Das Kribbeln kommt vom Abfall des ionisierten Kalziums."}, {"v": {"pH": "7,26", "co2": "34", "hco3": "15", "be": "−10", "po2": "90"}, "t": "55 J., seit Tagen schwerer Durchfall", "o": ["Metabolische Azidose mit erhöhter Anionenlücke", "Metabolische Azidose mit normaler Anionenlücke", "Respiratorische Azidose", "Metabolische Alkalose"], "a": 1, "e": "Metabolische Azidose — und bei Diarrhö geht Bikarbonat verloren, es kommt keine Säure dazu. Also normale Anionenlücke. Merke: erhöhte Lücke heißt etwas ist dazugekommen."}, {"v": {"pH": "7,19", "co2": "25", "hco3": "9", "be": "−17", "po2": "88"}, "t": "63 J., Bauchschmerz, Vorhofflimmern, weicher Bauch", "o": ["Metabolische Azidose mit erhöhter Anionenlücke", "Respiratorische Alkalose", "Metabolische Alkalose", "Normalbefund"], "a": 0, "e": "Schwere metabolische Azidose mit Laktat — Schmerz stärker als der Tastbefund plus Vorhofflimmern heißt Mesenterialinfarkt bis zum Beweis des Gegenteils."}],i=0,streak=0,best=0,done=false;
+  var qv=document.getElementById('q-vals'),qg=document.getElementById('q-vign'),qo=document.getElementById('q-opts'),
+      qf=document.getElementById('q-fb'),qn=document.getElementById('q-next'),qc=document.getElementById('q-count'),
+      qs=document.getElementById('q-streak'),qb=document.getElementById('q-bar');
+  function render(){
+    var c=C[i];done=false;
+    qc.textContent='Fall '+(i+1)+' von '+C.length;
+    qs.textContent='Serie '+streak+(best>streak?' · Beste '+best:'');
+    qb.style.width=Math.round(i/C.length*100)+'%';
+    qv.innerHTML=['pH','pCO₂','HCO₃⁻','BE','pO₂'].map(function(k,n){
+      var key=['pH','co2','hco3','be','po2'][n];
+      return '<div class="val"><div class="k">'+k+'</div><div class="v">'+c.v[key]+'</div></div>';}).join('');
+    qg.textContent=c.t;
+    qo.innerHTML=c.o.map(function(o,n){return '<button class="opt" data-n="'+n+'">'+o+'</button>';}).join('');
+    qf.className='fb';qf.innerHTML='';qn.className='qbtn';
+    Array.prototype.forEach.call(qo.children,function(b){
+      b.addEventListener('click',function(){
+        if(done)return;done=true;
+        var n=+b.dataset.n,ok=n===C[i].a;
+        Array.prototype.forEach.call(qo.children,function(x,xi){
+          if(xi===C[i].a)x.className='opt right';else if(xi===n)x.className='opt wrong';});
+        if(ok){streak++;if(streak>best)best=streak;}else{streak=0;}
+        qs.textContent='Serie '+streak+(best>streak?' · Beste '+best:'');
+        qf.className='fb on '+(ok?'ok':'no');
+        qf.innerHTML=(ok?'<b>Richtig.</b> ':'<b>Nicht ganz.</b> ')+C[i].e;
+        qn.className='qbtn on';
+        qn.textContent=(i+1<C.length)?'Nächster Fall →':'Von vorn ↺';
+      });
+    });
+  }
+  qn&&qn.addEventListener('click',function(){i=(i+1)%C.length;render();});
+  if(qv)render();
+})();
+</script>
+
   <script src="/focus-timer.js" defer></script>
 </body>
 </html>
