@@ -1,6 +1,6 @@
 # KP MAINZ — THEMENLISTE (FLACH, EINE RANGLISTE)
 
-Alle **97 Themen** in einer Rangliste nach **Korpus-Treffer** (WhatsApp-Chat + Protokolle). Aktuell **63 von 97** mit Review abgedeckt (~65 %).
+Alle **97 Themen** in einer Rangliste nach **Korpus-Treffer** (WhatsApp-Chat + Protokolle). Aktuell **65 von 97** mit Review abgedeckt (~67 %).
 
 > **Juli 2026 (a):** 3 Themen ergänzt (nach Protokoll-Frequenz-Check bestätigt): **Kreuzbandruptur** (Unfallchirurgie, 30 Protokoll-Treffer, VKB:21), **Status epilepticus/Epilepsie** (Neurologie, 10), **Gicht/Podagra** (Rheumatologie, 6). *Verworfen* (zu niedrig/abwesend): Meningitis, Demenz, Erysipel, Fazialisparese, Ösophaguskarzinom, Multiples Myelom, Migräne, Parkinson.
 
@@ -33,7 +33,7 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 18 | 226 | 78 | 148 | Allgemein- und Viszeralchirurgie | Leistenhernie / Hernien | ✓ R4 |
 | 19 | 224 | 118 | 106 | Drittes Fach | Rechtsmedizin / Leichenschau | ✓ R3 |
 | 20 | 220 | 76 | 144 | Angiologie | Lungenembolie | ✓ R4 |
-| 21 | 218 | 88 | 130 | Allgemein- und Viszeralchirurgie | Gastroduodenales Ulkus | — |
+| 21 | 218 | 88 | 130 | Allgemein- und Viszeralchirurgie | Gastroduodenales Ulkus | ✓ R3 |
 | 22 | 212 | 79 | 133 | Unfallchirurgie | Proximale Femurfraktur | ✓ R4 |
 | 23 | 203 | 74 | 129 | Allgemein- und Viszeralchirurgie | Pankreatitis | ✓ R1 |
 | 24 | 203 | 68 | 135 | Allgemein- und Viszeralchirurgie | Divertikulitis | ✓ R2 |
@@ -71,7 +71,7 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 46 | 95 | 18 | 77 | Kardiologie | Synkope | ✓ R3 |
 | 47 | 93 | 40 | 53 | Unfallchirurgie | Distale Radiusfraktur | ✓ R4 |
 | 48 | 93 | 30 | 63 | Drittes Fach | Schmerztherapie / WHO-Schema | — |
-| 49 | 92 | 30 | 62 | Notfallmedizin | Akuttoxikologie / Intoxikation | — |
+| 49 | 92 | 30 | 62 | Notfallmedizin | Akuttoxikologie / Intoxikation | ✓ R1 |
 | 50 | 92 | 21 | 71 | Kardiologie | Ventr. Tachykardie / Kammerflimmern | — |
 | 51 | 91 | 15 | 76 | Hämatologie | Akute Leukämien (ALL) | ✓ R2 |
 | 52 | 89 | 37 | 52 | Drittes Fach | Aufklärung, Einwilligung & Betreuung | ✓ R2 |
