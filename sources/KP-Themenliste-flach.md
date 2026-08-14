@@ -1,6 +1,6 @@
 # KP MAINZ — THEMENLISTE (FLACH, EINE RANGLISTE)
 
-Alle **97 Themen** in einer Rangliste nach **Korpus-Treffer** (WhatsApp-Chat + Protokolle). Aktuell **62 von 97** mit Review abgedeckt (~64 %).
+Alle **97 Themen** in einer Rangliste nach **Korpus-Treffer** (WhatsApp-Chat + Protokolle). Aktuell **63 von 97** mit Review abgedeckt (~65 %).
 
 > **Juli 2026 (a):** 3 Themen ergänzt (nach Protokoll-Frequenz-Check bestätigt): **Kreuzbandruptur** (Unfallchirurgie, 30 Protokoll-Treffer, VKB:21), **Status epilepticus/Epilepsie** (Neurologie, 10), **Gicht/Podagra** (Rheumatologie, 6). *Verworfen* (zu niedrig/abwesend): Meningitis, Demenz, Erysipel, Fazialisparese, Ösophaguskarzinom, Multiples Myelom, Migräne, Parkinson.
 
@@ -118,7 +118,7 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 88 | 40 | 7 | 33 | Unfallchirurgie | Beckenringfrakturen | ✓ R4 |
 | 89 | 37 | 12 | 25 | Notfallmedizin | Delir | — |
 | 90 | 32 | 5 | 27 | Endokrinologie | Cushing-Syndrom | ✓ R3 |
-| 91 | 32 | 9 | 23 | Nephrologie | Hyponatriämie / SIADH | — |
+| 91 | 32 | 9 | 23 | Nephrologie | Hyponatriämie / SIADH | ✓ R1 |
 | 92 | 30 | 0 | 30 | Unfallchirurgie | Kreuzbandruptur | — |
 | 93 | 23 | 3 | 20 | Unfallchirurgie | Wirbelsäulenverletzungen | ✓ R4 |
 | 94 | 13 | 8 | 5 | Drittes Fach | KI in der Medizin | — |

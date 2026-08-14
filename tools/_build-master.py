@@ -121,7 +121,7 @@ FLAT=[
 (40,7,33,"Unfallchirurgie","Beckenringfrakturen","beckenringfrakturen"),
 (37,12,25,"Notfallmedizin","Delir",None),
 (32,5,27,"Endokrinologie","Cushing-Syndrom","cushing-syndrom"),
-(32,9,23,"Nephrologie","Hyponatriämie / SIADH",None),
+(32,9,23,"Nephrologie","Hyponatriämie / SIADH","hyponatriaemie-siadh"),
 (30,0,30,"Unfallchirurgie","Kreuzbandruptur","kreuzbandruptur"),
 (23,3,20,"Unfallchirurgie","Wirbelsäulenverletzungen","wirbelsaeulenverletzungen"),
 (13,8,5,"Drittes Fach","KI in der Medizin",None),

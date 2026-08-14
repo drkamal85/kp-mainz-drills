@@ -224,3 +224,33 @@ vergaß nur die Antihistaminikadosis.
 **Grenzt an andere Reviews, dort NICHT doppeln:** Adrenalindosen und Notfallset stehen in
 **notfallpharmakologie** · Schockformen und Volumentherapie in **schock** · vasovagale Synkope
 nach Impfung in **synkope** und **impfungen-stiko** · Kontrastmittelreaktion in **strahlenschutz**.
+
+
+## Hyponatriämie / SIADH — R1 gebaut 07/2026, Protokollstoff für R2/R3
+
+**Frau Dr. Groß (Vorsitz), kompletter dokumentierter Block:**
+Patientin mit unklarer Synkope, Natrium 126 dann 124 mmol/l, alle anderen Befunde unauffällig.
+- „Was ist aus Ihrer Sicht die Ursache der Synkope?" → die Hyponatriämie
+- „Normwerte des Natriums? Einteilung der Hyponatriämie?" → 124 = schwer
+- „Mögliche Ursachen?" → **hochdosiertes Hydrochlorothiazid**, wurde bestätigt
+- „Worauf müssen Sie bei der Natriumkorrektur achten?" → langsam, sonst zentrale pontine Myelinolyse
+- **„Maximal 6–8 mmol/l in 24 Stunden"** plus engmaschige Serumkontrollen — wörtlich verlangt
+- „Neurologische Folgen der pontinen Myelinolyse?" → **Lähmungen bzw. Querschnittssyndrom**
+- Direkt im Anschluss: Schockformen, vasovagale gegen orthostatische Synkope
+
+**Dr. Morgenthaler, klinischer Fall:**
+Patient auf onkologischer Station mit **Verwirrtheit** → Anamnese, klinische Untersuchung, Labor
+→ Hyponatriämie → „Vorgehen?" → **SIADH** → „Diagnose und Ursache?" →
+paraneoplastische Manifestation bei **kleinzelligem Lungenkarzinom**.
+Danach Bluttransfusion sehr detailliert, Aufklärung und Vollmacht.
+
+**Frau Dr. Boom:** „Hyponatriämie-Typen — was sollte man bestimmen?" →
+**Serum- und Urinosmolarität**. Im konkreten Fall war es eine hypervolämische Störung.
+
+**Weiterer Fall:** mikrozytäre hypochrome Anämie bei oberer GI-Blutung mit kardialer
+Dekompensation und Hyponatriämie — die Elektrolytstörung als Nebenbefund im großen Fall.
+
+**Grenzt an andere Reviews, dort NICHT doppeln:** Synkope-Abklärung und vasovagal gegen
+orthostatisch stehen in **synkope** · kleinzelliges Bronchialkarzinom in **kolonkarzinom**-Nachbarn
+und im Bildatlas · Hypothyreose als DD in **hypothyreose** · Diuretika-Nebenwirkungen in
+**arterielle-hypertonie** und **herzinsuffizienz**.
