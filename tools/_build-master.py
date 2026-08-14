@@ -129,7 +129,7 @@ FLAT=[
 (10,0,10,"Neurologie","Status epilepticus / Epilepsie","epilepsie"),
 (6,0,6,"Rheumatologie","Gicht / Podagra","gicht"),
 ]
-EXTRA=[("Notfallmedizin","Pleuraerguss","pleuraerguss"),("Kardiologie","Hypertrophe Kardiomyopathie","hypertrophe-kardiomyopathie"),("Notfallmedizin","Notfallpharmakologie","notfallpharmakologie"),("Hämatologie","CML","cml")]
+EXTRA=[("Notfallmedizin","Pleuraerguss","pleuraerguss"),("Notfallmedizin","Notfallpharmakologie","notfallpharmakologie"),("Hämatologie","CML","cml")]
 
 # rank + tier split
 FLAT.sort(key=lambda r:-r[0])  # keep ranking correct after additions
