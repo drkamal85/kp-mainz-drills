@@ -311,3 +311,27 @@ Blutung, Entlassung unter PPI.
 Ulkustherapie, Eradikationsschema und A. gastroduodenalis in **gastroduodenales-ulkus** ·
 Biopsiepflicht beim Ulcus ventriculi ebenfalls dort · Magenkarzinom und Laurén in **magenkarzinom** ·
 perniziöse Anämie und B12-Mangel in **eisenmangelanaemie**-Nachbarn.
+
+
+## Schmerztherapie / WHO-Schema — R1 gebaut 07/2026, Protokollstoff für R2/R3
+
+**Dokumentiert gefragt:**
+- **Frau Forell:** „WHO-Schmerzstufe. Was bedeutet **Koanalgetikum und Adjuvans** mit Beispiel?
+  **Wirkmechanismus von Amitriptylin und Glukokortikoid**"
+- **Dr. Hilbert:** „WHO-Schema. **Jede Stufe mit Beispiel und Komplikationen** bei Paracetamol,
+  Metamizol und bei Opioid" · im selben Block Sozialversicherung und Aufbewahrungsfristen
+  (10 Jahre normal, 30 Jahre Chemotherapie, **3 Jahre BTM**)
+- **Dr. Söll:** „Schmerztherapie, Transfusionen, BTM-Rezept, Aufklärungspflicht,
+  **Nebenwirkungen von Novalgin**"
+- „**In welchen Rezeptoren wirken die Opioide?**" → μ, δ und κ · „Wo sitzen diese im ZNS und
+  peripher?" · „**Was ist Naloxon?**" → reiner Antagonist
+- **BTM-Rezept mehrfach im Detail:** was bedeutet BTM · wer darf unterschreiben (jeder
+  approbierte Arzt) · **welche Farbe (gelb)** · wie viele Kopien · was passiert mit jeder Kopie ·
+  wie wird es geschrieben · **was bedeuten N1, N2, N3**
+- „Medikamente bei älteren Personen — was muss man beachten, welche Besonderheiten?"
+
+**Grenzt an andere Reviews, dort NICHT doppeln:** Das WHO-Stufenschema mit allen Medikamenten,
+Nebenwirkungen und Koanalgetika steht bereits als Tab-6-Frage in **notfallpharmakologie**,
+ebenso die BTM-Grundfrage und die NSAR-Nebenwirkungen beim Älteren · Metamizol und Piritramid
+in **pankreatitis** · Analgesie beim akuten Abdomen in **akutes-abdomen** ·
+Aufbewahrungsfristen in **rechtsmedizin** und **sozialrecht-hygiene**.
