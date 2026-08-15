@@ -335,3 +335,32 @@ Nebenwirkungen und Koanalgetika steht bereits als Tab-6-Frage in **notfallpharma
 ebenso die BTM-Grundfrage und die NSAR-Nebenwirkungen beim Älteren · Metamizol und Piritramid
 in **pankreatitis** · Analgesie beim akuten Abdomen in **akutes-abdomen** ·
 Aufbewahrungsfristen in **rechtsmedizin** und **sozialrecht-hygiene**.
+
+
+## Bluttransfusion — R1 gebaut 07/2026, Protokollstoff für R2/R3
+**Rang 1 der Themenliste mit 282 Treffern — das meistgefragte Thema überhaupt.**
+
+**Dr. Morgenthaler, komplette Kette (90-jährige demente Patientin):**
+1. „Wie machen Sie eine Aufklärung für diese Patientin?"
+2. „Was ist die Indikation für die EK-Transfusion?"
+3. „Was machen Sie, bevor Sie transfundieren?" → Aufklärung auf jeden Fall
+4. **„Wie fordern Sie das EK im Labor an?"** → 2 Röhrchen, Blutgruppe und Kreuzprobe
+5. „Was machen Sie, wenn Sie das EK vom Labor bekommen?" → Bedside-Test
+6. **„Wie führen Sie ihn durch? Wo — am Bett oder auf Station?"**
+Im selben Block davor: Hyponatriämie und SIADH, danach Vollmacht und Ehegattenvertretung.
+
+**Weitere dokumentierte Fragen:**
+- „Bluttransfusion: **Blutgruppe, Kreuzprobe und Bedside-Test — wo und wann!**"
+- „Mit welchem Hb-Wert transfundieren Sie, unabhängig von Symptomen?" → Kandidat sagte
+  „unter 7", **Prüfer korrigierte auf „unter 6"** · danach alle Informationen über Kreuzen,
+  **AB0-Kompatibilität, Coombs-Test** · dann: „Nach der Transfusion hat der Patient Luftnot
+  und Hypotonie — wie gehen Sie vor?" → Schocktherapie im Detail
+- **„Tests vor Übertragung und Gültigkeit der Tests"** · „Hb 7,5 — transfundieren oder nicht?"
+- Dr. Söll: „Schmerztherapie, **Transfusionen**, BTM-Rezept, Aufklärungspflicht"
+- Dr. Hofer: Bluttransfusion im Block mit Polytrauma und Milzruptur
+
+**Grenzt an andere Reviews, dort NICHT doppeln:** Massivtransfusion und Schockraum stehen in
+**polytrauma-abcde** · Anaphylaxie und Schocktherapie in **anaphylaxie** und **schock** ·
+Vorsorgevollmacht, Ehegattenvertretung nach § 1358 und Betreuung ausführlich in
+**aufklaerung-einwilligung** · Aufbewahrungsfristen in **rechtsmedizin** ·
+Hb-Grenze beim TEP-Revisionsfall in **hueft-knie-tep**.

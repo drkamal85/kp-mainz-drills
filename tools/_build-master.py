@@ -37,7 +37,7 @@ FLAT=[
 (304,72,232,"Notfallmedizin","Schock","schock"),
 (298,88,210,"Allgemein- und Viszeralchirurgie","Ileus","ileus"),
 (296,56,240,"Notfallmedizin","Sepsis & septischer Schock","sepsis"),
-(282,103,179,"Drittes Fach","Bluttransfusion",None),
+(282,103,179,"Drittes Fach","Bluttransfusion","bluttransfusion"),
 (279,90,189,"Drittes Fach","Anästhesie & Atemwegssicherung","anaesthesie-atemweg"),
 (278,74,204,"Endokrinologie","Diabetes mellitus","diabetes-mellitus"),
 (264,98,166,"Drittes Fach","Impfungen / STIKO","impfungen-stiko"),
