@@ -1,6 +1,6 @@
 # KP MAINZ — THEMENLISTE (FLACH, EINE RANGLISTE)
 
-Alle **97 Themen** in einer Rangliste nach **Korpus-Treffer** (WhatsApp-Chat + Protokolle). Aktuell **66 von 97** mit Review abgedeckt (~68 %).
+Alle **97 Themen** in einer Rangliste nach **Korpus-Treffer** (WhatsApp-Chat + Protokolle). Aktuell **67 von 97** mit Review abgedeckt (~69 %).
 
 > **Juli 2026 (a):** 3 Themen ergänzt (nach Protokoll-Frequenz-Check bestätigt): **Kreuzbandruptur** (Unfallchirurgie, 30 Protokoll-Treffer, VKB:21), **Status epilepticus/Epilepsie** (Neurologie, 10), **Gicht/Podagra** (Rheumatologie, 6). *Verworfen* (zu niedrig/abwesend): Meningitis, Demenz, Erysipel, Fazialisparese, Ösophaguskarzinom, Multiples Myelom, Migräne, Parkinson.
 
@@ -37,7 +37,7 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 22 | 212 | 79 | 133 | Unfallchirurgie | Proximale Femurfraktur | ✓ R4 |
 | 23 | 203 | 74 | 129 | Allgemein- und Viszeralchirurgie | Pankreatitis | ✓ R1 |
 | 24 | 203 | 68 | 135 | Allgemein- und Viszeralchirurgie | Divertikulitis | ✓ R2 |
-| 25 | 202 | 55 | 147 | Endokrinologie | Schilddrüse (allg.) | — |
+| 25 | 202 | 55 | 147 | Endokrinologie | Schilddrüse (allg.) | ✓ R4 (in Hyperthyreose) |
 
 ## TIER 2 · hohe Präsenz (120–199)
 
