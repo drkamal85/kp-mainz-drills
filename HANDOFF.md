@@ -180,6 +180,42 @@ Always `project_knowledge_search` for a topic's content + its documented Mainz p
 
 ---
 
+## 11. DRUCK / PDF (Standard-Layout — Aug 2026)
+
+Ein einziges Layout für alle Themenseiten. Nie pro Thema anpassen.
+
+- **`/print.css`** — kanonische Quelle. Zwei Konsumenten: `<link media="print">` auf jeder
+  Themenseite (Ctrl+P im Browser) und Inline-Injektion durch den PDF-Builder.
+- **`/print.js`** — klappt vor dem Druck alle Stationen/Karten auf, zieht die Stationsbänder ein,
+  stellt danach den Bildschirmzustand wieder her. Beide Tags sitzen im `<head>` jeder Themenseite —
+  **bei neuen Themenseiten mitkopieren**:
+  ```html
+  <link rel="stylesheet" media="print" href="/print.css">
+  <script src="/print.js" defer></script>
+  ```
+- **`tools/_build-pdf.py`** — WeasyPrint-Renderer (`pip install weasyprint --break-system-packages`).
+  ```
+  python3 tools/_build-pdf.py reviews/chirurgie/cholezystitis.html
+  python3 tools/_build-pdf.py --all
+  python3 tools/_build-pdf.py reviews/kardiologie/*.html --merge kardiologie.pdf
+  python3 tools/_build-pdf.py --all --mode quiz     # Antworten verdeckt (Selbsttest)
+  python3 tools/_build-pdf.py --all --flow          # fortlaufend statt Seite je Station
+  ```
+  Default-Ausgabe: `/mnt/user-data/outputs/pdf/`. PDFs werden **nicht** ins Repo committet.
+
+**Layout-Regeln:** A4, 17/15/16/15 mm · Kopf: Thema links, Station rechts (ab Seite 2) ·
+Fuß: Quelle links, `Seite / Gesamt` rechts · eine neue Seite je Station mit Farbband in der
+Stationsfarbe · alle Karten offen, `break-inside: avoid` · PDF-Lesezeichen: Station = Ebene 1,
+Kartentitel = Ebene 2 · Bildschirm-Chrome (Tabs, Back-Link, Footer, Toggles, Timer) entfällt.
+
+**Schriften beim Rendern:** Fraunces + Manrope müssen systemweit liegen
+(`~/.fonts` + `fc-cache -f`, Quelle `raw.githubusercontent.com/google/fonts`), sonst Fallback auf Serif/Sans.
+
+**Bekannte Grenze:** Chrome ignoriert `@page`-Margin-Boxen — im Browser-Ausdruck fehlen laufender
+Kopf und Seitenzahl. Layout, Umbrüche und Farben stimmen. Für die volle Fassung `_build-pdf.py` nutzen.
+
+---
+
 ## 10. OTHER NOTES & PREFERENCES
 
 - Discovery-based, information-rich review formats preferred over Socratic quizzing during prep.

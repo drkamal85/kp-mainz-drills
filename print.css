@@ -1,0 +1,168 @@
+/* ============================================================
+   KP Mainz Drills — Standard-Drucklayout (A4)
+   Kanonische Quelle. Eingebunden als <link media="print" href="/print.css">
+   (Browser, Ctrl+P) und inline injiziert von tools/_build-pdf.py (WeasyPrint).
+   Ein Layout für ALLE Themenseiten. Nicht pro Thema anpassen.
+   ============================================================ */
+
+@page {
+  size: A4;
+  margin: 17mm 15mm 16mm 15mm;
+  @top-left {
+    content: string(topic);
+    font-family: 'Manrope', sans-serif; font-size: 7.5pt; font-weight: 700;
+    letter-spacing: .1em; text-transform: uppercase; color: #9A9184;
+    vertical-align: bottom; padding-bottom: 4mm;
+  }
+  @top-right {
+    content: string(station);
+    font-family: 'Manrope', sans-serif; font-size: 7.5pt; font-weight: 600;
+    letter-spacing: .1em; text-transform: uppercase; color: #9A9184;
+    vertical-align: bottom; padding-bottom: 4mm;
+  }
+  @bottom-left {
+    content: "kp-mainz-drills · KP Mainz 2027";
+    font-family: 'Manrope', sans-serif; font-size: 7pt; color: #A8A093;
+    vertical-align: top; padding-top: 3mm;
+  }
+  @bottom-right {
+    content: counter(page) " / " counter(pages);
+    font-family: 'Manrope', sans-serif; font-size: 7.5pt; font-weight: 700; color: #6B6358;
+    vertical-align: top; padding-top: 3mm;
+  }
+}
+@page :first { @top-left { content: none } @top-right { content: none } }
+
+/* ---------- Grundlayout ---------- */
+html, body { background: #fff !important; }
+body {
+  font-family: 'Manrope', sans-serif; color: #23201D;
+  font-size: 9.6pt; line-height: 1.45; padding: 0 !important; margin: 0;
+  -webkit-print-color-adjust: exact; print-color-adjust: exact;
+}
+.wrap { max-width: none !important; margin: 0 !important; }
+
+/* Bildschirm-Chrome raus */
+.tabs, .back, footer, .ctrl, .plus, .score, .rt-ptr, .sbtn,
+script, .btn, .tab, #focus-timer, .ft-btn,
+.toggle, .card-toggle, .qa-toggle { display: none !important; }
+
+/* Legacy-Seiten (.card-head/.card-body statt .card/.body).
+   Achtung: die Bildschirm-CSS klappt sie ueber max-height:0 zu — das muss
+   ausdruecklich aufgehoben werden, display:block allein genuegt nicht. */
+.card-head { break-after: avoid; }
+.card-body, .card-body-inner {
+  display: block !important; max-height: none !important;
+  overflow: visible !important; transition: none !important;
+}
+.card { break-inside: avoid; }
+.pearl-card, .qa { break-inside: avoid; }
+
+/* Panels: im Druck alle sichtbar, je Station eine neue Seite */
+.panel { display: block !important; animation: none !important; }
+.panel + .panel { break-before: page; }
+body.flow .panel + .panel { break-before: auto; padding-top: 6mm; }
+.panel-intro { font-family: 'Fraunces', serif; font-style: italic;
+  font-size: 9.5pt; color: #6B6358; margin: 0 0 5mm; line-height: 1.4; }
+
+/* ---------- Kopf (Seite 1) ---------- */
+header { padding: 0 0 5mm !important; border-bottom: 2px solid #23201D; margin-bottom: 6mm; }
+.eyebrow { font-size: 7.5pt !important; letter-spacing: .18em; color: #0F766E; margin-bottom: 4mm !important; }
+h1 { display: inline-block; font-family: 'Fraunces', serif; font-weight: 500; font-size: 30pt !important;
+  line-height: 1.02 !important; letter-spacing: -.01em; string-set: topic content(); }
+h1 .accent { font-style: italic; }
+.subtitle { font-size: 10.5pt !important; margin-top: 3mm !important; line-height: 1.35; }
+.meta { margin-top: 4mm !important; font-size: 8pt !important; color: #6B6358; display: block !important; }
+.meta span:not(:last-child)::after { content: "·"; margin: 0 6px; color: #C9C2B4; }
+.r4pill, .r5pill { display: inline-block !important; font-size: 7.5pt; padding: 1px 8px;
+  border-radius: 999px; vertical-align: middle; margin: 0 0 0 8px !important; }
+
+/* ---------- Stationsband ---------- */
+.stationband {
+  display: block !important;
+  font-family: 'Manrope', sans-serif; font-size: 11pt; font-weight: 800;
+  letter-spacing: .1em; text-transform: uppercase; color: #fff;
+  padding: 3mm 5mm; border-radius: 6px; margin: 0 0 4mm;
+  break-after: avoid;
+}
+.stationband .sb-t { string-set: station content();
+  bookmark-level: 1; bookmark-label: content(); bookmark-state: open; }
+.stationband .sb-n { float: right; font-weight: 600; opacity: .8; font-size: 9pt; }
+.sb-grundlagen { background: #C0392B } .sb-klinik { background: #D97706 }
+.sb-diagnostik { background: #1E5F9E } .sb-therapie { background: #2D7A3E }
+.sb-fragen     { background: #7B3F9E } .sb-perlen  { background: #B8860B }
+.sb-protokoll  { background: #334155 } .sb-nachfragen { background: #7B3F9E }
+.sb-retrieval  { background: #0F766E }
+
+/* ---------- Karten ---------- */
+.card { break-inside: avoid; border: 1px solid #DCD5C6 !important; border-radius: 8px;
+  margin-bottom: 4mm !important; background: #fff !important; overflow: visible !important; }
+.card > summary { display: block !important; padding: 3mm 4mm 2mm !important;
+  break-after: avoid; list-style: none; }
+.card .ctag { font-size: 7.5pt !important; letter-spacing: .12em; margin-bottom: 1mm !important; }
+.card .ctitle { font-size: 12.5pt !important; line-height: 1.2 !important;
+  bookmark-level: 2; bookmark-label: content(); bookmark-state: closed; }
+.card .body { padding: 0 4mm 3mm !important; padding-top: 3mm !important;
+  border-top: 1px solid #EDE7DA !important; margin-top: 0 !important; }
+.card .body h4 { font-size: 9.5pt; margin: 3mm 0 1.5mm; break-after: avoid; }
+
+/* Listen */
+ul.b > li { margin-bottom: 1.5mm !important; line-height: 1.42 !important; padding-left: 14px !important; }
+ul.b > li::before { width: 5px !important; height: 5px !important; top: 6px !important; left: 1px !important; }
+ul.b ul > li { font-size: 9pt !important; margin-bottom: 1mm !important; padding-left: 13px !important; }
+ul.b ul > li::before { width: 4px !important; height: 4px !important; top: 5px !important; }
+li { break-inside: avoid; }
+
+/* Callouts */
+.callout { break-inside: avoid; font-size: 9.2pt !important; line-height: 1.42 !important;
+  padding: 2.5mm 3.5mm !important; margin: 3mm 0 !important; border-radius: 6px;
+  border-left-width: 3px !important; }
+.callout .lab { font-size: 7.5pt !important; margin-bottom: 1mm !important; }
+
+/* Tabellen */
+.dd { font-size: 8.8pt !important; margin: 3mm 0 !important; }
+.dd th, .dd td { padding: 1.8mm 2.5mm !important; }
+.dd th { font-size: 7.8pt !important; }
+.dd thead { display: table-header-group; }
+.dd tr { break-inside: avoid; }
+
+/* ---------- KP-Perlen ---------- */
+.pearl { break-inside: avoid; margin-bottom: 3.5mm !important; padding: 3mm 4mm !important;
+  border-radius: 7px; }
+.pearl .ph { font-size: 8pt !important; }
+.pearl .pt { font-size: 9.2pt !important; line-height: 1.42 !important; }
+.pearl .mn { font-size: 8.4pt !important; margin-top: 1.5mm !important; }
+
+/* Rapid-Fire / Schnellfragen */
+.sf-wrap { break-inside: auto; padding: 3.5mm 4.5mm !important; margin-top: 5mm !important; border-radius: 8px; }
+.sf-wrap h3 { font-size: 12pt !important; break-after: avoid; }
+.sf-wrap .sf-intro { font-size: 8.6pt !important; margin-bottom: 3mm !important; }
+.sf { break-inside: avoid; padding: 1.6mm 0 !important; }
+.sf > summary { display: block !important; font-size: 9pt !important; list-style: none; }
+.sf > summary::after { content: "" !important; }
+.sf .sfa { font-size: 8.8pt !important; padding-top: 1mm !important; }
+
+/* ---------- Fragen & Protokolle ---------- */
+.pk { break-inside: auto; padding: 3.5mm 4.5mm !important; margin-bottom: 5mm !important;
+  border: 1px solid #DCD5C6 !important; border-radius: 8px; }
+.pk-meta { font-size: 8pt !important; margin-bottom: 2.5mm !important; display: block !important; }
+.pk-badge { float: right; margin-left: 0 !important; font-size: 7.5pt !important; }
+.pk-akte { break-inside: avoid; font-size: 9.2pt !important; line-height: 1.45 !important;
+  padding: 2.5mm 3.5mm !important; margin-bottom: 3mm !important; border-radius: 6px; }
+.pk-akte .lab, .pk-q .lab { font-size: 7.5pt !important; }
+.pq { break-inside: avoid; margin-bottom: 3mm !important; }
+.pq-frage { font-size: 9.6pt !important; line-height: 1.4 !important; }
+.reveal > summary { display: none !important; }
+.reveal .ans { font-size: 9.2pt !important; line-height: 1.45 !important;
+  padding: 1.5mm 0 0 4mm !important; border-left: 2px solid #CFC7B8; margin-top: 1.5mm; }
+
+/* ---------- Prüfmodus (--mode quiz): Antworten verdeckt ---------- */
+body.quiz .reveal .ans, body.quiz .sf .sfa { display: none !important; }
+body.quiz .pq { padding-bottom: 12mm; border-bottom: 1px dotted #C9C2B4; }
+body.quiz .sf { padding-bottom: 6mm !important; }
+body.quiz .quiz-note { display: block; }
+.quiz-note { display: none; font-size: 8pt; font-style: italic; color: #6B6358; margin-bottom: 4mm; }
+
+/* Witwen/Waisen + Links */
+p, div { orphans: 3; widows: 3; }
+a { color: inherit !important; text-decoration: none !important; }
