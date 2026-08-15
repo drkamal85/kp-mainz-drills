@@ -44,7 +44,7 @@ FLAT=[
 (255,84,171,"Pneumologie","Pneumothorax","pneumothorax"),
 (244,78,166,"Neurologie","Schlaganfall / Apoplex","schlaganfall"),
 (243,44,199,"Gastroenterologie","Ikterus & Cholestase","ikterus-cholestase"),
-(241,43,198,"Nephrologie","Nierenversagen (akut / akut-auf-chron.)",None),
+(241,43,198,"Nephrologie","Nierenversagen (akut / akut-auf-chron.)","nierenversagen"),
 (236,79,157,"Allgemein- und Viszeralchirurgie","GI-Blutung","gi-blutung"),
 (234,61,173,"Pneumologie","Pneumonie","pneumonie"),
 (232,58,174,"Kardiologie","ACS / Myokardinfarkt","acs-myokardinfarkt"),

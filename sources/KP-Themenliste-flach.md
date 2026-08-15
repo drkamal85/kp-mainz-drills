@@ -1,6 +1,6 @@
 # KP MAINZ — THEMENLISTE (FLACH, EINE RANGLISTE)
 
-Alle **97 Themen** in einer Rangliste nach **Korpus-Treffer** (WhatsApp-Chat + Protokolle). Aktuell **65 von 97** mit Review abgedeckt (~67 %).
+Alle **97 Themen** in einer Rangliste nach **Korpus-Treffer** (WhatsApp-Chat + Protokolle). Aktuell **66 von 97** mit Review abgedeckt (~68 %).
 
 > **Juli 2026 (a):** 3 Themen ergänzt (nach Protokoll-Frequenz-Check bestätigt): **Kreuzbandruptur** (Unfallchirurgie, 30 Protokoll-Treffer, VKB:21), **Status epilepticus/Epilepsie** (Neurologie, 10), **Gicht/Podagra** (Rheumatologie, 6). *Verworfen* (zu niedrig/abwesend): Meningitis, Demenz, Erysipel, Fazialisparese, Ösophaguskarzinom, Multiples Myelom, Migräne, Parkinson.
 
@@ -26,7 +26,7 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 11 | 255 | 84 | 171 | Pneumologie | Pneumothorax | ✓ R3 |
 | 12 | 244 | 78 | 166 | Neurologie | Schlaganfall / Apoplex | ✓ R3 |
 | 13 | 243 | 44 | 199 | Gastroenterologie | Ikterus & Cholestase | ✓ R4 |
-| 14 | 241 | 43 | 198 | Nephrologie | Nierenversagen (akut / akut-auf-chron.) | — |
+| 14 | 241 | 43 | 198 | Nephrologie | Nierenversagen (akut / akut-auf-chron.) | ✓ R1 |
 | 15 | 236 | 79 | 157 | Allgemein- und Viszeralchirurgie | GI-Blutung | ✓ R3 |
 | 16 | 234 | 61 | 173 | Pneumologie | Pneumonie | ✓ R3 |
 | 17 | 232 | 58 | 174 | Kardiologie | ACS / Myokardinfarkt | ✓ R3 |

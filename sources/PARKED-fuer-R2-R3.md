@@ -254,3 +254,32 @@ Dekompensation und Hyponatriämie — die Elektrolytstörung als Nebenbefund im 
 orthostatisch stehen in **synkope** · kleinzelliges Bronchialkarzinom in **kolonkarzinom**-Nachbarn
 und im Bildatlas · Hypothyreose als DD in **hypothyreose** · Diuretika-Nebenwirkungen in
 **arterielle-hypertonie** und **herzinsuffizienz**.
+
+
+## Nierenversagen — R1 gebaut 07/2026, Protokollstoff für R2/R3
+
+**Herr Voßeler (mehrfach dokumentiert):**
+- „Welche Ursachen ANV mit Beispielen — prärenal usw." · in einem zweiten Protokoll:
+  **„akutes Nierenversagen mit allen drei Ursachen genau erklärt"**, danach immer tiefer
+- Im selben Block: Wells-Score, Virchow-Trias, LE-Therapie, **Doppel-J-Schiene warum/wann/wie**
+
+**Urologischer Bildfall (Harnstau):**
+Ursache des Aufstaus außer Nephrolithiasis → Kompression durch Darm- oder Blasentumor →
+Therapie Doppel-J → **„Wie lange muss die DJ bleiben?"** → kurz, wegen Infektionsgefahr →
+**„Welche andere Möglichkeit außer Doppel-J?"** → perkutane Nephrostomie →
+danach **Harnstaugrad schätzen**. Nächstes Bild: Abdomen-CT axial mit **Nierenhämatom** →
+stationäre Aufnahme, bei Stabilität Überwachung, bei Verschlechterung operativ.
+
+**Weitere dokumentierte Fragen:**
+- „Pathophysiologie einer akuten prärenalen Niereninsuffizienz"
+- „Warum brauchen Nieren bei Niereninsuffizienz vermehrt Insulin?"
+- „Detaillierte Behandlungsmöglichkeiten der Hyperkaliämie — außer Dialyse"
+- „Warum Niereninsuffizienz?" → diabetische Nephropathie, Stadien nach Mogensen
+- Akut-auf-chronisches Nierenversagen als Verlaufskomplikation in mindestens drei Fällen
+  (dekompensierte Herzinsuffizienz mit VHF, GI-Blutung unter NOAK, Hb-Abfall)
+- Tumorlysesyndrom: Harnsäurekristalle verstopfen die Tubuli → akutes Nierenversagen
+
+**Grenzt an andere Reviews, dort NICHT doppeln:** Tumorlysesyndrom und seine Prophylaxe stehen
+in **akute-leukaemien** · Hyperkaliämie-EKG in **ekg-komplett** · diabetische Nephropathie in
+**diabetes-mellitus** · Kontrastmittelnephropathie in **strahlenschutz** · Hydronephrose als
+Sonobefund im **hoffart-bildatlas**.
