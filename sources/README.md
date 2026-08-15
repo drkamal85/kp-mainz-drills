@@ -42,5 +42,5 @@ Enthält u. a. den kompletten Abschnitt **Anästhesie & Notfallmedizin** — das
 Dritte Fach in Mainz.
 
 ## KP-Themenliste-flach.md
-Die kanonische Themen-Rangliste (97 Themen, Stand Juli 2026), gespiegelt aus dem Project
+Die kanonische Themen-Rangliste (96 Themen, Stand Juli 2026), gespiegelt aus dem Project
 Knowledge, damit sie versioniert vorliegt. Datenquelle für `tools/_build-master.py`.
