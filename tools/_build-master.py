@@ -55,7 +55,6 @@ FLAT=[
 (212,79,133,"Unfallchirurgie","Proximale Femurfraktur","proximale-femurfraktur"),
 (203,74,129,"Allgemein- und Viszeralchirurgie","Pankreatitis","pankreatitis"),
 (203,68,135,"Allgemein- und Viszeralchirurgie","Divertikulitis","divertikulitis"),
-(202,55,147,"Endokrinologie","Schilddrüse (allg.)","hyperthyreose"),
 (171,46,125,"Gastroenterologie","Leberzirrhose","leberzirrhose"),
 (169,54,115,"Allgemein- und Viszeralchirurgie","Appendizitis","appendizitis"),
 (155,42,113,"Kardiologie","AV-Block","av-block"),
