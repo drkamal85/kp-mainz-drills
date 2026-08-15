@@ -283,3 +283,31 @@ stationäre Aufnahme, bei Stabilität Überwachung, bei Verschlechterung operati
 in **akute-leukaemien** · Hyperkaliämie-EKG in **ekg-komplett** · diabetische Nephropathie in
 **diabetes-mellitus** · Kontrastmittelnephropathie in **strahlenschutz** · Hydronephrose als
 Sonobefund im **hoffart-bildatlas**.
+
+
+## Gastritis (Typ A/B/C) — R1 gebaut 07/2026, Protokollstoff für R2/R3
+
+**Kompletter dokumentierter ÖGD-Block (2026):**
+- „Vorgehen bei der ÖGD?" → bei Ulzera oder chronischer Gastritis **mehrere Biopsien**
+- **„Wo biopsieren Sie bei Verdacht auf Helicobacter?"** → aus **Antrum und Corpus ventriculi**,
+  weil H. pylori sich nicht homogen verteilt — erhöht die Sensitivität
+- „Therapie eines H.-pylori-negativen Magenulkus?"
+- **„Wann Kontrollendoskopie?"** → beim Magenulkus obligat zum Malignitätsausschluss,
+  beim Duodenalulkus in der Regel nicht, sofern Symptome rückläufig und keine Alarmzeichen
+- **„Einteilung der Gastritis?"** → Typ A autoimmun mit B12-Mangel und perniziöser Anämie ·
+  Typ B bakteriell durch H. pylori · Typ C chemisch-toxisch durch Gallenreflux oder NSAR
+- Im selben Block: Forrest III (fibrinbelegt), Suprarenin-Injektion und Hämostasespray bei Forrest Ib
+
+**Fall Dr. Brill / Dr. Kirdorf / Dr. Roos (04.03.2026):**
+Patientin mit chronischen unspezifischen Oberbauchschmerzen → ÖGD und Koloskopie →
+**Gastritis Typ C** und Morbus Crohn (Schwerpunkt Morbus Crohn).
+
+**Weiterer Fall:** ÖGD zeigte Gastritis plus zwei Ulzera in Magen und Duodenum ohne aktive
+Blutung, Entlassung unter PPI.
+
+**Weiterer Fall:** obere GI-Blutung, HP-Test negativ, Biopsien ohne Tumor, 5 EK-Transfusionen.
+
+**Grenzt an andere Reviews, dort NICHT doppeln:** Forrest-Klassifikation steht in **gi-blutung** ·
+Ulkustherapie, Eradikationsschema und A. gastroduodenalis in **gastroduodenales-ulkus** ·
+Biopsiepflicht beim Ulcus ventriculi ebenfalls dort · Magenkarzinom und Laurén in **magenkarzinom** ·
+perniziöse Anämie und B12-Mangel in **eisenmangelanaemie**-Nachbarn.

@@ -68,7 +68,7 @@ FLAT=[
 (127,44,83,"Unfallchirurgie","Sprunggelenksfraktur (OSG)","sprunggelenksfraktur"),
 (122,39,83,"Endokrinologie","Hyperthyreose","hyperthyreose"),
 (120,40,80,"Unfallchirurgie","Hüft- / Knie-TEP","hueft-knie-tep"),
-(120,36,84,"Gastroenterologie","Gastritis (Typ A/B/C)",None),
+(120,36,84,"Gastroenterologie","Gastritis (Typ A/B/C)","gastritis"),
 (119,31,88,"Drittes Fach","Sozialrecht & Hygiene","sozialrecht-hygiene"),
 (117,24,93,"Angiologie","pAVK",None),
 (111,37,74,"Angiologie","Tiefe Beinvenenthrombose (TVT)","tvt"),
