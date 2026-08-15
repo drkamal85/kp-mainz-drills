@@ -42,85 +42,85 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 
 | # | Treffer | chat | prot | Fachgebiet | Thema | Review |
 |--:|--:|--:|--:|------------|-------|--------|
-| 26 | 171 | 46 | 125 | Gastroenterologie | Leberzirrhose | ✓ R4 |
-| 27 | 169 | 54 | 115 | Allgemein- und Viszeralchirurgie | Appendizitis | ✓ R4 |
-| 28 | 155 | 42 | 113 | Kardiologie | AV-Block | ✓ R3 |
-| 29 | 151 | 61 | 90 | Hämatologie | Eisenmangelanämie | ✓ R3 |
-| 30 | 151 | 18 | 133 | Gastroenterologie | Hepatitis | — |
-| 31 | 143 | 42 | 101 | Allgemein- und Viszeralchirurgie | Kolonkarzinom | ✓ R2 |
-| 32 | 142 | 16 | 126 | Kardiologie | KHK / Koronarsyndrom | ✓ R3 |
-| 33 | 132 | 39 | 93 | Gastroenterologie | Lebermetastasen / Lebertumor | — |
-| 34 | 131 | 82 | 49 | Drittes Fach | Strahlenschutz | ✓ R3 |
-| 35 | 130 | 31 | 99 | Pneumologie | COPD | ✓ R4 |
-| 36 | 127 | 44 | 83 | Unfallchirurgie | Sprunggelenksfraktur (OSG) | ✓ R3 |
-| 37 | 122 | 39 | 83 | Endokrinologie | Hyperthyreose | ✓ R4 |
-| 38 | 120 | 40 | 80 | Unfallchirurgie | Hüft- / Knie-TEP | ✓ R3 |
-| 39 | 120 | 36 | 84 | Gastroenterologie | Gastritis (Typ A/B/C) | — |
+| 25 | 171 | 46 | 125 | Gastroenterologie | Leberzirrhose | ✓ R4 |
+| 26 | 169 | 54 | 115 | Allgemein- und Viszeralchirurgie | Appendizitis | ✓ R4 |
+| 27 | 155 | 42 | 113 | Kardiologie | AV-Block | ✓ R3 |
+| 28 | 151 | 61 | 90 | Hämatologie | Eisenmangelanämie | ✓ R3 |
+| 29 | 151 | 18 | 133 | Gastroenterologie | Hepatitis | — |
+| 30 | 143 | 42 | 101 | Allgemein- und Viszeralchirurgie | Kolonkarzinom | ✓ R2 |
+| 31 | 142 | 16 | 126 | Kardiologie | KHK / Koronarsyndrom | ✓ R3 |
+| 32 | 132 | 39 | 93 | Gastroenterologie | Lebermetastasen / Lebertumor | — |
+| 33 | 131 | 82 | 49 | Drittes Fach | Strahlenschutz | ✓ R3 |
+| 34 | 130 | 31 | 99 | Pneumologie | COPD | ✓ R4 |
+| 35 | 127 | 44 | 83 | Unfallchirurgie | Sprunggelenksfraktur (OSG) | ✓ R3 |
+| 36 | 122 | 39 | 83 | Endokrinologie | Hyperthyreose | ✓ R4 |
+| 37 | 120 | 40 | 80 | Unfallchirurgie | Hüft- / Knie-TEP | ✓ R3 |
+| 38 | 120 | 36 | 84 | Gastroenterologie | Gastritis (Typ A/B/C) | — |
 
 ## TIER 3 · mittlere Präsenz (60–119)
 
 | # | Treffer | chat | prot | Fachgebiet | Thema | Review |
 |--:|--:|--:|--:|------------|-------|--------|
-| 40 | 119 | 31 | 88 | Drittes Fach | Sozialrecht & Hygiene | ✓ R1 |
-| 41 | 117 | 24 | 93 | Angiologie | pAVK | — |
-| 42 | 111 | 37 | 74 | Angiologie | Tiefe Beinvenenthrombose (TVT) | ✓ R4 |
-| 43 | 108 | 35 | 73 | Kardiologie | Arterielle Hypertonie | ✓ R3 |
-| 44 | 102 | 15 | 87 | Pneumologie | Asthma bronchiale | ✓ R4 |
-| 45 | 100 | 35 | 65 | Pneumologie | Bronchialkarzinom | — |
-| 46 | 95 | 18 | 77 | Kardiologie | Synkope | ✓ R3 |
-| 47 | 93 | 40 | 53 | Unfallchirurgie | Distale Radiusfraktur | ✓ R4 |
-| 48 | 93 | 30 | 63 | Drittes Fach | Schmerztherapie / WHO-Schema | — |
-| 49 | 92 | 30 | 62 | Notfallmedizin | Akuttoxikologie / Intoxikation | ✓ R1 |
-| 50 | 92 | 21 | 71 | Kardiologie | Ventr. Tachykardie / Kammerflimmern | — |
-| 51 | 91 | 15 | 76 | Hämatologie | Akute Leukämien (ALL) | ✓ R2 |
-| 52 | 89 | 37 | 52 | Drittes Fach | Aufklärung, Einwilligung & Betreuung | ✓ R2 |
-| 53 | 87 | 17 | 70 | Endokrinologie | Osteoporose | — |
-| 54 | 87 | 6 | 81 | Hämatologie | Non-Hodgkin-Lymphom (NHL) | ✓ R3 |
-| 55 | 84 | 16 | 68 | Gastroenterologie | Morbus Crohn | ✓ R3 |
-| 56 | 83 | 26 | 57 | Kardiologie | Herzklappenerkrankungen | ✓ R3 |
-| 57 | 82 | 16 | 66 | Endokrinologie | Hypothyreose | ✓ R4 |
-| 58 | 81 | 27 | 54 | Unfallchirurgie | Schädel-Hirn-Trauma | ✓ R3 |
-| 59 | 81 | 22 | 59 | Pneumologie | Tuberkulose | — |
-| 60 | 81 | 16 | 65 | Unfallchirurgie | Polytrauma / ABCDE (Sturz) | ✓ R4 |
-| 61 | 81 | 24 | 57 | Allgemein- und Viszeralchirurgie | Milzruptur / Splenektomie | ✓ R1 |
-| 62 | 77 | 37 | 40 | Drittes Fach | Borreliose / FSME / Zeckenbiss | ✓ R1 |
-| 63 | 76 | 29 | 47 | Notfallmedizin | Reanimation / CPR | ✓ R1 |
-| 64 | 74 | 22 | 52 | Unfallchirurgie | Kompartmentsyndrom | — |
-| 65 | 73 | 11 | 62 | Angiologie | Aortendissektion | ✓ R3 |
-| 66 | 68 | 12 | 56 | Unfallchirurgie | Allgemeine Frakturlehre | ✓ R4 |
-| 67 | 67 | 12 | 55 | Nephrologie | Harnwegsinfekt / Pyelonephritis | — |
-| 68 | 65 | 22 | 43 | Endokrinologie | Schilddrüsenkarzinom | ✓ R3 |
-| 69 | 64 | 29 | 35 | Allgemein- und Viszeralchirurgie | Akutes Abdomen | ✓ R1 |
-| 70 | 63 | 25 | 38 | Notfallmedizin | Anaphylaxie | ✓ R1 |
-| 71 | 62 | 15 | 47 | Allgemein- und Viszeralchirurgie | Rektumkarzinom | ✓ R3 |
-| 72 | 60 | 15 | 45 | Unfallchirurgie | Humerusfraktur | — |
+| 39 | 119 | 31 | 88 | Drittes Fach | Sozialrecht & Hygiene | ✓ R1 |
+| 40 | 117 | 24 | 93 | Angiologie | pAVK | — |
+| 41 | 111 | 37 | 74 | Angiologie | Tiefe Beinvenenthrombose (TVT) | ✓ R4 |
+| 42 | 108 | 35 | 73 | Kardiologie | Arterielle Hypertonie | ✓ R3 |
+| 43 | 102 | 15 | 87 | Pneumologie | Asthma bronchiale | ✓ R4 |
+| 44 | 100 | 35 | 65 | Pneumologie | Bronchialkarzinom | — |
+| 45 | 95 | 18 | 77 | Kardiologie | Synkope | ✓ R3 |
+| 46 | 93 | 40 | 53 | Unfallchirurgie | Distale Radiusfraktur | ✓ R4 |
+| 47 | 93 | 30 | 63 | Drittes Fach | Schmerztherapie / WHO-Schema | — |
+| 48 | 92 | 30 | 62 | Notfallmedizin | Akuttoxikologie / Intoxikation | ✓ R1 |
+| 49 | 92 | 21 | 71 | Kardiologie | Ventr. Tachykardie / Kammerflimmern | — |
+| 50 | 91 | 15 | 76 | Hämatologie | Akute Leukämien (ALL) | ✓ R2 |
+| 51 | 89 | 37 | 52 | Drittes Fach | Aufklärung, Einwilligung & Betreuung | ✓ R2 |
+| 52 | 87 | 17 | 70 | Endokrinologie | Osteoporose | — |
+| 53 | 87 | 6 | 81 | Hämatologie | Non-Hodgkin-Lymphom (NHL) | ✓ R3 |
+| 54 | 84 | 16 | 68 | Gastroenterologie | Morbus Crohn | ✓ R3 |
+| 55 | 83 | 26 | 57 | Kardiologie | Herzklappenerkrankungen | ✓ R3 |
+| 56 | 82 | 16 | 66 | Endokrinologie | Hypothyreose | ✓ R4 |
+| 57 | 81 | 27 | 54 | Unfallchirurgie | Schädel-Hirn-Trauma | ✓ R3 |
+| 58 | 81 | 22 | 59 | Pneumologie | Tuberkulose | — |
+| 59 | 81 | 16 | 65 | Unfallchirurgie | Polytrauma / ABCDE (Sturz) | ✓ R4 |
+| 60 | 81 | 24 | 57 | Allgemein- und Viszeralchirurgie | Milzruptur / Splenektomie | ✓ R1 |
+| 61 | 77 | 37 | 40 | Drittes Fach | Borreliose / FSME / Zeckenbiss | ✓ R1 |
+| 62 | 76 | 29 | 47 | Notfallmedizin | Reanimation / CPR | ✓ R1 |
+| 63 | 74 | 22 | 52 | Unfallchirurgie | Kompartmentsyndrom | — |
+| 64 | 73 | 11 | 62 | Angiologie | Aortendissektion | ✓ R3 |
+| 65 | 68 | 12 | 56 | Unfallchirurgie | Allgemeine Frakturlehre | ✓ R4 |
+| 66 | 67 | 12 | 55 | Nephrologie | Harnwegsinfekt / Pyelonephritis | — |
+| 67 | 65 | 22 | 43 | Endokrinologie | Schilddrüsenkarzinom | ✓ R3 |
+| 68 | 64 | 29 | 35 | Allgemein- und Viszeralchirurgie | Akutes Abdomen | ✓ R1 |
+| 69 | 63 | 25 | 38 | Notfallmedizin | Anaphylaxie | ✓ R1 |
+| 70 | 62 | 15 | 47 | Allgemein- und Viszeralchirurgie | Rektumkarzinom | ✓ R3 |
+| 71 | 60 | 15 | 45 | Unfallchirurgie | Humerusfraktur | — |
 
 ## TIER 4 · geringere Präsenz (<60)
 
 | # | Treffer | chat | prot | Fachgebiet | Thema | Review |
 |--:|--:|--:|--:|------------|-------|--------|
-| 73 | 59 | 11 | 48 | Gastroenterologie | GERD / Refluxkrankheit | — |
-| 74 | 59 | 7 | 52 | Kardiologie | Infektiöse Endokarditis | ✓ R3 |
-| 75 | 58 | 29 | 29 | Neurologie | Hirnblutungen (EDH/SDH/SAB/ICB) | — |
-| 76 | 57 | 17 | 40 | Allgemein- und Viszeralchirurgie | Diarrhoe / Gastroenteritis | — |
-| 77 | 56 | 15 | 41 | Allgemein- und Viszeralchirurgie | Pankreaskarzinom | ✓ R3 |
-| 78 | 56 | 11 | 45 | Allgemein- und Viszeralchirurgie | Hämorrhoiden | — |
-| 79 | 55 | 11 | 44 | Allgemein- und Viszeralchirurgie | Magenkarzinom | ✓ R1 |
-| 80 | 55 | 9 | 46 | Hämatologie | Morbus Hodgkin | — |
-| 81 | 54 | 19 | 35 | Notfallmedizin | Verbrennung | — |
-| 82 | 52 | 5 | 47 | Gastroenterologie | Colitis ulcerosa | — |
-| 83 | 49 | 10 | 39 | Unfallchirurgie | Claviculafraktur | — |
-| 84 | 47 | 8 | 39 | Endokrinologie | Struma | — |
-| 85 | 43 | 19 | 24 | Kardiologie | Paroxysmale SVT / AVNRT-AVRT | — |
-| 86 | 43 | 13 | 30 | Querschnitt | Check-up / Prävention | — |
-| 87 | 40 | 10 | 30 | Angiologie | Aortenaneurysma (AAA) | ✓ R2 |
-| 88 | 40 | 7 | 33 | Unfallchirurgie | Beckenringfrakturen | ✓ R4 |
-| 89 | 37 | 12 | 25 | Notfallmedizin | Delir | — |
-| 90 | 32 | 5 | 27 | Endokrinologie | Cushing-Syndrom | ✓ R3 |
-| 91 | 32 | 9 | 23 | Nephrologie | Hyponatriämie / SIADH | ✓ R1 |
-| 92 | 30 | 0 | 30 | Unfallchirurgie | Kreuzbandruptur | — |
-| 93 | 23 | 3 | 20 | Unfallchirurgie | Wirbelsäulenverletzungen | ✓ R4 |
-| 94 | 13 | 8 | 5 | Drittes Fach | KI in der Medizin | — |
-| 95 | 12 | 10 | 2 | Drittes Fach | EBM | — |
-| 96 | 10 | 0 | 10 | Neurologie | Status epilepticus / Epilepsie | — |
-| 97 | 6 | 0 | 6 | Rheumatologie | Gicht / Podagra | — |
+| 72 | 59 | 11 | 48 | Gastroenterologie | GERD / Refluxkrankheit | — |
+| 73 | 59 | 7 | 52 | Kardiologie | Infektiöse Endokarditis | ✓ R3 |
+| 74 | 58 | 29 | 29 | Neurologie | Hirnblutungen (EDH/SDH/SAB/ICB) | — |
+| 75 | 57 | 17 | 40 | Allgemein- und Viszeralchirurgie | Diarrhoe / Gastroenteritis | — |
+| 76 | 56 | 15 | 41 | Allgemein- und Viszeralchirurgie | Pankreaskarzinom | ✓ R3 |
+| 77 | 56 | 11 | 45 | Allgemein- und Viszeralchirurgie | Hämorrhoiden | — |
+| 78 | 55 | 11 | 44 | Allgemein- und Viszeralchirurgie | Magenkarzinom | ✓ R1 |
+| 79 | 55 | 9 | 46 | Hämatologie | Morbus Hodgkin | — |
+| 80 | 54 | 19 | 35 | Notfallmedizin | Verbrennung | — |
+| 81 | 52 | 5 | 47 | Gastroenterologie | Colitis ulcerosa | — |
+| 82 | 49 | 10 | 39 | Unfallchirurgie | Claviculafraktur | — |
+| 83 | 47 | 8 | 39 | Endokrinologie | Struma | — |
+| 84 | 43 | 19 | 24 | Kardiologie | Paroxysmale SVT / AVNRT-AVRT | — |
+| 85 | 43 | 13 | 30 | Querschnitt | Check-up / Prävention | — |
+| 86 | 40 | 10 | 30 | Angiologie | Aortenaneurysma (AAA) | ✓ R2 |
+| 87 | 40 | 7 | 33 | Unfallchirurgie | Beckenringfrakturen | ✓ R4 |
+| 88 | 37 | 12 | 25 | Notfallmedizin | Delir | — |
+| 89 | 32 | 5 | 27 | Endokrinologie | Cushing-Syndrom | ✓ R3 |
+| 90 | 32 | 9 | 23 | Nephrologie | Hyponatriämie / SIADH | ✓ R1 |
+| 91 | 30 | 0 | 30 | Unfallchirurgie | Kreuzbandruptur | — |
+| 92 | 23 | 3 | 20 | Unfallchirurgie | Wirbelsäulenverletzungen | ✓ R4 |
+| 93 | 13 | 8 | 5 | Drittes Fach | KI in der Medizin | — |
+| 94 | 12 | 10 | 2 | Drittes Fach | EBM | — |
+| 95 | 10 | 0 | 10 | Neurologie | Status epilepticus / Epilepsie | — |
+| 96 | 6 | 0 | 6 | Rheumatologie | Gicht / Podagra | — |
