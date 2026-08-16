@@ -379,4 +379,22 @@
     </details>
   </section>
 
+  <footer>
+    R1 · Akuttoxikologie &amp; Intoxikation. Vier Kernstationen — Grundlagen, Klinik, Diagnostik, Therapie.
+  </footer>
 
+</div>
+<script>
+  const tabs = [...document.querySelectorAll('.tab')];
+  const panels = [...document.querySelectorAll('.panel')];
+  function showTab(name){
+    tabs.forEach(x=>x.classList.toggle('active', x.dataset.tab===name));
+    panels.forEach(p=>p.classList.toggle('active', p.dataset.panel===name));
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  tabs.forEach(t=>t.addEventListener('click',()=>showTab(t.dataset.tab)));
+</script>
+  <script src="/sync.js" defer></script>
+  <script src="/focus-timer.js" defer></script>
+</body>
+</html>
