@@ -82,7 +82,7 @@ FLAT=[
 (92,21,71,"Kardiologie","Ventr. Tachykardie / Kammerflimmern",None),
 (91,15,76,"Hämatologie","Akute Leukämien (ALL)","akute-leukaemien"),
 (89,37,52,"Drittes Fach","Aufklärung, Einwilligung & Betreuung","aufklaerung-einwilligung-betreuung"),
-(87,17,70,"Endokrinologie","Osteoporose",None),
+(87,17,70,"Endokrinologie","Osteoporose","osteoporose"),
 (87,6,81,"Hämatologie","Non-Hodgkin-Lymphom (NHL)","non-hodgkin-lymphome"),
 (84,16,68,"Gastroenterologie","Morbus Crohn","morbus-crohn"),
 (83,26,57,"Kardiologie","Herzklappenerkrankungen","herzklappenerkrankungen"),

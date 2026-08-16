@@ -1,6 +1,6 @@
 # KP MAINZ — THEMENLISTE (FLACH, EINE RANGLISTE)
 
-Alle **96 Themen** in einer Rangliste nach **Korpus-Treffer** (WhatsApp-Chat + Protokolle). Aktuell **69 von 96** mit Review abgedeckt (~72 %).
+Alle **96 Themen** in einer Rangliste nach **Korpus-Treffer** (WhatsApp-Chat + Protokolle). Aktuell **70 von 96** mit Review abgedeckt (~73 %).
 
 > **Juli 2026 (a):** 3 Themen ergänzt (nach Protokoll-Frequenz-Check bestätigt): **Kreuzbandruptur** (Unfallchirurgie, 30 Protokoll-Treffer, VKB:21), **Status epilepticus/Epilepsie** (Neurologie, 10), **Gicht/Podagra** (Rheumatologie, 6). *Verworfen* (zu niedrig/abwesend): Meningitis, Demenz, Erysipel, Fazialisparese, Ösophaguskarzinom, Multiples Myelom, Migräne, Parkinson.
 
@@ -74,7 +74,7 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 49 | 92 | 21 | 71 | Kardiologie | Ventr. Tachykardie / Kammerflimmern | — |
 | 50 | 91 | 15 | 76 | Hämatologie | Akute Leukämien (ALL) | ✓ R2 |
 | 51 | 89 | 37 | 52 | Drittes Fach | Aufklärung, Einwilligung & Betreuung | ✓ R2 |
-| 52 | 87 | 17 | 70 | Endokrinologie | Osteoporose | — |
+| 52 | 87 | 17 | 70 | Endokrinologie | Osteoporose | ✓ R1 |
 | 53 | 87 | 6 | 81 | Hämatologie | Non-Hodgkin-Lymphom (NHL) | ✓ R3 |
 | 54 | 84 | 16 | 68 | Gastroenterologie | Morbus Crohn | ✓ R3 |
 | 55 | 83 | 26 | 57 | Kardiologie | Herzklappenerkrankungen | ✓ R3 |

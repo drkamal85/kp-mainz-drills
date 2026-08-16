@@ -364,3 +364,30 @@ Im selben Block davor: Hyponatriämie und SIADH, danach Vollmacht und Ehegattenv
 Vorsorgevollmacht, Ehegattenvertretung nach § 1358 und Betreuung ausführlich in
 **aufklaerung-einwilligung** · Aufbewahrungsfristen in **rechtsmedizin** ·
 Hb-Grenze beim TEP-Revisionsfall in **hueft-knie-tep**.
+
+
+## Osteoporose — R1 gebaut 07/2026, Protokollstoff für R2/R3
+
+**Dokumentiert gefragt:**
+- Standardkette: **„Osteoporose — Definition, Klassifikation, Diagnostik, Therapie"**,
+  danach die Nachfrage **„Warum und wofür geben wir Bisphosphonat?"**
+- **Dr. Tannert, Fall junge MS-Patientin im Rollstuhl** mit Fraktur, konservativ behandelt:
+  „Warum konservativ?" → kaum mobil und Osteoporose · **„Aber warum hat sie Osteoporose,
+  die ist doch relativ jung?"** → Kortikosteroidtherapie wegen MS **und Immobilität**
+  (keine Belastung → Knochenschwäche)
+- **Herr Brantzen:** „Was kommt vor Osteoporose?" → **Osteopenie** ·
+  „Beim Wirbelsäulenklopfen, warum hat er Schmerzen?" → Spondylitis, Tumoren ·
+  **„Welche Tumoren metastasieren ins Skelett und wie?"** (Anatomie) ·
+  **„Wie ist die Osteoporose evaluiert?"** → CT-Osteodensitometrie, Normwerte, Therapie
+- Fall mit Schenkelhalsfraktur im Röntgen: „Wie alt ist der Patient? Warum?" →
+  **Ursachen der Osteoporose**
+- Pathologische Fraktur: Erkennung im CT/MRT, intraoperativ per **Schnellschnitt**,
+  Ursachen Metastasen und Osteoporose · **„Welche Krebsarten machen Osteolysen?"**
+  (Prüfer wollte alle hören: Mamma, Schilddrüse, multiples Myelom, SCLC, Niere)
+- Fall 70-jährige mit OSG-Luxationsfraktur, Vorerkrankungen Osteoporose und Rheuma unter MTX
+
+**Grenzt an andere Reviews, dort NICHT doppeln:** Schenkelhalsfraktur und Duokopfprothese
+stehen in **proximale-femurfraktur** · Wirbelkörperfraktur und Sinterung in
+**wirbelsaeulenverletzungen** · pathologische Fraktur und Schrotschussschädel im
+**hoffart-bildatlas** · Kortisonnebenwirkungen in **cushing-syndrom** ·
+Osteolysen-Tumorliste in **magenkarzinom**-Nachbarn und im Bildatlas.
