@@ -101,7 +101,7 @@ FLAT=[
 (64,29,35,"Allgemein- und Viszeralchirurgie","Akutes Abdomen","akutes-abdomen"),
 (63,25,38,"Notfallmedizin","Anaphylaxie","anaphylaxie"),
 (62,15,47,"Allgemein- und Viszeralchirurgie","Rektumkarzinom","rektumkarzinom"),
-(60,15,45,"Unfallchirurgie","Humerusfraktur",None),
+(60,15,45,"Unfallchirurgie","Humerusfraktur","humerusfraktur"),
 (59,11,48,"Gastroenterologie","GERD / Refluxkrankheit",None),
 (59,7,52,"Kardiologie","Infektiöse Endokarditis","infektioese-endokarditis"),
 (58,29,29,"Neurologie","Hirnblutungen (EDH/SDH/SAB/ICB)",None),
