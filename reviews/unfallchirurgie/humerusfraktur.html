@@ -175,8 +175,7 @@
   footer{margin-top:40px;padding-top:22px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted);line-height:1.6}
   .back{display:inline-block;font-family:Manrope,system-ui,sans-serif;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);text-decoration:none;margin-bottom:18px}
   .back:hover{color:var(--ink)}
-
-
+  .r4pill{display:inline-block;font-family:var(--m,'Manrope',sans-serif);font-size:12px;font-weight:800;letter-spacing:.04em;background:#2D7A3E;color:#fff;padding:3px 10px;border-radius:999px;vertical-align:middle;margin-left:10px}
 </style>
 <link rel="stylesheet" media="print" href="/print.css">
 <script src="/print.js" defer></script>
@@ -187,13 +186,13 @@
   <a href="../../index.html" class="back">← Zurück zur Library</a>
 
   <header>
-    <div class="eyebrow">Unfallchirurgie / Orthopädie · R1 · Kurz</div>
-    <h1>Humerus<span class="accent">fraktur</span></h1>
-    <div class="subtitle">Drei Etagen, drei Nerven, drei Entscheidungen. Proximal die alte Frau mit Osteoporose, am Schaft der Nervus radialis mit der Fallhand, distal das Kind mit der suprakondylären Fraktur. Vier Stationen.</div>
+    <div class="eyebrow">Unfallchirurgie · R1 · Kurz</div>
+    <h1><span class="accent">Humerus</span>fraktur</h1>
+    <div class="subtitle">Oben der alte Mensch, in der Mitte der Nerv, unten das Kind. Dazu die zwei Hälse mit unterschiedlicher Prognose, pDMS als Pflichtdokumentation und der Radialis mit seiner Fallhand. Vier Stationen.</div>
     <div class="meta">
       <span>R1 von 4 · Basis</span>
       <span>~10–12 Min</span>
-      <span>Stand 08/2026</span>
+      <span>Stand 07/2026</span>
       <span>Amboss KP-Lernplan + Mainz-Protokolle</span>
     </div>
   </header>
@@ -206,152 +205,133 @@
   </div>
 
   <section class="panel active" data-panel="grundlagen">
-    <p class="panel-intro">Wo die Fraktur sitzt, entscheidet alles: welcher Nerv, welche Klassifikation, welche Operation.</p>
+    <p class="panel-intro">Drei Höhen, drei ganz verschiedene Brüche.</p>
 
-    <details class="card grundlagen" open><summary><span class="ct"><span class="ctag">Einteilung</span><span class="ctitle">Drei Etagen</span></span><span class="plus">+</span></summary>
+    <details class="card grundlagen" open><summary><span class="ct"><span class="ctag">Einteilung</span><span class="ctitle">Wo der Humerus bricht</span></span><span class="plus">+</span></summary>
       <div class="body">
-        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Proximal, Schaft, distal — jede Etage hat ihren eigenen Nerven und ihre eigene Therapie.</strong></div>
-        <table class="dd"><tr><th>Etage</th><th>Typischer Patient</th><th>Gefährdeter Nerv</th></tr>
-          <tr><td><strong>Proximal</strong><br>(subkapital, Collum chirurgicum)</td><td>ältere Frau, Sturz auf die Schulter, Osteoporose</td><td>N. axillaris</td></tr>
-          <tr><td><strong>Schaft</strong></td><td>direkter Anprall, Motorradunfall, auch Spontanfraktur</td><td>N. radialis</td></tr>
-          <tr><td><strong>Distal</strong><br>(suprakondylär)</td><td>Kind, Sturz auf den gestreckten Arm</td><td>N. medianus, A. brachialis</td></tr></table>
-        <div class="callout fact"><span class="lab">⚙ Häufigkeit</span>Die proximale Humerusfraktur ist nach der distalen Radiusfraktur und der proximalen Femurfraktur die <strong>dritthäufigste osteoporotische Fraktur</strong>. Die Schaftfraktur ist selten, die suprakondyläre Fraktur die häufigste Ellenbogenfraktur des Kindes.</div>
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Oben der alte Mensch, in der Mitte der Nerv, unten das Kind.</strong></div>
+        <table class="dd"><tr><th>Höhe</th><th>Typisch</th><th>Gefahr</th></tr>
+          <tr><td><strong>proximal</strong></td><td>alter Mensch, Sturz auf den Arm</td><td>Humeruskopfnekrose</td></tr>
+          <tr><td><strong>Schaft</strong></td><td>direkte Gewalt</td><td><strong>N. radialis</strong></td></tr>
+          <tr><td><strong>distal</strong></td><td>Kind, suprakondylär</td><td>Gefäße und Nerven, Cubitus varus</td></tr></table>
+        <div class="callout fact"><span class="lab">⚙ Häufigkeit</span>Die <strong>proximale Humerusfraktur</strong> ist die dritthäufigste Fraktur des alten Menschen — nach distalem Radius und Schenkelhals.</div>
       </div>
     </details>
 
-    <details class="card grundlagen"><summary><span class="ct"><span class="ctag">Anatomie</span><span class="ctitle">Collum anatomicum oder chirurgicum?</span></span><span class="plus">+</span></summary>
+    <details class="card grundlagen"><summary><span class="ct"><span class="ctag">Anatomie</span><span class="ctitle">Collum anatomicum oder chirurgicum</span></span><span class="plus">+</span></summary>
       <div class="body">
-        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Das Collum anatomicum liegt weiter proximal, direkt unter der Gelenkfläche — dort verläuft die Blutversorgung des Kopfes.</strong></div>
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Das Collum anatomicum ist gefährlicher</strong> — dort läuft die Blutversorgung des Kopfes, deshalb droht die Nekrose.</div>
         <ul class="b">
-          <li><strong>Collum anatomicum:</strong> selten, aber <strong>schlechtere Prognose</strong> — die A. circumflexa humeri anterior wird unterbrochen, es droht die Humeruskopfnekrose</li>
-          <li><strong>Collum chirurgicum:</strong> häufiger, liegt unterhalb der Tuberkula, Blutversorgung meist erhalten</li>
-          <li><strong>Tuberculum majus:</strong> Ansatz von Supraspinatus, Infraspinatus, Teres minor</li>
-          <li><strong>Tuberculum minus:</strong> Ansatz des Subscapularis</li>
+          <li><strong>Collum anatomicum:</strong> direkt unter der Gelenkfläche, selten, prognostisch schlecht</li>
+          <li><strong>Collum chirurgicum:</strong> unterhalb der Tuberkula, häufig — hier bricht der alte Mensch</li>
+          <li>Versorgung über die <strong>Arteria circumflexa humeri anterior und posterior</strong></li>
         </ul>
-        <div class="callout fact"><span class="lab">⚙ Sulcus nervi radialis</span>Der N. radialis läuft in einer Rinne <strong>direkt dem Humerusschaft auf</strong> — deshalb ist er bei jeder Schaftfraktur und bei jeder Operation daran gefährdet.</div>
+        <div class="callout warn"><span class="lab">⚠ Dokumentiert</span>Genau danach wurde gefragt: <em>„Collum anatomicum oder chirurgicum?"</em> — die Begründung ist die Blutversorgung.</div>
       </div>
     </details>
 
-    <details class="card grundlagen"><summary><span class="ct"><span class="ctag">Klassifikation</span><span class="ctitle">Neer und AO</span></span><span class="plus">+</span></summary>
+    <details class="card grundlagen"><summary><span class="ct"><span class="ctag">Schulter</span><span class="ctitle">Rotatorenmanschette</span></span><span class="plus">+</span></summary>
       <div class="body">
-        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Neer zählt vier Segmente: Kopf, Schaft, Tuberculum majus, Tuberculum minus.</strong> Ein Fragment gilt erst als eigenes Teil, wenn es über 1 Zentimeter verschoben oder über 45 Grad abgekippt ist.</div>
-        <ul class="b">
-          <li>Daraus ergeben sich <strong>Zwei-, Drei- und Vier-Segment-Frakturen</strong> — je mehr Segmente, desto höher das Nekroserisiko</li>
-          <li>Die <strong>AO-Klassifikation</strong> gilt für alle Etagen: A extraartikulär unifokal, B extraartikulär bifokal, C artikulär</li>
-          <li>Für den Schaft ist die AO-Einteilung gebräuchlich, für den proximalen Humerus die nach Neer</li>
-        </ul>
-        <div class="callout warning"><span class="lab">⚠ Pathologische Fraktur</span>Bruch nach <strong>inadäquatem Trauma</strong> heißt: an Metastase oder Osteoporose denken. Häufigste Primärtumoren sind Mamma, Prostata, Lunge, Niere und Schilddrüse. Gesichert wird intraoperativ durch <strong>Schnellschnitt</strong>.</div>
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>SSC · SSP · ISP · TM</strong> — sie ziehen die Fragmente auseinander.</div>
+        <table class="dd"><tr><th>Muskel</th><th>Funktion</th></tr>
+          <tr><td>Subscapularis</td><td>Innenrotation</td></tr>
+          <tr><td>Supraspinatus</td><td>Abduktion einleiten</td></tr>
+          <tr><td>Infraspinatus</td><td>Außenrotation</td></tr>
+          <tr><td>Teres minor</td><td>Außenrotation</td></tr></table>
+        <div class="callout fact"><span class="lab">⚙ Warum das zählt</span>Ihr Zug erklärt die typische Fehlstellung: Das Kopffragment rotiert nach außen, der Schaft wird vom Pectoralis nach medial gezogen.</div>
       </div>
     </details>
   </section>
 
   <section class="panel" data-panel="klinik">
-    <p class="panel-intro">Erst schauen und tasten — dann jeden Nerven einzeln prüfen und dokumentieren.</p>
+    <p class="panel-intro">Untersuchen — und den Nerv nicht vergessen.</p>
 
-    <details class="card klinik" open><summary><span class="ct"><span class="ctag">Leitbefund</span><span class="ctitle">Was ich untersuche und dokumentiere</span></span><span class="plus">+</span></summary>
+    <details class="card klinik" open><summary><span class="ct"><span class="ctag">Untersuchung</span><span class="ctitle">pDMS dokumentieren</span></span><span class="plus">+</span></summary>
       <div class="body">
-        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>pDMS — periphere Durchblutung, Motorik und Sensibilität, vor und nach jeder Reposition.</strong> Das ist die eine Antwort, die in Mainz immer erwartet wird.</div>
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>pDMS vor und nach jeder Maßnahme</strong> — periphere Durchblutung, Motorik, Sensibilität.</div>
         <ul class="b">
-          <li><strong>Sichere Frakturzeichen:</strong> Fehlstellung, abnorme Beweglichkeit, Krepitation, sichtbare Fragmente</li>
-          <li><strong>Unsichere Zeichen:</strong> Schmerz, Schwellung, Hämatom, Funktionsverlust</li>
-          <li><strong>Durchblutung:</strong> Radialispuls tasten, Rekapillarisierung, Seitenvergleich</li>
-          <li><strong>Offene Fraktur, Weichteilschaden und Kompartmentzeichen</strong> mit erfassen</li>
+          <li>Schmerz, Schwellung, Fehlstellung, Hämatom am Oberarm</li>
+          <li>Sichere Frakturzeichen: Fehlstellung, abnorme Beweglichkeit, Krepitation</li>
+          <li>Immer die <strong>Gelenke darüber und darunter</strong> mituntersuchen</li>
         </ul>
-        <div class="callout warning"><span class="lab">⚠ Dokumentation</span>Der Nervenstatus muss <strong>vor</strong> der Reposition schriftlich festgehalten werden. Sonst lässt sich später nicht mehr trennen, ob die Läsion primär durch das Trauma oder sekundär durch die Behandlung entstanden ist.</div>
+        <div class="callout warn"><span class="lab">⚠ Dokumentiert</span>Beim Röntgen der Schulter mit subkapitaler Fraktur lautete die Frage: <em>„Was muss man untersuchen und dokumentieren?"</em> — Antwort: <strong>pDMS</strong>.</div>
       </div>
     </details>
 
-    <details class="card klinik"><summary><span class="ct"><span class="ctag">Nervenläsionen</span><span class="ctitle">Vier Hände, vier Nerven</span></span><span class="plus">+</span></summary>
+    <details class="card klinik"><summary><span class="ct"><span class="ctag">Nerv</span><span class="ctitle">Der Radialis am Schaft</span></span><span class="plus">+</span></summary>
       <div class="body">
-        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Radialis heißt Fallhand, Medianus heißt Schwurhand, Ulnaris heißt Krallhand.</strong></div>
-        <table class="dd"><tr><th>Nerv</th><th>Motorisch</th><th>Sensibel</th></tr>
-          <tr><td><strong>N. radialis</strong><br>Schaftfraktur</td><td>Fallhand — Handgelenk und Finger können nicht gestreckt werden</td><td>Handrücken radial, erster Zwischenfingerraum</td></tr>
-          <tr><td><strong>N. medianus</strong><br>suprakondylär</td><td>Schwurhand — Daumen, Zeige- und Mittelfinger beugen nicht</td><td>Handfläche radial, Daumen bis halber Ringfinger</td></tr>
-          <tr><td><strong>N. ulnaris</strong></td><td>Krallhand — Spreizen der Finger nicht möglich</td><td>Kleinfinger und ulnarer Ringfinger</td></tr>
-          <tr><td><strong>N. axillaris</strong><br>proximal</td><td>Abduktion im Schultergelenk fällt aus, Deltoideus</td><td>laterale Schulter, sogenanntes Abzeichen</td></tr></table>
-        <div class="callout fact"><span class="lab">⚙ Prüfung am Bett</span>Radialis: Handgelenk gegen Widerstand strecken lassen. Medianus: Daumen und Zeigefinger zum Ring formen lassen. Ulnaris: ein Blatt Papier zwischen den Fingern halten lassen. Bei <strong>alter Läsion</strong> finde ich zusätzlich eine <strong>Muskelatrophie</strong>, am Medianus die Thenaratrophie.</div>
-      </div>
-    </details>
-
-    <details class="card klinik"><summary><span class="ct"><span class="ctag">Alarm</span><span class="ctitle">Wann es dringend wird</span></span><span class="plus">+</span></summary>
-      <div class="body">
-        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Pulslos, offen oder neu ausgefallener Nerv — sofort in den Operationssaal.</strong></div>
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Oberarmschaftfraktur → N. radialis → Fallhand.</strong><br>Er liegt im Sulcus nervi radialis direkt dem Knochen an.</div>
         <ul class="b">
-          <li><strong>Gefäßverletzung:</strong> bei Schaft- und Schulterfrakturen ist die <strong>A. axillaris oder A. brachialis</strong> gefährdet, in Mainz dokumentiert bei einem Motorradunfall</li>
-          <li><strong>Sekundäre Radialisparese</strong> nach Reposition oder Operation heißt: Nerv eingeklemmt, sofortige Revision</li>
-          <li><strong>Suprakondylär beim Kind:</strong> Volkmann-Kontraktur durch Kompartmentsyndrom, deshalb engmaschige Kontrolle</li>
-          <li>Zunehmender Schmerz trotz Ruhigstellung spricht für ein <strong>Kompartmentsyndrom</strong></li>
+          <li><strong>Motorisch:</strong> Handgelenk und Finger lassen sich nicht strecken</li>
+          <li><strong>Sensibel:</strong> Ausfall über dem ersten Zwischenfingerraum am Handrücken</li>
+          <li>Prüfen: <strong>Daumen abspreizen und Hand heben lassen</strong></li>
+          <li>Meist eine Druckschädigung — sie erholt sich in Wochen</li>
         </ul>
+        <div class="callout fact"><span class="lab">⚙ Zum Vergleich</span>Distale Radiusfraktur → <strong>N. medianus</strong> → Schwurhand. Diese Paarung wurde in Mainz zusammen gefragt.</div>
       </div>
     </details>
   </section>
 
   <section class="panel" data-panel="diagnostik">
-    <p class="panel-intro">Röntgen in zwei Ebenen — und wissen, wann das CT dazukommt.</p>
+    <p class="panel-intro">Zwei Ebenen — immer.</p>
 
-    <details class="card diagnostik" open><summary><span class="ct"><span class="ctag">Röntgen</span><span class="ctitle">Zwei Ebenen mit beiden Nachbargelenken</span></span><span class="plus">+</span></summary>
+    <details class="card diagnostik" open><summary><span class="ct"><span class="ctag">Röntgen</span><span class="ctitle">Was ich anfordere</span></span><span class="plus">+</span></summary>
       <div class="body">
-        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Immer zwei Ebenen und immer die beiden angrenzenden Gelenke mit abbilden.</strong></div>
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Schulter in 2 Ebenen: true a.p. und axial oder Y-Aufnahme.</strong></div>
         <ul class="b">
-          <li><strong>Schulter:</strong> echte anteriore-posteriore Aufnahme plus axiale oder Y-Aufnahme</li>
-          <li><strong>Schaft:</strong> anterior-posterior und seitlich, Schulter und Ellenbogen mit im Bild</li>
-          <li>Beschrieben werden <strong>Lokalisation, Verlauf, Dislokation, Gelenkbeteiligung</strong></li>
-          <li>Beim Kind zusätzlich an <strong>Epiphysenfugenbeteiligung</strong> denken, Einteilung nach Salter-Harris</li>
+          <li>Die <strong>axiale Aufnahme</strong> deckt die hintere Luxation auf, die a.p. übersieht</li>
+          <li><strong>CT</strong> bei mehrfragmentärer Fraktur und zur Operationsplanung</li>
+          <li>Beim Kind: Gegenseite nur im Ausnahmefall, wegen der Strahlenbelastung</li>
         </ul>
-        <div class="callout warning"><span class="lab">⚠ Bildqualität</span>Wenn auf einer Thoraxaufnahme nur ein Humeruskopf zu sehen ist, ist das Bild <strong>nicht zentriert</strong> und nicht verwertbar. Genau danach wurde in Mainz gefragt.</div>
       </div>
     </details>
 
-    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Weiterführend</span><span class="ctitle">CT, MRT und Gefäßdarstellung</span></span><span class="plus">+</span></summary>
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Klassifikation</span><span class="ctitle">Neer und AO</span></span><span class="plus">+</span></summary>
       <div class="body">
-        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>CT bei Trümmerfraktur und vor jeder Prothese, MRT bei Verdacht auf Metastase, Angiografie bei fehlendem Puls.</strong></div>
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Neer zählt die Fragmente: Kopf, Schaft und die zwei Tuberkula.</strong></div>
         <ul class="b">
-          <li><strong>CT:</strong> zeigt die Segmentzahl nach Neer und die Gelenkbeteiligung, Grundlage der Operationsplanung</li>
-          <li><strong>MRT:</strong> beurteilt Weichteile, Rotatorenmanschette und knöcherne Raumforderungen</li>
-          <li><strong>Doppler und CT-Angiografie</strong> bei jedem Verdacht auf Gefäßverletzung</li>
-          <li>Bei pathologischer Fraktur gehört die <strong>Tumorsuche</strong> dazu, nicht nur die Versorgung</li>
+          <li>Ein Fragment zählt erst ab <strong>1 cm Verschiebung oder 45 Grad Abkippung</strong></li>
+          <li>2-, 3- und 4-Fragment-Frakturen — je mehr, desto höher das Nekroserisiko</li>
+          <li>Die <strong>AO-Klassifikation</strong> teilt wie überall in A, B und C</li>
         </ul>
       </div>
     </details>
   </section>
 
   <section class="panel" data-panel="therapie">
-    <p class="panel-intro">Die meisten Humerusfrakturen heilen konservativ — die Entscheidung liegt bei Dislokation, Nerv und Alter.</p>
+    <p class="panel-intro">Meist konservativ — außer es steht schlecht.</p>
 
-    <details class="card therapie" open><summary><span class="ct"><span class="ctag">Konservativ</span><span class="ctitle">Wann ich nicht operiere</span></span><span class="plus">+</span></summary>
+    <details class="card therapie" open><summary><span class="ct"><span class="ctag">Konservativ</span><span class="ctitle">Der Regelfall</span></span><span class="plus">+</span></summary>
       <div class="body">
-        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Nicht oder gering dislozierte Frakturen werden ruhiggestellt</strong> — proximal im Gilchrist-Verband, am Schaft im Sarmiento-Brace.</div>
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Etwa 80 Prozent der proximalen Humerusfrakturen werden konservativ behandelt.</strong></div>
         <ul class="b">
-          <li><strong>Proximal:</strong> Gilchrist für etwa 1 Woche, dann frühfunktionelle Physiotherapie gegen die Schultersteife</li>
-          <li><strong>Schaft:</strong> der Humerus toleriert Fehlstellungen gut, bis zu 20 Grad Achsabweichung und 3 Zentimeter Verkürzung bleiben funktionell folgenlos</li>
-          <li>Röntgenkontrolle nach 1 und nach 2 Wochen, um eine <strong>sekundäre Dislokation</strong> nicht zu übersehen</li>
-          <li>Ohne frühe Bewegung droht die <strong>Schultersteife</strong>, die häufigste Folge der konservativen Behandlung</li>
+          <li>Gilfchen oder Armschlinge für <strong>1 bis 2 Wochen</strong>, dann früh bewegen</li>
+          <li>Ziel ist die Beweglichkeit — die Schulter versteift schnell</li>
+          <li>Röntgenkontrolle nach 1 und 2 Wochen</li>
         </ul>
       </div>
     </details>
 
-    <details class="card therapie"><summary><span class="ct"><span class="ctag">Operativ</span><span class="ctitle">Indikation und Verfahren</span></span><span class="plus">+</span></summary>
+    <details class="card therapie"><summary><span class="ct"><span class="ctag">Operativ</span><span class="ctitle">Wann und womit</span></span><span class="plus">+</span></summary>
       <div class="body">
-        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Offen, dislozierte Gelenkfraktur, Gefäß- oder Nervenschaden, Pseudarthrose — das sind die Operationsindikationen.</strong></div>
-        <table class="dd"><tr><th>Verfahren</th><th>Wann</th></tr>
-          <tr><td><strong>Winkelstabile Plattenosteosynthese</strong></td><td>proximale Fraktur beim jüngeren Patienten, Schaftfraktur mit Nervenverletzung</td></tr>
-          <tr><td><strong>Marknagel</strong></td><td>Schaftfraktur ohne Nervenschaden, pathologische Fraktur, kleiner Zugang</td></tr>
-          <tr><td><strong>Inverse Schulterprothese</strong></td><td>alter Patient, Vier-Segment-Fraktur, Kopfnekroserisiko, defekte Rotatorenmanschette</td></tr>
-          <tr><td><strong>Kirschner-Draht-Spickung</strong></td><td>suprakondyläre Fraktur beim Kind</td></tr></table>
-        <div class="callout fact"><span class="lab">⚙ Winkelstabil heißt</span>Die Schraube ist <strong>fest im Plattenloch verriegelt</strong>. Die Platte muss dem Knochen nicht anliegen, die Periostdurchblutung bleibt erhalten und die Konstruktion hält auch im <strong>osteoporotischen Knochen</strong>. Genau das wurde in Mainz gefragt.</div>
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Operiert wird bei starker Verschiebung, offener Fraktur, Nerven- oder Gefäßschaden.</strong></div>
+        <table class="dd"><tr><th>Situation</th><th>Verfahren</th></tr>
+          <tr><td>proximal, jung</td><td>winkelstabile Platte</td></tr>
+          <tr><td>proximal, alt mit Trümmerzone</td><td><strong>inverse Schulterprothese</strong></td></tr>
+          <tr><td>Schaft</td><td>Marknagel oder Platte</td></tr>
+          <tr><td>Kind, suprakondylär</td><td>gekreuzte Kirschner-Drähte</td></tr></table>
       </div>
     </details>
 
-    <details class="card therapie"><summary><span class="ct"><span class="ctag">Komplikationen</span><span class="ctitle">Radialisparese und was daraus folgt</span></span><span class="plus">+</span></summary>
+    <details class="card therapie"><summary><span class="ct"><span class="ctag">Komplikationen</span><span class="ctitle">Woran man denken muss</span></span><span class="plus">+</span></summary>
       <div class="body">
-        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Die primäre Radialisparese wird abgewartet, die sekundäre wird sofort revidiert.</strong></div>
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Nekrose oben · Radialisschaden in der Mitte · Bewegungsverlust überall.</strong></div>
         <ul class="b">
-          <li><strong>Primär</strong> heißt schon bei Aufnahme vorhanden, meist eine Neurapraxie — konservativ, Erholung über Wochen bis Monate</li>
-          <li><strong>Sekundär</strong> heißt neu nach Reposition oder Operation — der Nerv ist eingeklemmt, sofortige operative Freilegung</li>
-          <li>Bei bekannter Nervenverletzung wird die <strong>Platte bevorzugt</strong>, weil der große Zugang die Darstellung des Nerven erlaubt</li>
-          <li>Bei der <strong>Marknagelung</strong> muss der N. radialis dargestellt und geschützt werden, sonst droht die Durchtrennung</li>
+          <li><strong>Humeruskopfnekrose</strong>, besonders nach 4-Fragment-Fraktur</li>
+          <li><strong>Pseudarthrose</strong> — am Schaft, wenn die Fragmente sich bewegen</li>
+          <li>Schultersteife, deshalb früh mobilisieren</li>
+          <li>Beim Kind der <strong>Cubitus varus</strong> nach suprakondylärer Fraktur</li>
         </ul>
-        <div class="callout warning"><span class="lab">⚠ Weitere Komplikationen</span><strong>Humeruskopfnekrose</strong> bei Fraktur am Collum anatomicum und bei Vier-Segment-Frakturen.<br><strong>Pseudarthrose</strong> vor allem am Schaft.<br><strong>Schultersteife</strong> nach zu langer Ruhigstellung.<br><strong>Infekt</strong> und Implantatversagen nach operativer Versorgung.</div>
       </div>
     </details>
   </section>

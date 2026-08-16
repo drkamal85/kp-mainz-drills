@@ -391,3 +391,27 @@ stehen in **proximale-femurfraktur** · Wirbelkörperfraktur und Sinterung in
 **wirbelsaeulenverletzungen** · pathologische Fraktur und Schrotschussschädel im
 **hoffart-bildatlas** · Kortisonnebenwirkungen in **cushing-syndrom** ·
 Osteolysen-Tumorliste in **magenkarzinom**-Nachbarn und im Bildatlas.
+
+
+## Humerusfraktur — R1 gebaut 07/2026, Protokollstoff für R2/R3
+
+**Dokumentiert gefragt:**
+- **Röntgen rechte Schulter mit subkapitaler Humerusfraktur** vorgelegt:
+  „Was muss man untersuchen und dokumentieren?" → **pDMS** ·
+  direkt danach vordere Schulterluxation und Vorgehen
+- **Dr. Weimer:** Röntgen Schulter mit **Humerusschaftfraktur** — „ist dieses Röntgen normal?"
+  Es war eine Kontrolle mit Kontrastmittel, dabei eine Arterienverletzung erkennbar.
+  Im selben Block davor eine Femurschaftfraktur mit **Pseudarthrose** und Verkalkungen
+- **Nervenpaarung, zusammen gefragt:** „Welcher Nerv bei distaler Radiusfraktur?" →
+  Medianus, **Schwurhand** · „Welcher Nerv bei Oberarmschaftfraktur?" → **Radialis, Fallhand**
+- **Schulteranatomie:** „Über Anatomie von Humerus und Scapula. **Rotatorenmanschette —
+  welche Muskeln, welche Funktionen?**" · im selben Block die häufigsten Frakturen
+  (1. distaler Radius, 2. Schenkelhals) und offene Fraktur mit Vorgehen
+- **Collum anatomicum oder chirurgicum** — Antwort anatomicum, weil dort die Blutversorgung
+  kompromittiert werden kann · direkt danach pathologische Fraktur, Schnellschnitt,
+  Osteolysen und Tumormarker
+
+**Grenzt an andere Reviews, dort NICHT doppeln:** Allgemeine Frakturzeichen, offene Fraktur
+und Frakturheilung stehen in **allgemeine-frakturlehre** · Medianus und Schwurhand in
+**distale-radiusfraktur** · Duokopf und TEP in **proximale-femurfraktur** und **hueft-knie-tep** ·
+Osteolysen-Tumorliste in **osteoporose** · Röntgenbefundung Schulter im **hoffart-bildatlas**.
