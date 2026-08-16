@@ -109,7 +109,9 @@ def to_print_html(path: pathlib.Path, mode: str = "full", flow: bool = False,
     cls = " ".join(c for c in (mode if mode != "full" else "",
                                "flow" if flow else "",
                                f"fit-{fit}" if fit else "") if c)
-    html = html.replace("<body>", f'<body class="{cls}">', 1)
+    # Die Themenseiten tragen eine fest eingebackene fit-Klasse fuer den
+    # Browserdruck. Beim Rendern wird sie ersetzt, nicht ergaenzt.
+    html = re.sub(r'<body[^>]*>', f'<body class="{cls}">', html, count=1)
     if mode == "quiz":
         html = re.sub(r'(<div class="stationband[^>]*>.*?</div>)', r"\1" + QUIZ_NOTE,
                       html, count=0, flags=re.S)
@@ -174,12 +176,21 @@ def _overflow(doc):
     return bad, sum(seen.values()) + rapid
 
 
-def render_fitted(path, mode, flow, max_fit=4):
+# Safari und Chrome setzen etwas grosszuegiger als WeasyPrint. Fuer die
+# eingebackene Klasse wird deshalb gegen ein um SAFETY_MM verkuerztes Blatt
+# geprueft — was so noch passt, passt auch im Browser.
+SAFETY_MM = 12
+
+
+def render_fitted(path, mode, flow, max_fit=4, safety=0):
     """Rendert mit der lockersten Stufe, bei der keine Station umbricht."""
     from weasyprint import HTML
     best = None
     for fit in range(0, max_fit + 1):
         html = to_print_html(path, mode, flow, fit)
+        if safety:
+            html = html.replace("</head>",
+                                f"<style>@page{{margin-bottom:{16 + safety}mm}}</style></head>", 1)
         doc = HTML(string=html, base_url=str(path)).render()
         bad, _ = _overflow(doc)
         if best is None:
@@ -216,6 +227,29 @@ def render(paths, out_dir: pathlib.Path, mode: str, flow: bool, merge):
         print(f"  ✓ {len(names)} Themen → {target.name}  ({len(pages)} S.)")
 
 
+def write_fit(paths, max_fit=4):
+    """Schreibt class="fit-N" in das <body> jeder Themenseite.
+
+    Der Browserdruck (Safari, Chrome) kennt die Fit-Stufen sonst nicht — er
+    saehe immer fit-0, und die 25 Decks, die eine engere Stufe brauchen,
+    liefen ueber. Die Klasse wirkt nur im Druck, weil print.css mit
+    media="print" eingebunden ist.
+    """
+    import re as _re
+    changed = 0
+    for p in paths:
+        _, fit, bad = render_fitted(p, "full", False, max_fit, safety=SAFETY_MM)
+        src = p.read_text(encoding="utf-8")
+        want = f' class="fit-{fit}"' if fit else ""
+        new = _re.sub(r'<body[^>]*>', f"<body{want}>", src, count=1)
+        if new != src:
+            p.write_text(new, encoding="utf-8")
+            changed += 1
+        flag = f"  ⚠ {bad} Überlauf" if bad else ""
+        print(f"  {p.stem:<34} fit-{fit}{flag}")
+    print(f"\n  {changed} Datei(en) geaendert")
+
+
 def main():
     ap = argparse.ArgumentParser(description="Standard-PDF-Layout für Themenseiten")
     ap.add_argument("files", nargs="*", help="Pfade zu reviews/*/*.html")
@@ -226,12 +260,20 @@ def main():
     ap.add_argument("--flow", action="store_true",
                     help="fortlaufend statt eine neue Seite je Station")
     ap.add_argument("--merge", metavar="DATEI.pdf", help="alles in eine PDF zusammenführen")
+    ap.add_argument("--write-fit", action="store_true",
+                    help="fit-Klasse fest in die HTML-Dateien schreiben (fuer Browserdruck)")
     a = ap.parse_args()
 
     paths = sorted(ROOT.glob("reviews/*/*.html")) if a.all else \
         [pathlib.Path(f).resolve() for f in a.files]
     if not paths:
         ap.error("keine Datei angegeben (--all oder Pfade)")
+
+    if a.write_fit:
+        print(f"fit-Klassen schreiben · {len(paths)} Datei(en) "
+              f"· Sicherheitsreserve {SAFETY_MM} mm")
+        write_fit(paths)
+        return
 
     print(f"Drucklayout: {a.mode} · {'fortlaufend' if a.flow else 'Seite je Station'} "
           f"· {len(paths)} Datei(en)")

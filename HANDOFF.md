@@ -229,6 +229,20 @@ zweite Seite — das ist ein Inhaltslimit, kein Layoutfehler.
 **Schriften beim Rendern:** Fraunces + Manrope müssen systemweit liegen
 (`~/.fonts` + `fc-cache -f`, Quelle `raw.githubusercontent.com/google/fonts`), sonst Fallback auf Serif/Sans.
 
+**Browserdruck (Safari auf dem iPad, Chrome):** Die Fit-Stufe steckt **fest im `<body>`** jeder
+Themenseite als `class="fit-N"` — sonst säht der Browser immer fit-0 und die 34 engeren Decks
+liefen über. Geschrieben wird sie mit:
+
+```
+python3 tools/_build-pdf.py --all --write-fit
+```
+
+**Nach jedem Inhaltszuwachs erneut laufen lassen** — sonst stimmt die Stufe nicht mehr.
+Die Klasse wirkt nur im Druck, weil `print.css` mit `media="print"` eingebunden ist; auf dem
+Bildschirm ändert sie nichts. Ermittelt wird sie gegen ein um **12 mm verkürztes Blatt**
+(`SAFETY_MM`), weil Safari und Chrome großzügiger setzen als WeasyPrint. Zusätzlich stehen zu
+allen `break-*`-Regeln die alten `page-break-*`-Aliase, die WebKit teils noch braucht.
+
 **Bekannte Grenze:** Chrome ignoriert `@page`-Margin-Boxen — im Browser-Ausdruck fehlen laufender
 Kopf und Seitenzahl. Layout, Umbrüche und Farben stimmen. Für die volle Fassung `_build-pdf.py` nutzen.
 
