@@ -37,7 +37,7 @@
 html, body { background: #fff !important; }
 body {
   font-family: 'Manrope', sans-serif; color: #23201D;
-  font-size: 9.6pt; line-height: 1.45; padding: 0 !important; margin: 0;
+  font-size: 8.8pt; line-height: 1.36; padding: 0 !important; margin: 0;
   -webkit-print-color-adjust: exact; print-color-adjust: exact;
 }
 .wrap { max-width: none !important; margin: 0 !important; }
@@ -63,16 +63,16 @@ script, .btn, .tab, #focus-timer, .ft-btn,
 .panel + .panel { break-before: page; }
 body.flow .panel + .panel { break-before: auto; padding-top: 6mm; }
 .panel-intro { font-family: 'Fraunces', serif; font-style: italic;
-  font-size: 9.5pt; color: #6B6358; margin: 0 0 5mm; line-height: 1.4; }
+  font-size: 8.4pt; color: #6B6358; margin: 0 0 3mm; line-height: 1.35; }
 
 /* ---------- Kopf (Seite 1) ---------- */
-header { padding: 0 0 5mm !important; border-bottom: 2px solid #23201D; margin-bottom: 6mm; }
-.eyebrow { font-size: 7.5pt !important; letter-spacing: .18em; color: #0F766E; margin-bottom: 4mm !important; }
-h1 { display: inline-block; font-family: 'Fraunces', serif; font-weight: 500; font-size: 30pt !important;
+header { padding: 0 0 3mm !important; border-bottom: 2px solid #23201D; margin-bottom: 4mm; }
+.eyebrow { font-size: 7pt !important; letter-spacing: .18em; color: #0F766E; margin-bottom: 2.5mm !important; }
+h1 { display: inline-block; font-family: 'Fraunces', serif; font-weight: 500; font-size: 23pt !important;
   line-height: 1.02 !important; letter-spacing: -.01em; string-set: topic content(); }
 h1 .accent { font-style: italic; }
-.subtitle { font-size: 10.5pt !important; margin-top: 3mm !important; line-height: 1.35; }
-.meta { margin-top: 4mm !important; font-size: 8pt !important; color: #6B6358; display: block !important; }
+.subtitle { font-size: 9pt !important; margin-top: 2mm !important; line-height: 1.3; }
+.meta { margin-top: 2.5mm !important; font-size: 7.2pt !important; color: #6B6358; display: block !important; }
 .meta span:not(:last-child)::after { content: "·"; margin: 0 6px; color: #C9C2B4; }
 .r4pill, .r5pill { display: inline-block !important; font-size: 7.5pt; padding: 1px 8px;
   border-radius: 999px; vertical-align: middle; margin: 0 0 0 8px !important; }
@@ -80,9 +80,9 @@ h1 .accent { font-style: italic; }
 /* ---------- Stationsband ---------- */
 .stationband {
   display: block !important;
-  font-family: 'Manrope', sans-serif; font-size: 11pt; font-weight: 800;
+  font-family: 'Manrope', sans-serif; font-size: 9.5pt; font-weight: 800;
   letter-spacing: .1em; text-transform: uppercase; color: #fff;
-  padding: 3mm 5mm; border-radius: 6px; margin: 0 0 4mm;
+  padding: 2mm 4mm; border-radius: 5px; margin: 0 0 3mm;
   break-after: avoid;
 }
 .stationband .sb-t { string-set: station content();
@@ -96,65 +96,66 @@ h1 .accent { font-style: italic; }
 
 /* ---------- Karten ---------- */
 .card { break-inside: avoid; border: 1px solid #DCD5C6 !important; border-radius: 8px;
-  margin-bottom: 4mm !important; background: #fff !important; overflow: visible !important; }
-.card > summary { display: block !important; padding: 3mm 4mm 2mm !important;
+  margin-bottom: 2.6mm !important; background: #fff !important; overflow: visible !important; }
+.card > summary { display: block !important; padding: 2mm 3.2mm 1.4mm !important;
   break-after: avoid; list-style: none; }
 .card .ctag { font-size: 7.5pt !important; letter-spacing: .12em; margin-bottom: 1mm !important; }
-.card .ctitle { font-size: 12.5pt !important; line-height: 1.2 !important;
+.card .ctitle { font-size: 11pt !important; line-height: 1.18 !important;
   bookmark-level: 2; bookmark-label: content(); bookmark-state: closed; }
-.card .body { padding: 0 4mm 3mm !important; padding-top: 3mm !important;
+.card .body { padding: 0 3.2mm 2.2mm !important; padding-top: 2mm !important;
   border-top: 1px solid #EDE7DA !important; margin-top: 0 !important; }
 .card .body h4 { font-size: 9.5pt; margin: 3mm 0 1.5mm; break-after: avoid; }
 
 /* Listen */
-ul.b > li { margin-bottom: 1.5mm !important; line-height: 1.42 !important; padding-left: 14px !important; }
+ul.b > li { margin-bottom: 1mm !important; line-height: 1.34 !important; padding-left: 13px !important; }
 ul.b > li::before { width: 5px !important; height: 5px !important; top: 6px !important; left: 1px !important; }
 ul.b ul > li { font-size: 9pt !important; margin-bottom: 1mm !important; padding-left: 13px !important; }
 ul.b ul > li::before { width: 4px !important; height: 4px !important; top: 5px !important; }
 li { break-inside: avoid; }
 
 /* Callouts */
-.callout { break-inside: avoid; font-size: 9.2pt !important; line-height: 1.42 !important;
-  padding: 2.5mm 3.5mm !important; margin: 3mm 0 !important; border-radius: 6px;
+.callout { break-inside: avoid; font-size: 8.5pt !important; line-height: 1.34 !important;
+  padding: 1.8mm 2.8mm !important; margin: 2mm 0 !important; border-radius: 5px;
   border-left-width: 3px !important; }
 .callout .lab { font-size: 7.5pt !important; margin-bottom: 1mm !important; }
 
 /* Tabellen */
-.dd { font-size: 8.8pt !important; margin: 3mm 0 !important; }
-.dd th, .dd td { padding: 1.8mm 2.5mm !important; }
+.dd { font-size: 8.1pt !important; margin: 2mm 0 !important; }
+.dd th, .dd td { padding: 1.2mm 2mm !important; }
 .dd th { font-size: 7.8pt !important; }
 .dd thead { display: table-header-group; }
 .dd tr { break-inside: avoid; }
 
 /* ---------- KP-Perlen ---------- */
-.pearl { break-inside: avoid; margin-bottom: 3.5mm !important; padding: 3mm 4mm !important;
-  border-radius: 7px; }
+.pearl { break-inside: avoid; margin-bottom: 2.2mm !important; padding: 2mm 3mm !important;
+  border-radius: 6px; }
 .pearl .ph { font-size: 8pt !important; }
-.pearl .pt { font-size: 9.2pt !important; line-height: 1.42 !important; }
-.pearl .mn { font-size: 8.4pt !important; margin-top: 1.5mm !important; }
+.pearl .pt { font-size: 8.5pt !important; line-height: 1.34 !important; }
+.pearl .mn { font-size: 7.8pt !important; margin-top: 1mm !important; }
 
 /* Rapid-Fire / Schnellfragen */
-.sf-wrap { break-inside: auto; padding: 3.5mm 4.5mm !important; margin-top: 5mm !important; border-radius: 8px; }
+.sf-wrap { break-before: page; break-inside: auto; padding: 3mm 4mm !important;
+  margin-top: 0 !important; border-radius: 8px; }
 .sf-wrap h3 { font-size: 12pt !important; break-after: avoid; }
 .sf-wrap .sf-intro { font-size: 8.6pt !important; margin-bottom: 3mm !important; }
-.sf { break-inside: avoid; padding: 1.6mm 0 !important; }
+.sf { break-inside: avoid; padding: 1.1mm 0 !important; }
 .sf > summary { display: block !important; font-size: 9pt !important; list-style: none; }
 .sf > summary::after { content: "" !important; }
 .sf .sfa { font-size: 8.8pt !important; padding-top: 1mm !important; }
 
 /* ---------- Fragen & Protokolle ---------- */
-.pk { break-inside: auto; padding: 3.5mm 4.5mm !important; margin-bottom: 5mm !important;
+.pk { break-inside: auto; padding: 2.6mm 3.4mm !important; margin-bottom: 3mm !important;
   border: 1px solid #DCD5C6 !important; border-radius: 8px; }
 .pk-meta { font-size: 8pt !important; margin-bottom: 2.5mm !important; display: block !important; }
 .pk-badge { float: right; margin-left: 0 !important; font-size: 7.5pt !important; }
 .pk-akte { break-inside: avoid; font-size: 9.2pt !important; line-height: 1.45 !important;
   padding: 2.5mm 3.5mm !important; margin-bottom: 3mm !important; border-radius: 6px; }
 .pk-akte .lab, .pk-q .lab { font-size: 7.5pt !important; }
-.pq { break-inside: avoid; margin-bottom: 3mm !important; }
-.pq-frage { font-size: 9.6pt !important; line-height: 1.4 !important; }
+.pq { break-inside: avoid; margin-bottom: 2mm !important; }
+.pq-frage { font-size: 8.8pt !important; line-height: 1.32 !important; }
 .reveal > summary { display: none !important; }
-.reveal .ans { font-size: 9.2pt !important; line-height: 1.45 !important;
-  padding: 1.5mm 0 0 4mm !important; border-left: 2px solid #CFC7B8; margin-top: 1.5mm; }
+.reveal .ans { font-size: 8.4pt !important; line-height: 1.36 !important;
+  padding: 1mm 0 0 3mm !important; border-left: 2px solid #CFC7B8; margin-top: 1.5mm; }
 
 /* ---------- Prüfmodus (--mode quiz): Antworten verdeckt ---------- */
 body.quiz .reveal .ans, body.quiz .sf .sfa { display: none !important; }
@@ -162,6 +163,87 @@ body.quiz .pq { padding-bottom: 12mm; border-bottom: 1px dotted #C9C2B4; }
 body.quiz .sf { padding-bottom: 6mm !important; }
 body.quiz .quiz-note { display: block; }
 .quiz-note { display: none; font-size: 8pt; font-style: italic; color: #6B6358; margin-bottom: 4mm; }
+
+
+/* ---- Passung: jede Station auf eine Seite ----
+   Die Bibliothek streut stark (Stationen 126 W Median, max 291 · Perlen bis 524).
+   Statt global kleiner zu setzen, skaliert der Renderer nur die Stationen herunter,
+   die sonst umbrechen — via body-Klassen fit-1 … fit-4 (je enger, desto stärker).
+   Der Builder probiert aufsteigend, bis die Seitenzahl stimmt. */
+body.fit-1 { font-size: 8.4pt; line-height: 1.32; }
+body.fit-1 .card .ctitle { font-size: 10.4pt !important; }
+body.fit-1 .callout { font-size: 8.1pt !important; line-height: 1.3 !important; padding: 1.6mm 2.5mm !important; margin: 1.7mm 0 !important; }
+body.fit-1 .pearl { margin-bottom: 1.8mm !important; padding: 1.7mm 2.6mm !important; }
+body.fit-1 .pearl .pt { font-size: 8.1pt !important; line-height: 1.3 !important; }
+body.fit-1 ul.b > li { margin-bottom: .8mm !important; line-height: 1.3 !important; }
+body.fit-1 .card { margin-bottom: 2.2mm !important; }
+body.fit-1 .sf { padding: .9mm 0 !important; }
+body.fit-1 .dd { font-size: 7.8pt !important; }
+
+body.fit-2 { font-size: 8pt; line-height: 1.28; }
+body.fit-2 .card .ctitle { font-size: 9.8pt !important; }
+body.fit-2 .card .ctag { font-size: 7pt !important; }
+body.fit-2 .callout { font-size: 7.7pt !important; line-height: 1.27 !important; padding: 1.4mm 2.2mm !important; margin: 1.4mm 0 !important; }
+body.fit-2 .pearl { margin-bottom: 1.5mm !important; padding: 1.5mm 2.3mm !important; }
+body.fit-2 .pearl .pt { font-size: 7.7pt !important; line-height: 1.27 !important; }
+body.fit-2 .pearl .ph { font-size: 7.2pt !important; }
+body.fit-2 .pearl .mn { font-size: 7.2pt !important; }
+body.fit-2 ul.b > li { margin-bottom: .6mm !important; line-height: 1.27 !important; }
+body.fit-2 .card { margin-bottom: 1.8mm !important; }
+body.fit-2 .card > summary { padding: 1.6mm 2.6mm 1mm !important; }
+body.fit-2 .card .body { padding: 0 2.6mm 1.6mm !important; padding-top: 1.5mm !important; }
+body.fit-2 .sf { padding: .7mm 0 !important; }
+body.fit-2 .sf > summary { font-size: 8.2pt !important; }
+body.fit-2 .sf .sfa { font-size: 8pt !important; }
+body.fit-2 .dd { font-size: 7.4pt !important; }
+body.fit-2 .dd th, body.fit-2 .dd td { padding: 1mm 1.6mm !important; }
+body.fit-2 .stationband { font-size: 8.8pt; padding: 1.6mm 3.4mm; margin-bottom: 2.4mm; }
+body.fit-2 .panel-intro { font-size: 7.8pt; margin-bottom: 2.4mm; }
+
+body.fit-3 { font-size: 7.6pt; line-height: 1.25; }
+body.fit-3 .card .ctitle { font-size: 9.2pt !important; }
+body.fit-3 .card .ctag { font-size: 6.6pt !important; }
+body.fit-3 .callout { font-size: 7.3pt !important; line-height: 1.24 !important; padding: 1.2mm 2mm !important; margin: 1.2mm 0 !important; }
+body.fit-3 .callout .lab { font-size: 6.6pt !important; }
+body.fit-3 .pearl { margin-bottom: 1.2mm !important; padding: 1.3mm 2mm !important; }
+body.fit-3 .pearl .pt { font-size: 7.3pt !important; line-height: 1.24 !important; }
+body.fit-3 .pearl .ph { font-size: 6.8pt !important; }
+body.fit-3 .pearl .mn { font-size: 6.8pt !important; }
+body.fit-3 ul.b > li { margin-bottom: .5mm !important; line-height: 1.24 !important; padding-left: 11px !important; }
+body.fit-3 .card { margin-bottom: 1.5mm !important; }
+body.fit-3 .card > summary { padding: 1.3mm 2.2mm .8mm !important; }
+body.fit-3 .card .body { padding: 0 2.2mm 1.3mm !important; padding-top: 1.2mm !important; }
+body.fit-3 .sf { padding: .5mm 0 !important; }
+body.fit-3 .sf > summary { font-size: 7.8pt !important; }
+body.fit-3 .sf .sfa { font-size: 7.6pt !important; }
+body.fit-3 .dd { font-size: 7pt !important; }
+body.fit-3 .dd th, body.fit-3 .dd td { padding: .8mm 1.4mm !important; }
+body.fit-3 .stationband { font-size: 8.4pt; padding: 1.3mm 3mm; margin-bottom: 2mm; }
+body.fit-3 .panel-intro { font-size: 7.4pt; margin-bottom: 2mm; }
+body.fit-3 h1 { font-size: 20pt !important; }
+body.fit-3 .subtitle { font-size: 8.2pt !important; }
+
+body.fit-4 { font-size: 7.2pt; line-height: 1.22; }
+body.fit-4 .card .ctitle { font-size: 8.6pt !important; }
+body.fit-4 .card .ctag { font-size: 6.3pt !important; }
+body.fit-4 .callout { font-size: 6.9pt !important; line-height: 1.22 !important; padding: 1mm 1.7mm !important; margin: 1mm 0 !important; }
+body.fit-4 .callout .lab { font-size: 6.3pt !important; }
+body.fit-4 .pearl { margin-bottom: 1mm !important; padding: 1.1mm 1.7mm !important; }
+body.fit-4 .pearl .pt { font-size: 6.9pt !important; line-height: 1.22 !important; }
+body.fit-4 .pearl .ph, body.fit-4 .pearl .mn { font-size: 6.5pt !important; }
+body.fit-4 ul.b > li { margin-bottom: .4mm !important; line-height: 1.22 !important; padding-left: 10px !important; }
+body.fit-4 .card { margin-bottom: 1.2mm !important; }
+body.fit-4 .card > summary { padding: 1.1mm 2mm .7mm !important; }
+body.fit-4 .card .body { padding: 0 2mm 1.1mm !important; padding-top: 1mm !important; }
+body.fit-4 .sf { padding: .4mm 0 !important; }
+body.fit-4 .sf > summary { font-size: 7.4pt !important; }
+body.fit-4 .sf .sfa { font-size: 7.2pt !important; }
+body.fit-4 .dd { font-size: 6.7pt !important; }
+body.fit-4 .dd th, body.fit-4 .dd td { padding: .7mm 1.2mm !important; }
+body.fit-4 .stationband { font-size: 8pt; padding: 1.1mm 2.6mm; margin-bottom: 1.7mm; }
+body.fit-4 .panel-intro { font-size: 7pt; margin-bottom: 1.7mm; }
+body.fit-4 h1 { font-size: 18pt !important; }
+body.fit-4 .subtitle { font-size: 7.8pt !important; }
 
 /* Witwen/Waisen + Links */
 p, div { orphans: 3; widows: 3; }

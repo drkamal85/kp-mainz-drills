@@ -204,9 +204,27 @@ Ein einziges Layout für alle Themenseiten. Nie pro Thema anpassen.
   Default-Ausgabe: `/mnt/user-data/outputs/pdf/`. PDFs werden **nicht** ins Repo committet.
 
 **Layout-Regeln:** A4, 17/15/16/15 mm · Kopf: Thema links, Station rechts (ab Seite 2) ·
-Fuß: Quelle links, `Seite / Gesamt` rechts · eine neue Seite je Station mit Farbband in der
-Stationsfarbe · alle Karten offen, `break-inside: avoid` · PDF-Lesezeichen: Station = Ebene 1,
-Kartentitel = Ebene 2 · Bildschirm-Chrome (Tabs, Back-Link, Footer, Toggles, Timer) entfällt.
+Fuß: Quelle links, `Seite / Gesamt` rechts · alle Karten offen, `break-inside: avoid` ·
+PDF-Lesezeichen: Station = Ebene 1, Kartentitel = Ebene 2 · Bildschirm-Chrome (Tabs, Back-Link,
+Footer, Toggles, Timer) entfällt.
+
+**Seitenaufteilung (Soll):**
+
+| Tab | Seiten |
+|---|---|
+| 1–4 Grundlagen · Klinik · Diagnostik · Therapie | **je genau 1** |
+| 5 KP-Perlen | **genau 2** — Seite 1 Perlen, Seite 2 Rapid-Fire |
+| 6 Fragen & Protokolle | mehr als 1, so wenige wie möglich |
+
+Erzwungen wird das durch `.sf-wrap { break-before: page }` (Rapid-Fire startet immer neu) und
+durch **vier Fit-Stufen** `body.fit-1` … `body.fit-4` in `print.css`, die progressiv enger setzen
+(8,4pt bis 7,2pt Grundschrift, dazu Karten-, Callout- und Listenabstände).
+
+`_build-pdf.py` probiert die Stufen **automatisch** aufsteigend durch und nimmt die lockerste,
+bei der keine Station umbricht — sichtbar als `· fit-N` in der Ausgabe. Stand Aug 2026 passen
+**70 von 72 Decks exakt**; Verteilung fit-0 47 · fit-1 8 · fit-2 10 · fit-3 5 · fit-4 2.
+`sozialrecht-hygiene` und `diabetes-mellitus` brauchen für die Rapid-Fire bzw. Therapie eine
+zweite Seite — das ist ein Inhaltslimit, kein Layoutfehler.
 
 **Schriften beim Rendern:** Fraunces + Manrope müssen systemweit liegen
 (`~/.fonts` + `fc-cache -f`, Quelle `raw.githubusercontent.com/google/fonts`), sonst Fallback auf Serif/Sans.

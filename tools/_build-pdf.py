@@ -93,7 +93,8 @@ def _stations(html: str) -> str:
     return re.sub(r'<section class="station[^"]*" id="(s\d+)"\s*>', sub2, html)
 
 
-def to_print_html(path: pathlib.Path, mode: str = "full", flow: bool = False) -> str:
+def to_print_html(path: pathlib.Path, mode: str = "full", flow: bool = False,
+                  fit: int = 0) -> str:
     html = path.read_text(encoding="utf-8")
     html = _strip(html)
     html = _stations(html)
@@ -105,12 +106,89 @@ def to_print_html(path: pathlib.Path, mode: str = "full", flow: bool = False) ->
     css = PRINT_CSS.read_text(encoding="utf-8")
     html = html.replace("</head>", f"<style>\n{css}\n</style>\n</head>", 1)
 
-    cls = " ".join(c for c in (mode if mode != "full" else "", "flow" if flow else "") if c)
+    cls = " ".join(c for c in (mode if mode != "full" else "",
+                               "flow" if flow else "",
+                               f"fit-{fit}" if fit else "") if c)
     html = html.replace("<body>", f'<body class="{cls}">', 1)
     if mode == "quiz":
         html = re.sub(r'(<div class="stationband[^>]*>.*?</div>)', r"\1" + QUIZ_NOTE,
                       html, count=0, flags=re.S)
     return html
+
+
+
+# Sollwerte je Station: Tabs 1-4 und Perlen und Rapid-Fire je eine Seite.
+# Tab 6 (Fragen & Protokolle) darf mehrere Seiten belegen, wird aber mitgezaehlt,
+# damit die Automatik auch dort die kompakteste Stufe waehlt.
+_HEADS = ("GRUNDLAGEN", "KLINIK", "DIAGNOSTIK", "THERAPIE",
+          "KP-PERLEN", "FRAGEN & PROTOKOLLE", "RETRIEVAL", "NACHFRAGEN")
+
+
+def _page_heads(doc):
+    """Erste Textfragmente je Seite — daraus laesst sich die Station ablesen."""
+    out = []
+    for pg in doc.pages:
+        txt = []
+
+        def walk(b):
+            if getattr(b, "text", None):
+                txt.append(b.text)
+            for c in getattr(b, "children", None) or []:
+                walk(c)
+
+        for b in pg._page_box.children:
+            walk(b)
+        out.append(" ".join(txt[:8]))
+    return out
+
+
+def _overflow(doc):
+    """Zaehlt Stationen, die mehr als eine Seite belegen (Tab 6 ausgenommen)."""
+    cur, bad, rapid, inrapid = None, 0, 0, False
+    seen = {}
+    for h in _page_heads(doc):
+        up = h.upper()
+        # Rapid-Fire nur erkennen, wenn die Seite damit BEGINNT. Manche
+        # Perlen-Intros erwaehnen das Wort ("Acht Stolpersteine und die
+        # Rapid-Fire ..."), was sonst die Perlen-Seite falsch zaehlt.
+        if re.match(r"^(SCHNELLFRAGEN[^A-Z]{0,4})?RAPID-FIRE", up):
+            inrapid, rapid = True, rapid + 1
+            continue
+        # Nur ein Stationsband am Seitenanfang zaehlt. Der Eyebrow auf Seite 1
+        # enthaelt Woerter wie "KURZ + KP-PERLEN + PROTOKOLLE" und wuerde sonst
+        # faelschlich als Stationswechsel gelten.
+        key = next((k for k in _HEADS
+                    if re.match(rf"^{re.escape(k)}\s+\d+\s*/\s*\d+", up)), None)
+        if key:
+            cur, inrapid = key, False
+        if inrapid:
+            rapid += 1
+            continue
+        if cur:
+            seen[cur] = seen.get(cur, 0) + 1
+    for k, n in seen.items():
+        if k != "FRAGEN & PROTOKOLLE" and n > 1:
+            bad += n - 1
+    if rapid > 1:
+        bad += rapid - 1
+    return bad, sum(seen.values()) + rapid
+
+
+def render_fitted(path, mode, flow, max_fit=4):
+    """Rendert mit der lockersten Stufe, bei der keine Station umbricht."""
+    from weasyprint import HTML
+    best = None
+    for fit in range(0, max_fit + 1):
+        html = to_print_html(path, mode, flow, fit)
+        doc = HTML(string=html, base_url=str(path)).render()
+        bad, _ = _overflow(doc)
+        if best is None:
+            best = (doc, fit, bad)
+        if bad < best[2]:
+            best = (doc, fit, bad)
+        if bad == 0:
+            return doc, fit, 0
+    return best
 
 
 def render(paths, out_dir: pathlib.Path, mode: str, flow: bool, merge):
@@ -119,15 +197,17 @@ def render(paths, out_dir: pathlib.Path, mode: str, flow: bool, merge):
     out_dir.mkdir(parents=True, exist_ok=True)
     docs, names = [], []
     for p in paths:
-        html = to_print_html(p, mode, flow)
-        doc = HTML(string=html, base_url=str(p)).render()
+        doc, fit, bad = render_fitted(p, mode, flow)
         docs.append(doc)
         names.append(p)
         if not merge:
             suffix = "" if mode == "full" else f"-{mode}"
             target = out_dir / f"{p.stem}{suffix}.pdf"
             doc.write_pdf(target)
-            print(f"  ✓ {p.relative_to(ROOT)} → {target.name}  ({len(doc.pages)} S.)")
+            note = f" · fit-{fit}" if fit else ""
+            warn = f"  ⚠ {bad} Station(en) laufen ueber" if bad else ""
+            print(f"  ✓ {p.relative_to(ROOT)} → {target.name}  "
+                  f"({len(doc.pages)} S.{note}){warn}")
 
     if merge:
         pages = [pg for d in docs for pg in d.pages]
