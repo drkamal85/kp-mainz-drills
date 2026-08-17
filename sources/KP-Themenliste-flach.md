@@ -93,7 +93,7 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 68 | 64 | 29 | 35 | Allgemein- und Viszeralchirurgie | Akutes Abdomen | ✓ R1 |
 | 69 | 63 | 25 | 38 | Notfallmedizin | Anaphylaxie | ✓ R1 |
 | 70 | 62 | 15 | 47 | Allgemein- und Viszeralchirurgie | Rektumkarzinom | ✓ R3 |
-| 71 | 60 | 15 | 45 | Unfallchirurgie | Humerusfraktur | ✓ R2 |
+| 71 | 60 | 15 | 45 | Unfallchirurgie | Humerusfraktur | ✓ R3 |
 
 ## TIER 4 · geringere Präsenz (<60)
 
