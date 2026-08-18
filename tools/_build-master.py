@@ -96,7 +96,7 @@ FLAT=[
 (74,22,52,"Unfallchirurgie","Kompartmentsyndrom",None),
 (73,11,62,"Angiologie","Aortendissektion","aortendissektion"),
 (68,12,56,"Unfallchirurgie","Allgemeine Frakturlehre","allgemeine-frakturlehre"),
-(67,12,55,"Nephrologie","Harnwegsinfekt / Pyelonephritis",None),
+(67,12,55,"Nephrologie","Harnwegsinfekt / Pyelonephritis","harnwegsinfekt"),
 (65,22,43,"Endokrinologie","Schilddrüsenkarzinom","schilddruesenkarzinom"),
 (64,29,35,"Allgemein- und Viszeralchirurgie","Akutes Abdomen","akutes-abdomen"),
 (63,25,38,"Notfallmedizin","Anaphylaxie","anaphylaxie"),

@@ -415,3 +415,29 @@ Osteolysen-Tumorliste in **magenkarzinom**-Nachbarn und im Bildatlas.
 und Frakturheilung stehen in **allgemeine-frakturlehre** · Medianus und Schwurhand in
 **distale-radiusfraktur** · Duokopf und TEP in **proximale-femurfraktur** und **hueft-knie-tep** ·
 Osteolysen-Tumorliste in **osteoporose** · Röntgenbefundung Schulter im **hoffart-bildatlas**.
+
+
+## Harnwegsinfekt / Pyelonephritis — R1 gebaut 07/2026, Protokollstoff für R2/R3
+
+**Dokumentiert gefragt:**
+- **„Harnwegsinfektion — Unterschied zwischen kompliziert und unkompliziert."** ·
+  direkt danach: **„Bei junger Frau ohne Beschwerden → keine Behandlung."**
+  (im selben Block Hyperthyreose mit TRAK und TPO, danach Diarrhö und Clostridium difficile)
+- **„Welche Werte im Urinstatus sind Hinweis auf einen Harnweginfekt?"** →
+  **Leukozyten, Erythrozyten und Nitrit im Urin** · aus einem Diabetesfall mit HbA1c 10,
+  Antriebslosigkeit, Gliederschmerzen und Schüttelfrost
+- **Vorbereitungsnotiz:** „Harnwegsinfekt: Diagnose Urinstatus, Bakteriologie,
+  Antibiotika-Resistenztests · Therapie: unkompliziert **Fosfomycin/Nitrofurantoin**,
+  kompliziert **nach Resistenztest**"
+- **Delirursachen:** „Harnweginfektion nicht vergessen" — ausdrücklich als Merkposten notiert
+- **Fall mit Klopfschmerz im Nierenlager** und in die Leiste ausstrahlendem Schmerz:
+  Verdachtsdiagnose, Diagnostik, dann Sonografiebild mit **Stauungsniere**,
+  Akutbehandlung und anschließendes Vorgehen
+- **E.-coli-Urozystitis** als Komplikation im Verlauf eines stationären Aufenthalts,
+  zusammen mit passagerer Niereninsuffizienz
+
+**Grenzt an andere Reviews, dort NICHT doppeln:** Aufstau, Doppel-J und Nephrostomie stehen
+ausführlich in **nierenversagen** · Sepsiskriterien und Bündeltherapie in **sepsis** ·
+Delir und seine Abklärung in **schlaganfall**-Nachbarn · Nierenkolik und Steine als
+Differenzialdiagnose ebenfalls in **nierenversagen** · Hydronephrose als Sonobefund im
+**hoffart-bildatlas**.
