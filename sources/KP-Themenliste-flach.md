@@ -1,6 +1,6 @@
 # KP MAINZ — THEMENLISTE (FLACH, EINE RANGLISTE)
 
-Alle **96 Themen** in einer Rangliste nach **Korpus-Treffer** (WhatsApp-Chat + Protokolle). Aktuell **73 von 96** mit Review abgedeckt (~76 %).
+Alle **96 Themen** in einer Rangliste nach **Korpus-Treffer** (WhatsApp-Chat + Protokolle). Aktuell **74 von 96** mit Review abgedeckt (~77 %).
 
 > **Juli 2026 (a):** 3 Themen ergänzt (nach Protokoll-Frequenz-Check bestätigt): **Kreuzbandruptur** (Unfallchirurgie, 30 Protokoll-Treffer, VKB:21), **Status epilepticus/Epilepsie** (Neurologie, 10), **Gicht/Podagra** (Rheumatologie, 6). *Verworfen* (zu niedrig/abwesend): Meningitis, Demenz, Erysipel, Fazialisparese, Ösophaguskarzinom, Multiples Myelom, Migräne, Parkinson.
 
@@ -115,7 +115,7 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 85 | 43 | 13 | 30 | Querschnitt | Check-up / Prävention | — |
 | 86 | 40 | 10 | 30 | Angiologie | Aortenaneurysma (AAA) | ✓ R2 |
 | 87 | 40 | 7 | 33 | Unfallchirurgie | Beckenringfrakturen | ✓ R4 |
-| 88 | 37 | 12 | 25 | Notfallmedizin | Delir | — |
+| 88 | 37 | 12 | 25 | Notfallmedizin | Delir | ✓ R1 |
 | 89 | 32 | 5 | 27 | Endokrinologie | Cushing-Syndrom | ✓ R3 |
 | 90 | 32 | 9 | 23 | Nephrologie | Hyponatriämie / SIADH | ✓ R1 |
 | 91 | 30 | 0 | 30 | Unfallchirurgie | Kreuzbandruptur | — |

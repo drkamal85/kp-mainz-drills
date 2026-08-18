@@ -118,7 +118,7 @@ FLAT=[
 (43,13,30,"Querschnitt","Check-up / Prävention",None),
 (40,10,30,"Angiologie","Aortenaneurysma (AAA)","aortenaneurysma"),
 (40,7,33,"Unfallchirurgie","Beckenringfrakturen","beckenringfrakturen"),
-(37,12,25,"Notfallmedizin","Delir",None),
+(37,12,25,"Notfallmedizin","Delir","delir"),
 (32,5,27,"Endokrinologie","Cushing-Syndrom","cushing-syndrom"),
 (32,9,23,"Nephrologie","Hyponatriämie / SIADH","hyponatriaemie-siadh"),
 (30,0,30,"Unfallchirurgie","Kreuzbandruptur","kreuzbandruptur"),

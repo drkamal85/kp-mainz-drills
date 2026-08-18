@@ -477,3 +477,34 @@ kurativ gegen palliativ.
 Gesundheitsamt stehen ausführlich in **sozialrecht-hygiene** · Pleuraerguss und Punktion in
 **pleuraerguss** · Pneumonie-DD in **pneumonie** · Rundherd und Kaverne als Röntgenbefund im
 **hoffart-bildatlas** · STIKO und BCG in **impfungen-stiko**.
+
+
+## Delir — R1 gebaut 07/2026, Protokollstoff für R2/R3
+
+**Delir war zweimal der Prüfungsfall selbst:**
+- **Dr. Laakmann / Dr. Meier / Prof. Müller-Forell:** 45-jähriger Patient, Fall war
+  **Delir bei Alkoholentzugssymptomatik**, dazu epigastrische Schmerzen nach Ibuprofen und COPD.
+  EKG mit Sinustachykardie, Lungenfunktion mit Obstruktion.
+- **70-Jähriger mit Dyspnoe:** Diagnosenliste enthielt „**Delir, multifaktoriell bei C2 und
+  infektgetriggert**" neben kardialer Dekompensation bei HFpEF, Stauungspneumonie und
+  makrozytärer Anämie.
+
+**Kompletter Fragenblock (im selben Block wie Niereninsuffizienz und Diuretika):**
+„**Delir Klassifikation. Formen. Unterschied zwischen Delir und Psychosen. Alkohol-Delir
+Besonderheiten? Welche Einflüsse hat Alkohol auf das ZNS? Wie nennt man das?**"
+→ Prüfer wollte **Polyneuropathie** hören, dazu **Wernicke- und Korsakow-Syndrom**.
+
+**Dr. Kaul:** „Aus welchem Grund könnte die Patientin in der Gerontopsychiatrie aufgenommen
+werden?" → Delir, später auch Depression · „**Was macht man bei Delir und was gibt man in der
+Akutsituation?**" → **Ursachen klären und kausal behandeln** (Infektionen, Blutverlust,
+Elektrolytstörungen), dann erst Medikament.
+
+**Weiter dokumentiert:** **Haloperidol-Nebenwirkungen** und **postoperatives Delir** ·
+Psychiatriekontext: „Vorgehen bei Patient mit Ethanolspiegel 2,5 Promille leitliniengemäß",
+Komplikationen **Delir und Epilepsie im Rahmen des Entzugs**, Entgiftungsmöglichkeiten
+(körperliche Entgiftung, qualifizierte Entgiftung).
+
+**Grenzt an andere Reviews, dort NICHT doppeln:** Harnwegsinfekt als Delirursache steht in
+**harnwegsinfekt** · Hyponatriämie als Ursache in **hyponatriaemie-siadh** ·
+Thiamin vor Glukose auch in **akuttoxikologie** · Status epilepticus in **eeg-komplett** ·
+Leberzirrhose und Alkoholfolgen in **leberzirrhose**.
