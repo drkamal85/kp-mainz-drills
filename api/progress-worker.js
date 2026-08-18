@@ -231,7 +231,11 @@ function buildQueue(deckCards, S, t, goal) {
     if (st) { if (st.due <= t) due.push(c); } else fresh.push(c);
   }
   shuffle(due); shuffle(fresh);
-  return due.concat(fresh).slice(0, Math.max(1, goal));
+  // Neue Karten zuerst: erst wenn jede Karte des Decks einmal dran war,
+  // beginnen die Wiederholungen. Vorher stand due vor fresh — weil jede
+  // beantwortete Karte am naechsten Tag wieder faellig ist (INTERVALS[0] = 1),
+  // fuellten die immer gleichen Karten die Sitzung und der Rest kam nie dran.
+  return fresh.concat(due).slice(0, Math.max(1, goal));
 }
 function computeStats(deckCards, S, t, goal) {
   const tm = addDays(t, 1);
