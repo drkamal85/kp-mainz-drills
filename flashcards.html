@@ -204,8 +204,13 @@ function queue(allowNew){
     if(st){ if(st.due<=t){ (isLater?later:due).push(c); } }
     else { (isLater?later:fresh).push(c); } }
   shuffle(due); shuffle(fresh); shuffle(later);
-  const active = allowNew? due.concat(fresh) : (due.length?due:fresh);
-  return active.concat(later);   // postponed cards always come after the active pool
+  // Erstdurchlauf zuerst: solange noch ungesehene Karten da sind, kommen die
+  // vor den Wiederholungen. Sonst waeren ab Tag 2 immer erst die Karten von
+  // gestern dran (Box 1 ist nach 1 Tag wieder faellig) und das Deck wuerde
+  // nie durchlaufen. Erst wenn alle Karten einmal dran waren, uebernimmt
+  // die normale Wiederholungslogik.
+  const active = allowNew ? fresh.concat(due) : (fresh.length ? fresh : due);
+  return active.concat(later);   // zurueckgestellte Karten immer ganz zum Schluss
 }
 function dueToday(){const t=today(),seen=new Set(S.day.seen);let n=0;for(const c of DECK){if(seen.has(c.id))continue;const st=S.cards[c.id];if(st&&st.due<=t)n++;}return n;}
 function masteredCount(){let n=0;for(const id in S.cards)if(S.cards[id].box>=5)n++;return n;}
