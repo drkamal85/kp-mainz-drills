@@ -102,7 +102,7 @@ FLAT=[
 (63,25,38,"Notfallmedizin","Anaphylaxie","anaphylaxie"),
 (62,15,47,"Allgemein- und Viszeralchirurgie","Rektumkarzinom","rektumkarzinom"),
 (60,15,45,"Unfallchirurgie","Humerusfraktur","humerusfraktur"),
-(59,11,48,"Gastroenterologie","GERD / Refluxkrankheit",None),
+(59,11,48,"Gastroenterologie","GERD / Refluxkrankheit","gerd"),
 (59,7,52,"Kardiologie","Infektiöse Endokarditis","infektioese-endokarditis"),
 (58,29,29,"Neurologie","Hirnblutungen (EDH/SDH/SAB/ICB)",None),
 (57,17,40,"Allgemein- und Viszeralchirurgie","Diarrhoe / Gastroenteritis",None),

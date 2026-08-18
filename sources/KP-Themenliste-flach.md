@@ -1,6 +1,6 @@
 # KP MAINZ — THEMENLISTE (FLACH, EINE RANGLISTE)
 
-Alle **96 Themen** in einer Rangliste nach **Korpus-Treffer** (WhatsApp-Chat + Protokolle). Aktuell **74 von 96** mit Review abgedeckt (~77 %).
+Alle **96 Themen** in einer Rangliste nach **Korpus-Treffer** (WhatsApp-Chat + Protokolle). Aktuell **75 von 96** mit Review abgedeckt (~78 %).
 
 > **Juli 2026 (a):** 3 Themen ergänzt (nach Protokoll-Frequenz-Check bestätigt): **Kreuzbandruptur** (Unfallchirurgie, 30 Protokoll-Treffer, VKB:21), **Status epilepticus/Epilepsie** (Neurologie, 10), **Gicht/Podagra** (Rheumatologie, 6). *Verworfen* (zu niedrig/abwesend): Meningitis, Demenz, Erysipel, Fazialisparese, Ösophaguskarzinom, Multiples Myelom, Migräne, Parkinson.
 
@@ -99,7 +99,7 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 
 | # | Treffer | chat | prot | Fachgebiet | Thema | Review |
 |--:|--:|--:|--:|------------|-------|--------|
-| 72 | 59 | 11 | 48 | Gastroenterologie | GERD / Refluxkrankheit | — |
+| 72 | 59 | 11 | 48 | Gastroenterologie | GERD / Refluxkrankheit | ✓ R1 |
 | 73 | 59 | 7 | 52 | Kardiologie | Infektiöse Endokarditis | ✓ R3 |
 | 74 | 58 | 29 | 29 | Neurologie | Hirnblutungen (EDH/SDH/SAB/ICB) | — |
 | 75 | 57 | 17 | 40 | Allgemein- und Viszeralchirurgie | Diarrhoe / Gastroenteritis | — |

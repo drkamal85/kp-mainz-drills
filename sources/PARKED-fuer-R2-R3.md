@@ -508,3 +508,31 @@ Komplikationen **Delir und Epilepsie im Rahmen des Entzugs**, Entgiftungsmöglic
 **harnwegsinfekt** · Hyponatriämie als Ursache in **hyponatriaemie-siadh** ·
 Thiamin vor Glukose auch in **akuttoxikologie** · Status epilepticus in **eeg-komplett** ·
 Leberzirrhose und Alkoholfolgen in **leberzirrhose**.
+
+
+## GERD / Refluxkrankheit — R1 gebaut 07/2026, Protokollstoff für R2/R3
+
+**Los-Angeles-Klassifikation kam dreimal im ÖGD-Befund echter Prüfungsfälle vor:**
+- Dr. Hock / Dr. Hake / Dr. Chalybäus: Fall Anämie bei Gastritis Typ C **mit Ösophagitis**,
+  im ÖGD **Refluxösophagitis Grad A nach Los Angeles**
+- Dr. Tannert / Dr. Fichtner: Frau mit Eisenmangel, alle Untersuchungen unauffällig
+  bis auf **Refluxösophagitis Grad A** im ÖGD, dazu B12-Mangel und Hypothyreose
+- Weiterer Fall: **Refluxösophagitis Grad B nach Los Angeles sowie Ulcus duodeni** —
+  der Befund stimmte nicht mehr mit der Zuweisungsdiagnose überein
+
+**Frau Baum, kompletter Block zu retrosternalen Schmerzen:**
+„Retrosternale Schmerzen — DD? Bei ACS welche Untersuchung? Bei normalem Troponin und EKG,
+ist ACS ausgeschlossen? **Was ist das Tietze-Syndrom?** Gastrointestinale Ursachen von
+Thoraxschmerzen? **DD Boerhaave und Mallory-Weiss** mit Diagnostik und Behandlung?
+**GERD — Untersuchung mit Behandlung?** H.-pylori-Diagnostik und Therapie der Gastritis?
+**Wann wird eine Ösophagusbiopsie außer bei Karzinomverdacht gemacht?**"
+
+**Dysphagie-Trias:** Adipöse Patientin mit Dysphagie — der Prüfer wollte
+**Achalasie, Refluxösophagitis und Ösophaguskarzinom** hören, danach Ätiologie,
+Diagnostik und Behandlung jeder einzelnen.
+
+**Grenzt an andere Reviews, dort NICHT doppeln:** Gastritis Typ C, Helicobacter-Diagnostik und
+Eradikation stehen in **gastritis** · Ulkus und Forrest in **gastroduodenales-ulkus** und
+**gi-blutung** · Magenkarzinom und Laurén in **magenkarzinom** · ACS-Ausschluss und Troponin in
+**khk** · Eisenmangelanämie in **eisenmangelanaemie** · Boerhaave und Mallory-Weiss in
+**gi-blutung**.
