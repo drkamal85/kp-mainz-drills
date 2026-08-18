@@ -88,7 +88,7 @@ FLAT=[
 (83,26,57,"Kardiologie","Herzklappenerkrankungen","herzklappenerkrankungen"),
 (82,16,66,"Endokrinologie","Hypothyreose","hypothyreose"),
 (81,27,54,"Unfallchirurgie","Schädel-Hirn-Trauma","schaedel-hirn-trauma"),
-(81,22,59,"Pneumologie","Tuberkulose",None),
+(81,22,59,"Pneumologie","Tuberkulose","tuberkulose"),
 (81,16,65,"Unfallchirurgie","Polytrauma / ABCDE (Sturz)","polytrauma-abcde"),
 (81,24,57,"Allgemein- und Viszeralchirurgie","Milzruptur / Splenektomie","milzruptur-splenektomie"),
 (77,37,40,"Drittes Fach","Borreliose / FSME / Zeckenbiss","borreliose-fsme"),

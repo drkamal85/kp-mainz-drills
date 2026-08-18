@@ -441,3 +441,39 @@ ausführlich in **nierenversagen** · Sepsiskriterien und Bündeltherapie in **s
 Delir und seine Abklärung in **schlaganfall**-Nachbarn · Nierenkolik und Steine als
 Differenzialdiagnose ebenfalls in **nierenversagen** · Hydronephrose als Sonobefund im
 **hoffart-bildatlas**.
+
+
+## Tuberkulose — R1 gebaut 07/2026, Protokollstoff für R2/R3
+
+**Dokumentiert gefragt — ein Prüfer ging es „sehr detailliert" durch:**
+„Fragen über **offene und geschlossene TB**, wann Isolation, wann Meldepflicht und bei wem,
+was sind die **radiologischen Zeichen für aktive und für ausgeheilte TB**, wie kann man TB
+diagnostizieren, **Therapie und wie lange jede Antibiotika**." Direkt danach: Unterschied
+kurativ gegen palliativ.
+
+**Weitere dokumentierte Blöcke:**
+- **Diagnostikkette mit Korrektur:** „Was für eine Krankheit macht B-Symptomatik und
+  Gewichtsverlust, ist aber kein Karzinom?" → TB · „Wie diagnostiziert man TB?" → Kandidat
+  nannte den Tuberkulin-Hauttest, **die Prüferin widersprach** und wollte den
+  **Interferon-Gamma-Test** hören · „Als Definitives?" → **Sputum und PCR** ·
+  danach „Was ist offene Tuberkulose?" und Meldepflicht
+- **Dr. Mendelssohn:** 70-Jährige, seit 8 Wochen Husten mit blutigem Auswurf, CT Thorax mit
+  Kontrastmittel zeigt **Rundherd links mit randbetonter Verkalkung** → Tuberkulose ·
+  „Wie gewinnt man eine Biopsie?" → CT-gesteuert, Bronchoskopie mit und ohne Endosonografie ·
+  Therapie wurde nicht gefragt
+- **Röntgenfall:** junge Studentin, kürzlich nach Deutschland gekommen, Husten, Fieber,
+  ungeklärter Gewichtsverlust, Röntgen mit **deutlicher Kaverne rechts** →
+  „Behandlung und **Nebenwirkungen der TB-Medikamente**? **Was ist vor der Verabreichung zu
+  tun?**" → Leberwerte und augenärztliche Untersuchung
+- **Weiterer Röntgenfall mit Kaverne:** Kandidat nannte Isolation und Sputum an 3 Tagen für
+  PCR, der Prüfer fragte nach „was kann man noch machen?" → **BAL** war die gesuchte Antwort ·
+  „Warum isolieren?" → weil es eine offene TBC sein kann · im selben Bild als Nebenbefund
+  **Situs inversus**
+- **Als DD:** bei Pneumonie wollte ein Prüfer Lungenkarzinom **und TB** hören
+- **Impfkontext:** „Was nehmen wir in Syrien, das hier in Deutschland nicht mehr genommen
+  wird?" → BCG · „Warum ist das von Vorteil?" → Früherkennung möglich
+
+**Grenzt an andere Reviews, dort NICHT doppeln:** Meldepflicht, Infektionsschutzgesetz, RKI und
+Gesundheitsamt stehen ausführlich in **sozialrecht-hygiene** · Pleuraerguss und Punktion in
+**pleuraerguss** · Pneumonie-DD in **pneumonie** · Rundherd und Kaverne als Röntgenbefund im
+**hoffart-bildatlas** · STIKO und BCG in **impfungen-stiko**.

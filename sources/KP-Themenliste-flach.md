@@ -1,6 +1,6 @@
 # KP MAINZ — THEMENLISTE (FLACH, EINE RANGLISTE)
 
-Alle **96 Themen** in einer Rangliste nach **Korpus-Treffer** (WhatsApp-Chat + Protokolle). Aktuell **72 von 96** mit Review abgedeckt (~75 %).
+Alle **96 Themen** in einer Rangliste nach **Korpus-Treffer** (WhatsApp-Chat + Protokolle). Aktuell **73 von 96** mit Review abgedeckt (~76 %).
 
 > **Juli 2026 (a):** 3 Themen ergänzt (nach Protokoll-Frequenz-Check bestätigt): **Kreuzbandruptur** (Unfallchirurgie, 30 Protokoll-Treffer, VKB:21), **Status epilepticus/Epilepsie** (Neurologie, 10), **Gicht/Podagra** (Rheumatologie, 6). *Verworfen* (zu niedrig/abwesend): Meningitis, Demenz, Erysipel, Fazialisparese, Ösophaguskarzinom, Multiples Myelom, Migräne, Parkinson.
 
@@ -80,7 +80,7 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 55 | 83 | 26 | 57 | Kardiologie | Herzklappenerkrankungen | ✓ R3 |
 | 56 | 82 | 16 | 66 | Endokrinologie | Hypothyreose | ✓ R4 |
 | 57 | 81 | 27 | 54 | Unfallchirurgie | Schädel-Hirn-Trauma | ✓ R3 |
-| 58 | 81 | 22 | 59 | Pneumologie | Tuberkulose | — |
+| 58 | 81 | 22 | 59 | Pneumologie | Tuberkulose | ✓ R1 |
 | 59 | 81 | 16 | 65 | Unfallchirurgie | Polytrauma / ABCDE (Sturz) | ✓ R4 |
 | 60 | 81 | 24 | 57 | Allgemein- und Viszeralchirurgie | Milzruptur / Splenektomie | ✓ R1 |
 | 61 | 77 | 37 | 40 | Drittes Fach | Borreliose / FSME / Zeckenbiss | ✓ R1 |
