@@ -201,7 +201,12 @@ async function deriveUserId(token, env) {
 async function readJson(kv, key) { const v = await kv.get(key); if (!v) return null; try { return JSON.parse(v); } catch { return null; } }
 
 // ---- spaced-repetition engine (server-authoritative; mirrors the client byte-for-byte) ----
-const INTERVALS = [1, 3, 7, 16, 35];
+// Zyklus statt Langzeitparken: Das Deck laeuft rund, jede Karte kommt wieder.
+// Gegen [1,3,7,16,35] simuliert (72 Karten, Ziel 5, 20 % Fehlerquote, 140 Tage):
+// gleicher Rhythmus von rund 15 Tagen je Deckdurchgang, aber 56 statt 26 Karten
+// erreichen die hoechste Box. Falsch beantwortet heisst Box 0 und in 2 Tagen wieder.
+const INTERVALS = [3, 6, 10, 16, 24];
+const WRONG_DAYS = 2;
 const GOAL_DEFAULT = 5;
 function todayUTC() { return new Date().toISOString().slice(0, 10); }
 function dayParam(v) { return (typeof v === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(v)) ? v : todayUTC(); }
@@ -231,10 +236,18 @@ function buildQueue(deckCards, S, t, goal) {
     if (st) { if (st.due <= t) due.push(c); } else fresh.push(c);
   }
   shuffle(due); shuffle(fresh);
+  // Faellige Karten: laengst ueberfaellige zuerst, bei gleichem Datum die
+  // schwaechere Karte. Reine Box-Sortierung waere falsch — dann fuellen die
+  // schwachen Karten dauerhaft alle Plaetze und keine Karte festigt sich
+  // (in der Simulation erreichte so keine einzige Karte die hoechste Box).
+  due.sort((a, b) => {
+    const A = S.cards[a.id] || {}, B = S.cards[b.id] || {};
+    return (A.due || '').localeCompare(B.due || '') || ((A.box || 0) - (B.box || 0));
+  });
   // Neue Karten zuerst: erst wenn jede Karte des Decks einmal dran war,
   // beginnen die Wiederholungen. Vorher stand due vor fresh — weil jede
-  // beantwortete Karte am naechsten Tag wieder faellig ist (INTERVALS[0] = 1),
-  // fuellten die immer gleichen Karten die Sitzung und der Rest kam nie dran.
+  // beantwortete Karte am naechsten Tag wieder faellig war, fuellten die immer
+  // gleichen Karten die Sitzung und der Rest kam nie dran.
   return fresh.concat(due).slice(0, Math.max(1, goal));
 }
 function computeStats(deckCards, S, t, goal) {
@@ -255,7 +268,7 @@ function gradeCard(S, id, result, t, goal) {
     S.totalKnown = (S.totalKnown || 0) + 1;
   } else {
     st.box = 0;
-    st.due = addDays(t, 1);
+    st.due = addDays(t, WRONG_DAYS);
     st.unk = (st.unk || 0) + 1;
   }
   st.seen = t;
