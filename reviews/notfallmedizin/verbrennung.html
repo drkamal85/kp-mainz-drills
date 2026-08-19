@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verbrennung · R1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F7F4EE; --card:#FFFDF8; --ink:#2A2724; --muted:#6B6358; --line:#E7E0D4;
+    --grundlagen:#C0392B; --grundlagen-t:#F7E9E6;
+    --klinik:#D97706;     --klinik-t:#FBEEDD;
+    --diagnostik:#1E5F9E; --diagnostik-t:#E4EDF6;
+    --therapie:#2D7A3E;   --therapie-t:#E5F0E7;
+    --fragen:#7B3F9E;     --fragen-t:#F0E8F6;
+    --perlen:#B8860B;     --perlen-t:#F8F0D9;
+    --retrieval:#0F766E;  --retrieval-t:#E0F0EE;
+    --protokoll:#334155;  --protokoll-t:#E8EBF0;
+    --ok:#2D7A3E; --gap:#D97706; --miss:#C0392B;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:'Manrope',system-ui,sans-serif;
+    font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased;padding:0 18px 80px}
+  .wrap{max-width:860px;margin:0 auto}
+
+  header{padding:54px 0 22px}
+  .eyebrow{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--retrieval);margin-bottom:16px}
+  h1{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(34px,7vw,52px);line-height:1.04;letter-spacing:-.01em}
+  h1 .accent{font-style:italic;color:var(--grundlagen)}
+  .subtitle{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(17px,2.6vw,20px);color:var(--muted);margin-top:14px}
+  .meta{display:flex;flex-wrap:wrap;gap:6px 0;margin-top:20px;font-size:13px;color:var(--muted);font-weight:500}
+  .meta span:not(:last-child)::after{content:"•";margin:0 10px;color:var(--line);font-weight:700}
+
+
+  .tabs{display:flex;flex-wrap:wrap;gap:8px;position:sticky;top:0;z-index:30;background:linear-gradient(var(--bg) 72%,rgba(247,244,238,0));padding:12px 0 14px;margin-bottom:6px}
+  .tab{position:relative;font-size:13px;font-weight:600;border:1px solid var(--line);background:var(--card);color:var(--muted);padding:8px 15px;border-radius:999px;cursor:pointer;transition:all .15s;white-space:nowrap}
+  .tab:hover{border-color:#cfc6b6}
+  .tab.active{color:#fff;border-color:transparent}
+  .tab[data-c=retrieval].active{background:var(--retrieval)}
+  .tab[data-c=grundlagen].active{background:var(--grundlagen)}
+  .tab[data-c=klinik].active{background:var(--klinik)}
+  .tab[data-c=diagnostik].active{background:var(--diagnostik)}
+  .tab[data-c=therapie].active{background:var(--therapie)}
+  .tab[data-c=fragen].active{background:var(--fragen)}
+  .tab[data-c=perlen].active{background:var(--perlen)}
+  .tab[data-c=protokoll].active{background:var(--protokoll)}
+  .tab .badge{display:none;margin-left:7px;font-size:10px;font-weight:800;padding:1px 6px;border-radius:999px;vertical-align:middle}
+  .tab.flag-gap .badge{display:inline-block;background:var(--gap);color:#fff}
+  .tab.flag-ok .badge{display:inline-block;background:var(--ok);color:#fff}
+  .tab.active .badge{background:rgba(255,255,255,.28)!important;color:#fff}
+
+  .panel{display:none;animation:fade .25s ease}
+  .panel.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+  .panel-intro{font-family:'Fraunces',serif;font-style:italic;font-size:17px;color:var(--muted);margin:6px 0 18px;line-height:1.5}
+
+  /* ---- control bar (Pass 1 instrument) ---- */
+  .ctrl{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:14px 16px;margin-bottom:20px}
+  .ctrl-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+  .tally{font-size:13px;font-weight:700;display:flex;gap:12px;flex-wrap:wrap}
+  .tally i{font-style:normal;display:inline-flex;align-items:center;gap:5px}
+  .tally i::before{content:"";width:9px;height:9px;border-radius:50%}
+  .tally .t-ok::before{background:var(--ok)} .tally .t-gap::before{background:var(--gap)} .tally .t-miss::before{background:var(--miss)}
+  .spacer{flex:1 1 auto}
+  .btn{font-family:'Manrope';font-size:12.5px;font-weight:700;border:none;border-radius:999px;padding:9px 16px;cursor:pointer;transition:.15s}
+  .btn-primary{background:var(--retrieval);color:#fff}
+  .btn-primary:hover{filter:brightness(1.06)}
+  .btn-ghost{background:transparent;color:var(--muted);border:1px solid var(--line)}
+  .btn-ghost:hover{border-color:#cfc6b6}
+  .ctrl-status{margin-top:11px;font-size:13px;font-style:italic;color:var(--retrieval);min-height:18px}
+
+  /* ---- retrieval prompt ---- */
+  .rt{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:14px;transition:border-color .2s}
+  .rt[data-score=sicher]{border-left-color:var(--ok)}
+  .rt[data-score=lueckenhaft]{border-left-color:var(--gap)}
+  .rt[data-score=gefehlt]{border-left-color:var(--miss)}
+  .rt-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:8px}
+  .rt-n{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--retrieval)}
+  .rt-right{display:flex;align-items:center;gap:10px;white-space:nowrap}
+  .rt-ptr{font-size:11px;font-weight:600;color:var(--muted)}
+  .rt-q{font-size:15.5px;line-height:1.55}
+  .reveal{margin-top:12px;border-top:1px dashed var(--line);padding-top:0}
+  .reveal>summary{list-style:none;cursor:pointer;font-size:12.5px;font-weight:800;letter-spacing:.04em;color:var(--retrieval);padding:11px 0 0;user-select:none;display:inline-flex;align-items:center;gap:6px}
+  .reveal>summary::-webkit-details-marker{display:none}
+  .reveal>summary::before{content:"▸";transition:transform .2s;display:inline-block}
+  .reveal[open]>summary::before{transform:rotate(90deg)}
+  .reveal .ans{font-size:14.5px;line-height:1.6;color:#3c372f;padding-top:10px}
+  .reveal .ans b{color:var(--ink)}
+  .reveal .ans ul{list-style:none;padding-left:2px;margin:2px 0 0}
+  .reveal .ans li{position:relative;padding-left:18px;margin-bottom:8px;line-height:1.5}
+  .reveal .ans>ul>li::before{content:"";position:absolute;left:2px;top:8px;width:6px;height:6px;border-radius:50%;background:var(--retrieval)}
+  .reveal .ans li ul{margin:7px 0 2px}
+  .reveal .ans li li{padding-left:16px;margin-bottom:5px;font-size:13.8px;color:#4a443c}
+  .reveal .ans li li::before{content:"";position:absolute;left:0;top:7px;width:5px;height:5px;transform:rotate(45deg);background:#b9b0a1}
+  .score{display:flex;gap:7px;margin-top:12px;padding-top:11px;border-top:1px solid var(--line)}
+  .sbtn{flex:1;font-size:12px;font-weight:700;border:1px solid var(--line);background:var(--bg);color:var(--muted);border-radius:8px;padding:7px 4px;cursor:pointer;transition:.12s}
+  .sbtn:hover{border-color:#cfc6b6}
+  .sbtn[data-v=sicher].on{background:var(--ok);color:#fff;border-color:transparent}
+  .sbtn[data-v=lueckenhaft].on{background:var(--gap);color:#fff;border-color:transparent}
+  .sbtn[data-v=gefehlt].on{background:var(--miss);color:#fff;border-color:transparent}
+
+  /* ---- Schnellfragen ---- */
+  .sf-wrap{background:var(--retrieval-t);border:1px solid #BFE0DC;border-radius:13px;padding:18px 20px;margin-top:24px}
+  .sf-wrap h3{font-family:'Fraunces',serif;font-weight:500;font-size:20px;margin-bottom:3px}
+  .sf-wrap .sf-intro{font-size:13.5px;font-style:italic;color:#0c5d57;margin-bottom:14px}
+  .sf{border-bottom:1px solid #cfe4e1;padding:9px 0}
+  .sf:last-child{border-bottom:none}
+  .sf>summary{list-style:none;cursor:pointer;font-size:14.5px;font-weight:600;display:flex;justify-content:space-between;gap:10px;user-select:none}
+  .sf>summary::-webkit-details-marker{display:none}
+  .sf>summary::after{content:"+";color:var(--retrieval);font-weight:800}
+  .sf[open]>summary::after{content:"−"}
+  .sf .sfa{font-size:14px;color:#0c5d57;font-weight:700;padding-top:6px}
+
+  /* ---- content cards (v1) ---- */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:14px;overflow:hidden}
+  .card>summary{list-style:none;cursor:pointer;padding:18px 20px;display:flex;align-items:flex-start;gap:14px;user-select:none}
+  .card>summary::-webkit-details-marker{display:none}
+  .card .ct{flex:1}
+  .card .ctag{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:5px}
+  .card .ctitle{font-family:'Fraunces',serif;font-weight:500;font-size:17px;line-height:1.25}
+  .plus{flex:none;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:18px;line-height:1;transition:transform .2s;margin-top:2px}
+  .card[open] .plus{transform:rotate(45deg)}
+  .card .body{padding:0 20px 20px;border-top:1px solid var(--line);margin-top:-2px;padding-top:16px}
+  .card.grundlagen .ctag{color:var(--grundlagen)} .card.grundlagen .plus{background:var(--grundlagen-t);color:var(--grundlagen)}
+  .card.klinik .ctag{color:var(--klinik)} .card.klinik .plus{background:var(--klinik-t);color:var(--klinik)}
+  .card.diagnostik .ctag{color:var(--diagnostik)} .card.diagnostik .plus{background:var(--diagnostik-t);color:var(--diagnostik)}
+  .card.therapie .ctag{color:var(--therapie)} .card.therapie .plus{background:var(--therapie-t);color:var(--therapie)}
+  .card.fragen .ctag{color:var(--fragen)} .card.fragen .plus{background:var(--fragen-t);color:var(--fragen)}
+  .card.perlen .ctag{color:var(--perlen)} .card.perlen .plus{background:var(--perlen-t);color:var(--perlen)}
+
+  ul.b{list-style:none;padding-left:2px}
+  ul.b>li{position:relative;padding-left:20px;margin-bottom:8px;line-height:1.55}
+  ul.b>li::before{content:"";position:absolute;left:2px;top:9px;width:7px;height:7px;border-radius:50%}
+  .grundlagen ul.b>li::before{background:var(--grundlagen)} .klinik ul.b>li::before{background:var(--klinik)}
+  .diagnostik ul.b>li::before{background:var(--diagnostik)} .therapie ul.b>li::before{background:var(--therapie)}
+  ul.b ul{list-style:none;padding-left:18px;margin-top:7px}
+  ul.b ul>li{position:relative;padding-left:18px;margin-bottom:6px;font-size:15px;color:#4a443c}
+  ul.b ul>li::before{content:"";position:absolute;left:0;top:7px;width:6px;height:6px;transform:rotate(45deg);background:#b9b0a1}
+  strong{font-weight:700;color:var(--ink)}
+
+  .callout{border-radius:11px;padding:13px 16px;margin:14px 0;font-size:14.5px;line-height:1.55;border-left:4px solid}
+  .callout .lab{font-weight:800;font-size:11px;letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .critical{background:var(--grundlagen-t);border-color:var(--grundlagen)} .critical .lab{color:var(--grundlagen)}
+  .warning{background:var(--klinik-t);border-color:var(--klinik)} .warning .lab{color:var(--klinik)}
+  .fact{background:var(--diagnostik-t);border-color:var(--diagnostik)} .fact .lab{color:var(--diagnostik)}
+
+  .dd{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+  .dd th,.dd td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+  .dd th{background:var(--diagnostik-t);font-weight:700;color:var(--diagnostik);font-size:12px}
+  .dd td:first-child{font-weight:600}
+
+  .pk{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:16px}
+  .pk-meta{display:flex;flex-wrap:wrap;gap:6px 0;font-size:11.5px;font-weight:700;color:var(--protokoll);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+  .pk-meta span:not(:last-child)::after{content:"•";margin:0 8px;color:#c3c9d2}
+  .pk-badge{display:inline-block;background:var(--therapie-t);color:var(--therapie);font-size:10.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:2px 9px;border-radius:999px;margin-left:auto}
+  .pk-akte{font-size:14.5px;line-height:1.58;background:var(--protokoll-t);border-radius:9px;padding:12px 14px;margin-bottom:12px}
+  .pk-akte .lab,.pk-q .lab{font-weight:800;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--protokoll);display:block;margin-bottom:5px}
+  .pk-q ul{list-style:none;padding:0}
+  .pk-q li{position:relative;padding-left:18px;margin-bottom:7px;font-size:14.5px;line-height:1.5}
+  .pk-q li::before{content:"–";position:absolute;left:0;color:var(--protokoll);font-weight:700}
+  .pq{border-top:1px solid var(--line);padding:10px 0}
+  .pq-frage{position:relative;padding-left:18px;font-size:14.5px;font-weight:600;line-height:1.5}
+  .pq-frage::before{content:"–";position:absolute;left:0;color:var(--protokoll);font-weight:700}
+  .pq .reveal{margin-top:5px;border-top:none;padding-top:0}
+  .pq .reveal>summary{padding:5px 0 0}
+
+  .pearl{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--perlen);border-radius:12px;padding:16px 18px;margin-bottom:13px}
+  .pearl .ph{font-weight:800;font-size:13px;color:var(--perlen);margin-bottom:7px}
+  .pearl .pt{font-size:15px;line-height:1.55}
+  .pearl .mn{margin-top:9px;background:var(--perlen-t);border-radius:8px;padding:8px 12px;font-size:13.5px;font-style:italic;color:#7a5c08}
+  .pearl .mn b{font-style:normal;font-weight:800}
+
+  footer{margin-top:40px;padding-top:22px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted);line-height:1.6}
+  .back{display:inline-block;font-family:Manrope,system-ui,sans-serif;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);text-decoration:none;margin-bottom:18px}
+  .back:hover{color:var(--ink)}
+
+
+</style>
+<link rel="stylesheet" media="print" href="/print.css">
+<script src="/print.js" defer></script>
+</head>
+<body>
+<div class="wrap">
+
+  <a href="../../index.html" class="back">← Zurück zur Library</a>
+
+  <header>
+    <div class="eyebrow">Notfallmedizin · R1 · Kurz</div>
+    <h1><span class="accent">Verbrennung</span></h1>
+    <div class="subtitle">Zwei Fragen entscheiden alles: wie tief und wie viel. Dazu die Parkland-Formel, die Neunerregel mit ihrer dokumentierten Falle — und der Satz, warum Grad 3 nicht mehr wehtut. Vier Stationen.</div>
+    <div class="meta">
+      <span>R1 von 4 · Basis</span>
+      <span>~10–12 Min</span>
+      <span>Stand 07/2026</span>
+      <span>Amboss KP-Lernplan + Mainz-Protokolle</span>
+    </div>
+  </header>
+
+  <div class="tabs">
+    <button class="tab active" data-c="grundlagen" data-tab="grundlagen">Grundlagen</button>
+    <button class="tab" data-c="klinik" data-tab="klinik">Klinik</button>
+    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik</button>
+    <button class="tab" data-c="therapie" data-tab="therapie">Therapie</button>
+  </div>
+
+  <section class="panel active" data-panel="grundlagen">
+    <p class="panel-intro">Zwei Fragen entscheiden alles: wie tief und wie viel.</p>
+
+    <details class="card grundlagen" open><summary><span class="ct"><span class="ctag">Tiefe</span><span class="ctitle">Die vier Grade</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Grad 1 rot · Grad 2 Blasen · Grad 3 weiß und schmerzlos · Grad 4 verkohlt.</strong></div>
+        <table class="dd"><tr><th>Grad</th><th>Befund</th><th>Heilung</th></tr>
+          <tr><td><strong>1</strong></td><td>Rötung, schmerzhaft — wie Sonnenbrand</td><td>folgenlos</td></tr>
+          <tr><td><strong>2a</strong></td><td>Blasen, feucht, <strong>stark schmerzhaft</strong></td><td>narbenlos</td></tr>
+          <tr><td><strong>2b</strong></td><td>Blasen, trockener, weniger Schmerz</td><td>mit Narbe</td></tr>
+          <tr><td><strong>3</strong></td><td>weiß oder lederartig, <strong>schmerzlos</strong></td><td>nur operativ</td></tr>
+          <tr><td><strong>4</strong></td><td>Verkohlung bis Muskel und Knochen</td><td>nur operativ</td></tr></table>
+        <div class="callout warn"><span class="lab">⚠ Dokumentiert gefragt</span><em>„Warum ab Grad 3 keine Schmerzen?"</em> — <strong>Weil die Nervenendigungen in der Haut mitverbrannt sind.</strong> Schmerzlosigkeit ist also ein Zeichen für mehr Schaden, nicht für weniger.</div>
+      </div>
+    </details>
+
+    <details class="card grundlagen"><summary><span class="ct"><span class="ctag">Ausmaß</span><span class="ctitle">Neunerregel nach Wallace</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Kopf 9 · jeder Arm 9 · jedes Bein 18 · Rumpf vorn 18 · Rumpf hinten 18 · Genital 1.</strong></div>
+        <ul class="b">
+          <li><strong>Handflächenregel:</strong> Handfläche mit Fingern = <strong>1 Prozent</strong>, gut für verstreute Flächen</li>
+          <li>Beim <strong>Kind</strong> zählt der Kopf mehr, die Beine weniger</li>
+          <li><strong>Grad 1 wird nicht mitgerechnet</strong></li>
+        </ul>
+        <div class="callout warn"><span class="lab">⚠ Die dokumentierte Falle</span>Sonnenbrand am ganzen Körper: <strong>keine Neunerregel</strong> — sie dient der Strategie bei schweren Verbrennungen, und Grad 1 zählt nicht mit.</div>
+      </div>
+    </details>
+
+    <details class="card grundlagen"><summary><span class="ct"><span class="ctag">Ursachen</span><span class="ctitle">Nicht nur Feuer</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Thermisch · chemisch · elektrisch · Strahlung.</strong></div>
+        <ul class="b">
+          <li><strong>Verbrühung</strong> — beim Kind die häufigste Ursache</li>
+          <li><strong>Laugen sind schlimmer als Säuren</strong>: sie verflüssigen das Gewebe und dringen weiter ein</li>
+          <li><strong>Strom:</strong> außen klein, innen groß — Muskelschaden, Rhythmusstörungen</li>
+        </ul>
+        <div class="callout fact"><span class="lab">⚙ Dokumentiert</span>Dr. Weimer fragte Klassifikation und Beispiele — <em>toxisch, chemisch, Strom, Heißwasser</em> — dann Salzsäure und <strong>was schlimmer ist, Säure oder Lauge</strong>.</div>
+      </div>
+    </details>
+  </section>
+
+  <section class="panel" data-panel="klinik">
+    <p class="panel-intro">Der Atemweg ist die eigentliche Gefahr.</p>
+
+    <details class="card klinik" open><summary><span class="ct"><span class="ctag">Atemweg</span><span class="ctitle">Inhalationstrauma</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Im Zweifel früh intubieren</strong> — das Ödem wächst über Stunden, später geht es nicht mehr.</div>
+        <ul class="b">
+          <li><strong>Warnzeichen:</strong> verbrannte Nasenhaare, Ruß im Mund, Heiserkeit, Stridor</li>
+          <li>Verbrennung im geschlossenen Raum · immer an <strong>Kohlenmonoxid</strong> denken</li>
+        </ul>
+        <div class="callout warn"><span class="lab">⚠ Dokumentiert</span>Wichtig vor dem Transport: <strong>Intubationsnotwendigkeit prüfen wegen der Ödemgefahr.</strong> Genau so notiert.</div>
+      </div>
+    </details>
+
+    <details class="card klinik"><summary><span class="ct"><span class="ctag">Verlauf</span><span class="ctitle">Verbrennungskrankheit</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Ab etwa 15 bis 20 Prozent verbrannter Fläche wird der ganze Körper krank.</strong></div>
+        <ul class="b">
+          <li>Kapillaren werden undicht → <strong>Volumenmangelschock</strong></li>
+          <li>Später Infektion, Sepsis, Nierenversagen</li>
+        </ul>
+        <div class="callout fact"><span class="lab">⚙ Dokumentiert</span>Gefragt wurde, <strong>ab wie viel Prozent die Sterblichkeit hoch ist</strong> — im Protokoll notiert mit <strong>ab 50 Prozent</strong>.</div>
+      </div>
+    </details>
+  </section>
+
+  <section class="panel" data-panel="diagnostik">
+    <p class="panel-intro">Rechnen, nicht schätzen.</p>
+
+    <details class="card diagnostik" open><summary><span class="ct"><span class="ctag">Rechnung</span><span class="ctitle">Parkland-Formel</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>4 ml × Körpergewicht in kg × Prozent verbrannter Fläche = Menge für 24 Stunden.</strong></div>
+        <ul class="b">
+          <li><strong>Die Hälfte in den ersten 8 Stunden</strong>, gerechnet ab dem Unfall, nicht ab Ankunft</li>
+          <li>Die zweite Hälfte über die folgenden 16 Stunden</li>
+          <li>Gegeben wird <strong>Ringer-Laktat</strong></li>
+          <li>Beispiel 80 kg, 20 Prozent → <strong>6400 ml</strong>, davon 3200 ml in 8 Stunden</li>
+        </ul>
+        <div class="callout warn"><span class="lab">⚠ Die Formel ist nur der Startwert</span>Gesteuert wird nach der <strong>Urinausscheidung</strong>: Ziel etwa 0,5 bis 1 ml pro kg und Stunde.</div>
+      </div>
+    </details>
+
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Verlegung</span><span class="ctitle">Wann ins Verbrennungszentrum</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Große Fläche, tiefe Grade oder heikle Lokalisation.</strong></div>
+        <ul class="b">
+          <li>Erwachsene über <strong>15 Prozent</strong>, Kinder über <strong>10</strong>, Grad 3 über 10</li>
+          <li><strong>Gesicht, Hände, Füße, Genital, große Gelenke</strong> — auch bei kleiner Fläche</li>
+          <li>Inhalationstrauma und Stromverletzung</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+
+  <section class="panel" data-panel="therapie">
+    <p class="panel-intro">Als Notarzt am Einsatzort — die dokumentierte Fallfrage.</p>
+
+    <details class="card therapie" open><summary><span class="ct"><span class="ctag">Vor Ort</span><span class="ctitle">Die ersten Minuten</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Eigenschutz · Retten · Kühlen · Wärmen · ABCDE.</strong></div>
+        <ul class="b">
+          <li><strong>Kühlen nur kurz und nur kleine Flächen</strong>, lauwarm um 20 Grad</li>
+          <li><strong>Nie großflächig</strong> — der Patient unterkühlt, die Gerinnung leidet</li>
+          <li>Danach <strong>warm einpacken</strong>, sterile Tücher</li>
+          <li>Ringe und enge Kleidung entfernen, bevor es schwillt</li>
+        </ul>
+        <div class="callout fact"><span class="lab">⚙ Dokumentiert</span>Die Fallfrage lautete: <em>„Als Notarzt zum Einsatz — Vorgehen."</em> Diese Kette ist die Antwort.</div>
+      </div>
+    </details>
+
+    <details class="card therapie"><summary><span class="ct"><span class="ctag">Schmerz</span><span class="ctitle">Warum Opiate</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Verbrennungsschmerz ist mit nichts anderem beherrschbar.</strong></div>
+        <ul class="b">
+          <li><strong>Morphin oder Piritramid</strong> intravenös, titriert</li>
+          <li><strong>Ketamin</strong> als Alternative, gut beim Verbandswechsel</li>
+        </ul>
+        <div class="callout fact"><span class="lab">⚙ Dokumentiert</span>Gefragt wurde ausdrücklich <em>„Analgesie: Opiate — warum?"</em></div>
+      </div>
+    </details>
+
+    <details class="card therapie"><summary><span class="ct"><span class="ctag">Klinik</span><span class="ctitle">Weiterbehandlung</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Flüssigkeit nach Parkland, Wunde versorgen, Tetanusschutz prüfen.</strong></div>
+        <ul class="b">
+          <li>Grad 2a heilt konservativ, ab <strong>2b operieren</strong>: Nekrose ab, Haut transplantieren</li>
+          <li><strong>Escharotomie</strong> bei zirkulärer tiefer Verbrennung — der Panzer schnürt sonst ab</li>
+          <li><strong>Keine prophylaktischen Antibiotika</strong></li>
+        </ul>
+      </div>
+    </details>
+  </section>
+
+  <footer>
+    R1 · Verbrennung. Vier Kernstationen — Grundlagen, Klinik, Diagnostik, Therapie.
+  </footer>
+
+</div>
+<script>
+  const tabs = [...document.querySelectorAll('.tab')];
+  const panels = [...document.querySelectorAll('.panel')];
+  function showTab(name){
+    tabs.forEach(x=>x.classList.toggle('active', x.dataset.tab===name));
+    panels.forEach(p=>p.classList.toggle('active', p.dataset.panel===name));
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  tabs.forEach(t=>t.addEventListener('click',()=>showTab(t.dataset.tab)));
+</script>
+  <script src="/sync.js" defer></script>
+  <script src="/focus-timer.js" defer></script>
+</body>
+</html>

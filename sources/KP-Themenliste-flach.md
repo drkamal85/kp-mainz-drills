@@ -1,6 +1,6 @@
 # KP MAINZ — THEMENLISTE (FLACH, EINE RANGLISTE)
 
-Alle **96 Themen** in einer Rangliste nach **Korpus-Treffer** (WhatsApp-Chat + Protokolle). Aktuell **76 von 96** mit Review abgedeckt (~79 %).
+Alle **96 Themen** in einer Rangliste nach **Korpus-Treffer** (WhatsApp-Chat + Protokolle). Aktuell **77 von 96** mit Review abgedeckt (~80 %).
 
 > **Juli 2026 (a):** 3 Themen ergänzt (nach Protokoll-Frequenz-Check bestätigt): **Kreuzbandruptur** (Unfallchirurgie, 30 Protokoll-Treffer, VKB:21), **Status epilepticus/Epilepsie** (Neurologie, 10), **Gicht/Podagra** (Rheumatologie, 6). *Verworfen* (zu niedrig/abwesend): Meningitis, Demenz, Erysipel, Fazialisparese, Ösophaguskarzinom, Multiples Myelom, Migräne, Parkinson.
 
@@ -107,7 +107,7 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 77 | 56 | 11 | 45 | Allgemein- und Viszeralchirurgie | Hämorrhoiden | — |
 | 78 | 55 | 11 | 44 | Allgemein- und Viszeralchirurgie | Magenkarzinom | ✓ R1 |
 | 79 | 55 | 9 | 46 | Hämatologie | Morbus Hodgkin | — |
-| 80 | 54 | 19 | 35 | Notfallmedizin | Verbrennung | — |
+| 80 | 54 | 19 | 35 | Notfallmedizin | Verbrennung | ✓ R1 |
 | 81 | 52 | 5 | 47 | Gastroenterologie | Colitis ulcerosa | — |
 | 82 | 49 | 10 | 39 | Unfallchirurgie | Claviculafraktur | — |
 | 83 | 47 | 8 | 39 | Endokrinologie | Struma | — |

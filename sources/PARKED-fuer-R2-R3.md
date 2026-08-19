@@ -562,3 +562,32 @@ iFOBT steht ausführlich in **kolonkarzinom** · Aortenscreening in **aortenaneu
 STIKO-Kalender und Impfungen ab 60 in **impfungen-stiko** · Sozialrecht, SGB-Bücher und
 Krankenkassenleistungen in **sozialrecht-hygiene** · Aufklärung und Selbstbestimmung in
 **aufklaerung-einwilligung**.
+
+
+## Verbrennung — R1 gebaut 07/2026, Protokollstoff für R2/R3
+
+**Drei Prüfer dokumentiert, mit Nachfragen:**
+
+**Notarzt-Fall (Drittes Fach, kompletter Block):**
+„Verbrennung: **als Notarzt zum Einsatz, Vorgehen.** Verbrennungsgrade und Erklärung.
+**Warum ab Grad 3 keine Schmerzen.** Therapie. **Flüssigkeitsbedarf nach Parkland-Formel
+(24 Stunden). Berechnung der KOF. 9er-Regel nach Wallace.**
+**Sonnenbrand am ganzen Körper: keine Anwendung der 9er-Regel**, da dies bei schweren
+Verbrennungen zur Bestimmung der Behandlungsstrategie verwendet wird.
+**Analgesie: Opiate, warum?** Wichtig vor Transport: **Intubationsnotwendigkeit prüfen
+(Ödemgefahr).**" Direkt danach Opiatintoxikation mit Naloxon.
+
+**Dr. Georg Weimer:** „Verbrennungen, **Klassifikation, Beispiele** (toxisch, chemisch, Strom,
+Heißwasser), häufigster chemischer Stoff: **Salzsäure. Was ist schlimmer** [Säure oder Lauge]."
+
+**Weiterer Block:** „Verbrennung — **Grad, Ausmaß der Verbrennung: Neunerregel und
+Handflächenregel, ab wie viel Prozent die Sterblichkeit hoch ist (ab 50 %), Indikation von
+Transport in ein Verbrennungszentrum.**"
+
+**Weiterer Block:** „Verbrennung (**Wallace-Neunerregel Beschreibung**)" — im selben Fach
+mit Marcumar gegen NOAK und Bewusstlosigkeitsursachen.
+
+**Grenzt an andere Reviews, dort NICHT doppeln:** Kohlenmonoxid mit der Pulsoxymeter-Falle steht
+in **akuttoxikologie** · Opioidanalgesie und Naloxon in **schmerztherapie** und
+**notfallpharmakologie** · Volumenmangelschock in **schock** · Atemwegssicherung und Intubation
+in **anaesthesie-atemweg** · Tetanusschutz in **impfungen-stiko**.
