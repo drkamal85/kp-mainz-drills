@@ -591,3 +591,30 @@ mit Marcumar gegen NOAK und Bewusstlosigkeitsursachen.
 in **akuttoxikologie** · Opioidanalgesie und Naloxon in **schmerztherapie** und
 **notfallpharmakologie** · Volumenmangelschock in **schock** · Atemwegssicherung und Intubation
 in **anaesthesie-atemweg** · Tetanusschutz in **impfungen-stiko**.
+
+
+## Hämorrhoiden — R1 gebaut 07/2026, Protokollstoff für R2/R3
+
+**Dokumentiert gefragt:**
+- **„Klassifikation von Hämorrhoiden?"** — mehrfach, die häufigste Einzelfrage zum Thema ·
+  im selben Block davor **„Analvenenthrombose? Definition und Therapie"**
+  (Prüfung mit Weber-Klassifikation und Maisonneuve-Fraktur)
+- **Kompletter Block:** „Untere GI-Blutungen, die **Unterscheidung zwischen kolorektalem
+  Karzinom und Hämorrhoiden**, die **Parks-Klassifikation** und die **vier häufigsten
+  operativen Methoden für Hämorrhoiden**." Im selben Block 3/4MRGN, Ringer gegen NaCl,
+  CPAP und NIV.
+- **Herr Qashaa:** „Arterielle Versorgung vom Darm, welche Organe liegen intra- und
+  retroperitoneal. **Hämorrhoiden.** Polytrauma, Milzruptur."
+- **Als Blutungsquelle:** „Was verursacht hellrotes Blut im Stuhl?" → frische distale Blutung,
+  z. B. **Hämorrhoiden, Analfissur, Kolonpolyp, Karzinom, Divertikelblutung"
+- **Als Nebendiagnose:** „Grad-1-Hämorrhoiden (nicht behandelt)" in der Komorbiditätenliste
+  eines Kolonkarzinomfalls
+
+**Für R3 noch aufzuarbeiten:** Die **Parks-Klassifikation** wurde ausdrücklich gefragt —
+sie teilt Analfisteln ein (intersphinktär, transsphinktär, suprasphinktär, extrasphinktär),
+nicht die Hämorrhoiden. Gehört als eigene Karte oder Tab-6-Frage dazu.
+
+**Grenzt an andere Reviews, dort NICHT doppeln:** Untere GI-Blutung mit Ursachenliste und
+Treitz-Band steht in **gi-blutung** · peranale Blutung und der Hämorrhoiden-Fehler als
+Stolperstein in **rektumkarzinom** · Koloskopie-Vorsorge in **kolonkarzinom** ·
+Fournier-Gangrän in **sepsis**-Nachbarn.
