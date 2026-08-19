@@ -115,7 +115,7 @@ FLAT=[
 (49,10,39,"Unfallchirurgie","Claviculafraktur",None),
 (47,8,39,"Endokrinologie","Struma",None),
 (43,19,24,"Kardiologie","Paroxysmale SVT / AVNRT-AVRT",None),
-(43,13,30,"Querschnitt","Check-up / Prävention",None),
+(43,13,30,"Querschnitt","Check-up / Prävention","praevention"),
 (40,10,30,"Angiologie","Aortenaneurysma (AAA)","aortenaneurysma"),
 (40,7,33,"Unfallchirurgie","Beckenringfrakturen","beckenringfrakturen"),
 (37,12,25,"Notfallmedizin","Delir","delir"),

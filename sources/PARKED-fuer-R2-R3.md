@@ -536,3 +536,29 @@ Eradikation stehen in **gastritis** · Ulkus und Forrest in **gastroduodenales-u
 **gi-blutung** · Magenkarzinom und Laurén in **magenkarzinom** · ACS-Ausschluss und Troponin in
 **khk** · Eisenmangelanämie in **eisenmangelanaemie** · Boerhaave und Mallory-Weiss in
 **gi-blutung**.
+
+
+## Check-up / Prävention — R1 gebaut 07/2026, Protokollstoff für R2/R3
+
+**Prof. Müller-Forell fragt es regelmäßig — drei dokumentierte Male:**
+- **„Stufen der Prävention mit Beispielen"** · direkt danach: **„Ein Patient kommt in die Praxis
+  und will einen Gesundheits-Check machen — was machen Sie?"** → erwartet wurde Anamnese
+  einschließlich Lebensstil, dann die weitere Kette
+- Zweites Protokoll: „Sie hat gefragt über Prävention — **sie will die genaue Definition gemäß
+  des SGB**. Was sind die Klassifikationen?" Danach viele Fragen zur Leichenschau.
+  Der Kandidat vermerkte, dass es bei ihr schwierig war und anders als in den Protokollen.
+- Drittes Protokoll: „fragte sie nach **Prävention, Impfung und Vorsorgeuntersuchungen**,
+  den Unterschied zwischen CT und MRT und ihre Kontrastmittel"
+
+**Weitere dokumentierte Fragen:**
+- **„Welche Vorsorgeuntersuchungen gibt es?"** — als Abschluss eines Bildblocks
+- **„Welche Krebsvorsorge wird in Deutschland angeboten?"** → erwartet:
+  **PSA, DRU, Mammographie, Hautscreening, Koloskopie**
+- **Impfkalender ab 60 Jahren** ausdrücklich abgefragt, im selben Block wie Schmerztherapie
+- Aortenaneurysma: „wie macht man Screening, ab wann OP" — Sono ab 65 beim Mann
+
+**Grenzt an andere Reviews, dort NICHT doppeln:** Darmkrebsvorsorge mit Koloskopie ab 50/55 und
+iFOBT steht ausführlich in **kolonkarzinom** · Aortenscreening in **aortenaneurysma** ·
+STIKO-Kalender und Impfungen ab 60 in **impfungen-stiko** · Sozialrecht, SGB-Bücher und
+Krankenkassenleistungen in **sozialrecht-hygiene** · Aufklärung und Selbstbestimmung in
+**aufklaerung-einwilligung**.
