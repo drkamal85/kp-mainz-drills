@@ -180,6 +180,29 @@ Always `project_knowledge_search` for a topic's content + its documented Mainz p
 
 ---
 
+## 10b. RANG AUF DEN THEMENSEITEN
+
+Jede Themenseite trägt ihren Korpus-Rang als erste Angabe der Meta-Zeile:
+
+```html
+<span class="rk">Rang 32 · 132 Treffer</span>
+```
+
+Gesetzt von **`tools/_stamp-rank.py`**, Quelle ist `api/themen.json` — also dieselbe Rangliste
+wie Themenliste und Startseite. Der Lauf ist idempotent (vorhandener Span wird ersetzt) und
+überspringt Seiten ohne Rangeintrag: Drills sowie die Extras Pleuraerguss und
+Notfallpharmakologie. Stand: **80 von 82 Themenseiten**.
+
+**Nach jeder Rangänderung erneut laufen lassen**, direkt nach `_build-master.py`:
+
+```
+python3 tools/_build-master.py && python3 tools/_stamp-rank.py
+```
+
+Der Stil steht als `.meta .rk` in jeder Seite und in `print.css`, erscheint also auch im PDF.
+
+---
+
 ## 11. DRUCK / PDF (Standard-Layout — Aug 2026)
 
 Ein einziges Layout für alle Themenseiten. Nie pro Thema anpassen.
