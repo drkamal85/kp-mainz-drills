@@ -1,1 +1,4 @@
 *.pdf
+
+# ...ausser den gerenderten Druckfassungen, die die Action baut
+!pdf/**/*.pdf

@@ -229,6 +229,20 @@ zweite Seite — das ist ein Inhaltslimit, kein Layoutfehler.
 **Schriften beim Rendern:** Fraunces + Manrope müssen systemweit liegen
 (`~/.fonts` + `fc-cache -f`, Quelle `raw.githubusercontent.com/google/fonts`), sonst Fallback auf Serif/Sans.
 
+**Druckseite `print-pdf.html`:** Die Action **`.github/workflows/build-pdfs.yml`** rendert bei
+jeder Änderung an `reviews/**`, `print.css` oder dem Builder alle Themen mit WeasyPrint und legt
+sie unter `pdf/` ab — Vollversion, `pdf/quiz/` mit verdeckten Antworten und `pdf/fach/` als
+Sammel-PDF je Fachgruppe. `tools/_build-pdf-index.py` baut daraus `print-pdf.html`, verlinkt von
+der Startseite. Die Action committet das Ergebnis mit `[skip ci]` zurück.
+
+Weil `wrangler.jsonc` das Repo-Root als `assets.directory` hat, wird `pdf/` automatisch
+mit ausgeliefert. In `.gitignore` steht `*.pdf`, aber `!pdf/**/*.pdf` nimmt den Ausgabeordner aus.
+
+**Warum nicht im Browser erzeugen:** WeasyPrint ist Python mit nativen Abhängigkeiten (Cairo,
+Pango) — läuft weder im Browser noch auf Cloudflare Workers. Die JS-Bibliotheken für
+PDF-Erzeugung beherrschen weder `@page`-Margin-Boxen noch Lesezeichen. Ein Knopf auf der Seite
+würde also ein anderes, schlechteres Layout liefern als das vereinbarte.
+
 **Browserdruck (Safari auf dem iPad, Chrome):** Die Fit-Stufe steckt **fest im `<body>`** jeder
 Themenseite als `class="fit-N"` — sonst säht der Browser immer fit-0 und die 34 engeren Decks
 liefen über. Geschrieben wird sie mit:
