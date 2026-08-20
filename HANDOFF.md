@@ -185,8 +185,18 @@ Always `project_knowledge_search` for a topic's content + its documented Mainz p
 Jede Themenseite trägt ihren Korpus-Rang als erste Angabe der Meta-Zeile:
 
 ```html
-<span class="rk">Rang 32 · 132 Treffer</span>
+<span class="rk hi">Rang 32 von 96</span>
 ```
+
+**Woher der Rang kommt:** `tools/_build-master.py` führt in `FLAT` je Thema die Zahl der
+Erwähnungen im WhatsApp-Chat und in den Protokoll-Dateien. Sortiert wird absteigend nach dieser
+Summe (`FLAT.sort(key=lambda r:-r[0])`), der Rang ist schlicht die Position — Cholezystitis mit
+381 Erwähnungen steht auf 1, Gicht mit 6 auf 96. Die Trefferzahl selbst steht **nicht** mehr auf
+der Seite: sie ist mechanisch gezählt, erfasst auch beiläufige Nennungen und täuscht deshalb
+(Delir hat nur 37 Erwähnungen, war aber zweimal der Prüfungsfall).
+
+**Farbstufe nach Rangdrittel**, damit der Rang ohne Zahlenvergleich spricht:
+`hi` rot (Rang 1–32) · `mid` bernstein (33–64) · `lo` grau (65–96).
 
 Gesetzt von **`tools/_stamp-rank.py`**, Quelle ist `api/themen.json` — also dieselbe Rangliste
 wie Themenliste und Startseite. Der Lauf ist idempotent (vorhandener Span wird ersetzt) und

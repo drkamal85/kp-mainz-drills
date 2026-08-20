@@ -5,7 +5,7 @@ tools/_stamp-rank.py — schreibt den Korpus-Rang in die Meta-Zeile jeder Themen
 Quelle ist api/themen.json, also dieselbe Rangliste wie in der Themenliste und
 auf der Startseite. Eingefügt wird ein Span der Form
 
-    <span class="rk">Rang 32 · 132 Treffer</span>
+    <span class="rk">Rang 32 von 96</span>
 
 als erstes Element der Meta-Zeile. Der Lauf ist idempotent: ein vorhandener
 Span wird ersetzt, nicht gedoppelt. Seiten ohne Rangeintrag (Drills, Extras
@@ -19,7 +19,7 @@ import pathlib
 import re
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-SPAN = re.compile(r'\s*<span class="rk">[^<]*</span>')
+SPAN = re.compile(r'\s*<span class="rk[^"]*">[^<]*</span>')
 
 
 def load_ranks() -> dict[str, tuple[int, int]]:
@@ -29,7 +29,7 @@ def load_ranks() -> dict[str, tuple[int, int]]:
         rid = t.get("reviewId")
         if not rid or not t.get("covered"):
             continue
-        out[rid.rsplit("-r", 1)[0]] = (t["rank"], t["treffer"])
+        out[rid.rsplit("-r", 1)[0]] = (t["rank"], data["total"])
     return out
 
 
@@ -49,8 +49,11 @@ def main():
             print(f"  UEBERSPRUNGEN (keine Meta-Zeile): {p.name}")
             continue
 
-        rang, treffer = r
-        span = f'\n      <span class="rk">Rang {rang} · {treffer} Treffer</span>'
+        rang, total = r
+        # Farbstufe nach Rangdrittel: oben rot, Mitte bernstein, unten grau.
+        # So spricht der Rang auf einen Blick, ohne dass man Zahlen vergleichen muss.
+        stufe = "hi" if rang <= total / 3 else ("mid" if rang <= 2 * total / 3 else "lo")
+        span = f'\n      <span class="rk {stufe}">Rang {rang} von {total}</span>'
 
         # vorhandenen Span entfernen, dann neu setzen — so bleibt der Lauf idempotent
         head, tail = src[: m.end()], src[m.end():]
