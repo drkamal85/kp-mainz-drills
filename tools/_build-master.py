@@ -62,7 +62,7 @@ FLAT=[
 (151,18,133,"Gastroenterologie","Hepatitis","hepatitis"),
 (143,42,101,"Allgemein- und Viszeralchirurgie","Kolonkarzinom","kolonkarzinom"),
 (142,16,126,"Kardiologie","KHK / Koronarsyndrom","khk"),
-(132,39,93,"Gastroenterologie","Lebermetastasen / Lebertumor",None),
+(132,39,93,"Gastroenterologie","Lebermetastasen / Lebertumor","lebertumoren"),
 (131,82,49,"Drittes Fach","Strahlenschutz","strahlenschutz"),
 (130,31,99,"Pneumologie","COPD","copd"),
 (127,44,83,"Unfallchirurgie","Sprunggelenksfraktur (OSG)","sprunggelenksfraktur"),

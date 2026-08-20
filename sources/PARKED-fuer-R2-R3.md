@@ -650,3 +650,40 @@ HCC stehen ausführlich in **leberzirrhose** · Ikterus und Cholestaseparameter 
 **ikterus-cholestase** · Sechsfachimpfung und STIKO-Kalender in **impfungen-stiko** ·
 Meldepflicht und Infektionsschutzgesetz in **sozialrecht-hygiene** · Nadelstichverletzung
 ebenfalls dort · EBV in **non-hodgkin-lymphome**.
+
+
+## Lebermetastasen / Lebertumor — R1 gebaut 07/2026, Protokollstoff für R2/R3
+**Rang 32 mit 132 Treffern. Dreimal war es der Prüfungsfall selbst.**
+
+**Fall 1 — Dr. Gohrbandt (Vorsitz), Dr. Zorbach, Dr. Kieninger-Baum:**
+78-jährige Frau mit V. a. Lebermetastasen bei Z. n. Hemikolektomie links bei Sigmakarzinom
+pT2 N0(0/12) L0 R0 M0 **vor 7 Monaten**, laborchemisch erhöhte Leberwerte.
+**Dr. Gohrbandts Kette:** „Bitte beschreiben Sie die **Blutversorgung der Leber**. Wie viele
+**Lappen und Segmente** hat die Leber? Welche **malignen Tumoren der Leber** kennen Sie?
+**Was ist FNH? Wie behandeln wir ein Adenom?**"
+
+**Fall 2 — Frau Deckers (Vorsitz), Dr. Kirdorf, Dr. Duda (07.02.2024):**
+Oberbauchschmerzen rechts, V. a. subakute Cholezystitis, vorbekannte Leberherde →
+Diagnose Lebermetastasen und LK-Metastasen mit V. a. Pankreasschwanzmalignom.
+Gefragt: **DD Leber-Raumforderungen** · Cholestaseparameter ·
+**„Alpha-Fetoprotein bei welchem Tumor?"** → HCC · ERCP diagnostisch und therapeutisch ·
+**„Was bedeutet palliativ?"**
+
+**Fall 3 — Dr. Deckers, Dr. Bader, Dr. Baum (10.04.2024):**
+50-jähriger Mann mit Lebermetastasen, elektive Aufnahme **zur Suche des Primarius**.
+
+**Bilderblock-Kette (mehrfach):** Sono mit Harnstau plus multiplen Leberknoten →
+**„Was ist die DD für multiple Knoten in der Leber?"** → „Was machen Sie weiter?" →
+**„Falls dieser Fall eine Metastase ist, wovon machen Sie Biopsie?"** →
+**Primärtumor und Leber, um HCC auszuschließen** → dann Krebsvorsorge und Tumormarker.
+
+**HCC-Therapieblock dokumentiert:** „CT-Bild HCC: **kurative operative Verfahren** (Resektion,
+Lebertransplantation), **Indikationen für LTx**, **interventionelle Methoden (RFA, TACE)**."
+
+**Sono-Lebermetastasen im Bilderblock** in mindestens vier weiteren Protokollen —
+bei Dr. Hock zusammen mit Cholezystitis, Nierenstein und Zyste.
+
+**Grenzt an andere Reviews, dort NICHT doppeln:** Zirrhose, Child-Pugh, MELD und HCC-Screening
+stehen in **leberzirrhose** · Ikterus und Cholestaseparameter in **ikterus-cholestase** ·
+Pankreaskarzinom und Whipple in **pankreaskarzinom** · Kolonkarzinom und Hemikolektomie in
+**kolonkarzinom** · Krebsvorsorge in **praevention** · Sonobefunde im **hoffart-bildatlas**.

@@ -1,6 +1,6 @@
 # KP MAINZ — THEMENLISTE (FLACH, EINE RANGLISTE)
 
-Alle **96 Themen** in einer Rangliste nach **Korpus-Treffer** (WhatsApp-Chat + Protokolle). Aktuell **79 von 96** mit Review abgedeckt (~82 %).
+Alle **96 Themen** in einer Rangliste nach **Korpus-Treffer** (WhatsApp-Chat + Protokolle). Aktuell **80 von 96** mit Review abgedeckt (~83 %).
 
 > **Juli 2026 (a):** 3 Themen ergänzt (nach Protokoll-Frequenz-Check bestätigt): **Kreuzbandruptur** (Unfallchirurgie, 30 Protokoll-Treffer, VKB:21), **Status epilepticus/Epilepsie** (Neurologie, 10), **Gicht/Podagra** (Rheumatologie, 6). *Verworfen* (zu niedrig/abwesend): Meningitis, Demenz, Erysipel, Fazialisparese, Ösophaguskarzinom, Multiples Myelom, Migräne, Parkinson.
 
@@ -49,7 +49,7 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 29 | 151 | 18 | 133 | Gastroenterologie | Hepatitis | ✓ R1 |
 | 30 | 143 | 42 | 101 | Allgemein- und Viszeralchirurgie | Kolonkarzinom | ✓ R2 |
 | 31 | 142 | 16 | 126 | Kardiologie | KHK / Koronarsyndrom | ✓ R3 |
-| 32 | 132 | 39 | 93 | Gastroenterologie | Lebermetastasen / Lebertumor | — |
+| 32 | 132 | 39 | 93 | Gastroenterologie | Lebermetastasen / Lebertumor | ✓ R1 |
 | 33 | 131 | 82 | 49 | Drittes Fach | Strahlenschutz | ✓ R3 |
 | 34 | 130 | 31 | 99 | Pneumologie | COPD | ✓ R4 |
 | 35 | 127 | 44 | 83 | Unfallchirurgie | Sprunggelenksfraktur (OSG) | ✓ R3 |
