@@ -618,3 +618,35 @@ nicht die Hämorrhoiden. Gehört als eigene Karte oder Tab-6-Frage dazu.
 Treitz-Band steht in **gi-blutung** · peranale Blutung und der Hämorrhoiden-Fehler als
 Stolperstein in **rektumkarzinom** · Koloskopie-Vorsorge in **kolonkarzinom** ·
 Fournier-Gangrän in **sepsis**-Nachbarn.
+
+
+## Hepatitis A–E — R1 gebaut 07/2026, Protokollstoff für R2/R3
+**Rang 29 mit 151 Treffern. Die Themenliste führt „Hepatitis" als Gruppe, nicht C einzeln —
+und die Protokolle bestätigen das: gefragt wird B und C im Vergleich, dann D, dann A/E.**
+
+**Dr. Linke, komplette Kette (Fall Leberzirrhose):**
+„Was sind die Ursachen von Leberzirrhose?" — konzentriert auf Virushepatitiden ·
+„Wenn Alkoholabusus bekannt ist, reicht uns das oder soll man weitere Untersuchung
+durchführen?" → **ja, Hepatitis-Serologie** · **„Welche Typen sind wichtig bei diesem Fall?"**
+→ B und C · **„Und A, E?"** → nein · **„Wenn B festgestellt, was soll man noch diagnostizieren?"**
+→ Hepatitis D · **„Kommt D allein?"** → nein. Danach Ösophagusvarizen und Vorgehen.
+
+**Weiterer Block (Leberzirrhose bis HCC):**
+„Was kann außer Leberzirrhose ein HCC machen?" → **Steatosis hepatis** ·
+**„Wie kann man mit B und C infiziert werden?"** → B sexuell, parenteral, vertikal ·
+C dasselbe, aber **Bluttransfusion im Vordergrund, daher Posttransfusionshepatitis** ·
+**„Für welche Hepatitiden gibt's Impfung?"** → A und B, plus Kombinationsimpfung ·
+**„Wann gibt man die Hep-B-Impfung?"** → Sechsfachimpfung im 2., 4. und 11. Lebensmonat
+
+**Weitere dokumentierte Kontexte:**
+- **Fall Dr. Deckers / Dr. Fischer:** junge Frau mit **EBV mit Hepatitis**, Akte etwa 30 Seiten
+- Hepatitis als DD bei **Oberbauchschmerz rechts** (Prüfer wollte alle Ursachen hören)
+- **Therapie je Typ dokumentiert:** HAV und HEV symptomatisch · HBV **Tenofovir oder Entecavir**
+  · HCV **DAA** · bei akuter Hepatitis **kein NSAR**, Paracetamol zurückhaltend
+- Hepatitis-B-Impfung im Kontext Sechsfachimpfung mehrfach abgefragt
+
+**Grenzt an andere Reviews, dort NICHT doppeln:** Leberzirrhose, Child-Pugh, Ösophagusvarizen und
+HCC stehen ausführlich in **leberzirrhose** · Ikterus und Cholestaseparameter in
+**ikterus-cholestase** · Sechsfachimpfung und STIKO-Kalender in **impfungen-stiko** ·
+Meldepflicht und Infektionsschutzgesetz in **sozialrecht-hygiene** · Nadelstichverletzung
+ebenfalls dort · EBV in **non-hodgkin-lymphome**.

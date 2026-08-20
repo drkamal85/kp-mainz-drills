@@ -59,7 +59,7 @@ FLAT=[
 (169,54,115,"Allgemein- und Viszeralchirurgie","Appendizitis","appendizitis"),
 (155,42,113,"Kardiologie","AV-Block","av-block"),
 (151,61,90,"Hämatologie","Eisenmangelanämie","eisenmangelanaemie"),
-(151,18,133,"Gastroenterologie","Hepatitis",None),
+(151,18,133,"Gastroenterologie","Hepatitis","hepatitis"),
 (143,42,101,"Allgemein- und Viszeralchirurgie","Kolonkarzinom","kolonkarzinom"),
 (142,16,126,"Kardiologie","KHK / Koronarsyndrom","khk"),
 (132,39,93,"Gastroenterologie","Lebermetastasen / Lebertumor",None),

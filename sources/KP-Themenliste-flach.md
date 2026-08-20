@@ -1,6 +1,6 @@
 # KP MAINZ — THEMENLISTE (FLACH, EINE RANGLISTE)
 
-Alle **96 Themen** in einer Rangliste nach **Korpus-Treffer** (WhatsApp-Chat + Protokolle). Aktuell **78 von 96** mit Review abgedeckt (~81 %).
+Alle **96 Themen** in einer Rangliste nach **Korpus-Treffer** (WhatsApp-Chat + Protokolle). Aktuell **79 von 96** mit Review abgedeckt (~82 %).
 
 > **Juli 2026 (a):** 3 Themen ergänzt (nach Protokoll-Frequenz-Check bestätigt): **Kreuzbandruptur** (Unfallchirurgie, 30 Protokoll-Treffer, VKB:21), **Status epilepticus/Epilepsie** (Neurologie, 10), **Gicht/Podagra** (Rheumatologie, 6). *Verworfen* (zu niedrig/abwesend): Meningitis, Demenz, Erysipel, Fazialisparese, Ösophaguskarzinom, Multiples Myelom, Migräne, Parkinson.
 
@@ -46,7 +46,7 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 26 | 169 | 54 | 115 | Allgemein- und Viszeralchirurgie | Appendizitis | ✓ R4 |
 | 27 | 155 | 42 | 113 | Kardiologie | AV-Block | ✓ R3 |
 | 28 | 151 | 61 | 90 | Hämatologie | Eisenmangelanämie | ✓ R3 |
-| 29 | 151 | 18 | 133 | Gastroenterologie | Hepatitis | — |
+| 29 | 151 | 18 | 133 | Gastroenterologie | Hepatitis | ✓ R1 |
 | 30 | 143 | 42 | 101 | Allgemein- und Viszeralchirurgie | Kolonkarzinom | ✓ R2 |
 | 31 | 142 | 16 | 126 | Kardiologie | KHK / Koronarsyndrom | ✓ R3 |
 | 32 | 132 | 39 | 93 | Gastroenterologie | Lebermetastasen / Lebertumor | — |
