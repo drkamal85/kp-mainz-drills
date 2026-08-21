@@ -105,7 +105,7 @@ FLAT=[
 (59,11,48,"Gastroenterologie","GERD / Refluxkrankheit","gerd"),
 (59,7,52,"Kardiologie","Infektiöse Endokarditis","infektioese-endokarditis"),
 (58,29,29,"Neurologie","Hirnblutungen (EDH/SDH/SAB/ICB)",None),
-(57,17,40,"Allgemein- und Viszeralchirurgie","Diarrhoe / Gastroenteritis","diarrhoe"),
+(57,17,40,"Gastroenterologie","Diarrhoe / Gastroenteritis","diarrhoe"),
 (56,15,41,"Allgemein- und Viszeralchirurgie","Pankreaskarzinom","pankreaskarzinom"),
 (56,11,45,"Allgemein- und Viszeralchirurgie","Hämorrhoiden","haemorrhoiden"),
 (55,11,44,"Allgemein- und Viszeralchirurgie","Magenkarzinom","magenkarzinom"),
