@@ -237,6 +237,12 @@ zersplittert ("R3 von 5 · Superset von R2", "R3 · 6 Tabs · …", blosses "R3"
 python3 tools/_build-master.py && python3 tools/_stamp-rank.py && python3 tools/_clean-meta.py
 ```
 
+**Footer entfernt:** Die Themenseiten trugen am Ende eine Zeile wie *„R1 · Meningitis. Vier
+Kernstationen — Grundlagen, Klinik, Diagnostik, Therapie."* — reine Wiederholung von Titel und
+Tabs. Auf allen 83 Seiten entfernt. **Die Drills behalten ihren Footer**, weil
+`_build-content.py` ihn dort als Endmarke beim Parsen nutzt. Die Fußzeile im PDF (Quelle links,
+Seitenzahl rechts) stammt aus `print.css` und ist nicht betroffen.
+
 ---
 
 ## 11. DRUCK / PDF (Standard-Layout — Aug 2026)
