@@ -716,3 +716,33 @@ in **schaedel-hirn-trauma** · Status epilepticus in **eeg-komplett** · Sepsisk
 **sepsis** · Impfungen gegen Meningokokken, Pneumokokken und Hib in **impfungen-stiko** ·
 FSME und Neuroborreliose in **borreliose-fsme** · Waterhouse-Friderichsen grenzt an
 **cushing-syndrom** (Nebennieren).
+
+
+## Diarrhoe / Gastroenteritis — R1 gebaut 07/2026, Protokollstoff für R2/R3
+**Rang 76 mit 57 Treffern.**
+
+**Dr. Gregor, kompletter Block:**
+„Diarrhö, **Definition, akut und chronisch, DD bei chronisch**, Unterschied zwischen Morbus Crohn
+und CU mit Behandlung, in welchem Teil vom Darm ist CU häufig? **Clostridium-difficile-Infektion**,
+Zöliakie, GI-Blutung alles darüber, was ist Treitz-Band, Ulkus Ursachen, Diagnose und Behandlung."
+
+**Fall 70-Jährige mit Diarrhö — zweimal dokumentiert, mit erwarteten Antworten:**
+„Ein 70-jährige Frau mit Diarrhö kam zu dir, was machst du — zeig, was ein normaler Arzt auf der
+ZNA macht." → **Zeichen der Exsikkose: verlängerte Hautfalte, niedriger RR, hohe HF** ·
+Labor → **Retentionsparameter**, dazu **akute Nierenschädigung als prärenales Geschehen** →
+**Stuhltest und Kulturen** → **Differenzialdiagnose des Durchfalls**.
+Zweites Protokoll: „Diarrhö, Vorgehen, Clostridium difficile, **was genau soll man untersuchen?**"
+→ **Hautfalten, RR, HF, Schleimhaut**, Labor wichtig Nierenparameter.
+
+**Weitere dokumentierte Kontexte:**
+- **80-Jährige mit Durchfall, Synkope, Exsikkose und Sepsis** — Enddiagnose war eine **Pneumonie**
+  (Dr. Hilbert, Dr. Deckers, Dr. Gohrbandt)
+- **Paradoxe Diarrhö** als DD beim Rektumkarzinom-Fall → Divertikulose, CED
+- Bettlägriger Patient mit V. a. Ileus, seit 2 Tagen Diarrhö, keine Darmgeräusche
+- Clostridium difficile im Block nach Harnwegsinfekt und Hyperthyreose
+
+**Grenzt an andere Reviews, dort NICHT doppeln:** Morbus Crohn gegen Colitis ulcerosa steht
+ausführlich in **morbus-crohn** · Kolonkarzinom und paradoxe Diarrhö in **kolonkarzinom** und
+**rektumkarzinom** · Ileus in **ileus** · Exsikkose und prärenales Nierenversagen in
+**nierenversagen** · Sepsiskriterien in **sepsis** · Händehygiene und Meldepflicht in
+**sozialrecht-hygiene** · Zöliakie bisher nirgends.
