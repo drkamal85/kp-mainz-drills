@@ -1,6 +1,6 @@
 # KP MAINZ — THEMENLISTE (FLACH, EINE RANGLISTE)
 
-Alle **97 Themen** in einer Rangliste nach **Korpus-Treffer** (WhatsApp-Chat + Protokolle). Aktuell **82 von 97** mit Review abgedeckt (~85 %).
+Alle **97 Themen** in einer Rangliste nach **Korpus-Treffer** (WhatsApp-Chat + Protokolle). Aktuell **83 von 97** mit Review abgedeckt (~86 %).
 
 > **Juli 2026 (a):** 3 Themen ergänzt (nach Protokoll-Frequenz-Check bestätigt): **Kreuzbandruptur** (Unfallchirurgie, 30 Protokoll-Treffer, VKB:21), **Status epilepticus/Epilepsie** (Neurologie, 10), **Gicht/Podagra** (Rheumatologie, 6). *Verworfen* (zu niedrig/abwesend): Demenz, Erysipel, Fazialisparese, Ösophaguskarzinom, Multiples Myelom, Migräne, Parkinson.
 >
@@ -58,7 +58,7 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 41 | 111 | 37 | 74 | Angiologie | Tiefe Beinvenenthrombose (TVT) | ✓ R4 |
 | 42 | 108 | 35 | 73 | Kardiologie | Arterielle Hypertonie | ✓ R3 |
 | 43 | 102 | 15 | 87 | Pneumologie | Asthma bronchiale | ✓ R4 |
-| 44 | 100 | 35 | 65 | Pneumologie | Bronchialkarzinom | — |
+| 44 | 100 | 35 | 65 | Pneumologie | Bronchialkarzinom | ✓ R1 |
 | 45 | 95 | 18 | 77 | Kardiologie | Synkope | ✓ R3 |
 | 46 | 93 | 40 | 53 | Unfallchirurgie | Distale Radiusfraktur | ✓ R4 |
 | 47 | 93 | 30 | 63 | Drittes Fach | Schmerztherapie / WHO-Schema | ✓ R1 |

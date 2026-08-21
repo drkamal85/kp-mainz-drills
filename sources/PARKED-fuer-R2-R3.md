@@ -746,3 +746,46 @@ ausführlich in **morbus-crohn** · Kolonkarzinom und paradoxe Diarrhö in **kol
 **rektumkarzinom** · Ileus in **ileus** · Exsikkose und prärenales Nierenversagen in
 **nierenversagen** · Sepsiskriterien in **sepsis** · Händehygiene und Meldepflicht in
 **sozialrecht-hygiene** · Zöliakie bisher nirgends.
+
+
+## Bronchialkarzinom — R1 gebaut 07/2026, Protokollstoff für R2/R3
+**Rang 44 mit 100 Treffern. Viermal war es der Prüfungsfall selbst.**
+
+**Prof. Schmitz — Fall akute Dyspnoe, Enddiagnose Bronchialkarzinom:**
+Fallvorstellung, dann detaillierte Besprechung: Differenzialdiagnose, Labor.
+„Ich musste dem Tumor ein **Stadium** zuordnen. Der Patient war im **Stadium 4**, und hier waren
+hauptsächlich **Palliative Maßnahmen** von Bedeutung. **Er wollte diese Maßnahmen von mir hören.**
+Ihm war wichtig, wie man sich mit dem Fall auseinandersetzen kann und **was man für den Patienten
+tun kann.**"
+
+**Fall Bronchialkarzinom Stadium 4 (Herr Stefan Schmidt, Innere):**
+Patient kommt per Rettungsdienst wegen zunehmender Dyspnoe und Zyanose,
+V. a. exazerbierte COPD — entweder durch Pneumonie oder durch Tumorausbreitung.
+
+**Prof. Dahm — Fall Aortenaneurysma mit gleichzeitigem Lungenkarzinom:**
+Diskussion über die **Reihenfolge der Operationen** (Aorta zuerst, dann Lungenkarzinom),
+danach Aortenaneurysma und aortocavale Fistel. Dann: „**Staging? Funktionelles Staging?
+Was macht man vor Lobektomie?**" Anschließend CT Thorax mit **Pleuraraumforderung** →
+„Was erwarten Sie, wenn ich sage, das ist ein Tumor?" → **Mesotheliom** →
+„**Was soll man fragen?**" → **Was hat der Patient beruflich gemacht** (Asbest).
+
+**Fall Prof. Dahm / Prof. Hinze / Prof. Müller-Forell:** „Der Fall war Lungenkarzinom, in der
+Akte war nur OP-Aufklärung und ein paar CT-Befunde, Kontrolle von Raumforderung in der Lunge."
+
+**CT-Bild zentrales kleinzelliges Bronchialkarzinom:** „Über die **Klassifikation** gefragt,
+über die **Behandlung**, auch über Pneumonie. **Welche Untersuchung soll gemacht werden?**
+Das war **Spirometrie**. Über die **Metastasierung** wurde auch gefragt."
+
+**SIADH-Kette (Dr. Laakmann-Block):** Patient auf onkologischer Station mit **Verwirrtheit** →
+Anamnese, Untersuchung, Labor → **Hypernatriämie? nein, Hyponatriämie** → Vorgehen →
+**SIADH** → Diagnose und Ursache → **paraneoplastische Manifestation im Rahmen eines
+kleinzelligen Lungenkarzinoms**. Danach Bluttransfusion sehr detailliert.
+
+**Als DD:** Bei Pneumonie wollte ein Prüfer ausdrücklich **Lungenkarzinom und Tuberkulose** hören.
+Beim CT-Rundherd mit randbetonter Verkalkung war dagegen **Tuberkulose** die gesuchte Antwort.
+
+**Grenzt an andere Reviews, dort NICHT doppeln:** SIADH und Hyponatriämie stehen in
+**hyponatriaemie-siadh** · Pleuraerguss und Punktion in **pleuraerguss** · Pneumonie-DD in
+**pneumonie** · Tuberkulose in **tuberkulose** · Aortenaneurysma in **aortenaneurysma** ·
+Cushing durch ektopes ACTH in **cushing-syndrom** · WHO-Schmerzschema in **schmerztherapie** ·
+Rundherd im **hoffart-bildatlas**.

@@ -74,7 +74,7 @@ FLAT=[
 (111,37,74,"Angiologie","Tiefe Beinvenenthrombose (TVT)","tvt"),
 (108,35,73,"Kardiologie","Arterielle Hypertonie","arterielle-hypertonie"),
 (102,15,87,"Pneumologie","Asthma bronchiale","asthma-bronchiale"),
-(100,35,65,"Pneumologie","Bronchialkarzinom",None),
+(100,35,65,"Pneumologie","Bronchialkarzinom","bronchialkarzinom"),
 (95,18,77,"Kardiologie","Synkope","synkope"),
 (93,40,53,"Unfallchirurgie","Distale Radiusfraktur","distale-radiusfraktur"),
 (93,30,63,"Drittes Fach","Schmerztherapie / WHO-Schema","schmerztherapie"),
