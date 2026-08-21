@@ -103,7 +103,7 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 86 | 43 | 13 | 30 | Querschnitt | Check-up / Prävention | ✓ R1 |
 | 87 | 40 | 10 | 30 | Angiologie | Aortenaneurysma (AAA) | ✓ R2 |
 | 88 | 40 | 7 | 33 | Unfallchirurgie | Beckenringfrakturen | ✓ R4 |
-| 89 | 37 | 12 | 25 | Notfallmedizin | Delir | ✓ R1 |
+| 89 | 37 | 12 | 25 | Notfallmedizin | Delir | ✓ R2 |
 | 90 | 32 | 5 | 27 | Endokrinologie | Cushing-Syndrom | ✓ R3 |
 | 91 | 32 | 9 | 23 | Nephrologie | Hyponatriämie / SIADH | ✓ R1 |
 | 92 | 30 | 0 | 30 | Unfallchirurgie | Kreuzbandruptur | — |
