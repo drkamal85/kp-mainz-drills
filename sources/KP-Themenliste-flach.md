@@ -85,12 +85,12 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 68 | 64 | 29 | 35 | Allgemein- und Viszeralchirurgie | Akutes Abdomen | ✓ R1 |
 | 69 | 63 | 25 | 38 | Notfallmedizin | Anaphylaxie | ✓ R1 |
 | 70 | 62 | 15 | 47 | Allgemein- und Viszeralchirurgie | Rektumkarzinom | ✓ R3 |
-| 71 | 60 | 15 | 45 | Unfallchirurgie | Humerusfraktur | ✓ R3 |
-| 72 | 59 | 11 | 48 | Gastroenterologie | GERD / Refluxkrankheit | ✓ R1 |
-| 73 | 59 | 7 | 52 | Kardiologie | Infektiöse Endokarditis | ✓ R3 |
-| 74 | 58 | 29 | 29 | Neurologie | Hirnblutungen (EDH/SDH/SAB/ICB) | — |
-| 75 | 57 | 17 | 40 | Allgemein- und Viszeralchirurgie | Diarrhoe / Gastroenteritis | — |
-| 76 | 57 | 34 | 23 | Neurologie | Meningitis / Enzephalitis | ✓ R1 |
+| 71 | 62 | 22 | 40 | Neurologie | Meningitis / Enzephalitis | ✓ R1 |
+| 72 | 60 | 15 | 45 | Unfallchirurgie | Humerusfraktur | ✓ R3 |
+| 73 | 59 | 11 | 48 | Gastroenterologie | GERD / Refluxkrankheit | ✓ R1 |
+| 74 | 59 | 7 | 52 | Kardiologie | Infektiöse Endokarditis | ✓ R3 |
+| 75 | 58 | 29 | 29 | Neurologie | Hirnblutungen (EDH/SDH/SAB/ICB) | — |
+| 76 | 57 | 17 | 40 | Allgemein- und Viszeralchirurgie | Diarrhoe / Gastroenteritis | — |
 | 77 | 56 | 15 | 41 | Allgemein- und Viszeralchirurgie | Pankreaskarzinom | ✓ R3 |
 | 78 | 56 | 11 | 45 | Allgemein- und Viszeralchirurgie | Hämorrhoiden | ✓ R1 |
 | 79 | 55 | 11 | 44 | Allgemein- und Viszeralchirurgie | Magenkarzinom | ✓ R1 |
