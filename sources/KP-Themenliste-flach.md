@@ -1,6 +1,6 @@
 # KP MAINZ — THEMENLISTE (FLACH, EINE RANGLISTE)
 
-Alle **97 Themen** in einer Rangliste nach **Korpus-Treffer** (WhatsApp-Chat + Protokolle). Aktuell **83 von 97** mit Review abgedeckt (~86 %).
+Alle **97 Themen** in einer Rangliste nach **Korpus-Treffer** (WhatsApp-Chat + Protokolle). Aktuell **84 von 97** mit Review abgedeckt (~87 %).
 
 > **Juli 2026 (a):** 3 Themen ergänzt (nach Protokoll-Frequenz-Check bestätigt): **Kreuzbandruptur** (Unfallchirurgie, 30 Protokoll-Treffer, VKB:21), **Status epilepticus/Epilepsie** (Neurologie, 10), **Gicht/Podagra** (Rheumatologie, 6). *Verworfen* (zu niedrig/abwesend): Demenz, Erysipel, Fazialisparese, Ösophaguskarzinom, Multiples Myelom, Migräne, Parkinson.
 >
@@ -96,7 +96,7 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 79 | 55 | 11 | 44 | Allgemein- und Viszeralchirurgie | Magenkarzinom | ✓ R1 |
 | 80 | 55 | 9 | 46 | Hämatologie | Morbus Hodgkin | — |
 | 81 | 54 | 19 | 35 | Notfallmedizin | Verbrennung | ✓ R1 |
-| 82 | 52 | 5 | 47 | Gastroenterologie | Colitis ulcerosa | — |
+| 82 | 52 | 5 | 47 | Gastroenterologie | Colitis ulcerosa | ✓ R4 (in Morbus Crohn) |
 | 83 | 49 | 10 | 39 | Unfallchirurgie | Claviculafraktur | — |
 | 84 | 47 | 8 | 39 | Endokrinologie | Struma | — |
 | 85 | 43 | 19 | 24 | Kardiologie | Paroxysmale SVT / AVNRT-AVRT | — |

@@ -111,7 +111,7 @@ FLAT=[
 (55,11,44,"Allgemein- und Viszeralchirurgie","Magenkarzinom","magenkarzinom"),
 (55,9,46,"Hämatologie","Morbus Hodgkin",None),
 (54,19,35,"Notfallmedizin","Verbrennung","verbrennung"),
-(52,5,47,"Gastroenterologie","Colitis ulcerosa",None),
+(52,5,47,"Gastroenterologie","Colitis ulcerosa","morbus-crohn"),
 (49,10,39,"Unfallchirurgie","Claviculafraktur",None),
 (47,8,39,"Endokrinologie","Struma",None),
 (43,19,24,"Kardiologie","Paroxysmale SVT / AVNRT-AVRT",None),
