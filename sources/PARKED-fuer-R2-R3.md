@@ -687,3 +687,32 @@ bei Dr. Hock zusammen mit Cholezystitis, Nierenstein und Zyste.
 stehen in **leberzirrhose** · Ikterus und Cholestaseparameter in **ikterus-cholestase** ·
 Pankreaskarzinom und Whipple in **pankreaskarzinom** · Kolonkarzinom und Hemikolektomie in
 **kolonkarzinom** · Krebsvorsorge in **praevention** · Sonobefunde im **hoffart-bildatlas**.
+
+
+## Meningitis / Enzephalitis — R1 gebaut 07/2026, Protokollstoff für R2/R3
+**Rang 76 mit 57 Treffern. Bei einer früheren Frequenzprüfung zu Unrecht verworfen.**
+
+**Herr Morgenthaler (per Video), komplette Kette:**
+„Ein Patient mit Fieber, Kopfschmerzen und Verwirrtheit." → **Enzephalitis, viral** ·
+**„Welche ist die schlimmste?"** → HSV bzw. Varizella · **„Welcher Lappen ist betroffen?"** →
+**temporal** · **„Was sieht man in der lumbalen Punktion?"** → **Lymphozyten** ·
+**„Behandlung? Dosis von Aciclovir und wie lange?"** → **10 Tage**.
+Direkt danach Status epilepticus Stufe 1 bis 3, Hemianopsie, dann Vollmacht und Betreuung.
+
+**Dr. Hilbert:** „Meningitis: **klinische Untersuchung — Brudzinski, Lasègue und Kernig
+beschreiben**, Liquordiagnostik und **wo wurde es durchgeführt (L3–L4)**." Im selben Block
+Aufbewahrungsfristen, Prick-Test und RAST.
+
+**Dr. Mendelssohn:** CT-Schädel mit **Epiduralhämatom und Luft** → offenes Schädel-Hirn-Trauma →
+**„Was kann passieren?"** → **Meningitis, Enzephalitis oder beides als Meningoenzephalitis,
+dann Sepsis, dann septischer Schock.** Danach Schädelbasisfraktur und ihre Zeichen.
+
+**Weitere Kontexte:** Meningitis-Symptome und Meningismus im Bilderblock mit Hydrozephalus ·
+Verdacht auf Meningitis beim 1-jährigen Kind mit akuter lymphatischer Leukämie (Dr. Hoffart) ·
+Meningokokken-Impfung nach Splenektomie · Hib in der STIKO-Frage.
+
+**Grenzt an andere Reviews, dort NICHT doppeln:** Offenes SHT, GCS und Schädelbasisfraktur stehen
+in **schaedel-hirn-trauma** · Status epilepticus in **eeg-komplett** · Sepsiskriterien in
+**sepsis** · Impfungen gegen Meningokokken, Pneumokokken und Hib in **impfungen-stiko** ·
+FSME und Neuroborreliose in **borreliose-fsme** · Waterhouse-Friderichsen grenzt an
+**cushing-syndrom** (Nebennieren).

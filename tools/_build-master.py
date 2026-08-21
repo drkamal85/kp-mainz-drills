@@ -125,6 +125,7 @@ FLAT=[
 (23,3,20,"Unfallchirurgie","Wirbelsäulenverletzungen","wirbelsaeulenverletzungen"),
 (13,8,5,"Drittes Fach","KI in der Medizin",None),
 (12,10,2,"Drittes Fach","EBM",None),
+(57,34,23,"Neurologie","Meningitis / Enzephalitis","meningitis"),
 (10,0,10,"Neurologie","Status epilepticus / Epilepsie","epilepsie"),
 (6,0,6,"Rheumatologie","Gicht / Podagra","gicht"),
 ]

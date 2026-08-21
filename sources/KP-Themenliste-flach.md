@@ -1,8 +1,10 @@
 # KP MAINZ — THEMENLISTE (FLACH, EINE RANGLISTE)
 
-Alle **96 Themen** in einer Rangliste nach **Korpus-Treffer** (WhatsApp-Chat + Protokolle). Aktuell **80 von 96** mit Review abgedeckt (~83 %).
+Alle **97 Themen** in einer Rangliste nach **Korpus-Treffer** (WhatsApp-Chat + Protokolle). Aktuell **81 von 97** mit Review abgedeckt (~84 %).
 
-> **Juli 2026 (a):** 3 Themen ergänzt (nach Protokoll-Frequenz-Check bestätigt): **Kreuzbandruptur** (Unfallchirurgie, 30 Protokoll-Treffer, VKB:21), **Status epilepticus/Epilepsie** (Neurologie, 10), **Gicht/Podagra** (Rheumatologie, 6). *Verworfen* (zu niedrig/abwesend): Meningitis, Demenz, Erysipel, Fazialisparese, Ösophaguskarzinom, Multiples Myelom, Migräne, Parkinson.
+> **Juli 2026 (a):** 3 Themen ergänzt (nach Protokoll-Frequenz-Check bestätigt): **Kreuzbandruptur** (Unfallchirurgie, 30 Protokoll-Treffer, VKB:21), **Status epilepticus/Epilepsie** (Neurologie, 10), **Gicht/Podagra** (Rheumatologie, 6). *Verworfen* (zu niedrig/abwesend): Demenz, Erysipel, Fazialisparese, Ösophaguskarzinom, Multiples Myelom, Migräne, Parkinson.
+>
+> **Korrektur Juli 2026 (b):** **Meningitis / Enzephalitis** wurde damals zu Unrecht verworfen. Nachzählung ergibt **57 Treffer** (Meningitis 34, Enzephalitis 23) und mehrere dokumentierte Frageketten — Morgenthalers Enzephalitisfall, Dr. Hilberts Untersuchungskette mit Brudzinski, Lasègue und Kernig, Dr. Mendelssohns offenes Schädel-Hirn-Trauma. Aufgenommen als Rang 76, Liste damit **97 Themen**.
 
 > **Juli 2026 (b) — Korpus-Erweiterung:** Neue Quellen ausgewertet (Protokolle 07.01.–10.06.2026 · ASRAWI-Protokollthemen · Protokolle Dr. Hoffart). **8 Themen ergänzt:** **Anästhesie & Atemwegssicherung** (279 — *häufigstes Drittes Fach in Mainz*: 38 Nennungen 2024–26, 11 allein Jan–Jun 2026), **Milzruptur/Splenektomie** (81), **Borreliose/FSME/Zeckenbiss** (77), **Reanimation/CPR** (76), **Akutes Abdomen** (64), **Anaphylaxie** (63), **Hirnblutungen EDH/SDH/SAB/ICB** (58), **Hyponatriämie/SIADH** (32). *Verworfen als Unterthema bereits gelisteter Themen* (trotz hoher Rohtreffer): Antikoagulation/NOAK (206→Vorhofflimmern), Kardioversion vs. Defibrillation (142→VHF/VT), Schrittmacher (105→AV-Block), Infusionslösungen (74→Schock), Coxarthrose (72→Hüft-/Knie-TEP), chron. Niereninsuffizienz (72→Nierenversagen), Aszites/SAAG (54→Leberzirrhose), Ketoazidose (46)/Hypoglykämie (40→Diabetes), Gerinnungskaskade/Heparin (47→TVT/LE), Masern (40→Impfungen/STIKO). *Grenzfälle, nicht aufgenommen:* Hydronephrose (26), Sarkoidose (20), Epiglottitis/Krupp (19).
 
@@ -37,11 +39,6 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 22 | 212 | 79 | 133 | Unfallchirurgie | Proximale Femurfraktur | ✓ R4 |
 | 23 | 203 | 74 | 129 | Allgemein- und Viszeralchirurgie | Pankreatitis | ✓ R1 |
 | 24 | 203 | 68 | 135 | Allgemein- und Viszeralchirurgie | Divertikulitis | ✓ R2 |
-
-## TIER 2 · hohe Präsenz (120–199)
-
-| # | Treffer | chat | prot | Fachgebiet | Thema | Review |
-|--:|--:|--:|--:|------------|-------|--------|
 | 25 | 171 | 46 | 125 | Gastroenterologie | Leberzirrhose | ✓ R4 |
 | 26 | 169 | 54 | 115 | Allgemein- und Viszeralchirurgie | Appendizitis | ✓ R4 |
 | 27 | 155 | 42 | 113 | Kardiologie | AV-Block | ✓ R3 |
@@ -56,11 +53,6 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 36 | 122 | 39 | 83 | Endokrinologie | Hyperthyreose | ✓ R4 |
 | 37 | 120 | 40 | 80 | Unfallchirurgie | Hüft- / Knie-TEP | ✓ R3 |
 | 38 | 120 | 36 | 84 | Gastroenterologie | Gastritis (Typ A/B/C) | ✓ R1 |
-
-## TIER 3 · mittlere Präsenz (60–119)
-
-| # | Treffer | chat | prot | Fachgebiet | Thema | Review |
-|--:|--:|--:|--:|------------|-------|--------|
 | 39 | 119 | 31 | 88 | Drittes Fach | Sozialrecht & Hygiene | ✓ R1 |
 | 40 | 117 | 24 | 93 | Angiologie | pAVK | — |
 | 41 | 111 | 37 | 74 | Angiologie | Tiefe Beinvenenthrombose (TVT) | ✓ R4 |
@@ -94,33 +86,29 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 69 | 63 | 25 | 38 | Notfallmedizin | Anaphylaxie | ✓ R1 |
 | 70 | 62 | 15 | 47 | Allgemein- und Viszeralchirurgie | Rektumkarzinom | ✓ R3 |
 | 71 | 60 | 15 | 45 | Unfallchirurgie | Humerusfraktur | ✓ R3 |
-
-## TIER 4 · geringere Präsenz (<60)
-
-| # | Treffer | chat | prot | Fachgebiet | Thema | Review |
-|--:|--:|--:|--:|------------|-------|--------|
 | 72 | 59 | 11 | 48 | Gastroenterologie | GERD / Refluxkrankheit | ✓ R1 |
 | 73 | 59 | 7 | 52 | Kardiologie | Infektiöse Endokarditis | ✓ R3 |
 | 74 | 58 | 29 | 29 | Neurologie | Hirnblutungen (EDH/SDH/SAB/ICB) | — |
 | 75 | 57 | 17 | 40 | Allgemein- und Viszeralchirurgie | Diarrhoe / Gastroenteritis | — |
-| 76 | 56 | 15 | 41 | Allgemein- und Viszeralchirurgie | Pankreaskarzinom | ✓ R3 |
-| 77 | 56 | 11 | 45 | Allgemein- und Viszeralchirurgie | Hämorrhoiden | ✓ R1 |
-| 78 | 55 | 11 | 44 | Allgemein- und Viszeralchirurgie | Magenkarzinom | ✓ R1 |
-| 79 | 55 | 9 | 46 | Hämatologie | Morbus Hodgkin | — |
-| 80 | 54 | 19 | 35 | Notfallmedizin | Verbrennung | ✓ R1 |
-| 81 | 52 | 5 | 47 | Gastroenterologie | Colitis ulcerosa | — |
-| 82 | 49 | 10 | 39 | Unfallchirurgie | Claviculafraktur | — |
-| 83 | 47 | 8 | 39 | Endokrinologie | Struma | — |
-| 84 | 43 | 19 | 24 | Kardiologie | Paroxysmale SVT / AVNRT-AVRT | — |
-| 85 | 43 | 13 | 30 | Querschnitt | Check-up / Prävention | ✓ R1 |
-| 86 | 40 | 10 | 30 | Angiologie | Aortenaneurysma (AAA) | ✓ R2 |
-| 87 | 40 | 7 | 33 | Unfallchirurgie | Beckenringfrakturen | ✓ R4 |
-| 88 | 37 | 12 | 25 | Notfallmedizin | Delir | ✓ R1 |
-| 89 | 32 | 5 | 27 | Endokrinologie | Cushing-Syndrom | ✓ R3 |
-| 90 | 32 | 9 | 23 | Nephrologie | Hyponatriämie / SIADH | ✓ R1 |
-| 91 | 30 | 0 | 30 | Unfallchirurgie | Kreuzbandruptur | — |
-| 92 | 23 | 3 | 20 | Unfallchirurgie | Wirbelsäulenverletzungen | ✓ R4 |
-| 93 | 13 | 8 | 5 | Drittes Fach | KI in der Medizin | — |
-| 94 | 12 | 10 | 2 | Drittes Fach | EBM | — |
-| 95 | 10 | 0 | 10 | Neurologie | Status epilepticus / Epilepsie | — |
-| 96 | 6 | 0 | 6 | Rheumatologie | Gicht / Podagra | — |
+| 76 | 57 | 34 | 23 | Neurologie | Meningitis / Enzephalitis | ✓ R1 |
+| 77 | 56 | 15 | 41 | Allgemein- und Viszeralchirurgie | Pankreaskarzinom | ✓ R3 |
+| 78 | 56 | 11 | 45 | Allgemein- und Viszeralchirurgie | Hämorrhoiden | ✓ R1 |
+| 79 | 55 | 11 | 44 | Allgemein- und Viszeralchirurgie | Magenkarzinom | ✓ R1 |
+| 80 | 55 | 9 | 46 | Hämatologie | Morbus Hodgkin | — |
+| 81 | 54 | 19 | 35 | Notfallmedizin | Verbrennung | ✓ R1 |
+| 82 | 52 | 5 | 47 | Gastroenterologie | Colitis ulcerosa | — |
+| 83 | 49 | 10 | 39 | Unfallchirurgie | Claviculafraktur | — |
+| 84 | 47 | 8 | 39 | Endokrinologie | Struma | — |
+| 85 | 43 | 19 | 24 | Kardiologie | Paroxysmale SVT / AVNRT-AVRT | — |
+| 86 | 43 | 13 | 30 | Querschnitt | Check-up / Prävention | ✓ R1 |
+| 87 | 40 | 10 | 30 | Angiologie | Aortenaneurysma (AAA) | ✓ R2 |
+| 88 | 40 | 7 | 33 | Unfallchirurgie | Beckenringfrakturen | ✓ R4 |
+| 89 | 37 | 12 | 25 | Notfallmedizin | Delir | ✓ R1 |
+| 90 | 32 | 5 | 27 | Endokrinologie | Cushing-Syndrom | ✓ R3 |
+| 91 | 32 | 9 | 23 | Nephrologie | Hyponatriämie / SIADH | ✓ R1 |
+| 92 | 30 | 0 | 30 | Unfallchirurgie | Kreuzbandruptur | — |
+| 93 | 23 | 3 | 20 | Unfallchirurgie | Wirbelsäulenverletzungen | ✓ R4 |
+| 94 | 13 | 8 | 5 | Drittes Fach | KI in der Medizin | — |
+| 95 | 12 | 10 | 2 | Drittes Fach | EBM | — |
+| 96 | 10 | 0 | 10 | Neurologie | Status epilepticus / Epilepsie | — |
+| 97 | 6 | 0 | 6 | Rheumatologie | Gicht / Podagra | — |
