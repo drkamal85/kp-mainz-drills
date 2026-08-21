@@ -213,6 +213,32 @@ Der Stil steht als `.meta .rk` in jeder Seite und in `print.css`, erscheint also
 
 ---
 
+## 10c. META-ZEILE
+
+Unter dem Untertitel stehen nur noch **zwei** Angaben:
+
+```html
+<span class="rk lo">Rang 71 von 97</span>
+<span>R1 von 5</span>
+```
+
+Gesetzt von **`tools/_clean-meta.py`**. Entfernt wurden Lesezeit (geschätzt, nach Kürzungen nie
+nachgezogen), Baudatum und die auf jeder Seite identische Quellenangabe.
+
+**Massgeblich für die Stufe ist `data-lvl` in `index.html`**, nicht die Meta-Zeile. Bei
+R4-Beförderungen wurde bisher nur der Index nachgezogen — **47 Seiten trugen eine veraltete
+Stufe im Kopf**, etwa Cholezystitis mit R3 statt R4. Ausserdem war die Angabe über 19 Varianten
+zersplittert ("R3 von 5 · Superset von R2", "R3 · 6 Tabs · …", blosses "R3"); jetzt einheitlich
+`RN von 5`.
+
+**Nach jeder Level-Änderung erneut laufen lassen**, zusammen mit der Rangpille:
+
+```
+python3 tools/_build-master.py && python3 tools/_stamp-rank.py && python3 tools/_clean-meta.py
+```
+
+---
+
 ## 11. DRUCK / PDF (Standard-Layout — Aug 2026)
 
 Ein einziges Layout für alle Themenseiten. Nie pro Thema anpassen.
