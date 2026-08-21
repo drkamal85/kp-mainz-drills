@@ -12,11 +12,11 @@ Vorher standen dort bis zu fuenf Angaben, davon zwei fehlerhaft:
 Behalten werden nur:
 
     <span class="rk lo">Rang 71 von 97</span>
-    <span>R1 von 5</span>
+    <span>R1</span>
 
 Die Stufenangabe war ueber 19 Varianten zersplittert ("R3 von 5 - Superset von R2",
 "R3 - 6 Tabs - Kurz + KP-Perlen + Protokolle", blosses "R3" ...). Sie wird auf die
-Form "RN von 5" vereinheitlicht; die R-Nummer stammt aus der vorhandenen Angabe,
+Form "RN" vereinheitlicht; die R-Nummer stammt aus der vorhandenen Angabe,
 ersatzweise aus dem Eyebrow.
 
 Idempotent: ein zweiter Lauf meldet null Aenderungen.
@@ -72,7 +72,7 @@ def main():
         if rk:
             keep.append("\n      " + rk.group(0))
         if lvl:
-            keep.append(f'\n      <span>R{lvl} von 5</span>')
+            keep.append(f'\n      <span>R{lvl}</span>')
         new_inner = "".join(keep) + "\n    "
 
         new = src[: m.start(2)] + new_inner + src[m.end(2):]

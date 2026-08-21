@@ -219,7 +219,7 @@ Unter dem Untertitel stehen nur noch **zwei** Angaben:
 
 ```html
 <span class="rk lo">Rang 71 von 97</span>
-<span>R1 von 5</span>
+<span>R1</span>
 ```
 
 Gesetzt von **`tools/_clean-meta.py`**. Entfernt wurden Lesezeit (geschätzt, nach Kürzungen nie
@@ -228,8 +228,10 @@ nachgezogen), Baudatum und die auf jeder Seite identische Quellenangabe.
 **Massgeblich für die Stufe ist `data-lvl` in `index.html`**, nicht die Meta-Zeile. Bei
 R4-Beförderungen wurde bisher nur der Index nachgezogen — **47 Seiten trugen eine veraltete
 Stufe im Kopf**, etwa Cholezystitis mit R3 statt R4. Ausserdem war die Angabe über 19 Varianten
-zersplittert ("R3 von 5 · Superset von R2", "R3 · 6 Tabs · …", blosses "R3"); jetzt einheitlich
-`RN von 5`.
+zersplittert ("R3 von 5 · Superset von R2", "R3 · 6 Tabs · …", blosses "R3"); jetzt einheitlich `RN`.
+
+**Die Stufe steht nur noch einmal je Seite.** Sie stand zusätzlich im `<title>`, auf dem
+iPad im Safari-Tab sichtbar — dort entfernt, der Titel nennt jetzt nur das Thema.
 
 **Nach jeder Level-Änderung erneut laufen lassen**, zusammen mit der Rangpille:
 
