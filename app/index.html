@@ -1144,7 +1144,7 @@ class Component extends DCLogic {
     openId: null, station: null, revealed: {},
     session: null,
     deck: { status: 'idle', cards: [], stats: null, today: null },
-    progress: { streak: 0, examDate: '2027-03-02', reviews: {}, cards: { doneToday: 0, goal: 5, mastered: 0, total: 199, dueTomorrow: 0 } },
+    progress: { streak: 0, examDate: '2027-03-02', reviews: {}, cards: { doneToday: 0, goal: 5, mastered: 0, total: 199, dueTomorrow: 0, remainingCycle: 0 } },
     content: { specialties: [], topics: [], master: [] },
     themen: { total: 0, covered: 0, coveragePct: 0, topics: [], extras: [] }, themen_status: 'idle',
   };
@@ -1371,6 +1371,7 @@ class Component extends DCLogic {
           mastered:     stats.mastered     != null ? stats.mastered     : s.progress.cards.mastered,
           total:        stats.total        != null ? stats.total        : s.progress.cards.total,
           dueTomorrow:  stats.dueTomorrow  != null ? stats.dueTomorrow  : s.progress.cards.dueTomorrow,
+          remainingCycle: stats.remainingCycle != null ? stats.remainingCycle : s.progress.cards.remainingCycle,
         }
       }
     }));
@@ -1453,6 +1454,11 @@ class Component extends DCLogic {
     const cardsPctNum = p.cards.goal ? Math.min(100, Math.round((p.cards.doneToday / p.cards.goal) * 100)) : 0;
     // Wie viele Karten fehlen noch bis zum Tagesziel (nie negativ).
     const cardsLeftNum = Math.max(0, (p.cards.goal || 0) - (p.cards.doneToday || 0));
+    // Wie viele Karten des Decks in dieser Runde noch nie dran waren.
+    // Kommt aus dem Worker; faellt der Wert aus, ersatzweise Gesamt minus
+    // gemeistert, damit die Kachel nie leer bleibt.
+    const cycleLeftNum = p.cards.remainingCycle != null ? p.cards.remainingCycle
+      : Math.max(0, (p.cards.total || 0) - (p.cards.mastered || 0));
 
     // ----- curriculum map from /api/themen -----
     const T = this.state.themen;
@@ -1594,8 +1600,8 @@ class Component extends DCLogic {
       goKarten: () => this.setState({ tab: 'karten' }), goProfil: () => this.setState({ tab: 'profil' }),
       greetingDate,
       cardsDone: p.cards.doneToday, cardsGoal: p.cards.goal, cardsPct: cardsPctNum + '%',
-      cardsLeft: cardsLeftNum, cardsLeftLabel: cardsLeftNum === 0 ? 'geschafft' : 'übrig',
-      cardsLeftRing: cardsLeftNum === 0 ? '✓ Ziel erreicht' : 'noch ' + cardsLeftNum,
+      cardsLeft: cycleLeftNum, cardsLeftLabel: cycleLeftNum === 0 ? 'Runde durch' : 'noch offen',
+      cardsLeftRing: cardsLeftNum === 0 ? '✓ Ziel erreicht' : 'noch ' + cardsLeftNum + ' heute',
       cardsMastered: p.cards.mastered, cardsTotal: p.cards.total, cardsDueTomorrow: p.cards.dueTomorrow,
       streakDays: p.streak, masteredCount, totalTopics, pctLabel: pct + '%',
       ringStyle: `conic-gradient(#06B6D4 ${cardsPctNum}%, #E6ECF3 0)`,

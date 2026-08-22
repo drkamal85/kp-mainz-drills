@@ -26,7 +26,7 @@ const DEFAULTS = () => ({
   streak: 0,
   examDate: null,
   reviews: {},
-  cards: { doneToday: 0, goal: 5, mastered: 0, total: 0, dueTomorrow: 0 },
+  cards: { doneToday: 0, goal: 5, mastered: 0, total: 0, dueTomorrow: 0, remainingCycle: 0 },
   dueToday: []
 });
 
@@ -181,7 +181,7 @@ export async function handleApi(request, env, url) {
     const stats = computeStats(deckFeed.cards, S, t, goal);
     try { // mirror lightweight summary into the progress feed for other consumers (best-effort)
       const pkey = 'u:' + userId;
-      const merged = mergeProgress((await readJson(env.PROGRESS, pkey)) || DEFAULTS(), { streak: stats.streak, cards: { doneToday: stats.doneToday, goal: stats.goal, mastered: stats.mastered, total: stats.total, dueTomorrow: stats.dueTomorrow } });
+      const merged = mergeProgress((await readJson(env.PROGRESS, pkey)) || DEFAULTS(), { streak: stats.streak, cards: { doneToday: stats.doneToday, goal: stats.goal, mastered: stats.mastered, total: stats.total, dueTomorrow: stats.dueTomorrow, remainingCycle: stats.remainingCycle } });
       merged.updatedAt = new Date().toISOString();
       await env.PROGRESS.put(pkey, JSON.stringify(merged));
     } catch (e) { /* non-fatal */ }
@@ -255,7 +255,12 @@ function computeStats(deckCards, S, t, goal) {
   let mastered = 0, dueTomorrow = 0;
   for (const id in S.cards) { const st = S.cards[id]; if (st.box >= 5) mastered++; if (st.due === tm) dueTomorrow++; }
   const doneToday = (S.day && S.day.date === t) ? (S.day.count || 0) : 0;
-  return { doneToday, goal, streak: S.streak || 0, total: deckCards.length, mastered, dueTomorrow };
+  // Wie viele Karten des Decks waren in dieser Runde noch nie dran.
+  // buildQueue setzt fresh vor due, die erste Runde geht also einmal durch
+  // das ganze Deck; erst danach beginnen die Wiederholungen.
+  let remainingCycle = 0;
+  for (const c of deckCards) if (!S.cards[c.id]) remainingCycle++;
+  return { doneToday, goal, streak: S.streak || 0, total: deckCards.length, mastered, dueTomorrow, remainingCycle };
 }
 function gradeCard(S, id, result, t, goal) {
   if (!S.day || S.day.date !== t) S.day = { date: t, count: 0, seen: [] };
