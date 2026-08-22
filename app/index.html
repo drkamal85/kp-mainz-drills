@@ -740,6 +740,7 @@
           <div style="width:142px; height:142px; border-radius:50%; background:#FFFFFF; display:flex; flex-direction:column; align-items:center; justify-content:center; box-shadow:inset 0 0 0 1px rgba(15,23,42,0.05);">
             <div style="font-family:'Space Grotesk',sans-serif; font-size:46px; font-weight:700; color:#0F172A; line-height:1;">{{ cardsDone }}</div>
             <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#94A3B8; font-weight:500; margin-top:4px;">von {{ cardsGoal }} heute</div>
+            <div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#059669; font-weight:700; margin-top:3px;">{{ cardsLeftRing }}</div>
           </div>
         </div>
         <div style="display:flex; align-items:center; gap:8px; margin-top:20px; border-radius:99px; padding:9px 18px; background:#FFFFFF; border:1px solid rgba(15,23,42,0.08); box-shadow:0 1px 2px rgba(15,23,42,0.04);">
@@ -752,10 +753,14 @@
         <span style="font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:600; color:#FFFFFF; letter-spacing:0.01em;">Training starten</span>
       </div>
 
-      <div style="display:flex; gap:12px;">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
         <div style="flex:1; border-radius:18px; padding:16px; text-align:center; background:#FFFFFF; border:1px solid rgba(15,23,42,0.07); box-shadow:0 1px 2px rgba(15,23,42,0.04);">
           <div style="font-family:'Space Grotesk',sans-serif; font-size:24px; font-weight:700; color:#D97706;">{{ cardsMastered }}</div>
           <div style="font-size:12px; color:#64748B; font-weight:500; margin-top:2px;">gemeistert</div>
+        </div>
+        <div style="flex:1; border-radius:18px; padding:16px; text-align:center; background:#FFFFFF; border:1px solid rgba(15,23,42,0.07); box-shadow:0 1px 2px rgba(15,23,42,0.04);">
+          <div style="font-family:'Space Grotesk',sans-serif; font-size:24px; font-weight:700; color:#059669;">{{ cardsLeft }}</div>
+          <div style="font-size:12px; color:#64748B; font-weight:500; margin-top:2px;">{{ cardsLeftLabel }}</div>
         </div>
         <div style="flex:1; border-radius:18px; padding:16px; text-align:center; background:#FFFFFF; border:1px solid rgba(15,23,42,0.07); box-shadow:0 1px 2px rgba(15,23,42,0.04);">
           <div style="font-family:'Space Grotesk',sans-serif; font-size:24px; font-weight:700; color:#0F172A;">{{ cardsTotal }}</div>
@@ -1446,6 +1451,8 @@ class Component extends DCLogic {
     const totalTopics = (_thm && _thm.covered != null) ? _thm.covered : (C.topics.length || 0);
     const pct = totalTopics ? Math.round((masteredCount / totalTopics) * 100) : 0;
     const cardsPctNum = p.cards.goal ? Math.min(100, Math.round((p.cards.doneToday / p.cards.goal) * 100)) : 0;
+    // Wie viele Karten fehlen noch bis zum Tagesziel (nie negativ).
+    const cardsLeftNum = Math.max(0, (p.cards.goal || 0) - (p.cards.doneToday || 0));
 
     // ----- curriculum map from /api/themen -----
     const T = this.state.themen;
@@ -1587,6 +1594,8 @@ class Component extends DCLogic {
       goKarten: () => this.setState({ tab: 'karten' }), goProfil: () => this.setState({ tab: 'profil' }),
       greetingDate,
       cardsDone: p.cards.doneToday, cardsGoal: p.cards.goal, cardsPct: cardsPctNum + '%',
+      cardsLeft: cardsLeftNum, cardsLeftLabel: cardsLeftNum === 0 ? 'geschafft' : 'übrig',
+      cardsLeftRing: cardsLeftNum === 0 ? '✓ Ziel erreicht' : 'noch ' + cardsLeftNum,
       cardsMastered: p.cards.mastered, cardsTotal: p.cards.total, cardsDueTomorrow: p.cards.dueTomorrow,
       streakDays: p.streak, masteredCount, totalTopics, pctLabel: pct + '%',
       ringStyle: `conic-gradient(#06B6D4 ${cardsPctNum}%, #E6ECF3 0)`,
