@@ -789,3 +789,36 @@ Beim CT-Rundherd mit randbetonter Verkalkung war dagegen **Tuberkulose** die ges
 **pneumonie** · Tuberkulose in **tuberkulose** · Aortenaneurysma in **aortenaneurysma** ·
 Cushing durch ektopes ACTH in **cushing-syndrom** · WHO-Schmerzschema in **schmerztherapie** ·
 Rundherd im **hoffart-bildatlas**.
+
+
+## Kreuzbandruptur — R1 gebaut 07/2026, Protokollstoff für R2/R3
+**Rang 91 mit 30 Treffern — im unteren Bereich, das Deck entsprechend klein (263 W).**
+
+**Zwei unabhängige Belege:**
+- **`protokolle-sortiert.md`, Frage 17:** „**Kreuzbandverletzung: Typen, Behandlung, Tests bei
+  Knie-Bandabriss**" → VKB-Riss am häufigsten, bei Sportarten mit plötzlichen Stopps oder
+  Drehbewegungen · HKB seltener, durch starke Schläge auf die Vorderseite des Knies ·
+  Behandlung konservativ oder operativ
+- **ASRAWI-Themenliste:** „**Knieverletzungen (Kreuzband, Tests, Therapie)**" — im Block mit
+  Kompartmentsyndrom, Osteoporose, Sprunggelenkfrakturen und Podagra
+
+**Untersuchungstechnik detailliert dokumentiert:**
+- **Lachman (Haupttest):** Rückenlage, Knie 20–30° Flexion, Oberschenkel fixieren,
+  Unterschenkel nach vorne ziehen · Befund: vermehrte Translation im Seitenvergleich,
+  **weicher oder fehlender Anschlag**
+- **Vordere Schublade:** Knie 90°, Fuß fixieren, Unterschenkel nach vorne → VKB
+- **Hintere Schublade:** Knie 90°, Unterschenkel nach hinten drücken → HKB
+
+**Weiteres dokumentiertes Umfeld:** Röntgen in 2 Ebenen plus tangentiale Patella-Aufnahme ·
+MRT zur Weichteil- und Bandstrukturanalyse · Punktion bei ausgeprägtem Erguss ·
+Thromboseprophylaxe mit niedermolekularem Heparin bei Immobilisation ·
+Arthrose-Zeichen im Röntgen im selben Abschnitt.
+
+**Hinweis zur Trefferzahl:** Ein Teil der 30 Treffer stammt aus Vorbereitungsnotizen
+(`00003043` und `00003209`), nicht aus Prüfungsprotokollen. Die belastbaren Belege sind
+`protokolle-sortiert` Frage 17 und die ASRAWI-Liste — beide bestaetigen das Thema, aber der
+Rang 91 duerfte eher noch zu hoch als zu niedrig sein.
+
+**Grenzt an andere Reviews, dort NICHT doppeln:** Gonarthrose und radiologische Arthrosezeichen
+stehen in **osteoporose**-Nachbarn und im **hoffart-bildatlas** · allgemeine Frakturlehre und
+Thromboseprophylaxe in **allgemeine-frakturlehre** · Hüft- und Knie-TEP in **hueft-knie-tep**.
