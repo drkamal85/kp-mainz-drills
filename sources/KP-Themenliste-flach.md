@@ -47,7 +47,7 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 30 | 143 | 42 | 101 | Allgemein- und Viszeralchirurgie | Kolonkarzinom | ✓ R2 |
 | 31 | 142 | 16 | 126 | Kardiologie | KHK / Koronarsyndrom | ✓ R3 |
 | 32 | 136 | 21 | 115 | Gastroenterologie  | Morbus Crohn & Colitis ulcerosa | ✓ R4 |
-| 33 | 132 | 39 | 93 | Gastroenterologie | Lebermetastasen / Lebertumor | ✓ R1 |
+| 33 | 132 | 39 | 93 | Gastroenterologie | Lebermetastasen / Lebertumor | ✓ R2 |
 | 34 | 131 | 82 | 49 | Drittes Fach | Strahlenschutz | ✓ R3 |
 | 35 | 130 | 31 | 99 | Pneumologie | COPD | ✓ R4 |
 | 36 | 127 | 44 | 83 | Unfallchirurgie | Sprunggelenksfraktur (OSG) | ✓ R3 |
