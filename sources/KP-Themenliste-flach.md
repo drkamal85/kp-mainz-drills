@@ -1,6 +1,6 @@
 # KP MAINZ — THEMENLISTE (FLACH, EINE RANGLISTE)
 
-Alle **96 Themen** in einer Rangliste nach **Korpus-Treffer** (WhatsApp-Chat + Protokolle). Aktuell **85 von 96** mit Review abgedeckt (~89 %).
+Alle **96 Themen** in einer Rangliste nach **Korpus-Treffer** (WhatsApp-Chat + Protokolle). Aktuell **86 von 96** mit Review abgedeckt (~90 %).
 
 > **Juli 2026 (a):** 3 Themen ergänzt (nach Protokoll-Frequenz-Check bestätigt): **Kreuzbandruptur** (Unfallchirurgie, 30 Protokoll-Treffer, VKB:21), **Status epilepticus/Epilepsie** (Neurologie, 10), **Gicht/Podagra** (Rheumatologie, 6). *Verworfen* (zu niedrig/abwesend): Demenz, Erysipel, Fazialisparese, Ösophaguskarzinom, Multiples Myelom, Migräne, Parkinson.
 >
@@ -110,4 +110,4 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 93 | 13 | 8 | 5 | Drittes Fach | KI in der Medizin | — |
 | 94 | 12 | 10 | 2 | Drittes Fach | EBM | — |
 | 95 | 10 | 0 | 10 | Neurologie | Status epilepticus / Epilepsie | ✓ R1 |
-| 96 | 6 | 0 | 6 | Rheumatologie | Gicht / Podagra | — |
+| 96 | 6 | 0 | 6 | Rheumatologie | Gicht / Podagra | ✓ R1 |

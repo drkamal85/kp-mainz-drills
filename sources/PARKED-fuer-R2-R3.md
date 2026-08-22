@@ -863,3 +863,44 @@ Mohamed entscheidet.
 **eeg-komplett** und **notfallpharmakologie** · Anfall gegen Synkope in **synkope** ·
 Delir und Alkoholentzug in **delir** · Thiamin vor Glukose ebenfalls dort und in
 **akuttoxikologie** · Schlaganfall und Todd-Parese in **schlaganfall**.
+
+
+## Gicht / Podagra — R1 gebaut 07/2026, Protokollstoff für R2/R3
+**Achtung Rangproblem: die Liste führt 6 Treffer, gezählt werden 56.** Siehe unten.
+
+**Dr. Brill (Bilderblock):** „**Akuter Gichtanfall, Bild von Podagra, Therapie,
+Medikamente von Hyperurikämie.**" Im selben Block akutes Nierenversagen mit Klassifikation,
+Karpaltunnelsyndrom und EKG mit VES.
+
+**Fallfrage wörtlich:** „**Ein Patient beklagte Schmerzen, Schwellung und Rötung im Großzeh;
+was könnte das sein?**" → akuter Gichtanfall → „**Wie kann man den akuten Gichtanfall
+bestätigen und behandeln?**" Im selben Block ERCP, Palliativbegriff und Vorhofflimmern.
+
+**Mikroskopiebild:** „Dann ein Bild mit Mikroskopie: **Gicht-Kristallen (das wusste ich nicht),
+Fragen über Gicht, Anfall und Therapie.**" Davor Tumormarker CEA und CA 19-9, danach
+TNM-Klassifikation.
+
+**ASRAWI-Themenliste:** „**Podagra (Gicht, Akuttherapie, Harnsäure)**" — im Block mit
+Kompartmentsyndrom, Osteoporose und Knieverletzungen.
+
+**Als Vorerkrankung in Fällen mehrfach:** 70-Jähriger mit Knöchelödemen (VE unter anderem Gicht),
+Sturzfall mit Klavikulafraktur (Alkoholiker, Diabetiker, KHK, COPD, Gicht), Patient mit
+BSV, Knie-TEP, Hüft-TEP, Osteoporose und Gicht.
+
+**Aus dem Chat:** „Es fehlt noch **Gicht** und Aneurysma — Themen, die du von Amboss oder
+DocCheck lernen kannst." Also von Kandidaten selbst als Lücke benannt.
+
+---
+
+### Rangproblem — zu klären
+Die Themenliste führt **Rang 96 mit 6 Treffern**, also den letzten Platz. Nachzählung über alle
+Quellen ergibt **56 Treffer**: chat 18, bearb 13, prot2426 8, sortiert 6, neu 4, band 4, asrawi 3.
+Damit läge das Thema etwa auf **Rang 73**, nicht 96. **Nicht eigenmächtig geändert.**
+Zusammen mit Meningitis (62 statt 34) und Epilepsie (62 statt 10) ist das der dritte Fall —
+die drei im Juli 2026 nachgetragenen Themen wurden offenbar alle mit zu engem Suchmuster
+gezählt.
+
+**Grenzt an andere Reviews, dort NICHT doppeln:** Tumorlysesyndrom mit Harnsäureanstieg steht in
+**akute-leukaemien** · Pyrazinamid als Gichtauslöser in **tuberkulose** · septische Arthritis
+grenzt an **sepsis** · Diuretika in **arterielle-hypertonie** und **herzinsuffizienz** ·
+NSAR-Nebenwirkungen in **schmerztherapie**.

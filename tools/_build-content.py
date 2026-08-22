@@ -9,7 +9,7 @@ GROUPS = {
  'kardiologie':('Kardiologie',25),'pneumologie':('Pneumologie',210),'viszeralchirurgie':('Viszeralchirurgie',180),
  'chirurgie':('Viszeralchirurgie',180),'gastroenterologie':('Gastroenterologie',150),'unfallchirurgie':('Unfallchirurgie',50),
  'drittes-fach':('Drittes Fach',18),'notfallmedizin':('Notfallmedizin',255),'gefaesschirurgie':('Gefäßchirurgie',10),
- 'neurologie':('Neurologie',300),'endokrinologie':('Endokrinologie',330),'haematologie':('Hämatologie',350),
+ 'neurologie':('Neurologie',300),'endokrinologie':('Endokrinologie',330),'haematologie':('Hämatologie',350),'rheumatologie':('Rheumatologie',360),
 }
 STATION_KEYS = ['grundlagen','klinik','diagnostik','therapie']
 VARIANT = {'critical':'cave','warning':'cave','fact':'fakt','pearl':'merksatz'}
