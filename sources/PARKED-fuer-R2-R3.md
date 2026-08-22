@@ -822,3 +822,44 @@ Rang 91 duerfte eher noch zu hoch als zu niedrig sein.
 **Grenzt an andere Reviews, dort NICHT doppeln:** Gonarthrose und radiologische Arthrosezeichen
 stehen in **osteoporose**-Nachbarn und im **hoffart-bildatlas** · allgemeine Frakturlehre und
 Thromboseprophylaxe in **allgemeine-frakturlehre** · Hüft- und Knie-TEP in **hueft-knie-tep**.
+
+
+## Status epilepticus / Epilepsie — R1 gebaut 07/2026, Protokollstoff für R2/R3
+**Achtung Rangproblem: die Liste führt 10 Treffer, gezählt werden 62.** Siehe unten.
+
+**Der ausführlichste dokumentierte Block (Schlaganfallfall, Verlauf):**
+„Im Verlauf hat deine Patientin auf der Station **Krampfanfall** bekommen, du bist aufgerufen,
+wie gehst du denn vor?" → **er wollte die Therapie des Status epilepticus ausführlich:
+die 3 Stufen, Medikamente mit Dosis, erste und zweite Wahl, wenn kein i.v. Zugang vorhanden ist
+welche Alternative, dann bis zur Narkose** → „**Wie lange darf man den Patienten mit Propofol
+lassen?**" → Kandidat sagte 24 Stunden, **Prüfer: bis eine Woche ist möglich** →
+„Die Patientin ist auf Intensivstation unter Intubationsnarkose, **wie kannst du beurteilen,
+ob der Status abgeklungen ist?**" → **EEG** → „Welche Wellentypen erwartest du?" →
+Kandidat wusste es nicht, **Prüfer: „Kein Problem, du musst das nicht wissen."**
+
+**Herr Morgenthaler:** nach dem Enzephalitisfall „**die Therapie des Status epilepticus von
+Stufe 1 bis 3**", danach Hemianopsie und Lappenzuordnung.
+
+**Psychiatrie-Block (Ethanolspiegel 2,5 Promille):** Komplikationen **Delir und Epilepsie im
+Rahmen des Entzugs**, dann **„Definition Status epilepticus"**, danach Entgiftungsmöglichkeiten
+und **Fahrtüchtigkeit**.
+
+**Pädiatrie:** „**15-jähriges Mädchen mit fokaler Epilepsie — was werden Sie machen?**",
+danach CT-Schädel mit Blutung · in einem anderen Protokoll **Krampfanfall** im Pädiatrieblock
+neben Ketoazidose.
+
+**Als Vorerkrankung in Fällen:** 50-jähriger Mann mit Lebermetastasen, VE **Epilepsie unter
+Lamotrigin** · mehrfach als Nebendiagnose in Akten.
+
+---
+
+### Rangproblem — zu klären
+Die Themenliste führt **Rang 95 mit 10 Treffern** (Eintrag Juli 2026). Nachzählung über alle
+Quellen ergibt **62 Treffer**: chat 16, prot2426 11, bearb 23, sortiert 6, hoffart 5, asrawi 1.
+Damit läge das Thema etwa auf **Rang 71**, nicht 95. **Nicht eigenmächtig geändert** —
+Mohamed entscheidet.
+
+**Grenzt an andere Reviews, dort NICHT doppeln:** Die knappe Dreistufentherapie steht bereits in
+**eeg-komplett** und **notfallpharmakologie** · Anfall gegen Synkope in **synkope** ·
+Delir und Alkoholentzug in **delir** · Thiamin vor Glukose ebenfalls dort und in
+**akuttoxikologie** · Schlaganfall und Todd-Parese in **schlaganfall**.
