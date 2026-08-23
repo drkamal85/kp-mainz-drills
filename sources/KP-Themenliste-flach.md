@@ -1,6 +1,6 @@
 # KP MAINZ — THEMENLISTE (FLACH, EINE RANGLISTE)
 
-Alle **96 Themen** in einer Rangliste nach **Korpus-Treffer** (WhatsApp-Chat + Protokolle). Aktuell **86 von 96** mit Review abgedeckt (~90 %).
+Alle **96 Themen** in einer Rangliste nach **Korpus-Treffer** (WhatsApp-Chat + Protokolle). Aktuell **88 von 96** mit Review abgedeckt (~92 %).
 
 > **Juli 2026 (a):** 3 Themen ergänzt (nach Protokoll-Frequenz-Check bestätigt): **Kreuzbandruptur** (Unfallchirurgie, 30 Protokoll-Treffer, VKB:21), **Status epilepticus/Epilepsie** (Neurologie, 10), **Gicht/Podagra** (Rheumatologie, 6). *Verworfen* (zu niedrig/abwesend): Demenz, Erysipel, Fazialisparese, Ösophaguskarzinom, Multiples Myelom, Migräne, Parkinson.
 >
@@ -107,7 +107,7 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 90 | 32 | 9 | 23 | Nephrologie | Hyponatriämie / SIADH | ✓ R1 |
 | 91 | 30 | 0 | 30 | Unfallchirurgie | Kreuzbandruptur | ✓ R1 |
 | 92 | 23 | 3 | 20 | Unfallchirurgie | Wirbelsäulenverletzungen | ✓ R4 |
-| 93 | 13 | 8 | 5 | Drittes Fach | KI in der Medizin | — |
-| 94 | 12 | 10 | 2 | Drittes Fach | EBM | — |
+| 93 | 13 | 8 | 5 | Drittes Fach | KI in der Medizin | ✓ R1 (in EBM & KI) |
+| 94 | 12 | 10 | 2 | Drittes Fach | EBM | ✓ R1 |
 | 95 | 10 | 0 | 10 | Neurologie | Status epilepticus / Epilepsie | ✓ R1 |
 | 96 | 6 | 0 | 6 | Rheumatologie | Gicht / Podagra | ✓ R1 |

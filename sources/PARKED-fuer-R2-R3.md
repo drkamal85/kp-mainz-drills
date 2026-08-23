@@ -904,3 +904,45 @@ gezählt.
 **akute-leukaemien** · Pyrazinamid als Gichtauslöser in **tuberkulose** · septische Arthritis
 grenzt an **sepsis** · Diuretika in **arterielle-hypertonie** und **herzinsuffizienz** ·
 NSAR-Nebenwirkungen in **schmerztherapie**.
+
+
+## EBM & KI in der Medizin — R1 gebaut 07/2026, Protokollstoff für R2/R3
+**Zwei Listeneinträge (Rang 93 KI, Rang 94 EBM), ein Review — beide wurden im selben
+Protokoll als Frage 8 und 9 nacheinander gestellt.**
+
+**Frage 8 — evidenzbasierte Medizin, mit Musterantwort:**
+„Ich erklärte, dass EBM die Integration von **individueller klinischer Erfahrung, der besten
+verfügbaren wissenschaftlichen Evidenz und den Patientenpräferenzen** ist."
+Evidenzstufen wörtlich: Metaanalysen und systematische Reviews (höchste), RCTs,
+Kohortenstudien, Fall-Kontroll-Studien, Expertenmeinung (niedrigste).
+
+**Frage 9 — KI, mit vollständiger Antwortliste:**
+Radiologie (Bildanalyse CT, MRT, Röntgen — Tumoren, Frakturen, Blutungen) · Dermatologie
+(Hautläsionen, Melanom) · Kardiologie (EKG-Arrhythmien, Herzinfarktrisiko) · Pathologie
+(digitale Gewebeauswertung) · Intensivmedizin (Sepsis-Vorhersage, Monitoring) · Administration
+(Arztbriefe, Terminplanung). Vorteile: schnellere Diagnosen, Unterstützung bei komplexen
+Entscheidungen, Entlastung, höhere Genauigkeit.
+
+**Zweite EBM-Kette (Infusionsblock):** „**Was ist Evidenz-basierte Medizin? Wie macht man das?**"
+→ RCT · „**Wer sammelt Evidenz?**" → Leitlinien · „**Wie sind die Leitlinien gefasst?**" →
+**S1–3, die geben einen Empfehlungsgrad** · „**Wie definiert man die Normwerte?**" →
+95 Prozent der normalen Bevölkerung · „**Wie viele Gesunde wären dann außerhalb?**" → 5 Prozent ·
+„**Wie definiert man einen Cut-off?**" → **bester Ausgleich zwischen Sensitivität und Spezifität**.
+
+**Herr Brill:** „**Was bedeutet Leitlinien?**" — im Block mit Schweigepflicht, Datenschutz,
+Berufsgenossenschaft und Nadelstichverletzung.
+
+---
+
+### Wichtig zur Trefferzählung
+Die Themenliste führt **KI in der Medizin mit 13 Treffern**. Das ist größtenteils ein
+**Fehltreffer**: Im Korpus steht „KI" fast immer für **Kontraindikation** — von 19 Vorkommen
+sind 12 eindeutig Kontraindikation (Metformin, Amiodaron, Lyse, Haloperidol). Echte Belege für
+künstliche Intelligenz: **3 Treffer** für „künstliche Intelligenz". Die 31 ChatGPT-Treffer
+stammen aus Kandidatengesprächen über Lernhilfen, nicht aus Prüfungen.
+**Umgekehrt ist EBM unterzählt:** 58 Treffer für EBM, Evidenz und Leitlinie, gelistet sind 12.
+**Nicht eigenmächtig geändert.**
+
+**Grenzt an andere Reviews, dort NICHT doppeln:** Schweigepflicht, Datenschutz und
+Berufsgenossenschaft stehen in **sozialrecht-hygiene** · Aufklärung ebendort ·
+Sensitivität und Spezifität im Kontext einzelner Tests bei den jeweiligen Themen.
