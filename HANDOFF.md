@@ -245,6 +245,16 @@ Tabs. Auf allen 83 Seiten entfernt. **Die Drills behalten ihren Footer**, weil
 `_build-content.py` ihn dort als Endmarke beim Parsen nutzt. Die Fußzeile im PDF (Quelle links,
 Seitenzahl rechts) stammt aus `print.css` und ist nicht betroffen.
 
+**Aufbau von Diagnostik-Stationen (bestätigt 08/2026):** Karten werden nach **Untersuchungsart**
+gegliedert, nicht nach Zweck — also `Labor · Bildgebung · Biopsie · Einteilung` statt
+`Sicherung · Ausbreitung · Staging`. Grund: Wer eine Untersuchung sucht, sucht sie unter ihrer
+Art. Vorher standen Laborwerte zwischen PET-CT und Knochenmarkpunktion.
+
+Innerhalb der Karten **Bullets, kein Fließtext**, je Zeile ein Verfahren mit einem Halbsatz wozu.
+Bildgebung in der Reihenfolge der Anwendung. Wo es passt, sind die Kartennamen themenspezifisch
+(bei Diarrhö `Labor · Stuhl · Clostridien · Chronisch`) — die Logik bleibt dieselbe.
+Referenzumsetzungen: **morbus-hodgkin**, **diarrhoe**.
+
 ---
 
 ## 11. DRUCK / PDF (Standard-Layout — Aug 2026)
