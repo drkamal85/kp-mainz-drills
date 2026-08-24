@@ -59,7 +59,7 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 42 | 111 | 37 | 74 | Angiologie | Tiefe Beinvenenthrombose (TVT) | ✓ R4 |
 | 43 | 108 | 35 | 73 | Kardiologie | Arterielle Hypertonie | ✓ R3 |
 | 44 | 102 | 15 | 87 | Pneumologie | Asthma bronchiale | ✓ R4 |
-| 45 | 100 | 35 | 65 | Pneumologie | Bronchialkarzinom | ✓ R1 |
+| 45 | 100 | 35 | 65 | Pneumologie | Bronchialkarzinom | ✓ R2 |
 | 46 | 95 | 18 | 77 | Kardiologie | Synkope | ✓ R3 |
 | 47 | 93 | 40 | 53 | Unfallchirurgie | Distale Radiusfraktur | ✓ R4 |
 | 48 | 93 | 30 | 63 | Drittes Fach | Schmerztherapie / WHO-Schema | ✓ R1 |
