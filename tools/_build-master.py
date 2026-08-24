@@ -109,7 +109,7 @@ FLAT=[
 (56,15,41,"Allgemein- und Viszeralchirurgie","Pankreaskarzinom","pankreaskarzinom"),
 (56,11,45,"Allgemein- und Viszeralchirurgie","Hämorrhoiden","haemorrhoiden"),
 (55,11,44,"Allgemein- und Viszeralchirurgie","Magenkarzinom","magenkarzinom"),
-(55,9,46,"Hämatologie","Morbus Hodgkin",None),
+(55,9,46,"Hämatologie","Morbus Hodgkin","morbus-hodgkin"),
 (54,19,35,"Notfallmedizin","Verbrennung","verbrennung"),
 (49,10,39,"Unfallchirurgie","Claviculafraktur",None),
 (47,8,39,"Endokrinologie","Struma",None),

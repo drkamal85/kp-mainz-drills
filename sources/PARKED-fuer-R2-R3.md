@@ -946,3 +946,39 @@ stammen aus Kandidatengesprächen über Lernhilfen, nicht aus Prüfungen.
 **Grenzt an andere Reviews, dort NICHT doppeln:** Schweigepflicht, Datenschutz und
 Berufsgenossenschaft stehen in **sozialrecht-hygiene** · Aufklärung ebendort ·
 Sensitivität und Spezifität im Kontext einzelner Tests bei den jeweiligen Themen.
+
+
+## Morbus Hodgkin — R1 gebaut 07/2026, Protokollstoff für R2/R3
+**Rang 80 mit 55 Treffern. Zweimal war es der Prüfungsfall selbst.**
+
+**Fall 1 — 17-Jähriger (bestanden 08/2024):** „Der Fall war **Morbus Hodgkin bei einem
+17-jährigen Patienten**. Die Akte war so schlicht, dass es nur **Befunde von PET/CT und
+CT Hals Abdomen** gab."
+
+**Fall 2 — Pädiatrie, ausführlich dokumentiert:** Jugendlicher mit **Halsschwellung,
+Schluckbeschwerden und etwa 3 kg Gewichtsverlust**. Zunächst **Antibiotikum vom Kinderarzt ohne
+Besserung**, dann Überweisung zum HNO-Arzt, dann stationäre Aufnahme. Erstdiagnose auswärts
+**Lymphadenitis yersiniosa**, mit Cotrim entlassen. Wiedervorstellung Uni Mainz:
+**LK-Biopsie, Sono Abdomen, CT Abdomen-Thorax, Echo, Serologie EBV-IgM positiv**.
+Ergebnis der LK-Biopsie: **Hodgkin-Lymphom, nodulär sklerosierend**. Danach Chemotherapie.
+Frau Dr. Kleinengraber fragte anschließend weiter.
+
+**Dr. Hoffart (Vorsitz, Pädiatriefälle):** Von den 4 bis 5 Fällen, die er als Vorsitzender
+vorgelegt hat, war einer das **Hodgkin-Lymphom** — neben Germinom mit Hydrozephalus occlusus,
+Neuroblastom und akuter lymphatischer Leukämie.
+
+**Dr. Hennekes (Fall Endokarditis):** im Frageblock danach **„Hodgkin, Non-Hodgkin,
+Lymphknotenuntersuchung"** — zusammen mit Leberzirrhose, Opioid- und
+Benzodiazepinüberdosierung und Alkoholenzephalopathie.
+
+**Aus dem Chat (02/2026):** „Es gibt ein **Protokoll Hodgkin** und Protokoll ALL und Protokoll MM
+— ich denke das Thema **Hämatologie-Malignität ist sehr beliebt bei 2 Prüfern**."
+
+**Vena-cava-superior-Syndrom** dokumentiert als Komplikation bei mediastinaler Raumforderung:
+**Stokes-Kragen**, gestaute Halsvenen, Gesichtsödem, Dyspnoe.
+
+**Grenzt an andere Reviews, dort NICHT doppeln:** Die Vergleichskarte NHL gegen Hodgkin, die
+Ann-Arbor-Tabelle, der Alkoholschmerz, Bulk-Definition und Zweitmalignome stehen bereits in
+**non-hodgkin-lymphome** (R3) · Tumorlysesyndrom in **akute-leukaemien** · obere
+Einflussstauung auch in **bronchialkarzinom** · EBV in **hepatitis** · B-Symptomatik
+durchgängig.
