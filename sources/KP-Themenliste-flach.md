@@ -1,6 +1,6 @@
 # KP MAINZ — THEMENLISTE (FLACH, EINE RANGLISTE)
 
-Alle **96 Themen** in einer Rangliste nach **Korpus-Treffer** (WhatsApp-Chat + Protokolle). Aktuell **90 von 96** mit Review abgedeckt (~94 %).
+Alle **96 Themen** in einer Rangliste nach **Korpus-Treffer** (WhatsApp-Chat + Protokolle). Aktuell **91 von 96** mit Review abgedeckt (~95 %).
 
 > **Juli 2026 (a):** 3 Themen ergänzt (nach Protokoll-Frequenz-Check bestätigt): **Kreuzbandruptur** (Unfallchirurgie, 30 Protokoll-Treffer, VKB:21), **Status epilepticus/Epilepsie** (Neurologie, 10), **Gicht/Podagra** (Rheumatologie, 6). *Verworfen* (zu niedrig/abwesend): Demenz, Erysipel, Fazialisparese, Ösophaguskarzinom, Multiples Myelom, Migräne, Parkinson.
 >
@@ -55,7 +55,7 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 38 | 120 | 40 | 80 | Unfallchirurgie | Hüft- / Knie-TEP | ✓ R3 |
 | 39 | 120 | 36 | 84 | Gastroenterologie | Gastritis (Typ A/B/C) | ✓ R1 |
 | 40 | 119 | 31 | 88 | Drittes Fach | Sozialrecht & Hygiene | ✓ R1 |
-| 41 | 117 | 24 | 93 | Angiologie | pAVK | — |
+| 41 | 117 | 24 | 93 | Angiologie | pAVK | ✓ R2 |
 | 42 | 111 | 37 | 74 | Angiologie | Tiefe Beinvenenthrombose (TVT) | ✓ R4 |
 | 43 | 108 | 35 | 73 | Kardiologie | Arterielle Hypertonie | ✓ R3 |
 | 44 | 102 | 15 | 87 | Pneumologie | Asthma bronchiale | ✓ R4 |

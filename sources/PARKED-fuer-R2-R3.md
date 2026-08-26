@@ -1013,3 +1013,37 @@ EKG 2: AV-Block III°." Im selben Block AV-Block-II-Typen Wenckebach und Mobitz.
 Rhythmuskontrolle, TEE vor Kardioversion und die WPW-Perle stehen in **vorhofflimmern** (R4) ·
 Adenosin zur Demaskierung und die Ablation kurz in **ekg-komplett** · AV-Blöcke ebendort ·
 Kardioversion und Defibrillation in **reanimation**.
+
+
+## pAVK — R1 und R2 gebaut 08/2026, Protokollstoff für R3
+**Rang 41 mit 117 Treffern — das gewichtigste Gefäßthema.**
+
+**Dokumentierter Einstieg (Dr. Hilbert-Block):** „Ein älterer Patient sagt Ihnen: **ich konnte
+früher mit meinem Hund 500 Meter laufen, jetzt schaffe ich kaum 100. Was vermuten Sie?**"
+→ **Claudicatio intermittens, pAVK** → **Fontaine-Stadien** → **in welchen Stadien
+interventionelle Therapie und welche Möglichkeiten?** → **III und IV, PTA mit Stent-Anlage,
+TEA oder Bypass** → **Ursachen für akuten arteriellen Verschluss?** → **Embolien 80 Prozent,
+Thrombosen 20 Prozent** → **wahrscheinlichste Ursache bei diesem Patienten?** →
+**Thrombose bei bekannter pAVK**.
+
+**Bildfrage warm gegen kalt:** ausgedrucktes Bild einer einseitigen Beinschwellung mit
+Blauverfärbung → „das Bein fühlt sich **warm** an, Verdacht?" → TVT →
+„**und wenn kalt?**" → **pAVK**. Danach Komplikationen der TVT und Lungenembolie-Therapie.
+
+**Fall Schenkelhalsfraktur (Garden 4, Pauwels 3):** „Patient dick, riecht nach Tabak, plötzlicher
+Beinschmerz. Verdacht? TVT — Druckschmerz in Wade und Fußsohle. **Anderer Verdacht? pAVK.
+Klinischer Hinweis?** typischer langdauernder Verlauf — **wenn plötzlich, wo findet sich der
+Verschluss?** → **Stenosen im Bereich der Aorta abdominalis und der Aa. iliacae, pAVK vom
+Beckentyp** → **Behandlung? interventionell, Revaskularisation, Lyse**."
+
+**Dr. Hock (Fall Pankreaskopfkarzinom mit GI-Blutung):** nach der Forrest-Klassifikation
+weitere Themen, darunter **PAVK-Stadien nach Fontaine und Therapie**.
+
+**Dr. Hake (Fall Anämie):** nach dem Fall „**dann ausführlich über PAVK**", danach CT-Bilder
+mit Karzinom.
+
+**Grenzt an andere Reviews, dort NICHT doppeln:** TVT, Wells-Score und Lungenembolie stehen in
+**tvt** · Aortenaneurysma in **aortenaneurysma** · Aortendissektion mit ihren Pulsdifferenzen
+in **aortendissektion** · Atherosklerose-Risikofaktoren und Statine in **khk** und
+**arterielle-hypertonie** · diabetischer Fuß in **diabetes-mellitus** · Kompartmentsyndrom
+nach Reperfusion in **allgemeine-frakturlehre**.
