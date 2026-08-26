@@ -982,3 +982,34 @@ Ann-Arbor-Tabelle, der Alkoholschmerz, Bulk-Definition und Zweitmalignome stehen
 **non-hodgkin-lymphome** (R3) · Tumorlysesyndrom in **akute-leukaemien** · obere
 Einflussstauung auch in **bronchialkarzinom** · EBV in **hepatitis** · B-Symptomatik
 durchgängig.
+
+
+## Paroxysmale SVT / AVNRT — R1 gebaut 08/2026, Protokollstoff für R2/R3
+**Rang 84 mit 43 Treffern. Zweimal als EKG-Fall dokumentiert.**
+
+**Fall 1 — EKG-Block nach GI-Blutung und Rekompensation:**
+„Dann hat ein EKG mit **supraventrikulärer Tachykardie** gezeigt. **Rhythmus?**
+(regelmäßig, RR-Abstände sind gleich, **P-Welle nicht beurteilbar**) →
+**Was kann man hier machen?** (Karotisdruckversuch, Betablockergabe oder **Adenosin unter
+Monitoring**) → **Wie wirkt Adenosin?** (verlängert die Leitung über den AV-Knoten) →
+**Warum supraventrikulär?** (schmaler QRS-Komplex) → **DD Sinustachykardie, AVNRT** —
+**sie wollte Vorhofflattern mit 2:1-Überleitung hören** → **Vorhoffrequenz bei Vorhofflattern?**
+(250–300 pro Minute). Danach Hyponatriämie.
+
+**Fall 2 — zwei EKGs nacheinander (nach Ketoazidose-Block):**
+„EKG 1: Tachykardie, so schnell dass der Rhythmus nicht erkennbar war. EKG 2: langsamer,
+**mit Flatterwellen**. **Was wurde zwischen EKG 1 und EKG 2 gemacht?** → **Adenosin-Test** →
+**Wie funktioniert Adenosin?** → **Welche zwei wichtigen Sachen gibt es über Adenosin?** →
+**1. Patient informieren, dass er das Gefühl haben kann, sein Herz stoppe.
+2. Es muss in der Nähe vom Herzen gespritzt werden, da es sehr kurz wirksam ist.** →
+Weiteres Vorgehen: Blutbild, Digitoxin, EKG-Kontrolle → Antikoagulation mit CHA2DS2-VASc,
+Frequenzkontrolle, TEE und elektrische Kardioversion → **Energiewahl bei Flattern: mehr oder
+weniger als bei Vorhofflimmern? Muss man auf die R-Zacke synchronisieren?**
+
+**WPW dokumentiert (eigener EKG-Block):** „EKG 1: **WPW; Delta-Welle, Kent-Bündel, Behandlung.**
+EKG 2: AV-Block III°." Im selben Block AV-Block-II-Typen Wenckebach und Mobitz.
+
+**Grenzt an andere Reviews, dort NICHT doppeln:** Vorhofflimmern, CHA2DS2-VASc, Frequenz- gegen
+Rhythmuskontrolle, TEE vor Kardioversion und die WPW-Perle stehen in **vorhofflimmern** (R4) ·
+Adenosin zur Demaskierung und die Ablation kurz in **ekg-komplett** · AV-Blöcke ebendort ·
+Kardioversion und Defibrillation in **reanimation**.

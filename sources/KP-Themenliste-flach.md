@@ -1,6 +1,6 @@
 # KP MAINZ — THEMENLISTE (FLACH, EINE RANGLISTE)
 
-Alle **96 Themen** in einer Rangliste nach **Korpus-Treffer** (WhatsApp-Chat + Protokolle). Aktuell **89 von 96** mit Review abgedeckt (~93 %).
+Alle **96 Themen** in einer Rangliste nach **Korpus-Treffer** (WhatsApp-Chat + Protokolle). Aktuell **90 von 96** mit Review abgedeckt (~94 %).
 
 > **Juli 2026 (a):** 3 Themen ergänzt (nach Protokoll-Frequenz-Check bestätigt): **Kreuzbandruptur** (Unfallchirurgie, 30 Protokoll-Treffer, VKB:21), **Status epilepticus/Epilepsie** (Neurologie, 10), **Gicht/Podagra** (Rheumatologie, 6). *Verworfen* (zu niedrig/abwesend): Demenz, Erysipel, Fazialisparese, Ösophaguskarzinom, Multiples Myelom, Migräne, Parkinson.
 >
@@ -98,7 +98,7 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 81 | 54 | 19 | 35 | Notfallmedizin | Verbrennung | ✓ R1 |
 | 82 | 49 | 10 | 39 | Unfallchirurgie | Claviculafraktur | — |
 | 83 | 47 | 8 | 39 | Endokrinologie | Struma | — |
-| 84 | 43 | 19 | 24 | Kardiologie | Paroxysmale SVT / AVNRT-AVRT | — |
+| 84 | 43 | 19 | 24 | Kardiologie | Paroxysmale SVT / AVNRT-AVRT | ✓ R1 |
 | 85 | 43 | 13 | 30 | Querschnitt | Check-up / Prävention | ✓ R2 |
 | 86 | 40 | 10 | 30 | Angiologie | Aortenaneurysma (AAA) | ✓ R2 |
 | 87 | 40 | 7 | 33 | Unfallchirurgie | Beckenringfrakturen | ✓ R4 |
