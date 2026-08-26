@@ -245,6 +245,18 @@ Tabs. Auf allen 83 Seiten entfernt. **Die Drills behalten ihren Footer**, weil
 `_build-content.py` ihn dort als Endmarke beim Parsen nutzt. Die Fußzeile im PDF (Quelle links,
 Seitenzahl rechts) stammt aus `print.css` und ist nicht betroffen.
 
+**Referenzdeck für R1 (bestätigt 08/2026): `svt-avnrt`.** Nach vier missratenen Überarbeitungen
+komplett neu gebaut und abgenommen. Merkmale, die es tragen:
+
+- **Durchgängig Bullets**, alle vier Stationen im selben Stil — kein Wechsel zwischen
+  Merksatzkasten, Tabelle und Fließtext
+- **Tabellen nur bei echtem Vergleich** (hier genau eine: die Abgrenzung schmaler Tachykardien)
+- **Abkürzungen zuerst:** erste Karte der Grundlagen löst alle Kürzel je in einer Zeile auf
+- **Keine dramatische Sprache**, keine Merksätze um ihrer selbst willen
+- Warnungen stehen **dort, wo die Entscheidung fällt** (WPW-Warnung bei den Medikamenten,
+  nicht als eigene Karte am Ende)
+- 433 Wörter, 13 Karten, 46 Bullets
+
 **Aufbau von Diagnostik-Stationen (bestätigt 08/2026):** Karten werden nach **Untersuchungsart**
 gegliedert, nicht nach Zweck — also `Labor · Bildgebung · Biopsie · Einteilung` statt
 `Sicherung · Ausbreitung · Staging`. Grund: Wer eine Untersuchung sucht, sucht sie unter ihrer
