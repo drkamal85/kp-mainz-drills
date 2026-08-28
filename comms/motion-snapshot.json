@@ -1,0 +1,781 @@
+{
+  "generatedAt": "2026-08-28T11:35:53.502Z",
+  "totals": {
+    "open": 331,
+    "completed": 378,
+    "overdue": 0,
+    "schedulingIssues": 252
+  },
+  "byLevel": {
+    "R1": {
+      "open": 0,
+      "completed": 105
+    },
+    "R2": {
+      "open": 28,
+      "completed": 76
+    },
+    "R3": {
+      "open": 39,
+      "completed": 62
+    },
+    "R4": {
+      "open": 52,
+      "completed": 50
+    },
+    "R5": {
+      "open": 100,
+      "completed": 1
+    }
+  },
+  "byWorkstream": {
+    "A_coverage": {
+      "topicsTotal": 229,
+      "studied": 68,
+      "studyOpen": 0,
+      "r1Built": 102,
+      "r1Open": 0
+    },
+    "B_r5": {
+      "open": 102,
+      "completed": 1,
+      "pilot": [
+        {
+          "name": "R5-Pilot: Cholezystitis #2",
+          "dueDate": "2026-11-10",
+          "completed": false
+        },
+        {
+          "name": "Review: Cholezystitis R5",
+          "dueDate": "2026-11-03",
+          "completed": false
+        }
+      ]
+    },
+    "C_akte": {
+      "open": 25,
+      "completed": 0,
+      "sessions": [
+        {
+          "name": "Akte-Sim #5",
+          "dueDate": "2026-08-29",
+          "completed": false
+        },
+        {
+          "name": "Akte-Sim #1",
+          "dueDate": "2026-09-05",
+          "completed": false
+        },
+        {
+          "name": "Akte-Sim #2",
+          "dueDate": "2026-09-12",
+          "completed": false
+        },
+        {
+          "name": "Akte-Sim #3",
+          "dueDate": "2026-09-26",
+          "completed": false
+        },
+        {
+          "name": "Akte-Sim #4",
+          "dueDate": "2026-10-03",
+          "completed": false
+        },
+        {
+          "name": "Akte-Sim #6",
+          "dueDate": "2026-10-10",
+          "completed": false
+        },
+        {
+          "name": "Akte-Sim #7",
+          "dueDate": "2026-10-17",
+          "completed": false
+        },
+        {
+          "name": "Akte-Sim #8",
+          "dueDate": "2026-10-24",
+          "completed": false
+        },
+        {
+          "name": "Akte-Sim #9",
+          "dueDate": "2026-10-31",
+          "completed": false
+        },
+        {
+          "name": "Akte-Sim #10",
+          "dueDate": "2026-11-07",
+          "completed": false
+        },
+        {
+          "name": "Akte-Sim #11",
+          "dueDate": "2026-11-14",
+          "completed": false
+        },
+        {
+          "name": "Akte-Sim #12",
+          "dueDate": "2026-11-21",
+          "completed": false
+        },
+        {
+          "name": "Akte-Sim #13",
+          "dueDate": "2026-11-28",
+          "completed": false
+        },
+        {
+          "name": "Akte-Sim #14",
+          "dueDate": "2026-12-05",
+          "completed": false
+        },
+        {
+          "name": "Akte-Sim #15",
+          "dueDate": "2026-12-12",
+          "completed": false
+        },
+        {
+          "name": "Akte-Sim #16",
+          "dueDate": "2026-12-19",
+          "completed": false
+        },
+        {
+          "name": "Akte-Sim #17",
+          "dueDate": "2026-12-26",
+          "completed": false
+        },
+        {
+          "name": "Akte-Sim #18",
+          "dueDate": "2027-01-02",
+          "completed": false
+        },
+        {
+          "name": "Akte-Sim #19",
+          "dueDate": "2027-01-09",
+          "completed": false
+        },
+        {
+          "name": "Akte-Sim #20",
+          "dueDate": "2027-01-16",
+          "completed": false
+        },
+        {
+          "name": "Akte-Sim #21",
+          "dueDate": "2027-01-23",
+          "completed": false
+        },
+        {
+          "name": "Akte-Sim #22",
+          "dueDate": "2027-01-30",
+          "completed": false
+        },
+        {
+          "name": "Akte-Sim #23",
+          "dueDate": "2027-02-06",
+          "completed": false
+        },
+        {
+          "name": "Akte-Sim #24",
+          "dueDate": "2027-02-13",
+          "completed": false
+        },
+        {
+          "name": "Akte-Sim #25",
+          "dueDate": "2027-02-20",
+          "completed": false
+        }
+      ]
+    },
+    "D_bildsprint": {
+      "open": 27,
+      "completed": 6,
+      "note": "Drill tasks live as komplett library files, not Motion tasks"
+    }
+  },
+  "flagged": [
+    {
+      "name": "Anatomie-Drill: Hand & Karpaltunnel",
+      "dueDate": "2027-02-24",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Anatomie-Drill: Ellenbogen & Unterarm",
+      "dueDate": "2027-02-17",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Anatomie-Drill: Schulter & Plexus brachialis",
+      "dueDate": "2027-02-10",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Anatomie-Drill: Repetitorium gemischt",
+      "dueDate": "2027-02-03",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Anatomie-Drill: Lymphabfluss & Kompartimente",
+      "dueDate": "2027-01-27",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Anatomie-Drill: Periphere Nerven: untere Extremität",
+      "dueDate": "2027-01-20",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Anatomie-Drill: Periphere Nerven: obere Extremität",
+      "dueDate": "2027-01-13",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Anatomie-Drill: Becken & Beckenboden",
+      "dueDate": "2027-01-06",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Anatomie-Drill: Lunge & Bronchialbaum",
+      "dueDate": "2026-12-30",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Anatomie-Drill: Herz & Koronarien",
+      "dueDate": "2026-12-23",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Anatomie-Drill: Schädelbasis & Hirnnerven",
+      "dueDate": "2026-12-16",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Anatomie-Drill: Hals & Schilddrüse",
+      "dueDate": "2026-12-09",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Anatomie-Drill: Gefäße: Aorta & Äste",
+      "dueDate": "2026-12-02",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Anatomie-Drill: Retroperitoneum & Niere",
+      "dueDate": "2026-11-25",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Anatomie-Drill: Unterbauch: Darm & Mesenterium",
+      "dueDate": "2026-11-18",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Anatomie-Drill: Oberbauch: Leber, Galle, Pankreas",
+      "dueDate": "2026-11-11",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Anatomie-Drill: Bauchwand & Leistenkanal",
+      "dueDate": "2026-11-04",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Anatomie-Drill: Thoraxwand & Zwerchfell",
+      "dueDate": "2026-10-28",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Anatomie-Drill: Wirbelsäule & Rückenmark",
+      "dueDate": "2026-10-21",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Anatomie-Drill: Sprunggelenk & Fuß",
+      "dueDate": "2026-10-14",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Anatomie-Drill: Knie & Bandapparat",
+      "dueDate": "2026-10-07",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Anatomie-Drill: Hüfte & Femur",
+      "dueDate": "2026-09-30",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Akte-Sim #25",
+      "dueDate": "2027-02-20",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Akte-Sim #24",
+      "dueDate": "2027-02-13",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Akte-Sim #23",
+      "dueDate": "2027-02-06",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Akte-Sim #22",
+      "dueDate": "2027-01-30",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Akte-Sim #21",
+      "dueDate": "2027-01-23",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Akte-Sim #20",
+      "dueDate": "2027-01-16",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Akte-Sim #19",
+      "dueDate": "2027-01-09",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Akte-Sim #18",
+      "dueDate": "2027-01-02",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Akte-Sim #17",
+      "dueDate": "2026-12-26",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Akte-Sim #16",
+      "dueDate": "2026-12-19",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Akte-Sim #15",
+      "dueDate": "2026-12-12",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Akte-Sim #14",
+      "dueDate": "2026-12-05",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Akte-Sim #13",
+      "dueDate": "2026-11-28",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Akte-Sim #12",
+      "dueDate": "2026-11-21",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Akte-Sim #11",
+      "dueDate": "2026-11-14",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Akte-Sim #10",
+      "dueDate": "2026-11-07",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Akte-Sim #9",
+      "dueDate": "2026-10-31",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Akte-Sim #8",
+      "dueDate": "2026-10-24",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Akte-Sim #7",
+      "dueDate": "2026-10-17",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Akte-Sim #6",
+      "dueDate": "2026-10-10",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Pull-forward-Entscheidung",
+      "dueDate": "2026-10-20",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "CHECKPOINT Dez 31 — Mock-#1-Debrief",
+      "dueDate": "2026-12-31",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "CHECKPOINT Nov 30 — alle 97 Themen R4",
+      "dueDate": "2026-11-30",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "CHECKPOINT Okt 31",
+      "dueDate": "2026-10-31",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Mentor check-in #15",
+      "dueDate": "2026-12-25",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Mentor check-in #14",
+      "dueDate": "2026-12-18",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Mentor check-in #13",
+      "dueDate": "2026-12-11",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Mentor check-in #12",
+      "dueDate": "2026-12-04",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Mentor check-in #11",
+      "dueDate": "2026-11-27",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Mentor check-in #10",
+      "dueDate": "2026-11-20",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Mentor check-in #9",
+      "dueDate": "2026-11-13",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Mentor check-in #8",
+      "dueDate": "2026-11-06",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Mentor check-in #7",
+      "dueDate": "2026-10-30",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Mentor check-in #6",
+      "dueDate": "2026-10-23",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Mentor check-in #5",
+      "dueDate": "2026-10-16",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Mentor check-in #4",
+      "dueDate": "2026-10-09",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Mentor check-in #3",
+      "dueDate": "2026-10-02",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "CHECKPOINT: September Review Complete",
+      "dueDate": "2026-09-30",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    }
+  ],
+  "overdue": [],
+  "upcoming14d": [
+    {
+      "name": "Akte-Sim #5",
+      "dueDate": "2026-08-29",
+      "duration": 45
+    },
+    {
+      "name": "Review: Nierenversagen R2",
+      "dueDate": "2026-08-31",
+      "duration": 45
+    },
+    {
+      "name": "Review: Proximale Femurfrakturen R5",
+      "dueDate": "2026-09-01",
+      "duration": 90
+    },
+    {
+      "name": "Review: Polytrauma/ABCDE R5",
+      "dueDate": "2026-09-01",
+      "duration": 90
+    },
+    {
+      "name": "Anatomie-Drill: Schulter & Plexus brachialis",
+      "dueDate": "2026-09-02",
+      "duration": 30
+    },
+    {
+      "name": "Review: Anaphylaxie R3",
+      "dueDate": "2026-09-02",
+      "duration": 60
+    },
+    {
+      "name": "Review: Hirnblutungen (EDH/SDH/SAB/ICB) R3",
+      "dueDate": "2026-09-02",
+      "duration": 60
+    },
+    {
+      "name": "Review: Hyponatriämie / SIADH R3",
+      "dueDate": "2026-09-02",
+      "duration": 60
+    },
+    {
+      "name": "Review: Status epilepticus / Epilepsie R3",
+      "dueDate": "2026-09-03",
+      "duration": 60
+    },
+    {
+      "name": "Review: Milzruptur / Splenektomie R3",
+      "dueDate": "2026-09-03",
+      "duration": 60
+    },
+    {
+      "name": "Review: Non-Hodgkin-Lymphome R4",
+      "dueDate": "2026-09-03",
+      "duration": 30
+    },
+    {
+      "name": "Review: GI-Blutung R4",
+      "dueDate": "2026-09-03",
+      "duration": 30
+    },
+    {
+      "name": "Mentor check-in #1",
+      "dueDate": "2026-09-04",
+      "duration": 20
+    },
+    {
+      "name": "Review: Paroxysmale SVT / AVNRT R2",
+      "dueDate": "2026-09-04",
+      "duration": 45
+    },
+    {
+      "name": "Review: Morbus Hodgkin R2",
+      "dueDate": "2026-09-04",
+      "duration": 45
+    },
+    {
+      "name": "Akte-Sim #1",
+      "dueDate": "2026-09-05",
+      "duration": 45
+    },
+    {
+      "name": "Review: Hepatitis B R2",
+      "dueDate": "2026-09-05",
+      "duration": 45
+    },
+    {
+      "name": "Review: Hepatitis C R2",
+      "dueDate": "2026-09-05",
+      "duration": 45
+    },
+    {
+      "name": "Review: Meningitis/Enzephalitis R2",
+      "dueDate": "2026-09-05",
+      "duration": 45
+    },
+    {
+      "name": "Review: Akuttoxikologie / Intoxikation R2",
+      "dueDate": "2026-09-05",
+      "duration": 45
+    },
+    {
+      "name": "Review: Tuberkulose R2",
+      "dueDate": "2026-09-05",
+      "duration": 45
+    },
+    {
+      "name": "Review: Osteoporose R2",
+      "dueDate": "2026-09-05",
+      "duration": 45
+    },
+    {
+      "name": "Review: Harnwegsinfekt / Pyelonephritis R2",
+      "dueDate": "2026-09-05",
+      "duration": 45
+    },
+    {
+      "name": "Review: Akutes Abdomen R2",
+      "dueDate": "2026-09-05",
+      "duration": 45
+    },
+    {
+      "name": "Review: Schmerztherapie / WHO-Stufenschema R3",
+      "dueDate": "2026-09-06",
+      "duration": 60
+    },
+    {
+      "name": "Review: Drittes Fach — Sozialrecht + Unfallversicherung + Hygiene R4",
+      "dueDate": "2026-09-06",
+      "duration": 30
+    },
+    {
+      "name": "Review: Gicht / Podagra R3",
+      "dueDate": "2026-09-06",
+      "duration": 60
+    },
+    {
+      "name": "Review: Hämorrhoiden R3",
+      "dueDate": "2026-09-07",
+      "duration": 60
+    },
+    {
+      "name": "Review: EBM + KI in der Medizin R3",
+      "dueDate": "2026-09-07",
+      "duration": 60
+    },
+    {
+      "name": "Review: Delir R3",
+      "dueDate": "2026-09-08",
+      "duration": 60
+    },
+    {
+      "name": "Review: Pankreaskarzinom R4",
+      "dueDate": "2026-09-08",
+      "duration": 30
+    },
+    {
+      "name": "Review: Pankreatitis R4",
+      "dueDate": "2026-09-08",
+      "duration": 30
+    },
+    {
+      "name": "Anatomie-Drill: Ellenbogen & Unterarm",
+      "dueDate": "2026-09-09",
+      "duration": 30
+    },
+    {
+      "name": "Review: Claviculafraktur R3",
+      "dueDate": "2026-09-09",
+      "duration": 60
+    },
+    {
+      "name": "Review: Gastritis R3",
+      "dueDate": "2026-09-09",
+      "duration": 60
+    },
+    {
+      "name": "Review: Magenkarzinom R4",
+      "dueDate": "2026-09-09",
+      "duration": 30
+    },
+    {
+      "name": "Review: Ileus R5",
+      "dueDate": "2026-09-10",
+      "duration": 90
+    },
+    {
+      "name": "Review: Appendizitis R5",
+      "dueDate": "2026-09-10",
+      "duration": 90
+    },
+    {
+      "name": "Mentor check-in #2",
+      "dueDate": "2026-09-11",
+      "duration": 20
+    },
+    {
+      "name": "Review: GERD / Refluxkrankheit R3",
+      "dueDate": "2026-09-11",
+      "duration": 60
+    },
+    {
+      "name": "Review: Verbrennung R3",
+      "dueDate": "2026-09-11",
+      "duration": 60
+    },
+    {
+      "name": "Review: Aortenaneurysma R3",
+      "dueDate": "2026-09-11",
+      "duration": 60
+    },
+    {
+      "name": "Review: Borreliose / FSME / Zeckenbiss R2",
+      "dueDate": "2026-09-11",
+      "duration": 45
+    },
+    {
+      "name": "Review: Reanimation / CPR R2",
+      "dueDate": "2026-09-11",
+      "duration": 45
+    }
+  ],
+  "nextCheckpoint": {
+    "name": "CHECKPOINT: September Review Complete",
+    "dueDate": "2026-09-30"
+  }
+}
