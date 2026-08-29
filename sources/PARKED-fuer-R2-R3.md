@@ -1047,3 +1047,40 @@ mit Karzinom.
 in **aortendissektion** · Atherosklerose-Risikofaktoren und Statine in **khk** und
 **arterielle-hypertonie** · diabetischer Fuß in **diabetes-mellitus** · Kompartmentsyndrom
 nach Reperfusion in **allgemeine-frakturlehre**.
+
+
+## Ventrikuläre Tachykardie / Kammerflimmern — R1 gebaut 08/2026, Protokollstoff für R2/R3
+**Rang 50 mit 92 Treffern. Die Kernfrage ist dreimal dokumentiert: Defibrillation gegen Kardioversion.**
+
+**Fall 1 — EKG-Block am Ende der Prüfung:**
+„Am Ende hatte ich ein paar EKG mit Vorderwandinfarkt, Hinterwandinfarkt. Und **Torsade de
+pointes und Kammerflimmern**. **Was machen Sie mit solchen EKG?** → **Defibrillieren.**
+**Warum keine Kardioversion?** → **polymorphe, instabile Komplexe**."
+
+**Fall 2 — Hinterwandinfarkt mit Verschlechterung:**
+Patient mit nächtlichen Brustschmerzen, EKG zeigt Hinterwandinfarkt → ASS 300 mg vor Koronarangiografie,
+Heparin 5000 i.v. → **nach Antikoagulation Instabilität** → neues EKG mit **monomorpher VT**,
+hohe Frequenz, RR 70 → **Kardioversion** → **Definition** → **Sedierung bei Kardioversion**.
+
+**Fall 3 — Torsade durch Antibiotikum:**
+Frau mit ambulant erworbener Pneumonie, **Makrolid vom Hausarzt**, klagt über Palpitationen und
+Schwindel. EKG: Sinusrhythmus mit **QT-Verlängerung** → **Warum?** → Nebenwirkung der Antibiose →
+**Welche Rhythmusstörung droht?** → **Torsaden** → **Behandlung?** → **Magnesium** →
+**Wenn dadurch nicht terminiert?** → **Schocken** → **Unterschied Defibrillation und
+elektrische Kardioversion**.
+
+**Fall 4 — Dr. Gervais, Prognosefrage:**
+„Bei Kammerflimmern hat er gefragt: **der Patient hat das Kammerflimmern seit 2 Minuten — ist
+das eine gute oder schlechte Prognose?**" Der Kandidat fand die Frage schwierig.
+Erwartete Richtung: früh erkannt und schockbar ist die günstigste Konstellation beim
+Kreislaufstillstand — pro Minute ohne Defibrillation sinkt die Überlebenswahrscheinlichkeit
+um etwa 10 Prozent.
+
+**Weiterer Kontext:** VT im EKG erkennen — ein Prüfer wollte **genau wissen, woran der Kandidat
+es festgestellt hat**. Amiodaron und Defibrillation tauchen zusätzlich im Reanimationsalgorithmus auf.
+
+**Grenzt an andere Reviews, dort NICHT doppeln:** Reanimationsalgorithmus, 4 H und HITS,
+Adrenalin- und Amiodaron-Dosierung stehen in **reanimation** · Hinterwand- und
+Vorderwandinfarkt in **akutes-koronarsyndrom** · schmale Tachykardien und die
+Kardioversionstechnik in **svt-avnrt** · Hyperkaliämie als Auslöser in **nierenversagen** ·
+QT-verlängernde Medikamente auch in **delir** (Haloperidol).
