@@ -257,6 +257,11 @@ komplett neu gebaut und abgenommen. Merkmale, die es tragen:
   nicht als eigene Karte am Ende)
 - 433 Wörter, 13 Karten, 46 Bullets
 
+**Arbeitsweise mit Mohamed (29.08.2026):** Knapp antworten. Aufgaben in moeglichst wenigen
+Schritten erledigen — Werkzeugaufrufe buendeln statt einzeln, nicht zwischendurch berichten,
+am Ende kurz das Ergebnis nennen. Keine langen Erklaerungen des Vorgehens, keine Wiederholung
+dessen, was schon im Commit steht.
+
 **Diagnostik braucht Freigabe:** Bei jeder Deck-Arbeit wird die Diagnostik-Station vorgelegt
 (Original und Vorschlag, im Chat) und erst nach Mohameds "ok" publiziert. Gilt auch bei neuen
 Decks — dort nur der Vorschlag. Die uebrigen Stationen laufen wie gewohnt direkt durch.
