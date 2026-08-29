@@ -102,6 +102,25 @@ Ein überarbeiteter Tab trägt einen Stern in der Reiterbeschriftung:
 Nur setzen, wenn tatsächlich umgestellt wurde. Bleibt das Original stehen (khk), bleibt
 auch der Stern weg.
 
+## Freigabe vor Veröffentlichung — verbindlich seit 29.08.2026
+
+**Die Diagnostik-Station wird nie ohne Mohameds Freigabe publiziert.** Das gilt für jede
+Deck-Arbeit, auch wenn er nur „Review: X R2" schreibt und die Diagnostik gar nicht erwähnt.
+
+**Bei bestehendem Deck:** Original und Vorschlag nebeneinander vorlegen, mit Wortzahl und
+Kartennamen. Kurzer Hinweis, was geändert wurde und warum. Erst nach „ok" publizieren.
+
+**Bei neuem Deck:** Den Vorschlag allein vorlegen — es gibt kein Original. Der Rest des Decks
+(Grundlagen, Klinik, Therapie) kann wie gewohnt direkt publiziert werden; nur die Diagnostik
+wartet auf Freigabe.
+
+**Format:** Im Chat, nicht als PDF — es ist eine Station, kein Stapel. PDF nur bei
+Sammelumstellungen über mehrere Decks.
+
+**Grund:** Bei der Kardiologie-Umstellung wurden 6 von 9 Vorschlägen abgelehnt. Die Diagnostik
+ist die Station mit der größten Streuung zwischen dem, was systematisch richtig aussieht, und
+dem, was Mohamed für die Prüfung braucht.
+
 ## Ablauf je Deck
 
 1. Diagnostik-Tab lesen — Textwand oder Logik?

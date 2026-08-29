@@ -257,6 +257,10 @@ komplett neu gebaut und abgenommen. Merkmale, die es tragen:
   nicht als eigene Karte am Ende)
 - 433 Wörter, 13 Karten, 46 Bullets
 
+**Diagnostik braucht Freigabe:** Bei jeder Deck-Arbeit wird die Diagnostik-Station vorgelegt
+(Original und Vorschlag, im Chat) und erst nach Mohameds "ok" publiziert. Gilt auch bei neuen
+Decks — dort nur der Vorschlag. Die uebrigen Stationen laufen wie gewohnt direkt durch.
+
 **Regelwerk:** `tools/DIAGNOSTIK-REGELN.md` — 11 Autorenregeln fuer Diagnostik-Stationen,
 entstanden aus Mohameds Durchsicht der Kardiologie-Umstellung. **Vor jedem Diagnostik-Umbau lesen.**
 Die wichtigste Regel ist die Ausnahme zu Regel 1: nach Untersuchungsart gliedern, ausser die
