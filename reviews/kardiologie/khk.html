@@ -198,7 +198,7 @@
   <div class="tabs">
     <button class="tab active" data-c="grundlagen" data-tab="grundlagen">Grundlagen</button>
     <button class="tab" data-c="klinik" data-tab="klinik">Klinik</button>
-    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik ★</button>
+    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik</button>
     <button class="tab" data-c="therapie" data-tab="therapie">Therapie</button>
     <button class="tab" data-c="perlen" data-tab="perlen">KP-Perlen</button>
     <button class="tab" data-c="protokoll" data-tab="protokoll">Fragen &amp; Protokolle · 10</button>
@@ -256,47 +256,18 @@
 
   <!-- ============ DIAGNOSTIK ============ -->
   <section class="panel" data-panel="diagnostik">
-    <p class="panel-intro">Belastungstest, dann Koronarangiografie.</p>
-
-    <details class="card diagnostik" open><summary><span class="ct"><span class="ctag">Ruhe-EKG</span><span class="ctitle">Der Anfang</span></span><span class="plus">+</span></summary>
+    <p class="panel-intro">Belastungstest → Koronarangiografie. Erst laut, dann abgleichen.</p>
+    <details class="card diagnostik" open><summary><span class="ct"><span class="ctag">Strategie</span><span class="ctitle">Stufenweise Abklärung</span></span><span class="plus">+</span></summary>
       <div class="body">
-        <ul class="b">
-          <li><strong>Meist unauffällig</strong> — ein normales EKG schließt die KHK nicht aus</li>
-          <li>Alte Infarktnarbe, Erregungsrückbildungsstörungen</li>
-        </ul>
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Ruhe-EKG (meist unauffällig) → Ischämie-Nachweis im Belastungstest → Koronarangiografie = Goldstandard (zugleich Intervention möglich).</strong></div>
+        <table class="dd"><tr><th>Verfahren</th><th>Befund / Zweck</th></tr>
+          <tr><td><strong>Belastungs-EKG</strong></td><td>ST-Senkung &gt; 0,1 mV (Extremität) / &gt; 0,2 mV (Thorax); max. HF ~ 220 − Alter</td></tr>
+          <tr><td><strong>Stress-Echo</strong></td><td>Wandbewegungsstörung unter Belastung/Dobutamin</td></tr>
+          <tr><td><strong>Myokardszintigrafie</strong></td><td>reversible Ischämie vs. fixe Infarktnarbe</td></tr>
+          <tr><td><strong>Koronarangiografie</strong></td><td>Goldstandard: Stenosen + PTCA in gleicher Sitzung</td></tr></table>
+        <div class="callout warning"><span class="lab">⚠ Belastungs-EKG-KI</span>Instabile Angina, akuter Infarkt, Herzinsuffizienz NYHA III/IV — nicht belasten!</div>
       </div>
     </details>
-
-    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Belastungstest</span><span class="ctitle">Ischämienachweis</span></span><span class="plus">+</span></summary>
-      <div class="body">
-        <ul class="b">
-          <li><strong>Belastungs-EKG:</strong> ST-Senkung über 0,1 mV in Extremitäten-, über 0,2 mV in Brustwandableitungen</li>
-          <li>Maximale Herzfrequenz etwa 220 minus Alter</li>
-          <li><strong>Stress-Echo:</strong> Wandbewegungsstörung unter Belastung oder Dobutamin</li>
-          <li><strong>Myokardszintigrafie:</strong> reversible Ischämie gegen fixe Narbe</li>
-        </ul>
-      </div>
-    </details>
-
-    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Koronarangiografie</span><span class="ctitle">Der Goldstandard</span></span><span class="plus">+</span></summary>
-      <div class="body">
-        <ul class="b">
-          <li>Zeigt Stenosen und erlaubt die <strong>PTCA in derselben Sitzung</strong></li>
-          <li>Bei hoher Vortestwahrscheinlichkeit direkt</li>
-        </ul>
-      </div>
-    </details>
-
-    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Grenzen</span><span class="ctitle">Wann nicht belastet wird</span></span><span class="plus">+</span></summary>
-      <div class="body">
-        <ul class="b">
-          <li><strong>Instabile Angina, akuter Infarkt</strong></li>
-          <li><strong>Herzinsuffizienz NYHA III und IV</strong></li>
-          <li>Schwere Aortenstenose, unkontrollierte Hypertonie</li>
-        </ul>
-      </div>
-    </details>
-
   </section>
 
   <!-- ============ THERAPIE ============ -->
