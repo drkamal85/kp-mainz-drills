@@ -198,7 +198,7 @@
   <div class="tabs">
     <button class="tab active" data-c="grundlagen" data-tab="grundlagen">Grundlagen</button>
     <button class="tab" data-c="klinik" data-tab="klinik">Klinik</button>
-    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik</button>
+    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik ★</button>
     <button class="tab" data-c="therapie" data-tab="therapie">Therapie</button>
     <button class="tab" data-c="perlen" data-tab="perlen">KP-Perlen</button>
     <button class="tab" data-c="protokoll" data-tab="protokoll">Fragen &amp; Protokolle · 14</button>
@@ -233,36 +233,50 @@
   </section>
 
   <section class="panel" data-panel="diagnostik">
-    <p class="panel-intro">Ein Parameter führt: das TSH.</p>
+    <p class="panel-intro">TSH als Suchtest, dann gezielt weiter.</p>
 
-    <details class="card diagnostik" open><summary><span class="ct"><span class="ctag">Stufendiagnostik</span><span class="ctitle">TSH, dann fT4</span></span><span class="plus">+</span></summary>
+    <details class="card diagnostik" open><summary><span class="ct"><span class="ctag">Labor</span><span class="ctitle">Reihenfolge der Bestimmung</span></span><span class="plus">+</span></summary>
       <div class="body">
         <ul class="b">
-          <li><strong>TSH zuerst</strong> — bei der primären Form erhöht</li>
-          <li>Dann <strong>fT4</strong>: erniedrigt heißt manifest, normal heißt latent</li>
-          <li><strong>Sekundär:</strong> TSH niedrig oder normal trotz erniedrigtem fT4</li>
+          <li><strong>TSH allein</strong> genügt als Suchtest — es reagiert am empfindlichsten</li>
+          <li><strong>fT4</strong> erst bei auffälligem TSH — es trennt latent von manifest</li>
+          <li><strong>fT3</strong> ist verzichtbar, es fällt zuletzt ab</li>
+          <li><strong>Anti-TPO</strong> nur zur Ätiologie, nicht zur Verlaufskontrolle</li>
         </ul>
       </div>
     </details>
 
-    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Antikörper</span><span class="ctitle">Ursache klären</span></span><span class="plus">+</span></summary>
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Sonografie</span><span class="ctitle">Was sie zeigt</span></span><span class="plus">+</span></summary>
       <div class="body">
         <ul class="b">
-          <li><strong>Anti-TPO</strong> → Hashimoto-Thyreoiditis</li>
-          <li>Sonografie: <strong>echoarmes</strong> Schilddrüsengewebe</li>
+          <li><strong>Echoarmes, inhomogenes</strong> Gewebe bei Hashimoto</li>
+          <li>Volumen vermindert — spät auch atrophisch</li>
+          <li>Knoten abklären, wenn tastbar</li>
         </ul>
       </div>
     </details>
 
-    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Begleitlabor</span><span class="ctitle">Was dazugehört</span></span><span class="plus">+</span></summary>
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Begleitlabor</span><span class="ctitle">Was der Mangel mitmacht</span></span><span class="plus">+</span></summary>
       <div class="body">
         <ul class="b">
-          <li>Lipide, Natrium, CK, Blutbild</li>
-          <li><strong>Vor jodhaltigem Kontrastmittel TSH bestimmen</strong> — Jod, auch aus Amiodaron, kann bei latenter Hyperthyreose eine thyreotoxische Krise auslösen</li>
+          <li><strong>Cholesterin erhöht</strong> — der Abbau ist verlangsamt</li>
+          <li><strong>CK erhöht</strong> — Myopathie</li>
+          <li><strong>Natrium erniedrigt</strong> · Anämie im Blutbild</li>
+          <li>Alle Werte normalisieren sich unter Substitution</li>
         </ul>
       </div>
     </details>
 
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Wann testen</span><span class="ctitle">Indikationen</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <ul class="b">
+          <li>Müdigkeit, Gewichtszunahme, Kälteintoleranz, Obstipation</li>
+          <li><strong>Kinderwunsch und Schwangerschaft</strong> — der Bedarf steigt</li>
+          <li>Vor und unter <strong>Amiodaron</strong> oder Lithium</li>
+          <li>Bei Struma, nach Schilddrüsenoperation oder Radiojodtherapie</li>
+        </ul>
+      </div>
+    </details>
   </section>
 
   <section class="panel" data-panel="therapie">

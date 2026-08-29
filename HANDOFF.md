@@ -257,6 +257,11 @@ komplett neu gebaut und abgenommen. Merkmale, die es tragen:
   nicht als eigene Karte am Ende)
 - 433 Wörter, 13 Karten, 46 Bullets
 
+**Fortschrittsmarke:** Ein überarbeiteter Diagnostik-Tab trägt einen Stern in der
+Reiterbeschriftung — `<button ... data-tab="diagnostik">Diagnostik ★</button>`. So ist auf einen
+Blick sichtbar, welche Decks schon auf Variante B stehen. Pilot 08/2026: leistenhernie,
+cholezystitis, kolonkarzinom, hypothyreose, magenkarzinom.
+
 **Aufbau von Diagnostik-Stationen (bestätigt 08/2026):** Karten werden nach **Untersuchungsart**
 gegliedert, nicht nach Zweck — also `Labor · Bildgebung · Biopsie · Einteilung` statt
 `Sicherung · Ausbreitung · Staging`. Grund: Wer eine Untersuchung sucht, sucht sie unter ihrer
