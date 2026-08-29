@@ -1,6 +1,6 @@
 # KP MAINZ — THEMENLISTE (FLACH, EINE RANGLISTE)
 
-Alle **96 Themen** in einer Rangliste nach **Korpus-Treffer** (WhatsApp-Chat + Protokolle). Aktuell **93 von 96** mit Review abgedeckt (~97 %).
+Alle **96 Themen** in einer Rangliste nach **Korpus-Treffer** (WhatsApp-Chat + Protokolle). Aktuell **94 von 96** mit Review abgedeckt (~98 %).
 
 > **Juli 2026 (a):** 3 Themen ergänzt (nach Protokoll-Frequenz-Check bestätigt): **Kreuzbandruptur** (Unfallchirurgie, 30 Protokoll-Treffer, VKB:21), **Status epilepticus/Epilepsie** (Neurologie, 10), **Gicht/Podagra** (Rheumatologie, 6). *Verworfen* (zu niedrig/abwesend): Demenz, Erysipel, Fazialisparese, Ösophaguskarzinom, Multiples Myelom, Migräne, Parkinson.
 >
@@ -89,7 +89,7 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 72 | 60 | 15 | 45 | Unfallchirurgie | Humerusfraktur | ✓ R3 |
 | 73 | 59 | 11 | 48 | Gastroenterologie | GERD / Refluxkrankheit | ✓ R1 |
 | 74 | 59 | 7 | 52 | Kardiologie | Infektiöse Endokarditis | ✓ R3 |
-| 75 | 58 | 29 | 29 | Neurologie | Hirnblutungen (EDH/SDH/SAB/ICB) | — |
+| 75 | 58 | 29 | 29 | Neurologie | Hirnblutungen (EDH/SDH/SAB/ICB) | ✓ R1 |
 | 76 | 57 | 17 | 40 | Gastroenterologie | Diarrhoe / Gastroenteritis | ✓ R2 |
 | 77 | 56 | 15 | 41 | Allgemein- und Viszeralchirurgie | Pankreaskarzinom | ✓ R3 |
 | 78 | 56 | 11 | 45 | Allgemein- und Viszeralchirurgie | Hämorrhoiden | ✓ R1 |

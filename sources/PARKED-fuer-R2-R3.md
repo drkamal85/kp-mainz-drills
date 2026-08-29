@@ -1123,3 +1123,38 @@ Thromboseprophylaxe stehen in **allgemeine-frakturlehre** · Tibiaschaftfraktur 
 akutes Nierenversagen und Hyperkaliämie in **nierenversagen** · Reperfusionsschaden nach
 arteriellem Verschluss in **pavk** · Pankreatitis in **pankreatitis** ·
 Verbrennung als Ursache in **verbrennung**.
+
+
+## Hirnblutungen (EDH/SDH/SAB/ICB) — R1 gebaut 08/2026, Protokollstoff für R2/R3
+**Rang 75 mit 58 Treffern. Prof. Dr. Müller-Forell (Neuroradiologie) ist die Prüferin dafür.**
+
+**Prof. Müller-Forell, dokumentierter Block:**
+„Die meisten Fragen waren typische rechtsmedizinische Fragen und über bildgebende Verfahren.
+Abgesehen von den Protokollen wollte sie wissen, dass **Coils aus Platin sind** und dass
+**Neuroradiologen das Coiling durchführen**, während Chirurgen für das Clippen zuständig sind.
+Sie stellte einen **Fall mit subarachnoidaler Blutung** vor und ich sollte die Diagnose sagen,
+dann sprachen wir über **Diagnostik und Therapie**. Am Ende zeigte sie ein **CT des Schädels mit
+subarachnoidaler Blutung und ich sollte das gesamte CT beschreiben**. Außerdem zeigte sie ein
+**CT-Angiogramm mit einem Aneurysma**."
+
+**Dr. Georg Weimer — der Augenhintergrund:**
+„**Fall von SAB bei Schädel-Hirn-Trauma — was muss man unbedingt gucken oder machen? Außer CT,
+MRT etc.**" → **Augenhintergrund, um Einblutung zu sehen**. Im Chat präzisiert:
+**Einblutung in den Corpus vitreum, Glaskörperblutung — Terson-Syndrom**.
+Im selben Block Verbrennungen mit Klassifikation und die Frage Säure gegen Lauge.
+
+**Dr. Mendelssohn:** „Er hat viel über SHT gesprochen. GCS. **CT-Schädel mit Epiduralhämatom
+mit Luft** → was bedeutet das? → **offenes SHT** → was kann passieren? → Meningitis,
+Enzephalitis, Sepsis, septischer Schock." Danach Schädelbasisfraktur und ihre Zeichen.
+
+**Bilderblock (Multiples-Myelom-Prot.):** „**MRT mit Subduralhämatom bei SHT mit
+Kopfschädelfraktur** — über dieses letzte Bild einfach weiter gefragt, was machen wir als
+Notarzt." Im selben Block Sono mit Nierensteinen und Lebermetastasen, Schrotschuss-Schädel.
+
+**Grenzt an andere Reviews, dort NICHT doppeln:** Die Vier-Blutungen-Tabelle, GCS, Hirndruckwerte
+und Cushing-Reflex stehen bereits in **schaedel-hirn-trauma** (R4) · ischaemischer Schlaganfall,
+Lyse und Nimodipin in **schlaganfall** (R4) · offenes SHT mit Meningitis-Folgekette in
+**meningitis** · Antikoagulation und PPSB in **antikoagulation** · Krampfanfall in **epilepsie**.
+
+**Noch offen für R2/R3:** Hunt-und-Hess-Grade, Fisher-Skala, GCS-Details, Schädelbasisfraktur-
+zeichen (Brillenhämatom, Monokelhämatom, Liquorrhoe).
