@@ -257,6 +257,12 @@ komplett neu gebaut und abgenommen. Merkmale, die es tragen:
   nicht als eigene Karte am Ende)
 - 433 Wörter, 13 Karten, 46 Bullets
 
+**Regelwerk:** `tools/DIAGNOSTIK-REGELN.md` — 11 Autorenregeln fuer Diagnostik-Stationen,
+entstanden aus Mohameds Durchsicht der Kardiologie-Umstellung. **Vor jedem Diagnostik-Umbau lesen.**
+Die wichtigste Regel ist die Ausnahme zu Regel 1: nach Untersuchungsart gliedern, ausser die
+vorhandene Gruppierung traegt selbst Pruefungsbedeutung (khk, endokarditis, synkope).
+Regel 3 verlangt, vorher die Klinik gegenzulesen.
+
 **Fortschrittsmarke:** Ein überarbeiteter Diagnostik-Tab trägt einen Stern in der
 Reiterbeschriftung — `<button ... data-tab="diagnostik">Diagnostik ★</button>`. So ist auf einen
 Blick sichtbar, welche Decks schon auf Variante B stehen. Pilot 08/2026: leistenhernie,
