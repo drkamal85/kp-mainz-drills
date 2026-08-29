@@ -1191,3 +1191,41 @@ Gustilo stehen in **allgemeine-frakturlehre** · Polytraumamanagement und Schock
 **polytrauma** · Pneumothorax mit Drainage in **pneumothorax** · Rippenserienfraktur ebendort ·
 Humerusfraktur mit Radialisparese in **humerusfraktur** · Leberlazeration in **milzruptur-splenektomie**
 und **lebertumoren** nicht enthalten — für R2 gegebenenfalls ergänzen.
+
+
+## Struma — R1 gebaut 08/2026, Protokollstoff für R2/R3
+**Rang 83 mit 47 Treffern. Dr. Kirdorf fragt sie als Chirurgiethema.**
+
+**Dr. Kirdorf, kompletter Schilddrüsenblock:**
+„Hat alles von Schilddrüse gefragt: **Funktion? Typen von Schilddrüsenfunktionsstatus?**
+(hypo, hyper, euthyreot) **Behandlung bei hypo und hyper? Normalwerte von TSH? Wann operieren wir?
+Typen von Schilddrüsenvergrößerung? Wie ist die Funktion bei Struma nodosa meistens?**
+(euthyreot) **Typen von Schilddrüsenkarzinomen? Untersuchungen?** (Sono echoarm, dann Szintigrafie)"
+
+**Zweiter Kirdorf-Block:** „Schilddrüsenkarzinom fast alles — Typen, Metastasierung, OP und
+**postoperative Komplikationen**. **Struma, Hyper- und Hypothyreose, Schilddrüsen-OP-Indikation.**"
+
+**Malignitätskriterien dokumentiert:** „**Malignitätskriterien in Schilddrüsenknoten**" — der
+Prüfer wollte **echoarme Knoten, die sich mit der Zeit vergrößern**, und **kalte Knoten in der
+Szintigraphie** hören. Ein Kandidat ergänzte **Mikroverkalkungen**, dazu **Szintigrafie mit
+Technetium-Uptake**.
+
+**OP-Frage wörtlich:** „**Stellen wir uns vor, wir hätten einen Patienten mit großer Struma
+multinodosa beidseits — was machen wir?**" → **totale Thyreoidektomie**, und **mit
+Lymphknotenbefall noch zentrale Lymphadenektomie**.
+
+**OP-Indikationen aus einem anderen Protokoll:** „**Schilddrüsenerkrankungen mit OP-Indikation:
+Malignitätsverdacht, Struma mit Kompression, Hyperthyreose (z. B. M. Basedow)**."
+
+**Als Nebenbefund in Fällen:** zweimal **Struma nodosa** bei Patientinnen mit Hyperthyreose,
+Vorhofflimmern und Anämie — einmal mit TSH niedrig, T3 und T4 hoch, EKG mit VHF 160/min.
+
+**Noch offen für R2/R3:** Schilddrüsenkarzinom-Typen (papillär, follikulär, medullär mit
+Calcitonin und MEN2, anaplastisch beim älteren Mann), Metastasierungswege, Radiojod nach
+Thyreoidektomie, Jodmangelprophylaxe.
+
+**Grenzt an andere Reviews, dort NICHT doppeln:** Die Anatomiekarte mit Isthmus,
+Epithelkörperchen und Recurrensverlauf steht in **hyperthyreose** (R4) · Basedow, Autonomie und
+thyreotoxische Krise ebendort · Hashimoto und TSH-Stufendiagnostik in **hypothyreose** (R4) ·
+Obere Einflussstauung auch in **bronchialkarzinom** · Hypokalzämie und Tetanie grenzen an
+**elektrolytstoerungen**.
