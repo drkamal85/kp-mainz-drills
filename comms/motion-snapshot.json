@@ -1,43 +1,43 @@
 {
-  "generatedAt": "2026-08-28T11:35:53.502Z",
+  "generatedAt": "2026-08-29T09:44:19.494Z",
   "totals": {
-    "open": 331,
-    "completed": 378,
+    "open": 326,
+    "completed": 381,
     "overdue": 0,
-    "schedulingIssues": 252
+    "schedulingIssues": 225
   },
   "byLevel": {
     "R1": {
-      "open": 0,
-      "completed": 105
+      "open": 2,
+      "completed": 108
     },
     "R2": {
       "open": 28,
-      "completed": 76
+      "completed": 77
     },
     "R3": {
-      "open": 39,
+      "open": 41,
       "completed": 62
     },
     "R4": {
-      "open": 52,
+      "open": 54,
       "completed": 50
     },
     "R5": {
-      "open": 100,
+      "open": 101,
       "completed": 1
     }
   },
   "byWorkstream": {
     "A_coverage": {
-      "topicsTotal": 229,
+      "topicsTotal": 204,
       "studied": 68,
       "studyOpen": 0,
       "r1Built": 102,
-      "r1Open": 0
+      "r1Open": 2
     },
     "B_r5": {
-      "open": 102,
+      "open": 103,
       "completed": 1,
       "pilot": [
         {
@@ -53,14 +53,9 @@
       ]
     },
     "C_akte": {
-      "open": 25,
+      "open": 24,
       "completed": 0,
       "sessions": [
-        {
-          "name": "Akte-Sim #5",
-          "dueDate": "2026-08-29",
-          "completed": false
-        },
         {
           "name": "Akte-Sim #1",
           "dueDate": "2026-09-05",
@@ -184,140 +179,98 @@
       ]
     },
     "D_bildsprint": {
-      "open": 27,
+      "open": 2,
       "completed": 6,
       "note": "Drill tasks live as komplett library files, not Motion tasks"
     }
   },
   "flagged": [
     {
-      "name": "Anatomie-Drill: Hand & Karpaltunnel",
-      "dueDate": "2027-02-24",
+      "name": "Review: Struma R5",
+      "dueDate": "2026-12-28",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
-      "name": "Anatomie-Drill: Ellenbogen & Unterarm",
-      "dueDate": "2027-02-17",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Anatomie-Drill: Schulter & Plexus brachialis",
-      "dueDate": "2027-02-10",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Anatomie-Drill: Repetitorium gemischt",
-      "dueDate": "2027-02-03",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Anatomie-Drill: Lymphabfluss & Kompartimente",
-      "dueDate": "2027-01-27",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Anatomie-Drill: Periphere Nerven: untere Extremität",
-      "dueDate": "2027-01-20",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Anatomie-Drill: Periphere Nerven: obere Extremität",
-      "dueDate": "2027-01-13",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Anatomie-Drill: Becken & Beckenboden",
-      "dueDate": "2027-01-06",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Anatomie-Drill: Lunge & Bronchialbaum",
+      "name": "Anatomie & Begriffe",
       "dueDate": "2026-12-30",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
-      "name": "Anatomie-Drill: Herz & Koronarien",
+      "name": "Anatomie & Begriffe",
       "dueDate": "2026-12-23",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
-      "name": "Anatomie-Drill: Schädelbasis & Hirnnerven",
+      "name": "Anatomie & Begriffe",
       "dueDate": "2026-12-16",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
-      "name": "Anatomie-Drill: Hals & Schilddrüse",
+      "name": "Anatomie & Begriffe",
       "dueDate": "2026-12-09",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
-      "name": "Anatomie-Drill: Gefäße: Aorta & Äste",
+      "name": "Anatomie & Begriffe",
       "dueDate": "2026-12-02",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
-      "name": "Anatomie-Drill: Retroperitoneum & Niere",
+      "name": "Anatomie & Begriffe",
       "dueDate": "2026-11-25",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
-      "name": "Anatomie-Drill: Unterbauch: Darm & Mesenterium",
+      "name": "Anatomie & Begriffe",
       "dueDate": "2026-11-18",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
-      "name": "Anatomie-Drill: Oberbauch: Leber, Galle, Pankreas",
+      "name": "Anatomie & Begriffe",
       "dueDate": "2026-11-11",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
-      "name": "Anatomie-Drill: Bauchwand & Leistenkanal",
+      "name": "Anatomie & Begriffe",
       "dueDate": "2026-11-04",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
-      "name": "Anatomie-Drill: Thoraxwand & Zwerchfell",
+      "name": "Anatomie & Begriffe",
       "dueDate": "2026-10-28",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
-      "name": "Anatomie-Drill: Wirbelsäule & Rückenmark",
+      "name": "Anatomie & Begriffe",
       "dueDate": "2026-10-21",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
-      "name": "Anatomie-Drill: Sprunggelenk & Fuß",
+      "name": "Anatomie & Begriffe",
       "dueDate": "2026-10-14",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
-      "name": "Anatomie-Drill: Knie & Bandapparat",
+      "name": "Anatomie & Begriffe",
       "dueDate": "2026-10-07",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
-      "name": "Anatomie-Drill: Hüfte & Femur",
+      "name": "Anatomie & Begriffe",
       "dueDate": "2026-09-30",
       "schedulingIssue": true,
       "scheduledStart": null
@@ -449,14 +402,20 @@
       "scheduledStart": null
     },
     {
+      "name": "R5-Pilot-Verdict",
+      "dueDate": "2026-11-09",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
       "name": "CHECKPOINT Dez 31 — Mock-#1-Debrief",
       "dueDate": "2026-12-31",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
-      "name": "CHECKPOINT Nov 30 — alle 97 Themen R4",
-      "dueDate": "2026-11-30",
+      "name": "CHECKPOINT Okt 16 — alle Themen R4",
+      "dueDate": "2026-10-16",
       "schedulingIssue": true,
       "scheduledStart": null
     },
@@ -545,8 +504,44 @@
       "scheduledStart": null
     },
     {
-      "name": "CHECKPOINT: September Review Complete",
-      "dueDate": "2026-09-30",
+      "name": "R5-Pilot: Cholezystitis #2",
+      "dueDate": "2026-11-10",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Akte-Sim #4",
+      "dueDate": "2026-10-03",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Echo",
+      "dueDate": "2026-10-31",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Ventrikuläre Tachykardie / Kammerflimmern R5",
+      "dueDate": "2026-12-27",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Ventrikuläre Tachykardie / Kammerflimmern R4",
+      "dueDate": "2026-10-15",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Paroxysmale SVT / AVNRT R5",
+      "dueDate": "2026-12-27",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Paroxysmale SVT / AVNRT R4",
+      "dueDate": "2026-10-13",
       "schedulingIssue": true,
       "scheduledStart": null
     }
@@ -554,52 +549,32 @@
   "overdue": [],
   "upcoming14d": [
     {
-      "name": "Akte-Sim #5",
+      "name": "Review: Struma R1",
       "dueDate": "2026-08-29",
-      "duration": 45
+      "duration": 30
     },
     {
-      "name": "Review: Nierenversagen R2",
-      "dueDate": "2026-08-31",
-      "duration": 45
+      "name": "Review: Claviculafraktur R1",
+      "dueDate": "2026-08-29",
+      "duration": 30
     },
     {
-      "name": "Review: Proximale Femurfrakturen R5",
-      "dueDate": "2026-09-01",
-      "duration": 90
-    },
-    {
-      "name": "Review: Polytrauma/ABCDE R5",
-      "dueDate": "2026-09-01",
-      "duration": 90
-    },
-    {
-      "name": "Anatomie-Drill: Schulter & Plexus brachialis",
+      "name": "Anatomie & Begriffe",
       "dueDate": "2026-09-02",
       "duration": 30
     },
     {
-      "name": "Review: Anaphylaxie R3",
+      "name": "Review: Lebermetastasen / Lebertumor R3",
       "dueDate": "2026-09-02",
       "duration": 60
     },
     {
-      "name": "Review: Hirnblutungen (EDH/SDH/SAB/ICB) R3",
+      "name": "Review: Drittes Fach — Impfschäden + STIKO vertieft R4",
       "dueDate": "2026-09-02",
-      "duration": 60
+      "duration": 30
     },
     {
-      "name": "Review: Hyponatriämie / SIADH R3",
-      "dueDate": "2026-09-02",
-      "duration": 60
-    },
-    {
-      "name": "Review: Status epilepticus / Epilepsie R3",
-      "dueDate": "2026-09-03",
-      "duration": 60
-    },
-    {
-      "name": "Review: Milzruptur / Splenektomie R3",
+      "name": "Review: pAVK R3",
       "dueDate": "2026-09-03",
       "duration": 60
     },
@@ -614,9 +589,14 @@
       "duration": 30
     },
     {
+      "name": "Review: Struma R2",
+      "dueDate": "2026-09-04",
+      "duration": 45
+    },
+    {
       "name": "Mentor check-in #1",
       "dueDate": "2026-09-04",
-      "duration": 20
+      "duration": 30
     },
     {
       "name": "Review: Paroxysmale SVT / AVNRT R2",
@@ -629,24 +609,14 @@
       "duration": 45
     },
     {
+      "name": "Review: Colitis ulcerosa R3",
+      "dueDate": "2026-09-04",
+      "duration": 60
+    },
+    {
       "name": "Akte-Sim #1",
       "dueDate": "2026-09-05",
-      "duration": 45
-    },
-    {
-      "name": "Review: Hepatitis B R2",
-      "dueDate": "2026-09-05",
-      "duration": 45
-    },
-    {
-      "name": "Review: Hepatitis C R2",
-      "dueDate": "2026-09-05",
-      "duration": 45
-    },
-    {
-      "name": "Review: Meningitis/Enzephalitis R2",
-      "dueDate": "2026-09-05",
-      "duration": 45
+      "duration": 60
     },
     {
       "name": "Review: Akuttoxikologie / Intoxikation R2",
@@ -655,11 +625,6 @@
     },
     {
       "name": "Review: Tuberkulose R2",
-      "dueDate": "2026-09-05",
-      "duration": 45
-    },
-    {
-      "name": "Review: Osteoporose R2",
       "dueDate": "2026-09-05",
       "duration": 45
     },
@@ -674,7 +639,22 @@
       "duration": 45
     },
     {
-      "name": "Review: Schmerztherapie / WHO-Stufenschema R3",
+      "name": "Review: Osteoporose R2",
+      "dueDate": "2026-09-05",
+      "duration": 45
+    },
+    {
+      "name": "Review: Diarrhoe / Gastroenteritis R3",
+      "dueDate": "2026-09-06",
+      "duration": 60
+    },
+    {
+      "name": "Review: Akuttoxikologie / Intoxikation R3",
+      "dueDate": "2026-09-06",
+      "duration": 60
+    },
+    {
+      "name": "Review: Tuberkulose R3",
       "dueDate": "2026-09-06",
       "duration": 60
     },
@@ -684,24 +664,34 @@
       "duration": 30
     },
     {
-      "name": "Review: Gicht / Podagra R3",
-      "dueDate": "2026-09-06",
-      "duration": 60
-    },
-    {
-      "name": "Review: Hämorrhoiden R3",
+      "name": "Review: Struma R3",
       "dueDate": "2026-09-07",
       "duration": 60
     },
     {
-      "name": "Review: EBM + KI in der Medizin R3",
+      "name": "Review: Nierenversagen R3",
       "dueDate": "2026-09-07",
       "duration": 60
+    },
+    {
+      "name": "Review: Hepatitis B R2",
+      "dueDate": "2026-09-07",
+      "duration": 45
     },
     {
       "name": "Review: Delir R3",
       "dueDate": "2026-09-08",
       "duration": 60
+    },
+    {
+      "name": "Review: Hepatitis B R3",
+      "dueDate": "2026-09-08",
+      "duration": 60
+    },
+    {
+      "name": "Review: Hepatitis C R2",
+      "dueDate": "2026-09-08",
+      "duration": 45
     },
     {
       "name": "Review: Pankreaskarzinom R4",
@@ -714,7 +704,7 @@
       "duration": 30
     },
     {
-      "name": "Anatomie-Drill: Ellenbogen & Unterarm",
+      "name": "Anatomie & Begriffe",
       "dueDate": "2026-09-09",
       "duration": 30
     },
@@ -724,7 +714,7 @@
       "duration": 60
     },
     {
-      "name": "Review: Gastritis R3",
+      "name": "Review: Hepatitis C R3",
       "dueDate": "2026-09-09",
       "duration": 60
     },
@@ -734,29 +724,29 @@
       "duration": 30
     },
     {
-      "name": "Review: Ileus R5",
+      "name": "Review: Meningitis/Enzephalitis R2",
       "dueDate": "2026-09-10",
-      "duration": 90
+      "duration": 45
     },
     {
-      "name": "Review: Appendizitis R5",
+      "name": "Review: Akutes Abdomen R3",
       "dueDate": "2026-09-10",
-      "duration": 90
+      "duration": 60
     },
     {
       "name": "Mentor check-in #2",
       "dueDate": "2026-09-11",
-      "duration": 20
+      "duration": 30
     },
     {
-      "name": "Review: GERD / Refluxkrankheit R3",
+      "name": "Review: Meningitis/Enzephalitis R3",
       "dueDate": "2026-09-11",
       "duration": 60
     },
     {
-      "name": "Review: Verbrennung R3",
+      "name": "Review: Reanimation / CPR R2",
       "dueDate": "2026-09-11",
-      "duration": 60
+      "duration": 45
     },
     {
       "name": "Review: Aortenaneurysma R3",
@@ -769,8 +759,38 @@
       "duration": 45
     },
     {
-      "name": "Review: Reanimation / CPR R2",
-      "dueDate": "2026-09-11",
+      "name": "Akte-Sim #2",
+      "dueDate": "2026-09-12",
+      "duration": 60
+    },
+    {
+      "name": "Review: Gicht / Podagra R2",
+      "dueDate": "2026-09-12",
+      "duration": 45
+    },
+    {
+      "name": "Review: Anästhesie & Atemwegssicherung R2",
+      "dueDate": "2026-09-12",
+      "duration": 45
+    },
+    {
+      "name": "Review: Milzruptur / Splenektomie R2",
+      "dueDate": "2026-09-12",
+      "duration": 45
+    },
+    {
+      "name": "Review: Reanimation / CPR R3",
+      "dueDate": "2026-09-12",
+      "duration": 60
+    },
+    {
+      "name": "Review: Anaphylaxie R2",
+      "dueDate": "2026-09-12",
+      "duration": 45
+    },
+    {
+      "name": "Review: Hirnblutungen (EDH/SDH/SAB/ICB) R2",
+      "dueDate": "2026-09-12",
       "duration": 45
     }
   ],
