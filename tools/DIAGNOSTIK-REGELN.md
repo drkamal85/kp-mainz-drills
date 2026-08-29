@@ -121,6 +121,21 @@ Sammelumstellungen über mehrere Decks.
 ist die Station mit der größten Streuung zwischen dem, was systematisch richtig aussieht, und
 dem, was Mohamed für die Prüfung braucht.
 
+## Stern auch bei bereits konformen Decks
+
+Manche Decks wurden von Anfang an nach Untersuchungsart gebaut und brauchen keinen Umbau —
+der Stern gehört trotzdem in die Reiterbeschriftung, sonst ist von außen nicht erkennbar, ob
+das Deck geprüft wurde oder nur noch nicht drankam.
+
+**Beim Bearbeiten eines Decks auf beliebiger Stufe** (R2, R3, R4 …) wird die Diagnostik immer
+kurz gegen diese Regeln geprüft. Passt sie bereits, wird nur der Stern gesetzt und das im
+Ergebnis erwähnt — keine Freigabe nötig, weil sich nichts ändert. Passt sie nicht, greift die
+Freigaberegel oben.
+
+Stand 29.08.2026 bereits konform und mit Stern versehen: **lebertumoren**.
+Ohne Stern, aber konform (Stern beim nächsten Anfassen setzen): ileus, pavk, akutes-abdomen,
+pankreaskarzinom, gicht.
+
 ## Ablauf je Deck
 
 1. Diagnostik-Tab lesen — Textwand oder Logik?
