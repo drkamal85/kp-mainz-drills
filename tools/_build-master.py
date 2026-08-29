@@ -93,7 +93,7 @@ FLAT=[
 (81,24,57,"Allgemein- und Viszeralchirurgie","Milzruptur / Splenektomie","milzruptur-splenektomie"),
 (77,37,40,"Drittes Fach","Borreliose / FSME / Zeckenbiss","borreliose-fsme"),
 (76,29,47,"Notfallmedizin","Reanimation / CPR","reanimation-cpr"),
-(74,22,52,"Unfallchirurgie","Kompartmentsyndrom",None),
+(74,22,52,"Unfallchirurgie","Kompartmentsyndrom","kompartmentsyndrom"),
 (73,11,62,"Angiologie","Aortendissektion","aortendissektion"),
 (68,12,56,"Unfallchirurgie","Allgemeine Frakturlehre","allgemeine-frakturlehre"),
 (67,12,55,"Nephrologie","Harnwegsinfekt / Pyelonephritis","harnwegsinfekt"),

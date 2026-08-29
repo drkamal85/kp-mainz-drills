@@ -1084,3 +1084,42 @@ Adrenalin- und Amiodaron-Dosierung stehen in **reanimation** · Hinterwand- und
 Vorderwandinfarkt in **akutes-koronarsyndrom** · schmale Tachykardien und die
 Kardioversionstechnik in **svt-avnrt** · Hyperkaliämie als Auslöser in **nierenversagen** ·
 QT-verlängernde Medikamente auch in **delir** (Haloperidol).
+
+
+## Kompartmentsyndrom — R1 gebaut 08/2026, Protokollstoff für R2/R3
+**Rang 63 mit 74 Treffern. Eine Kette ist mit allen Zahlen dokumentiert.**
+
+**Die vollständige Kette (Fußballfall):**
+„Patient mit **Unterschenkeltrauma nach Fußballspiel**, radiologisch **keine Frakturen**,
+sondern nur Schwellung und starke Schmerzen — was hat er?" → Kandidat: Luxation oder
+Sprunggelenkstrain **mit Kompartmentsyndrom** → richtig →
+**„Was ist ein Kompartmentsyndrom?"** →
+**„Wie viele Kompartimente hat der Unterschenkel?"** → **vier** →
+**„Nennen Sie sie."** — das wusste der Kandidat nicht →
+**„Normaler Gewebedruck?"** → **10 mmHg** →
+**„Bei Kompartmentsyndrom?"** → **über 25 mmHg** →
+**„Wie kann man das messen?"** → **mittels Messsonde** →
+**„Was machen Sie?"** → Kandidat: konservativ mit Analgetika, Antiphlogistika, Kühlung,
+eventuell Fasziotomie → **Prüfer korrigierte: immer operativ, keine konservativen Versuche** →
+**Komplikationen:** Ischämie, Gewebenekrose, **akute Niereninsuffizienz**.
+
+**Bildfrage (Block mit Schenkelhals- und Tibiaschaftfraktur):**
+„Bild eines **Unterschenkel-Kompartmentsyndroms**. **Therapie?**" — im selben Block
+mediale und pertrochantäre Schenkelhalsfraktur, Tibiaschaftfraktur mit der Frage
+„Warum kein Gips?", und ein Hammerfinger.
+
+**Abdominelles Kompartmentsyndrom (Dr. Hennekes, Fall Pankreatitis):**
+„Pankreatitis: Ätiologie, Komplikationen, **insbesondere Fragen zum abdominellen
+Kompartmentsyndrom** — Möglichkeit? Und Möglichkeit für Milzvenenthrombose."
+Für R2/R3 aufnehmen: intraabdomineller Druck über 20 mmHg mit neuer Organdysfunktion,
+Messung über den Blasenkatheter, Entlastungslaparotomie.
+
+**Weiterer Kontext:** „Einige Fragen zur Behandlung und Diagnose des Kompartmentsyndroms"
+in einem Block mit septischem Schock, atypischer Pneumonie und Child C.
+ASRAWI-Themenliste nennt **Kompartmentsyndrom** an erster Stelle ihres Unfallchirurgie-Blocks.
+
+**Grenzt an andere Reviews, dort NICHT doppeln:** Allgemeine Frakturlehre und
+Thromboseprophylaxe stehen in **allgemeine-frakturlehre** · Tibiaschaftfraktur ebendort ·
+akutes Nierenversagen und Hyperkaliämie in **nierenversagen** · Reperfusionsschaden nach
+arteriellem Verschluss in **pavk** · Pankreatitis in **pankreatitis** ·
+Verbrennung als Ursache in **verbrennung**.

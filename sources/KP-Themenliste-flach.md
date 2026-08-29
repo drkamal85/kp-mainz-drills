@@ -1,6 +1,6 @@
 # KP MAINZ — THEMENLISTE (FLACH, EINE RANGLISTE)
 
-Alle **96 Themen** in einer Rangliste nach **Korpus-Treffer** (WhatsApp-Chat + Protokolle). Aktuell **92 von 96** mit Review abgedeckt (~96 %).
+Alle **96 Themen** in einer Rangliste nach **Korpus-Treffer** (WhatsApp-Chat + Protokolle). Aktuell **93 von 96** mit Review abgedeckt (~97 %).
 
 > **Juli 2026 (a):** 3 Themen ergänzt (nach Protokoll-Frequenz-Check bestätigt): **Kreuzbandruptur** (Unfallchirurgie, 30 Protokoll-Treffer, VKB:21), **Status epilepticus/Epilepsie** (Neurologie, 10), **Gicht/Podagra** (Rheumatologie, 6). *Verworfen* (zu niedrig/abwesend): Demenz, Erysipel, Fazialisparese, Ösophaguskarzinom, Multiples Myelom, Migräne, Parkinson.
 >
@@ -77,7 +77,7 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 60 | 81 | 24 | 57 | Allgemein- und Viszeralchirurgie | Milzruptur / Splenektomie | ✓ R1 |
 | 61 | 77 | 37 | 40 | Drittes Fach | Borreliose / FSME / Zeckenbiss | ✓ R1 |
 | 62 | 76 | 29 | 47 | Notfallmedizin | Reanimation / CPR | ✓ R1 |
-| 63 | 74 | 22 | 52 | Unfallchirurgie | Kompartmentsyndrom | — |
+| 63 | 74 | 22 | 52 | Unfallchirurgie | Kompartmentsyndrom | ✓ R1 |
 | 64 | 73 | 11 | 62 | Angiologie | Aortendissektion | ✓ R3 |
 | 65 | 68 | 12 | 56 | Unfallchirurgie | Allgemeine Frakturlehre | ✓ R4 |
 | 66 | 67 | 12 | 55 | Nephrologie | Harnwegsinfekt / Pyelonephritis | ✓ R1 |
