@@ -198,7 +198,7 @@
   <div class="tabs">
     <button class="tab active" data-c="grundlagen" data-tab="grundlagen">Grundlagen</button>
     <button class="tab" data-c="klinik" data-tab="klinik">Klinik</button>
-    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik</button>
+    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik ★</button>
     <button class="tab" data-c="therapie" data-tab="therapie">Therapie</button>
     <button class="tab" data-c="perlen" data-tab="perlen">KP-Perlen</button>
     <button class="tab" data-c="protokoll" data-tab="protokoll">Fragen &amp; Protokolle · 14</button>
@@ -250,17 +250,47 @@
 
   <!-- ============ DIAGNOSTIK ============ -->
   <section class="panel" data-panel="diagnostik">
-    <p class="panel-intro">Echo misst alles. Erst laut, dann abgleichen.</p>
-    <details class="card diagnostik" open><summary><span class="ct"><span class="ctag">Echo</span><span class="ctitle">Standarddiagnostik + Schweregrad</span></span><span class="plus">+</span></summary>
+    <p class="panel-intro">Echo misst, der Rest zeigt die Folgen.</p>
+
+    <details class="card diagnostik" open><summary><span class="ct"><span class="ctag">Echo</span><span class="ctitle">Goldstandard</span></span><span class="plus">+</span></summary>
       <div class="body">
-        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Die Echokardiografie ist der Goldstandard: maximale Flussgeschwindigkeit (Vmax), mittlerer Druckgradient (Bernoulli ΔP = 4·Vmax²) und Klappenöffnungsfläche (KÖF).</strong> TEE bei schlechtem Schallfenster.</div>
-        <table class="dd"><tr><th>Schwere Aortenstenose</th><th>Wert</th></tr>
-          <tr><td><strong>Vmax</strong></td><td>&gt; 4 m/s</td></tr>
-          <tr><td><strong>mittlerer Gradient</strong></td><td>&gt; 40 mmHg</td></tr>
-          <tr><td><strong>KÖF</strong></td><td>&lt; 1 cm²</td></tr></table>
-        <div class="callout fact"><span class="lab">⚙ Ergänzend</span>EKG (Linksherzhypertrophie, Vorhofflimmern), Röntgen-Thorax, Herzkatheter präoperativ zur Koronardarstellung.</div>
+        <ul class="b">
+          <li>Misst <strong>Druckgradient</strong> und <strong>Klappenöffnungsfläche</strong></li>
+          <li>Schwere Aortenstenose: <strong>mittlerer Gradient über 40 mmHg</strong>, <strong>Öffnungsfläche unter 1 cm²</strong></li>
+          <li>Beurteilt zusätzlich Ventrikelfunktion und Hypertrophie</li>
+          <li><strong>TEE</strong> bei schlechtem Schallfenster oder Endokarditisverdacht</li>
+        </ul>
       </div>
     </details>
+
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">EKG</span><span class="ctitle">Folgen am Reizleitungssystem</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <ul class="b">
+          <li><strong>Linksherzhypertrophie</strong> bei Aortenstenose</li>
+          <li><strong>Vorhofflimmern</strong> bei Mitralvitien</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Röntgen-Thorax</span><span class="ctitle">Form und Stauung</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <ul class="b">
+          <li>Herzgröße und Konfiguration</li>
+          <li><strong>Pulmonale Stauung</strong> bei Mitralstenose</li>
+          <li>Klappenverkalkung</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Herzkatheter</span><span class="ctitle">Vor der Operation</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <ul class="b">
+          <li><strong>Koronardarstellung präoperativ</strong> — Begleit-KHK ausschließen</li>
+          <li>Druckmessung bei unklarem Echo-Befund</li>
+        </ul>
+      </div>
+    </details>
+
   </section>
 
   <!-- ============ THERAPIE ============ -->

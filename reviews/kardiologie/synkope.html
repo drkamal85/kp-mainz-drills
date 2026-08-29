@@ -198,7 +198,7 @@
   <div class="tabs">
     <button class="tab active" data-c="grundlagen" data-tab="grundlagen">Grundlagen</button>
     <button class="tab" data-c="klinik" data-tab="klinik">Klinik</button>
-    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik</button>
+    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik ★</button>
     <button class="tab" data-c="therapie" data-tab="therapie">Therapie</button>
     <button class="tab" data-c="perlen" data-tab="perlen">KP-Perlen</button>
     <button class="tab" data-c="protokoll" data-tab="protokoll">Fragen &amp; Protokolle · 12</button>
@@ -257,26 +257,49 @@
 
   <!-- ============ DIAGNOSTIK ============ -->
   <section class="panel" data-panel="diagnostik">
-    <p class="panel-intro">Anamnese, EKG, Schellong — Bildgebung nur, wenn es neurologisch wird.</p>
-    <details class="card diagnostik" open><summary><span class="ct"><span class="ctag">★ Anker</span><span class="ctitle">Die Basisdiagnostik</span></span><span class="plus">+</span></summary>
+    <p class="panel-intro">Basis bei jedem, dann gezielt weiter.</p>
+
+    <details class="card diagnostik" open><summary><span class="ct"><span class="ctag">Basisdiagnostik</span><span class="ctitle">Die vier Schritte bei jedem Patienten</span></span><span class="plus">+</span></summary>
       <div class="body">
-        <div class="callout fact"><span class="lab">★ Merksatz</span><strong>Basis bei jeder Synkope: Anamnese + körperliche Untersuchung + 12-Kanal-EKG + Schellong-Test.</strong> Die Anamnese ist das wichtigste Werkzeug.</div>
-        <div class="callout critical"><span class="lab">⚠ Merke</span><strong>EEG, CT/MRT und Doppler der Halsgefäße sind bei eindeutiger Synkope NICHT indiziert</strong> — nur bei unklarer Diagnose / V. a. neurologische Ursache.</div>
+        <ul class="b">
+          <li><strong>Anamnese</strong> — Auslöser, Prodromi, Dauer, Fremdanamnese. Das wichtigste Werkzeug</li>
+          <li><strong>Körperliche Untersuchung</strong> — Herz, Blutdruck an beiden Armen</li>
+          <li><strong>12-Kanal-EKG</strong> — Rhythmus, AV-Block, Präexzitation, <strong>QT-Zeit</strong></li>
+          <li><strong>Schellong-Test</strong> — Blutdruck und Puls im Liegen, dann im Stehen</li>
+        </ul>
       </div>
     </details>
-    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">★ Provokation</span><span class="ctitle">Schellong + Kipptisch + Karotissinus</span></span><span class="plus">+</span></summary>
+
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Schellong</span><span class="ctitle">Wie man ihn liest</span></span><span class="plus">+</span></summary>
       <div class="body">
-        <div class="callout fact"><span class="lab">★ Schellong-Test</span>RR + HF im Liegen, dann im Stehen:<br><strong>Normal:</strong> RR gleich, HF steigt<br><strong>Neurogen:</strong> RR fällt, HF bleibt (Sympathikus defekt)<br><strong>Nicht-neurogen:</strong> RR fällt, HF steigt</div>
-        <table class="dd"><tr><th>Test</th><th>Wofür / Befund</th></tr>
-          <tr><td><strong>Schellong</strong></td><td>orthostatische Hypotonie</td></tr>
-          <tr><td><strong>Kipptisch</strong></td><td>vasovagale/orthostatische Synkope provozieren</td></tr>
-          <tr><td><strong>Karotissinusmassage</strong></td><td>Karotissinussyndrom: Asystolie &gt; 3 s o. RR-Abfall &gt; 50 mmHg — <em>nicht bei Karotis-Strömungsgeräusch!</em></td></tr>
-          <tr><td><strong>TTE</strong></td><td>strukturelle Herzerkrankung (Aortenstenose, HOCM)</td></tr>
-          <tr><td><strong>Langzeit-EKG / EPU</strong></td><td>arrhythmogene Synkope</td></tr>
-        </table>
-        <div class="callout fact"><span class="lab">⚙ Labor</span>Gesamt-CK (↑ nach Krampfanfall), BZ (Hypoglykämie), ggf. Hb (Anämie/Blutung).</div>
+        <ul class="b">
+          <li><strong>Normal:</strong> Blutdruck gleich, Frequenz steigt</li>
+          <li><strong>Neurogen:</strong> Blutdruck fällt, <strong>Frequenz bleibt</strong> — der Sympathikus versagt</li>
+          <li><strong>Nicht-neurogen:</strong> Blutdruck fällt, Frequenz steigt</li>
+        </ul>
       </div>
     </details>
+
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Weiterführend</span><span class="ctitle">Wenn die Basis nicht reicht</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <ul class="b">
+          <li><strong>Kipptisch</strong> bei vasovagalem Verdacht</li>
+          <li><strong>Karotisdruckversuch</strong> beim älteren Patienten</li>
+          <li><strong>Langzeit-EKG</strong> oder Ereignisrekorder bei Rhythmusverdacht</li>
+          <li><strong>Echo</strong> bei Verdacht auf strukturelle Herzerkrankung</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Nicht indiziert</span><span class="ctitle">Was man spart</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <ul class="b">
+          <li><strong>EEG, CT, MRT und Doppler der Halsgefäße gehören nicht zur Basisdiagnostik</strong></li>
+          <li>Nur bei unklarer Diagnose oder neurologischem Verdacht</li>
+        </ul>
+      </div>
+    </details>
+
   </section>
 
   <!-- ============ THERAPIE ============ -->

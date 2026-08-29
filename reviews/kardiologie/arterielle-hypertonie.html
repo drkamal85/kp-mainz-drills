@@ -198,7 +198,7 @@
   <div class="tabs">
     <button class="tab active" data-c="grundlagen" data-tab="grundlagen">Grundlagen</button>
     <button class="tab" data-c="klinik" data-tab="klinik">Klinik</button>
-    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik</button>
+    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik ★</button>
     <button class="tab" data-c="therapie" data-tab="therapie">Therapie</button>
     <button class="tab" data-c="perlen" data-tab="perlen">KP-Perlen</button>
     <button class="tab" data-c="protokoll" data-tab="protokoll">Fragen &amp; Protokolle · 15</button>
@@ -258,27 +258,50 @@
 
   <!-- ============ DIAGNOSTIK ============ -->
   <section class="panel" data-panel="diagnostik">
-    <p class="panel-intro">Messen, Endorgane, sekundär ausschließen. Erst laut, dann abgleichen.</p>
-    <details class="card diagnostik" open><summary><span class="ct"><span class="ctag">Messung</span><span class="ctitle">Die drei Messwege + Endorgane</span></span><span class="plus">+</span></summary>
+    <p class="panel-intro">Messen, Labor, Endorgane, Ursache.</p>
+
+    <details class="card diagnostik" open><summary><span class="ct"><span class="ctag">Messung</span><span class="ctitle">Die drei Wege</span></span><span class="plus">+</span></summary>
       <div class="body">
-        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Praxismessung an beiden Armen, Selbstmessung und die 24-Stunden-Langzeitmessung — Letztere schließt die Weißkittelhypertonie aus.</strong> Manschette auf Herzhöhe.</div>
-        <table class="dd"><tr><th>Endorgan</th><th>Schaden / Untersuchung</th></tr>
-          <tr><td><strong>Herz</strong></td><td>Linksherzhypertrophie (EKG, Echo)</td></tr>
-          <tr><td><strong>Niere</strong></td><td>Albuminurie, Kreatinin/eGFR</td></tr>
-          <tr><td><strong>Auge</strong></td><td>Fundus hypertonicus</td></tr>
-          <tr><td><strong>Hirn / Gefäße</strong></td><td>Schlaganfall, Dissektion</td></tr></table>
-        <div class="callout fact"><span class="lab">⚙ Labor</span>Kalium, Kreatinin/eGFR, Harnstatus (Albuminurie), Lipide, Blutzucker.</div>
+        <ul class="b">
+          <li><strong>Praxismessung an beiden Armen</strong>, Manschette auf Herzhöhe</li>
+          <li><strong>Selbstmessung</strong> zu Hause</li>
+          <li><strong>24-Stunden-Langzeitmessung</strong> — schließt die Weißkittelhypertonie aus</li>
+        </ul>
       </div>
     </details>
-    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Auge</span><span class="ctitle">Fundus + Sekundär-Screening</span></span><span class="plus">+</span></summary>
+
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Labor</span><span class="ctitle">Basisprogramm</span></span><span class="plus">+</span></summary>
       <div class="body">
-        <div class="callout fact"><span class="lab">★ Fundus hypertonicus (Keith-Wagener-Barker)</span><strong>I Kaliberschwankung · II Gunn-Kreuzungszeichen · III Cotton-Wool-Herde und Blutungen · IV Papillenödem (Notfall!)</strong></div>
-        <table class="dd"><tr><th>Verdacht</th><th>Test</th></tr>
-          <tr><td>Conn-Syndrom</td><td>Aldosteron-Renin-Quotient</td></tr>
-          <tr><td>Phäochromozytom</td><td>Metanephrine in Plasma/Urin</td></tr>
-          <tr><td>Nierenarterienstenose</td><td>Doppler-Sonografie der Nierenarterien</td></tr></table>
+        <ul class="b">
+          <li><strong>Kalium</strong> — erniedrigt bei Hyperaldosteronismus</li>
+          <li><strong>Kreatinin und eGFR</strong> · <strong>Harnstatus</strong> auf Albuminurie</li>
+          <li>Lipide, Blutzucker</li>
+        </ul>
       </div>
     </details>
+
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Endorgane</span><span class="ctitle">Was der Druck angerichtet hat</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <ul class="b">
+          <li><strong>Herz:</strong> Linksherzhypertrophie — Sokolow im EKG, Wanddicke im Echo</li>
+          <li><strong>Niere:</strong> Albuminurie, Kreatininanstieg</li>
+          <li><strong>Auge:</strong> Fundus hypertonicus — I Kaliberschwankung, II <strong>Gunn-Kreuzungszeichen</strong>, III <strong>Cotton-Wool-Herde</strong>, IV <strong>Papillenödem</strong></li>
+          <li><strong>Gefäße:</strong> Schlaganfall, Dissektion</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Sekundäre Ursachen</span><span class="ctitle">Wann und womit suchen</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <ul class="b">
+          <li>Bei jungem Alter, plötzlichem Beginn, Therapieresistenz oder <strong>Hypokaliämie</strong></li>
+          <li><strong>Nierenarterienstenose:</strong> Duplexsonografie</li>
+          <li><strong>Hyperaldosteronismus:</strong> Aldosteron-Renin-Quotient</li>
+          <li><strong>Phäochromozytom:</strong> Metanephrine im Urin</li>
+        </ul>
+      </div>
+    </details>
+
   </section>
 
   <!-- ============ THERAPIE ============ -->
