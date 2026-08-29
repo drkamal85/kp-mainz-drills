@@ -1158,3 +1158,36 @@ Lyse und Nimodipin in **schlaganfall** (R4) · offenes SHT mit Meningitis-Folgek
 
 **Noch offen für R2/R3:** Hunt-und-Hess-Grade, Fisher-Skala, GCS-Details, Schädelbasisfraktur-
 zeichen (Brillenhämatom, Monokelhämatom, Liquorrhoe).
+
+
+## Claviculafraktur — R1 gebaut 08/2026, Protokollstoff für R2/R3
+**Rang 82 mit 49 Treffern. Zweimal als Polytraumafall dokumentiert.**
+
+**Fall 1 — Motorradunfall, sehr ausführlich (Akte ca. 3 cm dick):**
+„Patient mit **Polytrauma nach Motorradunfall unter Alkoholeinfluss**, gegen einen Zaun gefahren.
+Diagnosen: **mehrfragmentäre dislozierte Claviculafraktur**, Commotio cerebri, Lungenkontusion,
+**Leberlazeration mit subkapsulärem Hämatom**." Diskutiert wurde beim Leberbefund operativ gegen
+konservativ — Kontroll-CT nach wenigen Tagen zeigte kein Wachstum, daher Überwachung.
+**Claviculafraktur: etwa sechs Tage nach Aufnahme operiert, Reposition und winkelstabile Platte.**
+
+**Fall 2 — Dr. Badr (Vorsitz), Dr. Laakmann, Dr. Brill:**
+„Sturz auf der Treppe (12 Stufen), **Klavikulafraktur ohne Bewusstlosigkeit**, mit
+**5. Rippenfraktur und glutealem Hämatom**. Der Patient ist Alkoholiker, Diabetiker, KHK,
+COPD, Gicht."
+
+**Bildfrage — Fahrradsturz:**
+„Foto eines Patienten, der nach einem **Fahrradsturz mit Schmerzen in der linken Schulter**
+dargestellt war. **Welche Verletzungen sind zu erwarten?**" → **Claviculafraktur,
+AC-Gelenksverletzung, Rotatorenmanschette, proximaler Humerus.**
+
+**Trauma-CT:** „CT-Trauma: **Claviculafraktur, Leberblutung** — was macht man hier?"
+Antwort in Richtung abwarten und Erythrozytenkonzentrate.
+
+**Noch offen für R2/R3:** AC-Gelenksprengung nach Tossy und Rockwood, Klaviertastenphänomen,
+Sternoklavikulargelenk, Zugurtung als Alternativverfahren, Sportfreigabe.
+
+**Grenzt an andere Reviews, dort NICHT doppeln:** Allgemeine Frakturlehre, offene Fraktur und
+Gustilo stehen in **allgemeine-frakturlehre** · Polytraumamanagement und Schockraum in
+**polytrauma** · Pneumothorax mit Drainage in **pneumothorax** · Rippenserienfraktur ebendort ·
+Humerusfraktur mit Radialisparese in **humerusfraktur** · Leberlazeration in **milzruptur-splenektomie**
+und **lebertumoren** nicht enthalten — für R2 gegebenenfalls ergänzen.

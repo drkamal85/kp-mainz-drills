@@ -1,6 +1,6 @@
 # KP MAINZ — THEMENLISTE (FLACH, EINE RANGLISTE)
 
-Alle **96 Themen** in einer Rangliste nach **Korpus-Treffer** (WhatsApp-Chat + Protokolle). Aktuell **94 von 96** mit Review abgedeckt (~98 %).
+Alle **96 Themen** in einer Rangliste nach **Korpus-Treffer** (WhatsApp-Chat + Protokolle). Aktuell **95 von 96** mit Review abgedeckt (~99 %).
 
 > **Juli 2026 (a):** 3 Themen ergänzt (nach Protokoll-Frequenz-Check bestätigt): **Kreuzbandruptur** (Unfallchirurgie, 30 Protokoll-Treffer, VKB:21), **Status epilepticus/Epilepsie** (Neurologie, 10), **Gicht/Podagra** (Rheumatologie, 6). *Verworfen* (zu niedrig/abwesend): Demenz, Erysipel, Fazialisparese, Ösophaguskarzinom, Multiples Myelom, Migräne, Parkinson.
 >
@@ -96,7 +96,7 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 79 | 55 | 11 | 44 | Allgemein- und Viszeralchirurgie | Magenkarzinom | ✓ R1 |
 | 80 | 55 | 9 | 46 | Hämatologie | Morbus Hodgkin | ✓ R1 |
 | 81 | 54 | 19 | 35 | Notfallmedizin | Verbrennung | ✓ R1 |
-| 82 | 49 | 10 | 39 | Unfallchirurgie | Claviculafraktur | — |
+| 82 | 49 | 10 | 39 | Unfallchirurgie | Claviculafraktur | ✓ R1 |
 | 83 | 47 | 8 | 39 | Endokrinologie | Struma | — |
 | 84 | 43 | 19 | 24 | Kardiologie | Paroxysmale SVT / AVNRT-AVRT | ✓ R1 |
 | 85 | 43 | 13 | 30 | Querschnitt | Check-up / Prävention | ✓ R2 |

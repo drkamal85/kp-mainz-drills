@@ -111,7 +111,7 @@ FLAT=[
 (55,11,44,"Allgemein- und Viszeralchirurgie","Magenkarzinom","magenkarzinom"),
 (55,9,46,"Hämatologie","Morbus Hodgkin","morbus-hodgkin"),
 (54,19,35,"Notfallmedizin","Verbrennung","verbrennung"),
-(49,10,39,"Unfallchirurgie","Claviculafraktur",None),
+(49,10,39,"Unfallchirurgie","Claviculafraktur","claviculafraktur"),
 (47,8,39,"Endokrinologie","Struma",None),
 (43,19,24,"Kardiologie","Paroxysmale SVT / AVNRT-AVRT","svt-avnrt"),
 (43,13,30,"Querschnitt","Check-up / Prävention","praevention"),
