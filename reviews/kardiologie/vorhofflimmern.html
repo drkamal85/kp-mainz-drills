@@ -198,7 +198,7 @@
   <div class="tabs">
     <button class="tab active" data-c="grundlagen" data-tab="grundlagen">Grundlagen</button>
     <button class="tab" data-c="klinik" data-tab="klinik">Klinik</button>
-    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik</button>
+    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik ★</button>
     <button class="tab" data-c="therapie" data-tab="therapie">Therapie</button>
     <button class="tab" data-c="perlen" data-tab="perlen">KP-Perlen</button>
     <button class="tab" data-c="protokoll" data-tab="protokoll">Fragen &amp; Protokolle · 20</button>
@@ -224,16 +224,48 @@
       </div></details>
   </section>
   <section class="panel" data-panel="diagnostik">
-    <p class="panel-intro">Keine P-Wellen = die Diagnose.</p>
-    <details class="card diagnostik" open><summary><span class="ct"><span class="ctag">★ Anker</span><span class="ctitle">EKG + Labor + Echo</span></span><span class="plus">+</span></summary>
+    <p class="panel-intro">Keine P-Wellen — das ist die Diagnose.</p>
+
+    <details class="card diagnostik" open><summary><span class="ct"><span class="ctag">EKG</span><span class="ctitle">Die Diagnose</span></span><span class="plus">+</span></summary>
       <div class="body">
-        <div class="callout critical"><span class="lab">★ Merksatz (EKG)</span><strong>Absolut unregelmäßige RR-Abstände + KEINE P-Wellen (Flimmerwellen) + schmale QRS.</strong> Das ist die Diagnose. (HF ≥ 100 = Tachyarrhythmia absoluta, &lt; 60 = Bradyarrhythmia absoluta.)</div>
         <ul class="b">
-          <li><strong>Labor:</strong> TSH (Hyperthyreose ausschließen!), Kalium, Nierenwerte (für DOAC-Dosierung)</li>
-          <li><strong>TTE</strong> (strukturelle Herzerkrankung) · <strong>TEE</strong> (Thrombus im Vorhofohr vor Kardioversion)</li>
-          <li><strong>Langzeit-EKG</strong> bei Verdacht auf paroxysmales VHF</li>
+          <li><strong>Absolut unregelmäßige RR-Abstände</strong></li>
+          <li><strong>Keine P-Wellen</strong> — nur Flimmerwellen</li>
+          <li><strong>Schmale QRS-Komplexe</strong></li>
+          <li>Ab 100/min Tachyarrhythmia absoluta, unter 60 Bradyarrhythmia absoluta</li>
         </ul>
-      </div></details>
+      </div>
+    </details>
+
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Langzeit-EKG</span><span class="ctitle">Bei Verdacht</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <ul class="b">
+          <li>Bei <strong>paroxysmalem</strong> Vorhofflimmern</li>
+          <li>Nach unklarem Schlaganfall zur Rhythmussuche</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Labor</span><span class="ctitle">Ursache und Dosierung</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <ul class="b">
+          <li><strong>TSH</strong> — Hyperthyreose ausschließen</li>
+          <li><strong>Kalium</strong> und Magnesium</li>
+          <li><strong>Nierenwerte</strong> — sie bestimmen die DOAC-Dosis</li>
+          <li>Blutbild vor Antikoagulation</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Echo</span><span class="ctitle">Vorhof und Struktur</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <ul class="b">
+          <li><strong>TTE:</strong> strukturelle Herzerkrankung, Vorhofgröße, Pumpfunktion</li>
+          <li><strong>TEE vor Kardioversion</strong> — Thrombus im Vorhofohr ausschließen</li>
+        </ul>
+      </div>
+    </details>
+
   </section>
   <section class="panel" data-panel="therapie">
     <p class="panel-intro">Das A-B-C: Antikoagulation · Besser · Comorbiditäten.</p>

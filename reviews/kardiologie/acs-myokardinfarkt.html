@@ -198,7 +198,7 @@
   <div class="tabs">
     <button class="tab active" data-c="grundlagen" data-tab="grundlagen">Grundlagen</button>
     <button class="tab" data-c="klinik" data-tab="klinik">Klinik</button>
-    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik</button>
+    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik ★</button>
     <button class="tab" data-c="therapie" data-tab="therapie">Therapie</button>
     <button class="tab" data-c="perlen" data-tab="perlen">KP-Perlen</button>
     <button class="tab" data-c="protokoll" data-tab="protokoll">Fragen &amp; Protokolle · 15</button>
@@ -251,23 +251,53 @@
 
   <!-- ============ DIAGNOSTIK ============ -->
   <section class="panel" data-panel="diagnostik">
-    <p class="panel-intro">EKG sofort, Troponin seriell. Erst laut, dann abgleichen.</p>
-    <details class="card diagnostik" open><summary><span class="ct"><span class="ctag">EKG</span><span class="ctitle">EKG zuerst + Lokalisation</span></span><span class="plus">+</span></summary>
+    <p class="panel-intro">EKG sofort, Troponin seriell.</p>
+
+    <details class="card diagnostik" open><summary><span class="ct"><span class="ctag">EKG</span><span class="ctitle">Binnen 10 Minuten</span></span><span class="plus">+</span></summary>
       <div class="body">
-        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>12-Kanal-EKG binnen 10 Minuten. Eine ST-Hebung in ≥ 2 benachbarten Ableitungen ist ein STEMI → sofort Herzkatheter, nicht die Enzyme abwarten.</strong></div>
-        <table class="dd"><tr><th>Lokalisation</th><th>Ableitungen</th><th>Gefäß</th></tr>
-          <tr><td><strong>Vorderwand</strong></td><td>V1–V6, I, aVL</td><td>RIVA (LAD)</td></tr>
-          <tr><td><strong>Hinterwand</strong></td><td>II, III, aVF</td><td>RCA</td></tr>
-          <tr><td><strong>Posterior</strong></td><td>ST-Senkung V1–4 → V7–9</td><td>RCX</td></tr></table>
-        <div class="callout fact"><span class="lab">⚙ STEMI-Stadien</span>Erstickungs-T → ST-Hebung → R-Verlust mit T-Negativierung und pathologischem Q → persistierendes Q.</div>
+        <ul class="b">
+          <li><strong>12-Kanal-EKG binnen 10 Minuten</strong> — vor allem anderen</li>
+          <li>ST-Hebung in <strong>2 benachbarten Ableitungen</strong> = STEMI → sofort Herzkatheter</li>
+          <li><strong>Nicht die Enzyme abwarten</strong></li>
+          <li>Lokalisation: V1–V6, I, aVL = Vorderwand, RIVA · II, III, aVF = Hinterwand, RCA</li>
+          <li>ST-Senkung V1–4 → Hinterwand-EKG V7–9, RCX</li>
+          <li>Stadien: Erstickungs-T → ST-Hebung → R-Verlust mit pathologischem Q</li>
+        </ul>
       </div>
     </details>
-    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Labor</span><span class="ctitle">Troponin-Kinetik</span></span><span class="plus">+</span></summary>
+
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Labor</span><span class="ctitle">Troponin seriell</span></span><span class="plus">+</span></summary>
       <div class="body">
-        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Troponin I/T ist herzspezifisch: Anstieg nach etwa 3 Stunden, Maximum nach etwa 13 Stunden. Seriell messen — bei Aufnahme und nach 1 bis 3 Stunden.</strong></div>
-        <div class="callout warning"><span class="lab">⚠ Falsch positiv</span>Bei Lungenembolie mit Rechtsherzbelastung und bei Niereninsuffizienz. Ein positives Troponin bedeutet per definitionem einen Infarkt (NSTEMI oder STEMI).</div>
+        <ul class="b">
+          <li><strong>Troponin I oder T</strong> — herzspezifisch</li>
+          <li>Anstieg nach etwa <strong>3 Stunden</strong>, Maximum nach etwa <strong>13 Stunden</strong></li>
+          <li><strong>Seriell messen:</strong> bei Aufnahme und nach 1 bis 3 Stunden</li>
+          <li>Falsch positiv bei Lungenembolie, Myokarditis, Niereninsuffizienz</li>
+          <li>Dazu Blutbild, Gerinnung, Elektrolyte, Kreatinin</li>
+        </ul>
       </div>
     </details>
+
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Katheter</span><span class="ctitle">Koronarangiografie</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <ul class="b">
+          <li>Beim <strong>STEMI sofort</strong>, ohne weitere Diagnostik</li>
+          <li>Beim NSTEMI nach Risiko, meist binnen 24 Stunden</li>
+          <li>Diagnostisch <strong>und</strong> therapeutisch in einer Sitzung</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Echo</span><span class="ctitle">Ergänzend</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <ul class="b">
+          <li><strong>Wandbewegungsstörung</strong> — regional, dem Gefäß zuzuordnen</li>
+          <li>Pumpfunktion, Klappen, Perikarderguss</li>
+          <li>Bei unklarem EKG hilfreich</li>
+        </ul>
+      </div>
+    </details>
+
   </section>
 
   <!-- ============ THERAPIE ============ -->
