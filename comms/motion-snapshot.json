@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-08-30T08:55:57.597Z",
+  "generatedAt": "2026-08-31T09:21:20.264Z",
   "totals": {
     "open": 322,
     "completed": 385,
     "overdue": 0,
-    "schedulingIssues": 221
+    "schedulingIssues": 218
   },
   "byLevel": {
     "R1": {
@@ -792,6 +792,31 @@
       "name": "Review: Hyponatriämie / SIADH R2",
       "dueDate": "2026-09-13",
       "duration": 45
+    },
+    {
+      "name": "Review: Gastritis R2",
+      "dueDate": "2026-09-14",
+      "duration": 45
+    },
+    {
+      "name": "Review: Bluttransfusion R2",
+      "dueDate": "2026-09-14",
+      "duration": 45
+    },
+    {
+      "name": "Review: Schmerztherapie / WHO-Stufenschema R2",
+      "dueDate": "2026-09-14",
+      "duration": 45
+    },
+    {
+      "name": "Review: EBM + KI in der Medizin R2",
+      "dueDate": "2026-09-14",
+      "duration": 45
+    },
+    {
+      "name": "Review: Hyponatriämie / SIADH R3",
+      "dueDate": "2026-09-14",
+      "duration": 60
     }
   ],
   "nextCheckpoint": {
