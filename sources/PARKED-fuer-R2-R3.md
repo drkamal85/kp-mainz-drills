@@ -1229,3 +1229,32 @@ Epithelkörperchen und Recurrensverlauf steht in **hyperthyreose** (R4) · Based
 thyreotoxische Krise ebendort · Hashimoto und TSH-Stufendiagnostik in **hypothyreose** (R4) ·
 Obere Einflussstauung auch in **bronchialkarzinom** · Hypokalzämie und Tetanie grenzen an
 **elektrolytstoerungen**.
+
+
+## Morbus Hodgkin — 6 Fragen aus dem NHL-Deck umgezogen (29.08.2026)
+Diese Fragen standen bis 08/2026 in **non-hodgkin-lymphome** Tab 6, waren dort aber falsch
+abgelegt: Sie handeln von Hodgkin, und seit **morbus-hodgkin** als eigenes Deck existiert
+(Rang 80, 55 Treffer), gehören sie dorthin. **Beim Bau von morbus-hodgkin R3 einbauen** —
+zusammen mit dem bereits geparkten Material zu Dr. Hoffart, Dr. Kleinengraber und dem
+17-Jährigen ergeben sich 12 bis 14 dokumentierte Fragen, also der Zielkorridor.
+
+F: Erklären Sie das Epstein-Barr-Virus vollständig — Übertragung, Erkrankungen, Komplikationen und Differenzialdiagnosen.
+A: Übertragen über Speichel, daher Kusskrankheit, es infiziert B-Lymphozyten und bleibt lebenslang. Es verursacht die Mononukleose mit Fieber, Angina, Lymphknotenschwellung und Splenomegalie und ist mit Burkitt-Lymphom und Nasopharynxkarzinom assoziiert. Gefürchtet ist die Milzruptur, deshalb Sportverbot für vier bis sechs Wochen, und ich gebe nie Ampicillin wegen des Arzneiexanthems.
+
+F: Wie wird das Hodgkin-Lymphom behandelt?
+A: Mit kombinierter Chemotherapie nach dem ABVD-Schema, stadienabhängig mit oder ohne Bestrahlung des befallenen Feldes. ABVD steht für Adriamycin, also Doxorubicin, Bleomycin, Vinblastin und Dacarbazin. In fortgeschrittenen Stadien wird das intensivere BEACOPP-Schema eingesetzt.
+
+F: Was ist bei der Altersverteilung des Hodgkin-Lymphoms besonders?
+A: Sie ist zweigipflig, mit einem Gipfel im dritten Lebensjahrzehnt und einem zweiten jenseits des sechzigsten Lebensjahres. Wichtiger für die Praxis ist, dass das Hodgkin-Lymphom zu den häufigsten Malignomen bei Jugendlichen und jungen Erwachsenen zählt. Deshalb gehört es bei jeder schmerzlosen, anhaltenden Lymphknotenschwellung eines jungen Patienten in die Differenzialdiagnose.
+
+F: Gibt es ein charakteristisches Symptom, das für das Hodgkin-Lymphom spricht?
+A: Ja, der Alkoholschmerz: Wenige Minuten nach Alkoholkonsum treten Schmerzen in den befallenen Lymphknoten auf. Er ist selten, aber nahezu beweisend und wird gern gefragt. Häufiger sind die schmerzlose Lymphknotenschwellung, die B-Symptomatik und der Pruritus.
+
+F: Welche Spätfolgen der Hodgkin-Therapie müssen Sie kennen?
+A: Anthrazykline wie Doxorubicin sind kardiotoxisch und führen noch nach Jahren zur Kardiomyopathie, Bleomycin verursacht eine Lungenfibrose. Dazu kommen Infertilität und Zweitmalignome, vor allem Leukämien und nach Bestrahlung Mamma- und Schilddrüsenkarzinome. Deshalb steht ein ausgeheiltes Hodgkin-Lymphom oft als Vorerkrankung in der Anamnese ganz anderer Fälle.
+
+F: Wie ist die Prognose im Vergleich zu den Non-Hodgkin-Lymphomen?
+A: Das Hodgkin-Lymphom ist mit über 80 Prozent Heilungsrate eine der am besten behandelbaren malignen Erkrankungen überhaupt, in frühen Stadien über 90 Prozent. Damit ist die Prognose deutlich besser als bei den meisten Non-Hodgkin-Lymphomen, wo nur die aggressiven Formen kurativ behandelbar sind.
+
+**Ebenfalls für morbus-hodgkin R3 vormerken:** Die Prognosefrage bei Kindern — Herr Tarannt
+fragte die Heilungsrate, Antwort **etwa 90 Prozent**.
