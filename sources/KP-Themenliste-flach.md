@@ -29,7 +29,7 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 12 | 244 | 78 | 166 | Neurologie | Schlaganfall / Apoplex | ✓ R3 |
 | 13 | 243 | 44 | 199 | Gastroenterologie | Ikterus & Cholestase | ✓ R4 |
 | 14 | 241 | 43 | 198 | Nephrologie | Nierenversagen (akut / akut-auf-chron.) | ✓ R1 |
-| 15 | 236 | 79 | 157 | Allgemein- und Viszeralchirurgie | GI-Blutung | ✓ R3 |
+| 15 | 236 | 79 | 157 | Allgemein- und Viszeralchirurgie | GI-Blutung | ✓ R4 |
 | 16 | 234 | 61 | 173 | Pneumologie | Pneumonie | ✓ R3 |
 | 17 | 232 | 58 | 174 | Kardiologie | ACS / Myokardinfarkt | ✓ R3 |
 | 18 | 226 | 78 | 148 | Allgemein- und Viszeralchirurgie | Leistenhernie / Hernien | ✓ R4 |
