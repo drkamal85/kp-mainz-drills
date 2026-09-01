@@ -56,7 +56,9 @@ def trow(rank, treffer, chat, prot, fach, thema, slug, force_tier=False):
     # Zielspalte
     if not treffer and not force_tier:
         zi='<span class="zi-none">\u00b7</span>'
-    elif lvl>=tgt:
+    elif lvl>tgt:
+        zi=f'<span class="zi-over">R{lvl} \u00b7 \u00fcber Ziel</span>'
+    elif lvl==tgt:
         zi='<span class="zi-ok">Ziel erreicht</span>'
     else:
         zi=f'<span class="zi-gap">R{lvl if lvl else 0} \u2192 R{tgt}</span>'
@@ -166,10 +168,11 @@ EXTRA=[("Notfallmedizin","Pleuraerguss","pleuraerguss"),("Notfallmedizin","Notfa
 FLAT.sort(key=lambda r:-r[0])  # keep ranking correct after additions
 ranked=[(i+1,)+row for i,row in enumerate(FLAT)]
 def tier(lo,hi): return [r for r in ranked if lo<=r[1]<hi]   # r[1]=treffer
-T1=[r for r in ranked if r[1]>=200]; T2=[r for r in ranked if 120<=r[1]<200]; T3=[r for r in ranked if 60<=r[1]<120]; T4=[r for r in ranked if r[1]<60]
+# Gruppierung nach Ziel-Tier (prot = r[4])
+TK=[r for r in ranked if r[3]>=100]; TS=[r for r in ranked if 50<=r[3]<100]; TR=[r for r in ranked if r[3]<50]
 covered=lambda s: bool(s) and s in repo
 def tc(T): return sum(1 for r in T if covered(r[6])), len(T)  # r[6]=slug
-t1c,t1n=tc(T1); t2c,t2n=tc(T2); t3c,t3n=tc(T3); t4c,t4n=tc(T4)
+tkc,tkn=tc(TK); tsc,tsn=tc(TS); trc,trn=tc(TR)
 n_md=len(FLAT); md_cov=sum(1 for r in ranked if covered(r[6])); cov_pct=round(md_cov/n_md*100)
 nr={3:0,2:0,1:0}
 for lvl,_ in repo.values(): nr[lvl]=nr.get(lvl,0)+1
@@ -181,32 +184,31 @@ def section(tc_,title,desc,count,rows):
             f'<div class="tier-desc">{desc}</div></div><div class="tier-count">{count}</div></div>'
             f'<table><tbody>{rows}</tbody></table></section>')
 def rowsfor(T): return "".join(trow(rk,t,c,p,f,th,s) for rk,t,c,p,f,th,s in T)
-s1=section("#C0392B","Tier 1 · höchste Präsenz","≥ 200 Korpus-Treffer",f"{t1n} Themen",rowsfor(T1))
-s2=section("#D97706","Tier 2 · hohe Präsenz","120–199 Treffer",f"{t2n} Themen",rowsfor(T2))
-s3=section("#0E7C7B","Tier 3 · mittlere Präsenz","60–119 Treffer",f"{t3n} Themen",rowsfor(T3))
-s4=section("#64748B","Tier 4 · niedrige Präsenz","< 60 Treffer",f"{t4n} Themen",rowsfor(T4))
+sK=section("#B3261E","KERN \u00b7 Ziel R5","ab 100 Protokoll-Treffer \u2014 muss bis zur Pr\u00fcfung sitzen",f"{tkn} Themen",rowsfor(TK))
+sS=section("#B07214","STANDARD \u00b7 Ziel R4","50 bis 99 Protokoll-Treffer \u2014 sicher beherrschen",f"{tsn} Themen",rowsfor(TS))
+sR=section("#7A736A","RAND \u00b7 Ziel R2","unter 50 Protokoll-Treffer \u2014 kennen, nicht vertiefen",f"{trn} Themen",rowsfor(TR))
 sE=section("#2D7A3E","Weitere gebaute Reviews","In der Library vorhanden, aber nicht in der Korpus-Rangliste",f"{len(EXTRA)} Themen","".join(trow(None,0,0,0,f,th,s,force_tier=True) for f,th,s in EXTRA))
 
 # --- Ziel-Erreichung je Tier (KERN/STANDARD/RAND) ------------------------------
 def _lvl_of(slug):
     inf=repo.get(slug)
     return _badge_lvl(slug,inf[0]) if inf else 0
-_ZT={"kern":[0,0],"std":[0,0],"rand":[0,0]}   # [am Ziel, offen]
+_ZT={"kern":[0,0,0],"std":[0,0,0],"rand":[0,0,0]}   # [am Ziel, offen, ueber Ziel]
 for _rk,_t,_c,_p,_f,_th,_s in ranked:
     _n,_tg,_cl=ziel_tier(_p)
-    _ZT[_cl][0 if _lvl_of(_s)>=_tg else 1]+=1
+    _l=_lvl_of(_s); _ZT[_cl][2 if _l>_tg else (0 if _l==_tg else 1)]+=1
 for _f,_th,_s in EXTRA:                        # EXTRA zaehlt als RAND, Ziel R2
-    _ZT["rand"][0 if _lvl_of(_s)>=2 else 1]+=1
-_ZTOT=[sum(v[0] for v in _ZT.values()), sum(v[1] for v in _ZT.values())]
+    _l=_lvl_of(_s); _ZT["rand"][2 if _l>2 else (0 if _l==2 else 1)]+=1
+_ZTOT=[sum(v[i] for v in _ZT.values()) for i in (0,1,2)]
 def _zrow(lbl,cls,tgt,v):
-    ges=v[0]+v[1]; pct=round(v[0]/ges*100) if ges else 0
+    ges=sum(v); pct=round((v[0]+v[2])/ges*100) if ges else 0
     return (f'<tr><td><span class="tier-b {cls}">{lbl}</span></td><td class="zt-t">Ziel R{tgt}</td>'
-            f'<td class="zt-n">{ges}</td><td class="zt-n zt-ok">{v[0]}</td><td class="zt-n zt-of">{v[1]}</td>'
+            f'<td class="zt-n">{ges}</td><td class="zt-n zt-ok">{v[0]}</td><td class="zt-n zt-ov">{v[2]}</td><td class="zt-n zt-of">{v[1]}</td>'
             f'<td class="zt-bar"><div class="zb"><div class="zf" style="width:{pct}%"></div></div><span class="zp">{pct}\u00a0%</span></td></tr>')
 zieltab=('<section class="zieltab"><div class="zt-h">Ziel-Stufen \u00b7 Stand</div>'
-    '<table><thead><tr><th>Tier</th><th>Ziel</th><th>Themen</th><th>am Ziel</th><th>offen</th><th></th></tr></thead><tbody>'
+    '<table><thead><tr><th>Tier</th><th>Ziel</th><th>Themen</th><th>am Ziel</th><th>\u00fcber Ziel</th><th>offen</th><th></th></tr></thead><tbody>'
     +_zrow("KERN","kern",5,_ZT["kern"])+_zrow("STANDARD","std",4,_ZT["std"])+_zrow("RAND","rand",2,_ZT["rand"])
-    +f'<tr class="zt-sum"><td colspan="2">Gesamt</td><td class="zt-n">{_ZTOT[0]+_ZTOT[1]}</td>'
+    +f'<tr class="zt-sum"><td colspan="2">Gesamt</td><td class="zt-n">{sum(_ZTOT)}</td>'
      f'<td class="zt-n zt-ok">{_ZTOT[0]}</td><td class="zt-n zt-of">{_ZTOT[1]}</td><td></td></tr>'
     +'</tbody></table></section>')
 
@@ -220,12 +222,12 @@ analytics=f'''<section class="analytics">
     <div class="ana-card"><div class="ana-n">{n_md}</div><div class="ana-l">Themen · Inventar</div></div>
     <div class="ana-card"><div class="ana-n">{len(repo)}</div><div class="ana-l">Reviews live</div></div>
     <div class="ana-card"><div class="ana-n">{cov_pct}<span style="font-size:18px"> %</span></div><div class="ana-l">abgedeckt</div></div>
-    <div class="ana-card"><div class="ana-n">{t1c}<span style="font-size:18px"> / {t1n}</span></div><div class="ana-l">Tier 1 (≥200) erledigt</div></div>
+    <div class="ana-card"><div class="ana-n">{tkc}<span style="font-size:18px"> / {tkn}</span></div><div class="ana-l">Kern-Themen abgedeckt</div></div>
   </div>
   <div class="ana-strip">Review-Reife · <b>{nr[3]}</b>×R3 · <b>{nr[2]}</b>×R2 · <b>{nr[1]}</b>×R1 · +{len(EXTRA)} außerhalb der Liste &nbsp;·&nbsp; <span id="prog">0 abgehakt</span></div>
   <div class="ana-sub">
-    <div class="ana-box"><div class="ana-box-h">Abdeckung nach Präsenz-Tier</div>
-      {bar("Tier 1",t1c,t1n,"#C0392B")}{bar("Tier 2",t2c,t2n,"#D97706")}{bar("Tier 3",t3c,t3n,"#0E7C7B")}{bar("Tier 4",t4c,t4n,"#64748B")}
+    <div class="ana-box"><div class="ana-box-h">Abdeckung nach Ziel-Tier</div>
+      {bar("Kern",tkc,tkn,"#B3261E")}{bar("Standard",tsc,tsn,"#B07214")}{bar("Rand",trc,trn,"#7A736A")}
     </div>
     <div class="ana-box"><div class="ana-box-h">Größte Lücken · höchste Korpus-Präsenz, kein Review <span style="font-weight:400;text-transform:none;letter-spacing:0">(s. Hinweis)</span></div>{gaps_html}</div>
   </div>
@@ -324,6 +326,8 @@ td.ziel{{white-space:nowrap;text-align:right;padding-right:12px}}
 .zt-n{{text-align:right;font-family:'JetBrains Mono',monospace}}
 .zt-ok{{color:#2D7A3E;font-weight:600}}
 .zt-of{{color:#B07214;font-weight:600}}
+.zi-over{{font:600 11px/1 Manrope,sans-serif;color:#1E5F9E}}
+.zt-ov{{color:#1E5F9E;font-weight:600}}
 .zt-sum td{{background:#FBF9F5;font-weight:700}}
 .zt-bar{{width:150px}}
 .zb{{display:inline-block;width:100px;height:6px;background:#EFEBE1;border-radius:3px;overflow:hidden;vertical-align:middle}}
@@ -337,7 +341,7 @@ td.ziel{{white-space:nowrap;text-align:right;padding-right:12px}}
 {caveat}
 {analytics}
 {zieltab}
-{s1}{s2}{s3}{s4}{sE}
+{sK}{sS}{sR}{sE}
 <div class="legend">
 <b>Treffer</b> = Korpus-Erwähnungen gesamt; <b>{'{chat}·{prot}'}</b> darunter = Chat- bzw. Protokoll-Treffer. <b>#</b> = Rang in der Gesamtliste.
 <b>Review</b>-Badge zeigt das gebaute Level (✓ R1 → R3) und verlinkt direkt; die Statistik oben wird bei jedem Build live aus dem Repo berechnet. Häkchen werden lokal im Browser gespeichert.
@@ -393,11 +397,11 @@ _out={'version':2,'updatedAt':_dt.datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ
       'topics':_themen,'extras':_extras}
 io.open("api/themen.json","w",encoding="utf-8").write(_json.dumps(_out,ensure_ascii=False,separators=(',',':')))
 print("api/themen.json:",len(_themen),"rows |",_out['covered'],"covered")
-print("FLAT rows:",len(FLAT),"| tiers:",f"T1 {t1n} T2 {t2n} T3 {t3n} T4 {t4n} (sum {t1n+t2n+t3n+t4n}) + EXTRA {len(EXTRA)}")
+print("FLAT rows:",len(FLAT),"| tiers:",f"KERN {tkn} STANDARD {tsn} RAND {trn} (sum {tkn+tsn+trn}) + EXTRA {len(EXTRA)}")
 print("topic rows total:",h.count('<tr '),"| review badges:",h.count('class=\"have\"'),"| live reviews:",len(repo))
 links=re.findall(r'href="\.\./(reviews/[^"]+)"',h); print("links:",len(links),"| broken:",[p for p in links if not glob.glob(p)] or "none")
 print(f"analytics: {n_md} Themen · {len(repo)} live · {cov_pct}% · offen {n_md-md_cov} · R3/R2/R1 {nr[3]}/{nr[2]}/{nr[1]}")
-print("tier cov:",f"T1 {t1c}/{t1n} T2 {t2c}/{t2n} T3 {t3c}/{t3n} T4 {t4c}/{t4n}")
+print("tier cov:",f"KERN {tkc}/{tkn} STANDARD {tsc}/{tsn} RAND {trc}/{trn}")
 print("gaps:",[f'{t} {th}' for t,th,f in gaps])
 print("caveat present:", 'Erwähnungs-Häufigkeit' in h, "| rank col:", h.count('class="rk"'))
 for t in ["section","table","tr","td","div"]:
