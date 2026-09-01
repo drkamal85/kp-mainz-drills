@@ -52,7 +52,7 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 31 | 142 | 16 | 126 | Kardiologie | KHK / Koronarsyndrom | ✓ R3 |
 | 32 | 136 | 21 | 115 | Gastroenterologie  | Morbus Crohn & Colitis ulcerosa | ✓ R4 |
 | 33 | 132 | 39 | 93 | Gastroenterologie | Lebermetastasen / Lebertumor | ✓ R2 |
-| 34 | 131 | 82 | 49 | Drittes Fach | Strahlenschutz | ✓ R3 |
+| 34 | 131 | 82 | 49 | Drittes Fach | Strahlenschutz | ✓ R2 |
 | 35 | 130 | 31 | 99 | Pneumologie | COPD | ✓ R4 |
 | 36 | 127 | 44 | 83 | Unfallchirurgie | Sprunggelenksfraktur (OSG) | ✓ R3 |
 | 37 | 122 | 39 | 83 | Endokrinologie | Hyperthyreose | ✓ R4 |
@@ -83,27 +83,27 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 64 | 73 | 11 | 62 | Angiologie | Aortendissektion | ✓ R3 |
 | 65 | 68 | 12 | 56 | Unfallchirurgie | Allgemeine Frakturlehre | ✓ R4 |
 | 66 | 67 | 12 | 55 | Nephrologie | Harnwegsinfekt / Pyelonephritis | ✓ R1 |
-| 67 | 65 | 22 | 43 | Endokrinologie | Schilddrüsenkarzinom | ✓ R3 |
+| 67 | 65 | 22 | 43 | Endokrinologie | Schilddrüsenkarzinom | ✓ R2 |
 | 68 | 64 | 29 | 35 | Allgemein- und Viszeralchirurgie | Akutes Abdomen | ✓ R1 |
 | 69 | 63 | 25 | 38 | Notfallmedizin | Anaphylaxie | ✓ R1 |
-| 70 | 62 | 15 | 47 | Allgemein- und Viszeralchirurgie | Rektumkarzinom | ✓ R3 |
+| 70 | 62 | 15 | 47 | Allgemein- und Viszeralchirurgie | Rektumkarzinom | ✓ R2 |
 | 71 | 62 | 22 | 40 | Neurologie | Meningitis / Enzephalitis | ✓ R1 |
-| 72 | 60 | 15 | 45 | Unfallchirurgie | Humerusfraktur | ✓ R3 |
+| 72 | 60 | 15 | 45 | Unfallchirurgie | Humerusfraktur | ✓ R2 |
 | 73 | 59 | 11 | 48 | Gastroenterologie | GERD / Refluxkrankheit | ✓ R1 |
 | 74 | 59 | 7 | 52 | Kardiologie | Infektiöse Endokarditis | ✓ R3 |
 | 76 | 57 | 17 | 40 | Gastroenterologie | Diarrhoe / Gastroenteritis | ✓ R2 |
-| 77 | 56 | 15 | 41 | Allgemein- und Viszeralchirurgie | Pankreaskarzinom | ✓ R3 |
+| 77 | 56 | 15 | 41 | Allgemein- und Viszeralchirurgie | Pankreaskarzinom | ✓ R2 |
 | 78 | 56 | 11 | 45 | Allgemein- und Viszeralchirurgie | Hämorrhoiden | ✓ R1 |
-| 79 | 55 | 11 | 44 | Allgemein- und Viszeralchirurgie | Magenkarzinom | ✓ R1 |
+| 79 | 55 | 11 | 44 | Allgemein- und Viszeralchirurgie | Magenkarzinom | ✓ R2 |
 | 80 | 55 | 9 | 46 | Hämatologie | Morbus Hodgkin | ✓ R1 |
 | 81 | 54 | 19 | 35 | Notfallmedizin | Verbrennung | ✓ R1 |
 | 82 | 49 | 10 | 39 | Unfallchirurgie | Claviculafraktur | ✓ R1 |
 | 83 | 47 | 8 | 39 | Endokrinologie | Struma | ✓ R1 |
 | 85 | 43 | 13 | 30 | Querschnitt | Check-up / Prävention | ✓ R2 |
 | 86 | 40 | 10 | 30 | Angiologie | Aortenaneurysma (AAA) | ✓ R2 |
-| 87 | 40 | 7 | 33 | Unfallchirurgie | Beckenringfrakturen | ✓ R4 |
+| 87 | 40 | 7 | 33 | Unfallchirurgie | Beckenringfrakturen | ✓ R2 |
 | 88 | 37 | 12 | 25 | Notfallmedizin | Delir | ✓ R2 |
-| 89 | 32 | 5 | 27 | Endokrinologie | Cushing-Syndrom | ✓ R3 |
+| 89 | 32 | 5 | 27 | Endokrinologie | Cushing-Syndrom | ✓ R2 |
 | 90 | 32 | 9 | 23 | Nephrologie | Hyponatriämie / SIADH | ✓ R1 |
 | 91 | 30 | 0 | 30 | Unfallchirurgie | Kreuzbandruptur | ✓ R1 |
-| 92 | 23 | 3 | 20 | Unfallchirurgie | Wirbelsäulenverletzungen | ✓ R4 |
+| 92 | 23 | 3 | 20 | Unfallchirurgie | Wirbelsäulenverletzungen | ✓ R2 |
