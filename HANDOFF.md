@@ -257,6 +257,10 @@ komplett neu gebaut und abgenommen. Merkmale, die es tragen:
   nicht als eigene Karte am Ende)
 - 433 Wörter, 13 Karten, 46 Bullets
 
+**Offene Arbeiten:** `sources/TODO-offene-arbeiten.md` — besprochen, aber noch nicht erledigt.
+Aktuell: Tab-6-Pruefung auf erfundene Fragen (bei non-hodgkin-lymphome waren 12 von 19 erfunden),
+Diagnostik-Umstellung mit 79 offenen Decks, Therapie-Einzeleingriffe, morbus-hodgkin auf R3.
+
 **Diagnostik braucht Freigabe:** Bei jeder Deck-Arbeit wird die Diagnostik-Station vorgelegt
 (Original und Vorschlag, im Chat) und erst nach Mohameds "ok" publiziert. Gilt auch bei neuen
 Decks — dort nur der Vorschlag. Die uebrigen Stationen laufen wie gewohnt direkt durch.
