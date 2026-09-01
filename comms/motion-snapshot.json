@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-08-31T09:21:20.264Z",
+  "generatedAt": "2026-09-01T08:19:04.198Z",
   "totals": {
     "open": 322,
     "completed": 385,
     "overdue": 0,
-    "schedulingIssues": 218
+    "schedulingIssues": 214
   },
   "byLevel": {
     "R1": {
@@ -492,12 +492,6 @@
       "scheduledStart": null
     },
     {
-      "name": "Mentor check-in #3",
-      "dueDate": "2026-10-02",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
       "name": "R5-Pilot: Cholezystitis #2",
       "dueDate": "2026-11-10",
       "schedulingIssue": true,
@@ -542,6 +536,12 @@
     {
       "name": "Review: Morbus Hodgkin R5",
       "dueDate": "2026-12-26",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Morbus Hodgkin R4",
+      "dueDate": "2026-10-14",
       "schedulingIssue": true,
       "scheduledStart": null
     }
@@ -816,6 +816,31 @@
     {
       "name": "Review: Hyponatriämie / SIADH R3",
       "dueDate": "2026-09-14",
+      "duration": 60
+    },
+    {
+      "name": "Review: Meningitis/Enzephalitis R4",
+      "dueDate": "2026-09-15",
+      "duration": 30
+    },
+    {
+      "name": "Review: Gastritis R3",
+      "dueDate": "2026-09-15",
+      "duration": 60
+    },
+    {
+      "name": "Review: Hämorrhoiden R3",
+      "dueDate": "2026-09-15",
+      "duration": 60
+    },
+    {
+      "name": "Review: Bluttransfusion R3",
+      "dueDate": "2026-09-15",
+      "duration": 60
+    },
+    {
+      "name": "Review: Schmerztherapie / WHO-Stufenschema R3",
+      "dueDate": "2026-09-15",
       "duration": 60
     }
   ],
