@@ -118,7 +118,16 @@
     .chip{flex:none}.chip-rst{flex:none;margin-left:4px}
     .stats{grid-template-columns:repeat(2,1fr)}
   }
-</style>
+
+    .tierb{display:inline-block;margin-left:6px;font:700 8.5px/1 'Manrope',sans-serif;letter-spacing:.09em;
+      padding:3px 6px;border-radius:3px;vertical-align:middle;text-transform:uppercase}
+    .tierb.kern{background:oklch(94% 0.05 25);color:oklch(45% 0.16 25)}
+    .tierb.std{background:oklch(95% 0.05 75);color:oklch(48% 0.12 75)}
+    .tierb.rand{background:oklch(94% 0.008 90);color:oklch(52% 0.01 90)}
+  
+    .c-fold{margin-top:5px;font:600 10px/1.3 'Manrope',sans-serif;color:oklch(52% 0.01 90);
+      background:oklch(95% 0.008 90);border-radius:3px;padding:3px 7px;display:inline-block}
+  </style>
 </head>
 <body>
 
@@ -154,7 +163,13 @@
       <button class="search-clr" id="qClr" hidden aria-label="Suche löschen">×</button>
     </div>
     <div class="chips" id="chipsLvl"></div>
-    <div class="chips" id="chipsSpe"></div>
+    <div class="chips">
+            <button class="chip on" data-f="tier" data-v="all">Alle Ziele</button>
+            <button class="chip" data-f="tier" data-v="kern">Kern · R5</button>
+            <button class="chip" data-f="tier" data-v="std">Standard · R4</button>
+            <button class="chip" data-f="tier" data-v="rand">Rand · R2</button>
+          </div>
+          <div class="chips" id="chipsSpe"></div>
   </div>
 
   <div class="cta-row">
@@ -184,98 +199,99 @@
 
   <!-- Reviews -->
   <section class="block" data-block="reviews">
-    <h2 class="block-h">Reviews <span class="block-ct">73 Themen</span></h2>
+    <h2 class="block-h">Reviews <span class="block-ct">90Themen</span></h2>
       <div class="spe" data-spe="kardio">
-        <h3 class="spe-h">Kardiologie <span>11</span></h3>
+        <h3 class="spe-h">Kardiologie <span>9</span></h3>
         <div class="grid">
-<a class="card" href="reviews/kardiologie/av-block.html" data-id="av-block" data-lvl="4">
+<a class="card" href="reviews/kardiologie/av-block.html" data-id="av-block" data-lvl="4" data-tier="kern">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 25);color:oklch(34% 0.13 25);border-color:oklch(89% 0.06 25)">Kardiologie</span>
             </div>
-            <span class="lvl r4">R4</span>
+            <span class="lvl r4">R4</span><span class="tierb kern">KERN</span>
           </div>
           <div class="c-title">AV-Block</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/kardiologie/herzklappenerkrankungen.html" data-id="herzklappenerkrankungen" data-lvl="4">
+<a class="card" href="reviews/kardiologie/herzklappenerkrankungen.html" data-id="herzklappenerkrankungen" data-lvl="4" data-tier="std">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 25);color:oklch(34% 0.13 25);border-color:oklch(89% 0.06 25)">Kardiologie</span>
             </div>
-            <span class="lvl r4">R4</span>
+            <span class="lvl r4">R4</span><span class="tierb std">STANDARD</span>
           </div>
           <div class="c-title">Herzklappenerkrankungen</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/kardiologie/infektioese-endokarditis.html" data-id="infektioese-endokarditis" data-lvl="4">
+<a class="card" href="reviews/kardiologie/infektioese-endokarditis.html" data-id="infektioese-endokarditis" data-lvl="4" data-tier="std">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 25);color:oklch(34% 0.13 25);border-color:oklch(89% 0.06 25)">Kardiologie</span>
             </div>
-            <span class="lvl r4">R4</span>
+            <span class="lvl r4">R4</span><span class="tierb std">STANDARD</span>
           </div>
           <div class="c-title">Infektiöse Endokarditis</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/kardiologie/arterielle-hypertonie.html" data-id="arterielle-hypertonie" data-lvl="4">
+<a class="card" href="reviews/kardiologie/arterielle-hypertonie.html" data-id="arterielle-hypertonie" data-lvl="4" data-tier="std">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 25);color:oklch(34% 0.13 25);border-color:oklch(89% 0.06 25)">Kardiologie</span>
             </div>
-            <span class="lvl r4">R4</span>
+            <span class="lvl r4">R4</span><span class="tierb std">STANDARD</span>
           </div>
           <div class="c-title">Arterielle Hypertonie</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/kardiologie/acs-myokardinfarkt.html" data-id="acs-myokardinfarkt" data-lvl="4">
+<a class="card" href="reviews/kardiologie/acs-myokardinfarkt.html" data-id="acs-myokardinfarkt" data-lvl="4" data-tier="kern">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 25);color:oklch(34% 0.13 25);border-color:oklch(89% 0.06 25)">Kardiologie</span>
             </div>
-            <span class="lvl r4">R4</span>
+            <span class="lvl r4">R4</span><span class="tierb kern">KERN</span>
           </div>
           <div class="c-title">ACS / Myokardinfarkt</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/kardiologie/synkope.html" data-id="synkope" data-lvl="4">
+<a class="card" href="reviews/kardiologie/synkope.html" data-id="synkope" data-lvl="4" data-tier="std">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 25);color:oklch(34% 0.13 25);border-color:oklch(89% 0.06 25)">Kardiologie</span>
             </div>
-            <span class="lvl r4">R4</span>
+            <span class="lvl r4">R4</span><span class="tierb std">STANDARD</span>
           </div>
           <div class="c-title">Synkope</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/kardiologie/herzinsuffizienz.html" data-id="herzinsuffizienz" data-lvl="4">
+<a class="card" href="reviews/kardiologie/herzinsuffizienz.html" data-id="herzinsuffizienz" data-lvl="4" data-tier="kern">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 25);color:oklch(34% 0.13 25);border-color:oklch(89% 0.06 25)">Kardiologie</span>
             </div>
-            <span class="lvl r4">R4</span>
+            <span class="lvl r4">R4</span><span class="tierb kern">KERN</span>
           </div>
           <div class="c-title">Herzinsuffizienz</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/kardiologie/khk.html" data-id="khk" data-lvl="4">
+<a class="card" href="reviews/kardiologie/khk.html" data-id="khk" data-lvl="4" data-tier="kern">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 25);color:oklch(34% 0.13 25);border-color:oklch(89% 0.06 25)">Kardiologie</span>
             </div>
-            <span class="lvl r4">R4</span>
+            <span class="lvl r4">R4</span><span class="tierb kern">KERN</span>
           </div>
           <div class="c-title">KHK / Koronarsyndrom</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/kardiologie/vorhofflimmern.html" data-id="vorhofflimmern" data-lvl="4">
+<a class="card" href="reviews/kardiologie/vorhofflimmern.html" data-id="vorhofflimmern" data-lvl="4" data-tier="kern">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 25);color:oklch(34% 0.13 25);border-color:oklch(89% 0.06 25)">Kardiologie</span>
             </div>
-            <span class="lvl r4">R4</span>
+            <span class="lvl r4">R4</span><span class="tierb kern">KERN</span>
           </div>
           <div class="c-title">Vorhofflimmern</div>
+          <div class="c-fold">+ SVT / AVNRT</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
       </div>
@@ -283,142 +299,142 @@
       <div class="spe" data-spe="viszeral">
         <h3 class="spe-h">Allgemein- und Viszeralchirurgie <span>14</span></h3>
         <div class="grid">
-<a class="card" href="reviews/chirurgie/gastroduodenales-ulkus.html" data-id="gastroduodenales-ulkus" data-lvl="3">
+<a class="card" href="reviews/chirurgie/gastroduodenales-ulkus.html" data-id="gastroduodenales-ulkus" data-lvl="3" data-tier="kern">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 35);color:oklch(34% 0.12 35);border-color:oklch(89% 0.05 35)">Allgemein- und Viszeralchirurgie</span>
             </div>
-            <span class="lvl r3">R3</span>
+            <span class="lvl r3">R3</span><span class="tierb kern">KERN</span>
           </div>
           <div class="c-title">Gastroduodenales Ulkus</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/chirurgie/cholezystitis.html" data-id="cholezystitis" data-lvl="4">
+<a class="card" href="reviews/chirurgie/cholezystitis.html" data-id="cholezystitis" data-lvl="4" data-tier="kern">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 35);color:oklch(34% 0.12 35);border-color:oklch(89% 0.05 35)">Allgemein- und Viszeralchirurgie</span>
             </div>
-            <span class="lvl r4">R4</span>
+            <span class="lvl r4">R4</span><span class="tierb kern">KERN</span>
           </div>
           <div class="c-title">Cholezystitis</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/chirurgie/appendizitis.html" data-id="appendizitis" data-lvl="4">
+<a class="card" href="reviews/chirurgie/appendizitis.html" data-id="appendizitis" data-lvl="4" data-tier="kern">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 35);color:oklch(34% 0.12 35);border-color:oklch(89% 0.05 35)">Allgemein- und Viszeralchirurgie</span>
             </div>
-            <span class="lvl r4">R4</span>
+            <span class="lvl r4">R4</span><span class="tierb kern">KERN</span>
           </div>
           <div class="c-title">Appendizitis</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/chirurgie/ileus.html" data-id="ileus" data-lvl="4">
+<a class="card" href="reviews/chirurgie/ileus.html" data-id="ileus" data-lvl="4" data-tier="kern">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 35);color:oklch(34% 0.12 35);border-color:oklch(89% 0.05 35)">Allgemein- und Viszeralchirurgie</span>
             </div>
-            <span class="lvl r4">R4</span>
+            <span class="lvl r4">R4</span><span class="tierb kern">KERN</span>
           </div>
           <div class="c-title">Ileus</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/chirurgie/akutes-abdomen.html" data-id="akutes-abdomen" data-lvl="1">
+<a class="card" href="reviews/chirurgie/akutes-abdomen.html" data-id="akutes-abdomen" data-lvl="1" data-tier="rand">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 35);color:oklch(34% 0.12 35);border-color:oklch(89% 0.05 35)">Allgemein- und Viszeralchirurgie</span>
             </div>
-            <span class="lvl r1">R1</span>
+            <span class="lvl r1">R1</span><span class="tierb rand">RAND</span>
           </div>
           <div class="c-title">Akutes Abdomen</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/chirurgie/haemorrhoiden.html" data-id="haemorrhoiden" data-lvl="1">
+<a class="card" href="reviews/chirurgie/haemorrhoiden.html" data-id="haemorrhoiden" data-lvl="1" data-tier="rand">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 35);color:oklch(34% 0.12 35);border-color:oklch(89% 0.05 35)">Allgemein- und Viszeralchirurgie</span>
             </div>
-            <span class="lvl r1">R1</span>
+            <span class="lvl r1">R1</span><span class="tierb rand">RAND</span>
           </div>
           <div class="c-title">Hämorrhoiden</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/chirurgie/milzruptur-splenektomie.html" data-id="milzruptur-splenektomie" data-lvl="1">
+<a class="card" href="reviews/chirurgie/milzruptur-splenektomie.html" data-id="milzruptur-splenektomie" data-lvl="1" data-tier="std">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 35);color:oklch(34% 0.12 35);border-color:oklch(89% 0.05 35)">Allgemein- und Viszeralchirurgie</span>
             </div>
-            <span class="lvl r1">R1</span>
+            <span class="lvl r1">R1</span><span class="tierb std">STANDARD</span>
           </div>
           <div class="c-title">Milzruptur &amp; Splenektomie</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/chirurgie/leistenhernie.html" data-id="leistenhernie" data-lvl="4">
+<a class="card" href="reviews/chirurgie/leistenhernie.html" data-id="leistenhernie" data-lvl="4" data-tier="kern">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 35);color:oklch(34% 0.12 35);border-color:oklch(89% 0.05 35)">Allgemein- und Viszeralchirurgie</span>
             </div>
-            <span class="lvl r4">R4</span>
+            <span class="lvl r4">R4</span><span class="tierb kern">KERN</span>
           </div>
           <div class="c-title">Leistenhernie</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/chirurgie/divertikulitis.html" data-id="divertikulitis" data-lvl="3">
+<a class="card" href="reviews/chirurgie/divertikulitis.html" data-id="divertikulitis" data-lvl="3" data-tier="kern">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 35);color:oklch(34% 0.12 35);border-color:oklch(89% 0.05 35)">Allgemein- und Viszeralchirurgie</span>
             </div>
-            <span class="lvl r3">R3</span>
+            <span class="lvl r3">R3</span><span class="tierb kern">KERN</span>
           </div>
           <div class="c-title">Divertikulitis</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/chirurgie/kolonkarzinom.html" data-id="kolonkarzinom" data-lvl="3">
+<a class="card" href="reviews/chirurgie/kolonkarzinom.html" data-id="kolonkarzinom" data-lvl="3" data-tier="kern">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 35);color:oklch(34% 0.12 35);border-color:oklch(89% 0.05 35)">Allgemein- und Viszeralchirurgie</span>
             </div>
-            <span class="lvl r3">R3</span>
+            <span class="lvl r3">R3</span><span class="tierb kern">KERN</span>
           </div>
           <div class="c-title">Kolonkarzinom</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-        <a class="card" href="reviews/chirurgie/rektumkarzinom.html" data-id="rektumkarzinom" data-lvl="3">
+        <a class="card" href="reviews/chirurgie/rektumkarzinom.html" data-id="rektumkarzinom" data-lvl="3" data-tier="rand">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 35);color:oklch(34% 0.12 35);border-color:oklch(89% 0.05 35)">Allgemein- und Viszeralchirurgie</span>
             </div>
-            <span class="lvl r3">R3</span>
+            <span class="lvl r3">R3</span><span class="tierb rand">RAND</span>
           </div>
           <div class="c-title">Rektumkarzinom</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-        <a class="card" href="reviews/chirurgie/pankreatitis.html" data-id="pankreatitis" data-lvl="3">
+        <a class="card" href="reviews/chirurgie/pankreatitis.html" data-id="pankreatitis" data-lvl="3" data-tier="kern">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 35);color:oklch(34% 0.12 35);border-color:oklch(89% 0.05 35)">Allgemein- und Viszeralchirurgie</span>
             </div>
-            <span class="lvl r3">R3</span>
+            <span class="lvl r3">R3</span><span class="tierb kern">KERN</span>
           </div>
           <div class="c-title">Pankreatitis</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-        <a class="card" href="reviews/chirurgie/magenkarzinom.html" data-id="magenkarzinom" data-lvl="3">
+        <a class="card" href="reviews/chirurgie/magenkarzinom.html" data-id="magenkarzinom" data-lvl="3" data-tier="rand">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 35);color:oklch(34% 0.12 35);border-color:oklch(89% 0.05 35)">Allgemein- und Viszeralchirurgie</span>
             </div>
-            <span class="lvl r3">R3</span>
+            <span class="lvl r3">R3</span><span class="tierb rand">RAND</span>
           </div>
           <div class="c-title">Magenkarzinom</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-        <a class="card" href="reviews/chirurgie/pankreaskarzinom.html" data-id="pankreaskarzinom" data-lvl="3">
+        <a class="card" href="reviews/chirurgie/pankreaskarzinom.html" data-id="pankreaskarzinom" data-lvl="3" data-tier="rand">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 35);color:oklch(34% 0.12 35);border-color:oklch(89% 0.05 35)">Allgemein- und Viszeralchirurgie</span>
             </div>
-            <span class="lvl r3">R3</span>
+            <span class="lvl r3">R3</span><span class="tierb rand">RAND</span>
           </div>
           <div class="c-title">Pankreaskarzinom</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
@@ -428,22 +444,22 @@
       <div class="spe" data-spe="pneumo">
         <h3 class="spe-h">Pneumologie <span>8</span></h3>
         <div class="grid">
-<a class="card" href="reviews/pneumologie/copd.html" data-id="copd" data-lvl="4">
+<a class="card" href="reviews/pneumologie/copd.html" data-id="copd" data-lvl="4" data-tier="std">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 200);color:oklch(34% 0.12 200);border-color:oklch(89% 0.05 200)">Pneumologie</span>
             </div>
-            <span class="lvl r4">R4</span>
+            <span class="lvl r4">R4</span><span class="tierb std">STANDARD</span>
           </div>
           <div class="c-title">COPD</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/pneumologie/tuberkulose.html" data-id="tuberkulose" data-lvl="1">
+<a class="card" href="reviews/pneumologie/tuberkulose.html" data-id="tuberkulose" data-lvl="1" data-tier="std">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 200);color:oklch(34% 0.12 200);border-color:oklch(89% 0.05 200)">Pneumologie</span>
             </div>
-            <span class="lvl r1">R1</span>
+            <span class="lvl r1">R1</span><span class="tierb std">STANDARD</span>
           </div>
           <div class="c-title">Tuberkulose</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
@@ -458,52 +474,52 @@
           <div class="c-title">Pleuraerguss</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/pneumologie/pneumonie.html" data-id="pneumonie" data-lvl="4">
+<a class="card" href="reviews/pneumologie/pneumonie.html" data-id="pneumonie" data-lvl="4" data-tier="kern">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 200);color:oklch(34% 0.12 200);border-color:oklch(89% 0.05 200)">Pneumologie</span>
             </div>
-            <span class="lvl r4">R4</span>
+            <span class="lvl r4">R4</span><span class="tierb kern">KERN</span>
           </div>
           <div class="c-title">Pneumonie</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/pneumologie/pneumothorax.html" data-id="pneumothorax" data-lvl="4">
+<a class="card" href="reviews/pneumologie/pneumothorax.html" data-id="pneumothorax" data-lvl="4" data-tier="kern">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 200);color:oklch(34% 0.12 200);border-color:oklch(89% 0.05 200)">Pneumologie</span>
             </div>
-            <span class="lvl r4">R4</span>
+            <span class="lvl r4">R4</span><span class="tierb kern">KERN</span>
           </div>
           <div class="c-title">Pneumothorax</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/pneumologie/asthma-bronchiale.html" data-id="asthma-bronchiale" data-lvl="4">
+<a class="card" href="reviews/pneumologie/asthma-bronchiale.html" data-id="asthma-bronchiale" data-lvl="4" data-tier="std">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 200);color:oklch(34% 0.12 200);border-color:oklch(89% 0.05 200)">Pneumologie</span>
             </div>
-            <span class="lvl r4">R4</span>
+            <span class="lvl r4">R4</span><span class="tierb std">STANDARD</span>
           </div>
           <div class="c-title">Asthma bronchiale</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/pneumologie/lungenembolie.html" data-id="lungenembolie" data-lvl="4">
+<a class="card" href="reviews/pneumologie/lungenembolie.html" data-id="lungenembolie" data-lvl="4" data-tier="kern">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 200);color:oklch(34% 0.12 200);border-color:oklch(89% 0.05 200)">Pneumologie</span>
             </div>
-            <span class="lvl r4">R4</span>
+            <span class="lvl r4">R4</span><span class="tierb kern">KERN</span>
           </div>
           <div class="c-title">Lungenembolie</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/pneumologie/bronchialkarzinom.html" data-id="bronchialkarzinom" data-lvl="2">
+<a class="card" href="reviews/pneumologie/bronchialkarzinom.html" data-id="bronchialkarzinom" data-lvl="2" data-tier="std">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 200);color:oklch(34% 0.12 200);border-color:oklch(89% 0.05 200)">Pneumologie</span>
             </div>
-            <span class="lvl r2">R2</span>
+            <span class="lvl r2">R2</span><span class="tierb std">STANDARD</span>
           </div>
           <div class="c-title">Bronchialkarzinom</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
@@ -511,104 +527,105 @@
       </div>
       </div>
       <div class="spe" data-spe="unfall">
-        <h3 class="spe-h">Unfallchirurgie / Orthopädie <span>11</span></h3>
+        <h3 class="spe-h">Unfallchirurgie / Orthopädie <span>10</span></h3>
         <div class="grid">
-<a class="card" href="reviews/unfallchirurgie/proximale-femurfraktur.html" data-id="proximale-femurfraktur" data-lvl="4">
+<a class="card" href="reviews/unfallchirurgie/proximale-femurfraktur.html" data-id="proximale-femurfraktur" data-lvl="4" data-tier="kern">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 50);color:oklch(34% 0.12 50);border-color:oklch(89% 0.05 50)">Unfallchirurgie</span>
             </div>
-            <span class="lvl r4">R4</span>
+            <span class="lvl r4">R4</span><span class="tierb kern">KERN</span>
           </div>
           <div class="c-title">Proximale Femurfraktur</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/unfallchirurgie/hueft-knie-tep.html" data-id="hueft-knie-tep" data-lvl="3">
+<a class="card" href="reviews/unfallchirurgie/hueft-knie-tep.html" data-id="hueft-knie-tep" data-lvl="3" data-tier="std">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 50);color:oklch(34% 0.12 50);border-color:oklch(89% 0.05 50)">Unfallchirurgie</span>
             </div>
-            <span class="lvl r3">R3</span>
+            <span class="lvl r3">R3</span><span class="tierb std">STANDARD</span>
           </div>
           <div class="c-title">Hüft- und Knie-TEP</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/unfallchirurgie/distale-radiusfraktur.html" data-id="distale-radiusfraktur" data-lvl="4">
+<a class="card" href="reviews/unfallchirurgie/distale-radiusfraktur.html" data-id="distale-radiusfraktur" data-lvl="4" data-tier="std">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 50);color:oklch(34% 0.12 50);border-color:oklch(89% 0.05 50)">Unfallchirurgie</span>
             </div>
-            <span class="lvl r4">R4</span>
+            <span class="lvl r4">R4</span><span class="tierb std">STANDARD</span>
           </div>
           <div class="c-title">Distale Radiusfraktur</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/unfallchirurgie/beckenringfrakturen.html" data-id="beckenringfrakturen" data-lvl="4">
+<a class="card" href="reviews/unfallchirurgie/beckenringfrakturen.html" data-id="beckenringfrakturen" data-lvl="4" data-tier="rand">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 50);color:oklch(34% 0.12 50);border-color:oklch(89% 0.05 50)">Unfallchirurgie</span>
             </div>
-            <span class="lvl r4">R4</span>
+            <span class="lvl r4">R4</span><span class="tierb rand">RAND</span>
           </div>
           <div class="c-title">Beckenringfrakturen</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/unfallchirurgie/humerusfraktur.html" data-id="humerusfraktur" data-lvl="4">
+<a class="card" href="reviews/unfallchirurgie/humerusfraktur.html" data-id="humerusfraktur" data-lvl="4" data-tier="rand">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 50);color:oklch(34% 0.12 50);border-color:oklch(89% 0.05 50)">Unfallchirurgie</span>
             </div>
-            <span class="lvl r4">R4</span>
+            <span class="lvl r4">R4</span><span class="tierb rand">RAND</span>
           </div>
           <div class="c-title">Humerusfraktur</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/unfallchirurgie/wirbelsaeulenverletzungen.html" data-id="wirbelsaeulenverletzungen" data-lvl="4">
+<a class="card" href="reviews/unfallchirurgie/wirbelsaeulenverletzungen.html" data-id="wirbelsaeulenverletzungen" data-lvl="4" data-tier="rand">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 50);color:oklch(34% 0.12 50);border-color:oklch(89% 0.05 50)">Unfallchirurgie</span>
             </div>
-            <span class="lvl r4">R4</span>
+            <span class="lvl r4">R4</span><span class="tierb rand">RAND</span>
           </div>
           <div class="c-title">Wirbelsäulenverletzungen</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/unfallchirurgie/sprunggelenksfraktur.html" data-id="sprunggelenksfraktur" data-lvl="4">
+<a class="card" href="reviews/unfallchirurgie/sprunggelenksfraktur.html" data-id="sprunggelenksfraktur" data-lvl="4" data-tier="std">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 50);color:oklch(34% 0.12 50);border-color:oklch(89% 0.05 50)">Unfallchirurgie</span>
             </div>
-            <span class="lvl r4">R4</span>
+            <span class="lvl r4">R4</span><span class="tierb std">STANDARD</span>
           </div>
           <div class="c-title">Sprunggelenksfraktur</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/unfallchirurgie/allgemeine-frakturlehre.html" data-id="allgemeine-frakturlehre" data-lvl="4">
+<a class="card" href="reviews/unfallchirurgie/allgemeine-frakturlehre.html" data-id="allgemeine-frakturlehre" data-lvl="4" data-tier="std">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 50);color:oklch(34% 0.12 50);border-color:oklch(89% 0.05 50)">Unfallchirurgie</span>
             </div>
-            <span class="lvl r4">R4</span>
+            <span class="lvl r4">R4</span><span class="tierb std">STANDARD</span>
           </div>
           <div class="c-title">Allgemeine Frakturlehre</div>
+          <div class="c-fold">+ Kompartmentsyndrom</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/unfallchirurgie/kreuzbandruptur.html" data-id="kreuzbandruptur" data-lvl="1">
+<a class="card" href="reviews/unfallchirurgie/kreuzbandruptur.html" data-id="kreuzbandruptur" data-lvl="1" data-tier="rand">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 50);color:oklch(34% 0.12 50);border-color:oklch(89% 0.05 50)">Unfallchirurgie</span>
             </div>
-            <span class="lvl r1">R1</span>
+            <span class="lvl r1">R1</span><span class="tierb rand">RAND</span>
           </div>
           <div class="c-title">Kreuzbandruptur</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/unfallchirurgie/claviculafraktur.html" data-id="claviculafraktur" data-lvl="1">
+<a class="card" href="reviews/unfallchirurgie/claviculafraktur.html" data-id="claviculafraktur" data-lvl="1" data-tier="rand">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 50);color:oklch(34% 0.12 50);border-color:oklch(89% 0.05 50)">Unfallchirurgie</span>
             </div>
-            <span class="lvl r1">R1</span>
+            <span class="lvl r1">R1</span><span class="tierb rand">RAND</span>
           </div>
           <div class="c-title">Claviculafraktur</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
@@ -616,134 +633,134 @@
       </div>
       </div>
       <div class="spe" data-spe="notfall">
-        <h3 class="spe-h">Drittes Fach <span>14</span></h3>
+        <h3 class="spe-h">Drittes Fach <span>13</span></h3>
         <div class="grid">
-<a class="card" href="reviews/drittes-fach/strahlenschutz.html" data-id="strahlenschutz" data-lvl="4">
+<a class="card" href="reviews/drittes-fach/strahlenschutz.html" data-id="strahlenschutz" data-lvl="4" data-tier="rand">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 18);color:oklch(34% 0.12 18);border-color:oklch(89% 0.05 18)">Drittes Fach</span>
             </div>
-            <span class="lvl r4">R4</span>
+            <span class="lvl r4">R4</span><span class="tierb rand">RAND</span>
           </div>
           <div class="c-title">Strahlenschutz</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/drittes-fach/anaesthesie-atemweg.html" data-id="anaesthesie-atemweg" data-lvl="1">
+<a class="card" href="reviews/drittes-fach/anaesthesie-atemweg.html" data-id="anaesthesie-atemweg" data-lvl="1" data-tier="kern">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 18);color:oklch(34% 0.12 18);border-color:oklch(89% 0.05 18)">Drittes Fach</span>
             </div>
-            <span class="lvl r1">R1</span>
+            <span class="lvl r1">R1</span><span class="tierb kern">KERN</span>
           </div>
           <div class="c-title">Anästhesie &amp; Atemwegssicherung</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/drittes-fach/borreliose-fsme.html" data-id="borreliose-fsme" data-lvl="1">
+<a class="card" href="reviews/drittes-fach/borreliose-fsme.html" data-id="borreliose-fsme" data-lvl="1" data-tier="rand">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 18);color:oklch(34% 0.12 18);border-color:oklch(89% 0.05 18)">Drittes Fach</span>
             </div>
-            <span class="lvl r1">R1</span>
+            <span class="lvl r1">R1</span><span class="tierb rand">RAND</span>
           </div>
           <div class="c-title">Borreliose, FSME &amp; Zeckenbiss</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/drittes-fach/hyponatriaemie-siadh.html" data-id="hyponatriaemie-siadh" data-lvl="1">
+<a class="card" href="reviews/drittes-fach/hyponatriaemie-siadh.html" data-id="hyponatriaemie-siadh" data-lvl="1" data-tier="rand">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 18);color:oklch(34% 0.12 18);border-color:oklch(89% 0.05 18)">Drittes Fach</span>
             </div>
-            <span class="lvl r1">R1</span>
+            <span class="lvl r1">R1</span><span class="tierb rand">RAND</span>
           </div>
           <div class="c-title">Hyponatriämie &amp; SIADH</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/drittes-fach/nierenversagen.html" data-id="nierenversagen" data-lvl="2">
+<a class="card" href="reviews/drittes-fach/nierenversagen.html" data-id="nierenversagen" data-lvl="2" data-tier="kern">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 18);color:oklch(34% 0.12 18);border-color:oklch(89% 0.05 18)">Drittes Fach</span>
             </div>
-            <span class="lvl r2">R2</span>
+            <span class="lvl r2">R2</span><span class="tierb kern">KERN</span>
           </div>
           <div class="c-title">Akutes Nierenversagen</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/drittes-fach/harnwegsinfekt.html" data-id="harnwegsinfekt" data-lvl="1">
+<a class="card" href="reviews/drittes-fach/harnwegsinfekt.html" data-id="harnwegsinfekt" data-lvl="1" data-tier="std">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 18);color:oklch(34% 0.12 18);border-color:oklch(89% 0.05 18)">Drittes Fach</span>
             </div>
-            <span class="lvl r1">R1</span>
+            <span class="lvl r1">R1</span><span class="tierb std">STANDARD</span>
           </div>
           <div class="c-title">Harnwegsinfekt &amp; Pyelonephritis</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/drittes-fach/schmerztherapie.html" data-id="schmerztherapie" data-lvl="1">
+<a class="card" href="reviews/drittes-fach/schmerztherapie.html" data-id="schmerztherapie" data-lvl="1" data-tier="std">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 18);color:oklch(34% 0.12 18);border-color:oklch(89% 0.05 18)">Drittes Fach</span>
             </div>
-            <span class="lvl r1">R1</span>
+            <span class="lvl r1">R1</span><span class="tierb std">STANDARD</span>
           </div>
           <div class="c-title">Schmerztherapie &amp; WHO-Schema</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/drittes-fach/praevention.html" data-id="praevention" data-lvl="2">
+<a class="card" href="reviews/drittes-fach/praevention.html" data-id="praevention" data-lvl="2" data-tier="rand">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 18);color:oklch(34% 0.12 18);border-color:oklch(89% 0.05 18)">Drittes Fach</span>
             </div>
-            <span class="lvl r2">R2</span>
+            <span class="lvl r2">R2</span><span class="tierb rand">RAND</span>
           </div>
           <div class="c-title">Check-up &amp; Prävention</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/drittes-fach/bluttransfusion.html" data-id="bluttransfusion" data-lvl="1">
+<a class="card" href="reviews/drittes-fach/bluttransfusion.html" data-id="bluttransfusion" data-lvl="1" data-tier="kern">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 18);color:oklch(34% 0.12 18);border-color:oklch(89% 0.05 18)">Drittes Fach</span>
             </div>
-            <span class="lvl r1">R1</span>
+            <span class="lvl r1">R1</span><span class="tierb kern">KERN</span>
           </div>
           <div class="c-title">Bluttransfusion</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/drittes-fach/rechtsmedizin.html" data-id="rechtsmedizin" data-lvl="4">
+<a class="card" href="reviews/drittes-fach/rechtsmedizin.html" data-id="rechtsmedizin" data-lvl="4" data-tier="kern">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 18);color:oklch(34% 0.12 18);border-color:oklch(89% 0.05 18)">Drittes Fach</span>
             </div>
-            <span class="lvl r4">R4</span>
+            <span class="lvl r4">R4</span><span class="tierb kern">KERN</span>
           </div>
           <div class="c-title">Rechtsmedizin</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/drittes-fach/sozialrecht-hygiene.html" data-id="sozialrecht-hygiene" data-lvl="3">
+<a class="card" href="reviews/drittes-fach/sozialrecht-hygiene.html" data-id="sozialrecht-hygiene" data-lvl="3" data-tier="std">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 18);color:oklch(34% 0.12 18);border-color:oklch(89% 0.05 18)">Drittes Fach</span>
             </div>
-            <span class="lvl r3">R3</span>
+            <span class="lvl r3">R3</span><span class="tierb std">STANDARD</span>
           </div>
           <div class="c-title">Sozialrecht, Unfallversicherung &amp; Hygiene</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/drittes-fach/impfungen-stiko.html" data-id="impfungen-stiko" data-lvl="4">
+<a class="card" href="reviews/drittes-fach/impfungen-stiko.html" data-id="impfungen-stiko" data-lvl="4" data-tier="kern">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 18);color:oklch(34% 0.12 18);border-color:oklch(89% 0.05 18)">Drittes Fach</span>
             </div>
-            <span class="lvl r4">R4</span>
+            <span class="lvl r4">R4</span><span class="tierb kern">KERN</span>
           </div>
           <div class="c-title">Impfungen / STIKO</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/drittes-fach/aufklaerung-einwilligung-betreuung.html" data-id="aufklaerung-einwilligung-betreuung" data-lvl="4">
+<a class="card" href="reviews/drittes-fach/aufklaerung-einwilligung-betreuung.html" data-id="aufklaerung-einwilligung-betreuung" data-lvl="4" data-tier="std">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 18);color:oklch(34% 0.12 18);border-color:oklch(89% 0.05 18)">Drittes Fach</span>
             </div>
-            <span class="lvl r4">R4</span>
+            <span class="lvl r4">R4</span><span class="tierb std">STANDARD</span>
           </div>
           <div class="c-title">Aufklärung, Einwilligung &amp; Betreuung</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
@@ -753,64 +770,65 @@
       <div class="spe" data-spe="notfallmedizin">
         <h3 class="spe-h">Notfallmedizin <span>10</span></h3>
         <div class="grid">
-<a class="card" href="reviews/notfallmedizin/akuttoxikologie.html" data-id="akuttoxikologie" data-lvl="1">
+<a class="card" href="reviews/notfallmedizin/akuttoxikologie.html" data-id="akuttoxikologie" data-lvl="1" data-tier="std">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 255);color:oklch(34% 0.12 255);border-color:oklch(89% 0.05 255)">Notfallmedizin</span>
             </div>
-            <span class="lvl r1">R1</span>
+            <span class="lvl r1">R1</span><span class="tierb std">STANDARD</span>
           </div>
           <div class="c-title">Akuttoxikologie / Intoxikation</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/notfallmedizin/delir.html" data-id="delir" data-lvl="2">
+<a class="card" href="reviews/notfallmedizin/delir.html" data-id="delir" data-lvl="2" data-tier="rand">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 255);color:oklch(34% 0.12 255);border-color:oklch(89% 0.05 255)">Notfallmedizin</span>
             </div>
-            <span class="lvl r2">R2</span>
+            <span class="lvl r2">R2</span><span class="tierb rand">RAND</span>
           </div>
           <div class="c-title">Delir</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/notfallmedizin/verbrennung.html" data-id="verbrennung" data-lvl="1">
+<a class="card" href="reviews/notfallmedizin/verbrennung.html" data-id="verbrennung" data-lvl="1" data-tier="rand">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 255);color:oklch(34% 0.12 255);border-color:oklch(89% 0.05 255)">Notfallmedizin</span>
             </div>
-            <span class="lvl r1">R1</span>
+            <span class="lvl r1">R1</span><span class="tierb rand">RAND</span>
           </div>
           <div class="c-title">Verbrennung</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/notfallmedizin/schock.html" data-id="schock" data-lvl="4">
+<a class="card" href="reviews/notfallmedizin/schock.html" data-id="schock" data-lvl="4" data-tier="kern">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 255);color:oklch(34% 0.12 255);border-color:oklch(89% 0.05 255)">Notfallmedizin</span>
             </div>
-            <span class="lvl r4">R4</span>
+            <span class="lvl r4">R4</span><span class="tierb kern">KERN</span>
           </div>
           <div class="c-title">Schock (alle Typen)</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/notfallmedizin/anaphylaxie.html" data-id="anaphylaxie" data-lvl="1">
+<a class="card" href="reviews/notfallmedizin/anaphylaxie.html" data-id="anaphylaxie" data-lvl="1" data-tier="rand">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 255);color:oklch(34% 0.12 255);border-color:oklch(89% 0.05 255)">Notfallmedizin</span>
             </div>
-            <span class="lvl r1">R1</span>
+            <span class="lvl r1">R1</span><span class="tierb rand">RAND</span>
           </div>
           <div class="c-title">Anaphylaxie</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/notfallmedizin/reanimation-cpr.html" data-id="reanimation-cpr" data-lvl="1">
+<a class="card" href="reviews/notfallmedizin/reanimation-cpr.html" data-id="reanimation-cpr" data-lvl="1" data-tier="rand">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 255);color:oklch(34% 0.12 255);border-color:oklch(89% 0.05 255)">Notfallmedizin</span>
             </div>
-            <span class="lvl r1">R1</span>
+            <span class="lvl r1">R1</span><span class="tierb rand">RAND</span>
           </div>
           <div class="c-title">Reanimation &amp; CPR</div>
+          <div class="c-fold">+ VT / Kammerflimmern</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
 <a class="card" href="reviews/notfallmedizin/notfallpharmakologie.html" data-id="notfallpharmakologie" data-lvl="4">
@@ -823,32 +841,33 @@
           <div class="c-title">Notfallpharmakologie</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/notfallmedizin/sepsis.html" data-id="sepsis" data-lvl="4">
+<a class="card" href="reviews/notfallmedizin/sepsis.html" data-id="sepsis" data-lvl="4" data-tier="kern">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 255);color:oklch(34% 0.12 255);border-color:oklch(89% 0.05 255)">Notfallmedizin</span>
             </div>
-            <span class="lvl r4">R4</span>
+            <span class="lvl r4">R4</span><span class="tierb kern">KERN</span>
           </div>
           <div class="c-title">Sepsis</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/notfallmedizin/schaedel-hirn-trauma.html" data-id="schaedel-hirn-trauma" data-lvl="4">
+<a class="card" href="reviews/notfallmedizin/schaedel-hirn-trauma.html" data-id="schaedel-hirn-trauma" data-lvl="4" data-tier="std">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 255);color:oklch(34% 0.12 255);border-color:oklch(89% 0.05 255)">Notfallmedizin</span>
             </div>
-            <span class="lvl r4">R4</span>
+            <span class="lvl r4">R4</span><span class="tierb std">STANDARD</span>
           </div>
           <div class="c-title">Schädel-Hirn-Trauma</div>
+          <div class="c-fold">+ Hirnblutungen</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-        <a class="card" href="reviews/notfallmedizin/polytrauma-abcde.html" data-id="polytrauma-abcde" data-lvl="4">
+        <a class="card" href="reviews/notfallmedizin/polytrauma-abcde.html" data-id="polytrauma-abcde" data-lvl="4" data-tier="std">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 255);color:oklch(34% 0.12 255);border-color:oklch(89% 0.05 255)">Notfallmedizin</span>
             </div>
-            <span class="lvl r4">R4</span>
+            <span class="lvl r4">R4</span><span class="tierb std">STANDARD</span>
           </div>
           <div class="c-title">Polytrauma / ABCDE</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
@@ -858,42 +877,42 @@
       <div class="spe" data-spe="gefaess">
         <h3 class="spe-h">Gefäßchirurgie <span>4</span></h3>
         <div class="grid">
-<a class="card" href="reviews/gefaesschirurgie/aortendissektion.html" data-id="aortendissektion" data-lvl="4">
+<a class="card" href="reviews/gefaesschirurgie/aortendissektion.html" data-id="aortendissektion" data-lvl="4" data-tier="std">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 10);color:oklch(34% 0.13 10);border-color:oklch(89% 0.06 10)">Gefäßchirurgie</span>
             </div>
-            <span class="lvl r4">R4</span>
+            <span class="lvl r4">R4</span><span class="tierb std">STANDARD</span>
           </div>
           <div class="c-title">Aortendissektion</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/gefaesschirurgie/tvt.html" data-id="tvt" data-lvl="4">
+<a class="card" href="reviews/gefaesschirurgie/tvt.html" data-id="tvt" data-lvl="4" data-tier="std">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 10);color:oklch(34% 0.13 10);border-color:oklch(89% 0.06 10)">Gefäßchirurgie</span>
             </div>
-            <span class="lvl r4">R4</span>
+            <span class="lvl r4">R4</span><span class="tierb std">STANDARD</span>
           </div>
           <div class="c-title">Tiefe Beinvenenthrombose (TVT)</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/gefaesschirurgie/aortenaneurysma.html" data-id="aortenaneurysma" data-lvl="2">
+<a class="card" href="reviews/gefaesschirurgie/aortenaneurysma.html" data-id="aortenaneurysma" data-lvl="2" data-tier="rand">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 10);color:oklch(34% 0.13 10);border-color:oklch(89% 0.06 10)">Gefäßchirurgie</span>
             </div>
-            <span class="lvl r2">R2</span>
+            <span class="lvl r2">R2</span><span class="tierb rand">RAND</span>
           </div>
           <div class="c-title">Aortenaneurysma (AAA)</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/gefaesschirurgie/pavk.html" data-id="pavk" data-lvl="3">
+<a class="card" href="reviews/gefaesschirurgie/pavk.html" data-id="pavk" data-lvl="3" data-tier="std">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 10);color:oklch(34% 0.13 10);border-color:oklch(89% 0.06 10)">Gefäßchirurgie</span>
             </div>
-            <span class="lvl r3">R3</span>
+            <span class="lvl r3">R3</span><span class="tierb std">STANDARD</span>
           </div>
           <div class="c-title">pAVK</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
@@ -901,24 +920,24 @@
       </div>
       </div>
       <div class="spe" data-spe="neuro">
-        <h3 class="spe-h">Neurologie <span>4</span></h3>
+        <h3 class="spe-h">Neurologie <span>2</span></h3>
         <div class="grid">
-<a class="card" href="reviews/neurologie/schlaganfall.html" data-id="schlaganfall" data-lvl="4">
+<a class="card" href="reviews/neurologie/schlaganfall.html" data-id="schlaganfall" data-lvl="4" data-tier="kern">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 300);color:oklch(34% 0.12 300);border-color:oklch(89% 0.05 300)">Neurologie</span>
             </div>
-            <span class="lvl r4">R4</span>
+            <span class="lvl r4">R4</span><span class="tierb kern">KERN</span>
           </div>
           <div class="c-title">Schlaganfall / Apoplex</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/neurologie/meningitis.html" data-id="meningitis" data-lvl="1">
+<a class="card" href="reviews/neurologie/meningitis.html" data-id="meningitis" data-lvl="1" data-tier="rand">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 300);color:oklch(34% 0.12 300);border-color:oklch(89% 0.05 300)">Neurologie</span>
             </div>
-            <span class="lvl r1">R1</span>
+            <span class="lvl r1">R1</span><span class="tierb rand">RAND</span>
           </div>
           <div class="c-title">Meningitis &amp; Enzephalitis</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
@@ -928,72 +947,72 @@
       <div class="spe" data-spe="endokrin">
         <h3 class="spe-h">Endokrinologie <span>7</span></h3>
         <div class="grid">
-<a class="card" href="reviews/endokrinologie/diabetes-mellitus.html" data-id="diabetes-mellitus" data-lvl="4">
+<a class="card" href="reviews/endokrinologie/diabetes-mellitus.html" data-id="diabetes-mellitus" data-lvl="4" data-tier="kern">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 330);color:oklch(34% 0.13 330);border-color:oklch(89% 0.05 330)">Endokrinologie</span>
             </div>
-            <span class="lvl r4">R4</span>
+            <span class="lvl r4">R4</span><span class="tierb kern">KERN</span>
           </div>
           <div class="c-title">Diabetes mellitus</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/endokrinologie/osteoporose.html" data-id="osteoporose" data-lvl="1">
+<a class="card" href="reviews/endokrinologie/osteoporose.html" data-id="osteoporose" data-lvl="1" data-tier="std">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 330);color:oklch(34% 0.13 330);border-color:oklch(89% 0.05 330)">Endokrinologie</span>
             </div>
-            <span class="lvl r1">R1</span>
+            <span class="lvl r1">R1</span><span class="tierb std">STANDARD</span>
           </div>
           <div class="c-title">Osteoporose</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-        <a class="card" href="reviews/endokrinologie/schilddruesenkarzinom.html" data-id="schilddruesenkarzinom" data-lvl="4">
+        <a class="card" href="reviews/endokrinologie/schilddruesenkarzinom.html" data-id="schilddruesenkarzinom" data-lvl="4" data-tier="rand">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 330);color:oklch(34% 0.13 330);border-color:oklch(89% 0.05 330)">Endokrinologie</span>
             </div>
-            <span class="lvl r4">R4</span>
+            <span class="lvl r4">R4</span><span class="tierb rand">RAND</span>
           </div>
           <div class="c-title">Schilddrüsenkarzinom</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/endokrinologie/hyperthyreose.html" data-id="hyperthyreose" data-lvl="4">
+<a class="card" href="reviews/endokrinologie/hyperthyreose.html" data-id="hyperthyreose" data-lvl="4" data-tier="std">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 330);color:oklch(34% 0.13 330);border-color:oklch(89% 0.05 330)">Endokrinologie</span>
             </div>
-            <span class="lvl r4">R4</span>
+            <span class="lvl r4">R4</span><span class="tierb std">STANDARD</span>
           </div>
           <div class="c-title">Hyperthyreose</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/endokrinologie/hypothyreose.html" data-id="hypothyreose" data-lvl="4">
+<a class="card" href="reviews/endokrinologie/hypothyreose.html" data-id="hypothyreose" data-lvl="4" data-tier="std">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 330);color:oklch(34% 0.13 330);border-color:oklch(89% 0.05 330)">Endokrinologie</span>
             </div>
-            <span class="lvl r4">R4</span>
+            <span class="lvl r4">R4</span><span class="tierb std">STANDARD</span>
           </div>
           <div class="c-title">Hypothyreose</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/endokrinologie/cushing-syndrom.html" data-id="cushing-syndrom" data-lvl="4">
+<a class="card" href="reviews/endokrinologie/cushing-syndrom.html" data-id="cushing-syndrom" data-lvl="4" data-tier="rand">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 330);color:oklch(34% 0.13 330);border-color:oklch(89% 0.05 330)">Endokrinologie</span>
             </div>
-            <span class="lvl r4">R4</span>
+            <span class="lvl r4">R4</span><span class="tierb rand">RAND</span>
           </div>
           <div class="c-title">Cushing-Syndrom</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/endokrinologie/struma.html" data-id="struma" data-lvl="1">
+<a class="card" href="reviews/endokrinologie/struma.html" data-id="struma" data-lvl="1" data-tier="rand">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 330);color:oklch(34% 0.13 330);border-color:oklch(89% 0.05 330)">Endokrinologie</span>
             </div>
-            <span class="lvl r1">R1</span>
+            <span class="lvl r1">R1</span><span class="tierb rand">RAND</span>
           </div>
           <div class="c-title">Struma</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
@@ -1003,42 +1022,42 @@
       <div class="spe" data-spe="haem">
         <h3 class="spe-h">Hämatologie <span>4</span></h3>
         <div class="grid">
-<a class="card" href="reviews/haematologie/eisenmangelanaemie.html" data-id="eisenmangelanaemie" data-lvl="4">
+<a class="card" href="reviews/haematologie/eisenmangelanaemie.html" data-id="eisenmangelanaemie" data-lvl="4" data-tier="std">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 350);color:oklch(34% 0.13 350);border-color:oklch(89% 0.06 350)">Hämatologie</span>
             </div>
-            <span class="lvl r4">R4</span>
+            <span class="lvl r4">R4</span><span class="tierb std">STANDARD</span>
           </div>
           <div class="c-title">Eisenmangelanämie</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/haematologie/akute-leukaemien.html" data-id="akute-leukaemien" data-lvl="4">
+<a class="card" href="reviews/haematologie/akute-leukaemien.html" data-id="akute-leukaemien" data-lvl="4" data-tier="std">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 350);color:oklch(34% 0.13 350);border-color:oklch(89% 0.06 350)">Hämatologie</span>
             </div>
-            <span class="lvl r4">R4</span>
+            <span class="lvl r4">R4</span><span class="tierb std">STANDARD</span>
           </div>
           <div class="c-title">Akute Leukämien</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/haematologie/non-hodgkin-lymphome.html" data-id="non-hodgkin-lymphome" data-lvl="4">
+<a class="card" href="reviews/haematologie/non-hodgkin-lymphome.html" data-id="non-hodgkin-lymphome" data-lvl="4" data-tier="std">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 350);color:oklch(34% 0.13 350);border-color:oklch(89% 0.06 350)">Hämatologie</span>
             </div>
-            <span class="lvl r4">R4</span>
+            <span class="lvl r4">R4</span><span class="tierb std">STANDARD</span>
           </div>
           <div class="c-title">Non-Hodgkin-Lymphome</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/haematologie/morbus-hodgkin.html" data-id="morbus-hodgkin" data-lvl="1">
+<a class="card" href="reviews/haematologie/morbus-hodgkin.html" data-id="morbus-hodgkin" data-lvl="1" data-tier="rand">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 350);color:oklch(34% 0.13 350);border-color:oklch(89% 0.06 350)">Hämatologie</span>
             </div>
-            <span class="lvl r1">R1</span>
+            <span class="lvl r1">R1</span><span class="tierb rand">RAND</span>
           </div>
           <div class="c-title">Morbus Hodgkin</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
@@ -1048,92 +1067,92 @@
 <div class="spe" data-spe="gastro">
         <h3 class="spe-h">Gastroenterologie <span>9</span></h3>
         <div class="grid">
-<a class="card" href="reviews/gastroenterologie/morbus-crohn.html" data-id="morbus-crohn" data-lvl="4">
+<a class="card" href="reviews/gastroenterologie/morbus-crohn.html" data-id="morbus-crohn" data-lvl="4" data-tier="kern">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 150);color:oklch(34% 0.13 150);border-color:oklch(89% 0.06 150)">Gastroenterologie</span>
             </div>
-            <span class="lvl r4">R4</span>
+            <span class="lvl r4">R4</span><span class="tierb kern">KERN</span>
           </div>
           <div class="c-title">Morbus Crohn &amp; Colitis ulcerosa</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/gastroenterologie/gastritis.html" data-id="gastritis" data-lvl="1">
+<a class="card" href="reviews/gastroenterologie/gastritis.html" data-id="gastritis" data-lvl="1" data-tier="std">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 150);color:oklch(34% 0.13 150);border-color:oklch(89% 0.06 150)">Gastroenterologie</span>
             </div>
-            <span class="lvl r1">R1</span>
+            <span class="lvl r1">R1</span><span class="tierb std">STANDARD</span>
           </div>
           <div class="c-title">Gastritis Typ A, B, C</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/gastroenterologie/gerd.html" data-id="gerd" data-lvl="1">
+<a class="card" href="reviews/gastroenterologie/gerd.html" data-id="gerd" data-lvl="1" data-tier="rand">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 150);color:oklch(34% 0.13 150);border-color:oklch(89% 0.06 150)">Gastroenterologie</span>
             </div>
-            <span class="lvl r1">R1</span>
+            <span class="lvl r1">R1</span><span class="tierb rand">RAND</span>
           </div>
           <div class="c-title">GERD &amp; Refluxkrankheit</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/gastroenterologie/hepatitis.html" data-id="hepatitis" data-lvl="1">
+<a class="card" href="reviews/gastroenterologie/hepatitis.html" data-id="hepatitis" data-lvl="1" data-tier="kern">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 150);color:oklch(34% 0.13 150);border-color:oklch(89% 0.06 150)">Gastroenterologie</span>
             </div>
-            <span class="lvl r1">R1</span>
+            <span class="lvl r1">R1</span><span class="tierb kern">KERN</span>
           </div>
           <div class="c-title">Hepatitis A bis E</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/gastroenterologie/lebertumoren.html" data-id="lebertumoren" data-lvl="3">
+<a class="card" href="reviews/gastroenterologie/lebertumoren.html" data-id="lebertumoren" data-lvl="3" data-tier="std">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 150);color:oklch(34% 0.13 150);border-color:oklch(89% 0.06 150)">Gastroenterologie</span>
             </div>
-            <span class="lvl r3">R3</span>
+            <span class="lvl r3">R3</span><span class="tierb std">STANDARD</span>
           </div>
           <div class="c-title">Lebermetastasen &amp; Lebertumoren</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/gastroenterologie/gi-blutung.html" data-id="gi-blutung" data-lvl="4">
+<a class="card" href="reviews/gastroenterologie/gi-blutung.html" data-id="gi-blutung" data-lvl="4" data-tier="kern">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 150);color:oklch(34% 0.13 150);border-color:oklch(89% 0.06 150)">Gastroenterologie</span>
             </div>
-            <span class="lvl r4">R4</span>
+            <span class="lvl r4">R4</span><span class="tierb kern">KERN</span>
           </div>
           <div class="c-title">GI-Blutung</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/gastroenterologie/ikterus-cholestase.html" data-id="ikterus-cholestase" data-lvl="4">
+<a class="card" href="reviews/gastroenterologie/ikterus-cholestase.html" data-id="ikterus-cholestase" data-lvl="4" data-tier="kern">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 150);color:oklch(34% 0.13 150);border-color:oklch(89% 0.06 150)">Gastroenterologie</span>
             </div>
-            <span class="lvl r4">R4</span>
+            <span class="lvl r4">R4</span><span class="tierb kern">KERN</span>
           </div>
           <div class="c-title">Ikterus + Cholestase</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/gastroenterologie/leberzirrhose.html" data-id="leberzirrhose" data-lvl="4">
+<a class="card" href="reviews/gastroenterologie/leberzirrhose.html" data-id="leberzirrhose" data-lvl="4" data-tier="kern">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 150);color:oklch(34% 0.13 150);border-color:oklch(89% 0.06 150)">Gastroenterologie</span>
             </div>
-            <span class="lvl r4">R4</span>
+            <span class="lvl r4">R4</span><span class="tierb kern">KERN</span>
           </div>
           <div class="c-title">Die Leberzirrhose</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
         </a>
-<a class="card" href="reviews/gastroenterologie/diarrhoe.html" data-id="diarrhoe" data-lvl="2">
+<a class="card" href="reviews/gastroenterologie/diarrhoe.html" data-id="diarrhoe" data-lvl="2" data-tier="rand">
           <div class="c-top">
             <div class="c-tags">
               <span class="pill" style="background:oklch(96% 0.03 150);color:oklch(34% 0.13 150);border-color:oklch(89% 0.06 150)">Gastroenterologie</span>
             </div>
-            <span class="lvl r2">R2</span>
+            <span class="lvl r2">R2</span><span class="tierb rand">RAND</span>
           </div>
           <div class="c-title">Diarrhö &amp; Gastroenteritis</div>
           <div class="c-foot"><span class="c-arrow">→</span></div>
@@ -1361,6 +1380,7 @@
   })();
 
   /* Live-Suche + Filter */
+  var fTier = 'all';
   var q = '', qEl = document.getElementById('q'), qClr = document.getElementById('qClr'), noHits = document.getElementById('noHits'), rst = document.getElementById('rst');
   function apply() {
     var s = q.length > 0;
@@ -1372,6 +1392,7 @@
         if (hay.indexOf(q) < 0) ok = false;
       }
       if (ok && fLvl !== 'all' && lvlOf(c) !== fLvl) ok = false;
+      if (ok && fTier !== 'all' && c.getAttribute('data-tier') !== fTier) ok = false;
       if (ok && fSpe !== 'all') {
         var g = c.closest('.spe');
         if (!g || g.getAttribute('data-spe') !== fSpe) ok = false;
@@ -1381,18 +1402,18 @@
     document.querySelectorAll('.spe').forEach(function (g) { g.hidden = !g.querySelector('.card:not([hidden])'); });
     document.querySelectorAll('.block').forEach(function (b) { b.hidden = !b.querySelector('.card:not([hidden])'); });
     noHits.classList.toggle('on', !document.querySelector('.card:not([hidden])'));
-    if (rst) rst.hidden = (fLvl === 'all' && fSpe === 'all' && !s);
+    if (rst) rst.hidden = (fLvl === 'all' && fSpe === 'all' && fTier === 'all' && !s);
   }
   document.querySelectorAll('.chip').forEach(function (btn) {
     btn.addEventListener('click', function () {
       var f = btn.getAttribute('data-f'), v = btn.getAttribute('data-v');
-      if (f === 'lvl') fLvl = v; else fSpe = v;
+      if (f === 'lvl') fLvl = v; else if (f === 'tier') fTier = v; else fSpe = v;
       btn.parentNode.querySelectorAll('.chip').forEach(function (o) { o.classList.toggle('on', o === btn); });
       apply();
     });
   });
   if (rst) rst.addEventListener('click', function () {
-    fLvl = 'all'; fSpe = 'all'; q = ''; qEl.value = ''; qClr.hidden = true;
+    fLvl = 'all'; fSpe = 'all'; fTier = 'all'; q = ''; qEl.value = ''; qClr.hidden = true;
     document.querySelectorAll('.chips').forEach(function (row) {
       row.querySelectorAll('.chip').forEach(function (o) { o.classList.toggle('on', o.getAttribute('data-v') === 'all'); });
     });

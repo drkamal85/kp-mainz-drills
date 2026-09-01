@@ -17,17 +17,57 @@ for path,_fl,slug,lvl in re.findall(r'<a class="card" href="(reviews/([a-z-]+)/(
 R4_TOPICS={"distale-radiusfraktur","schock","copd","lungenembolie","cholezystitis","appendizitis","ileus","wirbelsaeulenverletzungen","allgemeine-frakturlehre","polytrauma-abcde","leistenhernie","pleuraerguss","asthma-bronchiale","tvt","hypothyreose","hyperthyreose","ikterus-cholestase","proximale-femurfraktur","leberzirrhose","beckenringfrakturen","sprunggelenksfraktur","pneumothorax","pneumonie","aortendissektion","schaedel-hirn-trauma","cushing-syndrom","schilddruesenkarzinom","sepsis","schlaganfall","impfungen-stiko","eisenmangelanaemie","synkope","infektioese-endokarditis","arterielle-hypertonie","herzklappenerkrankungen","notfallpharmakologie","acs-myokardinfarkt","khk","herzinsuffizienz","morbus-crohn","cml","diabetes-mellitus","akute-leukaemien","aufklaerung-einwilligung-betreuung","strahlenschutz","av-block","vorhofflimmern","rechtsmedizin","humerusfraktur", "gi-blutung", "non-hodgkin-lymphome"}
 def _badge_lvl(slug,filelvl): return 4 if slug in R4_TOPICS else filelvl
 
+# --- Ziel-Stufen nach Protokollpraesenz (prot = 3. Wert der FLAT-Zeile) -------------
+# prot >= 100 -> KERN     Ziel R5
+# prot 50-99  -> STANDARD Ziel R4
+# prot < 100  -> RAND     Ziel R2
+def ziel_tier(prot):
+    if prot >= 100: return ("KERN", 5, "kern")
+    if prot >= 50:  return ("STANDARD", 4, "std")
+    return ("RAND", 2, "rand")
+
+# Hat die Seite einen Tab 6 (Fragen & Protokolle)?
+_hasq={}
+for _f in glob.glob('reviews/*/*.html'):
+    _s=_f.split('/')[-1][:-5]
+    try: _hasq[_s] = 'Fragen &amp; Protokolle' in io.open(_f,encoding='utf-8').read()
+    except: _hasq[_s]=False
+
+# Eingefaltete Themen: kein eigenes Deck, Inhalt lebt im Zieldeck
+FOLDED={
+ "allgemeine-frakturlehre": ["Kompartmentsyndrom"],
+ "reanimation-cpr":         ["Ventr. Tachykardie / Kammerflimmern"],
+ "vorhofflimmern":          ["Paroxysmale SVT / AVNRT-AVRT"],
+ "schaedel-hirn-trauma":    ["Hirnblutungen (EDH/SDH/SAB/ICB)"],
+}
+
 DRILL={"Rechtsmedizin / Leichenschau"}
 def esc(s): return s.replace('&','&amp;')
 def trow(rank, treffer, chat, prot, fach, thema, slug):
     info=repo.get(slug); badges=""; done=""; topic=esc(thema)
+    tname,tgt,tcls = ziel_tier(prot)
+    lvl = _badge_lvl(slug, info[0]) if info else 0
     if info:
-        lvl,path=info; topic=f'<a href="../{path}">{esc(thema)}</a>'; badges+=f'<span class="have">✓ R{_badge_lvl(slug,lvl)}</span>'; done=" done"
+        _l,path=info; topic=f'<a href="../{path}">{esc(thema)}</a>'
+        badges+=f'<span class="have">\u2713 R{lvl}</span>'; done=" done"
     if thema in DRILL: badges+='<span class="have drill">Drill</span>'
-    rk=f'<td class="rk">{rank}</td>' if rank else '<td class="rk">·</td>'
-    cnt=f'<span class="n">{treffer}</span><span class="src">{chat}·{prot}</span>' if treffer else '<span class="src">gebaut</span>'
-    return (f'<tr class="{done.strip()}" data-topic="{esc(thema)}"><td class="chk"><span class="box"></span></td>'
-            f'{rk}<td class="topic">{topic}{badges}</td><td class="fach">{esc(fach)}</td><td class="cnt">{cnt}</td></tr>')
+    for _f in FOLDED.get(slug,[]):
+        badges+=f'<span class="fold" title="eingefaltet, kein eigenes Deck">+ {esc(_f)}</span>'
+    # Zielspalte
+    if not treffer:
+        zi='<span class="zi-none">\u00b7</span>'
+    elif lvl>=tgt:
+        zi='<span class="zi-ok">Ziel erreicht</span>'
+    else:
+        zi=f'<span class="zi-gap">R{lvl if lvl else 0} \u2192 R{tgt}</span>'
+    if tgt>=4 and info and not _hasq.get(slug,False):
+        zi+='<span class="zi-deck" title="Kern/Standard ohne Tab 6">DECK</span>'
+    tb=f'<span class="tier-b {tcls}">{tname}</span>' if treffer else ''
+    rk=f'<td class="rk">{rank}</td>' if rank else '<td class="rk">\u00b7</td>'
+    cnt=f'<span class="n">{treffer}</span><span class="src">{chat}\u00b7{prot}</span>' if treffer else '<span class="src">gebaut</span>'
+    return (f'<tr class="{done.strip()}" data-topic="{esc(thema)}" data-tier="{tcls}"><td class="chk"><span class="box"></span></td>'
+            f'{rk}<td class="topic">{topic}{badges}</td><td class="fach">{esc(fach)}{tb}</td>'
+            f'<td class="ziel">{zi}</td><td class="cnt">{cnt}</td></tr>')
 
 # FLAT ranking (treffer, chat, prot, fach, thema, slug) — rank = position
 FLAT=[
@@ -233,6 +273,20 @@ tr.done .topic a,tr.done .topic{{color:var(--soft)}}
 .legend b{{color:var(--ink)}}
 .foot{{margin-top:48px;padding-top:18px;border-top:1px solid var(--rule);font-size:11.5px;color:var(--soft);text-align:center}}
 @media(max-width:560px){{.container{{padding:36px 15px}}.fach{{display:none}}.ana-grid{{grid-template-columns:1fr 1fr}}.ana-sub{{grid-template-columns:1fr}}}}
+
+.tier-b{{display:inline-block;margin-left:7px;font:700 8.5px/1 Manrope,sans-serif;letter-spacing:.09em;
+  padding:3px 6px;border-radius:3px;vertical-align:middle;text-transform:uppercase}}
+.tier-b.kern{{background:#FBE9E7;color:#B3261E}}
+.tier-b.std{{background:#FDF2E2;color:#B07214}}
+.tier-b.rand{{background:#EFEDE8;color:#7A736A}}
+td.ziel{{white-space:nowrap;text-align:right;padding-right:12px}}
+.zi-ok{{font:600 11px/1 Manrope,sans-serif;color:#2D7A3E}}
+.zi-gap{{font:600 11px/1 'JetBrains Mono',monospace;color:#B07214}}
+.zi-none{{color:#C9C3B8}}
+.zi-deck{{display:inline-block;margin-left:6px;font:700 8.5px/1 Manrope,sans-serif;letter-spacing:.08em;
+  padding:3px 5px;border-radius:3px;background:#B3261E;color:#fff}}
+.fold{{display:inline-block;margin-left:6px;font:600 9.5px/1 Manrope,sans-serif;color:#5C5C5C;
+  background:#EFEDE8;border-radius:3px;padding:3px 6px}}
 </style></head><body><div class="container">
 <a href="../index.html" class="back">← Zurück zur Library</a>
 <div class="kicker">KP Mainz · Studienplanung</div>
