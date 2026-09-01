@@ -209,7 +209,7 @@ zieltab=('<section class="zieltab"><div class="zt-h">Ziel-Stufen \u00b7 Stand</d
     '<table><thead><tr><th>Tier</th><th>Ziel</th><th>Themen</th><th>am Ziel</th><th>\u00fcber Ziel</th><th>offen</th><th></th></tr></thead><tbody>'
     +_zrow("KERN","kern",5,_ZT["kern"])+_zrow("STANDARD","std",4,_ZT["std"])+_zrow("RAND","rand",2,_ZT["rand"])
     +f'<tr class="zt-sum"><td colspan="2">Gesamt</td><td class="zt-n">{sum(_ZTOT)}</td>'
-     f'<td class="zt-n zt-ok">{_ZTOT[0]}</td><td class="zt-n zt-of">{_ZTOT[1]}</td><td></td></tr>'
+     f'<td class="zt-n zt-ok">{_ZTOT[0]}</td><td class="zt-n zt-ov">{_ZTOT[2]}</td><td class="zt-n zt-of">{_ZTOT[1]}</td><td></td></tr>' 
     +'</tbody></table></section>')
 
 
