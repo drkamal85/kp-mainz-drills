@@ -43,7 +43,7 @@ FOLDED={
 
 DRILL={"Rechtsmedizin / Leichenschau"}
 def esc(s): return s.replace('&','&amp;')
-def trow(rank, treffer, chat, prot, fach, thema, slug):
+def trow(rank, treffer, chat, prot, fach, thema, slug, force_tier=False):
     info=repo.get(slug); badges=""; done=""; topic=esc(thema)
     tname,tgt,tcls = ziel_tier(prot)
     lvl = _badge_lvl(slug, info[0]) if info else 0
@@ -54,7 +54,7 @@ def trow(rank, treffer, chat, prot, fach, thema, slug):
     for _f in FOLDED.get(slug,[]):
         badges+=f'<span class="fold" title="eingefaltet, kein eigenes Deck">+ {esc(_f)}</span>'
     # Zielspalte
-    if not treffer:
+    if not treffer and not force_tier:
         zi='<span class="zi-none">\u00b7</span>'
     elif lvl>=tgt:
         zi='<span class="zi-ok">Ziel erreicht</span>'
@@ -62,7 +62,7 @@ def trow(rank, treffer, chat, prot, fach, thema, slug):
         zi=f'<span class="zi-gap">R{lvl if lvl else 0} \u2192 R{tgt}</span>'
     if tgt>=4 and info and not _hasq.get(slug,False):
         zi+='<span class="zi-deck" title="Kern/Standard ohne Tab 6">DECK</span>'
-    tb=f'<span class="tier-b {tcls}">{tname}</span>' if treffer else ''
+    tb=f'<span class="tier-b {tcls}">{tname}</span>' if (treffer or force_tier) else ''
     rk=f'<td class="rk">{rank}</td>' if rank else '<td class="rk">\u00b7</td>'
     cnt=f'<span class="n">{treffer}</span><span class="src">{chat}\u00b7{prot}</span>' if treffer else '<span class="src">gebaut</span>'
     return (f'<tr class="{done.strip()}" data-topic="{esc(thema)}" data-tier="{tcls}"><td class="chk"><span class="box"></span></td>'
@@ -185,7 +185,31 @@ s1=section("#C0392B","Tier 1 · höchste Präsenz","≥ 200 Korpus-Treffer",f"{t
 s2=section("#D97706","Tier 2 · hohe Präsenz","120–199 Treffer",f"{t2n} Themen",rowsfor(T2))
 s3=section("#0E7C7B","Tier 3 · mittlere Präsenz","60–119 Treffer",f"{t3n} Themen",rowsfor(T3))
 s4=section("#64748B","Tier 4 · niedrige Präsenz","< 60 Treffer",f"{t4n} Themen",rowsfor(T4))
-sE=section("#2D7A3E","Weitere gebaute Reviews","In der Library vorhanden, aber nicht in der Korpus-Rangliste",f"{len(EXTRA)} Themen","".join(trow(None,0,0,0,f,th,s) for f,th,s in EXTRA))
+sE=section("#2D7A3E","Weitere gebaute Reviews","In der Library vorhanden, aber nicht in der Korpus-Rangliste",f"{len(EXTRA)} Themen","".join(trow(None,0,0,0,f,th,s,force_tier=True) for f,th,s in EXTRA))
+
+# --- Ziel-Erreichung je Tier (KERN/STANDARD/RAND) ------------------------------
+def _lvl_of(slug):
+    inf=repo.get(slug)
+    return _badge_lvl(slug,inf[0]) if inf else 0
+_ZT={"kern":[0,0],"std":[0,0],"rand":[0,0]}   # [am Ziel, offen]
+for _rk,_t,_c,_p,_f,_th,_s in ranked:
+    _n,_tg,_cl=ziel_tier(_p)
+    _ZT[_cl][0 if _lvl_of(_s)>=_tg else 1]+=1
+for _f,_th,_s in EXTRA:                        # EXTRA zaehlt als RAND, Ziel R2
+    _ZT["rand"][0 if _lvl_of(_s)>=2 else 1]+=1
+_ZTOT=[sum(v[0] for v in _ZT.values()), sum(v[1] for v in _ZT.values())]
+def _zrow(lbl,cls,tgt,v):
+    ges=v[0]+v[1]; pct=round(v[0]/ges*100) if ges else 0
+    return (f'<tr><td><span class="tier-b {cls}">{lbl}</span></td><td class="zt-t">Ziel R{tgt}</td>'
+            f'<td class="zt-n">{ges}</td><td class="zt-n zt-ok">{v[0]}</td><td class="zt-n zt-of">{v[1]}</td>'
+            f'<td class="zt-bar"><div class="zb"><div class="zf" style="width:{pct}%"></div></div><span class="zp">{pct}\u00a0%</span></td></tr>')
+zieltab=('<section class="zieltab"><div class="zt-h">Ziel-Stufen \u00b7 Stand</div>'
+    '<table><thead><tr><th>Tier</th><th>Ziel</th><th>Themen</th><th>am Ziel</th><th>offen</th><th></th></tr></thead><tbody>'
+    +_zrow("KERN","kern",5,_ZT["kern"])+_zrow("STANDARD","std",4,_ZT["std"])+_zrow("RAND","rand",2,_ZT["rand"])
+    +f'<tr class="zt-sum"><td colspan="2">Gesamt</td><td class="zt-n">{_ZTOT[0]+_ZTOT[1]}</td>'
+     f'<td class="zt-n zt-ok">{_ZTOT[0]}</td><td class="zt-n zt-of">{_ZTOT[1]}</td><td></td></tr>'
+    +'</tbody></table></section>')
+
 
 def bar(label,c,n,col):
     pct=round(c/n*100) if n else 0
@@ -287,6 +311,24 @@ td.ziel{{white-space:nowrap;text-align:right;padding-right:12px}}
   padding:3px 5px;border-radius:3px;background:#B3261E;color:#fff}}
 .fold{{display:inline-block;margin-left:6px;font:600 9.5px/1 Manrope,sans-serif;color:#5C5C5C;
   background:#EFEDE8;border-radius:3px;padding:3px 6px}}
+
+.zieltab{{margin:26px 0 30px}}
+.zt-h{{font:700 10px/1 Manrope,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8A8375;margin-bottom:10px}}
+.zieltab table{{width:100%;border-collapse:collapse;background:#fff;border:1px solid #E8E2D6;border-radius:6px;overflow:hidden}}
+.zieltab th{{font:700 9.5px/1 Manrope,sans-serif;letter-spacing:.09em;text-transform:uppercase;color:#8A8375;
+  text-align:right;padding:9px 12px;border-bottom:1px solid #E8E2D6;background:#FBF9F5}}
+.zieltab th:first-child,.zieltab th:nth-child(2){{text-align:left}}
+.zieltab td{{padding:9px 12px;border-bottom:1px solid #F1EDE4;font:500 13px/1 Manrope,sans-serif}}
+.zieltab tr:last-child td{{border-bottom:none}}
+.zt-t{{color:#8A8375;font-size:11.5px}}
+.zt-n{{text-align:right;font-family:'JetBrains Mono',monospace}}
+.zt-ok{{color:#2D7A3E;font-weight:600}}
+.zt-of{{color:#B07214;font-weight:600}}
+.zt-sum td{{background:#FBF9F5;font-weight:700}}
+.zt-bar{{width:150px}}
+.zb{{display:inline-block;width:100px;height:6px;background:#EFEBE1;border-radius:3px;overflow:hidden;vertical-align:middle}}
+.zf{{display:block;height:100%;background:#2D7A3E}}
+.zp{{margin-left:8px;font:600 11px/1 'JetBrains Mono',monospace;color:#5C5C5C}}
 </style></head><body><div class="container">
 <a href="../index.html" class="back">← Zurück zur Library</a>
 <div class="kicker">KP Mainz · Studienplanung</div>
@@ -294,6 +336,7 @@ td.ziel{{white-space:nowrap;text-align:right;padding-right:12px}}
 <p class="lede">Alle {n_md} Themen in einer Rangliste, sortiert nach Korpus-Präsenz — Wortvorkommen im WhatsApp-Chat + in den Protokoll-Dateien. Review-Status + Statistik live aus der Library; gebaute Themen sind verlinkt.</p>
 {caveat}
 {analytics}
+{zieltab}
 {s1}{s2}{s3}{s4}{sE}
 <div class="legend">
 <b>Treffer</b> = Korpus-Erwähnungen gesamt; <b>{'{chat}·{prot}'}</b> darunter = Chat- bzw. Protokoll-Treffer. <b>#</b> = Rang in der Gesamtliste.
