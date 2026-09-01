@@ -60,3 +60,38 @@ wie „Zwei Ziele" (khk), „Vier Säulen" (herzinsuffizienz) und „A-B-C" (vor
 6 Fragen aus dem NHL-Deck sind in PARKED vermerkt. Zusammen mit dem dort bereits geparkten
 Material ergeben sich 12 bis 14 dokumentierte Fragen. Das Deck steht auf R1, war aber zweimal
 Prüfungsfall.
+
+
+---
+
+## Tab 6 · Audit auf erfundene Fragen (aufgenommen 29.08.2026)
+
+**Anlass:** Bei `non-hodgkin-lymphome` waren 12 von 19 Fragen erfunden — vier Bloecke trugen
+keine Protokollquelle, sondern Themenueberschriften wie „KP-Pruefung Haematologie · Definition
+& Paradox". Korpusabgleich: „indolent", „watch and wait" und „therapeutisches Paradox" haben
+null Treffer. Das verstoesst gegen die stehende Regel, dass Tab 6 ausschliesslich dokumentierte
+Mainz-Fragen enthaelt.
+
+**Umfang:** 60 Decks haben einen Tab 6.
+
+**Was NICHT funktioniert:** Eine Metadaten-Heuristik ueber die `pk-meta`-Zeile. Der Versuch
+lieferte 35 Decks mit angeblich 326 verdaechtigen Fragen — fast alles Fehlalarme, weil
+Pruefername und Datum in getrennten Spans stehen.
+
+**Was funktioniert:** Korpusabgleich pro Frage. Schluesselwoerter der Frage gegen den
+Protokollkorpus pruefen. Ein erster Durchlauf mit Schwelle 0,34 liefert **22 Decks mit
+29 korpusfernen Fragen** — eine handhabbare Liste, die manuell nachgeprueft werden muss.
+
+Auffaellig zuerst: akute-leukaemien (3 von 22), aufklaerung-einwilligung-betreuung (2 von 22),
+leberzirrhose (2 von 21), schlaganfall (2 von 26), polytrauma-abcde (2 von 16),
+hueft-knie-tep (2 von 17).
+
+**Vorgehen, wenn drangenommen:**
+1. Die 29 Treffer einzeln gegen den Korpus pruefen — Automatik nur als Vorfilter
+2. Bestaetigte Erfindungen streichen, nicht umformulieren
+3. Faellt ein Deck dabei unter 12 Fragen, ist das die ehrliche Zahl (siehe NHL mit 7)
+4. Bloecke ohne Pruefername, Datum oder Fallbezug beim Anfassen mit Quelle versehen
+
+**Verwandt:** Fragen, die inhaltlich in ein Nachbardeck gehoeren, sind ein anderer Fehler —
+siehe gi-blutung (28 auf 18) und non-hodgkin-lymphome (Hodgkin-Fragen umgezogen).
+Beide Pruefungen gehoeren in denselben Durchgang.
