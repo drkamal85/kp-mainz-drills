@@ -55,7 +55,7 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 38 | 120 | 40 | 80 | Unfallchirurgie | Hüft- / Knie-TEP | ✓ R3 |
 | 39 | 120 | 36 | 84 | Gastroenterologie | Gastritis (Typ A/B/C) | ✓ R1 |
 | 40 | 119 | 31 | 88 | Drittes Fach | Sozialrecht & Hygiene | ✓ R1 |
-| 41 | 117 | 24 | 93 | Angiologie | pAVK | ✓ R2 |
+| 41 | 117 | 24 | 93 | Angiologie | pAVK | ✓ R3 |
 | 42 | 111 | 37 | 74 | Angiologie | Tiefe Beinvenenthrombose (TVT) | ✓ R4 |
 | 43 | 108 | 35 | 73 | Kardiologie | Arterielle Hypertonie | ✓ R3 |
 | 44 | 102 | 15 | 87 | Pneumologie | Asthma bronchiale | ✓ R4 |
