@@ -1,8 +1,10 @@
 # KP MAINZ — THEMENLISTE (FLACH, EINE RANGLISTE)
 
-Alle **92 Themen** in einer Rangliste nach **Korpus-Treffer** (WhatsApp-Chat + Protokolle). Aktuell **92 von 92** mit Review abgedeckt (~100 %).
+Alle **88 Themen** in einer Rangliste nach **Korpus-Treffer** (WhatsApp-Chat + Protokolle). Aktuell **88 von 88** mit Review abgedeckt (~100 %).
 
 > **Juli 2026 (a):** 3 Themen ergänzt (nach Protokoll-Frequenz-Check bestätigt): **Kreuzbandruptur** (Unfallchirurgie, 30 Protokoll-Treffer, VKB:21), **Status epilepticus/Epilepsie** (Neurologie, 10), **Gicht/Podagra** (Rheumatologie, 6). *Verworfen* (zu niedrig/abwesend): Demenz, Erysipel, Fazialisparese, Ösophaguskarzinom, Multiples Myelom, Migräne, Parkinson.
+>
+> **September 2026 (b):** Vier Themen in Nachbardecks eingefaltet — **Ventr. Tachykardie/Kammerflimmern** in Reanimation/CPR, **Kompartmentsyndrom** in Allgemeine Frakturlehre, **Hirnblutungen** in Schädel-Hirn-Trauma und **Paroxysmale SVT/AVNRT** in Vorhofflimmern. Die Inhalte wurden in die Zieldecks übernommen, die Trefferzahlen addiert. Liste damit **88 Themen**.
 >
 > **September 2026:** Vier Eintraege auf Mohameds Entscheidung entfernt — **EBM**, **KI in der Medizin**, **Status epilepticus / Epilepsie** und **Gicht / Podagra**. Die Seiten sind geloescht, in der Git-Historie aber erhalten und jederzeit wiederherstellbar. Liste damit **92 Themen**.
 >
@@ -66,7 +68,6 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 47 | 93 | 40 | 53 | Unfallchirurgie | Distale Radiusfraktur | ✓ R4 |
 | 48 | 93 | 30 | 63 | Drittes Fach | Schmerztherapie / WHO-Schema | ✓ R1 |
 | 49 | 92 | 30 | 62 | Notfallmedizin | Akuttoxikologie / Intoxikation | ✓ R1 |
-| 50 | 92 | 21 | 71 | Kardiologie | Ventr. Tachykardie / Kammerflimmern | ✓ R1 |
 | 51 | 91 | 15 | 76 | Hämatologie | Akute Leukämien (ALL) | ✓ R2 |
 | 52 | 89 | 37 | 52 | Drittes Fach | Aufklärung, Einwilligung & Betreuung | ✓ R2 |
 | 53 | 87 | 17 | 70 | Endokrinologie | Osteoporose | ✓ R1 |
@@ -79,7 +80,6 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 60 | 81 | 24 | 57 | Allgemein- und Viszeralchirurgie | Milzruptur / Splenektomie | ✓ R1 |
 | 61 | 77 | 37 | 40 | Drittes Fach | Borreliose / FSME / Zeckenbiss | ✓ R1 |
 | 62 | 76 | 29 | 47 | Notfallmedizin | Reanimation / CPR | ✓ R1 |
-| 63 | 74 | 22 | 52 | Unfallchirurgie | Kompartmentsyndrom | ✓ R1 |
 | 64 | 73 | 11 | 62 | Angiologie | Aortendissektion | ✓ R3 |
 | 65 | 68 | 12 | 56 | Unfallchirurgie | Allgemeine Frakturlehre | ✓ R4 |
 | 66 | 67 | 12 | 55 | Nephrologie | Harnwegsinfekt / Pyelonephritis | ✓ R1 |
@@ -91,7 +91,6 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 72 | 60 | 15 | 45 | Unfallchirurgie | Humerusfraktur | ✓ R3 |
 | 73 | 59 | 11 | 48 | Gastroenterologie | GERD / Refluxkrankheit | ✓ R1 |
 | 74 | 59 | 7 | 52 | Kardiologie | Infektiöse Endokarditis | ✓ R3 |
-| 75 | 58 | 29 | 29 | Neurologie | Hirnblutungen (EDH/SDH/SAB/ICB) | ✓ R1 |
 | 76 | 57 | 17 | 40 | Gastroenterologie | Diarrhoe / Gastroenteritis | ✓ R2 |
 | 77 | 56 | 15 | 41 | Allgemein- und Viszeralchirurgie | Pankreaskarzinom | ✓ R3 |
 | 78 | 56 | 11 | 45 | Allgemein- und Viszeralchirurgie | Hämorrhoiden | ✓ R1 |
@@ -100,7 +99,6 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 81 | 54 | 19 | 35 | Notfallmedizin | Verbrennung | ✓ R1 |
 | 82 | 49 | 10 | 39 | Unfallchirurgie | Claviculafraktur | ✓ R1 |
 | 83 | 47 | 8 | 39 | Endokrinologie | Struma | ✓ R1 |
-| 84 | 43 | 19 | 24 | Kardiologie | Paroxysmale SVT / AVNRT-AVRT | ✓ R1 |
 | 85 | 43 | 13 | 30 | Querschnitt | Check-up / Prävention | ✓ R2 |
 | 86 | 40 | 10 | 30 | Angiologie | Aortenaneurysma (AAA) | ✓ R2 |
 | 87 | 40 | 7 | 33 | Unfallchirurgie | Beckenringfrakturen | ✓ R4 |
