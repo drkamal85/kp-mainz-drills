@@ -1,8 +1,10 @@
 # KP MAINZ — THEMENLISTE (FLACH, EINE RANGLISTE)
 
-Alle **96 Themen** in einer Rangliste nach **Korpus-Treffer** (WhatsApp-Chat + Protokolle). Aktuell **96 von 96** mit Review abgedeckt (~100 %).
+Alle **92 Themen** in einer Rangliste nach **Korpus-Treffer** (WhatsApp-Chat + Protokolle). Aktuell **92 von 92** mit Review abgedeckt (~100 %).
 
 > **Juli 2026 (a):** 3 Themen ergänzt (nach Protokoll-Frequenz-Check bestätigt): **Kreuzbandruptur** (Unfallchirurgie, 30 Protokoll-Treffer, VKB:21), **Status epilepticus/Epilepsie** (Neurologie, 10), **Gicht/Podagra** (Rheumatologie, 6). *Verworfen* (zu niedrig/abwesend): Demenz, Erysipel, Fazialisparese, Ösophaguskarzinom, Multiples Myelom, Migräne, Parkinson.
+>
+> **September 2026:** Vier Eintraege auf Mohameds Entscheidung entfernt — **EBM**, **KI in der Medizin**, **Status epilepticus / Epilepsie** und **Gicht / Podagra**. Die Seiten sind geloescht, in der Git-Historie aber erhalten und jederzeit wiederherstellbar. Liste damit **92 Themen**.
 >
 > **Korrektur Juli 2026 (b):** **Meningitis / Enzephalitis** wurde damals zu Unrecht verworfen. Nachzählung ergibt **57 Treffer** (Meningitis 34, Enzephalitis 23) und mehrere dokumentierte Frageketten — Morgenthalers Enzephalitisfall, Dr. Hilberts Untersuchungskette mit Brudzinski, Lasègue und Kernig, Dr. Mendelssohns offenes Schädel-Hirn-Trauma. Aufgenommen als Rang 76, Liste damit **96 Themen**.
 
@@ -107,7 +109,3 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 90 | 32 | 9 | 23 | Nephrologie | Hyponatriämie / SIADH | ✓ R1 |
 | 91 | 30 | 0 | 30 | Unfallchirurgie | Kreuzbandruptur | ✓ R1 |
 | 92 | 23 | 3 | 20 | Unfallchirurgie | Wirbelsäulenverletzungen | ✓ R4 |
-| 93 | 13 | 8 | 5 | Drittes Fach | KI in der Medizin | ✓ R1 (in EBM & KI) |
-| 94 | 12 | 10 | 2 | Drittes Fach | EBM | ✓ R1 |
-| 95 | 10 | 0 | 10 | Neurologie | Status epilepticus / Epilepsie | ✓ R1 |
-| 96 | 6 | 0 | 6 | Rheumatologie | Gicht / Podagra | ✓ R1 |

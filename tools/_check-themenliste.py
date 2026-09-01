@@ -11,7 +11,7 @@ core = {x['thema'] for x in th['topics'] if x.get('covered')}
 md = open('sources/KP-Themenliste-flach.md', encoding='utf-8').read()
 haken = {m.group(1).strip() for m in
          re.finditer(r'\|\s*\d+\s*\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|\s*([^|]+?)\s*\|\s*\u2713 R', md)}
-stated = re.search(r'Aktuell \*\*(\d+) von 96\*\*', md)
+stated = re.search(r'Aktuell \*\*(\d+) von \d+\*\*', md)
 stated = int(stated.group(1)) if stated else -1
 
 miss = sorted(core - haken)
