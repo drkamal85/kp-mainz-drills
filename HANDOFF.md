@@ -265,6 +265,11 @@ Diagnostik-Umstellung mit 79 offenen Decks, Therapie-Einzeleingriffe, morbus-hod
 (Original und Vorschlag, im Chat) und erst nach Mohameds "ok" publiziert. Gilt auch bei neuen
 Decks — dort nur der Vorschlag. Die uebrigen Stationen laufen wie gewohnt direkt durch.
 
+**Tier-Marke auf Themenseiten:** `tools/_stamp-tier.py` setzt in die Meta-Zeile jeder Seite
+KERN / STANDARD / RAND samt Zielabstand ("Ziel R5" oder "Ziel erreicht"). Ableitung aus der
+prot-Spalte der FLAT-Liste. Idempotent. **Nach jeder Level-Aenderung mitlaufen lassen**, direkt
+nach `_stamp-rank.py` und `_clean-meta.py`.
+
 **Regelwerk:** `tools/DIAGNOSTIK-REGELN.md` — 11 Autorenregeln fuer Diagnostik-Stationen,
 entstanden aus Mohameds Durchsicht der Kardiologie-Umstellung. **Vor jedem Diagnostik-Umbau lesen.**
 Die wichtigste Regel ist die Ausnahme zu Regel 1: nach Untersuchungsart gliedern, ausser die

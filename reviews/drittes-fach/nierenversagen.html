@@ -177,6 +177,13 @@
   .back:hover{color:var(--ink)}
 
 
+
+  .tier{display:inline-flex;align-items:center;gap:5px;font:700 9.5px/1 'Manrope',sans-serif;
+    letter-spacing:.1em;text-transform:uppercase;padding:5px 9px;border-radius:4px}
+  .tier.kern{background:#FBE9E7;color:#B3261E}
+  .tier.std{background:#FDF2E2;color:#B07214}
+  .tier.rand{background:#EFEDE8;color:#7A736A}
+  .tier .zt{font-weight:600;letter-spacing:.02em;text-transform:none;opacity:.8}
 </style>
 <link rel="stylesheet" media="print" href="/print.css">
 <script src="/print.js" defer></script>
@@ -192,7 +199,8 @@
     <div class="subtitle">Prärenal, intrarenal, postrenal — nach allen drei Ursachen mit Beispielen wurde in Mainz ausdrücklich gefragt. Dazu die Hyperkaliämie als eigentlicher Notfall und AEIOU als Dialyseindikation.</div>
     <div class="meta">
       <span class="rk hi">Rang 14 von 88</span>
-      <span>R2</span>
+      <span>R3</span>
+      <span class="tier kern">KERN<span class="zt">Ziel R5</span></span>
     </div>
   </header>
 
@@ -202,6 +210,7 @@
     <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik</button>
     <button class="tab" data-c="therapie" data-tab="therapie">Therapie</button>
     <button class="tab" data-c="perlen" data-tab="perlen">KP-Perlen</button>
+    <button class="tab" data-c="protokoll" data-tab="protokoll">Fragen &amp; Protokolle · 19</button>
   </div>
 
   <section class="panel active" data-panel="grundlagen">
@@ -389,6 +398,61 @@
       <details class="sf"><summary>Welches Schmerzmittel meiden?</summary><div class="sfa">NSAR</div></details>
     </div>
   </section>
+
+  <section class="panel" data-panel="protokoll">
+    <p class="panel-intro">Dokumentierte Mainz-Fragen. Das Nierenversagen kommt als eigener Fall, als Bildbefund und als Komplikation anderer Fälle.</p>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz</span><span>Herr Dr. Brill · Innere</span><span class="pk-badge">Bestanden</span></div>
+      <div class="pk-akte"><span class="lab">Fall</span>Der Prüfer stellte mehrere Fälle mit Symptomatik und Bildern vor, darunter das akute Nierenversagen — mit Klassifikation, Ursachen und Laborparametern.</div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">„Wie klassifizieren Sie die Niereninsuffizienz?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Nach dem Ort der Störung in <strong>prärenal, intrarenal und postrenal</strong>. Die prärenale Form ist mit etwa 60 Prozent die häufigste.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Nennen Sie zu jeder Gruppe mögliche Ursachen."</div><details class="reveal"><summary>Antwort</summary><div class="ans"><strong>Prärenal:</strong> Volumenmangel, Herzinsuffizienz, Sepsis. <strong>Intrarenal:</strong> akute Tubulusnekrose, Glomerulonephritis, Medikamente. <strong>Postrenal:</strong> Steine, Prostatavergrößerung, Tumorkompression.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Welche Laborparameter sichern die Diagnose?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Die <strong>Retentionsparameter Kreatinin und Harnstoff</strong>, dazu die <strong>GFR</strong>. Ergänzend Kalium, Blutgasanalyse und der Harnstatus.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Warum täuscht das Kreatinin?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Es steigt erst, wenn etwa die <strong>Hälfte der Nierenfunktion</strong> verloren ist, und hängt von der Muskelmasse ab. Beim alten, mageren Menschen ist ein normaler Wert kein Beweis.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz</span><span>Dr. Roos · Innere</span><span class="pk-badge">Bestanden</span></div>
+      <div class="pk-akte"><span class="lab">Fall</span>Ausführlicher nephrologischer Block — akute und chronische Niereninsuffizienz, Pathophysiologie, Anatomie und Diuretika.</div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">„Wie unterscheidet sich der Kreatininanstieg beim jungen und beim alten Patienten?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Beim jungen Menschen mit viel Muskelmasse steigt das Kreatinin früher und höher. Beim alten steigt es spät — die <strong>GFR ist der verlässlichere Wert</strong>.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Welche Diuretikaklassen kennen Sie und wo greifen sie an?"</div><details class="reveal"><summary>Antwort</summary><div class="ans"><strong>Schleifendiuretika</strong> an der Henle-Schleife, <strong>Thiazide</strong> am distalen Tubulus, <strong>kaliumsparende</strong> am Sammelrohr, dazu <strong>Carboanhydrasehemmer</strong> und osmotische Diuretika.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Wann ist die Dialyse indiziert?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Nach <strong>AEIOU</strong>: therapierefraktäre <strong>A</strong>zidose, <strong>E</strong>lektrolytentgleisung vor allem Hyperkaliämie, <strong>I</strong>ntoxikation, <strong>O</strong>verload mit Lungenödem und <strong>U</strong>rämie. Nicht der Laborwert allein entscheidet.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Welche Zugänge gibt es für die Dialyse?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Akut der <strong>Shaldon-Katheter</strong>, für die Dauerdialyse der <strong>Cimino-Shunt</strong> zwischen Arteria radialis und Vena cephalica.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz</span><span>Bildfrage · Abdomen-CT</span><span class="pk-badge">Bestanden</span></div>
+      <div class="pk-akte"><span class="lab">Fall</span>Sagittales Abdomen-CT mit Harnstau. Der Prüfer arbeitete sich von der Beschreibung über die Ursachen bis zur Ableitung vor.</div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">„Was sehen Sie auf diesem CT?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Einen <strong>Harnstau</strong> mit erweitertem Nierenbeckenkelchsystem — also eine <strong>postrenale</strong> Ursache des Nierenversagens.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Was kann die Ursache sein?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Eine Abflussbehinderung durch <strong>Nephrolithiasis</strong> oder eine Kompression des Harnleiters von außen, etwa durch einen Darm- oder Harnblasentumor.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Wie behandeln Sie?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Mit einer <strong>Doppel-J-Schiene</strong> zur inneren Ableitung.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Wie lange darf die Schiene bleiben?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Nicht lange — wegen der <strong>Infektionsgefahr</strong>. Sie wird regelmäßig gewechselt.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Welche Alternative gibt es?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Die <strong>perkutane Nephrostomie</strong> als äußere Ableitung, wenn die Schiene nicht gelingt.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz</span><span>Unfallchirurgie · Kompartmentsyndrom</span><span class="pk-badge">Bestanden</span></div>
+      <div class="pk-akte"><span class="lab">Fall</span>Nach dem Kompartmentsyndrom fragte der Prüfer die Nierenkomplikation ab — und wollte den Typ der Schädigung benannt haben.</div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">„Warum kommt es bei der Crushniere zum Nierenversagen, und welcher Typ ist das?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Aus dem zerstörten Muskel wird <strong>Myoglobin</strong> frei, das die Tubuli schädigt. Es ist eine <strong>intrarenale</strong> Schädigung.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Welche Enzyme sind beim Muskeltrauma erhöht?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Die <strong>Kreatinkinase</strong> und das <strong>Myoglobin</strong> in Serum und Urin.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Wie schützen Sie die Niere?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Durch <strong>reichlich Volumen</strong>, um die Myoglobinlast auszuwaschen, dazu Kontrolle von Diurese und Kalium.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz</span><span>Innere · Diarrhö-Fall</span><span class="pk-badge">Bestanden</span></div>
+      <div class="pk-akte"><span class="lab">Fall</span>70-jährige Frau mit Durchfall in der Notaufnahme. Die Prüferin wollte die Einordnung des Nierenbefunds hören, nicht nur den Wert.</div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <div class="pq"><div class="pq-frage">„Welche Laborwerte bestimmen Sie?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Vor allem die <strong>Retentionsparameter</strong> — Kreatinin und Harnstoff — dazu Elektrolyte und Blutbild.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Wie ordnen Sie den Kreatininanstieg bei dieser Patientin ein?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Als <strong>prärenale Nierenschädigung</strong> durch den Volumenmangel. Die Niere selbst ist gesund, sie bekommt nur zu wenig Blut.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Welche Exsikkosezeichen suchen Sie?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Die <strong>verlängerte Hautfalte</strong>, trockene Schleimhäute, <strong>niedriger Blutdruck</strong> und <strong>hohe Herzfrequenz</strong>.</div></details></div>
+    </div>
+
+  </section>
+
 
 
 </div>
