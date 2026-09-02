@@ -1,43 +1,43 @@
 {
-  "generatedAt": "2026-09-01T08:19:04.198Z",
+  "generatedAt": "2026-09-02T07:39:34.011Z",
   "totals": {
-    "open": 322,
-    "completed": 385,
-    "overdue": 0,
-    "schedulingIssues": 214
+    "open": 271,
+    "completed": 370,
+    "overdue": 3,
+    "schedulingIssues": 178
   },
   "byLevel": {
     "R1": {
       "open": 0,
-      "completed": 110
+      "completed": 100
     },
     "R2": {
-      "open": 28,
-      "completed": 77
+      "open": 23,
+      "completed": 75
     },
     "R3": {
-      "open": 40,
+      "open": 33,
       "completed": 63
     },
     "R4": {
-      "open": 53,
-      "completed": 51
+      "open": 44,
+      "completed": 53
     },
     "R5": {
-      "open": 101,
+      "open": 74,
       "completed": 1
     }
   },
   "byWorkstream": {
     "A_coverage": {
-      "topicsTotal": 204,
-      "studied": 68,
+      "topicsTotal": 210,
+      "studied": 61,
       "studyOpen": 0,
-      "r1Built": 103,
+      "r1Built": 95,
       "r1Open": 0
     },
     "B_r5": {
-      "open": 103,
+      "open": 76,
       "completed": 1,
       "pilot": [
         {
@@ -186,387 +186,385 @@
   },
   "flagged": [
     {
-      "name": "Review: Struma R5",
-      "dueDate": "2026-12-28",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Anatomie & Begriffe",
-      "dueDate": "2026-12-30",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Anatomie & Begriffe",
-      "dueDate": "2026-12-23",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Anatomie & Begriffe",
-      "dueDate": "2026-12-16",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Anatomie & Begriffe",
-      "dueDate": "2026-12-09",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Anatomie & Begriffe",
-      "dueDate": "2026-12-02",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Anatomie & Begriffe",
-      "dueDate": "2026-11-25",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Anatomie & Begriffe",
-      "dueDate": "2026-11-18",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Anatomie & Begriffe",
-      "dueDate": "2026-11-11",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Anatomie & Begriffe",
-      "dueDate": "2026-11-04",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Anatomie & Begriffe",
-      "dueDate": "2026-10-28",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Anatomie & Begriffe",
-      "dueDate": "2026-10-21",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Anatomie & Begriffe",
-      "dueDate": "2026-10-14",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Anatomie & Begriffe",
-      "dueDate": "2026-10-07",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Akte-Sim #25",
-      "dueDate": "2027-02-20",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Akte-Sim #24",
-      "dueDate": "2027-02-13",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Akte-Sim #23",
-      "dueDate": "2027-02-06",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Akte-Sim #22",
-      "dueDate": "2027-01-30",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Akte-Sim #21",
-      "dueDate": "2027-01-23",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Akte-Sim #20",
-      "dueDate": "2027-01-16",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Akte-Sim #19",
-      "dueDate": "2027-01-09",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Akte-Sim #18",
-      "dueDate": "2027-01-02",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Akte-Sim #17",
-      "dueDate": "2026-12-26",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Akte-Sim #16",
-      "dueDate": "2026-12-19",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Akte-Sim #15",
+      "name": "Review: Hepatitis C R5",
       "dueDate": "2026-12-12",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
-      "name": "Akte-Sim #14",
-      "dueDate": "2026-12-05",
+      "name": "Review: Hepatitis C R4",
+      "dueDate": "2026-10-18",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
-      "name": "Akte-Sim #13",
-      "dueDate": "2026-11-28",
+      "name": "Review: Akutes Nierenversagen R5",
+      "dueDate": "2026-12-01",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
-      "name": "Akte-Sim #12",
-      "dueDate": "2026-11-21",
+      "name": "Review: Akutes Nierenversagen R4",
+      "dueDate": "2026-10-06",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
-      "name": "Akte-Sim #11",
-      "dueDate": "2026-11-14",
+      "name": "Review: Non-Hodgkin-Lymphome R5",
+      "dueDate": "2026-10-29",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
-      "name": "Akte-Sim #10",
-      "dueDate": "2026-11-07",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Akte-Sim #9",
+      "name": "Review: Drittes Fach — Sozialrecht + Unfallversicherung + Hygiene R5",
       "dueDate": "2026-10-31",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
-      "name": "Akte-Sim #8",
-      "dueDate": "2026-10-24",
+      "name": "Review: Drittes Fach — Impfschäden + STIKO vertieft R5",
+      "dueDate": "2026-10-28",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
-      "name": "Akte-Sim #7",
-      "dueDate": "2026-10-17",
+      "name": "Review: Strahlenschutz R5",
+      "dueDate": "2026-10-07",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
-      "name": "Akte-Sim #6",
-      "dueDate": "2026-10-10",
+      "name": "Review: Meningitis/Enzephalitis R5",
+      "dueDate": "2026-12-21",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
-      "name": "Pull-forward-Entscheidung",
-      "dueDate": "2026-10-20",
+      "name": "Review: Meningitis/Enzephalitis R4",
+      "dueDate": "2026-10-27",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
-      "name": "R5-Pilot-Verdict",
-      "dueDate": "2026-11-09",
+      "name": "Review: Rektumkarzinom R5",
+      "dueDate": "2026-11-01",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
-      "name": "CHECKPOINT Dez 31 — Mock-#1-Debrief",
-      "dueDate": "2026-12-31",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "CHECKPOINT Okt 16 — alle Themen R4",
-      "dueDate": "2026-10-16",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "CHECKPOINT Okt 31",
-      "dueDate": "2026-10-31",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Mentor check-in #15",
-      "dueDate": "2026-12-25",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Mentor check-in #14",
-      "dueDate": "2026-12-18",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Mentor check-in #13",
-      "dueDate": "2026-12-11",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Mentor check-in #12",
-      "dueDate": "2026-12-04",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Mentor check-in #11",
-      "dueDate": "2026-11-27",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Mentor check-in #10",
-      "dueDate": "2026-11-20",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Mentor check-in #9",
-      "dueDate": "2026-11-13",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Mentor check-in #8",
+      "name": "Review: Magenkarzinom R5",
       "dueDate": "2026-11-06",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
-      "name": "Mentor check-in #7",
-      "dueDate": "2026-10-30",
+      "name": "Review: Pankreaskarzinom R5",
+      "dueDate": "2026-11-07",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
-      "name": "Mentor check-in #6",
+      "name": "Review: Hüft/Knie-TEP R5",
+      "dueDate": "2026-11-22",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Aortenaneurysma R5",
+      "dueDate": "2026-11-30",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Aortenaneurysma R4",
+      "dueDate": "2026-10-06",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Akuttoxikologie / Intoxikation R5",
+      "dueDate": "2026-11-30",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Tuberkulose R5",
+      "dueDate": "2026-11-28",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Osteoporose R5",
+      "dueDate": "2026-12-03",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Harnwegsinfekt / Pyelonephritis R5",
+      "dueDate": "2026-12-06",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: GERD / Refluxkrankheit R5",
+      "dueDate": "2027-01-21",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: GERD / Refluxkrankheit R4",
+      "dueDate": "2026-11-27",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: GERD / Refluxkrankheit R3",
       "dueDate": "2026-10-23",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
-      "name": "Mentor check-in #5",
-      "dueDate": "2026-10-16",
+      "name": "Review: Verbrennung R5",
+      "dueDate": "2026-12-28",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
-      "name": "Mentor check-in #4",
-      "dueDate": "2026-10-09",
+      "name": "Review: Verbrennung R4",
+      "dueDate": "2026-11-03",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
-      "name": "R5-Pilot: Cholezystitis #2",
-      "dueDate": "2026-11-10",
+      "name": "Review: Colitis ulcerosa R5",
+      "dueDate": "2026-12-08",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
-      "name": "Akte-Sim #4",
-      "dueDate": "2026-10-03",
+      "name": "Review: Colitis ulcerosa R4",
+      "dueDate": "2026-10-14",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
-      "name": "Echo",
-      "dueDate": "2026-10-31",
+      "name": "Review: Gastritis R5",
+      "dueDate": "2026-12-08",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
-      "name": "Review: Ventrikuläre Tachykardie / Kammerflimmern R5",
-      "dueDate": "2026-12-27",
+      "name": "Review: Hämorrhoiden R5",
+      "dueDate": "2026-12-24",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
-      "name": "Review: Ventrikuläre Tachykardie / Kammerflimmern R4",
-      "dueDate": "2026-10-15",
+      "name": "Review: Hämorrhoiden R4",
+      "dueDate": "2026-10-30",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
-      "name": "Review: Paroxysmale SVT / AVNRT R5",
-      "dueDate": "2026-12-27",
+      "name": "Review: Schmerztherapie / WHO-Stufenschema R5",
+      "dueDate": "2026-12-05",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
-      "name": "Review: Paroxysmale SVT / AVNRT R4",
-      "dueDate": "2026-10-13",
+      "name": "Review: Kreuzbandruptur R5",
+      "dueDate": "2026-12-28",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Kreuzbandruptur R4",
+      "dueDate": "2026-11-03",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Milzruptur / Splenektomie R5",
+      "dueDate": "2026-12-04",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Borreliose / FSME / Zeckenbiss R5",
+      "dueDate": "2026-12-23",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Borreliose / FSME / Zeckenbiss R4",
+      "dueDate": "2026-10-28",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Reanimation / CPR R5",
+      "dueDate": "2026-12-22",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Reanimation / CPR R4",
+      "dueDate": "2026-10-28",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Akutes Abdomen R5",
+      "dueDate": "2026-12-16",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Akutes Abdomen R4",
+      "dueDate": "2026-10-22",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Anaphylaxie R5",
+      "dueDate": "2026-12-23",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Anaphylaxie R4",
+      "dueDate": "2026-10-29",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Hyponatriämie / SIADH R5",
+      "dueDate": "2026-12-24",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Hyponatriämie / SIADH R4",
+      "dueDate": "2026-10-30",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Lebermetastasen / Lebertumor R5",
+      "dueDate": "2026-12-17",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: pAVK R5",
+      "dueDate": "2026-12-19",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Bronchialkarzinom R5",
+      "dueDate": "2026-12-18",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Diarrhoe / Gastroenteritis R5",
+      "dueDate": "2026-12-18",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Diarrhoe / Gastroenteritis R4",
+      "dueDate": "2026-10-19",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
       "name": "Review: Morbus Hodgkin R5",
-      "dueDate": "2026-12-26",
+      "dueDate": "2026-12-21",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
       "name": "Review: Morbus Hodgkin R4",
-      "dueDate": "2026-10-14",
+      "dueDate": "2026-10-22",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Claviculafraktur R5",
+      "dueDate": "2026-12-15",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Claviculafraktur R4",
+      "dueDate": "2026-10-16",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Check-up / Prävention R5",
+      "dueDate": "2026-12-16",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Check-up / Prävention R4",
+      "dueDate": "2026-10-17",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Delir R5",
+      "dueDate": "2026-12-15",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Delir R4",
+      "dueDate": "2026-10-16",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Struma R5",
+      "dueDate": "2026-12-27",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Struma R4",
+      "dueDate": "2026-10-27",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Deck: Harnwegsinfekt / Pyelonephritis",
+      "dueDate": "2026-11-01",
       "schedulingIssue": true,
       "scheduledStart": null
     }
   ],
-  "overdue": [],
-  "upcoming14d": [
+  "overdue": [
     {
-      "name": "Anatomie & Begriffe",
-      "dueDate": "2026-09-02",
-      "duration": 30
+      "name": "Review: Hepatitis C R2",
+      "dueDate": "2026-09-01"
     },
+    {
+      "name": "Review: Akutes Nierenversagen R3",
+      "dueDate": "2026-09-01"
+    },
+    {
+      "name": "Review: Aortenaneurysma R3",
+      "dueDate": "2026-09-01"
+    }
+  ],
+  "upcoming14d": [
     {
       "name": "Review: pAVK R3",
       "dueDate": "2026-09-03",
       "duration": 60
-    },
-    {
-      "name": "Review: Non-Hodgkin-Lymphome R4",
-      "dueDate": "2026-09-03",
-      "duration": 30
-    },
-    {
-      "name": "Review: GI-Blutung R4",
-      "dueDate": "2026-09-03",
-      "duration": 30
     },
     {
       "name": "Review: Struma R2",
@@ -574,24 +572,9 @@
       "duration": 45
     },
     {
-      "name": "Mentor check-in #1",
-      "dueDate": "2026-09-04",
-      "duration": 30
-    },
-    {
-      "name": "Review: Paroxysmale SVT / AVNRT R2",
-      "dueDate": "2026-09-04",
-      "duration": 45
-    },
-    {
       "name": "Review: Morbus Hodgkin R2",
       "dueDate": "2026-09-04",
       "duration": 45
-    },
-    {
-      "name": "Review: Colitis ulcerosa R3",
-      "dueDate": "2026-09-04",
-      "duration": 60
     },
     {
       "name": "Akte-Sim #1",
@@ -624,9 +607,9 @@
       "duration": 45
     },
     {
-      "name": "Review: Diarrhoe / Gastroenteritis R3",
+      "name": "Review: Rektumkarzinom R4",
       "dueDate": "2026-09-06",
-      "duration": 60
+      "duration": 30
     },
     {
       "name": "Review: Akuttoxikologie / Intoxikation R3",
@@ -644,7 +627,12 @@
       "duration": 30
     },
     {
-      "name": "Review: Struma R3",
+      "name": "Review: Claviculafraktur R3",
+      "dueDate": "2026-09-07",
+      "duration": 60
+    },
+    {
+      "name": "Review: Delir R3",
       "dueDate": "2026-09-07",
       "duration": 60
     },
@@ -654,23 +642,8 @@
       "duration": 60
     },
     {
-      "name": "Review: Hepatitis B R2",
+      "name": "Review: Hepatitis R2",
       "dueDate": "2026-09-07",
-      "duration": 45
-    },
-    {
-      "name": "Review: Delir R3",
-      "dueDate": "2026-09-08",
-      "duration": 60
-    },
-    {
-      "name": "Review: Hepatitis B R3",
-      "dueDate": "2026-09-08",
-      "duration": 60
-    },
-    {
-      "name": "Review: Hepatitis C R2",
-      "dueDate": "2026-09-08",
       "duration": 45
     },
     {
@@ -679,24 +652,19 @@
       "duration": 30
     },
     {
+      "name": "Review: Check-up / Prävention R3",
+      "dueDate": "2026-09-08",
+      "duration": 60
+    },
+    {
+      "name": "Review: Hepatitis R3",
+      "dueDate": "2026-09-08",
+      "duration": 60
+    },
+    {
       "name": "Review: Pankreatitis R4",
       "dueDate": "2026-09-08",
       "duration": 30
-    },
-    {
-      "name": "Anatomie & Begriffe",
-      "dueDate": "2026-09-09",
-      "duration": 30
-    },
-    {
-      "name": "Review: Claviculafraktur R3",
-      "dueDate": "2026-09-09",
-      "duration": 60
-    },
-    {
-      "name": "Review: Hepatitis C R3",
-      "dueDate": "2026-09-09",
-      "duration": 60
     },
     {
       "name": "Review: Magenkarzinom R4",
@@ -704,13 +672,28 @@
       "duration": 30
     },
     {
+      "name": "Review: Colitis ulcerosa R3",
+      "dueDate": "2026-09-09",
+      "duration": 60
+    },
+    {
+      "name": "Review: Diarrhoe / Gastroenteritis R3",
+      "dueDate": "2026-09-10",
+      "duration": 60
+    },
+    {
+      "name": "Deck: Nierenversagen",
+      "dueDate": "2026-09-10",
+      "duration": 60
+    },
+    {
       "name": "Review: Meningitis/Enzephalitis R2",
       "dueDate": "2026-09-10",
       "duration": 45
     },
     {
-      "name": "Review: Akutes Abdomen R3",
-      "dueDate": "2026-09-10",
+      "name": "Deck: Anästhesie & Atemwegssicherung",
+      "dueDate": "2026-09-11",
       "duration": 60
     },
     {
@@ -719,19 +702,9 @@
       "duration": 30
     },
     {
-      "name": "Review: Meningitis/Enzephalitis R3",
-      "dueDate": "2026-09-11",
-      "duration": 60
-    },
-    {
       "name": "Review: Reanimation / CPR R2",
       "dueDate": "2026-09-11",
       "duration": 45
-    },
-    {
-      "name": "Review: Aortenaneurysma R3",
-      "dueDate": "2026-09-11",
-      "duration": 60
     },
     {
       "name": "Review: Borreliose / FSME / Zeckenbiss R2",
@@ -744,11 +717,6 @@
       "duration": 60
     },
     {
-      "name": "Review: Gicht / Podagra R2",
-      "dueDate": "2026-09-12",
-      "duration": 45
-    },
-    {
       "name": "Review: Anästhesie & Atemwegssicherung R2",
       "dueDate": "2026-09-12",
       "duration": 45
@@ -759,22 +727,12 @@
       "duration": 45
     },
     {
-      "name": "Review: Reanimation / CPR R3",
-      "dueDate": "2026-09-12",
-      "duration": 60
-    },
-    {
       "name": "Review: Anaphylaxie R2",
       "dueDate": "2026-09-12",
       "duration": 45
     },
     {
-      "name": "Review: Hirnblutungen (EDH/SDH/SAB/ICB) R2",
-      "dueDate": "2026-09-12",
-      "duration": 45
-    },
-    {
-      "name": "Review: Akutes Nierenversagen R3",
+      "name": "Review: Hepatitis C R3",
       "dueDate": "2026-09-13",
       "duration": 60
     },
@@ -782,11 +740,6 @@
       "name": "Review: Hämorrhoiden R2",
       "dueDate": "2026-09-13",
       "duration": 45
-    },
-    {
-      "name": "Review: Anaphylaxie R3",
-      "dueDate": "2026-09-13",
-      "duration": 60
     },
     {
       "name": "Review: Hyponatriämie / SIADH R2",
@@ -809,27 +762,7 @@
       "duration": 45
     },
     {
-      "name": "Review: EBM + KI in der Medizin R2",
-      "dueDate": "2026-09-14",
-      "duration": 45
-    },
-    {
-      "name": "Review: Hyponatriämie / SIADH R3",
-      "dueDate": "2026-09-14",
-      "duration": 60
-    },
-    {
-      "name": "Review: Meningitis/Enzephalitis R4",
-      "dueDate": "2026-09-15",
-      "duration": 30
-    },
-    {
       "name": "Review: Gastritis R3",
-      "dueDate": "2026-09-15",
-      "duration": 60
-    },
-    {
-      "name": "Review: Hämorrhoiden R3",
       "dueDate": "2026-09-15",
       "duration": 60
     },
@@ -842,6 +775,31 @@
       "name": "Review: Schmerztherapie / WHO-Stufenschema R3",
       "dueDate": "2026-09-15",
       "duration": 60
+    },
+    {
+      "name": "Review: Morbus Hodgkin R3",
+      "dueDate": "2026-09-16",
+      "duration": 60
+    },
+    {
+      "name": "Deck: Bluttransfusion",
+      "dueDate": "2026-09-16",
+      "duration": 60
+    },
+    {
+      "name": "Review: Lebermetastasen / Lebertumor R4",
+      "dueDate": "2026-09-16",
+      "duration": 30
+    },
+    {
+      "name": "Review: Divertikulitis R4",
+      "dueDate": "2026-09-16",
+      "duration": 30
+    },
+    {
+      "name": "Review: Kolonkarzinom R4",
+      "dueDate": "2026-09-16",
+      "duration": 30
     }
   ],
   "nextCheckpoint": {
