@@ -207,7 +207,7 @@
   <div class="tabs">
     <button class="tab active" data-c="grundlagen" data-tab="grundlagen">Grundlagen</button>
     <button class="tab" data-c="klinik" data-tab="klinik">Klinik</button>
-    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik</button>
+    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik ★</button>
     <button class="tab" data-c="therapie" data-tab="therapie">Therapie</button>
     <button class="tab" data-c="perlen" data-tab="perlen">KP-Perlen</button>
     <button class="tab" data-c="protokoll" data-tab="protokoll">Fragen &amp; Protokolle · 19</button>
@@ -291,27 +291,40 @@
   </section>
 
   <section class="panel" data-panel="diagnostik">
-    <p class="panel-intro">Zwei Handgriffe trennen die drei Formen.</p>
+    <p class="panel-intro">Labor, Urin, Sonografie.</p>
 
-    <details class="card diagnostik" open><summary><span class="ct"><span class="ctag">Zuerst</span><span class="ctitle">Sono und Blasenkatheter</span></span><span class="plus">+</span></summary>
+    <details class="card diagnostik" open><summary><span class="ct"><span class="ctag">Labor</span><span class="ctitle">Was die Schädigung zeigt</span></span><span class="plus">+</span></summary>
       <div class="body">
-        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Erst die Sonografie</strong> — ein Aufstau ist sofort behebbar und darf nicht übersehen werden.</div>
         <ul class="b">
-          <li>Sono zeigt <strong>Harnstau</strong> und die Nierengröße</li>
-          <li><strong>Kleine Nieren</strong> sprechen für ein chronisches Leiden</li>
-          <li>Blasenkatheter misst den Restharn und entlastet zugleich</li>
-          <li>Volumen prüfen: Hautfalte, Halsvenen, Blutdruck</li>
+          <li><strong>Kreatinin, Harnstoff, GFR</strong> — der Anstieg definiert das Nierenversagen</li>
+          <li><strong>Kalium</strong> und Blutgasanalyse — Hyperkaliämie und metabolische Azidose</li>
+          <li><strong>CK und Myoglobin</strong> bei Muskeltrauma oder Crushniere</li>
+          <li>Blutbild, CRP · Kalzium und Phosphat bei chronischem Verlauf</li>
         </ul>
       </div>
     </details>
 
-    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Labor</span><span class="ctitle">Prärenal oder intrarenal?</span></span><span class="plus">+</span></summary>
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Urin</span><span class="ctitle">Prärenal oder intrarenal</span></span><span class="plus">+</span></summary>
       <div class="body">
-        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Prärenal spart die Niere Salz, intrarenal kann sie es nicht mehr.</strong></div>
         <table class="dd"><tr><th></th><th>prärenal</th><th>intrarenal</th></tr>
           <tr><td><strong>Urinnatrium</strong></td><td>unter 20</td><td>über 40</td></tr>
-          <tr><td><strong>Urin</strong></td><td>konzentriert</td><td>dünn</td></tr></table>
-        <div class="callout fact"><span class="lab">⚙ Immer dazu</span>Urinstatus, Kalium, BGA — und die <strong>Medikamentenliste</strong>, sie ist oft der Schlüssel.</div>
+          <tr><td><strong>Fraktionelle Natriumexkretion</strong></td><td>unter 1 Prozent</td><td>über 2 Prozent</td></tr>
+          <tr><td><strong>Osmolarität</strong></td><td>konzentriert</td><td>isosthenurisch</td></tr></table>
+        <ul class="b">
+          <li><strong>Sediment:</strong> Zylinder bei Tubulusnekrose, Erythrozyten bei Glomerulonephritis</li>
+          <li>Proteinurie quantifizieren</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Sonografie</span><span class="ctitle">Die postrenale Frage</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <ul class="b">
+          <li><strong>Harnstau</strong> — die einzige sofort behebbare Ursache, deshalb zuerst</li>
+          <li><strong>Nierengröße und Parenchymbreite</strong> — kleine Nieren sprechen für einen chronischen Verlauf</li>
+          <li><strong>Blasenkatheter</strong> zur Restharnbestimmung — klärt dieselbe Frage von unten</li>
+          <li>Duplex bei Verdacht auf Nierenarterienstenose</li>
+        </ul>
       </div>
     </details>
   </section>
