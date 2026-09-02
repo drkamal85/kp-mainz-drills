@@ -47,7 +47,7 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 26 | 169 | 54 | 115 | Allgemein- und Viszeralchirurgie | Appendizitis | ✓ R4 |
 | 27 | 155 | 42 | 113 | Kardiologie | AV-Block | ✓ R3 |
 | 28 | 151 | 61 | 90 | Hämatologie | Eisenmangelanämie | ✓ R3 |
-| 29 | 151 | 18 | 133 | Gastroenterologie | Hepatitis | ✓ R1 |
+| 29 | 151 | 18 | 133 | Gastroenterologie | Hepatitis | ✓ R2 |
 | 30 | 143 | 42 | 101 | Allgemein- und Viszeralchirurgie | Kolonkarzinom | ✓ R2 |
 | 31 | 142 | 16 | 126 | Kardiologie | KHK / Koronarsyndrom | ✓ R3 |
 | 32 | 136 | 21 | 115 | Gastroenterologie  | Morbus Crohn & Colitis ulcerosa | ✓ R4 |
