@@ -98,7 +98,7 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 80 | 55 | 9 | 46 | Hämatologie | Morbus Hodgkin | ✓ R1 |
 | 81 | 54 | 19 | 35 | Notfallmedizin | Verbrennung | ✓ R1 |
 | 82 | 49 | 10 | 39 | Unfallchirurgie | Claviculafraktur | ✓ R1 |
-| 83 | 47 | 8 | 39 | Endokrinologie | Struma | ✓ R1 |
+| 83 | 47 | 8 | 39 | Endokrinologie | Struma | ✓ R2 |
 | 85 | 43 | 13 | 30 | Querschnitt | Check-up / Prävention | ✓ R2 |
 | 86 | 40 | 10 | 30 | Angiologie | Aortenaneurysma (AAA) | ✓ R2 |
 | 87 | 40 | 7 | 33 | Unfallchirurgie | Beckenringfrakturen | ✓ R2 |
