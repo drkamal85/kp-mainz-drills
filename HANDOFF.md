@@ -265,6 +265,13 @@ Diagnostik-Umstellung mit 79 offenen Decks, Therapie-Einzeleingriffe, morbus-hod
 (Original und Vorschlag, im Chat) und erst nach Mohameds "ok" publiziert. Gilt auch bei neuen
 Decks — dort nur der Vorschlag. Die uebrigen Stationen laufen wie gewohnt direkt durch.
 
+**Druck einer Themenseite:** `python3 tools/_print-topic.py <slug> [ziel.pdf]` erzeugt ein
+A4-PDF in Graustufen — alle Stationen ausgeklappt, Bedienelemente weg, Hierarchie ueber
+Linienstaerke statt Farbe. Setzt `body.flow`, damit Stationen NICHT je auf einer neuen Seite
+beginnen; das sparte je Deck rund eine Seite. Karten, Tabellen, Perlen und Fragen werden nie
+ueber einen Umbruch zerrissen. Beim Drucken "Tatsaechliche Groesse" waehlen, nicht "An Seite
+anpassen".
+
 **Tier-Marke auf Themenseiten:** `tools/_stamp-tier.py` setzt in die Meta-Zeile jeder Seite
 KERN / STANDARD / RAND samt Zielabstand ("Ziel R5" oder "Ziel erreicht"). Ableitung aus der
 prot-Spalte der FLAT-Liste. Idempotent. **Nach jeder Level-Aenderung mitlaufen lassen**, direkt
