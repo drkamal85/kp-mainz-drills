@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-09-02T07:39:34.011Z",
+  "generatedAt": "2026-09-03T07:48:28.501Z",
   "totals": {
-    "open": 271,
-    "completed": 370,
-    "overdue": 3,
-    "schedulingIssues": 178
+    "open": 262,
+    "completed": 373,
+    "overdue": 0,
+    "schedulingIssues": 170
   },
   "byLevel": {
     "R1": {
@@ -12,32 +12,32 @@
       "completed": 100
     },
     "R2": {
-      "open": 23,
-      "completed": 75
+      "open": 21,
+      "completed": 76
     },
     "R3": {
-      "open": 33,
-      "completed": 63
+      "open": 30,
+      "completed": 65
     },
     "R4": {
-      "open": 44,
+      "open": 43,
       "completed": 53
     },
     "R5": {
-      "open": 74,
+      "open": 73,
       "completed": 1
     }
   },
   "byWorkstream": {
     "A_coverage": {
-      "topicsTotal": 210,
-      "studied": 61,
+      "topicsTotal": 207,
+      "studied": 60,
       "studyOpen": 0,
-      "r1Built": 95,
+      "r1Built": 94,
       "r1Open": 0
     },
     "B_r5": {
-      "open": 76,
+      "open": 75,
       "completed": 1,
       "pilot": [
         {
@@ -179,33 +179,15 @@
       ]
     },
     "D_bildsprint": {
-      "open": 2,
+      "open": 0,
       "completed": 6,
       "note": "Drill tasks live as komplett library files, not Motion tasks"
     }
   },
   "flagged": [
     {
-      "name": "Review: Hepatitis C R5",
-      "dueDate": "2026-12-12",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Review: Hepatitis C R4",
-      "dueDate": "2026-10-18",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
       "name": "Review: Akutes Nierenversagen R5",
       "dueDate": "2026-12-01",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Review: Akutes Nierenversagen R4",
-      "dueDate": "2026-10-06",
       "schedulingIssue": true,
       "scheduledStart": null
     },
@@ -272,12 +254,6 @@
     {
       "name": "Review: Aortenaneurysma R5",
       "dueDate": "2026-11-30",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Review: Aortenaneurysma R4",
-      "dueDate": "2026-10-06",
       "schedulingIssue": true,
       "scheduledStart": null
     },
@@ -529,7 +505,7 @@
     },
     {
       "name": "Review: Struma R5",
-      "dueDate": "2026-12-27",
+      "dueDate": "2026-12-26",
       "schedulingIssue": true,
       "scheduledStart": null
     },
@@ -544,22 +520,33 @@
       "dueDate": "2026-11-01",
       "schedulingIssue": true,
       "scheduledStart": null
-    }
-  ],
-  "overdue": [
-    {
-      "name": "Review: Hepatitis C R2",
-      "dueDate": "2026-09-01"
     },
     {
-      "name": "Review: Akutes Nierenversagen R3",
-      "dueDate": "2026-09-01"
+      "name": "Deck: Milzruptur / Splenektomie",
+      "dueDate": "2026-10-31",
+      "schedulingIssue": true,
+      "scheduledStart": null
     },
     {
-      "name": "Review: Aortenaneurysma R3",
-      "dueDate": "2026-09-01"
+      "name": "Deck: Tuberkulose",
+      "dueDate": "2026-10-30",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Deck: Akuttoxikologie / Intoxikation",
+      "dueDate": "2026-10-29",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Deck: Schmerztherapie / WHO-Stufenschema",
+      "dueDate": "2026-10-28",
+      "schedulingIssue": true,
+      "scheduledStart": null
     }
   ],
+  "overdue": [],
   "upcoming14d": [
     {
       "name": "Review: pAVK R3",
@@ -640,11 +627,6 @@
       "name": "Review: Nierenversagen R3",
       "dueDate": "2026-09-07",
       "duration": 60
-    },
-    {
-      "name": "Review: Hepatitis R2",
-      "dueDate": "2026-09-07",
-      "duration": 45
     },
     {
       "name": "Review: Pankreaskarzinom R4",
@@ -732,11 +714,6 @@
       "duration": 45
     },
     {
-      "name": "Review: Hepatitis C R3",
-      "dueDate": "2026-09-13",
-      "duration": 60
-    },
-    {
       "name": "Review: Hämorrhoiden R2",
       "dueDate": "2026-09-13",
       "duration": 45
@@ -799,6 +776,31 @@
     {
       "name": "Review: Kolonkarzinom R4",
       "dueDate": "2026-09-16",
+      "duration": 30
+    },
+    {
+      "name": "Review: Akutes Abdomen R3",
+      "dueDate": "2026-09-17",
+      "duration": 60
+    },
+    {
+      "name": "Review: Verbrennung R2",
+      "dueDate": "2026-09-17",
+      "duration": 45
+    },
+    {
+      "name": "Review: Kreuzbandruptur R2",
+      "dueDate": "2026-09-17",
+      "duration": 45
+    },
+    {
+      "name": "Review: Anästhesie & Atemwegssicherung R3",
+      "dueDate": "2026-09-17",
+      "duration": 60
+    },
+    {
+      "name": "Review: Hüft/Knie-TEP R4",
+      "dueDate": "2026-09-17",
       "duration": 30
     }
   ],
