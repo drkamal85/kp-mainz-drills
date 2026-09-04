@@ -99,7 +99,7 @@ details > * { display: revert !important; }
   font-family: 'Manrope', sans-serif; font-size: 11pt; font-weight: 800;
   letter-spacing: .06em; text-transform: uppercase; color: #1a1a1a;
   border-bottom: 1.4pt solid #1a1a1a; padding-bottom: 1.6mm;
-  margin: 0 0 5mm 0;
+  margin: 0 0 3.4mm 0;
   break-before: page; break-after: avoid; page-break-after: avoid;
 }
 .panel:first-of-type .stationhead { break-before: avoid; }
@@ -114,6 +114,34 @@ details > * { display: revert !important; }
 .pk-meta, .pk-akte { break-after: avoid !important; page-break-after: avoid !important; }
 .pk-q { break-after: avoid !important; }
 header { break-after: avoid; }
+.card-head, summary .ct { line-height: 1.2 !important; }
+.ctag { font-size: 7.6pt !important; }
+.ctitle { font-size: 10.4pt !important; }
+header .subtitle { margin-bottom: 2.4mm !important; }
+.meta { margin-top: 2mm !important; }
+
+/* ---------- Platz sparen, damit Stationen auf eine Seite passen ---------- */
+.card, details.card { margin-bottom: 2.2mm !important; padding: 1.8mm 2.6mm !important; }
+.card .body, .card-body { padding-top: 1mm !important; }
+.card ul, .card ul.b { margin: 1mm 0 1mm 4mm !important; }
+.card li { margin-bottom: .35mm !important; line-height: 1.28 !important; }
+.callout { margin: 1.4mm 0 !important; padding: 1.6mm 2.4mm !important; }
+table.dd, table { margin: 1.4mm 0 !important; }
+table td, table th { padding: .8mm 1.6mm !important; }
+.panel-intro { margin-bottom: 2.4mm !important; }
+
+/* Rapid-Fire zweispaltig - 25 kurze Frage-Antwort-Paare fuellen sonst
+   eine ganze Seite bei halb leerer Breite. */
+.sf-wrap { columns: 2; column-gap: 6mm; padding: 2.4mm 3mm !important; }
+.sf-wrap h3, .sf-wrap .sf-intro { column-span: all; }
+.sf { break-inside: avoid !important; margin-bottom: 1.2mm !important; padding-bottom: 1.2mm !important; }
+.sf summary { font-size: 8.4pt !important; }
+.sfa { font-size: 8.4pt !important; padding-top: .6mm !important; }
+
+/* Perlen kompakter */
+.pearl { margin-bottom: 2.2mm !important; padding: 2mm 3mm !important; }
+.mn { margin-top: 1.2mm !important; padding: 1.2mm 2mm !important; }
+
 '''
 
 
