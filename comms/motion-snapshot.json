@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-09-03T07:48:28.501Z",
+  "generatedAt": "2026-09-04T07:44:13.763Z",
   "totals": {
-    "open": 262,
-    "completed": 373,
+    "open": 259,
+    "completed": 376,
     "overdue": 0,
-    "schedulingIssues": 170
+    "schedulingIssues": 168
   },
   "byLevel": {
     "R1": {
@@ -12,12 +12,12 @@
       "completed": 100
     },
     "R2": {
-      "open": 21,
-      "completed": 76
+      "open": 19,
+      "completed": 78
     },
     "R3": {
-      "open": 30,
-      "completed": 65
+      "open": 29,
+      "completed": 66
     },
     "R4": {
       "open": 43,
@@ -206,12 +206,6 @@
     {
       "name": "Review: Drittes Fach — Impfschäden + STIKO vertieft R5",
       "dueDate": "2026-10-28",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Review: Strahlenschutz R5",
-      "dueDate": "2026-10-07",
       "schedulingIssue": true,
       "scheduledStart": null
     },
@@ -544,25 +538,16 @@
       "dueDate": "2026-10-28",
       "schedulingIssue": true,
       "scheduledStart": null
+    },
+    {
+      "name": "Deck: Bronchialkarzinom",
+      "dueDate": "2026-10-27",
+      "schedulingIssue": true,
+      "scheduledStart": null
     }
   ],
   "overdue": [],
   "upcoming14d": [
-    {
-      "name": "Review: pAVK R3",
-      "dueDate": "2026-09-03",
-      "duration": 60
-    },
-    {
-      "name": "Review: Struma R2",
-      "dueDate": "2026-09-04",
-      "duration": 45
-    },
-    {
-      "name": "Review: Morbus Hodgkin R2",
-      "dueDate": "2026-09-04",
-      "duration": 45
-    },
     {
       "name": "Akte-Sim #1",
       "dueDate": "2026-09-05",
@@ -802,6 +787,31 @@
       "name": "Review: Hüft/Knie-TEP R4",
       "dueDate": "2026-09-17",
       "duration": 30
+    },
+    {
+      "name": "Review: Synkope R5",
+      "dueDate": "2026-09-18",
+      "duration": 90
+    },
+    {
+      "name": "Review: Struma R3",
+      "dueDate": "2026-09-18",
+      "duration": 60
+    },
+    {
+      "name": "Deck: Hepatitis",
+      "dueDate": "2026-09-18",
+      "duration": 60
+    },
+    {
+      "name": "Review: Osteoporose R3",
+      "dueDate": "2026-09-18",
+      "duration": 60
+    },
+    {
+      "name": "Review: Harnwegsinfekt / Pyelonephritis R3",
+      "dueDate": "2026-09-18",
+      "duration": 60
     }
   ],
   "nextCheckpoint": {
