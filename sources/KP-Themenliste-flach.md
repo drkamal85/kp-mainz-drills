@@ -82,7 +82,7 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 62 | 76 | 29 | 47 | Notfallmedizin | Reanimation / CPR | ✓ R1 |
 | 64 | 73 | 11 | 62 | Angiologie | Aortendissektion | ✓ R3 |
 | 65 | 68 | 12 | 56 | Unfallchirurgie | Allgemeine Frakturlehre | ✓ R4 |
-| 66 | 67 | 12 | 55 | Nephrologie | Harnwegsinfekt / Pyelonephritis | ✓ R1 |
+| 66 | 67 | 12 | 55 | Nephrologie | Harnwegsinfekt / Pyelonephritis | ✓ R2 |
 | 67 | 65 | 22 | 43 | Endokrinologie | Schilddrüsenkarzinom | ✓ R2 |
 | 68 | 64 | 29 | 35 | Allgemein- und Viszeralchirurgie | Akutes Abdomen | ✓ R1 |
 | 69 | 63 | 25 | 38 | Notfallmedizin | Anaphylaxie | ✓ R1 |
