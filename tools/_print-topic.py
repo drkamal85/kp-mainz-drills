@@ -103,11 +103,16 @@ details > * { display: revert !important; }
   break-before: page; break-after: avoid; page-break-after: avoid;
 }
 .panel:first-of-type .stationhead { break-before: avoid; }
-/* Nie mitten durch eine Karte, Tabelle, Perle oder Frage umbrechen */
-.card, details.card, .pearl, .pk, .sf, table, .callout {
+/* Nie mitten durch eine Karte, Tabelle, Perle oder Einzelfrage umbrechen */
+.card, details.card, .pearl, .sf, .pq, table, .callout {
   break-inside: avoid !important; page-break-inside: avoid !important;
 }
-.sf-wrap { break-inside: auto !important; }
+/* Protokollbloecke und Rapid-Fire duerfen umbrechen - sonst springt ein Block
+   mit sechs Fragen komplett auf die naechste Seite und laesst die halbe leer.
+   Die Fallvignette bleibt bei der ersten Frage. */
+.pk, .sf-wrap { break-inside: auto !important; page-break-inside: auto !important; }
+.pk-meta, .pk-akte { break-after: avoid !important; page-break-after: avoid !important; }
+.pk-q { break-after: avoid !important; }
 header { break-after: avoid; }
 '''
 

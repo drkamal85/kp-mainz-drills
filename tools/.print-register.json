@@ -1,13 +1,13 @@
 {
  "pavk": {
   "hash": "b215de8fa6c1106f",
-  "pdf": "/mnt/user-data/outputs/pAVK-R3-A4.pdf",
-  "seiten": 8
+  "pdf": "/tmp/t-pavk.pdf",
+  "seiten": 9
  },
  "struma": {
   "hash": "dbaa5dedb52ca19d",
-  "pdf": "/mnt/user-data/outputs/Struma-R2-A4.pdf",
-  "seiten": 6
+  "pdf": "/tmp/t-struma.pdf",
+  "seiten": 7
  },
  "morbus-hodgkin": {
   "hash": "7950307fc0125199",
@@ -27,6 +27,11 @@
  "nierenversagen": {
   "hash": "7956c538dccde140",
   "pdf": "/mnt/user-data/outputs/Nierenversagen-R3-A4.pdf",
-  "seiten": 13
+  "seiten": 12
+ },
+ "pankreatitis": {
+  "hash": "495f39afeb2475a2",
+  "pdf": "/tmp/t-pankreatitis.pdf",
+  "seiten": 8
  }
 }
