@@ -1,22 +1,22 @@
 {
  "pavk": {
   "hash": "b215de8fa6c1106f",
-  "pdf": "/tmp/z.pdf",
+  "pdf": "/tmp/q.pdf",
   "seiten": 8
  },
  "struma": {
   "hash": "dbaa5dedb52ca19d",
-  "pdf": "/tmp/z.pdf",
+  "pdf": "/tmp/q.pdf",
   "seiten": 6
  },
  "morbus-hodgkin": {
   "hash": "7950307fc0125199",
-  "pdf": "/tmp/z.pdf",
+  "pdf": "/tmp/q.pdf",
   "seiten": 6
  },
  "borreliose-fsme": {
   "hash": "efd39718608a7cb4",
-  "pdf": "/tmp/z.pdf",
+  "pdf": "/tmp/q.pdf",
   "seiten": 6
  },
  "hepatitis": {
@@ -25,13 +25,18 @@
   "seiten": 8
  },
  "nierenversagen": {
-  "hash": "b669279f51dc9823",
-  "pdf": "/mnt/user-data/outputs/Nierenversagen-R3-A4.pdf",
+  "hash": "b0dbdaf9a1b06ceb",
+  "pdf": "/tmp/g2.pdf",
   "seiten": 9
  },
  "pankreatitis": {
   "hash": "495f39afeb2475a2",
-  "pdf": "/tmp/z.pdf",
+  "pdf": "/tmp/q.pdf",
+  "seiten": 8
+ },
+ "leistenhernie": {
+  "hash": "7afb82809b6dc0e6",
+  "pdf": "/tmp/q.pdf",
   "seiten": 8
  }
 }

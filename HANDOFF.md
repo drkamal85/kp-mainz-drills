@@ -265,6 +265,16 @@ Diagnostik-Umstellung mit 79 offenen Decks, Therapie-Einzeleingriffe, morbus-hod
 (Original und Vorschlag, im Chat) und erst nach Mohameds "ok" publiziert. Gilt auch bei neuen
 Decks — dort nur der Vorschlag. Die uebrigen Stationen laufen wie gewohnt direkt durch.
 
+**Drucklayout (gilt fuer alle Themenseiten):** Schrift 7.9 pt, Zeilenhoehe 1.3, Seitenraender
+11/10 mm, alle Abstaende verdichtet. Rapid-Fire wird zweispaltig gesetzt. Karten duerfen
+umbrechen, damit die letzte Karte einer Station nicht komplett auf die naechste Seite springt;
+Einzelfragen, Tabellen, Perlen und Callouts bleiben dagegen immer ganz. In Tab 6 wird die Zeile
+"Gefragt wurde - einzeln beantworten" ausgeblendet (Bildschirmanweisung, kostet auf Papier nur
+Hoehe), Meta-Zeile und Fallvignette kompakt gesetzt. Richtwert: eine A4-Seite fasst rund
+280 Woerter Karteninhalt. Stationen darueber laufen auf zwei Seiten - das ist dann eine Frage
+der Inhaltsmenge, nicht des Layouts. Zweispaltiger Satz fuer ganze Stationen ist NICHT moeglich:
+WeasyPrint bricht ab, wenn CSS-Spalten und erzwungene Seitenumbrueche zusammentreffen.
+
 **Kein Doppeldruck:** `tools/_print-topic.py` fuehrt ein Register unter
 `tools/.print-register.json` mit dem Hash jeder gedruckten Deckdatei. Wird ein Deck erneut
 angefragt und hat sich seither nichts geaendert, bricht das Skript ab und nennt das vorhandene
