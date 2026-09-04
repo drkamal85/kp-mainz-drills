@@ -135,6 +135,17 @@ table td, table th { padding: .6mm 1.3mm !important; font-size: 7.6pt !important
 .pq { margin-bottom: 1.2mm !important; }
 .stationhead { font-size: 10pt !important; margin: 0 0 2.6mm 0 !important; }
 h1 { font-size: 19pt !important; }
+
+/* Tab 6: Blockkoepfe kosten fixe Hoehe. Die Anweisungszeile ist auf Papier
+   ueberfluessig, Meta und Vignette werden kompakt gesetzt. */
+.pk-q { display: none !important; }
+.pk-meta { font-size: 7pt !important; margin-bottom: .8mm !important; }
+.pk-akte { font-size: 7.4pt !important; padding: 1.2mm 2mm !important; margin-bottom: 1.4mm !important; }
+.pk { padding: 1.4mm 2mm !important; margin-bottom: 1.6mm !important; }
+.pq { margin-bottom: .9mm !important; }
+.pq-frage { font-size: 8pt !important; margin-bottom: .4mm !important; }
+.ans { font-size: 7.8pt !important; }
+
 /* engere Seitenraender - gewinnt rund 9 Prozent Satzflaeche */
 @page { margin: 11mm 10mm 12mm 10mm !important; }
 
