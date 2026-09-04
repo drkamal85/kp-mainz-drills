@@ -104,9 +104,13 @@ details > * { display: revert !important; }
 }
 .panel:first-of-type .stationhead { break-before: avoid; }
 /* Nie mitten durch eine Karte, Tabelle, Perle oder Einzelfrage umbrechen */
-.card, details.card, .pearl, .sf, .pq, table, .callout {
+.pearl, .sf, .pq, table, .callout {
   break-inside: avoid !important; page-break-inside: avoid !important;
 }
+/* Karten duerfen umbrechen, sonst springt die letzte Karte einer Station
+   komplett auf die naechste Seite. Tabellen und Callouts darin bleiben ganz. */
+.card, details.card { break-inside: auto !important; page-break-inside: auto !important; }
+.card-head, summary { break-after: avoid !important; }
 /* Protokollbloecke und Rapid-Fire duerfen umbrechen - sonst springt ein Block
    mit sechs Fragen komplett auf die naechste Seite und laesst die halbe leer.
    Die Fallvignette bleibt bei der ersten Frage. */
@@ -114,33 +118,33 @@ details > * { display: revert !important; }
 .pk-meta, .pk-akte { break-after: avoid !important; page-break-after: avoid !important; }
 .pk-q { break-after: avoid !important; }
 header { break-after: avoid; }
-.card-head, summary .ct { line-height: 1.2 !important; }
-.ctag { font-size: 7.6pt !important; }
-.ctitle { font-size: 10.4pt !important; }
-header .subtitle { margin-bottom: 2.4mm !important; }
-.meta { margin-top: 2mm !important; }
 
-/* ---------- Platz sparen, damit Stationen auf eine Seite passen ---------- */
-.card, details.card { margin-bottom: 2.2mm !important; padding: 1.8mm 2.6mm !important; }
-.card .body, .card-body { padding-top: 1mm !important; }
-.card ul, .card ul.b { margin: 1mm 0 1mm 4mm !important; }
-.card li { margin-bottom: .35mm !important; line-height: 1.28 !important; }
-.callout { margin: 1.4mm 0 !important; padding: 1.6mm 2.4mm !important; }
-table.dd, table { margin: 1.4mm 0 !important; }
-table td, table th { padding: .8mm 1.6mm !important; }
-.panel-intro { margin-bottom: 2.4mm !important; }
+/* ---------- Jede Station auf eine Seite ----------
+   CSS-Spalten scheitern in WeasyPrint an den erzwungenen Seitenumbruechen.
+   Stattdessen kleinere Schrift und engere Fuehrung; Rapid-Fire bleibt
+   zweispaltig, dort gibt es keinen Umbruch dazwischen. */
+body { font-size: 7.9pt !important; line-height: 1.3 !important; }
+.card, details.card { margin-bottom: 1.8mm !important; padding: 1.5mm 2.2mm !important; }
+.card li { margin-bottom: .25mm !important; line-height: 1.24 !important; }
+.ctitle { font-size: 9.4pt !important; }
+.ctag { font-size: 7pt !important; }
+.callout { margin: 1.1mm 0 !important; padding: 1.3mm 2mm !important; font-size: 7.6pt !important; }
+table td, table th { padding: .6mm 1.3mm !important; font-size: 7.6pt !important; }
+.pearl { margin-bottom: 1.6mm !important; padding: 1.6mm 2.4mm !important; }
+.pk { margin-bottom: 2mm !important; padding: 1.8mm 2.4mm !important; }
+.pq { margin-bottom: 1.2mm !important; }
+.stationhead { font-size: 10pt !important; margin: 0 0 2.6mm 0 !important; }
+h1 { font-size: 19pt !important; }
+/* engere Seitenraender - gewinnt rund 9 Prozent Satzflaeche */
+@page { margin: 11mm 10mm 12mm 10mm !important; }
 
-/* Rapid-Fire zweispaltig - 25 kurze Frage-Antwort-Paare fuellen sonst
-   eine ganze Seite bei halb leerer Breite. */
-.sf-wrap { columns: 2; column-gap: 6mm; padding: 2.4mm 3mm !important; }
-.sf-wrap h3, .sf-wrap .sf-intro { column-span: all; }
-.sf { break-inside: avoid !important; margin-bottom: 1.2mm !important; padding-bottom: 1.2mm !important; }
-.sf summary { font-size: 8.4pt !important; }
-.sfa { font-size: 8.4pt !important; padding-top: .6mm !important; }
-
-/* Perlen kompakter */
-.pearl { margin-bottom: 2.2mm !important; padding: 2mm 3mm !important; }
-.mn { margin-top: 1.2mm !important; padding: 1.2mm 2mm !important; }
+/* Rapid-Fire zweispaltig - dort gibt es keinen erzwungenen Umbruch,
+   deshalb kommt WeasyPrint damit zurecht. */
+.sf-wrap { columns: 2 !important; column-gap: 5mm !important; padding: 2mm 2.6mm !important; }
+.sf-wrap h3, .sf-wrap .sf-intro { column-span: all !important; }
+.sf { break-inside: avoid !important; margin-bottom: 1mm !important; padding-bottom: 1mm !important; }
+.sf summary { font-size: 7.8pt !important; }
+.sfa { font-size: 7.8pt !important; padding-top: .5mm !important; }
 
 '''
 
