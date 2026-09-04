@@ -67,7 +67,7 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 46 | 95 | 18 | 77 | Kardiologie | Synkope | ✓ R3 |
 | 47 | 93 | 40 | 53 | Unfallchirurgie | Distale Radiusfraktur | ✓ R4 |
 | 48 | 93 | 30 | 63 | Drittes Fach | Schmerztherapie / WHO-Schema | ✓ R1 |
-| 49 | 92 | 30 | 62 | Notfallmedizin | Akuttoxikologie / Intoxikation | ✓ R1 |
+| 49 | 92 | 30 | 62 | Notfallmedizin | Akuttoxikologie / Intoxikation | ✓ R2 |
 | 51 | 91 | 15 | 76 | Hämatologie | Akute Leukämien (ALL) | ✓ R2 |
 | 52 | 89 | 37 | 52 | Drittes Fach | Aufklärung, Einwilligung & Betreuung | ✓ R2 |
 | 53 | 87 | 17 | 70 | Endokrinologie | Osteoporose | ✓ R1 |
@@ -75,7 +75,7 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 55 | 83 | 26 | 57 | Kardiologie | Herzklappenerkrankungen | ✓ R3 |
 | 56 | 82 | 16 | 66 | Endokrinologie | Hypothyreose | ✓ R4 |
 | 57 | 81 | 27 | 54 | Unfallchirurgie | Schädel-Hirn-Trauma | ✓ R3 |
-| 58 | 81 | 22 | 59 | Pneumologie | Tuberkulose | ✓ R1 |
+| 58 | 81 | 22 | 59 | Pneumologie | Tuberkulose | ✓ R2 |
 | 59 | 81 | 16 | 65 | Unfallchirurgie | Polytrauma / ABCDE (Sturz) | ✓ R4 |
 | 60 | 81 | 24 | 57 | Allgemein- und Viszeralchirurgie | Milzruptur / Splenektomie | ✓ R1 |
 | 61 | 77 | 37 | 40 | Drittes Fach | Borreliose / FSME / Zeckenbiss | ✓ R2 |
