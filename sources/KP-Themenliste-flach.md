@@ -70,7 +70,7 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 49 | 92 | 30 | 62 | Notfallmedizin | Akuttoxikologie / Intoxikation | ✓ R2 |
 | 51 | 91 | 15 | 76 | Hämatologie | Akute Leukämien (ALL) | ✓ R2 |
 | 52 | 89 | 37 | 52 | Drittes Fach | Aufklärung, Einwilligung & Betreuung | ✓ R2 |
-| 53 | 87 | 17 | 70 | Endokrinologie | Osteoporose | ✓ R1 |
+| 53 | 87 | 17 | 70 | Endokrinologie | Osteoporose | ✓ R2 |
 | 54 | 87 | 6 | 81 | Hämatologie | Non-Hodgkin-Lymphom (NHL) | ✓ R3 |
 | 55 | 83 | 26 | 57 | Kardiologie | Herzklappenerkrankungen | ✓ R3 |
 | 56 | 82 | 16 | 66 | Endokrinologie | Hypothyreose | ✓ R4 |
