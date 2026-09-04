@@ -43,5 +43,15 @@
   "hash": "53e3efee90b3915b",
   "pdf": "/mnt/user-data/outputs/Harnwegsinfekt-R2-A4.pdf",
   "seiten": 6
+ },
+ "tuberkulose": {
+  "hash": "6d6efe7c9c2e85c1",
+  "pdf": "/mnt/user-data/outputs/Tuberkulose-R2-A4.pdf",
+  "seiten": 6
+ },
+ "akuttoxikologie": {
+  "hash": "b745890525881e3a",
+  "pdf": "/mnt/user-data/outputs/Akuttoxikologie-R2-A4.pdf",
+  "seiten": 6
  }
 }

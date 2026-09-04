@@ -127,6 +127,19 @@
   
     .c-fold{margin-top:5px;font:600 10px/1.3 'Manrope',sans-serif;color:oklch(52% 0.01 90);
       background:oklch(95% 0.008 90);border-radius:3px;padding:3px 7px;display:inline-block}
+  
+    /* Stufen- und Tier-Marke gehoeren zusammen: das Fach bleibt links,
+       die beiden Marken ruecken gemeinsam nach rechts. Ohne das schiebt
+       space-between sie auseinander und die Karte wirkt zerrissen. */
+    .c-top{flex-wrap:wrap}
+    .c-top .lvl{margin-left:auto}
+    .c-top .tierb{margin-left:5px}
+    @media(max-width:640px){
+      .c-top{gap:6px}
+      .tierb{font-size:8px;padding:2.5px 5px;margin-left:5px}
+      .c-tags{max-width:100%}
+      .c-fold{font-size:9.5px;margin-top:4px}
+    }
   </style>
 </head>
 <body>
