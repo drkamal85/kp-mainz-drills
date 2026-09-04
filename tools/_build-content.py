@@ -14,6 +14,21 @@ GROUPS = {
 STATION_KEYS = ['grundlagen','klinik','diagnostik','therapie']
 VARIANT = {'critical':'cave','warning':'cave','fact':'fakt','pearl':'merksatz'}
 
+
+# --- Ziel-Tier je Thema, aus der prot-Spalte der FLAT-Liste ------------------
+# Die App zeigt damit KERN / STANDARD / RAND wie die Website.
+def _tier_map():
+    k = io.open('tools/_build-master.py', encoding='utf-8').read()
+    out = {}
+    for m in re.finditer(r'\((\d+),(\d+),(\d+),"([^"]*)","([^"]*)",\s*"([a-z0-9-]+)"\)', k):
+        prot = int(m.group(3)); slug = m.group(6)
+        if prot >= 100: out[slug] = ('KERN', 5)
+        elif prot >= 50: out[slug] = ('STANDARD', 4)
+        else: out[slug] = ('RAND', 2)
+    return out
+
+TIER = _tier_map()
+
 def md(s):
     s = re.sub(r'<br\s*/?>', '\n', s)
     s = re.sub(r'</li>\s*', '\n', s); s = re.sub(r'<li[^>]*>', '- ', s)
@@ -177,6 +192,7 @@ for path, folder, slug, lvl in cards:
     _present = [k for k in ('grundlagen','klinik','diagnostik','therapie') if _st.get(k)]
     topics.append({
         'id': f'{slug}-r{lvl}', 'title': title, 'specialty': folder, 'level': 'R'+lvl, 'minutes': minutes,
+        'tier': TIER.get(slug, ('RAND', 2))[0], 'tierTarget': 'R%d' % TIER.get(slug, ('RAND', 2))[1],
         'complete': len(_present) == 4, 'stationsPresent': _present,
         'stations': _st,
         'cards': _cards, 'intros': _intros,

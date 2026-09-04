@@ -188,7 +188,6 @@
     .tier{font-size:8.5px;padding:4px 7px}
     .tier .zt{font-size:8.5px}
   }
-
   /* Tier-Marke zusaetzlich in der Reiterleiste: der Kopfbereich scrollt weg,
      die Leiste bleibt haften - so ist das Ziel beim Lernen immer sichtbar. */
   .tier-sticky{margin-left:auto;align-self:center;display:inline-flex;align-items:center;gap:4px;
@@ -199,7 +198,10 @@
   .tier-sticky.rand{background:#EFEDE8;color:#7A736A}
   .tier-sticky .zt{font-weight:600;letter-spacing:.02em;text-transform:none;opacity:.85}
   @media(max-width:640px){
-    .tier-sticky{font-size:8px;padding:4px 6px}
+    /* kein margin-left auto - sonst landet die Marke allein in einer
+       umgebrochenen Zeile und wird abgeschnitten. So fliesst sie als
+       weitere Pille hinter den Reitern mit. */
+    .tier-sticky{margin-left:0;font-size:8.5px;padding:5px 7px;order:99}
     .tier-sticky .zt{display:none}
   }
   .tier{display:inline-flex;align-items:center;gap:5px;font:700 9.5px/1 'Manrope',sans-serif;
@@ -224,7 +226,6 @@
     <div class="meta">
       <span class="rk hi">Rang 4 von 88</span>
       <span>R4</span>
-      <span class="tier kern">KERN<span class="zt">Ziel R5</span></span>
     </div>
   </header>
 

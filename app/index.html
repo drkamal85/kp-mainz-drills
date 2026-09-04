@@ -1270,9 +1270,9 @@ class Component extends DCLogic {
 
     const out = {
       title: topic.title, back: 'Bibliothek',
-      sub: (specName[topic.specialty] || '') + ' · ' + (topic.level || '') + (topic.minutes ? ' · ~' + topic.minutes + ' Min' : ''),
+      sub: (specName[topic.specialty] || '') + ' · ' + (topic.level || '') + (topic.tier ? ' · ' + topic.tier + (topic.tierTarget ? ' Ziel ' + topic.tierTarget : '') : '') + (topic.minutes ? ' · ~' + topic.minutes + ' Min' : ''),
       tabs, isStation: false, isPerlen: false, isFragen: false, stationEmpty: false,
-      levelTag: topic.level || '',
+      levelTag: (topic.level || '') + (topic.tier ? '  ·  ' + topic.tier : ''),
       stationLabel: statMeta(station).label || '',
       blocks: [], perlen: [], fragen: [], fragenGroups: [],
       rapidfire: [], hasRapidfire: false,
@@ -1472,7 +1472,7 @@ class Component extends DCLogic {
     const toLevel = n => (n == null ? null : ('R' + n));
     const core = hasThemen
       ? T.topics.map(x => ({ id: x.reviewId, title: x.thema, fach: x.fach, level: toLevel(x.level), covered: !!x.covered }))
-      : C.topics.map(tp => ({ id: tp.id, title: tp.title, fach: specName[tp.specialty] || '—', level: tp.level, covered: true }));
+      : C.topics.map(tp => ({ id: tp.id, title: tp.title, fach: specName[tp.specialty] || '—', level: tp.level, tier: tp.tier || '', covered: true }));
     const extras = (hasThemen && Array.isArray(T.extras))
       ? T.extras.map(x => ({ id: x.reviewId, title: x.thema, fach: x.fach, level: toLevel(x.level), covered: !!x.covered }))
       : [];
