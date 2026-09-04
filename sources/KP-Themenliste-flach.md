@@ -78,7 +78,7 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 58 | 81 | 22 | 59 | Pneumologie | Tuberkulose | ✓ R1 |
 | 59 | 81 | 16 | 65 | Unfallchirurgie | Polytrauma / ABCDE (Sturz) | ✓ R4 |
 | 60 | 81 | 24 | 57 | Allgemein- und Viszeralchirurgie | Milzruptur / Splenektomie | ✓ R1 |
-| 61 | 77 | 37 | 40 | Drittes Fach | Borreliose / FSME / Zeckenbiss | ✓ R1 |
+| 61 | 77 | 37 | 40 | Drittes Fach | Borreliose / FSME / Zeckenbiss | ✓ R2 |
 | 62 | 76 | 29 | 47 | Notfallmedizin | Reanimation / CPR | ✓ R1 |
 | 64 | 73 | 11 | 62 | Angiologie | Aortendissektion | ✓ R3 |
 | 65 | 68 | 12 | 56 | Unfallchirurgie | Allgemeine Frakturlehre | ✓ R4 |
