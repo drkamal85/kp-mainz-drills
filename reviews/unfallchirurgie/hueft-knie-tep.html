@@ -187,6 +187,26 @@
     .tier{font-size:8.5px;padding:4px 7px}
     .tier .zt{font-size:8.5px}
   }
+
+  /* Tier-Marke zusaetzlich in der Reiterleiste: der Kopfbereich scrollt weg,
+     die Leiste bleibt haften - so ist das Ziel beim Lernen immer sichtbar. */
+  .tier-sticky{margin-left:auto;align-self:center;display:inline-flex;align-items:center;gap:4px;
+    font:700 9px/1 'Manrope',sans-serif;letter-spacing:.09em;text-transform:uppercase;
+    padding:5px 8px;border-radius:5px;white-space:nowrap}
+  .tier-sticky.kern{background:#FBE9E7;color:#B3261E}
+  .tier-sticky.std{background:#FDF2E2;color:#B07214}
+  .tier-sticky.rand{background:#EFEDE8;color:#7A736A}
+  .tier-sticky .zt{font-weight:600;letter-spacing:.02em;text-transform:none;opacity:.85}
+  @media(max-width:640px){
+    .tier-sticky{font-size:8px;padding:4px 6px}
+    .tier-sticky .zt{display:none}
+  }
+  .tier{display:inline-flex;align-items:center;gap:5px;font:700 9.5px/1 'Manrope',sans-serif;
+    letter-spacing:.1em;text-transform:uppercase;padding:5px 9px;border-radius:4px}
+  .tier.kern{background:#FBE9E7;color:#B3261E}
+  .tier.std{background:#FDF2E2;color:#B07214}
+  .tier.rand{background:#EFEDE8;color:#7A736A}
+  .tier .zt{font-weight:600;letter-spacing:.02em;text-transform:none;opacity:.8}
 </style>
 <link rel="stylesheet" media="print" href="/print.css">
 <script src="/print.js" defer></script>
@@ -214,6 +234,7 @@
     <button class="tab" data-c="therapie" data-tab="therapie">Therapie</button>
     <button class="tab" data-c="perlen" data-tab="perlen">KP-Perlen</button>
     <button class="tab" data-c="protokoll" data-tab="protokoll">Fragen &amp; Protokolle · 17</button>
+    <span class="tier-sticky std">STANDARD<span class="zt">Ziel R4</span></span>
   </div>
 
   <section class="panel active" data-panel="grundlagen">
