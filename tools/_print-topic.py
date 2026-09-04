@@ -13,9 +13,40 @@ Grundlage ist print.css. Die Graustufenregeln stehen hier, weil sie nur
 fuer den Papierdruck gelten und die Bildschirmfassung farbig bleiben soll.
 """
 import glob
+import hashlib
 import io
+import json
+import os
 import re
 import sys
+
+REG = 'tools/.print-register.json'   # slug -> {"hash":..., "pdf":..., "seiten":...}
+
+
+def _hash(path):
+    return hashlib.sha256(io.open(path, 'rb').read()).hexdigest()[:16]
+
+
+def bereits_gedruckt(slug):
+    """Gibt (pdf, seiten) zurueck, wenn das Deck seit dem letzten Druck
+    unveraendert ist - sonst None. Verhindert doppelte Ausdrucke."""
+    if not os.path.exists(REG):
+        return None
+    reg = json.loads(io.open(REG, encoding='utf-8').read())
+    e = reg.get(slug)
+    if not e:
+        return None
+    hits = glob.glob('reviews/*/%s.html' % slug)
+    if not hits or _hash(hits[0]) != e.get('hash'):
+        return None
+    return e.get('pdf'), e.get('seiten')
+
+
+def vermerken(slug, pdf, seiten):
+    reg = json.loads(io.open(REG, encoding='utf-8').read()) if os.path.exists(REG) else {}
+    hits = glob.glob('reviews/*/%s.html' % slug)
+    reg[slug] = {'hash': _hash(hits[0]), 'pdf': pdf, 'seiten': seiten}
+    io.open(REG, 'w', encoding='utf-8').write(json.dumps(reg, indent=1, ensure_ascii=False))
 
 GRAY = '''
 /* ---------- Graustufen: Hierarchie ueber Linien statt Farbe ---------- */
@@ -105,6 +136,13 @@ def render(slug, out):
     io.open('/tmp/_print_%s.html' % slug, 'w', encoding='utf-8').write(t)
     from weasyprint import HTML
     HTML('/tmp/_print_%s.html' % slug, base_url='.').write_pdf(out)
+    try:
+        import subprocess
+        n = subprocess.run(['pdfinfo', out], capture_output=True, text=True).stdout
+        seiten = int(re.search(r'Pages:\s+(\d+)', n).group(1))
+    except Exception:
+        seiten = 0
+    vermerken(slug, out, seiten)
     return out
 
 
@@ -113,4 +151,9 @@ if __name__ == '__main__':
         sys.exit('Aufruf: python3 tools/_print-topic.py <slug> [ziel.pdf]')
     s = sys.argv[1]
     o = sys.argv[2] if len(sys.argv) > 2 else '/mnt/user-data/outputs/%s.pdf' % s
+    alt = bereits_gedruckt(s)
+    if alt and '--force' not in sys.argv:
+        print('  SCHON GEDRUCKT: %s (%s Seiten), Deck seither unveraendert.' % (alt[0], alt[1]))
+        print('  Erneut drucken mit --force')
+        sys.exit(0)
     print('  gedruckt:', render(s, o))

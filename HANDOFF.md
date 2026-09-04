@@ -265,6 +265,13 @@ Diagnostik-Umstellung mit 79 offenen Decks, Therapie-Einzeleingriffe, morbus-hod
 (Original und Vorschlag, im Chat) und erst nach Mohameds "ok" publiziert. Gilt auch bei neuen
 Decks — dort nur der Vorschlag. Die uebrigen Stationen laufen wie gewohnt direkt durch.
 
+**Kein Doppeldruck:** `tools/_print-topic.py` fuehrt ein Register unter
+`tools/.print-register.json` mit dem Hash jeder gedruckten Deckdatei. Wird ein Deck erneut
+angefragt und hat sich seither nichts geaendert, bricht das Skript ab und nennt das vorhandene
+PDF samt Seitenzahl. **Mohamed darauf hinweisen statt still neu zu rendern** — er druckt auf
+Papier und will nur Zuwachs. Erneutes Rendern nur mit `--force` oder wenn das Deck sich
+geaendert hat; dann ist der Neudruck richtig, weil die alten Seiten veraltet sind.
+
 **Druck einer Themenseite:** `python3 tools/_print-topic.py <slug> [ziel.pdf]` erzeugt ein
 A4-PDF in Graustufen — alle Stationen ausgeklappt, Bedienelemente weg, Hierarchie ueber
 Linienstaerke statt Farbe. Jede Station beginnt auf einer neuen Seite. Karten, Tabellen,
