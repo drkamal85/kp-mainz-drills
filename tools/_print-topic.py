@@ -6,9 +6,8 @@ tools/_print-topic.py — rendert eine Themenseite als A4-PDF in Graustufen.
     python3 tools/_print-topic.py <slug> [ziel.pdf]
 
 Layout: eine Themenseite, alle Stationen ausgeklappt, ohne Farbe.
-Der Inhalt fliesst durch — Stationen beginnen NICHT auf einer neuen Seite,
-sonst entstehen halbleere Blaetter. Karten und Tabellen werden aber nie
-ueber einen Seitenumbruch zerrissen.
+Jede Station beginnt auf einer neuen Seite. Karten, Tabellen, Perlen und
+Fragen werden nie ueber einen Seitenumbruch zerrissen.
 
 Grundlage ist print.css. Die Graustufenregeln stehen hier, weil sie nur
 fuer den Papierdruck gelten und die Bildschirmfassung farbig bleiben soll.
@@ -63,18 +62,16 @@ details > * { display: revert !important; }
 .body, .card-body, .sfa, .ans, .pqa { display: block !important; height: auto !important; }
 
 /* ---------- Seitenausnutzung ---------- */
-/* print.css erzwingt .panel+.panel und .sf-wrap auf neue Seiten und bietet dafuer
-   den Schalter body.flow an. Der wird unten gesetzt; hier zusaetzlich der
-   Rapid-Fire-Block, den flow nicht erfasst. */
-.sf-wrap { break-before: auto !important; page-break-before: auto !important; margin-top: 6mm; }
+/* Jede Station beginnt auf einer neuen Seite - so aus print.css uebernommen
+   (.panel + .panel sowie .sf-wrap). body.flow wird bewusst NICHT gesetzt. */
 .stationhead {
   font-family: 'Manrope', sans-serif; font-size: 11pt; font-weight: 800;
   letter-spacing: .06em; text-transform: uppercase; color: #1a1a1a;
   border-bottom: 1.4pt solid #1a1a1a; padding-bottom: 1.6mm;
-  margin: 6mm 0 3.4mm 0;
-  break-before: auto; break-after: avoid; page-break-after: avoid;
+  margin: 0 0 5mm 0;
+  break-before: page; break-after: avoid; page-break-after: avoid;
 }
-.panel:first-of-type .stationhead { margin-top: 0; }
+.panel:first-of-type .stationhead { break-before: avoid; }
 /* Nie mitten durch eine Karte, Tabelle, Perle oder Frage umbrechen */
 .card, details.card, .pearl, .pk, .sf, table, .callout {
   break-inside: avoid !important; page-break-inside: avoid !important;
@@ -105,10 +102,6 @@ def render(slug, out):
                        r'\1' + m.group(1).replace('\u2605', '').strip(), t, count=1)
 
     t = t.replace('</style>', css + GRAY + '</style>', 1)
-    # body.flow aktiviert den Fliesssatz aus print.css (keine Station pro Seite)
-    t = re.sub(r'<body([^>]*)class="([^"]*)"', r'<body\1class="\2 flow"', t, count=1)
-    if 'class="flow' not in t and ' flow"' not in t:
-        t = t.replace('<body>', '<body class="flow">', 1)
     io.open('/tmp/_print_%s.html' % slug, 'w', encoding='utf-8').write(t)
     from weasyprint import HTML
     HTML('/tmp/_print_%s.html' % slug, base_url='.').write_pdf(out)

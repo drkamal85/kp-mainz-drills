@@ -267,9 +267,8 @@ Decks — dort nur der Vorschlag. Die uebrigen Stationen laufen wie gewohnt dire
 
 **Druck einer Themenseite:** `python3 tools/_print-topic.py <slug> [ziel.pdf]` erzeugt ein
 A4-PDF in Graustufen — alle Stationen ausgeklappt, Bedienelemente weg, Hierarchie ueber
-Linienstaerke statt Farbe. Setzt `body.flow`, damit Stationen NICHT je auf einer neuen Seite
-beginnen; das sparte je Deck rund eine Seite. Karten, Tabellen, Perlen und Fragen werden nie
-ueber einen Umbruch zerrissen. Beim Drucken "Tatsaechliche Groesse" waehlen, nicht "An Seite
+Linienstaerke statt Farbe. Jede Station beginnt auf einer neuen Seite. Karten, Tabellen,
+Perlen und Fragen werden nie ueber einen Umbruch zerrissen. Beim Drucken "Tatsaechliche Groesse" waehlen, nicht "An Seite
 anpassen".
 
 **Tier-Marke auf Themenseiten:** `tools/_stamp-tier.py` setzt in die Meta-Zeile jeder Seite
