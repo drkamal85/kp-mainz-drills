@@ -258,8 +258,19 @@ komplett neu gebaut und abgenommen. Merkmale, die es tragen:
 - 433 Wörter, 13 Karten, 46 Bullets
 
 **Offene Arbeiten:** `sources/TODO-offene-arbeiten.md` — besprochen, aber noch nicht erledigt.
-Aktuell: Tab-6-Pruefung auf erfundene Fragen (bei non-hodgkin-lymphome waren 12 von 19 erfunden),
-Diagnostik-Umstellung mit 79 offenen Decks, Therapie-Einzeleingriffe, morbus-hodgkin auf R3.
+Aktuell: Diagnostik-Umstellung mit 79 offenen Decks, Therapie-Einzeleingriffe, morbus-hodgkin auf R3.
+
+**Tab 6 (Fragen & Protokolle) — verbindlich seit dem Audit 09/2026.** Alle 52 Decks mit Tab 6 wurden
+gegen den Protokollkorpus geprueft und repariert (Bericht: Projektdokument `claude/TAB6-AUDIT-2026-09-04.md`,
+Umsetzung `claude/TAB6-REPAIR-2026-09-05.md`). Fuenf Regeln, siehe `tools/TAB6-ANTWORTFORMAT.md`:
+nur dokumentierte Mainz-Fragen (Blockkopf nennt Pruefer, Datum oder Fall — nie Themenueberschriften);
+lange Antworten kuerzen, nie in erfundene Nachfragen zerlegen; Median 16-22 W, keine Antwort ueber 24 W,
+kein Satz ueber 18 W; Kandidatenstimme mit finitem Verb, Ziffern, keine Fettung in Antworten;
+12-18 Fragen je Deck, keine Dubletten mit Nachbardecks. **`python3 tools/_check-fragen.py` muss PASS
+liefern**, sonst nicht pushen — die GitHub Action `check-fragen.yml` prueft das bei jedem Push und
+setzt ein rotes Kreuz. Ein gepruefter Tab traegt den Stern im Reiter: `Fragen &amp; Protokolle ★ · N`
+(gesetzt von `tools/_tab6-counts.py`). Ein neues Tab 6 ohne Stern ist noch nicht geprueft.
+Fragen fuer Decks ohne Tab 6 liegen in `sources/PARKED-fuer-R2-R3.md`.
 
 **Diagnostik braucht Freigabe:** Bei jeder Deck-Arbeit wird die Diagnostik-Station vorgelegt
 (Original und Vorschlag, im Chat) und erst nach Mohameds "ok" publiziert. Gilt auch bei neuen
