@@ -1258,3 +1258,77 @@ A: Das Hodgkin-Lymphom ist mit über 80 Prozent Heilungsrate eine der am besten 
 
 **Ebenfalls für morbus-hodgkin R3 vormerken:** Die Prognosefrage bei Kindern — Herr Tarannt
 fragte die Heilungsrate, Antwort **etwa 90 Prozent**.
+
+
+## Geparkte Tab-6-Fragen aus dem Tab-6-Audit (05.09.2026)
+
+Diese Fragen wurden im Audit als dokumentiert, aber themenfremd erkannt und aus ihrem bisherigen Deck entfernt. Das Zieldeck hat noch keinen Tab 6 — beim Ausbau auf R3 hier zuerst nachsehen. Antworttext ist der alte (noch nicht auf Hausstil gekürzt).
+
+
+### anaesthesie-atemweg
+
+- **„Klären Sie über einen ZVK auf — worüber sprechen Sie?"** — Über Fehlpunktion der Arterie, Pneumothorax und Infektion. Dazu Thrombose, Luftembolie und Fehllage mit Rhythmusstörungen. An der Vena jugularis liegt die Karotis unmittelbar daneben.  
+  _Quelle: Mainz · dokumentiert · Drittes Fach · Eingriffe & Ablehnung; bisher in `aufklaerung-einwilligung-betreuung`_
+
+### anaphylaxie
+
+- **Wie behandeln Sie einen anaphylaktischen Schock?** — Ich gehe nach dem ABCDE-Schema vor und stoppe das Allergen. Wichtigste Maßnahme ist Adrenalin intramuskulär, beim Erwachsenen 0,5 Milligramm. Dazu gebe ich Volumen und bei Hautsymptomen ein Antihistaminikum. Glukokortikoide werden seit den Leitlinien 2025 nicht mehr routinemäßig empfohlen, früher galten sie als Schutz vor der biphasischen Reaktion.  
+  _Quelle: Mainz · häufige Prüfungsfragen · 2023–2026; bisher in `schock`_
+
+### aortenaneurysma
+
+- **Welche Symptome und welche Therapie hat die Aortenruptur?** — Die Patienten haben stärksten Schmerz und sind im hämorrhagischen Schock mit Blutdruckabfall. Als chirurgischen Notfall stabilisiere ich den Kreislauf, gebe Blutprodukte und bringe den Patienten sofort zur operativen oder endovaskulären Versorgung.  
+  _Quelle: Mündliche Prüfung · dokumentiert · Radiologie / Notfall; bisher in `aortendissektion`_
+
+### multiples-myelom
+
+- **„Hyperkalzämie, Nierenversagen und Rückenschmerzen — woran denken Sie hier?"** — An ein multiples Myelom. Die CRAB-Kriterien sind Hyperkalzämie, Niereninsuffizienz, Anämie und Knochenläsionen. Ich suche das Paraprotein in der Elektrophorese.  
+  _Quelle: Mainz · dokumentiert · Hämatologie · AML und DD; bisher in `akute-leukaemien`_
+
+### pankreaskarzinom
+
+- **„Neuer Fall: Patient OHNE Schmerzen, aber mit Ikterus. Was denken Sie?"** — Ein schmerzloser Ikterus spricht für ein Pankreaskopfkarzinom, das Courvoisier-Zeichen. Ich behandle es mit der Whipple-Operation.  
+  _Quelle: Mainz 04/2024 · Viszeralchirurgie; bisher in `cholezystitis`_
+
+### radiologische-zeichen
+
+- **Sie vergleichen zwei Thoraxaufnahmen im Verlauf und sehen eine Atelektase — worauf achtet der Prüfer?** — Er will hören, dass ich die Bilder in der Dynamik vergleiche und sage, ob der Befund zu- oder abgenommen hat. Eine zunehmende Atelektase bedeutet Verschlechterung durch Sekretverhalt, Tubusfehllage oder Tumorverlegung. Der Volumenverlust mit Mediastinalverziehung zur kranken Seite unterscheidet sie vom Erguss.  
+  _Quelle: Mainz · 2026 · Chirurgie / Drittes Fach · weitere dokumentierte Fragen; bisher in `pneumothorax`_
+
+### reanimation-cpr
+
+- **Was ist die Fünf-W-Regel beim Notruf?** — Wo der Notfall ist, Was geschehen ist, Wie viele Betroffene, Welche Verletzungen, und Warten auf Rückfragen. Am wichtigsten ist der Ort, denn ohne ihn kommt keine Hilfe. Ich lege nie selbst auf.  
+  _Quelle: Mainz · 2026 · Drittes Fach / Notfallmedizin · weitere dokumentierte Fragen; bisher in `synkope`_
+- **Ein Patient ist bewusstlos und atmet nicht — was tun Sie?** — Dann beginne ich sofort mit der Reanimation nach BLS und ALS und suche parallel die reversiblen Ursachen nach dem 4H- und HITS-Schema.  
+  _Quelle: Mainz · häufige Prüfungsfragen · 2024–2026; bisher in `polytrauma-abcde`_
+- **Nennen Sie die reversiblen Ursachen eines Kreislaufstillstands.** — Die vier H sind Hypoxie, Hypovolämie, Hypo- oder Hyperkaliämie und Hypothermie, und HITS steht für Herzbeuteltamponade, Intoxikation, Thromboembolie und Spannungspneumothorax.  
+  _Quelle: Mainz · häufige Prüfungsfragen · 2024–2026; bisher in `polytrauma-abcde`_
+
+### schilddruesenkarzinom
+
+- **Welche Bildgebung — und was bedeutet ein kalter Knoten?** — Zuerst mache ich eine Sonographie und kläre einen echoarmen Knoten mit der Szintigraphie ab. Ein kalter, nicht speichernder Knoten ist malignitätsverdächtig. Ein heißer Knoten ist autonom und meist gutartig.  
+  _Quelle: „Alles von der Schilddrüse" · 2024 · Dr. Kirdorf (Chirurgie); bisher in `hyperthyreose`_
+- **Welchen Eingriff machen Sie bei einem Knoten rechts, und wozu der Schnellschnitt?** — Ich mache eine Hemithyreoidektomie rechts mit intraoperativem Schnellschnitt zur Dignitätsklärung.  
+  _Quelle: „Alles von der Schilddrüse" · 2024 · Dr. Kirdorf (Chirurgie); bisher in `hyperthyreose`_
+- **Bei papillärem bzw. follikulärem Karzinom — wie weiter?** — Ich mache eine totale Thyreoidektomie mit Radiojodtherapie und L-Thyroxin-Substitution, beim papillären Karzinom zusätzlich eine Lymphadenektomie, und bei Beteiligung der Nebenschilddrüsen kontrolliere ich Parathormon und Calcium.  
+  _Quelle: „Alles von der Schilddrüse" · 2024 · Dr. Kirdorf (Chirurgie); bisher in `hyperthyreose`_
+- **Warum wurde die Patientin ohne L-Thyroxin entlassen?** — Um die Aufnahme des Radiojods zu maximieren: Bei abgesetztem L-Thyroxin produziert der Körper vermehrt TSH, das erhöhte TSH steigert die Aktivität der Schilddrüsenzellen und damit die Jodaufnahme.  
+  _Quelle: Mainz · dokumentiert · Chirurgie / Endokrinologie; bisher in `hypothyreose`_
+- **Was bewirkt die anschließende Radiojodtherapie?** — Sie zerstört das verbliebene jodaufnehmende Schilddrüsen- bzw. Tumorgewebe.  
+  _Quelle: Mainz · dokumentiert · Chirurgie / Endokrinologie; bisher in `hypothyreose`_
+
+### struma
+
+- **Welche Komplikationen hat die Thyreoidektomie?** — Es drohen eine Recurrensparese mit Heiserkeit, bei beidseitiger Läsion mit Luftnot, und ein Hypoparathyreoidismus mit Hypokalzämie und Tetanie.  
+  _Quelle: Mainz · häufige Prüfungsfragen · 2023–2026; bisher in `hyperthyreose`_
+- **„Sie sehen ein Sonobild der Schilddrüse — welches Organ, und wie ist die Anatomie grob?"** — Die Schilddrüse mit zwei Lappen, verbunden durch den Isthmus, vor der Trachea gelegen. Dorsal liegen die 4 Epithelkörperchen, in der Rinne zur Speiseröhre der Nervus laryngeus recurrens.  
+  _Quelle: Mainz · Sonobild und Struma · Die dokumentierte Fragekette am Bild; bisher in `hyperthyreose`_
+- **„Welche Typen der Schilddrüsenvergrößerung gibt es, und wie ist die Funktion bei Struma nodosa?"** — Diffus oder nodös, uni- oder multinodulär. Bei der Struma nodosa ist die Funktion meist normal, denn die Struma sagt nichts über die Hormonlage.  
+  _Quelle: Mainz · Sonobild und Struma · Die dokumentierte Fragekette am Bild; bisher in `hyperthyreose`_
+- **„Sollen wir eine Feinnadelpunktion machen — und welche Nachteile hat sie?"** — Beim kalten Knoten ja, zur Abklärung auf Malignität. Sie kann aber das follikuläre Karzinom nicht sicher erkennen, weil dafür die Kapselinfiltration beurteilt werden muss.  
+  _Quelle: Mainz · Sonobild und Struma · Die dokumentierte Fragekette am Bild; bisher in `hyperthyreose`_
+
+### wirbelsaeulenverletzungen
+
+- **Woran erkennen Sie Fehlstellungen bei Wirbelfrakturen?** — Ich taste die Dornfortsatzreihe auf Stufenbildung, vergrößerten Abstand und umschriebenen Klopfschmerz ab. Sichtbar sind Hämatom über der Bruchstelle und abnorme Kyphose. Jeder Befund bedeutet Immobilisation, CT und neurologischen Status.  
+  _Quelle: Mainz · 2026 · Chirurgie / Notfallmedizin · weitere dokumentierte Fragen; bisher in `polytrauma-abcde`_

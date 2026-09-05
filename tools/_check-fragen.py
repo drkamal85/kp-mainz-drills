@@ -2,8 +2,9 @@
 # Enforce the Fragen-answer standard (Option A): every Fragen & Protokolle answer must be a
 # flowing, speakable candidate-voice sentence. Flags telegraphic label-style answers
 # ("Symptome: …, Therapie: …"), arrow/semicolon chains, and one-word fragments.
-# Long-but-flowing multi-part answers are allowed (they are still speakable).
-# Scope: all individual R3 reviews. Exit 1 on any violation.
+# Seit 09/2026 (Tab-6-Audit) sind auch Laenge (> 24 W), Satzlaenge (> 18 W), ausgeschriebene Zahlen,
+# <strong> in Antworten, Fragenzahl ausserhalb 12-18 und Blockkoepfe ohne Pruefer/Datum/Fall FAIL.
+# Regelwerk: tools/TAB6-ANTWORTFORMAT.md. Scope: alle Reviews mit Tab 6. Exit 1 on any violation.
 import re, html, glob, io, sys
 
 def clean(s):
@@ -28,26 +29,47 @@ def violations(answer):
     if lc: reasons.append('label-colon(%s)' % '/'.join(lc))
     if not flowing and (at.count(';') >= 2): reasons.append('telegraphic')
     if wc < 5 or (at and at[-1] not in '.!?'): reasons.append('fragment')
+    # --- verschaerft 09/2026 ---
+    if wc > 24: reasons.append('zu-lang(%dW)' % wc)
+    for sent in re.split(r'(?<=[.!?])\s+(?=[\u201e"A-Z\u00c4\u00d6\u00dc0-9])', at):
+        if len(sent.split()) > 18: reasons.append('langer-Satz(%dW)' % len(sent.split()))
+    n = NUMWORD.findall(at)
+    if n: reasons.append('ausgeschriebene-Zahl(%s)' % '/'.join(n[:2]))
+    if re.search(r'<(strong|b|em)\b', answer): reasons.append('strong-im-Antworttext')
     return reasons
 
 
 META = re.compile(r'(wurde[^.]{0,30}(gefragt|gebohrt)|Zwischenfragen|im Protokoll|Der Prüfer wollte|der Kandidat|Mainzer Fall|wie im Fall)', re.I)
 
-NUMWORD = re.compile(r'\b(zwanzig|drei\u00dfig|vierzig|f\u00fcnfzig|sechzig|siebzig|achtzig|neunzig|hundert|tausend|zweihundert|dreihundert|vierhundert|f\u00fcnfhundert|vierundzwanzig|achtundvierzig|zweiundsiebzig|zweihundertf\u00fcnfzig|f\u00fcnfundsechzig|f\u00fcnfundzwanzig)\\w*', re.I)
+NUMWORD = re.compile(r'\b(zwei|drei|vier|f\u00fcnf|sechs|sieben|acht|neun|zehn|elf|zw\u00f6lf|dreizehn|vierzehn|f\u00fcnfzehn|sechzehn|siebzehn|achtzehn|neunzehn|zwanzig|drei\u00dfig|vierzig|f\u00fcnfzig|sechzig|siebzig|achtzig|neunzig|hundert|tausend|(?:ein|zwei|drei|vier|f\u00fcnf|sechs|sieben|acht|neun)und(?:zwanzig|drei\u00dfig|vierzig|f\u00fcnfzig|sechzig|siebzig|achtzig|neunzig))\b', re.I)
 
 def style_warnings(answer):
     """Hausstil-Pruefungen laut tools/TAB6-ANTWORTFORMAT.md. Warnung, kein FAIL."""
     at = clean(answer); w = []
     if META.search(at): w.append('Meta-Kommentar')
-    n = NUMWORD.findall(at)
-    if n: w.append('ausgeschriebene-Zahl(%s)' % '/'.join(n[:2]))
-    wc = len(at.split())
-    if wc > 30: w.append('zu-lang(%dW)' % wc)
     for sent in re.split(r'(?<=[.!?])\s+', at):
         glieder = sent.count(',') + len(re.findall(r'\b(und|sowie|oder)\b', sent))
         if glieder > 3: w.append('lange-Aufzaehlung(%d)' % glieder)
-        if len(sent.split()) > 18: w.append('langer-Satz(%dW)' % len(sent.split()))
     return w
+
+HEADER_OK = re.compile(r'(Dr\.|Prof\.|Frau |Herr |PD |\bFall\s*\d+|Pr(ü|\u00fc)fer(name)? nicht (ü|\u00fc)berliefert|\d{1,2}\.\d{1,2}\.\d{2,4}|\b\d{2}/20\d\d\b|'
+                       r'\b(Januar|Februar|M\u00e4rz|April|Mai|Juni|Juli|August|September|Oktober|November|Dezember)\s+20\d\d)')
+THEMATIC = re.compile(r'Lernstoff|Kontext|Definition &|Klassiker|h\u00e4ufige Pr\u00fcfungsfragen|weitere dokumentierte Fragen')
+PANEL = re.compile(r'<section class="panel[^"]*" data-panel="protokoll".*?\n\s*</section>', re.S)
+
+def deck_violations(h):
+    """Fragenzahl 12-18 und Blockkoepfe mit Pruefer/Datum/Fall (Regel 1 und 5, 09/2026)."""
+    out = []
+    m = PANEL.search(h)
+    if not m: return out
+    panel = m.group(0)
+    n = len(re.findall(r'<div class="pq-frage">', panel))
+    if n and not 12 <= n <= 18: out.append('Fragenzahl %d (Ziel 12-18)' % n)
+    for i, meta in enumerate(re.findall(r'<div class="pk-meta">(.*?)</div>', panel, re.S), 1):
+        hdr = clean(re.sub(r'<span class="pk-badge">.*?</span>', '', meta))
+        if not HEADER_OK.search(hdr): out.append('Block %d ohne Pruefer/Datum/Fall: %s' % (i, hdr[:60]))
+        if THEMATIC.search(hdr): out.append('Block %d thematischer Kopf: %s' % (i, hdr[:60]))
+    return out
 
 files = glob.glob('reviews/**/*.html', recursive=True)
 bad = []
@@ -55,6 +77,8 @@ warn = []
 total = 0
 for f in sorted(set(files)):
     h = io.open(f, encoding='utf-8').read()
+    for dv in deck_violations(h):
+        bad.append((f.split('/')[-1], '(Deck)', [dv], ''))
     for q, a in re.findall(r'<div class="pq-frage">(.*?)</div>.*?<div class="ans">(.*?)</div>', h, re.S):
         total += 1
         v = violations(a)

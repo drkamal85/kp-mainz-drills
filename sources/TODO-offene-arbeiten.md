@@ -5,7 +5,12 @@ Stand-Liste für Themen, die besprochen, aber noch nicht erledigt sind.
 ---
 
 
-## Tab 6 auf erfundene Fragen prüfen — offen, aufgenommen 29.08.2026
+## Tab 6 auf erfundene Fragen prüfen — ERLEDIGT 05.09.2026 (aufgenommen 29.08.2026)
+
+**Erledigt:** Alle 51 Decks mit Tab 6 geprüft (818 Fragen), 33 erfundene gestrichen, 59 themenfremde
+Fragen entfernt oder in Nachbardecks verschoben, alle Blockköpfe auf Prüfer/Datum/Fall, alle Antworten
+auf ≤ 24 W. Bericht: Projektdokument `claude/TAB6-AUDIT-2026-09-04.md`. Geparkte Fragen für Decks ohne
+Tab 6 stehen in `PARKED-fuer-R2-R3.md`. `_check-fragen.py` erzwingt die Regeln jetzt (FAIL statt Warnung).
 
 **Anlass:** Bei `non-hodgkin-lymphome` waren **12 von 19 Fragen erfunden**. Die Blöcke trugen
 keine Protokollquelle, sondern Themenüberschriften wie „KP-Prüfung Hämatologie · Definition
@@ -64,7 +69,7 @@ Prüfungsfall.
 
 ---
 
-## Tab 6 · Audit auf erfundene Fragen (aufgenommen 29.08.2026)
+## Tab 6 · Audit auf erfundene Fragen (aufgenommen 29.08.2026) — ERLEDIGT 05.09.2026, siehe oben
 
 **Anlass:** Bei `non-hodgkin-lymphome` waren 12 von 19 Fragen erfunden — vier Bloecke trugen
 keine Protokollquelle, sondern Themenueberschriften wie „KP-Pruefung Haematologie · Definition
