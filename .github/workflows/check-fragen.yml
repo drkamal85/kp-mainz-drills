@@ -1,0 +1,27 @@
+name: Tab-6 Regelpruefung
+
+# Prueft bei jedem Push, ob die Tab-6-Antworten (Fragen & Protokolle) den Hausregeln entsprechen:
+# Laenge <= 24 W, Saetze <= 18 W, Ziffern statt Zahlwoertern, kein <strong>, 12-18 Fragen je Deck,
+# Blockkopf mit Pruefer/Datum/Fall. Regelwerk: tools/TAB6-ANTWORTFORMAT.md.
+# Ein roter Haken am Commit heisst: ein Deck verletzt die Regeln - Ausgabe im Actions-Log lesen.
+
+on:
+  push:
+    paths: ['reviews/**', 'tools/_check-fragen.py']
+  pull_request:
+    paths: ['reviews/**', 'tools/_check-fragen.py']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Tab-6-Antworten pruefen
+        run: python3 tools/_check-fragen.py
