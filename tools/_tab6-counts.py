@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Schreibt die Fragenzahl in das Tab-6-Label jedes Reviews.
 
-Aus "Fragen & Protokolle" wird "Fragen & Protokolle · 14".
-Idempotent — eine bereits vorhandene Zahl wird ersetzt, nicht angehaengt.
+Aus "Fragen & Protokolle" wird "Fragen & Protokolle ★ · 14".
+Der Stern markiert seit dem Tab-6-Audit (09/2026) einen gegen den Protokollkorpus geprueften Tab —
+analog zum Stern der Diagnostik. Idempotent — Zahl und Stern werden ersetzt, nicht angehaengt.
 Nach jedem R3-Bau oder Tab-6-Retrofit erneut laufen lassen.
 """
 import glob, io, os, re
@@ -10,7 +11,7 @@ import glob, io, os, re
 # Drei Altdecks beschriften den Tab "Pruefungsfragen" — wird mit normalisiert.
 LABEL = re.compile(
     r'(<button class="tab[^"]*" data-c="protokoll" data-tab="protokoll">)'
-    r'(?:Fragen &amp; Protokolle|Prüfungsfragen)(?:\s*·\s*\d+)?'
+    r'(?:Fragen &amp; Protokolle|Prüfungsfragen)(?:\s*★)?(?:\s*·\s*\d+)?'
     r'(</button>)')
 
 PANEL = re.compile(
@@ -32,7 +33,7 @@ def main():
         n = len(QUESTION.findall(panel.group(0)))
         if not n:
             continue
-        h2, k = LABEL.subn(r'\g<1>Fragen &amp; Protokolle · %d\g<2>' % n, h)
+        h2, k = LABEL.subn(r'\g<1>Fragen &amp; Protokolle ★ · %d\g<2>' % n, h)
         total += n
         if k and h2 != h:
             io.open(f, 'w', encoding='utf-8').write(h2)
@@ -45,7 +46,7 @@ def main():
         h = io.open(sp, encoding='utf-8').read()
         n = len(QUESTION.findall(h))
         pat = re.compile(r'(<div class="station-title">)Fragen &amp; Protokolle(?:\s*·\s*\d+)?(</div>)')
-        h2, k = pat.subn(r'\g<1>Fragen &amp; Protokolle · %d\g<2>' % n, h)
+        h2, k = pat.subn(r'\g<1>Fragen &amp; Protokolle ★ · %d\g<2>' % n, h)
         if k and h2 != h:
             io.open(sp, 'w', encoding='utf-8').write(h2)
             changed += 1
