@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-09-04T07:44:13.763Z",
+  "generatedAt": "2026-09-05T07:25:44.383Z",
   "totals": {
-    "open": 259,
-    "completed": 376,
+    "open": 251,
+    "completed": 384,
     "overdue": 0,
-    "schedulingIssues": 168
+    "schedulingIssues": 167
   },
   "byLevel": {
     "R1": {
@@ -12,16 +12,16 @@
       "completed": 100
     },
     "R2": {
-      "open": 19,
-      "completed": 78
+      "open": 13,
+      "completed": 84
     },
     "R3": {
-      "open": 29,
-      "completed": 66
+      "open": 28,
+      "completed": 67
     },
     "R4": {
-      "open": 43,
-      "completed": 53
+      "open": 42,
+      "completed": 54
     },
     "R5": {
       "open": 73,
@@ -192,6 +192,24 @@
       "scheduledStart": null
     },
     {
+      "name": "Review: Drittes Fach — Impfschäden + STIKO vertieft R5",
+      "dueDate": "2026-10-28",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Colitis ulcerosa R5",
+      "dueDate": "2026-12-08",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Colitis ulcerosa R4",
+      "dueDate": "2026-10-14",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
       "name": "Review: Non-Hodgkin-Lymphome R5",
       "dueDate": "2026-10-29",
       "schedulingIssue": true,
@@ -200,12 +218,6 @@
     {
       "name": "Review: Drittes Fach — Sozialrecht + Unfallversicherung + Hygiene R5",
       "dueDate": "2026-10-31",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Review: Drittes Fach — Impfschäden + STIKO vertieft R5",
-      "dueDate": "2026-10-28",
       "schedulingIssue": true,
       "scheduledStart": null
     },
@@ -302,18 +314,6 @@
     {
       "name": "Review: Verbrennung R4",
       "dueDate": "2026-11-03",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Review: Colitis ulcerosa R5",
-      "dueDate": "2026-12-08",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Review: Colitis ulcerosa R4",
-      "dueDate": "2026-10-14",
       "schedulingIssue": true,
       "scheduledStart": null
     },
@@ -554,47 +554,7 @@
       "duration": 60
     },
     {
-      "name": "Review: Akuttoxikologie / Intoxikation R2",
-      "dueDate": "2026-09-05",
-      "duration": 45
-    },
-    {
-      "name": "Review: Tuberkulose R2",
-      "dueDate": "2026-09-05",
-      "duration": 45
-    },
-    {
-      "name": "Review: Harnwegsinfekt / Pyelonephritis R2",
-      "dueDate": "2026-09-05",
-      "duration": 45
-    },
-    {
-      "name": "Review: Akutes Abdomen R2",
-      "dueDate": "2026-09-05",
-      "duration": 45
-    },
-    {
-      "name": "Review: Osteoporose R2",
-      "dueDate": "2026-09-05",
-      "duration": 45
-    },
-    {
       "name": "Review: Rektumkarzinom R4",
-      "dueDate": "2026-09-06",
-      "duration": 30
-    },
-    {
-      "name": "Review: Akuttoxikologie / Intoxikation R3",
-      "dueDate": "2026-09-06",
-      "duration": 60
-    },
-    {
-      "name": "Review: Tuberkulose R3",
-      "dueDate": "2026-09-06",
-      "duration": 60
-    },
-    {
-      "name": "Review: Drittes Fach — Sozialrecht + Unfallversicherung + Hygiene R4",
       "dueDate": "2026-09-06",
       "duration": 30
     },
@@ -605,11 +565,6 @@
     },
     {
       "name": "Review: Delir R3",
-      "dueDate": "2026-09-07",
-      "duration": 60
-    },
-    {
-      "name": "Review: Nierenversagen R3",
       "dueDate": "2026-09-07",
       "duration": 60
     },
@@ -629,19 +584,14 @@
       "duration": 60
     },
     {
-      "name": "Review: Pankreatitis R4",
-      "dueDate": "2026-09-08",
-      "duration": 30
+      "name": "Review: Colitis ulcerosa R3",
+      "dueDate": "2026-09-09",
+      "duration": 60
     },
     {
       "name": "Review: Magenkarzinom R4",
       "dueDate": "2026-09-09",
       "duration": 30
-    },
-    {
-      "name": "Review: Colitis ulcerosa R3",
-      "dueDate": "2026-09-09",
-      "duration": 60
     },
     {
       "name": "Review: Diarrhoe / Gastroenteritis R3",
@@ -674,12 +624,17 @@
       "duration": 45
     },
     {
-      "name": "Review: Borreliose / FSME / Zeckenbiss R2",
-      "dueDate": "2026-09-11",
-      "duration": 45
+      "name": "Akte-Sim #2",
+      "dueDate": "2026-09-12",
+      "duration": 60
     },
     {
-      "name": "Akte-Sim #2",
+      "name": "Review: Akuttoxikologie / Intoxikation R3",
+      "dueDate": "2026-09-12",
+      "duration": 60
+    },
+    {
+      "name": "Review: Tuberkulose R3",
       "dueDate": "2026-09-12",
       "duration": 60
     },
@@ -697,6 +652,11 @@
       "name": "Review: Anaphylaxie R2",
       "dueDate": "2026-09-12",
       "duration": 45
+    },
+    {
+      "name": "Review: Drittes Fach — Sozialrecht + Unfallversicherung + Hygiene R4",
+      "dueDate": "2026-09-12",
+      "duration": 30
     },
     {
       "name": "Review: Hämorrhoiden R2",
@@ -812,6 +772,11 @@
       "name": "Review: Harnwegsinfekt / Pyelonephritis R3",
       "dueDate": "2026-09-18",
       "duration": 60
+    },
+    {
+      "name": "Review: Eisenmangelanämie R5",
+      "dueDate": "2026-09-19",
+      "duration": 90
     }
   ],
   "nextCheckpoint": {
