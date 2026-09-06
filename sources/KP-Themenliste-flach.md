@@ -75,7 +75,7 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 55 | 83 | 26 | 57 | Kardiologie | Herzklappenerkrankungen | ✓ R3 |
 | 56 | 82 | 16 | 66 | Endokrinologie | Hypothyreose | ✓ R4 |
 | 57 | 81 | 27 | 54 | Unfallchirurgie | Schädel-Hirn-Trauma | ✓ R3 |
-| 58 | 81 | 22 | 59 | Pneumologie | Tuberkulose | ✓ R2 |
+| 58 | 81 | 22 | 59 | Pneumologie | Tuberkulose | ✓ R3 |
 | 59 | 81 | 16 | 65 | Unfallchirurgie | Polytrauma / ABCDE (Sturz) | ✓ R4 |
 | 60 | 81 | 24 | 57 | Allgemein- und Viszeralchirurgie | Milzruptur / Splenektomie | ✓ R1 |
 | 61 | 77 | 37 | 40 | Drittes Fach | Borreliose / FSME / Zeckenbiss | ✓ R2 |
