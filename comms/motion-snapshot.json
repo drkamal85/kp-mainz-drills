@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-09-06T07:39:25.696Z",
+  "generatedAt": "2026-09-07T07:57:15.997Z",
   "totals": {
-    "open": 167,
-    "completed": 386,
+    "open": 165,
+    "completed": 388,
     "overdue": 0,
-    "schedulingIssues": 109
+    "schedulingIssues": 106
   },
   "byLevel": {
     "R1": {
@@ -16,12 +16,12 @@
       "completed": 84
     },
     "R3": {
-      "open": 10,
-      "completed": 68
+      "open": 9,
+      "completed": 69
     },
     "R4": {
-      "open": 20,
-      "completed": 54
+      "open": 19,
+      "completed": 55
     },
     "R5": {
       "open": 30,
@@ -366,12 +366,6 @@
       "scheduledStart": null
     },
     {
-      "name": "Akte-Sim #6",
-      "dueDate": "2026-10-10",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
       "name": "Pull-forward-Entscheidung",
       "dueDate": "2026-10-20",
       "schedulingIssue": true,
@@ -544,6 +538,12 @@
       "dueDate": "2026-11-05",
       "schedulingIssue": true,
       "scheduledStart": null
+    },
+    {
+      "name": "Review: Kolonkarzinom R5",
+      "dueDate": "2026-10-25",
+      "schedulingIssue": true,
+      "scheduledStart": null
     }
   ],
   "overdue": [],
@@ -584,11 +584,6 @@
       "duration": 60
     },
     {
-      "name": "Review: Tuberkulose R3",
-      "dueDate": "2026-09-12",
-      "duration": 60
-    },
-    {
       "name": "Review: Anästhesie & Atemwegssicherung R2",
       "dueDate": "2026-09-12",
       "duration": 45
@@ -602,11 +597,6 @@
       "name": "Review: Anaphylaxie R2",
       "dueDate": "2026-09-12",
       "duration": 45
-    },
-    {
-      "name": "Review: Drittes Fach — Sozialrecht + Unfallversicherung + Hygiene R4",
-      "dueDate": "2026-09-12",
-      "duration": 30
     },
     {
       "name": "Review: Hämorrhoiden R2",
