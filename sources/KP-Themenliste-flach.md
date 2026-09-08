@@ -87,7 +87,7 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 68 | 64 | 29 | 35 | Allgemein- und Viszeralchirurgie | Akutes Abdomen | ✓ R2 |
 | 69 | 63 | 25 | 38 | Notfallmedizin | Anaphylaxie | ✓ R1 |
 | 70 | 62 | 15 | 47 | Allgemein- und Viszeralchirurgie | Rektumkarzinom | ✓ R2 |
-| 71 | 62 | 22 | 40 | Neurologie | Meningitis / Enzephalitis | ✓ R1 |
+| 71 | 62 | 22 | 40 | Neurologie | Meningitis / Enzephalitis | ✓ R2 |
 | 72 | 60 | 15 | 45 | Unfallchirurgie | Humerusfraktur | ✓ R2 |
 | 73 | 59 | 11 | 48 | Gastroenterologie | GERD / Refluxkrankheit | ✓ R1 |
 | 74 | 59 | 7 | 52 | Kardiologie | Infektiöse Endokarditis | ✓ R3 |
