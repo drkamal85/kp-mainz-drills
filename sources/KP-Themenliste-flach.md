@@ -67,7 +67,7 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 46 | 95 | 18 | 77 | Kardiologie | Synkope | ✓ R3 |
 | 47 | 93 | 40 | 53 | Unfallchirurgie | Distale Radiusfraktur | ✓ R4 |
 | 48 | 93 | 30 | 63 | Drittes Fach | Schmerztherapie / WHO-Schema | ✓ R1 |
-| 49 | 92 | 30 | 62 | Notfallmedizin | Akuttoxikologie / Intoxikation | ✓ R2 |
+| 49 | 92 | 30 | 62 | Notfallmedizin | Akuttoxikologie / Intoxikation | ✓ R3 |
 | 51 | 91 | 15 | 76 | Hämatologie | Akute Leukämien (ALL) | ✓ R2 |
 | 52 | 89 | 37 | 52 | Drittes Fach | Aufklärung, Einwilligung & Betreuung | ✓ R2 |
 | 53 | 87 | 17 | 70 | Endokrinologie | Osteoporose | ✓ R2 |
