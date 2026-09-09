@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-09-08T07:50:43.436Z",
+  "generatedAt": "2026-09-09T07:53:16.466Z",
   "totals": {
-    "open": 161,
-    "completed": 388,
+    "open": 147,
+    "completed": 392,
     "overdue": 0,
-    "schedulingIssues": 103
+    "schedulingIssues": 91
   },
   "byLevel": {
     "R1": {
@@ -12,19 +12,19 @@
       "completed": 100
     },
     "R2": {
-      "open": 13,
-      "completed": 84
+      "open": 11,
+      "completed": 86
     },
     "R3": {
-      "open": 9,
-      "completed": 69
+      "open": 8,
+      "completed": 70
     },
     "R4": {
       "open": 19,
       "completed": 55
     },
     "R5": {
-      "open": 40,
+      "open": 30,
       "completed": 1
     }
   },
@@ -37,7 +37,7 @@
       "r1Open": 0
     },
     "B_r5": {
-      "open": 42,
+      "open": 32,
       "completed": 1,
       "pilot": [
         {
@@ -185,66 +185,6 @@
     }
   },
   "flagged": [
-    {
-      "name": "Review: Harnwegsinfekt / Pyelonephritis R5",
-      "dueDate": "2026-11-01",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Review: Milzruptur / Splenektomie R5",
-      "dueDate": "2026-10-31",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Review: Tuberkulose R5",
-      "dueDate": "2026-10-30",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Review: Akuttoxikologie / Intoxikation R5",
-      "dueDate": "2026-10-29",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Review: Schmerztherapie / WHO-Stufenschema R5",
-      "dueDate": "2026-10-28",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Review: Bronchialkarzinom R5",
-      "dueDate": "2026-10-27",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Review: Osteoporose R5",
-      "dueDate": "2026-10-26",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Review: Gastritis R5",
-      "dueDate": "2026-10-25",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Review: pAVK R5",
-      "dueDate": "2026-10-24",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Review: Lebermetastasen / Lebertumor R5",
-      "dueDate": "2026-10-20",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
     {
       "name": "Review: Nierenversagen R5",
       "dueDate": "2026-10-16",
@@ -468,20 +408,8 @@
       "scheduledStart": null
     },
     {
-      "name": "Review: Bronchialkarzinom R4",
-      "dueDate": "2026-10-12",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
       "name": "Review: Hepatitis R5",
       "dueDate": "2026-12-22",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Review: Harnwegsinfekt / Pyelonephritis R4",
-      "dueDate": "2026-10-12",
       "schedulingIssue": true,
       "scheduledStart": null
     },
@@ -544,32 +472,84 @@
       "dueDate": "2026-10-18",
       "schedulingIssue": true,
       "scheduledStart": null
+    },
+    {
+      "name": "Review: Proximale Femurfrakturen R5",
+      "dueDate": "2026-11-06",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Ikterus + Cholestase R5",
+      "dueDate": "2026-10-22",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Leberzirrhose R5",
+      "dueDate": "2026-10-27",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Sepsis R5",
+      "dueDate": "2026-10-13",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Ileus R5",
+      "dueDate": "2026-11-08",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Appendizitis R5",
+      "dueDate": "2026-11-08",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Cholezystitis R5",
+      "dueDate": "2026-11-03",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Lungenembolie R5",
+      "dueDate": "2026-10-19",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Pneumothorax R5",
+      "dueDate": "2026-10-24",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Practice: Anamnesebogen — Complete from real Akte (Session 2)",
+      "dueDate": "2026-11-15",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Practice: Anamnesebogen — Complete from real Akte (Session 1)",
+      "dueDate": "2026-10-15",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Drittes Fach: Protocol Review — Session 15",
+      "dueDate": "2026-12-27",
+      "schedulingIssue": true,
+      "scheduledStart": null
     }
   ],
   "overdue": [],
   "upcoming14d": [
     {
-      "name": "Review: Meningitis/Enzephalitis R2",
-      "dueDate": "2026-09-10",
-      "duration": 45
-    },
-    {
-      "name": "Mentor check-in #2",
-      "dueDate": "2026-09-11",
-      "duration": 30
-    },
-    {
-      "name": "Review: Reanimation / CPR R2",
-      "dueDate": "2026-09-11",
-      "duration": 45
-    },
-    {
       "name": "Akte-Sim #2",
-      "dueDate": "2026-09-12",
-      "duration": 60
-    },
-    {
-      "name": "Review: Akuttoxikologie / Intoxikation R3",
       "dueDate": "2026-09-12",
       "duration": 60
     },
