@@ -85,7 +85,7 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 66 | 67 | 12 | 55 | Nephrologie | Harnwegsinfekt / Pyelonephritis | ✓ R2 |
 | 67 | 65 | 22 | 43 | Endokrinologie | Schilddrüsenkarzinom | ✓ R2 |
 | 68 | 64 | 29 | 35 | Allgemein- und Viszeralchirurgie | Akutes Abdomen | ✓ R2 |
-| 69 | 63 | 25 | 38 | Notfallmedizin | Anaphylaxie | ✓ R1 |
+| 69 | 63 | 25 | 38 | Notfallmedizin | Anaphylaxie | ✓ R2 |
 | 70 | 62 | 15 | 47 | Allgemein- und Viszeralchirurgie | Rektumkarzinom | ✓ R2 |
 | 71 | 62 | 22 | 40 | Neurologie | Meningitis / Enzephalitis | ✓ R2 |
 | 72 | 60 | 15 | 45 | Unfallchirurgie | Humerusfraktur | ✓ R2 |
