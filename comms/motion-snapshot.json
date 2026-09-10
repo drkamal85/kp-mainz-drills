@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-09-09T07:53:16.466Z",
+  "generatedAt": "2026-09-10T07:53:18.002Z",
   "totals": {
     "open": 147,
     "completed": 392,
     "overdue": 0,
-    "schedulingIssues": 91
+    "schedulingIssues": 90
   },
   "byLevel": {
     "R1": {
@@ -492,12 +492,6 @@
       "scheduledStart": null
     },
     {
-      "name": "Review: Sepsis R5",
-      "dueDate": "2026-10-13",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
       "name": "Review: Ileus R5",
       "dueDate": "2026-11-08",
       "schedulingIssue": true,
@@ -542,6 +536,12 @@
     {
       "name": "Drittes Fach: Protocol Review — Session 15",
       "dueDate": "2026-12-27",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Drittes Fach: Protocol Review — Session 7",
+      "dueDate": "2026-11-13",
       "schedulingIssue": true,
       "scheduledStart": null
     }
