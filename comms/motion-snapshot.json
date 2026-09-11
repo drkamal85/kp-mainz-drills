@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-09-10T07:53:18.002Z",
+  "generatedAt": "2026-09-11T07:48:52.201Z",
   "totals": {
-    "open": 147,
-    "completed": 392,
+    "open": 144,
+    "completed": 395,
     "overdue": 0,
-    "schedulingIssues": 90
+    "schedulingIssues": 89
   },
   "byLevel": {
     "R1": {
@@ -12,8 +12,8 @@
       "completed": 100
     },
     "R2": {
-      "open": 11,
-      "completed": 86
+      "open": 8,
+      "completed": 89
     },
     "R3": {
       "open": 8,
@@ -414,12 +414,6 @@
       "scheduledStart": null
     },
     {
-      "name": "Review: Gastritis R4",
-      "dueDate": "2026-10-14",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
       "name": "Review: Bluttransfusion R5",
       "dueDate": "2026-12-05",
       "schedulingIssue": true,
@@ -544,6 +538,12 @@
       "dueDate": "2026-11-13",
       "schedulingIssue": true,
       "scheduledStart": null
+    },
+    {
+      "name": "Oral Simulation with Partner — Session 2",
+      "dueDate": "2026-10-17",
+      "schedulingIssue": true,
+      "scheduledStart": null
     }
   ],
   "overdue": [],
@@ -552,21 +552,6 @@
       "name": "Akte-Sim #2",
       "dueDate": "2026-09-12",
       "duration": 60
-    },
-    {
-      "name": "Review: Anästhesie & Atemwegssicherung R2",
-      "dueDate": "2026-09-12",
-      "duration": 45
-    },
-    {
-      "name": "Review: Milzruptur / Splenektomie R2",
-      "dueDate": "2026-09-12",
-      "duration": 45
-    },
-    {
-      "name": "Review: Anaphylaxie R2",
-      "dueDate": "2026-09-12",
-      "duration": 45
     },
     {
       "name": "Review: Hämorrhoiden R2",
