@@ -25,7 +25,7 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 4 | 304 | 72 | 232 | Notfallmedizin | Schock | ✓ R4 |
 | 5 | 298 | 88 | 210 | Allgemein- und Viszeralchirurgie | Ileus | ✓ R4 |
 | 6 | 296 | 56 | 240 | Notfallmedizin | Sepsis & septischer Schock | ✓ R3 |
-| 7 | 282 | 103 | 179 | Drittes Fach | Bluttransfusion | ✓ R2 |
+| 7 | 282 | 103 | 179 | Drittes Fach | Bluttransfusion | ✓ R3 |
 | 8 | 279 | 90 | 189 | Drittes Fach | Anästhesie & Atemwegssicherung | ✓ R2 |
 | 9 | 278 | 74 | 204 | Endokrinologie | Diabetes mellitus | ✓ R3 |
 | 10 | 264 | 98 | 166 | Drittes Fach | Impfungen / STIKO | ✓ R3 |
