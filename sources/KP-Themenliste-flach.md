@@ -25,7 +25,7 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 4 | 304 | 72 | 232 | Notfallmedizin | Schock | ✓ R4 |
 | 5 | 298 | 88 | 210 | Allgemein- und Viszeralchirurgie | Ileus | ✓ R4 |
 | 6 | 296 | 56 | 240 | Notfallmedizin | Sepsis & septischer Schock | ✓ R3 |
-| 7 | 282 | 103 | 179 | Drittes Fach | Bluttransfusion | ✓ R1 |
+| 7 | 282 | 103 | 179 | Drittes Fach | Bluttransfusion | ✓ R2 |
 | 8 | 279 | 90 | 189 | Drittes Fach | Anästhesie & Atemwegssicherung | ✓ R2 |
 | 9 | 278 | 74 | 204 | Endokrinologie | Diabetes mellitus | ✓ R3 |
 | 10 | 264 | 98 | 166 | Drittes Fach | Impfungen / STIKO | ✓ R3 |
@@ -57,7 +57,7 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 36 | 127 | 44 | 83 | Unfallchirurgie | Sprunggelenksfraktur (OSG) | ✓ R3 |
 | 37 | 122 | 39 | 83 | Endokrinologie | Hyperthyreose | ✓ R4 |
 | 38 | 120 | 40 | 80 | Unfallchirurgie | Hüft- / Knie-TEP | ✓ R3 |
-| 39 | 120 | 36 | 84 | Gastroenterologie | Gastritis (Typ A/B/C) | ✓ R1 |
+| 39 | 120 | 36 | 84 | Gastroenterologie | Gastritis (Typ A/B/C) | ✓ R2 |
 | 40 | 119 | 31 | 88 | Drittes Fach | Sozialrecht & Hygiene | ✓ R1 |
 | 41 | 117 | 24 | 93 | Angiologie | pAVK | ✓ R3 |
 | 42 | 111 | 37 | 74 | Angiologie | Tiefe Beinvenenthrombose (TVT) | ✓ R4 |
@@ -66,7 +66,7 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 45 | 100 | 35 | 65 | Pneumologie | Bronchialkarzinom | ✓ R2 |
 | 46 | 95 | 18 | 77 | Kardiologie | Synkope | ✓ R3 |
 | 47 | 93 | 40 | 53 | Unfallchirurgie | Distale Radiusfraktur | ✓ R4 |
-| 48 | 93 | 30 | 63 | Drittes Fach | Schmerztherapie / WHO-Schema | ✓ R1 |
+| 48 | 93 | 30 | 63 | Drittes Fach | Schmerztherapie / WHO-Schema | ✓ R2 |
 | 49 | 92 | 30 | 62 | Notfallmedizin | Akuttoxikologie / Intoxikation | ✓ R3 |
 | 51 | 91 | 15 | 76 | Hämatologie | Akute Leukämien (ALL) | ✓ R2 |
 | 52 | 89 | 37 | 52 | Drittes Fach | Aufklärung, Einwilligung & Betreuung | ✓ R2 |
