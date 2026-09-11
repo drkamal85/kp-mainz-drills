@@ -93,7 +93,7 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 74 | 59 | 7 | 52 | Kardiologie | Infektiöse Endokarditis | ✓ R3 |
 | 76 | 57 | 17 | 40 | Gastroenterologie | Diarrhoe / Gastroenteritis | ✓ R2 |
 | 77 | 56 | 15 | 41 | Allgemein- und Viszeralchirurgie | Pankreaskarzinom | ✓ R2 |
-| 78 | 56 | 11 | 45 | Allgemein- und Viszeralchirurgie | Hämorrhoiden | ✓ R1 |
+| 78 | 56 | 11 | 45 | Allgemein- und Viszeralchirurgie | Hämorrhoiden | ✓ R2 |
 | 79 | 55 | 11 | 44 | Allgemein- und Viszeralchirurgie | Magenkarzinom | ✓ R2 |
 | 80 | 55 | 9 | 46 | Hämatologie | Morbus Hodgkin | ✓ R2 |
 | 81 | 54 | 19 | 35 | Notfallmedizin | Verbrennung | ✓ R1 |
