@@ -63,5 +63,20 @@
   "hash": "632c2569ccbd7ac5",
   "pdf": "/mnt/user-data/outputs/Reanimation-CPR-R2-A4.pdf",
   "seiten": 6
+ },
+ "bluttransfusion": {
+  "hash": "84ddb6e23a1de184",
+  "pdf": "/mnt/user-data/outputs/bluttransfusion-R2-A4.pdf",
+  "seiten": 6
+ },
+ "schmerztherapie": {
+  "hash": "32f054796d13878f",
+  "pdf": "/mnt/user-data/outputs/schmerztherapie-R2-A4.pdf",
+  "seiten": 6
+ },
+ "gastritis": {
+  "hash": "ef644acdf2efde7a",
+  "pdf": "/mnt/user-data/outputs/gastritis-R2-A4.pdf",
+  "seiten": 7
  }
 }
