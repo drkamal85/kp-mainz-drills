@@ -3,7 +3,8 @@
 # flowing, speakable candidate-voice sentence. Flags telegraphic label-style answers
 # ("Symptome: …, Therapie: …"), arrow/semicolon chains, and one-word fragments.
 # Seit 09/2026 (Tab-6-Audit) sind auch Laenge (> 24 W), Satzlaenge (> 18 W), ausgeschriebene Zahlen,
-# <strong> in Antworten, Fragenzahl ausserhalb 12-18 und Blockkoepfe ohne Pruefer/Datum/Fall FAIL.
+# <strong> in Antworten und Blockkoepfe ohne Pruefer/Datum/Fall FAIL.
+# Fragenzahl: KEIN Minimum, KEIN Maximum (Mohamed, 09/2026). Grenze ist allein das Korpus.
 # Regelwerk: tools/TAB6-ANTWORTFORMAT.md. Scope: alle Reviews mit Tab 6. Exit 1 on any violation.
 import re, html, glob, io, sys
 
@@ -58,13 +59,12 @@ THEMATIC = re.compile(r'Lernstoff|Kontext|Definition &|Klassiker|h\u00e4ufige Pr
 PANEL = re.compile(r'<section class="panel[^"]*" data-panel="protokoll".*?\n\s*</section>', re.S)
 
 def deck_violations(h):
-    """Fragenzahl 12-18 und Blockkoepfe mit Pruefer/Datum/Fall (Regel 1 und 5, 09/2026)."""
+    """Blockkoepfe mit Pruefer/Datum/Fall (Regel 1). Fragenzahl ist unbegrenzt (Regel 5, 09/2026)."""
     out = []
     m = PANEL.search(h)
     if not m: return out
     panel = m.group(0)
     n = len(re.findall(r'<div class="pq-frage">', panel))
-    if n and not 12 <= n <= 18: out.append('Fragenzahl %d (Ziel 12-18)' % n)
     for i, meta in enumerate(re.findall(r'<div class="pk-meta">(.*?)</div>', panel, re.S), 1):
         hdr = clean(re.sub(r'<span class="pk-badge">.*?</span>', '', meta))
         if not HEADER_OK.search(hdr): out.append('Block %d ohne Pruefer/Datum/Fall: %s' % (i, hdr[:60]))

@@ -75,7 +75,11 @@ Keine Einleitung, keine Begründung, kein Rahmen.
 3. **Länge** wie oben. Speakable in einem Atem.
 4. **Sprache.** Kandidatenstimme, jeder Satz mit finitem Verb, Ziffern, keine telegrafischen Marker,
    höchstens 3 Aufzählungsglieder, Fachbegriffe im Fließtext ohne `<strong>`.
-5. **Umfang und Dubletten.** 12–18 Fragen je Deck, nur Fragen zu DIESEM Thema, keine Frage
+5. **Umfang und Dubletten.** Es gibt **kein Minimum und kein Maximum** an Fragen je Deck
+   (entschieden von Mohamed, 09/2026 — die frühere Spanne 12–18 ist aufgehoben). Die einzige
+   Grenze ist das Protokollkorpus: so viele Fragen, wie dokumentiert sind, und keine mehr.
+   Ein Deck mit 7 belegten Fragen ist richtig, ein Deck mit 24 belegten Fragen ebenfalls.
+   Nur Fragen zu DIESEM Thema, keine Frage
    doppelt in Nachbardecks (Varizen → leberzirrhose, Forrest → gastroduodenales-ulkus,
    Kompartment → allgemeine-frakturlehre, VT → reanimation-cpr, SVT → vorhofflimmern,
    Hirnblutung → schaedel-hirn-trauma).
@@ -86,7 +90,7 @@ Deckel gebracht. Bericht: Projektdokument `claude/TAB6-AUDIT-2026-09-04.md`.
 ## Prüfung vor jedem Commit
 
 `python3 tools/_check-fragen.py` prüft Zahlenschreibweise, Antwortlänge (> 24 W = FAIL), Satzlänge
-(> 18 W = FAIL), Aufzählungslänge, `<strong>` in Antworten, Fragenzahl 12–18 und den Blockkopf
+(> 18 W = FAIL), Aufzählungslänge, `<strong>` in Antworten und den Blockkopf
 (Prüfer, Datum oder Fall — sonst FAIL). Er ersetzt aber nicht den **fachlichen** Check — der bleibt Handarbeit
 und gehört in dieselbe Runde, nicht auf Nachfrage danach.
 
