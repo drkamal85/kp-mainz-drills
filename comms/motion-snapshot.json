@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-09-11T07:48:52.201Z",
+  "generatedAt": "2026-09-12T07:42:01.889Z",
   "totals": {
-    "open": 144,
-    "completed": 395,
+    "open": 135,
+    "completed": 404,
     "overdue": 0,
-    "schedulingIssues": 89
+    "schedulingIssues": 88
   },
   "byLevel": {
     "R1": {
@@ -12,12 +12,12 @@
       "completed": 100
     },
     "R2": {
-      "open": 8,
-      "completed": 89
+      "open": 3,
+      "completed": 94
     },
     "R3": {
-      "open": 8,
-      "completed": 70
+      "open": 5,
+      "completed": 73
     },
     "R4": {
       "open": 19,
@@ -53,8 +53,8 @@
       ]
     },
     "C_akte": {
-      "open": 23,
-      "completed": 1,
+      "open": 22,
+      "completed": 2,
       "sessions": [
         {
           "name": "Akte-Sim #1",
@@ -64,7 +64,7 @@
         {
           "name": "Akte-Sim #2",
           "dueDate": "2026-09-12",
-          "completed": false
+          "completed": true
         },
         {
           "name": "Akte-Sim #3",
@@ -522,12 +522,6 @@
       "scheduledStart": null
     },
     {
-      "name": "Practice: Anamnesebogen — Complete from real Akte (Session 1)",
-      "dueDate": "2026-10-15",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
       "name": "Drittes Fach: Protocol Review — Session 15",
       "dueDate": "2026-12-27",
       "schedulingIssue": true,
@@ -544,55 +538,16 @@
       "dueDate": "2026-10-17",
       "schedulingIssue": true,
       "scheduledStart": null
+    },
+    {
+      "name": "Drittes Fach: Protocol Review — Session 5",
+      "dueDate": "2026-10-30",
+      "schedulingIssue": true,
+      "scheduledStart": null
     }
   ],
   "overdue": [],
   "upcoming14d": [
-    {
-      "name": "Akte-Sim #2",
-      "dueDate": "2026-09-12",
-      "duration": 60
-    },
-    {
-      "name": "Review: Hämorrhoiden R2",
-      "dueDate": "2026-09-13",
-      "duration": 45
-    },
-    {
-      "name": "Review: Hyponatriämie / SIADH R2",
-      "dueDate": "2026-09-13",
-      "duration": 45
-    },
-    {
-      "name": "Review: Gastritis R2",
-      "dueDate": "2026-09-14",
-      "duration": 45
-    },
-    {
-      "name": "Review: Bluttransfusion R2",
-      "dueDate": "2026-09-14",
-      "duration": 45
-    },
-    {
-      "name": "Review: Schmerztherapie / WHO-Stufenschema R2",
-      "dueDate": "2026-09-14",
-      "duration": 45
-    },
-    {
-      "name": "Review: Gastritis R3",
-      "dueDate": "2026-09-15",
-      "duration": 60
-    },
-    {
-      "name": "Review: Bluttransfusion R3",
-      "dueDate": "2026-09-15",
-      "duration": 60
-    },
-    {
-      "name": "Review: Schmerztherapie / WHO-Stufenschema R3",
-      "dueDate": "2026-09-15",
-      "duration": 60
-    },
     {
       "name": "Review: Lebermetastasen / Lebertumor R4",
       "dueDate": "2026-09-16",
@@ -637,6 +592,26 @@
       "name": "Review: Harnwegsinfekt / Pyelonephritis R3",
       "dueDate": "2026-09-18",
       "duration": 60
+    },
+    {
+      "name": "Review: Nierenversagen R4",
+      "dueDate": "2026-09-26",
+      "duration": 30
+    },
+    {
+      "name": "Akte-Sim #3",
+      "dueDate": "2026-09-26",
+      "duration": 60
+    },
+    {
+      "name": "Review: Bronchialkarzinom R3",
+      "dueDate": "2026-09-26",
+      "duration": 60
+    },
+    {
+      "name": "Review: Gastroduodenales Ulkus R4",
+      "dueDate": "2026-09-26",
+      "duration": 30
     }
   ],
   "nextCheckpoint": {
