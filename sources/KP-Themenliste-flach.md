@@ -105,5 +105,5 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 88 | 37 | 12 | 25 | Notfallmedizin | Delir | ✓ R2 |
 | 89 | 32 | 5 | 27 | Endokrinologie | Cushing-Syndrom | ✓ R2 |
 | 90 | 32 | 9 | 23 | Nephrologie | Hyponatriämie / SIADH | ✓ R2 |
-| 91 | 30 | 0 | 30 | Unfallchirurgie | Kreuzbandruptur | ✓ R1 |
+| 91 | 30 | 0 | 30 | Unfallchirurgie | Kreuzbandruptur | ✓ R2 |
 | 92 | 23 | 3 | 20 | Unfallchirurgie | Wirbelsäulenverletzungen | ✓ R2 |
