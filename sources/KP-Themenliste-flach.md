@@ -96,7 +96,7 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 78 | 56 | 11 | 45 | Allgemein- und Viszeralchirurgie | Hämorrhoiden | ✓ R2 |
 | 79 | 55 | 11 | 44 | Allgemein- und Viszeralchirurgie | Magenkarzinom | ✓ R2 |
 | 80 | 55 | 9 | 46 | Hämatologie | Morbus Hodgkin | ✓ R2 |
-| 81 | 54 | 19 | 35 | Notfallmedizin | Verbrennung | ✓ R1 |
+| 81 | 54 | 19 | 35 | Notfallmedizin | Verbrennung | ✓ R2 |
 | 82 | 49 | 10 | 39 | Unfallchirurgie | Claviculafraktur | ✓ R1 |
 | 83 | 47 | 8 | 39 | Endokrinologie | Struma | ✓ R2 |
 | 85 | 43 | 13 | 30 | Querschnitt | Check-up / Prävention | ✓ R2 |
