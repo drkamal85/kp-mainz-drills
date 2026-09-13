@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-09-12T07:42:01.889Z",
+  "generatedAt": "2026-09-13T08:00:58.386Z",
   "totals": {
-    "open": 135,
-    "completed": 404,
+    "open": 130,
+    "completed": 409,
     "overdue": 0,
-    "schedulingIssues": 88
+    "schedulingIssues": 84
   },
   "byLevel": {
     "R1": {
@@ -12,16 +12,16 @@
       "completed": 100
     },
     "R2": {
-      "open": 3,
-      "completed": 94
+      "open": 1,
+      "completed": 96
     },
     "R3": {
       "open": 5,
       "completed": 73
     },
     "R4": {
-      "open": 19,
-      "completed": 55
+      "open": 16,
+      "completed": 58
     },
     "R5": {
       "open": 30,
@@ -186,12 +186,6 @@
   },
   "flagged": [
     {
-      "name": "Review: Nierenversagen R5",
-      "dueDate": "2026-10-16",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
       "name": "Akte-Sim #25",
       "dueDate": "2027-02-20",
       "schedulingIssue": true,
@@ -324,12 +318,6 @@
       "scheduledStart": null
     },
     {
-      "name": "CHECKPOINT Okt 16 — alle Themen R4",
-      "dueDate": "2026-10-16",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
       "name": "CHECKPOINT Okt 31",
       "dueDate": "2026-10-31",
       "schedulingIssue": true,
@@ -392,12 +380,6 @@
     {
       "name": "Mentor check-in #6",
       "dueDate": "2026-10-23",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Mentor check-in #5",
-      "dueDate": "2026-10-16",
       "schedulingIssue": true,
       "scheduledStart": null
     },
@@ -544,35 +526,28 @@
       "dueDate": "2026-10-30",
       "schedulingIssue": true,
       "scheduledStart": null
+    },
+    {
+      "name": "Oral Simulation with Partner — Session 13 (final)",
+      "dueDate": "2027-02-24",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Drittes Fach: Protocol Review — Session 16",
+      "dueDate": "2026-12-28",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Oral Simulation with Partner — Session 11",
+      "dueDate": "2027-02-20",
+      "schedulingIssue": true,
+      "scheduledStart": null
     }
   ],
   "overdue": [],
   "upcoming14d": [
-    {
-      "name": "Review: Lebermetastasen / Lebertumor R4",
-      "dueDate": "2026-09-16",
-      "duration": 30
-    },
-    {
-      "name": "Review: Divertikulitis R4",
-      "dueDate": "2026-09-16",
-      "duration": 30
-    },
-    {
-      "name": "Review: Kolonkarzinom R4",
-      "dueDate": "2026-09-16",
-      "duration": 30
-    },
-    {
-      "name": "Review: Verbrennung R2",
-      "dueDate": "2026-09-17",
-      "duration": 45
-    },
-    {
-      "name": "Review: Kreuzbandruptur R2",
-      "dueDate": "2026-09-17",
-      "duration": 45
-    },
     {
       "name": "Review: Anästhesie & Atemwegssicherung R3",
       "dueDate": "2026-09-17",
@@ -611,6 +586,11 @@
     {
       "name": "Review: Gastroduodenales Ulkus R4",
       "dueDate": "2026-09-26",
+      "duration": 30
+    },
+    {
+      "name": "Review: Hepatitis R4",
+      "dueDate": "2026-09-27",
       "duration": 30
     }
   ],
