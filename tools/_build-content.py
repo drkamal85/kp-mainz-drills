@@ -168,7 +168,7 @@ def parse_fragen(h, spec_name):
         if 'class="pq"' not in chunk: continue
         akte = re.search(r'<div class="pk-akte"><span class="lab">[^<]*</span>(.*?)</div>', chunk, re.S)
         fall = md(akte.group(1)) if akte else ''
-        for q in re.finditer(r'<div class="pq"><div class="pq-frage">(.*?)</div><details class="reveal"><summary>[^<]*</summary><div class="ans">(.*?)</div></details></div>', chunk, re.S):
+        for q in re.finditer(r'<div class="pq"><div class="pq-frage">(.*?)</div><details class="reveal"><summary>[^<]*</summary><div class="ans[^"]*">(.*?)</div></details></div>', chunk, re.S):
             item = {'frage': md(q.group(1)), 'antwort': md(q.group(2)), 'tag': tag}
             if fall: item['fall'] = fall
             out.append(item)

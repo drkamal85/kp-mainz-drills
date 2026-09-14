@@ -14,8 +14,12 @@ Der 3-Zug ist eine Struktur, keine Wortzahl. Er darf die Antwort nicht verlänge
 | **Bildbefund** | „Was sehen Sie?", „Beschreiben Sie das CT" | Antwort zuerst | 16–24 W |
 | **Kurzabfrage** | Zahl, Klassifikation, Antidot, Zeitfenster | ein Satz | 10–16 W |
 
+Eine **vollzählig** verlangte Klassifikation ist die Ausnahme von dieser Zeile: sie darf mehrere
+Sätze und mehr Wörter brauchen (siehe „Vollzählige Antworten"). Alles andere in der Tabelle gilt.
+
 **Deckel (verschärft 09/2026 nach dem Tab-6-Audit, vorher 07/2026):**
-Median über das ganze Deck **16–22 W**, keine Einzelantwort **> 24 W**,
+Median über das ganze Deck **16–22 W**, keine Einzelantwort **> 24 W**
+(Ausnahme siehe „Vollzählige Antworten" unten),
 längster Satz **≤ 18 W**, durchschnittliche Satzlänge **10–13 W**.
 **Eine Antwort, eine Aussage.** Steckt in einer Antwort eine Diagnose- und eine Prognoseaussage,
 wird gekürzt — nicht in zwei Fragen zerlegt.
@@ -64,6 +68,29 @@ Keine Einleitung, keine Begründung, kein Rahmen.
 
 ---
 
+## Vollzählige Antworten — die Ausnahme vom Deckel
+
+**Entschieden von Mohamed (09/2026): „Du darfst das Wortlimit in Tab 6 überschreiten,
+wenn es nötig ist."** Gemeint ist der Fall, in dem eine Klassifikation nur vollständig
+etwas wert ist. Eine halbe ASA-Einteilung ist in der Prüfung wertlos — der Prüfer fragt
+nach der Klassifikation, nicht nach drei Beispielen daraus.
+
+Die Ausnahme gilt eng:
+
+- **Nur für vollzählige Klassifikationen, Scores und Stadien** — ASA I bis VI, Mallampati
+  I bis IV, GCS, Forrest, NYHA. Nicht für Gesprächsantworten, nicht für Aufzählungen von
+  Differenzialdiagnosen, nicht als Ausrede für eine unpräzise Antwort.
+- **Die Antwort wird markiert:** `<div class="ans vollzaehlig">`. `_check-fragen.py`
+  überspringt dann den 24-Wort-Deckel für genau diese Antwort — und nur ihn.
+- **Alle anderen Regeln gelten weiter**, ohne Ausnahme: längster Satz ≤ 18 W,
+  höchstens 3 Aufzählungsglieder je Satz, finites Verb in jedem Satz, Ziffern,
+  keine telegrafischen Marker, kein `<strong>`.
+- **Der Deckmedian bleibt 16–22 W.** Eine vollzählige Antwort zieht ihn nach oben;
+  wird das Band verlassen, wird an anderer Stelle gekürzt, nicht die Ausnahme gestrichen.
+
+Im Zweifel bleibt der Deckel. Die Markierung macht jede Ausnahme sichtbar und zählbar:
+`grep -rl 'ans vollzaehlig' reviews/`.
+
 ## Die fünf Regeln für Tab 6 (verbindlich seit 09/2026)
 
 1. **Nur Dokumentiertes.** Jede Frage geht auf ein echtes Mainzer Protokoll zurück — kein Lehrbuch,
@@ -89,7 +116,7 @@ Deckel gebracht. Bericht: Projektdokument `claude/TAB6-AUDIT-2026-09-04.md`.
 
 ## Prüfung vor jedem Commit
 
-`python3 tools/_check-fragen.py` prüft Zahlenschreibweise, Antwortlänge (> 24 W = FAIL), Satzlänge
+`python3 tools/_check-fragen.py` prüft Zahlenschreibweise, Antwortlänge (> 24 W = FAIL, außer `class="ans vollzaehlig"`), Satzlänge
 (> 18 W = FAIL), Aufzählungslänge, `<strong>` in Antworten und den Blockkopf
 (Prüfer, Datum oder Fall — sonst FAIL). Er ersetzt aber nicht den **fachlichen** Check — der bleibt Handarbeit
 und gehört in dieselbe Runde, nicht auf Nachfrage danach.

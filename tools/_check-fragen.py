@@ -2,7 +2,8 @@
 # Enforce the Fragen-answer standard (Option A): every Fragen & Protokolle answer must be a
 # flowing, speakable candidate-voice sentence. Flags telegraphic label-style answers
 # ("Symptome: …, Therapie: …"), arrow/semicolon chains, and one-word fragments.
-# Seit 09/2026 (Tab-6-Audit) sind auch Laenge (> 24 W), Satzlaenge (> 18 W), ausgeschriebene Zahlen,
+# Seit 09/2026 (Tab-6-Audit) sind auch Laenge (> 24 W, ausser class="ans vollzaehlig"),
+# Satzlaenge (> 18 W), ausgeschriebene Zahlen,
 # <strong> in Antworten und Blockkoepfe ohne Pruefer/Datum/Fall FAIL.
 # Fragenzahl: KEIN Minimum, KEIN Maximum (Mohamed, 09/2026). Grenze ist allein das Korpus.
 # Regelwerk: tools/TAB6-ANTWORTFORMAT.md. Scope: alle Reviews mit Tab 6. Exit 1 on any violation.
@@ -18,7 +19,7 @@ LABEL = re.compile(r'\b(Symptome|Therapie|Diagnostik|Klinik|Ätiologie|Komplikat
 LABELCOLON = re.compile(r'(?:^|\. |\? )([A-ZÄÖÜ][A-Za-zäöüÄÖÜ.-]{2,}):\s')
 INTRO_OK = {'Wichtig', 'Cave', 'Merke', 'Achtung', 'Beispiel', 'Definition', 'Faustregel'}
 
-def violations(answer):
+def violations(answer, vollzaehlig=False):
     at = clean(answer); wc = len(at.split())
     flowing = bool(re.search(r'\b(ich|wir|man|sie|er|es)\b', at.lower())) and at.count('.') >= 1
     reasons = []
@@ -31,7 +32,9 @@ def violations(answer):
     if not flowing and (at.count(';') >= 2): reasons.append('telegraphic')
     if wc < 5 or (at and at[-1] not in '.!?'): reasons.append('fragment')
     # --- verschaerft 09/2026 ---
-    if wc > 24: reasons.append('zu-lang(%dW)' % wc)
+    # Ausnahme (Mohamed, 09/2026): eine als vollzaehlig markierte Antwort darf den
+    # Deckel ueberschreiten, wenn die Vollstaendigkeit einer Klassifikation es verlangt.
+    if wc > 24 and not vollzaehlig: reasons.append('zu-lang(%dW)' % wc)
     for sent in re.split(r'(?<=[.!?])\s+(?=[\u201e"A-Z\u00c4\u00d6\u00dc0-9])', at):
         if len(sent.split()) > 18: reasons.append('langer-Satz(%dW)' % len(sent.split()))
     n = NUMWORD.findall(at)
@@ -79,9 +82,9 @@ for f in sorted(set(files)):
     h = io.open(f, encoding='utf-8').read()
     for dv in deck_violations(h):
         bad.append((f.split('/')[-1], '(Deck)', [dv], ''))
-    for q, a in re.findall(r'<div class="pq-frage">(.*?)</div>.*?<div class="ans">(.*?)</div>', h, re.S):
+    for q, cls, a in re.findall(r'<div class="pq-frage">(.*?)</div>.*?<div class="ans([^"]*)">(.*?)</div>', h, re.S):
         total += 1
-        v = violations(a)
+        v = violations(a, vollzaehlig='vollzaehlig' in cls)
         if v:
             bad.append((f.split('/')[-1], clean(q)[:50], v, clean(a)[:80]))
         sw = style_warnings(a)
