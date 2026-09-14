@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-09-13T08:00:58.386Z",
+  "generatedAt": "2026-09-14T08:34:31.627Z",
   "totals": {
-    "open": 130,
-    "completed": 409,
+    "open": 129,
+    "completed": 410,
     "overdue": 0,
-    "schedulingIssues": 84
+    "schedulingIssues": 83
   },
   "byLevel": {
     "R1": {
@@ -20,8 +20,8 @@
       "completed": 73
     },
     "R4": {
-      "open": 16,
-      "completed": 58
+      "open": 15,
+      "completed": 59
     },
     "R5": {
       "open": 30,
@@ -516,12 +516,6 @@
       "scheduledStart": null
     },
     {
-      "name": "Oral Simulation with Partner — Session 2",
-      "dueDate": "2026-10-17",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
       "name": "Drittes Fach: Protocol Review — Session 5",
       "dueDate": "2026-10-30",
       "schedulingIssue": true,
@@ -544,6 +538,12 @@
       "dueDate": "2027-02-20",
       "schedulingIssue": true,
       "scheduledStart": null
+    },
+    {
+      "name": "Drittes Fach: Protocol Review — Session 11",
+      "dueDate": "2026-12-11",
+      "schedulingIssue": true,
+      "scheduledStart": null
     }
   ],
   "overdue": [],
@@ -552,11 +552,6 @@
       "name": "Review: Anästhesie & Atemwegssicherung R3",
       "dueDate": "2026-09-17",
       "duration": 60
-    },
-    {
-      "name": "Review: Hüft/Knie-TEP R4",
-      "dueDate": "2026-09-17",
-      "duration": 30
     },
     {
       "name": "Review: Osteoporose R3",
