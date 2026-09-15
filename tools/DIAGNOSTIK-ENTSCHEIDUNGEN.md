@@ -9,8 +9,18 @@ Commit-Message, die bei einem Rebase auf die generierten Feeds verlorenging. Der
 Inhalt ist korrekt publiziert, die Begründung war weg. Steht sie nicht im Repo,
 öffnet die nächste Sitzung längst getroffene Entscheidungen erneut.
 
-**Endstand: 79 von 88 Decks mit Stern.** Die übrigen 9 sind Bucket C und tragen
-den Stern bewusst nicht.
+**Endstand: 88 von 88 Decks mit Stern.**
+
+> **Der Stern hat seit 15.09.2026 eine erweiterte Bedeutung.** Waehrend der
+> Umstellung hiess er „nach Untersuchungsart umgestellt". Jetzt heisst er
+> **„Diagnostik geprueft und freigegeben"** — das schliesst die neun
+> Bucket-C-Decks ein, die bewusst NICHT umgestellt wurden, weil ihre
+> Gruppierung selbst die Pruefungsantwort traegt.
+>
+> **Wer ein Deck aus Abschnitt 1 mit Stern sieht und darin eine Eskalationskette
+> oder ein Kriterienpaar findet, hat keinen Verstoss gefunden, sondern die
+> Ausnahme aus Regel 1.** Nicht umbauen. Genau das ist im August bei khk
+> passiert und musste zurueckgesetzt werden.
 
 ---
 
@@ -18,7 +28,10 @@ den Stern bewusst nicht.
 
 Regel 1 gliedert nach Untersuchungsart, **außer** die vorhandene Gruppierung
 trägt selbst Prüfungsbedeutung. Diese neun fallen unter die Ausnahme. Sie sind
-geprüft, nicht übersehen. **Nicht nachsternen, nicht neu triagieren.**
+geprüft, nicht übersehen. **Nicht umbauen, nicht neu triagieren.**
+
+Diese neun tragen den Stern, sind aber **nicht nach Untersuchungsart gegliedert**
+— sie sind geprueft und in dieser Form freigegeben.
 
 | Deck | Warum die Gruppierung die Antwort ist |
 |---|---|
@@ -138,6 +151,7 @@ schaedel-hirn-trauma 193, meningitis 189.
 
 ## 5 · Merksatz für die nächste Sitzung
 
-Die Diagnostik-Umstellung ist **abgeschlossen**. Wer hier wieder anfängt,
-triagiert nichts neu: die neun C-Decks sind geprüft und bleiben ohne Stern, die
-sechs D-Decks sind gebaut und freigegeben. Offen sind nur 4.1 und 4.2.
+Die Diagnostik-Umstellung ist **abgeschlossen**, alle 88 Decks tragen den Stern.
+Wer hier wieder anfängt, triagiert nichts neu: die neun C-Decks aus Abschnitt 1
+sind geprüft und bleiben in ihrer Form, die sechs D-Decks sind gebaut und
+freigegeben. Offen sind nur 4.1 und 4.2.

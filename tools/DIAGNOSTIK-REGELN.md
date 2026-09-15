@@ -146,5 +146,7 @@ pankreaskarzinom, gicht.
 6. Stern setzen, Build-Kette, Push
 
 Was bei der Umstellung 08-09/2026 entschieden wurde und woraus, steht in
-`tools/DIAGNOSTIK-ENTSCHEIDUNGEN.md` — inklusive der neun Bucket-C-Decks,
-die den Stern bewusst nicht tragen.
+`tools/DIAGNOSTIK-ENTSCHEIDUNGEN.md`. **Der Stern bedeutet seit 15.09.2026
+„geprueft und freigegeben", nicht mehr „nach Untersuchungsart umgestellt".**
+Neun Decks tragen ihn, obwohl ihre Gruppierung bewusst erhalten blieb — sie
+stehen dort in Abschnitt 1 und duerfen nicht umgebaut werden.
