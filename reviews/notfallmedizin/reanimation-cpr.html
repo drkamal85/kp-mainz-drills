@@ -233,7 +233,7 @@
   <div class="tabs">
     <button class="tab active" data-c="grundlagen" data-tab="grundlagen">Grundlagen</button>
     <button class="tab" data-c="klinik" data-tab="klinik">Klinik</button>
-    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik</button>
+    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik ★</button>
     <button class="tab" data-c="therapie" data-tab="therapie">Therapie</button>
     <button class="tab" data-c="perlen" data-tab="perlen">KP-Perlen</button>
     <span class="tier-sticky rand">RAND<span class="zt">Ziel erreicht</span></span>
@@ -330,55 +330,26 @@
   </section>
 
   <section class="panel" data-panel="diagnostik">
-    <p class="panel-intro">Warum ist der Kreislauf stehengeblieben?</p>
+    <p class="panel-intro">Warum steht der Kreislauf — und was sagt die Kurve?</p>
 
     <details class="card diagnostik" open><summary><span class="ct"><span class="ctag">Ursachen</span><span class="ctitle">4 H und HITS</span></span><span class="plus">+</span></summary>
       <div class="body">
-        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Ohne behebbare Ursache bleibt jede Reanimation erfolglos.</strong> Ich gehe beide Listen bei jeder Rhythmuskontrolle durch.</div>
-        <table class="dd"><tr><th>4 H</th><th>HITS</th></tr>
-          <tr><td><strong>H</strong>ypoxie</td><td><strong>H</strong>erzbeuteltamponade</td></tr>
-          <tr><td><strong>H</strong>ypovolämie</td><td><strong>I</strong>ntoxikation</td></tr>
-          <tr><td><strong>H</strong>ypo- oder Hyperkaliämie</td><td><strong>T</strong>hromboembolie</td></tr>
-          <tr><td><strong>H</strong>ypothermie</td><td><strong>S</strong>pannungspneumothorax</td></tr></table>
+        <div class="callout critical"><span class="lab">★ Merksatz</span>Ohne behebbare Ursache bleibt jede Reanimation erfolglos. Ich gehe beide Listen bei jeder Rhythmuskontrolle durch.</div>
+        <table class="dd"><tr><td><strong>4 H</strong></td><td><strong>HITS</strong></td></tr><tr><td><strong>H</strong>ypoxie</td><td><strong>H</strong>erzbeuteltamponade</td></tr><tr><td><strong>H</strong>ypovolämie</td><td><strong>I</strong>ntoxikation</td></tr><tr><td><strong>H</strong>ypo- oder Hyperkaliämie</td><td><strong>T</strong>hromboembolie</td></tr><tr><td><strong>H</strong>ypothermie</td><td><strong>S</strong>pannungspneumothorax</td></tr></table>
         <div class="callout fact"><span class="lab">⚙ Praktisch</span>Die Notfallsonografie klärt Tamponade, Volumenmangel und Pneumothorax in Sekunden — in der Kompressionspause.</div>
-      </div>
-    </details>
+      </div></details>
 
-    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">etCO₂</span><span class="ctitle">Was die Kapnografie misst</span></span><span class="plus">+</span></summary>
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Kapnografie</span><span class="ctitle">Tubuslage, Qualität, ROSC</span></span><span class="plus">+</span></summary>
       <div class="body">
-        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>etCO₂ ist das CO₂ am Ende der Ausatmung — endtidal.</strong><br>Ausgeatmet wird nur, was das Blut zur Lunge bringt. Also misst es indirekt das Herzzeitvolumen.</div>
         <ul class="b">
-          <li>Normal beim Gesunden <strong>35 bis 45 mmHg</strong>, wie der arterielle pCO₂</li>
-          <li>Unter Reanimation viel niedriger, weil die Kompression nur einen Bruchteil des Kreislaufs erzeugt</li>
-          <li><strong>Drei Aussagen:</strong> Tubus liegt richtig · Kompression ist gut · Kreislauf ist zurück</li>
-          <li>Kein CO₂ in der Kurve heißt <strong>Fehllage im Ösophagus</strong> — der sicherste Nachweis überhaupt</li>
+          <li>Normal <strong>35 bis 45 mmHg</strong>, unter Reanimation deutlich niedriger</li>
+          <li>Keine CO₂-Kurve heißt <strong>Fehllage im Ösophagus</strong> — der sicherste Lagenachweis</li>
+          <li>Ziel nach ERC 2025 mindestens <strong>25 mmHg</strong>; invasiv diastolisch mindestens <strong>30 mmHg</strong></li>
+          <li>Anhaltend unter <strong>10 mmHg nach 20 Minuten</strong> ist prognostisch sehr ungünstig</li>
+          <li>Sprunghafter Anstieg über <strong>40 mmHg</strong> zeigt den ROSC — noch vor dem tastbaren Puls</li>
+          <li>Adrenalin senkt das etCO₂ kurzzeitig, das ist kein Qualitätsverlust</li>
         </ul>
-      </div>
-    </details>
-
-    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Steuerung</span><span class="ctitle">Läuft die Reanimation gut?</span></span><span class="plus">+</span></summary>
-      <div class="body">
-        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Steigt das etCO₂, kommt Blut an. Fällt es, drücke ich zu schwach oder der Helfer ist müde.</strong></div>
-        <ul class="b">
-          <li>Ziel nach ERC 2025: <strong>etCO₂ mindestens 25 mmHg</strong></li>
-          <li>Invasiv gemessen: <strong>diastolisch mindestens 30 mmHg</strong></li>
-          <li>Anhaltend unter <strong>10 mmHg</strong> nach 20 Minuten ist prognostisch sehr ungünstig</li>
-          <li>Vorsicht: Adrenalin senkt das etCO₂ kurzzeitig, das ist kein Qualitätsverlust</li>
-        </ul>
-      </div>
-    </details>
-
-    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">ROSC</span><span class="ctitle">Return of Spontaneous Circulation</span></span><span class="plus">+</span></summary>
-      <div class="body">
-        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>ROSC heißt Rückkehr des Spontankreislaufs</strong> — das Herz schlägt wieder von selbst.</div>
-        <ul class="b">
-          <li><strong>Erstes Zeichen: sprunghafter etCO₂-Anstieg</strong>, oft über 40 mmHg — noch vor dem tastbaren Puls</li>
-          <li>Dazu tastbarer Puls, messbarer Blutdruck, Abwehrbewegung oder eigene Atmung</li>
-          <li>Bei plötzlichem Anstieg <strong>Kompression kurz unterbrechen und Puls prüfen</strong></li>
-          <li>Nach ROSC beginnt sofort die Postreanimationsbehandlung</li>
-        </ul>
-      </div>
-    </details>
+      </div></details>
   </section>
 
   <section class="panel" data-panel="therapie">

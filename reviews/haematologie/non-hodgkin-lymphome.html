@@ -233,7 +233,7 @@
   <div class="tabs">
     <button class="tab active" data-c="grundlagen" data-tab="grundlagen">Grundlagen</button>
     <button class="tab" data-c="klinik" data-tab="klinik">Klinik</button>
-    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik</button>
+    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik ★</button>
     <button class="tab" data-c="therapie" data-tab="therapie">Therapie</button>
     <button class="tab" data-c="perlen" data-tab="perlen">KP-Perlen</button>
     <button class="tab" data-c="protokoll" data-tab="protokoll">Fragen &amp; Protokolle ★ · 13</button>
@@ -287,32 +287,39 @@
 
   <!-- ============ DIAGNOSTIK ============ -->
   <section class="panel" data-panel="diagnostik">
-    <p class="panel-intro">Exstirpieren, nicht punktieren. Erst laut, dann abgleichen.</p>
-    <details class="card diagnostik" open><summary><span class="ct"><span class="ctag">Sicherung</span><span class="ctitle">LK-Exstirpation + Immunhistologie</span></span><span class="plus">+</span></summary>
+    <p class="panel-intro">Exstirpieren, nicht punktieren — dann Ausbreitung und Ann-Arbor.</p>
+
+    <details class="card diagnostik" open><summary><span class="ct"><span class="ctag">Labor</span><span class="ctitle">Basis und Prognose</span></span><span class="plus">+</span></summary>
       <div class="body">
-        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Diagnosesicherung durch komplette Lymphknoten-Exstirpation mit Histologie — eine Feinnadelpunktion reicht NICHT, weil die Gewebearchitektur beurteilt werden muss.</strong></div>
         <ul class="b">
-          <li><strong>Immunhistochemie + Durchflusszytometrie:</strong> CD20 = B-Zell, CD3 = T-Zell; dazu Zytogenetik</li>
-          <li><strong>Staging:</strong> Sonografie, CT Hals/Thorax/Abdomen, PET-CT (v. a. aggressive), Knochenmarkbiopsie</li>
-          <li><strong>Labor:</strong> LDH und β2-Mikroglobulin als Tumorlast-Marker</li>
+          <li>Blutbild, bei Knochenmarkbefall Zytopenien</li>
+          <li><strong>LDH</strong> und <strong>β2-Mikroglobulin</strong> als Tumorlastmarker — die LDH geht in den IPI ein</li>
         </ul>
-        <table class="dd"><tr><th>Translokation</th><th>Lymphom</th></tr>
-          <tr><td>t(14;18) — BCL2</td><td>follikuläres Lymphom</td></tr>
-          <tr><td>t(8;14) — MYC</td><td>Burkitt-Lymphom</td></tr>
-          <tr><td>t(11;14) — CCND1</td><td>Mantelzell-Lymphom</td></tr></table>
-      </div>
-    </details>
-    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Staging</span><span class="ctitle">Ann-Arbor + Prognose</span></span><span class="plus">+</span></summary>
+      </div></details>
+
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Bildgebung</span><span class="ctitle">Ausbreitung</span></span><span class="plus">+</span></summary>
       <div class="body">
-        <div class="callout fact"><span class="lab">★ Merksatz</span><strong>Ann-Arbor I–IV beschreibt die Ausbreitung; der Zusatz A/B erfasst die B-Symptomatik.</strong></div>
-        <table class="dd"><tr><th>Stadium</th><th>Befall</th></tr>
-          <tr><td><strong>I</strong></td><td>eine Lymphknotenregion</td></tr>
-          <tr><td><strong>II</strong></td><td>≥ 2 Regionen, gleiche Zwerchfellseite</td></tr>
-          <tr><td><strong>III</strong></td><td>beide Zwerchfellseiten</td></tr>
-          <tr><td><strong>IV</strong></td><td>disseminiert / extranodal (Knochenmark, Leber)</td></tr></table>
-        <div class="callout fact"><span class="lab">⚙ Prognose</span><strong>LDH ↑</strong> ist der wichtige Tumorlast- und Prognosemarker (geht in den IPI ein), dazu das β2-Mikroglobulin.</div>
-      </div>
-    </details>
+        <ul class="b">
+          <li>Sonografie des Halses — der erste Blick</li>
+          <li>CT von Hals, Thorax und Abdomen</li>
+          <li><strong>PET-CT</strong> vor allem bei den aggressiven Lymphomen</li>
+        </ul>
+      </div></details>
+
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Biopsie</span><span class="ctitle">Der Beweis</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span>Komplette <strong>Lymphknoten-Exstirpation</strong> mit Histologie — eine Feinnadelpunktion reicht NICHT, weil die Gewebearchitektur beurteilt werden muss.</div>
+        <ul class="b">
+          <li>Immunhistochemie: <strong>CD20</strong> = B-Zell, <strong>CD3</strong> = T-Zell; dazu Durchflusszytometrie</li>
+          <li>Knochenmarkbiopsie zum Staging</li>
+        </ul>
+        <table class="dd"><tr><td><strong>Translokation</strong></td><td><strong>Lymphom</strong></td></tr><tr><td>t(14;18) — BCL2</td><td>follikuläres Lymphom</td></tr><tr><td>t(8;14) — MYC</td><td>Burkitt-Lymphom</td></tr><tr><td>t(11;14) — CCND1</td><td>Mantelzell-Lymphom</td></tr></table>
+      </div></details>
+
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Ann-Arbor</span><span class="ctitle">Die Einteilung</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <table class="dd"><tr><td><strong>Stadium</strong></td><td><strong>Befall</strong></td></tr><tr><td>I</td><td>eine Lymphknotenregion</td></tr><tr><td>II</td><td>≥ 2 Regionen, gleiche Zwerchfellseite</td></tr><tr><td>III</td><td>beide Zwerchfellseiten</td></tr><tr><td>IV</td><td>disseminiert / extranodal</td></tr></table><div class="callout fact"><span class="lab">⚙ Zusatz</span><strong>A</strong> ohne, <strong>B</strong> mit B-Symptomatik.</div>
+      </div></details>
   </section>
 
   <!-- ============ THERAPIE ============ -->

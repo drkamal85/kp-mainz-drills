@@ -231,7 +231,7 @@
   <div class="tabs">
     <button class="tab active" data-c="grundlagen" data-tab="grundlagen">Grundlagen</button>
     <button class="tab" data-c="klinik" data-tab="klinik">Klinik</button>
-    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik</button>
+    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik ★</button>
     <button class="tab" data-c="therapie" data-tab="therapie">Therapie</button>
     <button class="tab" data-c="perlen" data-tab="perlen">KP-Perlen</button>
     <button class="tab" data-c="protokoll" data-tab="protokoll">Fragen &amp; Protokolle ★ · 18</button>
@@ -321,17 +321,20 @@
   </section>
 
   <section class="panel" data-panel="diagnostik">
-    <p class="panel-intro">Was das Labor verrät.</p>
+    <p class="panel-intro">Die Umgebung verrät das Gift, das Labor die Folgen.</p>
 
-    <details class="card diagnostik" open><summary><span class="ct"><span class="ctag">Basis</span><span class="ctitle">Beim bewusstlosen Patienten</span></span><span class="plus">+</span></summary>
+    <details class="card diagnostik" open><summary><span class="ct"><span class="ctag">Fremdanamnese</span><span class="ctitle">Was die Umgebung verrät</span></span><span class="plus">+</span></summary>
       <div class="body">
-        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Blutzucker, BGA, Elektrolyte, Nieren- und Leberwerte, EKG.</strong></div>
         <ul class="b">
-          <li>Fremdanamnese: Blister, Flaschen, Abschiedsbrief</li>
-          <li><strong>EKG:</strong> breiter QRS spricht für trizyklische Antidepressiva</li>
+          <li>Blister, Flaschen, Abschiedsbrief</li>
+          <li>Angehörige und Rettungsdienst nach Zeitpunkt und Menge fragen</li>
         </ul>
-      </div>
-    </details>
+      </div></details>
+
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Labor</span><span class="ctitle">Beim bewusstlosen Patienten</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Blutzucker, Elektrolyte, Nieren- und Leberwerte</strong> — dazu BGA und EKG.</div>
+      </div></details>
 
     <details class="card diagnostik"><summary><span class="ct"><span class="ctag">BGA</span><span class="ctitle">Anionenlücke und Sättigungslücke</span></span><span class="plus">+</span></summary>
       <div class="body">
@@ -339,18 +342,23 @@
         <ul class="b">
           <li><strong>Sättigungslücke:</strong> Pulsoxymeter normal, BGA schlecht → CO oder Methämoglobin</li>
         </ul>
-      </div>
-    </details>
+      </div></details>
+
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">EKG</span><span class="ctitle">Was es verrät</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <ul class="b">
+          <li><strong>Breiter QRS</strong> spricht für trizyklische Antidepressiva</li>
+        </ul>
+      </div></details>
 
     <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Spiegel</span><span class="ctitle">Wann sie helfen</span></span><span class="plus">+</span></summary>
       <div class="body">
-        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Nur wo es eine Konsequenz gibt:</strong> Paracetamol, Salicylate, Lithium, Digoxin, Alkohol.</div>
+        <div class="callout fact"><span class="lab">★ Merksatz</span>Nur wo es eine Konsequenz gibt: <strong>Paracetamol, Salicylate, Lithium, Digoxin, Alkohol</strong>.</div>
         <ul class="b">
           <li>Paracetamol frühestens <strong>4 Stunden</strong> nach Einnahme, sonst nicht verwertbar</li>
           <li>Ein Drogenscreening im Urin ändert selten die Therapie</li>
         </ul>
-      </div>
-    </details>
+      </div></details>
   </section>
 
   <section class="panel" data-panel="therapie">

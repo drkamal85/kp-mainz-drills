@@ -232,7 +232,7 @@
   <div class="tabs">
     <button class="tab active" data-c="grundlagen" data-tab="grundlagen">Grundlagen</button>
     <button class="tab" data-c="klinik" data-tab="klinik">Klinik</button>
-    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik</button>
+    <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik ★</button>
     <button class="tab" data-c="therapie" data-tab="therapie">Therapie</button>
     <button class="tab" data-c="perlen" data-tab="perlen">KP-Perlen</button>
     <button class="tab" data-c="protokoll" data-tab="protokoll">Fragen &amp; Protokolle ★ · 15</button>
@@ -284,18 +284,39 @@
   </section>
 
   <section class="panel" data-panel="diagnostik">
-    <p class="panel-intro">≥ 20 % Blasten = die Diagnose.</p>
-    <details class="card diagnostik" open><summary><span class="ct"><span class="ctag">★ Anker</span><span class="ctitle">Blut + Knochenmark</span></span><span class="plus">+</span></summary>
+    <p class="panel-intro">Das Blutbild führt hin, das Knochenmark beweist.</p>
+
+    <details class="card diagnostik" open><summary><span class="ct"><span class="ctag">Blutbild</span><span class="ctitle">Was im peripheren Blut steht</span></span><span class="plus">+</span></summary>
       <div class="body">
-        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Knochenmarkpunktion beweist: ≥ 20 % Blasten.</strong> Auerstäbchen = AML. <strong>Immunphänotypisierung</strong> trennt AML von ALL; Zytogenetik/Molekulargenetik für Prognose + Therapie.</div>
         <ul class="b">
-          <li><strong>Blutbild:</strong> Anämie + Thrombopenie + Blasten; Leukozyten variabel (normal / ↑ / ↓)</li>
-          <li><strong>Hiatus leucaemicus:</strong> Blasten + reife Zellen, aber KEINE Zwischenstufen — anders als die CML (kontinuierliche Linksverschiebung)</li>
-          <li>LDH ↑ + Harnsäure ↑ (Zellzerfall); Gerinnung (<strong>DIC bei APL!</strong>)</li>
-          <li><strong>Liquorpunktion immer bei ALL</strong> (ZNS-Befall)</li>
+          <li>Anämie + Thrombopenie + <strong>Blasten</strong>; Leukozyten variabel (normal, ↑ oder ↓)</li>
+          <li><strong>Hiatus leucaemicus:</strong> Blasten und reife Zellen, aber KEINE Zwischenstufen — anders als die CML mit kontinuierlicher Linksverschiebung</li>
         </ul>
-      </div>
-    </details>
+      </div></details>
+
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Knochenmark</span><span class="ctitle">Die Diagnose</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span>Die Knochenmarkpunktion beweist: <strong>≥ 20 % Blasten</strong>. <strong>Auerstäbchen = AML</strong>.</div>
+        <ul class="b">
+          <li>Immunphänotypisierung trennt AML von ALL</li>
+          <li>Zytogenetik und Molekulargenetik für Prognose und Therapie</li>
+        </ul>
+      </div></details>
+
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Labor</span><span class="ctitle">Zellzerfall und Gerinnung</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <ul class="b">
+          <li><strong>LDH ↑</strong> und <strong>Harnsäure ↑</strong> durch Zellzerfall</li>
+          <li>Gerinnung: <strong>DIC bei der Promyelozytenleukämie (APL)</strong></li>
+        </ul>
+      </div></details>
+
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Liquor</span><span class="ctitle">Bei der ALL immer</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <ul class="b">
+          <li>Liquorpunktion wegen des ZNS-Befalls</li>
+        </ul>
+      </div></details>
   </section>
 
   <section class="panel" data-panel="therapie">
