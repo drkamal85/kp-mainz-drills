@@ -129,29 +129,43 @@ hatten null Treffer und wurden zu Recht gestrichen.
 
 ---
 
-## 4 · Offen
+## 4 · Erledigt — beide offenen Punkte entschieden
 
-### 4.1 hueft-knie-tep — die gelöschte Karte `Klinisch`
-**Nicht entschieden.** Trendelenburg und Thomas-Handgriff sind die
-Standarduntersuchung der Hüfte. Null Korpustreffer heißt hier nur, dass kein
-Protokoll sie dokumentiert — nicht, dass kein Prüfer danach fragt. Die Karte
-wurde entfernt, nicht in die Klinik verschoben.
+### 4.1 hueft-knie-tep — Untersuchung in die Klinik übernommen *(15.09.2026)*
+**Entschieden: die Karte lebt weiter, in der Klinik.** Trendelenburg,
+Thomas-Handgriff, Gangbild und Neutral-Null stehen jetzt als Karte
+`Untersuchung` in der Klinik-Station (150 → 200 W).
 
-Drei Möglichkeiten: in die **Klinik** übernehmen (regelkonform, Regel 3), in der
-Diagnostik wiederherstellen (widerspricht Regel 3), oder gestrichen lassen.
-**Mohamed entscheidet.** Bis dahin nicht eigenmächtig wiederherstellen.
+Begründung: Regel 3 weist körperliche Untersuchung der Klinik zu — das war
+richtig. Sie zu **löschen** war es nicht. Null Korpustreffer heißt, dass kein
+Protokoll sie dokumentiert, nicht dass kein Prüfer danach fragt; bei einem
+Hüft-TEP-Fall ist die Untersuchung der erste Schritt. Die Klinik hatte sie
+zuvor überhaupt nicht — es war eine echte Lücke, keine Doppelung.
 
-### 4.2 Wortzahl über dem Korridor
-Regel 8 nennt 70–140 Wörter, über 170 nur bei Top-20-Themen. Diese Decks liegen
-darüber, ohne Top-20 zu sein — beim nächsten Anfassen kürzen, kein eigener
-Durchgang: verbrennung 216, aufklaerung-einwilligung-betreuung 198,
-schaedel-hirn-trauma 193, meningitis 189.
+**Merke für künftige Umbauten:** Inhalt, der nach Regel 3 in eine andere Station
+gehört, wird **verschoben, nicht gestrichen**. Nur Messtechnik und echte
+Redundanz werden gelöscht (Regel 10).
 
----
+### 4.2 Wortzahl — keine Maßnahme nötig *(15.09.2026)*
+Die im ersten Entwurf notierten Werte waren bereits überholt. Aktueller Stand:
+verbrennung 190, aufklaerung-einwilligung-betreuung 184, schaedel-hirn-trauma
+159, meningitis 161 Wörter.
+
+Bei verbrennung kam die Senkung durch den Umbau vom 14.09., bei dem die
+Parkland-Formel in die Therapie zog — sie ist eine Infusionsrechnung, keine
+Untersuchung.
+
+Die verbleibenden Überschreitungen sind moderat und inhaltlich gedeckt. Regel 8
+nennt 70–140 Wörter als Korridor, nicht als Grenze; Kürzen um der Zahl willen
+würde hier Prüfungsinhalt kosten. **Kein Handlungsbedarf.**
 
 ## 5 · Merksatz für die nächste Sitzung
 
 Die Diagnostik-Umstellung ist **abgeschlossen**, alle 88 Decks tragen den Stern.
 Wer hier wieder anfängt, triagiert nichts neu: die neun C-Decks aus Abschnitt 1
 sind geprüft und bleiben in ihrer Form, die sechs D-Decks sind gebaut und
-freigegeben. Offen sind nur 4.1 und 4.2.
+freigegeben.
+
+**Es ist nichts mehr offen.** Beide Punkte aus Abschnitt 4 sind am 15.09.2026
+entschieden. Wer die Diagnostik erneut anfassen will, braucht dafür einen
+neuen Grund — etwa eine dokumentierte Prüfungsfrage, die eine Lücke zeigt.
