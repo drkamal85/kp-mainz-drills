@@ -144,3 +144,7 @@ pankreaskarzinom, gicht.
 4. Zahlen gegenprüfen, Messtechnik streichen
 5. Wortzahl gegen den Korridor prüfen
 6. Stern setzen, Build-Kette, Push
+
+Was bei der Umstellung 08-09/2026 entschieden wurde und woraus, steht in
+`tools/DIAGNOSTIK-ENTSCHEIDUNGEN.md` — inklusive der neun Bucket-C-Decks,
+die den Stern bewusst nicht tragen.
