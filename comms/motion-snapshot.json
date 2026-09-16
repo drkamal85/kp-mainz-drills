@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-09-14T08:34:31.627Z",
+  "generatedAt": "2026-09-16T08:17:45.764Z",
   "totals": {
-    "open": 129,
-    "completed": 410,
+    "open": 122,
+    "completed": 417,
     "overdue": 0,
-    "schedulingIssues": 83
+    "schedulingIssues": 79
   },
   "byLevel": {
     "R1": {
@@ -16,12 +16,12 @@
       "completed": 96
     },
     "R3": {
-      "open": 5,
-      "completed": 73
+      "open": 1,
+      "completed": 77
     },
     "R4": {
-      "open": 15,
-      "completed": 59
+      "open": 12,
+      "completed": 62
     },
     "R5": {
       "open": 30,
@@ -294,12 +294,6 @@
       "scheduledStart": null
     },
     {
-      "name": "Akte-Sim #7",
-      "dueDate": "2026-10-17",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
       "name": "Pull-forward-Entscheidung",
       "dueDate": "2026-10-20",
       "schedulingIssue": true,
@@ -438,18 +432,6 @@
       "scheduledStart": null
     },
     {
-      "name": "Review: Schlaganfall/Apoplex R5",
-      "dueDate": "2026-10-17",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Review: Leistenhernie R5",
-      "dueDate": "2026-10-18",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
       "name": "Review: Proximale Femurfrakturen R5",
       "dueDate": "2026-11-06",
       "schedulingIssue": true,
@@ -482,12 +464,6 @@
     {
       "name": "Review: Cholezystitis R5",
       "dueDate": "2026-11-03",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Review: Lungenembolie R5",
-      "dueDate": "2026-10-19",
       "schedulingIssue": true,
       "scheduledStart": null
     },
@@ -544,48 +520,52 @@
       "dueDate": "2026-12-11",
       "schedulingIssue": true,
       "scheduledStart": null
+    },
+    {
+      "name": "Oral Simulation with Partner — Session 5",
+      "dueDate": "2026-11-28",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Oral Simulation with Partner — Session 9",
+      "dueDate": "2027-01-23",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Drittes Fach: Protocol Review — Session 17",
+      "dueDate": "2026-12-29",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Drittes Fach: Protocol Review — Session 12",
+      "dueDate": "2026-12-18",
+      "schedulingIssue": true,
+      "scheduledStart": null
     }
   ],
   "overdue": [],
   "upcoming14d": [
-    {
-      "name": "Review: Anästhesie & Atemwegssicherung R3",
-      "dueDate": "2026-09-17",
-      "duration": 60
-    },
-    {
-      "name": "Review: Osteoporose R3",
-      "dueDate": "2026-09-18",
-      "duration": 60
-    },
-    {
-      "name": "Review: Harnwegsinfekt / Pyelonephritis R3",
-      "dueDate": "2026-09-18",
-      "duration": 60
-    },
-    {
-      "name": "Review: Nierenversagen R4",
-      "dueDate": "2026-09-26",
-      "duration": 30
-    },
     {
       "name": "Akte-Sim #3",
       "dueDate": "2026-09-26",
       "duration": 60
     },
     {
-      "name": "Review: Bronchialkarzinom R3",
-      "dueDate": "2026-09-26",
-      "duration": 60
-    },
-    {
-      "name": "Review: Gastroduodenales Ulkus R4",
-      "dueDate": "2026-09-26",
+      "name": "Review: pAVK R4",
+      "dueDate": "2026-09-29",
       "duration": 30
     },
     {
-      "name": "Review: Hepatitis R4",
-      "dueDate": "2026-09-27",
+      "name": "Review: Milzruptur / Splenektomie R3",
+      "dueDate": "2026-09-29",
+      "duration": 60
+    },
+    {
+      "name": "CHECKPOINT: September Review Complete",
+      "dueDate": "2026-09-30",
       "duration": 30
     }
   ],
