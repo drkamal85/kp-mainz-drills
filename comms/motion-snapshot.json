@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-09-16T08:17:45.764Z",
+  "generatedAt": "2026-09-17T08:24:11.232Z",
   "totals": {
     "open": 122,
     "completed": 417,
     "overdue": 0,
-    "schedulingIssues": 79
+    "schedulingIssues": 78
   },
   "byLevel": {
     "R1": {
@@ -294,12 +294,6 @@
       "scheduledStart": null
     },
     {
-      "name": "Pull-forward-Entscheidung",
-      "dueDate": "2026-10-20",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
       "name": "R5-Pilot-Verdict",
       "dueDate": "2026-11-09",
       "schedulingIssue": true,
@@ -544,6 +538,12 @@
       "dueDate": "2026-12-18",
       "schedulingIssue": true,
       "scheduledStart": null
+    },
+    {
+      "name": "Drittes Fach: Protocol Review — Session 4",
+      "dueDate": "2026-10-23",
+      "schedulingIssue": true,
+      "scheduledStart": null
     }
   ],
   "overdue": [],
@@ -567,6 +567,11 @@
       "name": "CHECKPOINT: September Review Complete",
       "dueDate": "2026-09-30",
       "duration": 30
+    },
+    {
+      "name": "Review: ACS/Myokardinfarkt R5",
+      "dueDate": "2026-10-01",
+      "duration": 90
     }
   ],
   "nextCheckpoint": {
