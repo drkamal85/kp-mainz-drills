@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-17T08:24:11.232Z",
+  "generatedAt": "2026-09-18T07:58:38.361Z",
   "totals": {
     "open": 122,
     "completed": 417,
@@ -572,6 +572,26 @@
       "name": "Review: ACS/Myokardinfarkt R5",
       "dueDate": "2026-10-01",
       "duration": 90
+    },
+    {
+      "name": "Mentor check-in #3",
+      "dueDate": "2026-10-02",
+      "duration": 30
+    },
+    {
+      "name": "Review: Diabetes mellitus R5",
+      "dueDate": "2026-10-02",
+      "duration": 90
+    },
+    {
+      "name": "Review: Herzinsuffizienz R5",
+      "dueDate": "2026-10-02",
+      "duration": 90
+    },
+    {
+      "name": "Drittes Fach: Protocol Review — Session 1",
+      "dueDate": "2026-10-02",
+      "duration": 60
     }
   ],
   "nextCheckpoint": {
