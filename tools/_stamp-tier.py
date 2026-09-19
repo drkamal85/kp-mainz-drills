@@ -3,12 +3,14 @@
 KERN ab 100 Protokoll-Treffern (Ziel R5), STANDARD 50-99 (R4), RAND darunter (R2).
 Zeigt zusaetzlich den Zielabstand. Idempotent - mehrfaches Laufen aendert nichts."""
 import re,io,glob
-k=io.open('tools/_build-master.py',encoding='utf-8').read()
-PROT={m.group(6):int(m.group(3)) for m in re.finditer(r'\((\d+),(\d+),(\d+),"([^"]*)","([^"]*)",\s*"([a-z0-9-]+)"\)',k)}
-def tier(p):
-    if p>=100: return ('KERN','kern',5)
-    if p>=50:  return ('STANDARD','std',4)
+import csv
+_LL=[r for r in csv.DictReader(io.open('data/lernliste.csv',encoding='utf-8')) if r['rank']]
+PROT={r['slug']:int(r['protokolle']) for r in _LL}
+_TIER={r['slug']:(r['stufe'],{'KERN':'kern','STANDARD':'std','RAND':'rand'}[r['stufe']],int(r['ziel_r'])) for r in _LL}
+def tier(p):   # Fallback, falls ein Slug nicht in der Liste steht
     return ('RAND','rand',2)
+def tier_slug(s):
+    return _TIER.get(s, ('RAND','rand',2))
 CSS='''
   /* Tier-Marke zusaetzlich in der Reiterleiste: der Kopfbereich scrollt weg,
      die Leiste bleibt haften - so ist das Ziel beim Lernen immer sichtbar. */
@@ -42,7 +44,7 @@ for f in sorted(glob.glob('reviews/*/*.html')):
     if not m: skip+=1; continue
     lv=re.search(r'<span>R(\d)</span>',m.group(1))
     lvl=int(lv.group(1)) if lv else 0
-    name,cls,tgt=tier(PROT[slug])
+    name,cls,tgt=tier_slug(slug)
     zt='Ziel erreicht' if lvl>=tgt else f'Ziel R{tgt}'
     # Marke NICHT mehr im Kopfbereich - der scrollt weg und sie stuende doppelt.
     body=re.sub(r'\s*<span class="tier [^"]*">.*?</span>\s*</span>','',m.group(1),flags=re.S)

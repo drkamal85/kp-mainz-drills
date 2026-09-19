@@ -21,7 +21,19 @@ def _badge_lvl(slug,filelvl): return 4 if slug in R4_TOPICS else filelvl
 # prot >= 100 -> KERN     Ziel R5
 # prot 50-99  -> STANDARD Ziel R4
 # prot < 100  -> RAND     Ziel R2
-def ziel_tier(prot):
+# --- Kanonische Lernliste: data/lernliste.csv ist die EINZIGE Quelle ------------
+# Stufe/Rang stammen aus der protokollbasierten Auswertung (517 Protokolle, 2023-2026),
+# nicht mehr aus einer Treffer-Schwelle. Aendern: nur die CSV anfassen.
+import csv as _csv
+_LL=[r for r in _csv.DictReader(io.open('data/lernliste.csv',encoding='utf-8'))]
+TIERMAP={r['slug']:(r['stufe'], int(r['ziel_r']) if r['ziel_r'] else 2,
+                    {'KERN':'kern','STANDARD':'std','RAND':'rand'}.get(r['stufe'],'rand'))
+         for r in _LL if r['rank']}
+TYPMAP={r['slug']:r['typ'] for r in _LL if r['rank']}
+def ziel_tier_slug(slug):
+    return TIERMAP.get(slug, ("RAND",2,"rand"))
+
+def ziel_tier(prot):   # Rueckwaertskompatibel fuer Aufrufer ohne Slug
     if prot >= 100: return ("KERN", 5, "kern")
     if prot >= 50:  return ("STANDARD", 4, "std")
     return ("RAND", 2, "rand")
@@ -45,7 +57,7 @@ DRILL={"Rechtsmedizin / Leichenschau"}
 def esc(s): return s.replace('&','&amp;')
 def trow(rank, treffer, chat, prot, fach, thema, slug, force_tier=False):
     info=repo.get(slug); badges=""; done=""; topic=esc(thema)
-    tname,tgt,tcls = ziel_tier(prot)
+    tname,tgt,tcls = ziel_tier_slug(slug)
     lvl = _badge_lvl(slug, info[0]) if info else 0
     if info:
         _l,path=info; topic=f'<a href="../{path}">{esc(thema)}</a>'
@@ -66,110 +78,28 @@ def trow(rank, treffer, chat, prot, fach, thema, slug, force_tier=False):
         zi+='<span class="zi-deck" title="Kern/Standard ohne Tab 6">DECK</span>'
     tb=f'<span class="tier-b {tcls}">{tname}</span>' if (treffer or force_tier) else ''
     rk=f'<td class="rk">{rank}</td>' if rank else '<td class="rk">\u00b7</td>'
+    _typ=TYPMAP.get(slug,'')
+    _tp=f'<span class="typ-b {"fall" if _typ=="Fall" else "frage"}">{_typ}</span>' if _typ else ''
     cnt=f'<span class="n">{treffer}</span><span class="src">{chat}\u00b7{prot}</span>' if treffer else '<span class="src">gebaut</span>'
     return (f'<tr class="{done.strip()}" data-topic="{esc(thema)}" data-tier="{tcls}"><td class="chk"><span class="box"></span></td>'
             f'{rk}<td class="topic">{topic}{badges}</td><td class="fach">{esc(fach)}{tb}</td>'
-            f'<td class="ziel">{zi}</td><td class="cnt">{cnt}</td></tr>')
+            f'<td class="ziel">{zi}{_tp}</td><td class="cnt">{cnt}</td></tr>')
 
-# FLAT ranking (treffer, chat, prot, fach, thema, slug) — rank = position
-FLAT=[
-(381,122,259,"Allgemein- und Viszeralchirurgie","Cholezystitis / Cholelithiasis","cholezystitis"),
-(396,130,223,"Kardiologie","Vorhofflimmern","vorhofflimmern"),
-(327,66,261,"Kardiologie","Herzinsuffizienz","herzinsuffizienz"),
-(304,72,232,"Notfallmedizin","Schock","schock"),
-(298,88,210,"Allgemein- und Viszeralchirurgie","Ileus","ileus"),
-(296,56,240,"Notfallmedizin","Sepsis & septischer Schock","sepsis"),
-(282,103,179,"Drittes Fach","Bluttransfusion","bluttransfusion"),
-(279,90,189,"Drittes Fach","Anästhesie & Atemwegssicherung","anaesthesie-atemweg"),
-(278,74,204,"Endokrinologie","Diabetes mellitus","diabetes-mellitus"),
-(264,98,166,"Drittes Fach","Impfungen / STIKO","impfungen-stiko"),
-(255,84,171,"Pneumologie","Pneumothorax","pneumothorax"),
-(244,78,166,"Neurologie","Schlaganfall / Apoplex","schlaganfall"),
-(243,44,199,"Gastroenterologie","Ikterus & Cholestase","ikterus-cholestase"),
-(241,43,198,"Nephrologie","Nierenversagen (akut / akut-auf-chron.)","nierenversagen"),
-(236,79,157,"Allgemein- und Viszeralchirurgie","GI-Blutung","gi-blutung"),
-(234,61,173,"Pneumologie","Pneumonie","pneumonie"),
-(232,58,174,"Kardiologie","ACS / Myokardinfarkt","acs-myokardinfarkt"),
-(226,78,148,"Allgemein- und Viszeralchirurgie","Leistenhernie / Hernien","leistenhernie"),
-(224,118,106,"Drittes Fach","Rechtsmedizin / Leichenschau","rechtsmedizin"),
-(220,76,144,"Angiologie","Lungenembolie","lungenembolie"),
-(218,88,130,"Allgemein- und Viszeralchirurgie","Gastroduodenales Ulkus","gastroduodenales-ulkus"),
-(212,79,133,"Unfallchirurgie","Proximale Femurfraktur","proximale-femurfraktur"),
-(203,74,129,"Allgemein- und Viszeralchirurgie","Pankreatitis","pankreatitis"),
-(203,68,135,"Allgemein- und Viszeralchirurgie","Divertikulitis","divertikulitis"),
-(171,46,125,"Gastroenterologie","Leberzirrhose","leberzirrhose"),
-(169,54,115,"Allgemein- und Viszeralchirurgie","Appendizitis","appendizitis"),
-(155,42,113,"Kardiologie","AV-Block","av-block"),
-(151,61,90,"Hämatologie","Eisenmangelanämie","eisenmangelanaemie"),
-(151,18,133,"Gastroenterologie","Hepatitis","hepatitis"),
-(143,42,101,"Allgemein- und Viszeralchirurgie","Kolonkarzinom","kolonkarzinom"),
-(142,16,126,"Kardiologie","KHK / Koronarsyndrom","khk"),
-(132,39,93,"Gastroenterologie","Lebermetastasen / Lebertumor","lebertumoren"),
-(131,82,49,"Drittes Fach","Strahlenschutz","strahlenschutz"),
-(130,31,99,"Pneumologie","COPD","copd"),
-(127,44,83,"Unfallchirurgie","Sprunggelenksfraktur (OSG)","sprunggelenksfraktur"),
-(122,39,83,"Endokrinologie","Hyperthyreose","hyperthyreose"),
-(120,40,80,"Unfallchirurgie","Hüft- / Knie-TEP","hueft-knie-tep"),
-(120,36,84,"Gastroenterologie","Gastritis (Typ A/B/C)","gastritis"),
-(119,31,88,"Drittes Fach","Sozialrecht & Hygiene","sozialrecht-hygiene"),
-(117,24,93,"Angiologie","pAVK","pavk"),
-(111,37,74,"Angiologie","Tiefe Beinvenenthrombose (TVT)","tvt"),
-(108,35,73,"Kardiologie","Arterielle Hypertonie","arterielle-hypertonie"),
-(102,15,87,"Pneumologie","Asthma bronchiale","asthma-bronchiale"),
-(100,35,65,"Pneumologie","Bronchialkarzinom","bronchialkarzinom"),
-(95,18,77,"Kardiologie","Synkope","synkope"),
-(93,40,53,"Unfallchirurgie","Distale Radiusfraktur","distale-radiusfraktur"),
-(93,30,63,"Drittes Fach","Schmerztherapie / WHO-Schema","schmerztherapie"),
-(92,30,62,"Notfallmedizin","Akuttoxikologie / Intoxikation","akuttoxikologie"),
-(91,15,76,"Hämatologie","Akute Leukämien (ALL)","akute-leukaemien"),
-(89,37,52,"Drittes Fach","Aufklärung, Einwilligung & Betreuung","aufklaerung-einwilligung-betreuung"),
-(87,17,70,"Endokrinologie","Osteoporose","osteoporose"),
-(87,6,81,"Hämatologie","Non-Hodgkin-Lymphom (NHL)","non-hodgkin-lymphome"),
-(136,21,115,"Gastroenterologie","Morbus Crohn & Colitis ulcerosa","morbus-crohn"),
-(83,26,57,"Kardiologie","Herzklappenerkrankungen","herzklappenerkrankungen"),
-(82,16,66,"Endokrinologie","Hypothyreose","hypothyreose"),
-(139,27,54,"Unfallchirurgie","Schädel-Hirn-Trauma","schaedel-hirn-trauma"),
-(81,22,59,"Pneumologie","Tuberkulose","tuberkulose"),
-(81,16,65,"Unfallchirurgie","Polytrauma / ABCDE (Sturz)","polytrauma-abcde"),
-(81,24,57,"Allgemein- und Viszeralchirurgie","Milzruptur / Splenektomie","milzruptur-splenektomie"),
-(77,37,40,"Drittes Fach","Borreliose / FSME / Zeckenbiss","borreliose-fsme"),
-(168,29,47,"Notfallmedizin","Reanimation / CPR","reanimation-cpr"),
-(73,11,62,"Angiologie","Aortendissektion","aortendissektion"),
-(142,12,56,"Unfallchirurgie","Allgemeine Frakturlehre","allgemeine-frakturlehre"),
-(67,12,55,"Nephrologie","Harnwegsinfekt / Pyelonephritis","harnwegsinfekt"),
-(65,22,43,"Endokrinologie","Schilddrüsenkarzinom","schilddruesenkarzinom"),
-(64,29,35,"Allgemein- und Viszeralchirurgie","Akutes Abdomen","akutes-abdomen"),
-(63,25,38,"Notfallmedizin","Anaphylaxie","anaphylaxie"),
-(62,15,47,"Allgemein- und Viszeralchirurgie","Rektumkarzinom","rektumkarzinom"),
-(60,15,45,"Unfallchirurgie","Humerusfraktur","humerusfraktur"),
-(59,11,48,"Gastroenterologie","GERD / Refluxkrankheit","gerd"),
-(59,7,52,"Kardiologie","Infektiöse Endokarditis","infektioese-endokarditis"),
-(57,17,40,"Gastroenterologie","Diarrhoe / Gastroenteritis","diarrhoe"),
-(56,15,41,"Allgemein- und Viszeralchirurgie","Pankreaskarzinom","pankreaskarzinom"),
-(56,11,45,"Allgemein- und Viszeralchirurgie","Hämorrhoiden","haemorrhoiden"),
-(55,11,44,"Allgemein- und Viszeralchirurgie","Magenkarzinom","magenkarzinom"),
-(55,9,46,"Hämatologie","Morbus Hodgkin","morbus-hodgkin"),
-(54,19,35,"Notfallmedizin","Verbrennung","verbrennung"),
-(49,10,39,"Unfallchirurgie","Claviculafraktur","claviculafraktur"),
-(47,8,39,"Endokrinologie","Struma","struma"),
-(43,13,30,"Querschnitt","Check-up / Prävention","praevention"),
-(40,10,30,"Angiologie","Aortenaneurysma (AAA)","aortenaneurysma"),
-(40,7,33,"Unfallchirurgie","Beckenringfrakturen","beckenringfrakturen"),
-(37,12,25,"Notfallmedizin","Delir","delir"),
-(32,5,27,"Endokrinologie","Cushing-Syndrom","cushing-syndrom"),
-(32,9,23,"Nephrologie","Hyponatriämie / SIADH","hyponatriaemie-siadh"),
-(30,0,30,"Unfallchirurgie","Kreuzbandruptur","kreuzbandruptur"),
-(23,3,20,"Unfallchirurgie","Wirbelsäulenverletzungen","wirbelsaeulenverletzungen"),
-(62,22,40,"Neurologie","Meningitis / Enzephalitis","meningitis"),
-]
-EXTRA=[]
+# FLAT ranking (treffer, chat, prot, fach, thema, slug) — aus data/lernliste.csv
+FLAT=[(int(r['protokolle'])*2+int(r['letzte12m']), int(r['chat_alt'] or 0), int(r['protokolle']),
+       r['fach'], r['thema'], r['slug'])
+      for r in _LL if r['rank']]
+_RANK={r['slug']:int(r['rank']) for r in _LL if r['rank']}
+EXTRA=[(r['fach'], r['thema'], r['slug']) for r in _LL
+       if not r['rank'] and r['slug'] in repo]   # gebaut, aber aus der Liste genommen
 
 # rank + tier split
-FLAT.sort(key=lambda r:-r[0])  # keep ranking correct after additions
+FLAT.sort(key=lambda r:_RANK.get(r[5],999))  # Rangfolge kommt aus der CSV
 ranked=[(i+1,)+row for i,row in enumerate(FLAT)]
 def tier(lo,hi): return [r for r in ranked if lo<=r[1]<hi]   # r[1]=treffer
 # Gruppierung nach Ziel-Tier (prot = r[4])
-TK=[r for r in ranked if r[3]>=100]; TS=[r for r in ranked if 50<=r[3]<100]; TR=[r for r in ranked if r[3]<50]
+_ST=lambda r: TIERMAP.get(r[6],('RAND',2,'rand'))[0]
+TK=[r for r in ranked if _ST(r)=='KERN']; TS=[r for r in ranked if _ST(r)=='STANDARD']; TR=[r for r in ranked if _ST(r)=='RAND']
 covered=lambda s: bool(s) and s in repo
 def tc(T): return sum(1 for r in T if covered(r[6])), len(T)  # r[6]=slug
 tkc,tkn=tc(TK); tsc,tsn=tc(TS); trc,trn=tc(TR)

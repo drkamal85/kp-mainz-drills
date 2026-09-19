@@ -1,7 +1,9 @@
 # KP MAINZ — THEMENLISTE (FLACH, EINE RANGLISTE)
 
-Alle **88 Themen** in einer Rangliste nach **Korpus-Treffer** (WhatsApp-Chat + Protokolle). Aktuell **88 von 88** mit Review abgedeckt (~100 %).
+Alle **92 Themen** in einer Rangliste nach **Protokoll-Evidenz** (517 deduplizierte Prüfungsprotokolle 2023–2026, protokollbasiert gezählt). Aktuell **85 von 92** mit Review abgedeckt (~92 %).
 
+> **September 2026 (v2):** Neuzählung gegen **517 deduplizierte Protokolle**. Gezählt werden jetzt **Protokolle** (eigenständige Prüfungen) statt Nennungen — damit fällt die Querschnitts-Verzerrung weg, die in der alten Quellnotiz benannt war. Neue Spalten: *als Fall* (war das Thema der Patientenfall) und *letzte 12 M*. **Gestrichen:** Kreuzbandruptur (2 Protokolle). **Eingefaltet:** Claviculafraktur → Allgemeine Frakturlehre, Beckenringfrakturen → Polytrauma. **Neu:** Arzneimittelinteraktionen & UAW, Antikoagulation & Bridging, Antibiotikatherapie, Säure-Basen/BGA, Makrozytäre Anämie/B12, Elektrolytstörungen K⁺/Ca²⁺, Rheumatologie. Stufen neu: **KERN 32 · STANDARD 34 · RAND 26**. Quelle: `data/lernliste.csv`.
+>
 > **Juli 2026 (a):** 3 Themen ergänzt (nach Protokoll-Frequenz-Check bestätigt): **Kreuzbandruptur** (Unfallchirurgie, 30 Protokoll-Treffer, VKB:21), **Status epilepticus/Epilepsie** (Neurologie, 10), **Gicht/Podagra** (Rheumatologie, 6). *Verworfen* (zu niedrig/abwesend): Demenz, Erysipel, Fazialisparese, Ösophaguskarzinom, Multiples Myelom, Migräne, Parkinson.
 >
 > **September 2026 (b):** Vier Themen in Nachbardecks eingefaltet — **Ventr. Tachykardie/Kammerflimmern** in Reanimation/CPR, **Kompartmentsyndrom** in Allgemeine Frakturlehre, **Hirnblutungen** in Schädel-Hirn-Trauma und **Paroxysmale SVT/AVNRT** in Vorhofflimmern. Die Inhalte wurden in die Zieldecks übernommen, die Trefferzahlen addiert. Liste damit **88 Themen**.
@@ -16,94 +18,108 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 
 
 ## TIER 1 · höchste Präsenz (≥200 Treffer)
+| # | Prot. | als Fall | 12 M | Stufe | Typ | Fach | Thema | Review |
+|--:|--:|--:|--:|---|---|---|---|---|
+| 1 | 157 | 0 | 37 | KERN | Frage | Drittes Fach | Arzneimittelinteraktionen & UAW | — |
+| 2 | 130 | 4 | 29 | KERN | Frage | Drittes Fach | Schmerztherapie / WHO-Schema | ✓ R3 |
+| 3 | 152 | 19 | 21 | KERN | Frage | Allgemein- und Viszeralchirurgie | Leistenhernie / Hernien | ✓ R4 |
+| 4 | 147 | 19 | 22 | KERN | Frage | Allgemein- und Viszeralchirurgie | Cholezystitis / Cholelithiasis | ✓ R4 |
+| 5 | 122 | 8 | 29 | KERN | Frage | Unfallchirurgie | Allgemeine Frakturlehre | ✓ R4 |
+| 6 | 138 | 53 | 22 | KERN | Fall | Kardiologie | Vorhofflimmern | ✓ R4 |
+| 7 | 130 | 0 | 24 | KERN | Frage | Drittes Fach | Aufklärung, Einwilligung & Betreuung | ✓ R4 |
+| 8 | 129 | 2 | 24 | KERN | Frage | Pneumologie | Pneumothorax | ✓ R4 |
+| 9 | 136 | 21 | 19 | KERN | Fall | Kardiologie | Arterielle Hypertonie | ✓ R4 |
+| 10 | 119 | 18 | 23 | KERN | Fall | Endokrinologie | Diabetes mellitus | ✓ R4 |
+| 11 | 111 | 11 | 25 | KERN | Frage | Drittes Fach | Antikoagulation & Bridging | — |
+| 12 | 128 | 22 | 17 | KERN | Fall | Nephrologie | Harnwegsinfekt / Pyelonephritis | ✓ R3 |
+| 13 | 112 | 10 | 18 | KERN | Frage | Unfallchirurgie | Proximale Femurfraktur | ✓ R4 |
+| 14 | 103 | 8 | 20 | KERN | Frage | Unfallchirurgie | Polytrauma / ABCDE (Sturz) | ✓ R4 |
+| 15 | 109 | 23 | 18 | KERN | Fall | Allgemein- und Viszeralchirurgie | Gastroduodenales Ulkus | ✓ R4 |
+| 16 | 95 | 3 | 22 | KERN | Frage | Kardiologie | ACS / Myokardinfarkt | ✓ R4 |
+| 17 | 112 | 48 | 17 | KERN | Fall | Allgemein- und Viszeralchirurgie | GI-Blutung | ✓ R4 |
+| 18 | 96 | 2 | 21 | KERN | Frage | Drittes Fach | Bluttransfusion | ✓ R3 |
+| 19 | 103 | 5 | 17 | KERN | Frage | Notfallmedizin | Säure-Basen-Haushalt / BGA | — |
+| 20 | 95 | 3 | 19 | KERN | Frage | Unfallchirurgie | Schädel-Hirn-Trauma | ✓ R4 |
+| 21 | 103 | 15 | 16 | KERN | Frage | Allgemein- und Viszeralchirurgie | Appendizitis | ✓ R4 |
+| 22 | 106 | 0 | 15 | KERN | Frage | Drittes Fach | Antibiotikatherapie (kalkuliert) | — |
+| 23 | 114 | 13 | 12 | KERN | Frage | Allgemein- und Viszeralchirurgie | Ileus | ✓ R4 |
+| 24 | 92 | 23 | 18 | KERN | Fall | Allgemein- und Viszeralchirurgie | Divertikulitis | ✓ R4 |
+| 25 | 93 | 17 | 16 | KERN | Fall | Angiologie | Lungenembolie | ✓ R4 |
+| 26 | 96 | 20 | 14 | KERN | Fall | Allgemein- und Viszeralchirurgie | Kolonkarzinom | ✓ R4 |
+| 27 | 101 | 40 | 12 | KERN | Fall | Kardiologie | Herzinsuffizienz | ✓ R4 |
+| 28 | 81 | 2 | 17 | KERN | Frage | Drittes Fach | Anästhesie & Atemwegssicherung | ✓ R3 |
+| 29 | 91 | 1 | 13 | KERN | Frage | Neurologie | Schlaganfall / Apoplex | ✓ R4 |
+| 30 | 79 | 3 | 16 | KERN | Frage | Allgemein- und Viszeralchirurgie | Akutes Abdomen | ✓ R2 |
+| 31 | 72 | 1 | 17 | KERN | Frage | Drittes Fach | Impfungen / STIKO | ✓ R4 |
+| 32 | 78 | 5 | 15 | KERN | Frage | Notfallmedizin | Schock | ✓ R4 |
+| 33 | 80 | 30 | 14 | STANDARD | Fall | Hämatologie | Eisenmangelanämie | ✓ R4 |
+| 34 | 93 | 9 | 10 | STANDARD | Frage | Gastroenterologie | Ikterus & Cholestase | ✓ R4 |
+| 35 | 74 | 7 | 14 | STANDARD | Frage | Unfallchirurgie | Distale Radiusfraktur | ✓ R4 |
+| 36 | 67 | 1 | 16 | STANDARD | Frage | Drittes Fach | Rechtsmedizin / Leichenschau | ✓ R4 |
+| 37 | 83 | 12 | 11 | STANDARD | Frage | Gastroenterologie | Leberzirrhose | ✓ R4 |
+| 38 | 65 | 1 | 16 | STANDARD | Frage | Notfallmedizin | Akuttoxikologie / Intoxikation | ✓ R3 |
+| 39 | 85 | 1 | 10 | STANDARD | Frage | Notfallmedizin | Reanimation / CPR | ✓ R2 |
+| 40 | 88 | 18 | 9 | STANDARD | Fall | Pneumologie | Pneumonie | ✓ R4 |
+| 41 | 66 | 13 | 15 | STANDARD | Fall | Unfallchirurgie | Hüft- / Knie-TEP | ✓ R4 |
+| 42 | 59 | 0 | 14 | STANDARD | Frage | Querschnitt | Check-up / Prävention | ✓ R2 |
+| 43 | 58 | 6 | 11 | STANDARD | Frage | Kardiologie | AV-Block | ✓ R4 |
+| 44 | 67 | 7 | 8 | STANDARD | Frage | Gastroenterologie | Lebermetastasen / Lebertumor | ✓ R4 |
+| 45 | 65 | 18 | 8 | STANDARD | Fall | Notfallmedizin | Sepsis & septischer Schock | ✓ R4 |
+| 46 | 62 | 15 | 8 | STANDARD | Fall | Allgemein- und Viszeralchirurgie | Pankreatitis | ✓ R4 |
+| 47 | 45 | 6 | 12 | STANDARD | Frage | Kardiologie | KHK / Koronarsyndrom | ✓ R4 |
+| 48 | 62 | 20 | 7 | STANDARD | Fall | Endokrinologie | Hyperthyreose | ✓ R4 |
+| 49 | 59 | 4 | 7 | STANDARD | Frage | Unfallchirurgie | Sprunggelenksfraktur (OSG) | ✓ R4 |
+| 50 | 52 | 11 | 8 | STANDARD | Fall | Endokrinologie | Schilddrüsenkarzinom | ✓ R2 |
+| 51 | 42 | 0 | 10 | STANDARD | Frage | Drittes Fach | Strahlenschutz | ✓ R2 |
+| 52 | 52 | 23 | 7 | STANDARD | Fall | Gastroenterologie | Gastritis (Typ A/B/C) | ✓ R3 |
+| 53 | 42 | 2 | 9 | STANDARD | Frage | Notfallmedizin | Anaphylaxie | ✓ R2 |
+| 54 | 47 | 9 | 7 | STANDARD | Fall | Angiologie | Tiefe Beinvenenthrombose (TVT) | ✓ R4 |
+| 55 | 46 | 3 | 7 | STANDARD | Frage | Drittes Fach | Sozialrecht & Hygiene | ✓ R4 |
+| 56 | 56 | 24 | 4 | STANDARD | Fall | Hämatologie | Makrozytäre Anämie / Vitamin-B12-Mangel | — |
+| 57 | 51 | 7 | 5 | STANDARD | Frage | Gastroenterologie | Morbus Crohn & Colitis ulcerosa | ✓ R4 |
+| 58 | 35 | 12 | 9 | STANDARD | Fall | Pneumologie | Bronchialkarzinom | ✓ R3 |
+| 59 | 55 | 22 | 3 | STANDARD | Fall | Gastroenterologie | Diarrhoe / Gastroenteritis | ✓ R2 |
+| 60 | 44 | 8 | 5 | STANDARD | Fall | Nephrologie | Elektrolytstörungen K⁺/Ca²⁺ | — |
+| 61 | 36 | 8 | 7 | STANDARD | Fall | Nephrologie | Nierenversagen (akut / akut-auf-chron.) | ✓ R4 |
+| 62 | 38 | 9 | 6 | STANDARD | Fall | Unfallchirurgie | Humerusfraktur | ✓ R4 |
+| 63 | 41 | 8 | 5 | STANDARD | Fall | Angiologie | pAVK | ✓ R3 |
+| 64 | 28 | 9 | 8 | STANDARD | Fall | Kardiologie | Synkope | ✓ R4 |
+| 65 | 41 | 0 | 4 | STANDARD | Frage | Allgemein- und Viszeralchirurgie | Milzruptur / Splenektomie | ✓ R2 |
+| 66 | 37 | 9 | 5 | STANDARD | Fall | Pneumologie | COPD | ✓ R4 |
+| 67 | 22 | 2 | 8 | RAND | Frage | Endokrinologie | Osteoporose | ✓ R3 |
+| 68 | 41 | 15 | 2 | RAND | Fall | Allgemein- und Viszeralchirurgie | Rektumkarzinom | ✓ R2 |
+| 69 | 26 | 9 | 6 | RAND | Fall | Kardiologie | Herzklappenerkrankungen | ✓ R4 |
+| 70 | 28 | 2 | 5 | RAND | Frage | Gastroenterologie | Hepatitis | ✓ R4 |
+| 71 | 31 | 2 | 4 | RAND | Frage | Allgemein- und Viszeralchirurgie | Pankreaskarzinom | ✓ R2 |
+| 72 | 33 | 11 | 3 | RAND | Fall | Endokrinologie | Hypothyreose | ✓ R4 |
+| 73 | 28 | 9 | 4 | RAND | Fall | Hämatologie | Akute Leukämien (ALL) | ✓ R4 |
+| 74 | 27 | 2 | 3 | RAND | Frage | Allgemein- und Viszeralchirurgie | Magenkarzinom | ✓ R2 |
+| 75 | 29 | 0 | 2 | RAND | Frage | Pneumologie | Tuberkulose | ✓ R3 |
+| 76 | 23 | 0 | 3 | RAND | Frage | Allgemein- und Viszeralchirurgie | Hämorrhoiden | ✓ R2 |
+| 77 | 22 | 0 | 3 | RAND | Frage | Pneumologie | Asthma bronchiale | ✓ R4 |
+| 78 | 21 | 0 | 3 | RAND | Frage | Drittes Fach | Borreliose / FSME / Zeckenbiss | ✓ R2 |
+| 79 | 21 | 3 | 3 | RAND | Frage | Endokrinologie | Struma | ✓ R2 |
+| 80 | 14 | 0 | 5 | RAND | Frage | Notfallmedizin | Verbrennung | ✓ R2 |
+| 81 | 20 | 6 | 2 | RAND | Fall | Angiologie | Aortenaneurysma (AAA) | ✓ R2 |
+| 82 | 22 | 10 | 1 | RAND | Fall | Gastroenterologie | GERD / Refluxkrankheit | ✓ R1 |
+| 83 | 22 | 1 | 1 | RAND | Frage | Neurologie | Meningitis / Enzephalitis | ✓ R2 |
+| 84 | 18 | 4 | 2 | RAND | Fall | Innere | Rheumatologie (PMR, RZA, Spondyloarthritis) | — |
+| 85 | 12 | 0 | 3 | RAND | Frage | Angiologie | Aortendissektion | ✓ R4 |
+| 86 | 15 | 2 | 2 | RAND | Frage | Unfallchirurgie | Wirbelsäulenverletzungen | ✓ R2 |
+| 87 | 15 | 7 | 1 | RAND | Fall | Notfallmedizin | Delir | ✓ R2 |
+| 88 | 12 | 6 | 1 | RAND | Fall | Hämatologie | Morbus Hodgkin | ✓ R2 |
+| 89 | 12 | 6 | 1 | RAND | Fall | Nephrologie | Hyponatriämie / SIADH | ✓ R2 |
+| 90 | 9 | 2 | 1 | RAND | Fall | Kardiologie | Infektiöse Endokarditis | ✓ R4 |
+| 91 | 11 | 3 | 0 | RAND | Fall | Hämatologie | Non-Hodgkin-Lymphom (NHL) | ✓ R4 |
+| 92 | 11 | 0 | 0 | RAND | Frage | Endokrinologie | Cushing-Syndrom | ✓ R2 |
 
-| # | Treffer | chat | prot | Fachgebiet | Thema | Review |
-|--:|--:|--:|--:|------------|-------|--------|
-| 1 | 381 | 122 | 259 | Allgemein- und Viszeralchirurgie | Cholezystitis / Cholelithiasis | ✓ R4 |
-| 2 | 353 | 130 | 223 | Kardiologie | Vorhofflimmern | ✓ R3 |
-| 3 | 327 | 66 | 261 | Kardiologie | Herzinsuffizienz | ✓ R3 |
-| 4 | 304 | 72 | 232 | Notfallmedizin | Schock | ✓ R4 |
-| 5 | 298 | 88 | 210 | Allgemein- und Viszeralchirurgie | Ileus | ✓ R4 |
-| 6 | 296 | 56 | 240 | Notfallmedizin | Sepsis & septischer Schock | ✓ R3 |
-| 7 | 282 | 103 | 179 | Drittes Fach | Bluttransfusion | ✓ R3 |
-| 8 | 279 | 90 | 189 | Drittes Fach | Anästhesie & Atemwegssicherung | ✓ R3 |
-| 9 | 278 | 74 | 204 | Endokrinologie | Diabetes mellitus | ✓ R3 |
-| 10 | 264 | 98 | 166 | Drittes Fach | Impfungen / STIKO | ✓ R3 |
-| 11 | 255 | 84 | 171 | Pneumologie | Pneumothorax | ✓ R3 |
-| 12 | 244 | 78 | 166 | Neurologie | Schlaganfall / Apoplex | ✓ R3 |
-| 13 | 243 | 44 | 199 | Gastroenterologie | Ikterus & Cholestase | ✓ R4 |
-| 14 | 241 | 43 | 198 | Nephrologie | Nierenversagen (akut / akut-auf-chron.) | ✓ R3 |
-| 15 | 236 | 79 | 157 | Allgemein- und Viszeralchirurgie | GI-Blutung | ✓ R4 |
-| 16 | 234 | 61 | 173 | Pneumologie | Pneumonie | ✓ R3 |
-| 17 | 232 | 58 | 174 | Kardiologie | ACS / Myokardinfarkt | ✓ R3 |
-| 18 | 226 | 78 | 148 | Allgemein- und Viszeralchirurgie | Leistenhernie / Hernien | ✓ R4 |
-| 19 | 224 | 118 | 106 | Drittes Fach | Rechtsmedizin / Leichenschau | ✓ R3 |
-| 20 | 220 | 76 | 144 | Angiologie | Lungenembolie | ✓ R4 |
-| 21 | 218 | 88 | 130 | Allgemein- und Viszeralchirurgie | Gastroduodenales Ulkus | ✓ R3 |
-| 22 | 212 | 79 | 133 | Unfallchirurgie | Proximale Femurfraktur | ✓ R4 |
-| 23 | 203 | 74 | 129 | Allgemein- und Viszeralchirurgie | Pankreatitis | ✓ R1 |
-| 24 | 203 | 68 | 135 | Allgemein- und Viszeralchirurgie | Divertikulitis | ✓ R2 |
-| 25 | 171 | 46 | 125 | Gastroenterologie | Leberzirrhose | ✓ R4 |
-| 26 | 169 | 54 | 115 | Allgemein- und Viszeralchirurgie | Appendizitis | ✓ R4 |
-| 27 | 155 | 42 | 113 | Kardiologie | AV-Block | ✓ R3 |
-| 28 | 151 | 61 | 90 | Hämatologie | Eisenmangelanämie | ✓ R3 |
-| 29 | 151 | 18 | 133 | Gastroenterologie | Hepatitis | ✓ R3 |
-| 30 | 143 | 42 | 101 | Allgemein- und Viszeralchirurgie | Kolonkarzinom | ✓ R2 |
-| 31 | 142 | 16 | 126 | Kardiologie | KHK / Koronarsyndrom | ✓ R3 |
-| 32 | 136 | 21 | 115 | Gastroenterologie  | Morbus Crohn & Colitis ulcerosa | ✓ R4 |
-| 33 | 132 | 39 | 93 | Gastroenterologie | Lebermetastasen / Lebertumor | ✓ R2 |
-| 34 | 131 | 82 | 49 | Drittes Fach | Strahlenschutz | ✓ R2 |
-| 35 | 130 | 31 | 99 | Pneumologie | COPD | ✓ R4 |
-| 36 | 127 | 44 | 83 | Unfallchirurgie | Sprunggelenksfraktur (OSG) | ✓ R3 |
-| 37 | 122 | 39 | 83 | Endokrinologie | Hyperthyreose | ✓ R4 |
-| 38 | 120 | 40 | 80 | Unfallchirurgie | Hüft- / Knie-TEP | ✓ R3 |
-| 39 | 120 | 36 | 84 | Gastroenterologie | Gastritis (Typ A/B/C) | ✓ R3 |
-| 40 | 119 | 31 | 88 | Drittes Fach | Sozialrecht & Hygiene | ✓ R1 |
-| 41 | 117 | 24 | 93 | Angiologie | pAVK | ✓ R3 |
-| 42 | 111 | 37 | 74 | Angiologie | Tiefe Beinvenenthrombose (TVT) | ✓ R4 |
-| 43 | 108 | 35 | 73 | Kardiologie | Arterielle Hypertonie | ✓ R3 |
-| 44 | 102 | 15 | 87 | Pneumologie | Asthma bronchiale | ✓ R4 |
-| 45 | 100 | 35 | 65 | Pneumologie | Bronchialkarzinom | ✓ R3 |
-| 46 | 95 | 18 | 77 | Kardiologie | Synkope | ✓ R3 |
-| 47 | 93 | 40 | 53 | Unfallchirurgie | Distale Radiusfraktur | ✓ R4 |
-| 48 | 93 | 30 | 63 | Drittes Fach | Schmerztherapie / WHO-Schema | ✓ R2 |
-| 49 | 92 | 30 | 62 | Notfallmedizin | Akuttoxikologie / Intoxikation | ✓ R3 |
-| 51 | 91 | 15 | 76 | Hämatologie | Akute Leukämien (ALL) | ✓ R2 |
-| 52 | 89 | 37 | 52 | Drittes Fach | Aufklärung, Einwilligung & Betreuung | ✓ R2 |
-| 53 | 87 | 17 | 70 | Endokrinologie | Osteoporose | ✓ R3 |
-| 54 | 87 | 6 | 81 | Hämatologie | Non-Hodgkin-Lymphom (NHL) | ✓ R3 |
-| 55 | 83 | 26 | 57 | Kardiologie | Herzklappenerkrankungen | ✓ R3 |
-| 56 | 82 | 16 | 66 | Endokrinologie | Hypothyreose | ✓ R4 |
-| 57 | 81 | 27 | 54 | Unfallchirurgie | Schädel-Hirn-Trauma | ✓ R3 |
-| 58 | 81 | 22 | 59 | Pneumologie | Tuberkulose | ✓ R3 |
-| 59 | 81 | 16 | 65 | Unfallchirurgie | Polytrauma / ABCDE (Sturz) | ✓ R4 |
-| 60 | 81 | 24 | 57 | Allgemein- und Viszeralchirurgie | Milzruptur / Splenektomie | ✓ R2 |
-| 61 | 77 | 37 | 40 | Drittes Fach | Borreliose / FSME / Zeckenbiss | ✓ R2 |
-| 62 | 76 | 29 | 47 | Notfallmedizin | Reanimation / CPR | ✓ R2 |
-| 64 | 73 | 11 | 62 | Angiologie | Aortendissektion | ✓ R3 |
-| 65 | 68 | 12 | 56 | Unfallchirurgie | Allgemeine Frakturlehre | ✓ R4 |
-| 66 | 67 | 12 | 55 | Nephrologie | Harnwegsinfekt / Pyelonephritis | ✓ R3 |
-| 67 | 65 | 22 | 43 | Endokrinologie | Schilddrüsenkarzinom | ✓ R2 |
-| 68 | 64 | 29 | 35 | Allgemein- und Viszeralchirurgie | Akutes Abdomen | ✓ R2 |
-| 69 | 63 | 25 | 38 | Notfallmedizin | Anaphylaxie | ✓ R2 |
-| 70 | 62 | 15 | 47 | Allgemein- und Viszeralchirurgie | Rektumkarzinom | ✓ R2 |
-| 71 | 62 | 22 | 40 | Neurologie | Meningitis / Enzephalitis | ✓ R2 |
-| 72 | 60 | 15 | 45 | Unfallchirurgie | Humerusfraktur | ✓ R2 |
-| 73 | 59 | 11 | 48 | Gastroenterologie | GERD / Refluxkrankheit | ✓ R1 |
-| 74 | 59 | 7 | 52 | Kardiologie | Infektiöse Endokarditis | ✓ R3 |
-| 76 | 57 | 17 | 40 | Gastroenterologie | Diarrhoe / Gastroenteritis | ✓ R2 |
-| 77 | 56 | 15 | 41 | Allgemein- und Viszeralchirurgie | Pankreaskarzinom | ✓ R2 |
-| 78 | 56 | 11 | 45 | Allgemein- und Viszeralchirurgie | Hämorrhoiden | ✓ R2 |
-| 79 | 55 | 11 | 44 | Allgemein- und Viszeralchirurgie | Magenkarzinom | ✓ R2 |
-| 80 | 55 | 9 | 46 | Hämatologie | Morbus Hodgkin | ✓ R2 |
-| 81 | 54 | 19 | 35 | Notfallmedizin | Verbrennung | ✓ R2 |
-| 82 | 49 | 10 | 39 | Unfallchirurgie | Claviculafraktur | ✓ R1 |
-| 83 | 47 | 8 | 39 | Endokrinologie | Struma | ✓ R2 |
-| 85 | 43 | 13 | 30 | Querschnitt | Check-up / Prävention | ✓ R2 |
-| 86 | 40 | 10 | 30 | Angiologie | Aortenaneurysma (AAA) | ✓ R2 |
-| 87 | 40 | 7 | 33 | Unfallchirurgie | Beckenringfrakturen | ✓ R2 |
-| 88 | 37 | 12 | 25 | Notfallmedizin | Delir | ✓ R2 |
-| 89 | 32 | 5 | 27 | Endokrinologie | Cushing-Syndrom | ✓ R2 |
-| 90 | 32 | 9 | 23 | Nephrologie | Hyponatriämie / SIADH | ✓ R2 |
-| 91 | 30 | 0 | 30 | Unfallchirurgie | Kreuzbandruptur | ✓ R2 |
-| 92 | 23 | 3 | 20 | Unfallchirurgie | Wirbelsäulenverletzungen | ✓ R2 |
+### Aus der Rangliste genommen
+| Thema | Status | Inhalt lebt in |
+|---|---|---|
+| Ventr. Tachykardie / Kammerflimmern | eingefaltet | bereits gefaltet |
+| Kompartmentsyndrom | eingefaltet | bereits gefaltet |
+| Claviculafraktur | eingefaltet | allgemeine-frakturlehre |
+| Beckenringfrakturen | eingefaltet | polytrauma-abcde |
+| Kreuzbandruptur | gestrichen | — |
+| Hirnblutungen (EDH/SDH/SAB/ICB) | eingefaltet | bereits gefaltet |
+| Paroxysmale SVT / AVNRT | eingefaltet | bereits gefaltet |
