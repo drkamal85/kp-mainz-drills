@@ -1,43 +1,43 @@
 {
-  "generatedAt": "2026-09-19T07:49:43.356Z",
+  "generatedAt": "2026-09-20T08:18:13.426Z",
   "totals": {
-    "open": 122,
+    "open": 172,
     "completed": 417,
-    "overdue": 0,
-    "schedulingIssues": 77
+    "overdue": 2,
+    "schedulingIssues": 79
   },
   "byLevel": {
     "R1": {
-      "open": 0,
+      "open": 3,
       "completed": 100
     },
     "R2": {
-      "open": 1,
+      "open": 4,
       "completed": 96
     },
     "R3": {
-      "open": 1,
+      "open": 8,
       "completed": 77
     },
     "R4": {
-      "open": 12,
+      "open": 19,
       "completed": 62
     },
     "R5": {
-      "open": 30,
+      "open": 36,
       "completed": 1
     }
   },
   "byWorkstream": {
     "A_coverage": {
-      "topicsTotal": 193,
+      "topicsTotal": 217,
       "studied": 60,
-      "studyOpen": 0,
+      "studyOpen": 3,
       "r1Built": 94,
-      "r1Open": 0
+      "r1Open": 3
     },
     "B_r5": {
-      "open": 32,
+      "open": 38,
       "completed": 1,
       "pilot": [
         {
@@ -179,12 +179,60 @@
       ]
     },
     "D_bildsprint": {
-      "open": 0,
+      "open": 1,
       "completed": 6,
       "note": "Drill tasks live as komplett library files, not Motion tasks"
     }
   },
   "flagged": [
+    {
+      "name": "Review: Hepatitis R5",
+      "dueDate": "2026-11-21",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Hepatitis R5",
+      "dueDate": "2026-11-21",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Pankreatitis R5",
+      "dueDate": "2026-11-02",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Elektrolytstörungen K⁺/Ca²⁺ R4",
+      "dueDate": "2026-11-07",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Elektrolytstörungen K⁺/Ca²⁺ R3",
+      "dueDate": "2026-10-24",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Makrozytäre Anämie / Vitamin-B12-Mangel R4",
+      "dueDate": "2026-11-07",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Makrozytäre Anämie / Vitamin-B12-Mangel R3",
+      "dueDate": "2026-10-24",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Akutes Abdomen R5",
+      "dueDate": "2026-10-31",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
     {
       "name": "Akte-Sim #25",
       "dueDate": "2027-02-20",
@@ -366,20 +414,8 @@
       "scheduledStart": null
     },
     {
-      "name": "Mentor check-in #6",
-      "dueDate": "2026-10-23",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
       "name": "R5-Pilot: Cholezystitis #2",
       "dueDate": "2026-11-10",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Review: Hepatitis R5",
-      "dueDate": "2026-12-22",
       "schedulingIssue": true,
       "scheduledStart": null
     },
@@ -402,12 +438,6 @@
       "scheduledStart": null
     },
     {
-      "name": "Review: Pankreatitis R5",
-      "dueDate": "2026-11-02",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
       "name": "Review: Divertikulitis R5",
       "dueDate": "2026-11-05",
       "schedulingIssue": true,
@@ -420,20 +450,8 @@
       "scheduledStart": null
     },
     {
-      "name": "Review: Morbus Crohn & Colitis ulcerosa R5",
-      "dueDate": "2026-11-05",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
       "name": "Review: Proximale Femurfrakturen R5",
       "dueDate": "2026-11-06",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Review: Leberzirrhose R5",
-      "dueDate": "2026-10-27",
       "schedulingIssue": true,
       "scheduledStart": null
     },
@@ -526,32 +544,98 @@
       "dueDate": "2026-12-29",
       "schedulingIssue": true,
       "scheduledStart": null
-    },
-    {
-      "name": "Drittes Fach: Protocol Review — Session 12",
-      "dueDate": "2026-12-18",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Drittes Fach: Protocol Review — Session 4",
-      "dueDate": "2026-10-23",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Oral Simulation with Partner — Session 6",
-      "dueDate": "2026-12-12",
-      "schedulingIssue": true,
-      "scheduledStart": null
     }
   ],
-  "overdue": [],
+  "overdue": [
+    {
+      "name": "Review: Ikterus + Cholestase R5",
+      "dueDate": "2026-09-19"
+    },
+    {
+      "name": "Review: Leberzirrhose R5",
+      "dueDate": "2026-09-19"
+    }
+  ],
   "upcoming14d": [
+    {
+      "name": "Study: Makrozytäre Anämie / Vitamin-B12-Mangel",
+      "dueDate": "2026-09-24",
+      "duration": 120
+    },
+    {
+      "name": "Study: Rheumatologie (PMR, RZA, Spondyloarthritis)",
+      "dueDate": "2026-09-25",
+      "duration": 120
+    },
+    {
+      "name": "Study: Elektrolytstörungen K⁺/Ca²⁺",
+      "dueDate": "2026-09-25",
+      "duration": 120
+    },
+    {
+      "name": "Deck-Einschub: Kontrastmittel → Strahlenschutz",
+      "dueDate": "2026-09-26",
+      "duration": 45
+    },
+    {
+      "name": "Fragen-Paket: Arzneimittelinteraktionen & UAW",
+      "dueDate": "2026-09-26",
+      "duration": 90
+    },
+    {
+      "name": "Review: Rheumatologie (PMR, RZA, Spondyloarthritis) R1",
+      "dueDate": "2026-09-26",
+      "duration": 30
+    },
+    {
+      "name": "Review: Elektrolytstörungen K⁺/Ca²⁺ R1",
+      "dueDate": "2026-09-26",
+      "duration": 30
+    },
+    {
+      "name": "Review: Makrozytäre Anämie / Vitamin-B12-Mangel R1",
+      "dueDate": "2026-09-26",
+      "duration": 30
+    },
     {
       "name": "Akte-Sim #3",
       "dueDate": "2026-09-26",
       "duration": 60
+    },
+    {
+      "name": "Fragen-Paket: Säure-Basen-Haushalt / BGA",
+      "dueDate": "2026-09-27",
+      "duration": 90
+    },
+    {
+      "name": "Fragen-Paket: Antikoagulation & Bridging",
+      "dueDate": "2026-09-27",
+      "duration": 90
+    },
+    {
+      "name": "Deck-Einschub: DKA → Diabetes mellitus",
+      "dueDate": "2026-09-28",
+      "duration": 45
+    },
+    {
+      "name": "Deck-Einschub: Pleuraerguss → Pneumothorax",
+      "dueDate": "2026-09-28",
+      "duration": 45
+    },
+    {
+      "name": "Fragen-Paket: Antibiotikatherapie (kalkuliert)",
+      "dueDate": "2026-09-28",
+      "duration": 90
+    },
+    {
+      "name": "Deck-Einschub: Kardioversion → Vorhofflimmern",
+      "dueDate": "2026-09-29",
+      "duration": 45
+    },
+    {
+      "name": "Deck-Einschub: Krampfanfall → Schädel-Hirn-Trauma",
+      "dueDate": "2026-09-29",
+      "duration": 45
     },
     {
       "name": "Review: pAVK R4",
@@ -567,6 +651,16 @@
       "name": "CHECKPOINT: September Review Complete",
       "dueDate": "2026-09-30",
       "duration": 30
+    },
+    {
+      "name": "Review: Morbus Crohn & Colitis ulcerosa R5",
+      "dueDate": "2026-10-01",
+      "duration": 90
+    },
+    {
+      "name": "Fragen-Mining 05: Akuttoxikologie / Intoxikation",
+      "dueDate": "2026-10-01",
+      "duration": 60
     },
     {
       "name": "Review: ACS/Myokardinfarkt R5",
@@ -594,19 +688,34 @@
       "duration": 60
     },
     {
+      "name": "Review: Aufklärung, Einwilligung & Betreuung R5",
+      "dueDate": "2026-10-03",
+      "duration": 90
+    },
+    {
+      "name": "Review: Schmerztherapie / WHO-Stufenschema R5",
+      "dueDate": "2026-10-03",
+      "duration": 90
+    },
+    {
       "name": "Akte-Sim #4",
       "dueDate": "2026-10-03",
       "duration": 60
     },
     {
-      "name": "Review: KHK R5",
-      "dueDate": "2026-10-03",
-      "duration": 90
-    },
-    {
       "name": "Oral Simulation with Partner — Session 1",
       "dueDate": "2026-10-03",
       "duration": 60
+    },
+    {
+      "name": "Review: Akutes Abdomen R3",
+      "dueDate": "2026-10-04",
+      "duration": 60
+    },
+    {
+      "name": "Review: Allgemeine Frakturlehre R5",
+      "dueDate": "2026-10-04",
+      "duration": 90
     }
   ],
   "nextCheckpoint": {
