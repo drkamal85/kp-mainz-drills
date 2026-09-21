@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-09-20T08:18:13.426Z",
+  "generatedAt": "2026-09-21T08:36:03.411Z",
   "totals": {
     "open": 172,
     "completed": 417,
     "overdue": 2,
-    "schedulingIssues": 79
+    "schedulingIssues": 76
   },
   "byLevel": {
     "R1": {
@@ -222,12 +222,6 @@
       "scheduledStart": null
     },
     {
-      "name": "Review: Makrozytäre Anämie / Vitamin-B12-Mangel R3",
-      "dueDate": "2026-10-24",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
       "name": "Review: Akutes Abdomen R5",
       "dueDate": "2026-10-31",
       "schedulingIssue": true,
@@ -332,12 +326,6 @@
     {
       "name": "Akte-Sim #9",
       "dueDate": "2026-10-31",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Akte-Sim #8",
-      "dueDate": "2026-10-24",
       "schedulingIssue": true,
       "scheduledStart": null
     },
@@ -474,12 +462,6 @@
       "scheduledStart": null
     },
     {
-      "name": "Review: Pneumothorax R5",
-      "dueDate": "2026-10-24",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
       "name": "Practice: Anamnesebogen — Complete from real Akte (Session 2)",
       "dueDate": "2026-11-15",
       "schedulingIssue": true,
@@ -542,6 +524,24 @@
     {
       "name": "Drittes Fach: Protocol Review — Session 17",
       "dueDate": "2026-12-29",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Drittes Fach: Protocol Review — Session 12",
+      "dueDate": "2026-12-18",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Oral Simulation with Partner — Session 6",
+      "dueDate": "2026-12-12",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Practice: Anamnesebogen — Complete from real Akte (Session 4)",
+      "dueDate": "2027-01-10",
       "schedulingIssue": true,
       "scheduledStart": null
     }
@@ -715,6 +715,21 @@
     {
       "name": "Review: Allgemeine Frakturlehre R5",
       "dueDate": "2026-10-04",
+      "duration": 90
+    },
+    {
+      "name": "Review: Reanimation / CPR R3",
+      "dueDate": "2026-10-05",
+      "duration": 60
+    },
+    {
+      "name": "Review: Anästhesie & Atemwegssicherung R4",
+      "dueDate": "2026-10-05",
+      "duration": 30
+    },
+    {
+      "name": "Review: Vorhofflimmern R5",
+      "dueDate": "2026-10-05",
       "duration": 90
     }
   ],
