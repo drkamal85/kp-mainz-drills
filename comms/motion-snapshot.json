@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-09-21T08:36:03.411Z",
+  "generatedAt": "2026-09-22T08:15:45.958Z",
   "totals": {
     "open": 172,
     "completed": 417,
     "overdue": 2,
-    "schedulingIssues": 76
+    "schedulingIssues": 74
   },
   "byLevel": {
     "R1": {
@@ -206,12 +206,6 @@
     {
       "name": "Review: Elektrolytstörungen K⁺/Ca²⁺ R4",
       "dueDate": "2026-11-07",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Review: Elektrolytstörungen K⁺/Ca²⁺ R3",
-      "dueDate": "2026-10-24",
       "schedulingIssue": true,
       "scheduledStart": null
     },
@@ -432,12 +426,6 @@
       "scheduledStart": null
     },
     {
-      "name": "Review: Kolonkarzinom R5",
-      "dueDate": "2026-10-25",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
       "name": "Review: Proximale Femurfrakturen R5",
       "dueDate": "2026-11-06",
       "schedulingIssue": true,
@@ -542,6 +530,18 @@
     {
       "name": "Practice: Anamnesebogen — Complete from real Akte (Session 4)",
       "dueDate": "2027-01-10",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Oral Simulation with Partner — Session 7",
+      "dueDate": "2026-12-26",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Oral Simulation with Partner — Session 4",
+      "dueDate": "2026-11-14",
       "schedulingIssue": true,
       "scheduledStart": null
     }
@@ -731,6 +731,21 @@
       "name": "Review: Vorhofflimmern R5",
       "dueDate": "2026-10-05",
       "duration": 90
+    },
+    {
+      "name": "Fragen-Mining 01: Schmerztherapie / WHO-Stufenschema",
+      "dueDate": "2026-10-06",
+      "duration": 60
+    },
+    {
+      "name": "Review: Check-up / Prävention R3",
+      "dueDate": "2026-10-06",
+      "duration": 60
+    },
+    {
+      "name": "Review: Akuttoxikologie / Intoxikation R4",
+      "dueDate": "2026-10-06",
+      "duration": 30
     }
   ],
   "nextCheckpoint": {
