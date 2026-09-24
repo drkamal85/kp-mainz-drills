@@ -19,6 +19,8 @@ import themenFeed from './themen.json';
 const THEMEN_JSON = JSON.stringify(themenFeed);
 import deckFeed from './deck.json';
 const DECK_JSON = JSON.stringify(deckFeed);
+import fragenFeed from './fragen.json';
+const FRAGEN_JSON = JSON.stringify(fragenFeed);
 import commsContract from './comms-contract.json';
 
 const STATUS = ['new', 'learning', 'mastered'];
@@ -60,6 +62,25 @@ export async function handleApi(request, env, url) {
   if (url.pathname === '/api/deck') {
     if (request.method !== 'GET') return jsonRes({ error: 'method_not_allowed' }, 405, ch);
     return new Response(DECK_JSON, { status: 200, headers: { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-cache', ...ch } });
+  }
+
+  // ---- public: dokumentierte Pruefungsfragen aus dem Protokollkorpus (no auth) ----
+  // Jede Frage traegt ihre Protokoll-IDs. Quelle der Wahrheit ist data/fragen-index.json
+  // im Repo; hier liegt die kompakte, themenzugeordnete Fassung.
+  // Optional: ?thema=<slug> filtert auf ein Thema, ?fach=<Fach> auf ein Fach.
+  if (url.pathname === '/api/fragen') {
+    if (request.method !== 'GET') return jsonRes({ error: 'method_not_allowed' }, 405, ch);
+    const thema = url.searchParams.get('thema');
+    const fach = url.searchParams.get('fach');
+    if (!thema && !fach) {
+      return new Response(FRAGEN_JSON, { status: 200, headers: { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-cache', ...ch } });
+    }
+    const sel = fragenFeed.fragen.filter(f =>
+      (!thema || (f.t || []).includes(thema)) && (!fach || f.fach === fach));
+    return jsonRes({ schema: fragenFeed.schema, stand: fragenFeed.stand,
+                     korpus_sha256_16: fragenFeed.korpus_sha256_16,
+                     filter: { thema, fach }, anzahl_fragen: sel.length, fragen: sel },
+                   200, { 'Cache-Control': 'no-cache', ...ch });
   }
 
   // ---- shared backend<->frontend comms: contract (bundled) + message log (KV) ----

@@ -74,8 +74,11 @@ def trow(rank, treffer, chat, prot, fach, thema, slug, force_tier=False):
         zi='<span class="zi-ok">Ziel erreicht</span>'
     else:
         zi=f'<span class="zi-gap">R{lvl if lvl else 0} \u2192 R{tgt}</span>'
-    if tgt>=4 and info and not _hasq.get(slug,False):
-        zi+='<span class="zi-deck" title="Kern/Standard ohne Tab 6">DECK</span>'
+    # Tab 6 ist nur fuer KERN verbindlich. STANDARD und RAND duerfen ohne Deck
+    # bleiben - vorhandene Decks werden nicht entfernt, es wird nur keins mehr
+    # eingefordert. (Entscheidung 24.09.2026)
+    if tname == 'KERN' and info and not _hasq.get(slug,False):
+        zi+='<span class="zi-deck" title="KERN ohne Tab 6">DECK</span>'
     tb=f'<span class="tier-b {tcls}">{tname}</span>' if (treffer or force_tier) else ''
     rk=f'<td class="rk">{rank}</td>' if rank else '<td class="rk">\u00b7</td>'
     _typ=TYPMAP.get(slug,'')
