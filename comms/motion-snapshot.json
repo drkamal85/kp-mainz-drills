@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-23T08:17:56.916Z",
+  "generatedAt": "2026-09-24T08:09:39.556Z",
   "totals": {
     "open": 172,
     "completed": 417,
@@ -756,6 +756,21 @@
       "name": "Review: Schock (alle Typen) R5",
       "dueDate": "2026-10-07",
       "duration": 90
+    },
+    {
+      "name": "Review: Anaphylaxie R3",
+      "dueDate": "2026-10-08",
+      "duration": 60
+    },
+    {
+      "name": "Review: Harnwegsinfekt / Pyelonephritis R5",
+      "dueDate": "2026-10-08",
+      "duration": 90
+    },
+    {
+      "name": "Review: Milzruptur / Splenektomie R4",
+      "dueDate": "2026-10-08",
+      "duration": 30
     }
   ],
   "nextCheckpoint": {
