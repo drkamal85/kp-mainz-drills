@@ -1,30 +1,30 @@
 {
-  "generatedAt": "2026-09-24T08:09:39.556Z",
+  "generatedAt": "2026-09-25T08:32:53.954Z",
   "totals": {
-    "open": 172,
+    "open": 192,
     "completed": 417,
-    "overdue": 2,
-    "schedulingIssues": 74
+    "overdue": 0,
+    "schedulingIssues": 99
   },
   "byLevel": {
     "R1": {
-      "open": 3,
+      "open": 7,
       "completed": 100
     },
     "R2": {
-      "open": 4,
+      "open": 8,
       "completed": 96
     },
     "R3": {
-      "open": 8,
+      "open": 12,
       "completed": 77
     },
     "R4": {
-      "open": 19,
+      "open": 23,
       "completed": 62
     },
     "R5": {
-      "open": 36,
+      "open": 40,
       "completed": 1
     }
   },
@@ -32,12 +32,12 @@
     "A_coverage": {
       "topicsTotal": 217,
       "studied": 60,
-      "studyOpen": 3,
+      "studyOpen": 7,
       "r1Built": 94,
-      "r1Open": 3
+      "r1Open": 7
     },
     "B_r5": {
-      "open": 38,
+      "open": 42,
       "completed": 1,
       "pilot": [
         {
@@ -47,7 +47,7 @@
         },
         {
           "name": "Review: Cholezystitis R5",
-          "dueDate": "2026-11-03",
+          "dueDate": "2026-10-24",
           "completed": false
         }
       ]
@@ -68,17 +68,7 @@
         },
         {
           "name": "Akte-Sim #3",
-          "dueDate": "2026-09-26",
-          "completed": false
-        },
-        {
-          "name": "Akte-Sim #4",
-          "dueDate": "2026-10-03",
-          "completed": false
-        },
-        {
-          "name": "Akte-Sim #6",
-          "dueDate": "2026-10-10",
+          "dueDate": "2026-10-16",
           "completed": false
         },
         {
@@ -97,8 +87,18 @@
           "completed": false
         },
         {
+          "name": "Akte-Sim #4",
+          "dueDate": "2026-11-06",
+          "completed": false
+        },
+        {
           "name": "Akte-Sim #10",
           "dueDate": "2026-11-07",
+          "completed": false
+        },
+        {
+          "name": "Akte-Sim #6",
+          "dueDate": "2026-11-13",
           "completed": false
         },
         {
@@ -179,45 +179,135 @@
       ]
     },
     "D_bildsprint": {
-      "open": 1,
+      "open": 6,
       "completed": 6,
       "note": "Drill tasks live as komplett library files, not Motion tasks"
     }
   },
   "flagged": [
     {
-      "name": "Review: Hepatitis R5",
-      "dueDate": "2026-11-21",
+      "name": "Review: Antibiotikatherapie (kalkuliert) R5",
+      "dueDate": "2026-11-01",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
-      "name": "Review: Hepatitis R5",
-      "dueDate": "2026-11-21",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Review: Pankreatitis R5",
+      "name": "Review: Säure-Basen-Haushalt / BGA R5",
       "dueDate": "2026-11-02",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
-      "name": "Review: Elektrolytstörungen K⁺/Ca²⁺ R4",
-      "dueDate": "2026-11-07",
+      "name": "Review: Antikoagulation & Bridging R5",
+      "dueDate": "2026-11-03",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
-      "name": "Review: Makrozytäre Anämie / Vitamin-B12-Mangel R4",
-      "dueDate": "2026-11-07",
+      "name": "Review: Arzneimittelinteraktionen & UAW R5",
+      "dueDate": "2026-11-05",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Pankreatitis R5",
+      "dueDate": "2026-10-29",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Fragen-Mining 12: Tuberkulose",
+      "dueDate": "2026-11-01",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Fragen-Mining 11: Hepatitis",
+      "dueDate": "2026-10-31",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Fragen-Mining 09: Milzruptur / Splenektomie",
+      "dueDate": "2026-11-17",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Fragen-Mining 08: Nierenversagen",
+      "dueDate": "2026-11-17",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Fragen-Mining 07: Bronchialkarzinom",
+      "dueDate": "2026-11-15",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Fragen-Mining 06: Gastritis",
+      "dueDate": "2026-11-16",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Fragen-Mining 05: Akuttoxikologie / Intoxikation",
+      "dueDate": "2026-11-02",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Fragen-Mining 04: Anästhesie & Atemwegssicherung",
+      "dueDate": "2026-10-31",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Fragen-Mining 03: Bluttransfusion",
+      "dueDate": "2026-11-15",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Fragen-Mining 02: Harnwegsinfekt / Pyelonephritis",
+      "dueDate": "2026-11-13",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Fragen-Mining 01: Schmerztherapie / WHO-Stufenschema",
+      "dueDate": "2026-11-09",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Deck-Einschub: Kardioversion → Vorhofflimmern",
+      "dueDate": "2026-10-30",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Deck-Einschub: Krampfanfall → Schädel-Hirn-Trauma",
+      "dueDate": "2026-10-30",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
       "name": "Review: Akutes Abdomen R5",
-      "dueDate": "2026-10-31",
+      "dueDate": "2026-11-01",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Harnwegsinfekt / Pyelonephritis R5",
+      "dueDate": "2026-10-30",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Schmerztherapie / WHO-Stufenschema R5",
+      "dueDate": "2026-10-30",
       "schedulingIssue": true,
       "scheduledStart": null
     },
@@ -324,6 +414,12 @@
       "scheduledStart": null
     },
     {
+      "name": "Akte-Sim #6",
+      "dueDate": "2026-11-13",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
       "name": "R5-Pilot-Verdict",
       "dueDate": "2026-11-09",
       "schedulingIssue": true,
@@ -331,67 +427,103 @@
     },
     {
       "name": "CHECKPOINT Dez 31 — Mock-#1-Debrief",
-      "dueDate": "2026-12-31",
+      "dueDate": "2026-11-14",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "CHECKPOINT Okt 16 — alle Themen R4",
+      "dueDate": "2026-11-02",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
       "name": "CHECKPOINT Okt 31",
-      "dueDate": "2026-10-31",
+      "dueDate": "2026-11-05",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
       "name": "Mentor check-in #15",
-      "dueDate": "2026-12-25",
+      "dueDate": "2026-11-14",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
       "name": "Mentor check-in #14",
-      "dueDate": "2026-12-18",
+      "dueDate": "2026-11-14",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
       "name": "Mentor check-in #13",
-      "dueDate": "2026-12-11",
+      "dueDate": "2026-11-12",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
       "name": "Mentor check-in #12",
-      "dueDate": "2026-12-04",
+      "dueDate": "2026-11-11",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
       "name": "Mentor check-in #11",
-      "dueDate": "2026-11-27",
+      "dueDate": "2026-11-10",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
       "name": "Mentor check-in #10",
-      "dueDate": "2026-11-20",
+      "dueDate": "2026-11-09",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
       "name": "Mentor check-in #9",
-      "dueDate": "2026-11-13",
+      "dueDate": "2026-11-07",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
       "name": "Mentor check-in #8",
-      "dueDate": "2026-11-06",
+      "dueDate": "2026-11-07",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
       "name": "Mentor check-in #7",
-      "dueDate": "2026-10-30",
+      "dueDate": "2026-11-06",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Mentor check-in #6",
+      "dueDate": "2026-11-03",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Mentor check-in #5",
+      "dueDate": "2026-11-03",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Mentor check-in #4",
+      "dueDate": "2026-11-12",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Mentor check-in #3",
+      "dueDate": "2026-11-03",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "CHECKPOINT: September Review Complete",
+      "dueDate": "2026-10-31",
       "schedulingIssue": true,
       "scheduledStart": null
     },
@@ -402,379 +534,288 @@
       "scheduledStart": null
     },
     {
-      "name": "Review: Bluttransfusion R5",
-      "dueDate": "2026-12-05",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Review: Anästhesie & Atemwegssicherung R5",
-      "dueDate": "2026-12-04",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Review: Gastroduodenales Ulkus R5",
-      "dueDate": "2026-11-16",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Review: Divertikulitis R5",
-      "dueDate": "2026-11-05",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Review: Proximale Femurfrakturen R5",
+      "name": "Akte-Sim #4",
       "dueDate": "2026-11-06",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
-      "name": "Review: Ileus R5",
-      "dueDate": "2026-11-08",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Review: Appendizitis R5",
-      "dueDate": "2026-11-08",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Review: Cholezystitis R5",
-      "dueDate": "2026-11-03",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Practice: Anamnesebogen — Complete from real Akte (Session 2)",
-      "dueDate": "2026-11-15",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Drittes Fach: Protocol Review — Session 15",
-      "dueDate": "2026-12-27",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Drittes Fach: Protocol Review — Session 7",
-      "dueDate": "2026-11-13",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Drittes Fach: Protocol Review — Session 5",
+      "name": "Review: Bluttransfusion R5",
       "dueDate": "2026-10-30",
       "schedulingIssue": true,
       "scheduledStart": null
-    },
-    {
-      "name": "Oral Simulation with Partner — Session 13 (final)",
-      "dueDate": "2027-02-24",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Drittes Fach: Protocol Review — Session 16",
-      "dueDate": "2026-12-28",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Oral Simulation with Partner — Session 11",
-      "dueDate": "2027-02-20",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Drittes Fach: Protocol Review — Session 11",
-      "dueDate": "2026-12-11",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Oral Simulation with Partner — Session 5",
-      "dueDate": "2026-11-28",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Oral Simulation with Partner — Session 9",
-      "dueDate": "2027-01-23",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Drittes Fach: Protocol Review — Session 17",
-      "dueDate": "2026-12-29",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Drittes Fach: Protocol Review — Session 12",
-      "dueDate": "2026-12-18",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Oral Simulation with Partner — Session 6",
-      "dueDate": "2026-12-12",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Practice: Anamnesebogen — Complete from real Akte (Session 4)",
-      "dueDate": "2027-01-10",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Oral Simulation with Partner — Session 7",
-      "dueDate": "2026-12-26",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Oral Simulation with Partner — Session 4",
-      "dueDate": "2026-11-14",
-      "schedulingIssue": true,
-      "scheduledStart": null
     }
   ],
-  "overdue": [
-    {
-      "name": "Review: Ikterus + Cholestase R5",
-      "dueDate": "2026-09-19"
-    },
-    {
-      "name": "Review: Leberzirrhose R5",
-      "dueDate": "2026-09-19"
-    }
-  ],
+  "overdue": [],
   "upcoming14d": [
     {
-      "name": "Study: Makrozytäre Anämie / Vitamin-B12-Mangel",
-      "dueDate": "2026-09-24",
-      "duration": 120
-    },
-    {
-      "name": "Study: Rheumatologie (PMR, RZA, Spondyloarthritis)",
-      "dueDate": "2026-09-25",
-      "duration": 120
-    },
-    {
-      "name": "Study: Elektrolytstörungen K⁺/Ca²⁺",
-      "dueDate": "2026-09-25",
-      "duration": 120
-    },
-    {
-      "name": "Deck-Einschub: Kontrastmittel → Strahlenschutz",
-      "dueDate": "2026-09-26",
-      "duration": 45
-    },
-    {
-      "name": "Fragen-Paket: Arzneimittelinteraktionen & UAW",
-      "dueDate": "2026-09-26",
-      "duration": 90
-    },
-    {
-      "name": "Review: Rheumatologie (PMR, RZA, Spondyloarthritis) R1",
-      "dueDate": "2026-09-26",
-      "duration": 30
-    },
-    {
-      "name": "Review: Elektrolytstörungen K⁺/Ca²⁺ R1",
-      "dueDate": "2026-09-26",
-      "duration": 30
-    },
-    {
-      "name": "Review: Makrozytäre Anämie / Vitamin-B12-Mangel R1",
-      "dueDate": "2026-09-26",
-      "duration": 30
-    },
-    {
-      "name": "Akte-Sim #3",
-      "dueDate": "2026-09-26",
-      "duration": 60
-    },
-    {
-      "name": "Fragen-Paket: Säure-Basen-Haushalt / BGA",
+      "name": "Review: Tuberkulose R4",
       "dueDate": "2026-09-27",
-      "duration": 90
+      "duration": 30
     },
     {
-      "name": "Fragen-Paket: Antikoagulation & Bridging",
+      "name": "Review: Osteoporose R4",
       "dueDate": "2026-09-27",
-      "duration": 90
-    },
-    {
-      "name": "Deck-Einschub: DKA → Diabetes mellitus",
-      "dueDate": "2026-09-28",
-      "duration": 45
-    },
-    {
-      "name": "Deck-Einschub: Pleuraerguss → Pneumothorax",
-      "dueDate": "2026-09-28",
-      "duration": 45
-    },
-    {
-      "name": "Fragen-Paket: Antibiotikatherapie (kalkuliert)",
-      "dueDate": "2026-09-28",
-      "duration": 90
-    },
-    {
-      "name": "Deck-Einschub: Kardioversion → Vorhofflimmern",
-      "dueDate": "2026-09-29",
-      "duration": 45
-    },
-    {
-      "name": "Deck-Einschub: Krampfanfall → Schädel-Hirn-Trauma",
-      "dueDate": "2026-09-29",
-      "duration": 45
+      "duration": 30
     },
     {
       "name": "Review: pAVK R4",
-      "dueDate": "2026-09-29",
+      "dueDate": "2026-09-27",
+      "duration": 30
+    },
+    {
+      "name": "Review: Akuttoxikologie / Intoxikation R4",
+      "dueDate": "2026-09-27",
+      "duration": 30
+    },
+    {
+      "name": "Review: Harnwegsinfekt / Pyelonephritis R4",
+      "dueDate": "2026-09-27",
+      "duration": 30
+    },
+    {
+      "name": "Review: GERD / Refluxkrankheit R2",
+      "dueDate": "2026-09-27",
+      "duration": 45
+    },
+    {
+      "name": "Review: Gastritis R4",
+      "dueDate": "2026-09-27",
+      "duration": 30
+    },
+    {
+      "name": "Review: Reanimation / CPR R3",
+      "dueDate": "2026-09-28",
+      "duration": 60
+    },
+    {
+      "name": "Review: Bronchialkarzinom R4",
+      "dueDate": "2026-09-28",
+      "duration": 30
+    },
+    {
+      "name": "Review: Bluttransfusion R4",
+      "dueDate": "2026-09-28",
+      "duration": 30
+    },
+    {
+      "name": "Review: Schmerztherapie / WHO-Stufenschema R4",
+      "dueDate": "2026-09-28",
+      "duration": 30
+    },
+    {
+      "name": "Review: Anästhesie & Atemwegssicherung R4",
+      "dueDate": "2026-09-28",
       "duration": 30
     },
     {
       "name": "Review: Milzruptur / Splenektomie R3",
+      "dueDate": "2026-09-28",
+      "duration": 60
+    },
+    {
+      "name": "Review: Anaphylaxie R3",
       "dueDate": "2026-09-29",
       "duration": 60
     },
     {
-      "name": "CHECKPOINT: September Review Complete",
+      "name": "Review: Check-up / Prävention R3",
+      "dueDate": "2026-09-29",
+      "duration": 60
+    },
+    {
+      "name": "Review: Reanimation / CPR R4",
+      "dueDate": "2026-09-29",
+      "duration": 30
+    },
+    {
+      "name": "Review: Akutes Abdomen R3",
+      "dueDate": "2026-09-29",
+      "duration": 60
+    },
+    {
+      "name": "Review: Milzruptur / Splenektomie R4",
+      "dueDate": "2026-09-29",
+      "duration": 30
+    },
+    {
+      "name": "Review: Diarrhoe / Gastroenteritis R3",
+      "dueDate": "2026-09-30",
+      "duration": 60
+    },
+    {
+      "name": "Review: Anaphylaxie R4",
       "dueDate": "2026-09-30",
       "duration": 30
     },
     {
-      "name": "Review: Morbus Crohn & Colitis ulcerosa R5",
-      "dueDate": "2026-10-01",
-      "duration": 90
+      "name": "Review: Check-up / Prävention R4",
+      "dueDate": "2026-09-30",
+      "duration": 30
     },
     {
-      "name": "Fragen-Mining 05: Akuttoxikologie / Intoxikation",
-      "dueDate": "2026-10-01",
-      "duration": 60
+      "name": "Review: Akutes Abdomen R4",
+      "dueDate": "2026-09-30",
+      "duration": 30
     },
     {
-      "name": "Review: ACS/Myokardinfarkt R5",
+      "name": "Study: Antibiotikatherapie (kalkuliert)",
       "dueDate": "2026-10-01",
-      "duration": 90
+      "duration": 120
     },
     {
-      "name": "Mentor check-in #3",
+      "name": "Review: Diarrhoe / Gastroenteritis R4",
+      "dueDate": "2026-10-01",
+      "duration": 30
+    },
+    {
+      "name": "Review: Antibiotikatherapie (kalkuliert) R1",
       "dueDate": "2026-10-02",
       "duration": 30
     },
     {
-      "name": "Review: Diabetes mellitus R5",
+      "name": "Study: Säure-Basen-Haushalt / BGA",
       "dueDate": "2026-10-02",
-      "duration": 90
+      "duration": 120
     },
     {
-      "name": "Review: Herzinsuffizienz R5",
+      "name": "Study: Antikoagulation & Bridging",
       "dueDate": "2026-10-02",
-      "duration": 90
+      "duration": 120
     },
     {
-      "name": "Drittes Fach: Protocol Review — Session 1",
-      "dueDate": "2026-10-02",
-      "duration": 60
-    },
-    {
-      "name": "Review: Aufklärung, Einwilligung & Betreuung R5",
+      "name": "Review: Antibiotikatherapie (kalkuliert) R2",
       "dueDate": "2026-10-03",
-      "duration": 90
+      "duration": 45
     },
     {
-      "name": "Review: Schmerztherapie / WHO-Stufenschema R5",
+      "name": "Review: Säure-Basen-Haushalt / BGA R1",
       "dueDate": "2026-10-03",
-      "duration": 90
+      "duration": 30
     },
     {
-      "name": "Akte-Sim #4",
+      "name": "Review: Antikoagulation & Bridging R1",
       "dueDate": "2026-10-03",
-      "duration": 60
+      "duration": 30
     },
     {
-      "name": "Oral Simulation with Partner — Session 1",
+      "name": "Study: Arzneimittelinteraktionen & UAW",
       "dueDate": "2026-10-03",
-      "duration": 60
+      "duration": 120
     },
     {
-      "name": "Review: Akutes Abdomen R3",
+      "name": "Study: Rheumatologie (PMR, RZA, Spondyloarthritis)",
+      "dueDate": "2026-10-03",
+      "duration": 120
+    },
+    {
+      "name": "Review: Antibiotikatherapie (kalkuliert) R3",
       "dueDate": "2026-10-04",
       "duration": 60
     },
     {
-      "name": "Review: Allgemeine Frakturlehre R5",
+      "name": "Review: Säure-Basen-Haushalt / BGA R2",
       "dueDate": "2026-10-04",
-      "duration": 90
+      "duration": 45
     },
     {
-      "name": "Review: Reanimation / CPR R3",
-      "dueDate": "2026-10-05",
-      "duration": 60
+      "name": "Review: Antikoagulation & Bridging R2",
+      "dueDate": "2026-10-04",
+      "duration": 45
     },
     {
-      "name": "Review: Anästhesie & Atemwegssicherung R4",
+      "name": "Review: Arzneimittelinteraktionen & UAW R1",
+      "dueDate": "2026-10-04",
+      "duration": 30
+    },
+    {
+      "name": "Review: Rheumatologie (PMR, RZA, Spondyloarthritis) R1",
+      "dueDate": "2026-10-04",
+      "duration": 30
+    },
+    {
+      "name": "Review: Antibiotikatherapie (kalkuliert) R4",
       "dueDate": "2026-10-05",
       "duration": 30
     },
     {
-      "name": "Review: Vorhofflimmern R5",
+      "name": "Review: Säure-Basen-Haushalt / BGA R3",
       "dueDate": "2026-10-05",
-      "duration": 90
-    },
-    {
-      "name": "Fragen-Mining 01: Schmerztherapie / WHO-Stufenschema",
-      "dueDate": "2026-10-06",
       "duration": 60
     },
     {
-      "name": "Review: Check-up / Prävention R3",
-      "dueDate": "2026-10-06",
+      "name": "Review: Antikoagulation & Bridging R3",
+      "dueDate": "2026-10-05",
       "duration": 60
     },
     {
-      "name": "Review: Akuttoxikologie / Intoxikation R4",
+      "name": "Review: Arzneimittelinteraktionen & UAW R2",
+      "dueDate": "2026-10-05",
+      "duration": 45
+    },
+    {
+      "name": "Review: Rheumatologie (PMR, RZA, Spondyloarthritis) R2",
+      "dueDate": "2026-10-05",
+      "duration": 45
+    },
+    {
+      "name": "Review: Säure-Basen-Haushalt / BGA R4",
       "dueDate": "2026-10-06",
       "duration": 30
     },
     {
-      "name": "Review: Arterielle Hypertonie R5",
+      "name": "Review: Antikoagulation & Bridging R4",
+      "dueDate": "2026-10-06",
+      "duration": 30
+    },
+    {
+      "name": "Review: Arzneimittelinteraktionen & UAW R3",
+      "dueDate": "2026-10-06",
+      "duration": 60
+    },
+    {
+      "name": "Study: Elektrolytstörungen K⁺/Ca²⁺",
+      "dueDate": "2026-10-06",
+      "duration": 120
+    },
+    {
+      "name": "Review: Arzneimittelinteraktionen & UAW R4",
       "dueDate": "2026-10-07",
-      "duration": 90
+      "duration": 30
     },
     {
-      "name": "Review: Schock (alle Typen) R5",
+      "name": "Review: Elektrolytstörungen K⁺/Ca²⁺ R1",
       "dueDate": "2026-10-07",
-      "duration": 90
+      "duration": 30
     },
     {
-      "name": "Review: Anaphylaxie R3",
+      "name": "Study: Makrozytäre Anämie / Vitamin-B12-Mangel",
+      "dueDate": "2026-10-07",
+      "duration": 120
+    },
+    {
+      "name": "Review: Elektrolytstörungen K⁺/Ca²⁺ R2",
       "dueDate": "2026-10-08",
+      "duration": 45
+    },
+    {
+      "name": "Review: Makrozytäre Anämie / Vitamin-B12-Mangel R1",
+      "dueDate": "2026-10-08",
+      "duration": 30
+    },
+    {
+      "name": "Review: Elektrolytstörungen K⁺/Ca²⁺ R3",
+      "dueDate": "2026-10-09",
       "duration": 60
     },
     {
-      "name": "Review: Harnwegsinfekt / Pyelonephritis R5",
-      "dueDate": "2026-10-08",
-      "duration": 90
-    },
-    {
-      "name": "Review: Milzruptur / Splenektomie R4",
-      "dueDate": "2026-10-08",
-      "duration": 30
+      "name": "Review: Makrozytäre Anämie / Vitamin-B12-Mangel R2",
+      "dueDate": "2026-10-09",
+      "duration": 45
     }
   ],
   "nextCheckpoint": {
     "name": "CHECKPOINT: September Review Complete",
-    "dueDate": "2026-09-30"
+    "dueDate": "2026-10-31"
   }
 }
