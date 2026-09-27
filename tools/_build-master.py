@@ -120,7 +120,6 @@ def rowsfor(T): return "".join(trow(rk,t,c,p,f,th,s) for rk,t,c,p,f,th,s in T)
 sK=section("#B3261E","KERN \u00b7 Ziel R5","ab 100 Protokoll-Treffer \u2014 muss bis zur Pr\u00fcfung sitzen",f"{tkn} Themen",rowsfor(TK))
 sS=section("#B07214","STANDARD \u00b7 Ziel R4","50 bis 99 Protokoll-Treffer \u2014 sicher beherrschen",f"{tsn} Themen",rowsfor(TS))
 sR=section("#7A736A","RAND \u00b7 Ziel R2","unter 50 Protokoll-Treffer \u2014 kennen, nicht vertiefen",f"{trn} Themen",rowsfor(TR))
-sE=section("#2D7A3E","Weitere gebaute Reviews","In der Library vorhanden, aber nicht in der Korpus-Rangliste",f"{len(EXTRA)} Themen","".join(trow(None,0,0,0,f,th,s,force_tier=True) for f,th,s in EXTRA))
 
 # --- Ziel-Erreichung je Tier (KERN/STANDARD/RAND) ------------------------------
 def _lvl_of(slug):
@@ -150,23 +149,54 @@ def bar(label,c,n,col):
     pct=round(c/n*100) if n else 0
     return f'<div class="ana-tier" style="--tcc:{col}"><span class="ana-tl">{label}</span><div class="bar"><div class="fill" style="width:{pct}%"></div></div><span class="ana-tc">{c} / {n}</span></div>'
 gaps_html="".join(f'<div class="gap"><span class="gap-n">{t}</span><span class="gap-t">{esc(th)}</span><span class="gap-f">{fab.get(f,f)}</span></div>' for t,th,f in gaps)
+# --- Kennzahlen aus der Lernliste ---------------------------------------
+_AKT=[r for r in _LL if r.get('status','').strip()!='gestrichen' and not r.get('gefaltet_in','').strip()]
+def _i(r,k):
+    v=(r.get(k) or '').strip()
+    return int(v) if v.isdigit() else 0
+_PROT_SUM=sum(_i(r,'protokolle') for r in _AKT)
+_FALL_SUM=sum(_i(r,'als_fall') for r in _AKT)
+_L12_SUM=sum(_i(r,'letzte12m') for r in _AKT)
+_N_FALL=sum(1 for r in _AKT if (r.get('typ') or '').strip()=='Fall')
+_N_FRAGE=len(_AKT)-_N_FALL
+# Ziel-Erreichung je Tier
+_ZT={"KERN":[0,0],"STANDARD":[0,0],"RAND":[0,0]}
+for r in _AKT:
+    inf=repo.get(r['slug'])
+    lvl=_badge_lvl(r['slug'],inf[0]) if inf else 0
+    tgt=int((r.get('ziel_r') or '2').strip() or 2)
+    _ZT[r['stufe']][0 if lvl>=tgt else 1]+=1
+_ZTOT=[sum(v[0] for v in _ZT.values()),sum(v[1] for v in _ZT.values())]
+# Top nach Rezenz: letzte 12 Monate, relativ zur Gesamtzahl
+_REZ=sorted(_AKT,key=lambda r:-_i(r,'letzte12m'))[:6]
+_rez_html="".join(f'<div class="gap"><span class="gap-n">{_i(r,"letzte12m")}</span><span class="gap-t">{esc(r["thema"])}</span><span class="gap-f">von {_i(r,"protokolle")}</span></div>' for r in _REZ)
+# Top als Fall gepruefte Themen
+_FAELLE=sorted(_AKT,key=lambda r:-_i(r,'als_fall'))[:6]
+_fall_html="".join(f'<div class="gap"><span class="gap-n">{_i(r,"als_fall")}</span><span class="gap-t">{esc(r["thema"])}</span><span class="gap-f">{fab.get(r["fach"],r["fach"])}</span></div>' for r in _FAELLE)
+def zbar(label,cls,v):
+    ges=v[0]+v[1]; pct=round(v[0]/ges*100) if ges else 0
+    return f'<div class="ana-tier" style="--tcc:{cls}"><span class="ana-tl">{label}</span><div class="bar"><div class="fill" style="width:{pct}%"></div></div><span class="ana-tc">{v[0]} / {ges}</span></div>'
+
+
 analytics=f'''<section class="analytics">
   <div class="ana-grid">
-    <div class="ana-card"><div class="ana-n">{n_md}</div><div class="ana-l">Themen · Inventar</div></div>
-    <div class="ana-card"><div class="ana-n">{len(repo)}</div><div class="ana-l">Reviews live</div></div>
-    <div class="ana-card"><div class="ana-n">{cov_pct}<span style="font-size:18px"> %</span></div><div class="ana-l">abgedeckt</div></div>
-    <div class="ana-card"><div class="ana-n">{tkc}<span style="font-size:18px"> / {tkn}</span></div><div class="ana-l">Kern-Themen abgedeckt</div></div>
+    <div class="ana-card"><div class="ana-n">{len(_AKT)}</div><div class="ana-l">Themen aktiv</div></div>
+    <div class="ana-card"><div class="ana-n">{_ZTOT[0]}<span style="font-size:18px"> / {_ZTOT[0]+_ZTOT[1]}</span></div><div class="ana-l">auf Zielstufe</div></div>
+    <div class="ana-card"><div class="ana-n">{tkc}<span style="font-size:18px"> / {tkn}</span></div><div class="ana-l">Kern mit Review</div></div>
+    <div class="ana-card"><div class="ana-n">517</div><div class="ana-l">Protokolle ausgewertet</div></div>
   </div>
-  <div class="ana-strip">Review-Reife · <b>{nr[3]}</b>×R3 · <b>{nr[2]}</b>×R2 · <b>{nr[1]}</b>×R1 · +{len(EXTRA)} außerhalb der Liste &nbsp;·&nbsp; <span id="prog">0 abgehakt</span></div>
+  <div class="ana-strip">Review-Reife · <b>{nr[3]}</b>×R3 · <b>{nr[2]}</b>×R2 · <b>{nr[1]}</b>×R1 &nbsp;·&nbsp; {_N_FALL} Fall-Themen, {_N_FRAGE} Frage-Themen &nbsp;·&nbsp; <span id="prog">0 abgehakt</span></div>
   <div class="ana-sub">
-    <div class="ana-box"><div class="ana-box-h">Abdeckung nach Ziel-Tier</div>
-      {bar("Kern",tkc,tkn,"#B3261E")}{bar("Standard",tsc,tsn,"#B07214")}{bar("Rand",trc,trn,"#7A736A")}
+    <div class="ana-box"><div class="ana-box-h">Zielstufe erreicht</div>
+      {zbar("Kern · Ziel R5","#B3261E",_ZT["KERN"])}{zbar("Standard · Ziel R4","#B07214",_ZT["STANDARD"])}{zbar("Rand · Ziel R2","#7A736A",_ZT["RAND"])}
     </div>
-    <div class="ana-box"><div class="ana-box-h">Größte Lücken · höchste Korpus-Präsenz, kein Review <span style="font-weight:400;text-transform:none;letter-spacing:0">(s. Hinweis)</span></div>{gaps_html}</div>
+    <div class="ana-box"><div class="ana-box-h">Zuletzt am häufigsten · letzte 12 Monate</div>{_rez_html}</div>
+    <div class="ana-box"><div class="ana-box-h">Am häufigsten als Fall geprüft</div>{_fall_html}</div>
+    <div class="ana-box"><div class="ana-box-h">Größte Lücken · hohe Präsenz, kein Review</div>{gaps_html}</div>
   </div>
 </section>'''
 
-caveat='''<div class="caveat"><b>Hinweis zur Kennzahl.</b> Dies ist <b>Erwähnungs-Häufigkeit</b> (Korpus-Treffer), nicht Fall-Häufigkeit. Begriffe, die als Befund oder Therapie innerhalb vieler Fälle vorkommen, ranken höher als ihre Eigenständigkeit — v. a. Bluttransfusion, Ikterus/Cholestase, Gastroduodenales Ulkus, Rechtsmedizin, Hepatitis, Lymphom. Umgekehrt ranken klassische Einzelfälle wie Distale Radiusfraktur oder Cushing niedriger, als sie geprüft werden. Für reine <b>Lern-Priorität</b> bleibt die fallzahl-basierte Sicht die bessere Quelle; diese flache Liste ist v. a. ein einziges, scannbares Gesamt-Inventar.</div>'''
+caveat='''<div class="caveat"><b>Woher die Zahlen kommen.</b> Gezählt werden <b>Protokolle</b>, nicht Erwähnungen: Basis sind 517 deduplizierte Prüfungsprotokolle 2023–2026. Die Spalte <b>Prot.</b> sagt, in wie vielen davon das Thema vorkommt; <b>Fall</b> zählt nur die Protokolle, in denen es der Prüfungsfall selbst war, nicht eine Nebenfrage. <b>12M</b> ist derselbe Wert für die letzten zwölf Monate und zeigt, was zuletzt gefragt wurde. Die Stufe (Kern, Standard, Rand) und damit die Zielstufe leiten sich aus der Protokollzahl ab; einzige Quelle ist <code>data/lernliste.csv</code>.</div>'''
 
 html=f'''<!DOCTYPE html><html lang="de"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -270,11 +300,11 @@ td.ziel{{white-space:nowrap;text-align:right;padding-right:12px}}
 <a href="../index.html" class="back">← Zurück zur Library</a>
 <div class="kicker">KP Mainz · Studienplanung</div>
 <h1>Master-Themenliste</h1>
-<p class="lede">Alle {n_md} Themen in einer Rangliste, sortiert nach Korpus-Präsenz — Wortvorkommen im WhatsApp-Chat + in den Protokoll-Dateien. Review-Status + Statistik live aus der Library; gebaute Themen sind verlinkt.</p>
+<p class="lede">Alle {n_md} Themen in einer Rangliste, sortiert nach der Zahl der Pr\u00fcfungsprotokolle, in denen sie vorkommen \u2014 Basis sind 517 deduplizierte Protokolle 2023\u20132026. Review-Status und Statistik live aus der Library; gebaute Themen sind verlinkt.</p>
 {caveat}
 {analytics}
 {zieltab}
-{sK}{sS}{sR}{sE}
+{sK}{sS}{sR}
 <div class="legend">
 <b>Treffer</b> = Korpus-Erwähnungen gesamt; <b>{'{chat}·{prot}'}</b> darunter = Chat- bzw. Protokoll-Treffer. <b>#</b> = Rang in der Gesamtliste.
 <b>Review</b>-Badge zeigt das gebaute Level (✓ R1 → R3) und verlinkt direkt; die Statistik oben wird bei jedem Build live aus dem Repo berechnet. Häkchen werden lokal im Browser gespeichert.
