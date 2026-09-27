@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-09-26T08:19:37.971Z",
+  "generatedAt": "2026-09-27T08:57:21.397Z",
   "totals": {
     "open": 192,
     "completed": 417,
     "overdue": 0,
-    "schedulingIssues": 97
+    "schedulingIssues": 94
   },
   "byLevel": {
     "R1": {
@@ -282,26 +282,8 @@
       "scheduledStart": null
     },
     {
-      "name": "Deck-Einschub: Krampfanfall → Schädel-Hirn-Trauma",
-      "dueDate": "2026-10-30",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
       "name": "Review: Akutes Abdomen R5",
       "dueDate": "2026-11-01",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Review: Harnwegsinfekt / Pyelonephritis R5",
-      "dueDate": "2026-10-30",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Review: Schmerztherapie / WHO-Stufenschema R5",
-      "dueDate": "2026-10-30",
       "schedulingIssue": true,
       "scheduledStart": null
     },
@@ -544,6 +526,24 @@
       "dueDate": "2026-10-31",
       "schedulingIssue": true,
       "scheduledStart": null
+    },
+    {
+      "name": "Practice: Anamnesebogen — Complete from real Akte (Session 2)",
+      "dueDate": "2026-11-10",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Practice: Anamnesebogen — Complete from real Akte (Session 1)",
+      "dueDate": "2026-11-17",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Drittes Fach: Protocol Review — Session 15",
+      "dueDate": "2026-12-27",
+      "schedulingIssue": true,
+      "scheduledStart": null
     }
   ],
   "overdue": [],
@@ -572,11 +572,6 @@
       "name": "Review: Harnwegsinfekt / Pyelonephritis R4",
       "dueDate": "2026-09-27",
       "duration": 30
-    },
-    {
-      "name": "Review: GERD / Refluxkrankheit R2",
-      "dueDate": "2026-09-27",
-      "duration": 45
     },
     {
       "name": "Review: Gastritis R4",
@@ -612,6 +607,11 @@
       "name": "Review: Milzruptur / Splenektomie R3",
       "dueDate": "2026-09-28",
       "duration": 60
+    },
+    {
+      "name": "Review: GERD / Refluxkrankheit R2",
+      "dueDate": "2026-09-28",
+      "duration": 45
     },
     {
       "name": "Review: Anaphylaxie R3",
@@ -822,6 +822,11 @@
       "name": "Review: Makrozytäre Anämie / Vitamin-B12-Mangel R3",
       "dueDate": "2026-10-10",
       "duration": 60
+    },
+    {
+      "name": "Review: Makrozytäre Anämie / Vitamin-B12-Mangel R4",
+      "dueDate": "2026-10-11",
+      "duration": 30
     }
   ],
   "nextCheckpoint": {
