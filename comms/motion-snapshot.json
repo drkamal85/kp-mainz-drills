@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-09-28T09:23:19.155Z",
+  "generatedAt": "2026-09-29T09:29:04.681Z",
   "totals": {
     "open": 179,
     "completed": 430,
     "overdue": 0,
-    "schedulingIssues": 94
+    "schedulingIssues": 91
   },
   "byLevel": {
     "R1": {
@@ -282,18 +282,6 @@
       "scheduledStart": null
     },
     {
-      "name": "Review: Harnwegsinfekt / Pyelonephritis R5",
-      "dueDate": "2026-10-30",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Review: Schmerztherapie / WHO-Stufenschema R5",
-      "dueDate": "2026-10-30",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
       "name": "Akte-Sim #25",
       "dueDate": "2027-02-20",
       "schedulingIssue": true,
@@ -516,12 +504,6 @@
       "scheduledStart": null
     },
     {
-      "name": "Review: Bluttransfusion R5",
-      "dueDate": "2026-10-30",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
       "name": "Review: Anästhesie & Atemwegssicherung R5",
       "dueDate": "2026-10-31",
       "schedulingIssue": true,
@@ -544,34 +526,32 @@
       "dueDate": "2026-12-27",
       "schedulingIssue": true,
       "scheduledStart": null
+    },
+    {
+      "name": "Drittes Fach: Protocol Review — Session 7",
+      "dueDate": "2026-11-09",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Oral Simulation with Partner — Session 2",
+      "dueDate": "2026-11-04",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Drittes Fach: Protocol Review — Session 5",
+      "dueDate": "2026-11-06",
+      "schedulingIssue": true,
+      "scheduledStart": null
     }
   ],
   "overdue": [],
   "upcoming14d": [
     {
       "name": "Review: Tuberkulose R4",
-      "dueDate": "2026-09-28",
+      "dueDate": "2026-09-29",
       "duration": 30
-    },
-    {
-      "name": "Review: Reanimation / CPR R3",
-      "dueDate": "2026-09-28",
-      "duration": 60
-    },
-    {
-      "name": "Review: GERD / Refluxkrankheit R2",
-      "dueDate": "2026-09-28",
-      "duration": 45
-    },
-    {
-      "name": "Review: Bluttransfusion R4",
-      "dueDate": "2026-09-28",
-      "duration": 30
-    },
-    {
-      "name": "Review: Milzruptur / Splenektomie R3",
-      "dueDate": "2026-09-28",
-      "duration": 60
     },
     {
       "name": "Review: Anaphylaxie R3",
@@ -589,14 +569,34 @@
       "duration": 30
     },
     {
+      "name": "Review: Reanimation / CPR R3",
+      "dueDate": "2026-09-29",
+      "duration": 60
+    },
+    {
       "name": "Review: Akutes Abdomen R3",
       "dueDate": "2026-09-29",
       "duration": 60
     },
     {
+      "name": "Review: GERD / Refluxkrankheit R2",
+      "dueDate": "2026-09-29",
+      "duration": 45
+    },
+    {
+      "name": "Review: Bluttransfusion R4",
+      "dueDate": "2026-09-29",
+      "duration": 30
+    },
+    {
       "name": "Review: Milzruptur / Splenektomie R4",
       "dueDate": "2026-09-29",
       "duration": 30
+    },
+    {
+      "name": "Review: Milzruptur / Splenektomie R3",
+      "dueDate": "2026-09-29",
+      "duration": 60
     },
     {
       "name": "Review: Diarrhoe / Gastroenteritis R3",
