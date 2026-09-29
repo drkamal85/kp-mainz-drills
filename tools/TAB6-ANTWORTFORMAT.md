@@ -91,7 +91,7 @@ Die Ausnahme gilt eng:
 Im Zweifel bleibt der Deckel. Die Markierung macht jede Ausnahme sichtbar und zählbar:
 `grep -rl 'ans vollzaehlig' reviews/`.
 
-## Die fünf Regeln für Tab 6 (verbindlich seit 09/2026)
+## Die sechs Regeln für Tab 6 (verbindlich seit 09/2026)
 
 1. **Nur Dokumentiertes.** Jede Frage geht auf ein echtes Mainzer Protokoll zurück — kein Lehrbuch,
    kein „high-yield". Der Blockkopf (`pk-meta`) nennt **Prüfer, Datum oder Fallnummer**
@@ -110,6 +110,22 @@ Im Zweifel bleibt der Deckel. Die Markierung macht jede Ausnahme sichtbar und z�
    doppelt in Nachbardecks (Varizen → leberzirrhose, Forrest → gastroduodenales-ulkus,
    Kompartment → allgemeine-frakturlehre, VT → reanimation-cpr, SVT → vorhofflimmern,
    Hirnblutung → schaedel-hirn-trauma).
+
+6. **Quelle ist KP-Intel — umformulieren ja, verändern nein** (entschieden von Mohamed,
+   29.09.2026). Jede Frage entspricht **genau einer Zeile** in `sources/mining/<slug>.md` bzw.
+   `/api/fragen?thema=<slug>`. Die KP-Intel-Zeile ist eine Stichwort-Zusammenfassung
+   („Definition akutes Abdomen"); sie darf in **gesprochene Prüferfrage** umgesetzt werden
+   („Wie definieren Sie das akute Abdomen?"), weil Tab 6 das Hören der Prüfung übt.
+   **Nicht erlaubt:**
+   - eine Zeile in mehrere Fragen **aufteilen** — auch wenn sie mehrere Punkte aufzählt
+   - Inhalt **weglassen** — nennt die Zeile vier Konstellationen, fragt die Frage alle vier
+   - Inhalt **hinzufügen**, der in der Zeile nicht steht
+   Die Antwort ist frei formuliert; sie darf erklären, was die Zeile nur benennt.
+   Präzedenzfall akutes-abdomen, 29.09.2026: Dr. Baders Blickdiagnosen waren in 3 Fragen
+   zerlegt und nannten 3 von 4 Konstellationen, der Stumpfappendizitis-Fall in 2 Fragen.
+   Beides auf je eine Frage zurückgeführt, 15 → 12 Fragen.
+   Fehltreffer der Mining-Datei gehören nicht ins Deck: dort landeten 3 Zeilen zum
+   Kompartmentsyndrom nur wegen des Wortes „bretthart".
 
 Audit 09/2026: 818 Fragen in 51 Decks geprüft, 33 erfundene entfernt, alle Antworten auf den
 Deckel gebracht. Bericht: Projektdokument `claude/TAB6-AUDIT-2026-09-04.md`.
