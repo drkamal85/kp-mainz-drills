@@ -1,6 +1,6 @@
 # KP MAINZ — THEMENLISTE (FLACH, EINE RANGLISTE)
 
-Alle **92 Themen** in einer Rangliste nach **Protokoll-Evidenz** (517 deduplizierte Prüfungsprotokolle 2023–2026, protokollbasiert gezählt). Aktuell **85 von 92** mit Review abgedeckt (~92 %).
+Alle **92 Themen** in einer Rangliste nach **Protokoll-Evidenz** (517 deduplizierte Prüfungsprotokolle 2023–2026, protokollbasiert gezählt). Aktuell **86 von 92** mit Review abgedeckt (~93 %).
 
 > **September 2026 (v2):** Neuzählung gegen **517 deduplizierte Protokolle**. Gezählt werden jetzt **Protokolle** (eigenständige Prüfungen) statt Nennungen — damit fällt die Querschnitts-Verzerrung weg, die in der alten Quellnotiz benannt war. Neue Spalten: *als Fall* (war das Thema der Patientenfall) und *letzte 12 M*. **Gestrichen:** Kreuzbandruptur (2 Protokolle). **Eingefaltet:** Claviculafraktur → Allgemeine Frakturlehre, Beckenringfrakturen → Polytrauma. **Neu:** Arzneimittelinteraktionen & UAW, Antikoagulation & Bridging, Antibiotikatherapie, Säure-Basen/BGA, Makrozytäre Anämie/B12, Elektrolytstörungen K⁺/Ca²⁺, Rheumatologie. Stufen neu: **KERN 32 · STANDARD 34 · RAND 26**. Quelle: `data/lernliste.csv`.
 >
@@ -41,7 +41,7 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 19 | 103 | 5 | 17 | KERN | Frage | Notfallmedizin | Säure-Basen-Haushalt / BGA | — |
 | 20 | 95 | 3 | 19 | KERN | Frage | Unfallchirurgie | Schädel-Hirn-Trauma | ✓ R4 |
 | 21 | 103 | 15 | 16 | KERN | Frage | Allgemein- und Viszeralchirurgie | Appendizitis | ✓ R4 |
-| 22 | 106 | 0 | 15 | KERN | Frage | Drittes Fach | Antibiotikatherapie (kalkuliert) | — |
+| 22 | 106 | 0 | 15 | KERN | Frage | Drittes Fach | Antibiotikatherapie (kalkuliert) |✓ R1 |
 | 23 | 114 | 13 | 12 | KERN | Frage | Allgemein- und Viszeralchirurgie | Ileus | ✓ R4 |
 | 24 | 92 | 23 | 18 | KERN | Fall | Allgemein- und Viszeralchirurgie | Divertikulitis | ✓ R4 |
 | 25 | 93 | 17 | 16 | KERN | Fall | Angiologie | Lungenembolie | ✓ R4 |

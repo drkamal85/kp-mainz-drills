@@ -15,16 +15,22 @@ STATION_KEYS = ['grundlagen','klinik','diagnostik','therapie']
 VARIANT = {'critical':'cave','warning':'cave','fact':'fakt','pearl':'merksatz'}
 
 
-# --- Ziel-Tier je Thema, aus der prot-Spalte der FLAT-Liste ------------------
-# Die App zeigt damit KERN / STANDARD / RAND wie die Website.
+# --- Ziel-Tier je Thema, aus data/lernliste.csv ---------------------------
+# Die App zeigt damit KERN / STANDARD / RAND wie die Website. Einzige Quelle
+# ist seit Lernliste v2 die CSV; die fruehere Ableitung aus der prot-Spalte
+# der FLAT-Liste (>=100 / >=50) ist ueberholt und lieferte nach v2 fuer 64 von
+# 89 Themen ein falsches Tier - neue Themen fehlten dort ganz und fielen auf
+# RAND zurueck.
 def _tier_map():
-    k = io.open('tools/_build-master.py', encoding='utf-8').read()
+    import csv
     out = {}
-    for m in re.finditer(r'\((\d+),(\d+),(\d+),"([^"]*)","([^"]*)",\s*"([a-z0-9-]+)"\)', k):
-        prot = int(m.group(3)); slug = m.group(6)
-        if prot >= 100: out[slug] = ('KERN', 5)
-        elif prot >= 50: out[slug] = ('STANDARD', 4)
-        else: out[slug] = ('RAND', 2)
+    for r in csv.DictReader(io.open('data/lernliste.csv', encoding='utf-8-sig')):
+        if (r.get('status') or '').strip() == 'gestrichen' or (r.get('gefaltet_in') or '').strip():
+            continue
+        st = (r.get('stufe') or '').strip()
+        zr = (r.get('ziel_r') or '').strip()
+        if st and zr.isdigit():
+            out[r['slug'].strip()] = (st, int(zr))
     return out
 
 TIER = _tier_map()
@@ -192,7 +198,8 @@ for path, folder, slug, lvl in cards:
     _present = [k for k in ('grundlagen','klinik','diagnostik','therapie') if _st.get(k)]
     topics.append({
         'id': f'{slug}-r{lvl}', 'title': title, 'specialty': folder, 'level': 'R'+lvl, 'minutes': minutes,
-        'tier': TIER.get(slug, ('RAND', 2))[0], 'tierTarget': 'R%d' % TIER.get(slug, ('RAND', 2))[1],
+        # Themen ausserhalb der Rangliste (gestrichen, eingefaltet) tragen kein Tier
+        'tier': TIER[slug][0] if slug in TIER else None, 'tierTarget': ('R%d' % TIER[slug][1]) if slug in TIER else None,
         'complete': len(_present) == 4, 'stationsPresent': _present,
         'stations': _st,
         'cards': _cards, 'intros': _intros,
