@@ -78,7 +78,7 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 56 | 56 | 24 | 4 | STANDARD | Fall | Hämatologie | Makrozytäre Anämie / Vitamin-B12-Mangel | — |
 | 57 | 51 | 7 | 5 | STANDARD | Frage | Gastroenterologie | Morbus Crohn & Colitis ulcerosa | ✓ R4 |
 | 58 | 35 | 12 | 9 | STANDARD | Fall | Pneumologie | Bronchialkarzinom | ✓ R3 |
-| 59 | 55 | 22 | 3 | STANDARD | Fall | Gastroenterologie | Diarrhoe / Gastroenteritis | ✓ R2 |
+| 59 | 55 | 22 | 3 | STANDARD | Fall | Gastroenterologie | Diarrhoe / Gastroenteritis | ✓ R3 |
 | 60 | 44 | 8 | 5 | STANDARD | Fall | Nephrologie | Elektrolytstörungen K⁺/Ca²⁺ | — |
 | 61 | 36 | 8 | 7 | STANDARD | Fall | Nephrologie | Nierenversagen (akut / akut-auf-chron.) | ✓ R4 |
 | 62 | 38 | 9 | 6 | STANDARD | Fall | Unfallchirurgie | Humerusfraktur | ✓ R4 |
