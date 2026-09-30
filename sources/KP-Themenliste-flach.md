@@ -61,7 +61,7 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 39 | 85 | 1 | 10 | STANDARD | Frage | Notfallmedizin | Reanimation / CPR | ✓ R2 |
 | 40 | 88 | 18 | 9 | STANDARD | Fall | Pneumologie | Pneumonie | ✓ R4 |
 | 41 | 66 | 13 | 15 | STANDARD | Fall | Unfallchirurgie | Hüft- / Knie-TEP | ✓ R4 |
-| 42 | 59 | 0 | 14 | STANDARD | Frage | Querschnitt | Check-up / Prävention | ✓ R2 |
+| 42 | 59 | 0 | 14 | STANDARD | Frage | Querschnitt | Check-up / Prävention | ✓ R3 |
 | 43 | 58 | 6 | 11 | STANDARD | Frage | Kardiologie | AV-Block | ✓ R4 |
 | 44 | 67 | 7 | 8 | STANDARD | Frage | Gastroenterologie | Lebermetastasen / Lebertumor | ✓ R4 |
 | 45 | 65 | 18 | 8 | STANDARD | Fall | Notfallmedizin | Sepsis & septischer Schock | ✓ R4 |
