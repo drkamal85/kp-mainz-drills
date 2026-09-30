@@ -1,43 +1,43 @@
 {
-  "generatedAt": "2026-09-29T09:29:04.681Z",
+  "generatedAt": "2026-09-30T09:20:29.514Z",
   "totals": {
-    "open": 179,
-    "completed": 430,
-    "overdue": 0,
-    "schedulingIssues": 91
+    "open": 165,
+    "completed": 438,
+    "overdue": 4,
+    "schedulingIssues": 82
   },
   "byLevel": {
     "R1": {
-      "open": 7,
-      "completed": 100
+      "open": 6,
+      "completed": 101
     },
     "R2": {
       "open": 8,
       "completed": 96
     },
     "R3": {
-      "open": 12,
-      "completed": 77
+      "open": 8,
+      "completed": 81
     },
     "R4": {
-      "open": 15,
-      "completed": 70
+      "open": 11,
+      "completed": 73
     },
     "R5": {
-      "open": 40,
+      "open": 38,
       "completed": 1
     }
   },
   "byWorkstream": {
     "A_coverage": {
-      "topicsTotal": 217,
+      "topicsTotal": 214,
       "studied": 65,
       "studyOpen": 2,
-      "r1Built": 94,
-      "r1Open": 7
+      "r1Built": 95,
+      "r1Open": 6
     },
     "B_r5": {
-      "open": 42,
+      "open": 40,
       "completed": 1,
       "pilot": [
         {
@@ -186,18 +186,6 @@
   },
   "flagged": [
     {
-      "name": "Review: Antibiotikatherapie (kalkuliert) R5",
-      "dueDate": "2026-11-01",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Review: Säure-Basen-Haushalt / BGA R5",
-      "dueDate": "2026-11-02",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
       "name": "Review: Antikoagulation & Bridging R5",
       "dueDate": "2026-11-03",
       "schedulingIssue": true,
@@ -206,18 +194,6 @@
     {
       "name": "Review: Arzneimittelinteraktionen & UAW R5",
       "dueDate": "2026-11-05",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Fragen-Mining 12: Tuberkulose",
-      "dueDate": "2026-11-01",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Fragen-Mining 11: Hepatitis",
-      "dueDate": "2026-10-31",
       "schedulingIssue": true,
       "scheduledStart": null
     },
@@ -252,12 +228,6 @@
       "scheduledStart": null
     },
     {
-      "name": "Fragen-Mining 04: Anästhesie & Atemwegssicherung",
-      "dueDate": "2026-10-31",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
       "name": "Fragen-Mining 03: Bluttransfusion",
       "dueDate": "2026-11-15",
       "schedulingIssue": true,
@@ -272,12 +242,6 @@
     {
       "name": "Fragen-Mining 01: Schmerztherapie / WHO-Stufenschema",
       "dueDate": "2026-11-09",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Review: Akutes Abdomen R5",
-      "dueDate": "2026-11-01",
       "schedulingIssue": true,
       "scheduledStart": null
     },
@@ -378,12 +342,6 @@
       "scheduledStart": null
     },
     {
-      "name": "Akte-Sim #9",
-      "dueDate": "2026-10-31",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
       "name": "Akte-Sim #6",
       "dueDate": "2026-11-13",
       "schedulingIssue": true,
@@ -398,12 +356,6 @@
     {
       "name": "CHECKPOINT Dez 31 — Mock-#1-Debrief",
       "dueDate": "2026-11-14",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "CHECKPOINT Okt 16 — alle Themen R4",
-      "dueDate": "2026-11-02",
       "schedulingIssue": true,
       "scheduledStart": null
     },
@@ -504,12 +456,6 @@
       "scheduledStart": null
     },
     {
-      "name": "Review: Anästhesie & Atemwegssicherung R5",
-      "dueDate": "2026-10-31",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
       "name": "Practice: Anamnesebogen — Complete from real Akte (Session 2)",
       "dueDate": "2026-11-10",
       "schedulingIssue": true,
@@ -544,65 +490,81 @@
       "dueDate": "2026-11-06",
       "schedulingIssue": true,
       "scheduledStart": null
+    },
+    {
+      "name": "Oral Simulation with Partner — Session 13 (final)",
+      "dueDate": "2027-02-24",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Drittes Fach: Protocol Review — Session 16",
+      "dueDate": "2026-12-28",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Oral Simulation with Partner — Session 11",
+      "dueDate": "2027-02-20",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Drittes Fach: Protocol Review — Session 11",
+      "dueDate": "2026-11-12",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Oral Simulation with Partner — Session 5",
+      "dueDate": "2026-11-13",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Oral Simulation with Partner — Session 9",
+      "dueDate": "2027-01-23",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Drittes Fach: Protocol Review — Session 17",
+      "dueDate": "2026-12-29",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Drittes Fach: Protocol Review — Session 12",
+      "dueDate": "2026-11-15",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Oral Simulation with Partner — Session 1",
+      "dueDate": "2026-11-06",
+      "schedulingIssue": true,
+      "scheduledStart": null
     }
   ],
-  "overdue": [],
-  "upcoming14d": [
-    {
-      "name": "Review: Tuberkulose R4",
-      "dueDate": "2026-09-29",
-      "duration": 30
-    },
+  "overdue": [
     {
       "name": "Review: Anaphylaxie R3",
-      "dueDate": "2026-09-29",
-      "duration": 60
-    },
-    {
-      "name": "Review: Check-up / Prävention R3",
-      "dueDate": "2026-09-29",
-      "duration": 60
+      "dueDate": "2026-09-29"
     },
     {
       "name": "Review: Reanimation / CPR R4",
-      "dueDate": "2026-09-29",
-      "duration": 30
+      "dueDate": "2026-09-29"
     },
     {
       "name": "Review: Reanimation / CPR R3",
-      "dueDate": "2026-09-29",
-      "duration": 60
-    },
-    {
-      "name": "Review: Akutes Abdomen R3",
-      "dueDate": "2026-09-29",
-      "duration": 60
+      "dueDate": "2026-09-29"
     },
     {
       "name": "Review: GERD / Refluxkrankheit R2",
-      "dueDate": "2026-09-29",
-      "duration": 45
-    },
-    {
-      "name": "Review: Bluttransfusion R4",
-      "dueDate": "2026-09-29",
-      "duration": 30
-    },
-    {
-      "name": "Review: Milzruptur / Splenektomie R4",
-      "dueDate": "2026-09-29",
-      "duration": 30
-    },
-    {
-      "name": "Review: Milzruptur / Splenektomie R3",
-      "dueDate": "2026-09-29",
-      "duration": 60
-    },
-    {
-      "name": "Review: Diarrhoe / Gastroenteritis R3",
-      "dueDate": "2026-09-30",
-      "duration": 60
-    },
+      "dueDate": "2026-09-29"
+    }
+  ],
+  "upcoming14d": [
     {
       "name": "Review: Anaphylaxie R4",
       "dueDate": "2026-09-30",
@@ -614,18 +576,8 @@
       "duration": 30
     },
     {
-      "name": "Review: Akutes Abdomen R4",
-      "dueDate": "2026-09-30",
-      "duration": 30
-    },
-    {
       "name": "Review: Diarrhoe / Gastroenteritis R4",
       "dueDate": "2026-10-01",
-      "duration": 30
-    },
-    {
-      "name": "Review: Antibiotikatherapie (kalkuliert) R1",
-      "dueDate": "2026-10-02",
       "duration": 30
     },
     {
