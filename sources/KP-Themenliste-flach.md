@@ -72,7 +72,7 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 50 | 52 | 11 | 8 | STANDARD | Fall | Endokrinologie | Schilddrüsenkarzinom | ✓ R2 |
 | 51 | 42 | 0 | 10 | STANDARD | Frage | Drittes Fach | Strahlenschutz | ✓ R2 |
 | 52 | 52 | 23 | 7 | STANDARD | Fall | Gastroenterologie | Gastritis (Typ A/B/C) | ✓ R3 |
-| 53 | 42 | 2 | 9 | STANDARD | Frage | Notfallmedizin | Anaphylaxie | ✓ R2 |
+| 53 | 42 | 2 | 9 | STANDARD | Frage | Notfallmedizin | Anaphylaxie | ✓ R3 |
 | 54 | 47 | 9 | 7 | STANDARD | Fall | Angiologie | Tiefe Beinvenenthrombose (TVT) | ✓ R4 |
 | 55 | 46 | 3 | 7 | STANDARD | Frage | Drittes Fach | Sozialrecht & Hygiene | ✓ R4 |
 | 56 | 56 | 24 | 4 | STANDARD | Fall | Hämatologie | Makrozytäre Anämie / Vitamin-B12-Mangel | — |
