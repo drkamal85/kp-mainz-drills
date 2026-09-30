@@ -41,7 +41,7 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 19 | 103 | 5 | 17 | KERN | Frage | Notfallmedizin | Säure-Basen-Haushalt / BGA | — |
 | 20 | 95 | 3 | 19 | KERN | Frage | Unfallchirurgie | Schädel-Hirn-Trauma | ✓ R4 |
 | 21 | 103 | 15 | 16 | KERN | Frage | Allgemein- und Viszeralchirurgie | Appendizitis | ✓ R4 |
-| 22 | 106 | 0 | 15 | KERN | Frage | Drittes Fach | Antibiotikatherapie (kalkuliert) |✓ R1 |
+| 22 | 106 | 0 | 15 | KERN | Frage | Drittes Fach | Antibiotikatherapie (kalkuliert) | ✓ R2 |
 | 23 | 114 | 13 | 12 | KERN | Frage | Allgemein- und Viszeralchirurgie | Ileus | ✓ R4 |
 | 24 | 92 | 23 | 18 | KERN | Fall | Allgemein- und Viszeralchirurgie | Divertikulitis | ✓ R4 |
 | 25 | 93 | 17 | 16 | KERN | Fall | Angiologie | Lungenembolie | ✓ R4 |
