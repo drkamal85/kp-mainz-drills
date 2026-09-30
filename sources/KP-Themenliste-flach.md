@@ -58,7 +58,7 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 36 | 67 | 1 | 16 | STANDARD | Frage | Drittes Fach | Rechtsmedizin / Leichenschau | ✓ R4 |
 | 37 | 83 | 12 | 11 | STANDARD | Frage | Gastroenterologie | Leberzirrhose | ✓ R4 |
 | 38 | 65 | 1 | 16 | STANDARD | Frage | Notfallmedizin | Akuttoxikologie / Intoxikation | ✓ R3 |
-| 39 | 85 | 1 | 10 | STANDARD | Frage | Notfallmedizin | Reanimation / CPR | ✓ R2 |
+| 39 | 85 | 1 | 10 | STANDARD | Frage | Notfallmedizin | Reanimation / CPR | ✓ R3 |
 | 40 | 88 | 18 | 9 | STANDARD | Fall | Pneumologie | Pneumonie | ✓ R4 |
 | 41 | 66 | 13 | 15 | STANDARD | Fall | Unfallchirurgie | Hüft- / Knie-TEP | ✓ R4 |
 | 42 | 59 | 0 | 14 | STANDARD | Frage | Querschnitt | Check-up / Prävention | ✓ R3 |
