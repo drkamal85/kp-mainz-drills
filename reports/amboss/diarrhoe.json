@@ -1,0 +1,240 @@
+{
+ "slug": "diarrhoe",
+ "deck": "reviews/gastroenterologie/diarrhoe.html",
+ "capture": [
+  "sources/amboss/diarrhoe.md"
+ ],
+ "counts": {
+  "ok": 14,
+  "fix": 0,
+  "unclear": 29
+ },
+ "fixes": [],
+ "ok": [
+  {
+   "panel": "grundlagen",
+   "deck_text": "Noroviren und Rotaviren gegen Campylobacter und Salmonellen",
+   "amboss": "Basisdiagnostik: Viren Norovirus, Rotavirus; Bakterien Campylobacter, Salmonellen"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "nach Antibiotikum Clostridioides difficile",
+   "amboss": "Risikofaktor: Antibiotische Therapie in den letzten 12 Wochen"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Immunschwäche, hohes Alter, Antibiotikum",
+   "amboss": "Risikofaktoren: Immunsuppression, hohes Alter, Antibiotika in den letzten 12 Wochen"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Kreatinin, Harnstoff · Kalium · Natrium, Blutbild, CRP · BGA",
+   "amboss": "Parameter: Blutbild, Elektrolyte, BGA, Kreatinin, CRP/PCT, Blutzucker"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Antibiotikum in den letzten 3 Monaten",
+   "amboss": "Antibiotische Therapie in den letzten 12 Wochen"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Rehydratation bei jedem, Antibiotikum nur bei Indikation",
+   "amboss": "supportive Therapie oft ausreichend"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Oral beim wachen Patienten — Lösung mit Glukose und Natrium",
+   "amboss": "Orale Rehydratationslösung (ORS)"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "prärenale Nierenschädigung",
+   "amboss": "Dehydratation mit akuter Nierenfunktionseinschränkung"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Unkompliziert unter 3 Tagen: keine Diagnostik",
+   "amboss": "Erregerdiagnostik nur, wenn unmittelbar handlungsrelevant"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Häufigste Erreger? viral Noroviren, bakteriell Campylobacter und Salmonellen",
+   "amboss": "Basisdiagnostik Viren/Bakterien"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Antibiotikum beim unkomplizierten Verlauf? nein",
+   "amboss": "meist selbstlimitierend, supportive Therapie oft ausreichend"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "isoliere … Noroviren",
+   "amboss": "wenn möglich Isolation zur Vermeidung weiterer Ansteckungen"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Hohe Retentionswerte zeigen ein prärenales Nierenversagen",
+   "amboss": "Dehydratation mit akuter Nierenfunktionseinschränkung"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "behandle mit Flüssigkeit, Antibiotika meist nicht",
+   "amboss": "supportive Therapie oft ausreichend"
+  }
+ ],
+ "diagnostik_queue": [
+  {
+   "deck_text": "Labor bei jedem, Stuhl nur bei Indikation. / Karte \"Labor — Bei jedem\"",
+   "proposed": "\"Labor bei jedem\" -> \"Labor bei schwerem Verlauf\" (Intro und Kartentitel)",
+   "amboss_quote": "Basislabor – Indikation: Bei schwerer Infektion/Dehydratation; Parameter: Blutbild, Elektrolyte, BGA, Kreatinin, CRP/PCT, Blutzucker"
+  }
+ ],
+ "unclear": [
+  {
+   "panel": "grundlagen",
+   "deck_text": "Mehr als 3 Stühle am Tag, zu weich, über 250 Gramm",
+   "reason": "Erfassung definiert nur die unspezifische Gastroenteritis, keine Diarrhö-Kriterien"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Akut: unter 2 Wochen",
+   "reason": "Erfassung nennt Symptomdauer \"wenige Tage bis 2 Wochen\" (Prognose), keine Definitionsgrenze"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Chronisch: über 4 Wochen",
+   "reason": "nicht in der Erfassung"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "DD chronisch: CED, Tumor, Unverträglichkeit, Medikamente, Reizdarm",
+   "reason": "nicht in der Erfassung"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Viral häufig und harmlos, bakteriell seltener und blutig",
+   "reason": "nicht in der Erfassung"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Exsikkosezeichen: Hautfalte, Schleimhaut, Blutdruck, Puls",
+   "reason": "Erfassung: nur \"Evaluation des Hydratationszustandes\""
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Warnzeichen: Blut, hohes Fieber, starke Schmerzen, lange Dauer",
+   "reason": "nicht in der Erfassung"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Unkompliziert unter 3 Tagen: keine Stuhldiagnostik",
+   "reason": "keine Zeitgrenze in der Erfassung"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Fieber über 38,5 Grad, Dauer über 7 Tage, Alter über 65",
+   "reason": "keine Schwellen in der Erfassung"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "nach Antibiotikum Clostridioides difficile",
+   "reason": "Erfassung: \"Bei nosokomialer Diarrhö: Immer C. difficile\" — anderer Auslöser, kein Widerspruch"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Clostridien zweistufig: Antigen, Toxin",
+   "reason": "C.-difficile-Kapitel nicht erfasst (bekannte Lücke)"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Koloskopie, Calprotectin, Transglutaminase, TSH, H2-Atemtest",
+   "reason": "chronische Diagnostik nicht in der Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Intravenös bei Erbrechen, Schock, Bewusstseinstrübung",
+   "reason": "Erfassung nennt keine Indikation, nur Labor vor Infusion und Vollelektrolytlösung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Kalium substituieren; Natrium nur mit Glukose resorbiert",
+   "reason": "nicht in der Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Antibiotika-Indikationen; Azithromycin oder Ciprofloxacin",
+   "reason": "nicht in der Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Loperamid-Kontraindikationen",
+   "reason": "nicht in der Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Clostridien nach Schweregrad: Vancomycin oral 10 Tage, Fidaxomicin, Mikrobiota-Transplantation, Kolektomie",
+   "reason": "C.-difficile-Kapitel nicht erfasst (bekannte Lücke)"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Händewaschen bei Clostridien und Noroviren — Desinfektion unwirksam gegen Sporen",
+   "reason": "nicht in der Erfassung. Hinweis zur manuellen Prüfung: Sporen betreffen nur C. difficile; bei Noroviren gilt üblicherweise viruzide Händedesinfektion — aus der Erfassung nicht belegbar, daher kein ✗"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Einzelzimmer bis 48 Stunden nach Symptomende",
+   "reason": "Erfassung: nur \"wenn möglich Isolation\", keine Dauer"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Meldepflicht ab 2 Fällen, Lebensmittelbereich",
+   "reason": "Meldepflicht nicht erfasst (bekannte Lücke)"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Clostridien zweistufig; Vancomycin oral",
+   "reason": "C.-difficile-Kapitel nicht erfasst"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Rapid-Fire zu Definition, Zeitgrenzen, chronischer DD, Loperamid, Clostridien",
+   "reason": "wie die entsprechenden Panels — nicht in der Erfassung"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Definition >3 ungeformte Stühle; chronisch ab 4 Wochen; DD",
+   "reason": "nicht in der Erfassung"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Toxine S. aureus und B. cereus nach Stunden; Salmonellen, Campylobacter, Noroviren 1 bis 3 Tage",
+   "reason": "Inkubationszeiten nicht erfasst (erregerspezifische DD = bekannte Lücke)"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "DD unblutig bakteriell/viral",
+   "reason": "erregerspezifische DD nicht erfasst"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "DD blutige Diarrhö: EHEC, Shigellen, Campylobacter, Colitis ulcerosa, ischämische Kolitis",
+   "reason": "nicht erfasst"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Salmonellose meldepflichtig",
+   "reason": "Meldepflicht nicht erfasst"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "C. difficile: Vancomycin oral oder Fidaxomicin",
+   "reason": "C.-difficile-Kapitel nicht erfasst"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Chirurgische Ursachen; paradoxe Diarrhö mit Anämie",
+   "reason": "nicht in der Erfassung"
+  }
+ ],
+ "status": "done"
+}
