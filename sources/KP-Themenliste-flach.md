@@ -101,7 +101,7 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 79 | 21 | 3 | 3 | RAND | Frage | Endokrinologie | Struma | ✓ R2 |
 | 80 | 14 | 0 | 5 | RAND | Frage | Notfallmedizin | Verbrennung | ✓ R2 |
 | 81 | 20 | 6 | 2 | RAND | Fall | Angiologie | Aortenaneurysma (AAA) | ✓ R2 |
-| 82 | 22 | 10 | 1 | RAND | Fall | Gastroenterologie | GERD / Refluxkrankheit | ✓ R1 |
+| 82 | 22 | 10 | 1 | RAND | Fall | Gastroenterologie | GERD / Refluxkrankheit | ✓ R2 |
 | 83 | 22 | 1 | 1 | RAND | Frage | Neurologie | Meningitis / Enzephalitis | ✓ R2 |
 | 84 | 18 | 4 | 2 | RAND | Fall | Innere | Rheumatologie (PMR, RZA, Spondyloarthritis) | — |
 | 85 | 12 | 0 | 3 | RAND | Frage | Angiologie | Aortendissektion | ✓ R4 |
