@@ -1,6 +1,6 @@
 # KP MAINZ — THEMENLISTE (FLACH, EINE RANGLISTE)
 
-Alle **92 Themen** in einer Rangliste nach **Protokoll-Evidenz** (517 deduplizierte Prüfungsprotokolle 2023–2026, protokollbasiert gezählt). Aktuell **86 von 92** mit Review abgedeckt (~93 %).
+Alle **92 Themen** in einer Rangliste nach **Protokoll-Evidenz** (517 deduplizierte Prüfungsprotokolle 2023–2026, protokollbasiert gezählt). Aktuell **87 von 92** mit Review abgedeckt (~95 %).
 
 > **September 2026 (v2):** Neuzählung gegen **517 deduplizierte Protokolle**. Gezählt werden jetzt **Protokolle** (eigenständige Prüfungen) statt Nennungen — damit fällt die Querschnitts-Verzerrung weg, die in der alten Quellnotiz benannt war. Neue Spalten: *als Fall* (war das Thema der Patientenfall) und *letzte 12 M*. **Gestrichen:** Kreuzbandruptur (2 Protokolle). **Eingefaltet:** Claviculafraktur → Allgemeine Frakturlehre, Beckenringfrakturen → Polytrauma. **Neu:** Arzneimittelinteraktionen & UAW, Antikoagulation & Bridging, Antibiotikatherapie, Säure-Basen/BGA, Makrozytäre Anämie/B12, Elektrolytstörungen K⁺/Ca²⁺, Rheumatologie. Stufen neu: **KERN 32 · STANDARD 34 · RAND 26**. Quelle: `data/lernliste.csv`.
 >
@@ -30,7 +30,7 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 8 | 129 | 2 | 24 | KERN | Frage | Pneumologie | Pneumothorax | ✓ R4 |
 | 9 | 136 | 21 | 19 | KERN | Fall | Kardiologie | Arterielle Hypertonie | ✓ R4 |
 | 10 | 119 | 18 | 23 | KERN | Fall | Endokrinologie | Diabetes mellitus | ✓ R4 |
-| 11 | 111 | 11 | 25 | KERN | Frage | Drittes Fach | Antikoagulation & Bridging | — |
+| 11 | 111 | 11 | 25 | KERN | Frage | Drittes Fach | Antikoagulation & Bridging | ✓ R1 |
 | 12 | 128 | 22 | 17 | KERN | Fall | Nephrologie | Harnwegsinfekt / Pyelonephritis | ✓ R3 |
 | 13 | 112 | 10 | 18 | KERN | Frage | Unfallchirurgie | Proximale Femurfraktur | ✓ R4 |
 | 14 | 103 | 8 | 20 | KERN | Frage | Unfallchirurgie | Polytrauma / ABCDE (Sturz) | ✓ R4 |

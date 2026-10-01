@@ -2,7 +2,7 @@
 
 Thema: GI-Blutung
 
-Erzeugt aus data/fragen-index.json (517 Protokolle, Stand 2026-09-30).
+Erzeugt aus data/fragen-index.json (517 Protokolle, Stand 2026-10-01).
 **Nicht von Hand pflegen** — `python3 tools/_build-fragen.py` schreibt diese Datei neu.
 Jede Zeile ist dokumentiert; die Zahl in Klammern ist die Anzahl Protokolle,
 danach die Protokoll-IDs als Beleg. Fuer Tab 6 die oberen 12-18 nehmen und nach Spec gewichten.
