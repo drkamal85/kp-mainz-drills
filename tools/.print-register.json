@@ -88,5 +88,10 @@
   "hash": "31b0cc0749a541c7",
   "pdf": "/tmp/abp.pdf",
   "seiten": 6
+ },
+ "antikoagulation-bridging": {
+  "hash": "60b46edeb954d30d",
+  "pdf": "/mnt/user-data/outputs/Antikoagulation-Bridging-R1-A4.pdf",
+  "seiten": 4
  }
 }
