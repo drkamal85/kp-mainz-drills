@@ -38,7 +38,7 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 16 | 95 | 3 | 22 | KERN | Frage | Kardiologie | ACS / Myokardinfarkt | ✓ R4 |
 | 17 | 112 | 48 | 17 | KERN | Fall | Allgemein- und Viszeralchirurgie | GI-Blutung | ✓ R4 |
 | 18 | 96 | 2 | 21 | KERN | Frage | Drittes Fach | Bluttransfusion | ✓ R3 |
-| 19 | 103 | 5 | 17 | KERN | Frage | Notfallmedizin | Säure-Basen-Haushalt / BGA | ✓ R1 |
+| 19 | 103 | 5 | 17 | KERN | Frage | Notfallmedizin | Säure-Basen-Haushalt / BGA | ✓ R2 |
 | 20 | 95 | 3 | 19 | KERN | Frage | Unfallchirurgie | Schädel-Hirn-Trauma | ✓ R4 |
 | 21 | 103 | 15 | 16 | KERN | Frage | Allgemein- und Viszeralchirurgie | Appendizitis | ✓ R4 |
 | 22 | 106 | 0 | 15 | KERN | Frage | Drittes Fach | Antibiotikatherapie (kalkuliert) | ✓ R2 |
