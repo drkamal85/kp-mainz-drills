@@ -221,7 +221,7 @@
   <header>
     <div class="eyebrow">Pharmakologie</div>
     <h1>Antikoagulation <span class="accent">&amp; Bridging</span></h1>
-    <div class="subtitle">Kein Krankheitsbild, sondern die Frage, die bei Vorhofflimmern, Thrombose, Klappe und jeder geplanten Operation kommt: welches Mittel, wie überwacht, wie aufgehoben, und was vor dem Eingriff passiert.</div>
+    <div class="subtitle">Welches Mittel wo angreift, was es anrichten kann, was man misst — und wie man vor der Operation pausiert, ohne zu bluten oder zu thrombosieren.</div>
     <div class="meta">
       <span class="rk hi">Rang 11 von 92</span>
       <span>R2</span>
@@ -229,7 +229,7 @@
   </header>
   <div class="tabs">
     <button class="tab active" data-c="grundlagen" data-tab="grundlagen">Grundlagen</button>
-    <button class="tab" data-c="klinik" data-tab="klinik">Nebenwirkungen</button>
+    <button class="tab" data-c="klinik" data-tab="klinik">Komplikationen</button>
     <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik ★</button>
     <button class="tab" data-c="therapie" data-tab="therapie">Therapie</button>
     <button class="tab" data-c="perlen" data-tab="perlen">KP-Perlen</button>
@@ -237,90 +237,110 @@
   </div>
 
   <section class="panel" data-panel="grundlagen">
-    <p class="panel-intro">Drei Wege, die Gerinnung zu bremsen.</p>
+    <p class="panel-intro">Wo jedes Mittel angreift.</p>
 
-    <details class="card grundlagen" open><summary><span class="ct"><span class="ctag">Klassen</span><span class="ctitle">Wirkmechanismus und Antagonist</span></span><span class="plus">+</span></summary>
+    <details class="card grundlagen" open><summary><span class="ct"><span class="ctag">Klassen</span><span class="ctitle">Wirkstoff, Angriff, Halbwertszeit</span></span><span class="plus">+</span></summary>
       <div class="body">
-        <table class="dd"><tr><th>Klasse</th><th>Beispiel</th><th>Wirkt über</th><th>Antidot</th></tr>
-          <tr><td><strong>Vitamin-K-Antagonist</strong></td><td>Phenprocoumon</td><td>Faktoren II, VII, IX, X</td><td>Vitamin K, PPSB</td></tr>
-          <tr><td><strong>Heparin</strong></td><td>unfraktioniert, Enoxaparin</td><td>Antithrombin</td><td>Protamin</td></tr>
-          <tr><td><strong>Faktor-Xa-Hemmer</strong></td><td>Apixaban, Rivaroxaban, Edoxaban</td><td>direkt Xa</td><td>Andexanet alfa</td></tr>
-          <tr><td><strong>Thrombinhemmer</strong></td><td>Dabigatran</td><td>direkt Thrombin</td><td>Idarucizumab</td></tr>
+        <table class="dd"><tr><th>Klasse</th><th>Beispiel</th><th>Angriff</th><th>HWZ</th></tr>
+          <tr><td><strong>Vitamin-K-Antagonist</strong></td><td>Phenprocoumon</td><td>Faktoren II, VII, IX, X</td><td>6,5 Tage</td></tr>
+          <tr><td><strong>Faktor-Xa-Hemmer</strong></td><td>Apixaban, Rivaroxaban, Edoxaban</td><td>Faktor Xa direkt</td><td>5–13 h</td></tr>
+          <tr><td><strong>Thrombinhemmer</strong></td><td>Dabigatran</td><td>Thrombin direkt</td><td>13–18 h</td></tr>
+          <tr><td><strong>Heparin</strong></td><td>unfraktioniert, Enoxaparin</td><td>über Antithrombin</td><td>kurz</td></tr>
         </table>
-        <div class="callout fact"><span class="lab">⚙ Dokumentiert</span>„Antikoagulanzien: Wirkmechanismus und Antagonisten" (n=2), dazu die Faktoren II, VII, IX und X unter Marcumar.</div>
+        <div class="callout critical"><span class="lab">★ Merksatz</span>Marcumar hemmt die <strong>Vitamin-K-abhängigen Faktoren II, VII, IX und X</strong> — und ebenso Protein C und S.</div>
+        <div class="callout fact"><span class="lab">⚙ Dokumentiert</span>„Antikoagulanzien: Wirkmechanismus und Antagonisten" — mehrfach, zuletzt 27.02.2026.</div>
       </div>
     </details>
 
-    <details class="card grundlagen"><summary><span class="ct"><span class="ctag">Abgrenzung</span><span class="ctitle">Antikoagulans gegen Plättchenhemmer</span></span><span class="plus">+</span></summary>
+    <details class="card grundlagen"><summary><span class="ct"><span class="ctag">Indikation</span><span class="ctitle">Wofür man antikoaguliert</span></span><span class="plus">+</span></summary>
       <div class="body">
         <ul class="b">
-          <li><strong>Antikoagulanzien</strong> hemmen die plasmatische Gerinnung — venöse Thrombose, Vorhofflimmern</li>
-          <li><strong>Plättchenhemmer</strong> wie ASS und Clopidogrel hemmen die Thrombozyten — arterielle Ereignisse, Stent</li>
-          <li>Marcumar wirkt erst nach Tagen und ist anfangs <strong>prothrombotisch</strong>, weil Protein C und S zuerst sinken — deshalb überlappend Heparin</li>
+          <li><strong>Vorhofflimmern</strong> zur Schlaganfallprophylaxe</li>
+          <li><strong>Tiefe Venenthrombose und Lungenembolie</strong></li>
+          <li>Nach elektivem Knie- oder Hüftgelenkersatz</li>
+          <li><strong>Nur Marcumar:</strong> mechanische Herzklappe, Vorhofflimmern bei mittelgradiger Mitralstenose, Antiphospholipidsyndrom</li>
         </ul>
-        <div class="callout fact"><span class="lab">⚙ Dokumentiert</span>„Clopidogrel und Apixaban: Unterschiede, Substanzklasse und Wirkmechanismus" am 26.08.2026.</div>
+        <div class="callout fact"><span class="lab">⚙ Dokumentiert</span>„Unterschied Marcumar und NOAK — wann ist Marcumar zwingend?" (n=2)</div>
       </div>
     </details>
 
   </section>
 
   <section class="panel" data-panel="klinik">
-    <p class="panel-intro">Was die Antikoagulation selbst anrichtet.</p>
+    <p class="panel-intro">Was Antikoagulanzien anrichten.</p>
 
-    <details class="card klinik" open><summary><span class="ct"><span class="ctag">Blutung</span><span class="ctitle">Und die Antidote</span></span><span class="plus">+</span></summary>
+    <details class="card klinik" open><summary><span class="ct"><span class="ctag">Blutung</span><span class="ctitle">Die wichtigste Nebenwirkung</span></span><span class="plus">+</span></summary>
       <div class="body">
         <ul class="b">
-          <li>Unter Antikoagulation ist die <strong>Blutung</strong> die Hauptgefahr — GI-Trakt, intrakraniell</li>
-          <li><strong>Marcumar:</strong> Vitamin K wirkt nach Stunden, <strong>PPSB</strong> sofort — PPSB bevorzugt vor FFP</li>
-          <li><strong>Dabigatran:</strong> Idarucizumab · <strong>Apixaban, Rivaroxaban:</strong> Andexanet alfa oder PPSB</li>
-          <li><strong>Heparin:</strong> Protamin, beim NMH nur teilweise wirksam</li>
+          <li>Dosisabhängig, verstärkt durch ASS, Clopidogrel, Ticagrelor</li>
+          <li>Leichte Blutung: <strong>keine Antagonisierung</strong> nötig</li>
+          <li>Schwere Blutung: absetzen und <strong>antagonisieren</strong></li>
+        </ul>
+        <div class="callout critical"><span class="lab">★ Merksatz</span>Ein erhöhtes Blutungsrisiko ist die gemeinsame Nebenwirkung <strong>aller</strong> Antikoagulanzien.</div>
+      </div>
+    </details>
+
+    <details class="card klinik"><summary><span class="ct"><span class="ctag">Marcumar-Start</span><span class="ctitle">Erst gerinnungsfördernd</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <ul class="b">
+          <li>Protein C und S fallen schneller ab als die Faktoren II, IX und X</li>
+          <li>Deshalb <strong>überlappend Heparin</strong>, bis der INR im Zielbereich liegt</li>
+          <li>Seltene Folge: <strong>Cumarin-Nekrose</strong> an Mamma, Hüfte, Gesäß, Oberschenkel</li>
         </ul>
       </div>
     </details>
 
-    <details class="card klinik"><summary><span class="ct"><span class="ctag">HIT</span><span class="ctitle">Typ I gegen Typ II</span></span><span class="plus">+</span></summary>
+    <details class="card klinik"><summary><span class="ct"><span class="ctag">HIT</span><span class="ctitle">Thrombozytenabfall unter Heparin</span></span><span class="plus">+</span></summary>
       <div class="body">
         <table class="dd"><tr><th></th><th>Typ I</th><th>Typ II</th></tr>
-          <tr><td><strong>Ursache</strong></td><td>direkte Thrombozytenaktivierung</td><td>Antikörper gegen PF4-Heparin</td></tr>
-          <tr><td><strong>Beginn</strong></td><td>Tag 1 bis 4</td><td>Tag 5 bis 14</td></tr>
-          <tr><td><strong>Abfall</strong></td><td>gering</td><td>über 50 Prozent</td></tr>
+          <tr><td><strong>Beginn</strong></td><td>in den ersten Tagen</td><td>Tag 5 bis 14</td></tr>
+          <tr><td><strong>Thrombozyten</strong></td><td>leicht vermindert</td><td>Abfall über 50 Prozent</td></tr>
           <tr><td><strong>Gefahr</strong></td><td>harmlos</td><td>Thrombosen</td></tr>
-          <tr><td><strong>Vorgehen</strong></td><td>Heparin weiter</td><td>Heparin stoppen, Argatroban</td></tr>
+          <tr><td><strong>Vorgehen</strong></td><td>Heparin weiter</td><td>Heparin sofort stoppen, Argatroban</td></tr>
         </table>
-        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>HIT II macht Thrombosen, nicht Blutungen.</strong> Deshalb wird nach dem Absetzen weiter antikoaguliert — nur ohne Heparin.</div>
+        <div class="callout fact"><span class="lab">⚙ Dokumentiert</span>„Thrombozytenabfall auf 70.000 unter Heparin: HIT Typ I und II, jeweiliges Vorgehen" (25.03.2026).</div>
       </div>
     </details>
 
   </section>
 
   <section class="panel" data-panel="diagnostik">
-    <p class="panel-intro">Messen, was man gibt — und vorher die Niere.</p>
+    <p class="panel-intro">Was man vor und unter der Therapie misst.</p>
 
     <details class="card diagnostik" open><summary><span class="ct"><span class="ctag">Gerinnung</span><span class="ctitle">Welcher Wert für welches Mittel</span></span><span class="plus">+</span></summary>
       <div class="body">
         <ul class="b">
-          <li><strong>Marcumar:</strong> INR, Ziel meist <strong>2 bis 3</strong>, bei mechanischer Mitralklappe höher</li>
+          <li><strong>Marcumar:</strong> INR, Ziel meist 2 bis 3</li>
           <li><strong>Unfraktioniertes Heparin:</strong> aPTT</li>
-          <li><strong>NMH und DOAK:</strong> keine Routinekontrolle, bei Bedarf Anti-Xa</li>
+          <li><strong>DOAK:</strong> Quick und PTT sind nicht aussagekräftig — keine Routinekontrolle</li>
         </ul>
       </div>
     </details>
 
-    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Labor</span><span class="ctitle">Vor dem Start</span></span><span class="plus">+</span></summary>
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Niere</span><span class="ctitle">Vor jedem DOAK</span></span><span class="plus">+</span></summary>
       <div class="body">
         <ul class="b">
-          <li><strong>Kreatinin-Clearance</strong> vor jedem DOAK — Dosisanpassung ab etwa 30 ml/min</li>
-          <li><strong>Blutbild:</strong> Thrombozyten vor und unter Heparin</li>
-          <li>Bei HIT-Verdacht <strong>4T-Score</strong> und PF4-Heparin-Antikörper</li>
+          <li><strong>eGFR</strong> vor Beginn und regelmäßig — DOAK werden renal eliminiert</li>
+          <li>Apixaban, Rivaroxaban, Edoxaban kontraindiziert unter <strong>GFR 15</strong></li>
+          <li>Dabigatran kontraindiziert unter <strong>GFR 30</strong></li>
         </ul>
       </div>
     </details>
 
-    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Scores</span><span class="ctitle">Nutzen und Risiko</span></span><span class="plus">+</span></summary>
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Blutbild</span><span class="ctitle">Thrombozyten und Hb</span></span><span class="plus">+</span></summary>
       <div class="body">
         <ul class="b">
-          <li><strong>CHA₂DS₂-VA</strong> für das Schlaganfallrisiko bei Vorhofflimmern</li>
-          <li><strong>HAS-BLED</strong> für das Blutungsrisiko — er verhindert die Antikoagulation nicht, er macht vorsichtiger</li>
+          <li>Unter Heparin <strong>Thrombozyten</strong> kontrollieren — HIT</li>
+          <li>Bei Blutung Hb und Kreislauf</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Scores</span><span class="ctitle">Indikation und Blutungsrisiko</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <ul class="b">
+          <li><strong>CHA₂DS₂-VA:</strong> bei Vorhofflimmern Antikoagulation ab 2 Punkten</li>
+          <li><strong>HAS-BLED:</strong> schätzt das Blutungsrisiko — Anlass, Risiken zu senken, kein Grund zum Verzicht</li>
         </ul>
       </div>
     </details>
@@ -328,42 +348,62 @@
   </section>
 
   <section class="panel" data-panel="therapie">
-    <p class="panel-intro">Wer bekommt was — und was passiert vor der OP.</p>
+    <p class="panel-intro">Womit, wie lange, und was vor der OP.</p>
 
-    <details class="card therapie" open><summary><span class="ct"><span class="ctag">Indikation</span><span class="ctitle">Wer antikoaguliert wird</span></span><span class="plus">+</span></summary>
+    <details class="card therapie" open><summary><span class="ct"><span class="ctag">Wahl</span><span class="ctitle">DOAK oder Marcumar</span></span><span class="plus">+</span></summary>
       <div class="body">
         <ul class="b">
-          <li><strong>Vorhofflimmern</strong> ab 2 Punkten CHA₂DS₂-VA, Mittel der Wahl ein DOAK</li>
-          <li><strong>TVT und Lungenembolie:</strong> mindestens 3 Monate, ohne Auslöser oft länger</li>
-          <li><strong>Mechanische Herzklappe:</strong> lebenslang Marcumar, biologische Klappe 3 Monate</li>
-          <li><strong>Schwere Niereninsuffizienz:</strong> unfraktioniertes Heparin</li>
+          <li><strong>DOAK zuerst:</strong> feste Dosis, keine Steuerung, weniger Hirnblutungen</li>
+          <li><strong>Marcumar</strong> bei mechanischer Klappe, Mitralstenose, Antiphospholipidsyndrom</li>
+          <li>Bei TVT und Lungenembolie starten Marcumar, Edoxaban und Dabigatran nur nach parenteraler Einleitung</li>
         </ul>
       </div>
     </details>
 
-    <details class="card therapie"><summary><span class="ct"><span class="ctag">Marcumar oder DOAK</span><span class="ctitle">Wann es Marcumar sein muss</span></span><span class="plus">+</span></summary>
+    <details class="card therapie"><summary><span class="ct"><span class="ctag">Dauer</span><span class="ctitle">Thrombose und Lungenembolie</span></span><span class="plus">+</span></summary>
       <div class="body">
         <ul class="b">
-          <li>DOAK: feste Dosis, kein INR, weniger Hirnblutungen</li>
-          <li><strong>Marcumar zwingend</strong> bei mechanischer Klappe und mittel- bis hochgradiger Mitralstenose</li>
-          <li>Apixaban reduzieren bei 2 von 3: Alter ab 80, Gewicht bis 60 kg, Kreatinin ab 1,5</li>
+          <li>Erstereignis mit Auslöser: <strong>3 bis 6 Monate</strong></li>
+          <li>Ohne Auslöser oder Rezidiv: länger, gegebenenfalls dauerhaft</li>
         </ul>
       </div>
     </details>
 
-    <details class="card therapie"><summary><span class="ct"><span class="ctag">Bridging</span><span class="ctitle">Perioperativ</span></span><span class="plus">+</span></summary>
+    <details class="card therapie"><summary><span class="ct"><span class="ctag">Bridging</span><span class="ctitle">Marcumar vor der Operation</span></span><span class="plus">+</span></summary>
       <div class="body">
         <ul class="b">
-          <li><strong>DOAK:</strong> 24 bis 48 Stunden vorher pausieren, je nach Blutungsrisiko und Niere — <strong>kein</strong> therapeutisches Bridging</li>
-          <li>Bis zum Wiederbeginn reicht NMH in <strong>prophylaktischer</strong> Dosis</li>
-          <li><strong>Marcumar:</strong> Tage vorher absetzen, Bridging mit NMH nur bei hohem Thromboserisiko</li>
-          <li>Dringliche OP unter Marcumar: <strong>PPSB</strong> plus Vitamin K</li>
+          <li>Marcumar unter INR-Kontrolle absetzen</li>
+          <li>Ab <strong>INR unter 2</strong> niedermolekulares Heparin in therapeutischer Dosis</li>
+          <li>Heparin direkt präoperativ pausieren, direkt postoperativ wieder ansetzen</li>
+          <li>Marcumar überlappend mit Heparin, bis der Ziel-INR erreicht ist</li>
         </ul>
-        <div class="callout warn"><span class="lab">⚠ Kein Reflex</span>Bridging erhöht die Blutungen, ohne bei den meisten Patienten Thrombosen zu verhindern.</div>
+        <div class="callout critical"><span class="lab">★ Merksatz</span>Bei geringem oder mittlerem Blutungsrisiko oft <strong>ohne Bridging</strong> weiter — Bridging erhöht die Blutungen.</div>
+      </div>
+    </details>
+
+    <details class="card therapie"><summary><span class="ct"><span class="ctag">DOAK perioperativ</span><span class="ctitle">Pausieren statt bridgen</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <ul class="b">
+          <li><strong>Kein Bridging</strong> — die Halbwertszeit ist kurz</li>
+          <li>Niedriges Blutungsrisiko: letzte Dosis <strong>mindestens 24 h</strong> vorher</li>
+          <li>Hohes Blutungsrisiko: <strong>mindestens 48 h</strong> vorher, mit Amiodaron oder Verapamil 24 h länger</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="card therapie"><summary><span class="ct"><span class="ctag">Antidot</span><span class="ctitle">Was die Wirkung aufhebt</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <table class="dd"><tr><th>Mittel</th><th>Antidot</th></tr>
+          <tr><td><strong>Dabigatran</strong></td><td>Idarucizumab</td></tr>
+          <tr><td><strong>Apixaban, Rivaroxaban</strong></td><td>Andexanet alfa</td></tr>
+          <tr><td><strong>Marcumar</strong></td><td>PPSB sofort, Vitamin K verzögert</td></tr>
+          <tr><td><strong>Heparin</strong></td><td>Protamin</td></tr>
+        </table>
       </div>
     </details>
 
   </section>
+
 
   <section class="panel" data-panel="perlen">
     <p class="panel-intro">Acht Sätze, die in der Prüfung gewinnen.</p>
@@ -409,6 +449,7 @@
       <details class="sf"><summary>Warum Heparin beim Marcumar-Start?</summary><div class="sfa">Protein C und S sinken zuerst</div></details>
     </div>
   </section>
+
 
 
 </div>
