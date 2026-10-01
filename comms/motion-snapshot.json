@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-09-30T09:20:29.514Z",
+  "generatedAt": "2026-10-01T09:47:20.089Z",
   "totals": {
-    "open": 165,
-    "completed": 438,
-    "overdue": 4,
-    "schedulingIssues": 82
+    "open": 159,
+    "completed": 444,
+    "overdue": 0,
+    "schedulingIssues": 77
   },
   "byLevel": {
     "R1": {
@@ -12,12 +12,12 @@
       "completed": 101
     },
     "R2": {
-      "open": 8,
-      "completed": 96
+      "open": 6,
+      "completed": 98
     },
     "R3": {
-      "open": 8,
-      "completed": 81
+      "open": 6,
+      "completed": 83
     },
     "R4": {
       "open": 11,
@@ -31,8 +31,8 @@
   "byWorkstream": {
     "A_coverage": {
       "topicsTotal": 214,
-      "studied": 65,
-      "studyOpen": 2,
+      "studied": 67,
+      "studyOpen": 0,
       "r1Built": 95,
       "r1Open": 6
     },
@@ -179,18 +179,12 @@
       ]
     },
     "D_bildsprint": {
-      "open": 6,
-      "completed": 6,
+      "open": 5,
+      "completed": 7,
       "note": "Drill tasks live as komplett library files, not Motion tasks"
     }
   },
   "flagged": [
-    {
-      "name": "Review: Antikoagulation & Bridging R5",
-      "dueDate": "2026-11-03",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
     {
       "name": "Review: Arzneimittelinteraktionen & UAW R5",
       "dueDate": "2026-11-05",
@@ -218,12 +212,6 @@
     {
       "name": "Fragen-Mining 06: Gastritis",
       "dueDate": "2026-11-16",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Fragen-Mining 05: Akuttoxikologie / Intoxikation",
-      "dueDate": "2026-11-02",
       "schedulingIssue": true,
       "scheduledStart": null
     },
@@ -420,26 +408,8 @@
       "scheduledStart": null
     },
     {
-      "name": "Mentor check-in #6",
-      "dueDate": "2026-11-03",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Mentor check-in #5",
-      "dueDate": "2026-11-03",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
       "name": "Mentor check-in #4",
       "dueDate": "2026-11-12",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Mentor check-in #3",
-      "dueDate": "2026-11-03",
       "schedulingIssue": true,
       "scheduledStart": null
     },
@@ -544,51 +514,59 @@
       "dueDate": "2026-11-06",
       "schedulingIssue": true,
       "scheduledStart": null
+    },
+    {
+      "name": "Drittes Fach: Protocol Review — Session 4",
+      "dueDate": "2026-11-04",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Oral Simulation with Partner — Session 6",
+      "dueDate": "2026-11-14",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Drittes Fach: Protocol Review — Session 3",
+      "dueDate": "2026-11-04",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Practice: Anamnesebogen — Complete from real Akte (Session 4)",
+      "dueDate": "2027-01-10",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Oral Simulation with Partner — Session 7",
+      "dueDate": "2026-12-26",
+      "schedulingIssue": true,
+      "scheduledStart": null
     }
   ],
-  "overdue": [
-    {
-      "name": "Review: Anaphylaxie R3",
-      "dueDate": "2026-09-29"
-    },
-    {
-      "name": "Review: Reanimation / CPR R4",
-      "dueDate": "2026-09-29"
-    },
-    {
-      "name": "Review: Reanimation / CPR R3",
-      "dueDate": "2026-09-29"
-    },
-    {
-      "name": "Review: GERD / Refluxkrankheit R2",
-      "dueDate": "2026-09-29"
-    }
-  ],
+  "overdue": [],
   "upcoming14d": [
-    {
-      "name": "Review: Anaphylaxie R4",
-      "dueDate": "2026-09-30",
-      "duration": 30
-    },
-    {
-      "name": "Review: Check-up / Prävention R4",
-      "dueDate": "2026-09-30",
-      "duration": 30
-    },
     {
       "name": "Review: Diarrhoe / Gastroenteritis R4",
       "dueDate": "2026-10-01",
       "duration": 30
     },
     {
-      "name": "Study: Säure-Basen-Haushalt / BGA",
-      "dueDate": "2026-10-02",
-      "duration": 120
+      "name": "Review: Anaphylaxie R4",
+      "dueDate": "2026-10-01",
+      "duration": 30
     },
     {
-      "name": "Review: Antibiotikatherapie (kalkuliert) R2",
-      "dueDate": "2026-10-03",
-      "duration": 45
+      "name": "Review: Check-up / Prävention R4",
+      "dueDate": "2026-10-01",
+      "duration": 30
+    },
+    {
+      "name": "Review: Reanimation / CPR R4",
+      "dueDate": "2026-10-01",
+      "duration": 30
     },
     {
       "name": "Review: Säure-Basen-Haushalt / BGA R1",
@@ -599,11 +577,6 @@
       "name": "Review: Antikoagulation & Bridging R1",
       "dueDate": "2026-10-03",
       "duration": 30
-    },
-    {
-      "name": "Study: Rheumatologie (PMR, RZA, Spondyloarthritis)",
-      "dueDate": "2026-10-03",
-      "duration": 120
     },
     {
       "name": "Review: Antibiotikatherapie (kalkuliert) R3",
