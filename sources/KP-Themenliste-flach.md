@@ -30,7 +30,7 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 8 | 129 | 2 | 24 | KERN | Frage | Pneumologie | Pneumothorax | ✓ R4 |
 | 9 | 136 | 21 | 19 | KERN | Fall | Kardiologie | Arterielle Hypertonie | ✓ R4 |
 | 10 | 119 | 18 | 23 | KERN | Fall | Endokrinologie | Diabetes mellitus | ✓ R4 |
-| 11 | 111 | 11 | 25 | KERN | Frage | Drittes Fach | Antikoagulation & Bridging | ✓ R1 |
+| 11 | 111 | 11 | 25 | KERN | Frage | Drittes Fach | Antikoagulation & Bridging | ✓ R2 |
 | 12 | 128 | 22 | 17 | KERN | Fall | Nephrologie | Harnwegsinfekt / Pyelonephritis | ✓ R3 |
 | 13 | 112 | 10 | 18 | KERN | Frage | Unfallchirurgie | Proximale Femurfraktur | ✓ R4 |
 | 14 | 103 | 8 | 20 | KERN | Frage | Unfallchirurgie | Polytrauma / ABCDE (Sturz) | ✓ R4 |
