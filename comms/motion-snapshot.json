@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-02T09:23:29.927Z",
+  "generatedAt": "2026-10-03T08:52:52.284Z",
   "totals": {
     "open": 153,
     "completed": 450,
     "overdue": 0,
-    "schedulingIssues": 74
+    "schedulingIssues": 71
   },
   "byLevel": {
     "R1": {
@@ -186,12 +186,6 @@
   },
   "flagged": [
     {
-      "name": "Review: Arzneimittelinteraktionen & UAW R5",
-      "dueDate": "2026-11-05",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
       "name": "Fragen-Mining 09: Milzruptur / Splenektomie",
       "dueDate": "2026-11-17",
       "schedulingIssue": true,
@@ -344,12 +338,6 @@
     {
       "name": "CHECKPOINT Dez 31 — Mock-#1-Debrief",
       "dueDate": "2026-11-14",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "CHECKPOINT Okt 31",
-      "dueDate": "2026-11-05",
       "schedulingIssue": true,
       "scheduledStart": null
     },
@@ -544,6 +532,18 @@
       "dueDate": "2026-11-13",
       "schedulingIssue": true,
       "scheduledStart": null
+    },
+    {
+      "name": "Drittes Fach: Protocol Review — Session 9",
+      "dueDate": "2026-11-12",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Oral Simulation with Partner — Session 10",
+      "dueDate": "2027-02-06",
+      "schedulingIssue": true,
+      "scheduledStart": null
     }
   ],
   "overdue": [],
@@ -682,6 +682,26 @@
       "name": "Review: GI-Blutung R5",
       "dueDate": "2026-10-16",
       "duration": 120
+    },
+    {
+      "name": "Review: Ikterus + Cholestase R5",
+      "dueDate": "2026-10-17",
+      "duration": 120
+    },
+    {
+      "name": "Review: Leberzirrhose R5",
+      "dueDate": "2026-10-17",
+      "duration": 120
+    },
+    {
+      "name": "Review: AV-Block R5",
+      "dueDate": "2026-10-17",
+      "duration": 120
+    },
+    {
+      "name": "Akte-Sim #7",
+      "dueDate": "2026-10-17",
+      "duration": 60
     }
   ],
   "nextCheckpoint": {
