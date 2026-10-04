@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-03T08:52:52.284Z",
+  "generatedAt": "2026-10-04T09:22:09.440Z",
   "totals": {
     "open": 153,
     "completed": 450,
-    "overdue": 0,
-    "schedulingIssues": 71
+    "overdue": 4,
+    "schedulingIssues": 67
   },
   "byLevel": {
     "R1": {
@@ -390,12 +390,6 @@
       "scheduledStart": null
     },
     {
-      "name": "Mentor check-in #7",
-      "dueDate": "2026-11-06",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
       "name": "Mentor check-in #4",
       "dueDate": "2026-11-12",
       "schedulingIssue": true,
@@ -404,12 +398,6 @@
     {
       "name": "R5-Pilot: Cholezystitis #2",
       "dueDate": "2026-11-10",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Akte-Sim #4",
-      "dueDate": "2026-11-06",
       "schedulingIssue": true,
       "scheduledStart": null
     },
@@ -434,12 +422,6 @@
     {
       "name": "Drittes Fach: Protocol Review — Session 7",
       "dueDate": "2026-11-09",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Drittes Fach: Protocol Review — Session 5",
-      "dueDate": "2026-11-06",
       "schedulingIssue": true,
       "scheduledStart": null
     },
@@ -492,12 +474,6 @@
       "scheduledStart": null
     },
     {
-      "name": "Oral Simulation with Partner — Session 1",
-      "dueDate": "2026-11-06",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
       "name": "Oral Simulation with Partner — Session 6",
       "dueDate": "2026-11-14",
       "schedulingIssue": true,
@@ -544,30 +520,51 @@
       "dueDate": "2027-02-06",
       "schedulingIssue": true,
       "scheduledStart": null
+    },
+    {
+      "name": "Practice: Anamnesebogen — Complete from real Akte (Session 5)",
+      "dueDate": "2027-01-25",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Drittes Fach: Protocol Review — Session 6",
+      "dueDate": "2026-11-07",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Drittes Fach: Protocol Review — Session 10",
+      "dueDate": "2026-11-13",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Drittes Fach: Protocol Review — Session 18",
+      "dueDate": "2026-12-30",
+      "schedulingIssue": true,
+      "scheduledStart": null
     }
   ],
-  "overdue": [],
-  "upcoming14d": [
+  "overdue": [
     {
       "name": "Review: Diarrhoe / Gastroenteritis R4",
-      "dueDate": "2026-10-03",
-      "duration": 30
+      "dueDate": "2026-10-03"
     },
     {
       "name": "Review: Anaphylaxie R4",
-      "dueDate": "2026-10-03",
-      "duration": 30
+      "dueDate": "2026-10-03"
     },
     {
       "name": "Review: Check-up / Prävention R4",
-      "dueDate": "2026-10-03",
-      "duration": 30
+      "dueDate": "2026-10-03"
     },
     {
       "name": "Review: Reanimation / CPR R4",
-      "dueDate": "2026-10-03",
-      "duration": 30
-    },
+      "dueDate": "2026-10-03"
+    }
+  ],
+  "upcoming14d": [
     {
       "name": "Review: Antibiotikatherapie (kalkuliert) R3",
       "dueDate": "2026-10-04",
@@ -702,6 +699,16 @@
       "name": "Akte-Sim #7",
       "dueDate": "2026-10-17",
       "duration": 60
+    },
+    {
+      "name": "Review: Vorhofflimmern R5",
+      "dueDate": "2026-10-18",
+      "duration": 120
+    },
+    {
+      "name": "Review: Diabetes mellitus R5",
+      "dueDate": "2026-10-18",
+      "duration": 120
     }
   ],
   "nextCheckpoint": {
