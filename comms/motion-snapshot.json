@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-10-05T10:02:05.106Z",
+  "generatedAt": "2026-10-06T09:48:12.680Z",
   "totals": {
     "open": 153,
     "completed": 450,
-    "overdue": 7,
+    "overdue": 10,
     "schedulingIssues": 62
   },
   "byLevel": {
@@ -548,12 +548,24 @@
   ],
   "overdue": [
     {
+      "name": "Review: Antibiotikatherapie (kalkuliert) R4",
+      "dueDate": "2026-10-05"
+    },
+    {
       "name": "Review: Antibiotikatherapie (kalkuliert) R3",
       "dueDate": "2026-10-04"
     },
     {
+      "name": "Review: Arzneimittelinteraktionen & UAW R2",
+      "dueDate": "2026-10-05"
+    },
+    {
       "name": "Review: Arzneimittelinteraktionen & UAW R1",
       "dueDate": "2026-10-04"
+    },
+    {
+      "name": "Review: Rheumatologie (PMR, RZA, Spondyloarthritis) R2",
+      "dueDate": "2026-10-05"
     },
     {
       "name": "Review: Rheumatologie (PMR, RZA, Spondyloarthritis) R1",
@@ -577,21 +589,6 @@
     }
   ],
   "upcoming14d": [
-    {
-      "name": "Review: Antibiotikatherapie (kalkuliert) R4",
-      "dueDate": "2026-10-05",
-      "duration": 30
-    },
-    {
-      "name": "Review: Arzneimittelinteraktionen & UAW R2",
-      "dueDate": "2026-10-05",
-      "duration": 45
-    },
-    {
-      "name": "Review: Rheumatologie (PMR, RZA, Spondyloarthritis) R2",
-      "dueDate": "2026-10-05",
-      "duration": 45
-    },
     {
       "name": "Review: Säure-Basen-Haushalt / BGA R4",
       "dueDate": "2026-10-06",
@@ -715,6 +712,21 @@
     {
       "name": "Review: Proximale Femurfrakturen R5",
       "dueDate": "2026-10-19",
+      "duration": 120
+    },
+    {
+      "name": "Deck-Einschub: DKA → Diabetes mellitus",
+      "dueDate": "2026-10-20",
+      "duration": 45
+    },
+    {
+      "name": "Deck-Einschub: Pleuraerguss → Pneumothorax",
+      "dueDate": "2026-10-20",
+      "duration": 45
+    },
+    {
+      "name": "Review: Schädel-Hirn-Trauma R5",
+      "dueDate": "2026-10-20",
       "duration": 120
     }
   ],
