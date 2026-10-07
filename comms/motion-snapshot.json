@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-06T09:48:12.680Z",
+  "generatedAt": "2026-10-07T09:51:05.704Z",
   "totals": {
     "open": 153,
     "completed": 450,
-    "overdue": 10,
-    "schedulingIssues": 62
+    "overdue": 13,
+    "schedulingIssues": 58
   },
   "byLevel": {
     "R1": {
@@ -222,12 +222,6 @@
       "scheduledStart": null
     },
     {
-      "name": "Fragen-Mining 01: Schmerztherapie / WHO-Stufenschema",
-      "dueDate": "2026-11-09",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
       "name": "Akte-Sim #25",
       "dueDate": "2027-02-20",
       "schedulingIssue": true,
@@ -324,12 +318,6 @@
       "scheduledStart": null
     },
     {
-      "name": "R5-Pilot-Verdict",
-      "dueDate": "2026-11-09",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
       "name": "CHECKPOINT Dez 31 — Mock-#1-Debrief",
       "dueDate": "2026-11-14",
       "schedulingIssue": true,
@@ -366,12 +354,6 @@
       "scheduledStart": null
     },
     {
-      "name": "Mentor check-in #10",
-      "dueDate": "2026-11-09",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
       "name": "Mentor check-in #4",
       "dueDate": "2026-11-12",
       "schedulingIssue": true,
@@ -398,12 +380,6 @@
     {
       "name": "Drittes Fach: Protocol Review — Session 15",
       "dueDate": "2026-12-27",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Drittes Fach: Protocol Review — Session 7",
-      "dueDate": "2026-11-09",
       "schedulingIssue": true,
       "scheduledStart": null
     },
@@ -544,6 +520,18 @@
       "dueDate": "2027-01-09",
       "schedulingIssue": true,
       "scheduledStart": null
+    },
+    {
+      "name": "Drittes Fach: Protocol Review — Session 13",
+      "dueDate": "2026-12-25",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Drittes Fach: Protocol Review — Session 14",
+      "dueDate": "2026-12-26",
+      "schedulingIssue": true,
+      "scheduledStart": null
     }
   ],
   "overdue": [
@@ -554,6 +542,18 @@
     {
       "name": "Review: Antibiotikatherapie (kalkuliert) R3",
       "dueDate": "2026-10-04"
+    },
+    {
+      "name": "Review: Säure-Basen-Haushalt / BGA R4",
+      "dueDate": "2026-10-06"
+    },
+    {
+      "name": "Review: Antikoagulation & Bridging R4",
+      "dueDate": "2026-10-06"
+    },
+    {
+      "name": "Review: Arzneimittelinteraktionen & UAW R3",
+      "dueDate": "2026-10-06"
     },
     {
       "name": "Review: Arzneimittelinteraktionen & UAW R2",
@@ -589,21 +589,6 @@
     }
   ],
   "upcoming14d": [
-    {
-      "name": "Review: Säure-Basen-Haushalt / BGA R4",
-      "dueDate": "2026-10-06",
-      "duration": 30
-    },
-    {
-      "name": "Review: Antikoagulation & Bridging R4",
-      "dueDate": "2026-10-06",
-      "duration": 30
-    },
-    {
-      "name": "Review: Arzneimittelinteraktionen & UAW R3",
-      "dueDate": "2026-10-06",
-      "duration": 60
-    },
     {
       "name": "Review: Arzneimittelinteraktionen & UAW R4",
       "dueDate": "2026-10-07",
@@ -727,6 +712,11 @@
     {
       "name": "Review: Schädel-Hirn-Trauma R5",
       "dueDate": "2026-10-20",
+      "duration": 120
+    },
+    {
+      "name": "Review: Schock (alle Typen) R5",
+      "dueDate": "2026-10-21",
       "duration": 120
     }
   ],
