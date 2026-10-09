@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-08T10:02:22.710Z",
+  "generatedAt": "2026-10-09T10:05:10.949Z",
   "totals": {
     "open": 153,
     "completed": 450,
-    "overdue": 15,
-    "schedulingIssues": 55
+    "overdue": 17,
+    "schedulingIssues": 52
   },
   "byLevel": {
     "R1": {
@@ -342,12 +342,6 @@
       "scheduledStart": null
     },
     {
-      "name": "Mentor check-in #12",
-      "dueDate": "2026-11-11",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
       "name": "Mentor check-in #4",
       "dueDate": "2026-11-12",
       "schedulingIssue": true,
@@ -428,18 +422,6 @@
     {
       "name": "Oral Simulation with Partner — Session 7",
       "dueDate": "2026-12-26",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Oral Simulation with Partner — Session 4",
-      "dueDate": "2026-11-11",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Drittes Fach: Protocol Review — Session 8",
-      "dueDate": "2026-11-11",
       "schedulingIssue": true,
       "scheduledStart": null
     },
@@ -558,8 +540,16 @@
       "dueDate": "2026-10-04"
     },
     {
+      "name": "Review: Elektrolytstörungen K⁺/Ca²⁺ R2",
+      "dueDate": "2026-10-08"
+    },
+    {
       "name": "Review: Elektrolytstörungen K⁺/Ca²⁺ R1",
       "dueDate": "2026-10-07"
+    },
+    {
+      "name": "Review: Makrozytäre Anämie / Vitamin-B12-Mangel R1",
+      "dueDate": "2026-10-08"
     },
     {
       "name": "Review: Diarrhoe / Gastroenteritis R4",
@@ -579,16 +569,6 @@
     }
   ],
   "upcoming14d": [
-    {
-      "name": "Review: Elektrolytstörungen K⁺/Ca²⁺ R2",
-      "dueDate": "2026-10-08",
-      "duration": 45
-    },
-    {
-      "name": "Review: Makrozytäre Anämie / Vitamin-B12-Mangel R1",
-      "dueDate": "2026-10-08",
-      "duration": 30
-    },
     {
       "name": "Review: Elektrolytstörungen K⁺/Ca²⁺ R3",
       "dueDate": "2026-10-09",
@@ -702,6 +682,26 @@
     {
       "name": "Review: Polytrauma/ABCDE R5",
       "dueDate": "2026-10-22",
+      "duration": 120
+    },
+    {
+      "name": "Review: Schlaganfall/Apoplex R5",
+      "dueDate": "2026-10-23",
+      "duration": 120
+    },
+    {
+      "name": "Review: Leistenhernie R5",
+      "dueDate": "2026-10-23",
+      "duration": 120
+    },
+    {
+      "name": "Review: Ileus R5",
+      "dueDate": "2026-10-23",
+      "duration": 120
+    },
+    {
+      "name": "Review: Appendizitis R5",
+      "dueDate": "2026-10-23",
       "duration": 120
     }
   ],
