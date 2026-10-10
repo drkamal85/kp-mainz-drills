@@ -1,25 +1,113 @@
-{"slug": "polytrauma-abcde", "deck": "reviews/notfallmedizin/polytrauma-abcde.html", "capture": ["sources/amboss/polytrauma-abcde.md"],
- "counts": {"ok": 34, "fix": 0, "unclear": 18},
+{
+ "slug": "polytrauma-abcde",
+ "deck": "reviews/notfallmedizin/polytrauma-abcde.html",
+ "capture": [
+  "sources/amboss/polytrauma-abcde.md"
+ ],
+ "counts": {
+  "ok": 34,
+  "fix": 0,
+  "unclear": 18
+ },
  "fixes": [],
  "unclear": [
-  {"panel": "grundlagen", "deck_text": "Unfallort-Tabelle: wach / bewusstlos atmet / keine Atmung → Vorgehen", "reason": "präklinisches Vorgehen nicht erfasst (cABCDE-Companion-Artikel nicht erfasst)"},
-  {"panel": "grundlagen", "deck_text": "„c\" = catastrophic haemorrhage", "reason": "AMBOSS: c = Critical Bleeding; inhaltlich kompatibel"},
-  {"panel": "grundlagen", "deck_text": "Höchste Gefahr ist die Blutung → hämorrhagischer Schock", "reason": "AMBOSS nennt SHT und häm. Schock als häufigste Todesursachen"},
-  {"panel": "klinik", "deck_text": "HWS-Immobilisation (Stifneck)", "reason": "nicht in Erfassung"},
-  {"panel": "klinik", "deck_text": "2 großlumige Zugänge", "reason": "nicht in Erfassung"},
-  {"panel": "klinik", "deck_text": "Blutzucker (neurologisches Defizit)", "reason": "nicht in Erfassung"},
-  {"panel": "klinik", "deck_text": "Spannungspneumothorax → Entlastung im 2. ICR medioklavikulär", "reason": "Punktionsort nicht in Erfassung"},
-  {"panel": "klinik", "deck_text": "Beck-Trias (Hypotonie, gestaute Halsvenen, leise Herztöne)", "reason": "nicht in Erfassung"},
-  {"panel": "klinik", "deck_text": "Blutungsquellen: Thorax, Abdomen, Becken, Femur, „on the floor\"", "reason": "nicht in Erfassung"},
-  {"panel": "diagnostik", "deck_text": "eFAST Die vier Fenster: RUQ, LUQ, subxiphoidal, suprapubisch + Pleura", "reason": "Schallfenster nicht im Detail erfasst"},
-  {"panel": "diagnostik", "deck_text": "Labor: Laktat, Kreuzprobe", "reason": "AMBOSS nennt BGA, Blutgruppe + Antikörpersuchtest; Detail nicht erfasst"},
-  {"panel": "therapie", "deck_text": "Analgesie (Metamizol/Morphin), Tetanusschutz prüfen", "reason": "nicht in Erfassung"},
-  {"panel": "therapie", "deck_text": "Intubation bei Apnoe / AF < 6 · SpO2 < 90 % · hämodynamische Instabilität", "reason": "Intubationskriterien-Kapitel nicht erfasst; nur GCS <9 bestätigt"},
-  {"panel": "therapie", "deck_text": "Koniotomie als Ultima Ratio bei „cannot ventilate, cannot intubate\"", "reason": "nicht in Erfassung"},
-  {"panel": "therapie", "deck_text": "4H + HITS (Hypokaliämie, Intoxikation, Thromboembolie, Hypothermie)", "reason": "AMBOSS-Trauma: nur Hypoxie, Hypovolämie, Tamponade, Spannungspneu"},
-  {"panel": "perlen", "deck_text": "Becken instabil 3–4 L, Femur 1–2 L", "reason": "Blutverlustmengen nicht in Erfassung"},
-  {"panel": "perlen", "deck_text": "Intubation: SpO2 < 90 % trotz O2, RR systolisch < 90, Apnoe/AF < 6", "reason": "Intubationskriterien-Kapitel nicht erfasst"},
-  {"panel": "protokoll", "deck_text": "Mit dem Log-Roll-Manöver drehen 3 Helfer ihn achsengerecht zur Seite, ein 4. führt den Kopf.", "reason": "Helferzahl nicht in Erfassung"}
+  {
+   "panel": "grundlagen",
+   "deck_text": "Unfallort-Tabelle: wach / bewusstlos atmet / keine Atmung → Vorgehen",
+   "reason": "präklinisches Vorgehen nicht erfasst (cABCDE-Companion-Artikel nicht erfasst)"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "„c\" = catastrophic haemorrhage",
+   "reason": "AMBOSS: c = Critical Bleeding; inhaltlich kompatibel"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Höchste Gefahr ist die Blutung → hämorrhagischer Schock",
+   "reason": "AMBOSS nennt SHT und häm. Schock als häufigste Todesursachen"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "HWS-Immobilisation (Stifneck)",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "2 großlumige Zugänge",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Blutzucker (neurologisches Defizit)",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Spannungspneumothorax → Entlastung im 2. ICR medioklavikulär",
+   "reason": "Punktionsort nicht in Erfassung"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Beck-Trias (Hypotonie, gestaute Halsvenen, leise Herztöne)",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Blutungsquellen: Thorax, Abdomen, Becken, Femur, „on the floor\"",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "eFAST Die vier Fenster: RUQ, LUQ, subxiphoidal, suprapubisch + Pleura",
+   "reason": "Schallfenster nicht im Detail erfasst"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Labor: Laktat, Kreuzprobe",
+   "reason": "AMBOSS nennt BGA, Blutgruppe + Antikörpersuchtest; Detail nicht erfasst"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Analgesie (Metamizol/Morphin), Tetanusschutz prüfen",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Intubation bei Apnoe / AF < 6 · SpO2 < 90 % · hämodynamische Instabilität",
+   "reason": "Intubationskriterien-Kapitel nicht erfasst; nur GCS <9 bestätigt"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Koniotomie als Ultima Ratio bei „cannot ventilate, cannot intubate\"",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "4H + HITS (Hypokaliämie, Intoxikation, Thromboembolie, Hypothermie)",
+   "reason": "AMBOSS-Trauma: nur Hypoxie, Hypovolämie, Tamponade, Spannungspneu"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Becken instabil 3–4 L, Femur 1–2 L",
+   "reason": "Blutverlustmengen nicht in Erfassung"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Intubation: SpO2 < 90 % trotz O2, RR systolisch < 90, Apnoe/AF < 6",
+   "reason": "Intubationskriterien-Kapitel nicht erfasst"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Mit dem Log-Roll-Manöver drehen 3 Helfer ihn achsengerecht zur Seite, ein 4. führt den Kopf.",
+   "reason": "Helferzahl nicht in Erfassung"
+  }
  ],
  "status": "done",
- "validated": "2026-10-09"}
+ "validated": "2026-10-09",
+ "second_pass": {
+  "date": "2026-10-09",
+  "checked": 56,
+  "applied": 0,
+  "rejected_by_orchestrator": []
+ }
+}

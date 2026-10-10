@@ -1,18 +1,99 @@
-{"slug": "herzinsuffizienz", "deck": "reviews/kardiologie/herzinsuffizienz.html", "capture": ["sources/amboss/herzinsuffizienz.md"],
- "counts": {"ok": 46, "fix": 1, "unclear": 11},
- "fixes": [{"panel": "grundlagen", "deck_text": "HFmrEF (40–49 %) [Merksatz + Tabelle]", "new_text": "HFmrEF (41–49 %)", "amboss_quote": "HFmrEF (Herzinsuffizienz mit gering reduzierter EF): LVEF 41–49% und Symptome der Herzinsuffizienz"}],
+{
+ "slug": "herzinsuffizienz",
+ "deck": "reviews/kardiologie/herzinsuffizienz.html",
+ "capture": [
+  "sources/amboss/herzinsuffizienz.md"
+ ],
+ "counts": {
+  "ok": 46,
+  "fix": 3,
+  "unclear": 11
+ },
+ "fixes": [
+  {
+   "panel": "grundlagen",
+   "deck_text": "HFmrEF (40–49 %) [Merksatz + Tabelle]",
+   "new_text": "HFmrEF (41–49 %)",
+   "amboss_quote": "HFmrEF (Herzinsuffizienz mit gering reduzierter EF): LVEF 41–49% und Symptome der Herzinsuffizienz"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "<td>41–49 %</td><td>mittelgradig</td>",
+   "new_text": "<td>41–49 %</td><td>gering</td>",
+   "amboss_quote": "- HFmrEF (Herzinsuffizienz mit gering reduzierter EF): LVEF 41–49% und Symptome der Herzinsuffizienz",
+   "pass": 2
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "HFrEF unter 40 Prozent, HFmrEF",
+   "new_text": "HFrEF bis 40 Prozent, HFmrEF",
+   "amboss_quote": "- HFrEF (Herzinsuffizienz mit reduzierter EF): LVEF ≤40% und Symptome der Herzinsuffizienz",
+   "pass": 2
+  }
+ ],
  "unclear": [
-  {"panel": "grundlagen", "deck_text": "Kausalkette: Hypertonie → KHK → Myokardinfarkt → Herzinsuffizienz", "reason": "Kausalkette nicht in Erfassung"},
-  {"panel": "grundlagen", "deck_text": "HCM: häufigste Ursache plötzlicher Herztod junger Sportler; Septum über 13 mm", "reason": "HCM-Details nicht in Erfassung"},
-  {"panel": "grundlagen", "deck_text": "obstruktive Form: Nitrate, Diuretika und Digitalis kontraindiziert", "reason": "nicht in Erfassung (nur Nitrate bei Aortenstenose)"},
-  {"panel": "klinik", "deck_text": "Die Globalinsuffizienz betrifft beide Seiten — die häufigste klinische Form.", "reason": "Häufigkeit nicht explizit erfasst"},
-  {"panel": "diagnostik", "deck_text": "Ein normales BNP schließt die Herzinsuffizienz weitgehend aus", "reason": "nur Grenzwerte erfasst, Aussage kompatibel"},
-  {"panel": "diagnostik", "deck_text": "Ein völlig normales EKG macht die Herzinsuffizienz unwahrscheinlich", "reason": "nicht in Erfassung"},
-  {"panel": "therapie", "deck_text": "HFpEF: keine etablierte Basistherapie — SGLT2-Hemmer plus Diuretika", "reason": "AMBOSS: SGLT2 empfohlen; Formulierung Ermessen"},
-  {"panel": "protokoll", "deck_text": "HFrEF unter 40 Prozent", "reason": "AMBOSS ≤40 %; gesprochene Vereinfachung"},
-  {"panel": "protokoll", "deck_text": "Reizhusten durch Bradykinin", "reason": "Mechanismus nicht in Erfassung"},
-  {"panel": "protokoll", "deck_text": "SGLT2: proximaler Tubulus; Genitalinfektionen", "reason": "nicht in Erfassung (nur Ketoazidose)"},
-  {"panel": "protokoll", "deck_text": "Schleifendiuretika Henle-Schleife, Thiazide distaler Tubulus, Kaliumsparende Sammelrohr", "reason": "Wirkorte nicht in Erfassung"}
+  {
+   "panel": "grundlagen",
+   "deck_text": "Kausalkette: Hypertonie → KHK → Myokardinfarkt → Herzinsuffizienz",
+   "reason": "Kausalkette nicht in Erfassung"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "HCM: häufigste Ursache plötzlicher Herztod junger Sportler; Septum über 13 mm",
+   "reason": "HCM-Details nicht in Erfassung"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "obstruktive Form: Nitrate, Diuretika und Digitalis kontraindiziert",
+   "reason": "nicht in Erfassung (nur Nitrate bei Aortenstenose)"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Die Globalinsuffizienz betrifft beide Seiten — die häufigste klinische Form.",
+   "reason": "Häufigkeit nicht explizit erfasst"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Ein normales BNP schließt die Herzinsuffizienz weitgehend aus",
+   "reason": "nur Grenzwerte erfasst, Aussage kompatibel"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Ein völlig normales EKG macht die Herzinsuffizienz unwahrscheinlich",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "HFpEF: keine etablierte Basistherapie — SGLT2-Hemmer plus Diuretika",
+   "reason": "AMBOSS: SGLT2 empfohlen; Formulierung Ermessen"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "HFrEF unter 40 Prozent",
+   "reason": "AMBOSS ≤40 %; gesprochene Vereinfachung"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Reizhusten durch Bradykinin",
+   "reason": "Mechanismus nicht in Erfassung"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "SGLT2: proximaler Tubulus; Genitalinfektionen",
+   "reason": "nicht in Erfassung (nur Ketoazidose)"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Schleifendiuretika Henle-Schleife, Thiazide distaler Tubulus, Kaliumsparende Sammelrohr",
+   "reason": "Wirkorte nicht in Erfassung"
+  }
  ],
  "status": "done",
- "validated": "2026-10-09"}
+ "validated": "2026-10-09",
+ "second_pass": {
+  "date": "2026-10-09",
+  "checked": 65,
+  "applied": 2,
+  "rejected_by_orchestrator": []
+ }
+}

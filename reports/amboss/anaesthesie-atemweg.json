@@ -1,25 +1,113 @@
-{"slug": "anaesthesie-atemweg", "deck": "reviews/drittes-fach/anaesthesie-atemweg.html", "capture": ["sources/amboss/anaesthesie-atemweg.md"],
- "counts": {"ok": 24, "fix": 0, "unclear": 18},
+{
+ "slug": "anaesthesie-atemweg",
+ "deck": "reviews/drittes-fach/anaesthesie-atemweg.html",
+ "capture": [
+  "sources/amboss/anaesthesie-atemweg.md"
+ ],
+ "counts": {
+  "ok": 24,
+  "fix": 0,
+  "unclear": 18
+ },
  "fixes": [],
  "unclear": [
-  {"panel": "grundlagen", "deck_text": "Spinal: Liquorraum, unter L2 · Peridural: jede Höhe", "reason": "Regionalanästhesie nicht in Erfassung"},
-  {"panel": "grundlagen", "deck_text": "Guedel oral, nur beim Bewusstlosen · Wendl nasal, auch mit Schutzreflexen", "reason": "nur als Hilfsmittel genannt, Toleranz nicht erfasst"},
-  {"panel": "grundlagen", "deck_text": "Larynxmaske — schnell, aber kein Aspirationsschutz", "reason": "Erfassung: nur ETT relativ sicherer Aspirationsschutz; SGA-Kapitel separat"},
-  {"panel": "klinik", "deck_text": "Fehlende Schutzreflexe — GCS 8 oder darunter", "reason": "Indikations-Abschnitt in bekannter Lücke"},
-  {"panel": "klinik", "deck_text": "Nüchtern: 6 Stunden feste Nahrung, 2 Stunden klare Flüssigkeit", "reason": "Nüchternheit nicht in Erfassung"},
-  {"panel": "klinik", "deck_text": "RSI: Oberkörper hoch, keine Zwischenbeatmung", "reason": "RSI nur als Verweis (SOP separat)"},
-  {"panel": "klinik", "deck_text": "Selten: maligne Hyperthermie — Antidot Dantrolen", "reason": "MH-Kapitel separat, nicht erfasst"},
-  {"panel": "diagnostik", "deck_text": "ASA-Klassifikation I bis VI — schätzt das Narkoserisiko", "reason": "ASA nicht in Erfassung"},
-  {"panel": "diagnostik", "deck_text": "Aufklärung am Vortag, schriftlich, mit Bedenkzeit", "reason": "nicht in Erfassung"},
-  {"panel": "diagnostik", "deck_text": "Grad I ganze Stimmritze · Grad IV nur Zunge", "reason": "AMBOSS IV: keine laryngealen Strukturen; vereinbare Vereinfachung"},
-  {"panel": "therapie", "deck_text": "Zuletzt Relaxans — Rocuronium, bei RSI Succinylcholin", "reason": "AMBOSS Beispiel Mivacurium; Präparate nicht abschließend"},
-  {"panel": "therapie", "deck_text": "Propofol sediert bis zu einer Woche", "reason": "nicht in Erfassung (Protokollaussage)"},
-  {"panel": "therapie", "deck_text": "Koniotomie durch das Ligamentum cricothyroideum", "reason": "Koniotomie nur als Verweis"},
-  {"panel": "protokoll", "deck_text": "Ich präoxygeniere ... oder über 8 tiefe Atemzüge. Nitroxierung heißt ...", "reason": "8 Atemzüge nicht erfasst; AMBOSS-Begriff Denitrogenisierung"},
-  {"panel": "protokoll", "deck_text": "etwa 6 bis 8 Minuten Apnoe ... ohne nur 1 bis 2 Minuten", "reason": "Apnoezeiten nicht in Erfassung"},
-  {"panel": "protokoll", "deck_text": "funktionelle Residualkapazität von etwa 2,5 bis 3 Litern", "reason": "FRC-Volumen nicht in Erfassung"},
-  {"panel": "protokoll", "deck_text": "Tubus 3 bis 5 cm zurück, Spitze 2 bis 4 cm über der Carina", "reason": "nicht in Erfassung"},
-  {"panel": "protokoll", "deck_text": "Lokalanästhetika Ester/Amide, Prilocain Methämoglobinämie", "reason": "nicht in Erfassung"}
+  {
+   "panel": "grundlagen",
+   "deck_text": "Spinal: Liquorraum, unter L2 · Peridural: jede Höhe",
+   "reason": "Regionalanästhesie nicht in Erfassung"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Guedel oral, nur beim Bewusstlosen · Wendl nasal, auch mit Schutzreflexen",
+   "reason": "nur als Hilfsmittel genannt, Toleranz nicht erfasst"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Larynxmaske — schnell, aber kein Aspirationsschutz",
+   "reason": "Erfassung: nur ETT relativ sicherer Aspirationsschutz; SGA-Kapitel separat"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Fehlende Schutzreflexe — GCS 8 oder darunter",
+   "reason": "Indikations-Abschnitt in bekannter Lücke"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Nüchtern: 6 Stunden feste Nahrung, 2 Stunden klare Flüssigkeit",
+   "reason": "Nüchternheit nicht in Erfassung"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "RSI: Oberkörper hoch, keine Zwischenbeatmung",
+   "reason": "RSI nur als Verweis (SOP separat)"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Selten: maligne Hyperthermie — Antidot Dantrolen",
+   "reason": "MH-Kapitel separat, nicht erfasst"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "ASA-Klassifikation I bis VI — schätzt das Narkoserisiko",
+   "reason": "ASA nicht in Erfassung"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Aufklärung am Vortag, schriftlich, mit Bedenkzeit",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Grad I ganze Stimmritze · Grad IV nur Zunge",
+   "reason": "AMBOSS IV: keine laryngealen Strukturen; vereinbare Vereinfachung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Zuletzt Relaxans — Rocuronium, bei RSI Succinylcholin",
+   "reason": "AMBOSS Beispiel Mivacurium; Präparate nicht abschließend"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Propofol sediert bis zu einer Woche",
+   "reason": "nicht in Erfassung (Protokollaussage)"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Koniotomie durch das Ligamentum cricothyroideum",
+   "reason": "Koniotomie nur als Verweis"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Ich präoxygeniere ... oder über 8 tiefe Atemzüge. Nitroxierung heißt ...",
+   "reason": "8 Atemzüge nicht erfasst; AMBOSS-Begriff Denitrogenisierung"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "etwa 6 bis 8 Minuten Apnoe ... ohne nur 1 bis 2 Minuten",
+   "reason": "Apnoezeiten nicht in Erfassung"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "funktionelle Residualkapazität von etwa 2,5 bis 3 Litern",
+   "reason": "FRC-Volumen nicht in Erfassung"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Tubus 3 bis 5 cm zurück, Spitze 2 bis 4 cm über der Carina",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Lokalanästhetika Ester/Amide, Prilocain Methämoglobinämie",
+   "reason": "nicht in Erfassung"
+  }
  ],
  "status": "done",
- "validated": "2026-10-09"}
+ "validated": "2026-10-09",
+ "second_pass": {
+  "date": "2026-10-09",
+  "checked": 68,
+  "applied": 0,
+  "rejected_by_orchestrator": []
+ }
+}

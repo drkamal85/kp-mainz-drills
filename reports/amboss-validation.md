@@ -2,104 +2,105 @@
 
 Lauf vom 09.10.2026 · Skill `kp-amboss-validate` · Referenz ausschließlich `sources/amboss/`.
 
-**88 Decks geprüft · 3182 ✓ · 66 ✗ korrigiert (davon 11 in Diagnostik) · 1177 ? protokolliert, nicht geändert.**
+**Durchgang 1:** 88 Decks · 3182 ✓ · 67 ✗ korrigiert · 1177 ? protokolliert, nicht geändert.
+**Durchgang 2 (unabhängig, alle 31 KERN-Decks):** 1949 Fakten erneut geprüft · 24 weitere ✗ korrigiert · 6 Meldungen verworfen (nicht eindeutig).
 
 Ohne Erfassung, nicht geprüft: beckenringfrakturen, claviculafraktur, kreuzbandruptur (eingefaltet bzw. gestrichen).
 
-Die Marke bedeutet: kein Widerspruch zur AMBOSS-Erfassung. ?-Punkte (nicht in der Erfassung, Bereich, Nuance) sind nicht bestätigt — siehe `reports/amboss/<slug>.json`.
+Die Marke bedeutet: kein Widerspruch zur AMBOSS-Erfassung. ?-Punkte sind nicht bestätigt — siehe `reports/amboss/<slug>.json`.
 
-| Deck | ✓ | ✗ | ? | Status |
+| Deck | ✓ | ✗ gesamt | ? | Durchgang 2 |
 |---|---:|---:|---:|---|
-| acs-myokardinfarkt | 58 | 1 | 11 | done |
-| akute-leukaemien | 46 | 0 | 12 | done |
-| akutes-abdomen | 52 | 0 | 12 | done |
-| akuttoxikologie | 30 | 0 | 16 | done |
-| allgemeine-frakturlehre | 40 | 0 | 13 | done |
-| anaesthesie-atemweg | 24 | 0 | 18 | done |
-| anaphylaxie | 28 | 0 | 16 | done |
-| antibiotikatherapie | 10 | 0 | 10 | done |
-| antikoagulation-bridging | 44 | 0 | 22 | done |
-| aortenaneurysma | 30 | 1 | 14 | done |
-| aortendissektion | 34 | 0 | 13 | done |
-| appendizitis | 36 | 0 | 14 | done |
-| arterielle-hypertonie | 52 | 2 | 13 | done |
-| asthma-bronchiale | 56 | 3 | 12 | done |
-| aufklaerung-einwilligung-betreuung | 24 | 0 | 9 | done |
-| av-block | 30 | 0 | 12 | done |
-| bluttransfusion | 28 | 0 | 14 | done |
-| borreliose-fsme | 30 | 0 | 17 | done |
-| bronchialkarzinom | 58 | 0 | 13 | done |
-| cholezystitis | 52 | 1 | 12 | done |
-| copd | 44 | 4 | 11 | done |
-| cushing-syndrom | 34 | 0 | 10 | done |
-| delir | 36 | 0 | 14 | done |
-| diabetes-mellitus | 46 | 0 | 12 | done |
-| diarrhoe | 14 | 0 | 16 | done |
-| distale-radiusfraktur | 22 | 0 | 10 | done |
-| divertikulitis | 38 | 8 | 15 | done |
-| eisenmangelanaemie | 48 | 0 | 14 | done |
-| gastritis | 40 | 7 | 15 | done |
-| gastroduodenales-ulkus | 40 | 1 | 15 | done |
-| gerd | 44 | 1 | 12 | done |
-| gi-blutung | 52 | 0 | 13 | done |
-| haemorrhoiden | 36 | 0 | 12 | done |
-| harnwegsinfekt | 24 | 0 | 11 | done |
-| hepatitis | 24 | 0 | 19 | done |
-| herzinsuffizienz | 46 | 1 | 11 | done |
-| herzklappenerkrankungen | 30 | 0 | 15 | done |
-| hueft-knie-tep | 14 | 0 | 12 | done |
-| humerusfraktur | 22 | 0 | 22 | done |
-| hyperthyreose | 34 | 0 | 13 | done |
-| hyponatriaemie-siadh | 30 | 2 | 12 | done |
-| hypothyreose | 30 | 0 | 8 | done |
-| ikterus-cholestase | 30 | 0 | 10 | done |
-| ileus | 52 | 0 | 13 | done |
-| impfungen-stiko | 27 | 0 | 15 | done |
-| infektioese-endokarditis | 40 | 3 | 14 | done |
-| khk | 6 | 0 | 12 | done |
-| kolonkarzinom | 38 | 2 | 15 | done |
-| lebertumoren | 14 | 0 | 14 | done |
-| leberzirrhose | 44 | 0 | 16 | done |
-| leistenhernie | 36 | 0 | 15 | done |
-| lungenembolie | 34 | 0 | 13 | done |
-| magenkarzinom | 32 | 0 | 11 | done |
-| meningitis | 36 | 0 | 13 | done |
-| milzruptur-splenektomie | 33 | 0 | 13 | done |
-| morbus-crohn | 62 | 0 | 10 | done |
-| morbus-hodgkin | 47 | 2 | 15 | done |
-| nierenversagen | 30 | 0 | 16 | done |
-| non-hodgkin-lymphome | 30 | 0 | 12 | done |
-| osteoporose | 42 | 0 | 12 | done |
-| pankreaskarzinom | 30 | 0 | 14 | done |
-| pankreatitis | 36 | 0 | 11 | done |
-| pavk | 34 | 0 | 9 | done |
-| pneumonie | 24 | 0 | 14 | done |
-| pneumothorax | 52 | 0 | 10 | done |
-| polytrauma-abcde | 34 | 0 | 18 | done |
-| praevention | 22 | 5 | 13 | done |
-| proximale-femurfraktur | 48 | 0 | 15 | done |
-| reanimation-cpr | 38 | 0 | 16 | done |
-| rechtsmedizin | 48 | 1 | 14 | done |
-| rektumkarzinom | 30 | 0 | 7 | done |
-| saeure-basen-bga | 44 | 0 | 15 | done |
-| schaedel-hirn-trauma | 24 | 1 | 11 | done |
-| schilddruesenkarzinom | 36 | 5 | 11 | done |
-| schlaganfall | 38 | 0 | 10 | done |
-| schmerztherapie | 30 | 0 | 16 | done |
-| schock | 32 | 0 | 16 | done |
-| sepsis | 62 | 3 | 14 | done |
-| sozialrecht-hygiene | 32 | 1 | 16 | done |
-| sprunggelenksfraktur | 38 | 0 | 13 | done |
-| strahlenschutz | 30 | 0 | 12 | done |
-| struma | 30 | 0 | 12 | done |
-| synkope | 38 | 1 | 12 | done |
-| tuberkulose | 38 | 7 | 11 | done |
-| tvt | 38 | 0 | 10 | done |
-| verbrennung | 31 | 3 | 13 | done |
-| vorhofflimmern | 58 | 0 | 22 | done |
-| wirbelsaeulenverletzungen | 44 | 0 | 18 | done |
+| acs-myokardinfarkt | 58 | 6 | 11 | 74 geprüft, 5 korrigiert |
+| akute-leukaemien | 46 | 0 | 12 | — |
+| akutes-abdomen | 52 | 0 | 12 | 72 geprüft, 0 korrigiert |
+| akuttoxikologie | 30 | 0 | 16 | — |
+| allgemeine-frakturlehre | 40 | 2 | 13 | 68 geprüft, 2 korrigiert |
+| anaesthesie-atemweg | 24 | 0 | 18 | 68 geprüft, 0 korrigiert |
+| anaphylaxie | 28 | 0 | 16 | — |
+| antibiotikatherapie | 10 | 0 | 10 | 52 geprüft, 0 korrigiert |
+| antikoagulation-bridging | 44 | 1 | 22 | 60 geprüft, 1 korrigiert |
+| aortenaneurysma | 30 | 1 | 14 | — |
+| aortendissektion | 34 | 0 | 13 | — |
+| appendizitis | 36 | 0 | 14 | 55 geprüft, 0 korrigiert |
+| arterielle-hypertonie | 52 | 2 | 13 | 62 geprüft, 0 korrigiert |
+| asthma-bronchiale | 56 | 4 | 12 | — |
+| aufklaerung-einwilligung-betreuung | 24 | 0 | 9 | 44 geprüft, 0 korrigiert |
+| av-block | 30 | 0 | 12 | — |
+| bluttransfusion | 28 | 0 | 14 | 57 geprüft, 0 korrigiert |
+| borreliose-fsme | 30 | 0 | 17 | — |
+| bronchialkarzinom | 58 | 0 | 13 | — |
+| cholezystitis | 52 | 1 | 12 | 78 geprüft, 0 korrigiert |
+| copd | 44 | 4 | 11 | — |
+| cushing-syndrom | 34 | 0 | 10 | — |
+| delir | 36 | 0 | 14 | — |
+| diabetes-mellitus | 46 | 1 | 12 | 84 geprüft, 1 korrigiert |
+| diarrhoe | 14 | 0 | 16 | — |
+| distale-radiusfraktur | 22 | 0 | 10 | — |
+| divertikulitis | 38 | 9 | 15 | 64 geprüft, 1 korrigiert |
+| eisenmangelanaemie | 48 | 0 | 14 | — |
+| gastritis | 40 | 7 | 15 | — |
+| gastroduodenales-ulkus | 40 | 4 | 15 | 61 geprüft, 3 korrigiert |
+| gerd | 44 | 1 | 12 | — |
+| gi-blutung | 52 | 0 | 13 | 64 geprüft, 0 korrigiert |
+| haemorrhoiden | 36 | 0 | 12 | — |
+| harnwegsinfekt | 24 | 5 | 11 | 48 geprüft, 5 korrigiert |
+| hepatitis | 24 | 0 | 19 | — |
+| herzinsuffizienz | 46 | 3 | 11 | 65 geprüft, 2 korrigiert |
+| herzklappenerkrankungen | 30 | 0 | 15 | — |
+| hueft-knie-tep | 14 | 0 | 12 | — |
+| humerusfraktur | 22 | 0 | 22 | — |
+| hyperthyreose | 34 | 0 | 13 | — |
+| hyponatriaemie-siadh | 30 | 2 | 12 | — |
+| hypothyreose | 30 | 0 | 8 | — |
+| ikterus-cholestase | 30 | 0 | 10 | — |
+| ileus | 52 | 0 | 13 | 78 geprüft, 0 korrigiert |
+| impfungen-stiko | 27 | 2 | 15 | 50 geprüft, 2 korrigiert |
+| infektioese-endokarditis | 40 | 3 | 14 | — |
+| khk | 6 | 0 | 12 | — |
+| kolonkarzinom | 38 | 2 | 15 | 72 geprüft, 0 korrigiert |
+| lebertumoren | 14 | 0 | 14 | — |
+| leberzirrhose | 44 | 0 | 16 | — |
+| leistenhernie | 36 | 1 | 15 | 46 geprüft, 1 korrigiert |
+| lungenembolie | 34 | 0 | 13 | 58 geprüft, 0 korrigiert |
+| magenkarzinom | 32 | 0 | 11 | — |
+| meningitis | 36 | 0 | 13 | — |
+| milzruptur-splenektomie | 33 | 0 | 13 | — |
+| morbus-crohn | 62 | 0 | 10 | — |
+| morbus-hodgkin | 47 | 2 | 15 | — |
+| nierenversagen | 30 | 0 | 16 | — |
+| non-hodgkin-lymphome | 30 | 0 | 12 | — |
+| osteoporose | 42 | 0 | 12 | — |
+| pankreaskarzinom | 30 | 0 | 14 | — |
+| pankreatitis | 36 | 0 | 11 | — |
+| pavk | 34 | 0 | 9 | — |
+| pneumonie | 24 | 0 | 14 | — |
+| pneumothorax | 52 | 0 | 10 | 63 geprüft, 0 korrigiert |
+| polytrauma-abcde | 34 | 0 | 18 | 56 geprüft, 0 korrigiert |
+| praevention | 22 | 5 | 13 | — |
+| proximale-femurfraktur | 48 | 0 | 15 | 54 geprüft, 0 korrigiert |
+| reanimation-cpr | 38 | 0 | 16 | — |
+| rechtsmedizin | 48 | 1 | 14 | — |
+| rektumkarzinom | 30 | 0 | 7 | — |
+| saeure-basen-bga | 44 | 0 | 15 | 72 geprüft, 0 korrigiert |
+| schaedel-hirn-trauma | 24 | 1 | 11 | 38 geprüft, 0 korrigiert |
+| schilddruesenkarzinom | 36 | 5 | 11 | — |
+| schlaganfall | 38 | 0 | 10 | 76 geprüft, 0 korrigiert |
+| schmerztherapie | 30 | 0 | 16 | 56 geprüft, 0 korrigiert |
+| schock | 32 | 1 | 16 | 66 geprüft, 1 korrigiert |
+| sepsis | 62 | 3 | 14 | — |
+| sozialrecht-hygiene | 32 | 1 | 16 | — |
+| sprunggelenksfraktur | 38 | 0 | 13 | — |
+| strahlenschutz | 30 | 0 | 12 | — |
+| struma | 30 | 0 | 12 | — |
+| synkope | 38 | 1 | 12 | — |
+| tuberkulose | 38 | 7 | 11 | — |
+| tvt | 38 | 0 | 10 | — |
+| verbrennung | 31 | 3 | 13 | — |
+| vorhofflimmern | 58 | 0 | 22 | 88 geprüft, 0 korrigiert |
+| wirbelsaeulenverletzungen | 44 | 0 | 18 | — |
 
-## Korrekturen
+## Korrekturen Durchgang 1
 
 - **acs-myokardinfarkt** (therapie): „Blutdruck < 100 mmHg, PDE-5-Hemmer (Sildenafil)“ → „Blutdruck < 90 mmHg, PDE-5-Hemmer (Sildenafil)“ — AMBOSS: Kontraindikationen - Hypotension (RR systolisch <90 mmHg)
 - **aortenaneurysma** (diagnostik): „gemessen wird der maximale Querdurchmesser von Außenwand zu Außenwand.“ → „gemessen wird der maximale Querdurchmesser von Außenwand zu Innenwand.“ — AMBOSS: Leading-edge-Methode: Messung von der Außenwand bis zur gegenüberliegenden Innenwand
@@ -108,6 +109,7 @@ Die Marke bedeutet: kein Widerspruch zur AMBOSS-Erfassung. ?-Punkte (nicht in de
 - **asthma-bronchiale** (diagnostik): „Bronchospasmolyse: FEV₁ +15 % nach Salbutamol“ → „Bronchospasmolyse: FEV₁ +12 % nach Salbutamol“ — AMBOSS: Anstieg des FEV1 um mind. 12% UND um 200 mL
 - **asthma-bronchiale** (perlen): „Bronchospasmolyse positiv bei FEV₁ +15 % nach Salbutamol“ → „Bronchospasmolyse positiv bei FEV₁ +12 % nach Salbutamol“ — AMBOSS: Anstieg des FEV1 um mind. 12% UND um 200 mL
 - **asthma-bronchiale** (perlen (Rapid-Fire)): „Bronchospasmolyse positiv ab? FEV₁ +15 % nach Salbutamol“ → „FEV₁ +12 % nach Salbutamol“ — AMBOSS: Anstieg des FEV1 um mind. 12% UND um 200 mL
+- **asthma-bronchiale** (perlen): „Perle 2 · +15 % / −20 %“ → „Perle 2 · +12 % / −20 %“ — AMBOSS: Anstieg des FEV1 um mind. 12% UND um 200 mL
 - **cholezystitis** (protokoll): „Ich lege eine T-Drainage für etwa 5 Tage und entferne die Gallenblase mit.“ → „Ich lege eine T-Drainage für etwa 7 Tage und entferne die Gallenblase mit.“ — AMBOSS: T-Drainage: Ab dem 7. postoperativen Tag nach unauffälliger Cholangiografie, i.d.R. durch behandelnde Ärzt:innen
 - **copd** (grundlagen): „♂ > ♀ · weltweit 3.-häufigste Todesursache“ → „♂ = ♀ · weltweit 3.-häufigste Todesursache“ — AMBOSS: Geschlecht: ♂ = ♀
 - **copd** (therapie): „GOLD 4 + chron. Bronchitis: + Roflumilast (PDE-4-Hemmer)“ → „GOLD 3–4 + chron. Bronchitis: + Roflumilast (PDE-4-Hemmer)“ — AMBOSS: Roflumilast bei FEV1 <50% und chronischer Bronchitis
@@ -167,6 +169,42 @@ Die Marke bedeutet: kein Widerspruch zur AMBOSS-Erfassung. ?-Punkte (nicht in de
 - **verbrennung** (therapie): „Gegeben wird Ringer-Laktat“ → „Gegeben wird Ringer-Acetat“ — AMBOSS: Balancierte Vollelektrolytlösung, bspw. Ringer-Acetat- oder Ringer-Malat-Lösung … Nicht mehr empfohlen: Ringer-Lactat-Lösung
 - **verbrennung** (perlen): „4 ml × Kilogramm × Prozent verbrannter Oberfläche, Ringer-Laktat, in 24 Stunden“ → „4 ml × Kilogramm × Prozent verbrannter Oberfläche, Ringer-Acetat, in 24 Stunden“ — AMBOSS: Nicht mehr empfohlen: Ringer-Lactat-Lösung
 - **verbrennung** (perlen): „Rapid-Fire: Welche Lösung? — Ringer-Laktat“ → „Ringer-Acetat“ — AMBOSS: Nicht mehr empfohlen: Ringer-Lactat-Lösung
+
+## Korrekturen Durchgang 2
+
+- **acs-myokardinfarkt** (therapie): „NSTEMI → Koronarangiografie risikoadaptiert in 24 bis 72 Stunden.“ → „NSTEMI → Koronarangiografie risikoadaptiert in 2 bis 72 Stunden.“ — AMBOSS: - Durchführung: Innerhalb von 2–72 h
+- **acs-myokardinfarkt** (therapie): „<td>PCI in 24–72 h (risikoadaptiert)</td>“ → „<td>PCI in 2–72 h (risikoadaptiert)</td>“ — AMBOSS: - Durchführung: Innerhalb von 2–72 h
+- **acs-myokardinfarkt** (perlen): „NSTEMI Angiografie in 24–72 h“ → „NSTEMI Angiografie in 2–72 h“ — AMBOSS: - Durchführung: Innerhalb von 2–72 h
+- **acs-myokardinfarkt** (perlen): „<div class="sfa">24–72 h risikoadaptiert</div>“ → „<div class="sfa">2–72 h risikoadaptiert</div>“ — AMBOSS: - Durchführung: Innerhalb von 2–72 h
+- **acs-myokardinfarkt** (protokoll): „erfolgt die Koronarangiografie innerhalb von 24 bis 72 Stunden“ → „erfolgt die Koronarangiografie innerhalb von 2 bis 72 Stunden“ — AMBOSS: - Durchführung: Innerhalb von 2–72 h
+- **allgemeine-frakturlehre** (grundlagen): „pathologisch (Tumor/Metastase/Osteoporose, inadäquates Trauma)“ → „pathologisch (Tumor/Metastase/Knochenzyste, inadäquates Trauma)“ — AMBOSS: - ⚠️ Die pathologische Fraktur entsteht bei inadäquatem Trauma und fokal veränderter Knochensubstanz, die Insuffizienzfraktur bei inadäquatem Trauma und reduzie
+- **allgemeine-frakturlehre** (perlen): „Fraktur bei inadäquatem Trauma (Tumor, Osteoporose, Metastase)“ → „Fraktur bei inadäquatem Trauma (Tumor, Knochenzyste, Metastase)“ — AMBOSS: - ⚠️ Die pathologische Fraktur entsteht bei inadäquatem Trauma und fokal veränderter Knochensubstanz, die Insuffizienzfraktur bei inadäquatem Trauma und reduzie
+- **antikoagulation-bridging** (perlen): „sinken vor den Faktoren II, VII, IX und X“ → „sinken vor den Faktoren II, IX und X“ — AMBOSS: - Pathophysiologie: Gerinnungshemmende Faktoren Protein C und Protein S mit kürzerer HWZ (6–10 h) als gerinnungsfördernde Faktoren II, IX und X (2–4 d) → Initia
+- **diabetes-mellitus** (therapie): „Ziel-HbA1c meist 6,5–7,5 %, jede Stufe 3–6 Monate“ → „Ziel-HbA1c meist 6,5–8,5 %, jede Stufe 3–6 Monate“ — AMBOSS: - Blutzucker: HbA1c-Zielbereich 6,5–8,5% (48–69 mmol/mol) — genauen Zielwert individuell festlegen
+- **divertikulitis** (perlen): „<b>Merke:</b> Im Schub immer CT“ → „<b>Merke:</b> Im Schub ggf. CT“ — AMBOSS: - Kontrastmittelgestützte CT des Abdomens: Indiziert, wenn sonografischer Befund nicht ausreicht
+- **gastroduodenales-ulkus** (therapie): „PPI + Bismut + Tetracyclin + Metronidazol (bei Resistenz)“ → „PPI + Bismut + Tetracyclin + Metronidazol (Erstlinie)“ — AMBOSS: - Erstlinientherapie: Bismut-Quadrupeltherapie (PPI + Bismut + Tetracyclin + Metronidazol)
+- **gastroduodenales-ulkus** (perlen): „<div class="sfa">Bismut-Quadrupel bzw. franz. Tripel</div>“ → „<div class="sfa">Bismut-Quadrupel</div>“ — AMBOSS: - Erstlinientherapie: Bismut-Quadrupeltherapie (PPI + Bismut + Tetracyclin + Metronidazol)
+- **gastroduodenales-ulkus** (perlen): „<div class="sfa">aus allen 4 Quadranten</div>“ → „<div class="sfa">mind. 8</div>“ — AMBOSS: - Karzinomrisiko: Ca. 10% der Ulcera ventriculi >2 cm sind maligne (Magenkarzinom!) → Mind. 8 Biopsien unter Einbezug des Randbereiches und aus dem Grund eines 
+- **harnwegsinfekt** (therapie): „Ausnahmen: <strong>Schwangerschaft</strong> und vor urologischen Eingriffen“ → „Ausnahmen: <strong>Risikoschwangerschaft</strong> und vor urologischen Eingriffen“ — AMBOSS: > Eine asymptomatische Bakteriurie soll bei Niedrig-Risiko-Schwangerschaft i.d.R. nicht behandelt werden. Bei Risikopatientinnen ist ein Screening auf eine asym
+- **harnwegsinfekt** (perlen): „wird nur bei <strong>Schwangeren</strong> und vor urologischen Eingriffen behandelt“ → „wird nur bei <strong>Risikoschwangeren</strong> und vor urologischen Eingriffen behandelt“ — AMBOSS: > Eine asymptomatische Bakteriurie soll bei Niedrig-Risiko-Schwangerschaft i.d.R. nicht behandelt werden. Bei Risikopatientinnen ist ein Screening auf eine asym
+- **harnwegsinfekt** (perlen): „Ohne Symptome kein Antibiotikum — außer schwanger“ → „Ohne Symptome kein Antibiotikum — außer Risikoschwangerschaft“ — AMBOSS: > Eine asymptomatische Bakteriurie soll bei Niedrig-Risiko-Schwangerschaft i.d.R. nicht behandelt werden. Bei Risikopatientinnen ist ein Screening auf eine asym
+- **harnwegsinfekt** (perlen): „<div class="sfa">nur bei Schwangeren und vor urologischen Eingriffen</div>“ → „<div class="sfa">nur bei Risikoschwangeren und vor urologischen Eingriffen</div>“ — AMBOSS: > Eine asymptomatische Bakteriurie soll bei Niedrig-Risiko-Schwangerschaft i.d.R. nicht behandelt werden. Bei Risikopatientinnen ist ein Screening auf eine asym
+- **harnwegsinfekt** (protokoll): „Ausnahmen sind nur die Schwangerschaft und geplante urologische Eingriffe“ → „Ausnahmen sind nur die Risikoschwangerschaft und geplante urologische Eingriffe“ — AMBOSS: > Eine asymptomatische Bakteriurie soll bei Niedrig-Risiko-Schwangerschaft i.d.R. nicht behandelt werden. Bei Risikopatientinnen ist ein Screening auf eine asym
+- **herzinsuffizienz** (grundlagen): „<td>41–49 %</td><td>mittelgradig</td>“ → „<td>41–49 %</td><td>gering</td>“ — AMBOSS: - HFmrEF (Herzinsuffizienz mit gering reduzierter EF): LVEF 41–49% und Symptome der Herzinsuffizienz
+- **herzinsuffizienz** (protokoll): „HFrEF unter 40 Prozent, HFmrEF“ → „HFrEF bis 40 Prozent, HFmrEF“ — AMBOSS: - HFrEF (Herzinsuffizienz mit reduzierter EF): LVEF ≤40% und Symptome der Herzinsuffizienz
+- **impfungen-stiko** (klinik): „Tetanus/Diphtherie/Pertussis-Auffrischung alle 10 Jahre“ → „Tetanus/Diphtherie-Auffrischung alle 10 Jahre“ — AMBOSS: | Pertussis | A3 (einmalig)*² | N | (wie Tetanus/Diphtherie ab hier) | | | | | | | |
+- **impfungen-stiko** (klinik): „<strong>Meningokokken C/B</strong></td><td>1. Lebensjahr“ → „<strong>Meningokokken B</strong></td><td>1. Lebensjahr“ — AMBOSS: | Meningokokken ACWY | — | — | — | G1 | N | — | — | — | | |
+- **leistenhernie** (protokoll): „Ich operiere dringlich, reponiere den Darm und prüfe seine Vitalität.“ → „Ich operiere notfallmäßig, reponiere den Darm und prüfe seine Vitalität.“ — AMBOSS: - Inkarzerierten Leistenhernien → Sofortiger Notfalleingriff
+- **schock** (grundlagen): „Myokardinfarkt (~80 %), Arrhythmie, Klappeninsuffizienz“ → „Myokardinfarkt (&lt;50 %), Arrhythmie, Klappeninsuffizienz“ — AMBOSS: Dank verbesserter Prävention und früher Revaskularisation ist der klassische infarktbedingte kardiogene Schock seltener geworden, sodass heute nicht-infarktbedi
+
+## Verworfen in Durchgang 2
+
+- **diabetes-mellitus**: „sobald einer dieser vier Werte erreicht ist“ — AMBOSS trennt Typ 1 (≥1 Wert) und Typ 2 (≥2 Werte); Merksatz gilt für Typ 1 — nicht eindeutig
+- **gastroduodenales-ulkus**: „<td><strong>H. pylori</strong></td><td>~70 %</td>“ — Rundung: ~70 % vs. ca. 75 %
+- **kolonkarzinom**: „≈ 95 % Adenokarzinome, ≈ 60 % im Rektosigmoid“ — Näherungswert: ≈95 % vs. 90 %
+- **kolonkarzinom**: „Adenokarzinom (~95 %)“ — Näherungswert: ~95 % vs. 90 %
+- **schlaganfall**: „Ich nutze es im erweiterten Zeitfenster über 4,5 Stunden.“ — AMBOSS nennt >6 h für Thrombektomie; Lyse-Zeitfenster 4,5–9 h nicht in Erfassung — nicht eindeutig
+- **vorhofflimmern**: „Nach guter Frequenzkontrolle erholt sich das Herz wieder.“ — AMBOSS nennt Sinusrhythmus, schließt Frequenzkontrolle nicht aus — nicht eindeutig
 
 ## AMBOSS-validiert
 

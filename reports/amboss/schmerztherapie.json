@@ -1,23 +1,103 @@
-{"slug": "schmerztherapie", "deck": "reviews/drittes-fach/schmerztherapie.html", "capture": ["sources/amboss/schmerztherapie.md"],
- "counts": {"ok": 30, "fix": 0, "unclear": 16},
+{
+ "slug": "schmerztherapie",
+ "deck": "reviews/drittes-fach/schmerztherapie.html",
+ "capture": [
+  "sources/amboss/schmerztherapie.md"
+ ],
+ "counts": {
+  "ok": 30,
+  "fix": 0,
+  "unclear": 16
+ },
  "fixes": [],
  "unclear": [
-  {"panel": "grundlagen", "deck_text": "μ, δ, κ — der μ-Rezeptor macht die Wirkung und alle Nebenwirkungen", "reason": "Opioidrezeptoren nicht in Erfassung"},
-  {"panel": "grundlagen", "deck_text": "Naloxon hebt alles auf, auch die Schmerzstillung", "reason": "nicht in Erfassung"},
-  {"panel": "grundlagen", "deck_text": "Kortison: Schwellung, etwa bei Metastasen", "reason": "AMBOSS: Hirndruck und Nervenkompression; kompatibel"},
-  {"panel": "klinik", "deck_text": "Gewebeschmerz spricht auf Opioide an, Nervenschmerz nicht", "reason": "nicht in Erfassung"},
-  {"panel": "klinik", "deck_text": "Metamizol: Agranulozytose; Paracetamol: Leber; NSAR: Ulkus/Niere", "reason": "Substanz-NW in Einzelkapiteln, nicht erfasst"},
-  {"panel": "klinik", "deck_text": "an die Verstopfung nicht ... jeder Opioidpatient von Tag 1 ein Laxans", "reason": "nicht in Erfassung (Laxantien nur als Adjuvans)"},
-  {"panel": "diagnostik", "deck_text": "Beim Dementen oder Beatmeten nach Mimik und Unruhe gehen", "reason": "nicht in Erfassung"},
-  {"panel": "therapie", "deck_text": "Wirkt ein Opioid schlecht: auf ein anderes wechseln", "reason": "Opioidrotation nicht in Erfassung"},
-  {"panel": "therapie", "deck_text": "Naloxon 0,4 mg intravenös, nach Wirkung dosieren", "reason": "nicht in Erfassung"},
-  {"panel": "therapie", "deck_text": "BTM-Rezept: Gelb · dreiteilig · 8 Tage gültig ... 30 Tage", "reason": "BtM-Recht nicht in Erfassung"},
-  {"panel": "perlen", "deck_text": "Kolik → Metamizol und Buscopan; ohne Zugang → Nitrospray", "reason": "protokollbasiert, nicht in Erfassung"},
-  {"panel": "perlen", "deck_text": "Remifentanil: extrem kurze Wirkdauer, organunabhängig abgebaut", "reason": "nicht in Erfassung"},
-  {"panel": "perlen", "deck_text": "Amitriptylin: Hemmung der Serotonin- und Noradrenalin-Wiederaufnahme", "reason": "Wirkmechanismus nicht in Erfassung"},
-  {"panel": "protokoll", "deck_text": "Die neutrophilen Granulozyten fallen unter 500 pro Mikroliter", "reason": "nicht in Erfassung"},
-  {"panel": "protokoll", "deck_text": "Der chronische besteht über 3 Monate", "reason": "Zeitgrenze nicht in Erfassung"},
-  {"panel": "protokoll", "deck_text": "Diclofenac ... kontraindiziert bei Herzinsuffizienz ab NYHA II, KHK und pAVK", "reason": "nicht in Erfassung"}
+  {
+   "panel": "grundlagen",
+   "deck_text": "μ, δ, κ — der μ-Rezeptor macht die Wirkung und alle Nebenwirkungen",
+   "reason": "Opioidrezeptoren nicht in Erfassung"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Naloxon hebt alles auf, auch die Schmerzstillung",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Kortison: Schwellung, etwa bei Metastasen",
+   "reason": "AMBOSS: Hirndruck und Nervenkompression; kompatibel"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Gewebeschmerz spricht auf Opioide an, Nervenschmerz nicht",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Metamizol: Agranulozytose; Paracetamol: Leber; NSAR: Ulkus/Niere",
+   "reason": "Substanz-NW in Einzelkapiteln, nicht erfasst"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "an die Verstopfung nicht ... jeder Opioidpatient von Tag 1 ein Laxans",
+   "reason": "nicht in Erfassung (Laxantien nur als Adjuvans)"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Beim Dementen oder Beatmeten nach Mimik und Unruhe gehen",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Wirkt ein Opioid schlecht: auf ein anderes wechseln",
+   "reason": "Opioidrotation nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Naloxon 0,4 mg intravenös, nach Wirkung dosieren",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "BTM-Rezept: Gelb · dreiteilig · 8 Tage gültig ... 30 Tage",
+   "reason": "BtM-Recht nicht in Erfassung"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Kolik → Metamizol und Buscopan; ohne Zugang → Nitrospray",
+   "reason": "protokollbasiert, nicht in Erfassung"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Remifentanil: extrem kurze Wirkdauer, organunabhängig abgebaut",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Amitriptylin: Hemmung der Serotonin- und Noradrenalin-Wiederaufnahme",
+   "reason": "Wirkmechanismus nicht in Erfassung"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Die neutrophilen Granulozyten fallen unter 500 pro Mikroliter",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Der chronische besteht über 3 Monate",
+   "reason": "Zeitgrenze nicht in Erfassung"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Diclofenac ... kontraindiziert bei Herzinsuffizienz ab NYHA II, KHK und pAVK",
+   "reason": "nicht in Erfassung"
+  }
  ],
  "status": "done",
- "validated": "2026-10-09"}
+ "validated": "2026-10-09",
+ "second_pass": {
+  "date": "2026-10-09",
+  "checked": 56,
+  "applied": 0,
+  "rejected_by_orchestrator": []
+ }
+}

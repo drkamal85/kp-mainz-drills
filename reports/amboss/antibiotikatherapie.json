@@ -1,17 +1,73 @@
-{"slug": "antibiotikatherapie", "deck": "reviews/drittes-fach/antibiotikatherapie.html", "capture": ["sources/amboss/antibiotikatherapie.md"],
- "counts": {"ok": 10, "fix": 0, "unclear": 10},
+{
+ "slug": "antibiotikatherapie",
+ "deck": "reviews/drittes-fach/antibiotikatherapie.html",
+ "capture": [
+  "sources/amboss/antibiotikatherapie.md"
+ ],
+ "counts": {
+  "ok": 10,
+  "fix": 0,
+  "unclear": 10
+ },
  "fixes": [],
  "unclear": [
-  {"panel": "grundlagen", "deck_text": "Nach 48 bis 72 Stunden neu bewerten und deeskalieren", "reason": "AMBOSS: regelmäßig reevaluieren; Zeitfenster nicht erfasst"},
-  {"panel": "grundlagen", "deck_text": "Bei Sepsis innerhalb der ersten Stunde", "reason": "AMBOSS: rasch; Zeitangabe nicht erfasst"},
-  {"panel": "grundlagen", "deck_text": "Klassen-Tabelle (Beispiele, Angriffspunkte)", "reason": "Substanzklassen bewusst nicht erfasst (Scope)"},
-  {"panel": "klinik", "deck_text": "Anaphylaxie, C. difficile, QT/Sehnen-Toxizität", "reason": "nicht in Erfassung"},
-  {"panel": "diagnostik", "deck_text": "Zwei Paare, je aerob und anaerob, aus getrennten Punktionen", "reason": "nur 'Abnahme von Blutkulturen' erfasst"},
-  {"panel": "diagnostik", "deck_text": "PCT steigt bei bakterieller Infektion und leitet die Therapiedauer", "reason": "nicht in Erfassung"},
-  {"panel": "diagnostik", "deck_text": "MRSA/MRGN/VRE-Reservemittel", "reason": "nicht in Erfassung"},
-  {"panel": "therapie", "deck_text": "Fokusspezifische Regime (Pneumonie, Abdomen, HWI, Endokarditis, Meningitis)", "reason": "krankheitsspezifisch, nicht in Erfassung"},
-  {"panel": "therapie", "deck_text": "Prophylaxe Einmalgabe Cefazolin 30 bis 60 Minuten vor dem Schnitt", "reason": "nicht in Erfassung"},
-  {"panel": "perlen", "deck_text": "Varizenblutung Ceftriaxon; Erythema migrans Doxycyclin; Scharlach Penicillin", "reason": "nicht in Erfassung"}
+  {
+   "panel": "grundlagen",
+   "deck_text": "Nach 48 bis 72 Stunden neu bewerten und deeskalieren",
+   "reason": "AMBOSS: regelmäßig reevaluieren; Zeitfenster nicht erfasst"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Bei Sepsis innerhalb der ersten Stunde",
+   "reason": "AMBOSS: rasch; Zeitangabe nicht erfasst"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Klassen-Tabelle (Beispiele, Angriffspunkte)",
+   "reason": "Substanzklassen bewusst nicht erfasst (Scope)"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Anaphylaxie, C. difficile, QT/Sehnen-Toxizität",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Zwei Paare, je aerob und anaerob, aus getrennten Punktionen",
+   "reason": "nur 'Abnahme von Blutkulturen' erfasst"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "PCT steigt bei bakterieller Infektion und leitet die Therapiedauer",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "MRSA/MRGN/VRE-Reservemittel",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Fokusspezifische Regime (Pneumonie, Abdomen, HWI, Endokarditis, Meningitis)",
+   "reason": "krankheitsspezifisch, nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Prophylaxe Einmalgabe Cefazolin 30 bis 60 Minuten vor dem Schnitt",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Varizenblutung Ceftriaxon; Erythema migrans Doxycyclin; Scharlach Penicillin",
+   "reason": "nicht in Erfassung"
+  }
  ],
  "status": "done",
- "validated": "2026-10-09"}
+ "validated": "2026-10-09",
+ "second_pass": {
+  "date": "2026-10-09",
+  "checked": 52,
+  "applied": 0,
+  "rejected_by_orchestrator": []
+ }
+}

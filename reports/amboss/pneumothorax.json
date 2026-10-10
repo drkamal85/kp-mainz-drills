@@ -1,17 +1,73 @@
-{"slug": "pneumothorax", "deck": "reviews/pneumologie/pneumothorax.html", "capture": ["sources/amboss/pneumothorax.md"],
- "counts": {"ok": 52, "fix": 0, "unclear": 10},
+{
+ "slug": "pneumothorax",
+ "deck": "reviews/pneumologie/pneumothorax.html",
+ "capture": [
+  "sources/amboss/pneumothorax.md"
+ ],
+ "counts": {
+  "ok": 52,
+  "fix": 0,
+  "unclear": 10
+ },
  "fixes": [],
  "unclear": [
-  {"panel": "diagnostik", "deck_text": "Röntgen-Thorax (2 Ebenen, p.a. im Stehen)", "reason": "AMBOSS: Standard p.a. im Stehen; seitlich nur Zusatz bei SSP"},
-  {"panel": "diagnostik", "deck_text": "CT: bei Unklarheit Goldstandard", "reason": "AMBOSS: hohe Sensitivität, nicht Standarddiagnostik; „Goldstandard\" nicht genannt"},
-  {"panel": "diagnostik", "deck_text": "Sono: fehlendes Lungengleiten — schnelle Akutdiagnostik nach Trauma", "reason": "Sonobefund nicht im Detail erfasst"},
-  {"panel": "therapie", "deck_text": "Immer: O₂ 4–6 l/min, Oberkörperhochlagerung, stationär", "reason": "AMBOSS: ambulante Behandlung bei konservativer Therapie erwägbar"},
-  {"panel": "therapie", "deck_text": "Ventilmechanismus, z. B. Tiegel-Ventil", "reason": "AMBOSS: Rückschlagventil; Produktname nicht erfasst"},
-  {"panel": "perlen", "deck_text": "Häufigste iatrogene Ursache? ZVK (V. subclavia)", "reason": "AMBOSS listet Ursachen ohne Häufigkeitsrang"},
-  {"panel": "grundlagen", "deck_text": "Iatrogen: ZVK (V. subclavia), Schrittmacher/Port, Beatmung", "reason": "Schrittmacher/Port/Beatmung nicht als Ursache erfasst"},
-  {"panel": "perlen", "deck_text": "Ausgedehntes Hautemphysem kann auf Spannungspneu oder Mediastinalverlagerung hinweisen", "reason": "protokollbasiert; Hautemphysem als Befund bestätigt"},
-  {"panel": "protokoll", "deck_text": "Bülau lege ich im 4. bis 5. ICR medioaxillär bei Luft mit Flüssigkeit.", "reason": "AMBOSS: Bülau Standardzugang für die meisten Indikationen"},
-  {"panel": "protokoll", "deck_text": "Dann inzidiere ich im 5. ICR, präpariere stumpf, lege die Drainage und fixiere sie mit Tabaksbeutelnaht.", "reason": "AMBOSS: 4.–5. ICR, Annaht; Nahttechnik nicht erfasst"}
+  {
+   "panel": "diagnostik",
+   "deck_text": "Röntgen-Thorax (2 Ebenen, p.a. im Stehen)",
+   "reason": "AMBOSS: Standard p.a. im Stehen; seitlich nur Zusatz bei SSP"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "CT: bei Unklarheit Goldstandard",
+   "reason": "AMBOSS: hohe Sensitivität, nicht Standarddiagnostik; „Goldstandard\" nicht genannt"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Sono: fehlendes Lungengleiten — schnelle Akutdiagnostik nach Trauma",
+   "reason": "Sonobefund nicht im Detail erfasst"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Immer: O₂ 4–6 l/min, Oberkörperhochlagerung, stationär",
+   "reason": "AMBOSS: ambulante Behandlung bei konservativer Therapie erwägbar"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Ventilmechanismus, z. B. Tiegel-Ventil",
+   "reason": "AMBOSS: Rückschlagventil; Produktname nicht erfasst"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Häufigste iatrogene Ursache? ZVK (V. subclavia)",
+   "reason": "AMBOSS listet Ursachen ohne Häufigkeitsrang"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Iatrogen: ZVK (V. subclavia), Schrittmacher/Port, Beatmung",
+   "reason": "Schrittmacher/Port/Beatmung nicht als Ursache erfasst"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Ausgedehntes Hautemphysem kann auf Spannungspneu oder Mediastinalverlagerung hinweisen",
+   "reason": "protokollbasiert; Hautemphysem als Befund bestätigt"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Bülau lege ich im 4. bis 5. ICR medioaxillär bei Luft mit Flüssigkeit.",
+   "reason": "AMBOSS: Bülau Standardzugang für die meisten Indikationen"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Dann inzidiere ich im 5. ICR, präpariere stumpf, lege die Drainage und fixiere sie mit Tabaksbeutelnaht.",
+   "reason": "AMBOSS: 4.–5. ICR, Annaht; Nahttechnik nicht erfasst"
+  }
  ],
  "status": "done",
- "validated": "2026-10-09"}
+ "validated": "2026-10-09",
+ "second_pass": {
+  "date": "2026-10-09",
+  "checked": 63,
+  "applied": 0,
+  "rejected_by_orchestrator": []
+ }
+}

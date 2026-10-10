@@ -1,22 +1,98 @@
-{"slug": "proximale-femurfraktur", "deck": "reviews/unfallchirurgie/proximale-femurfraktur.html", "capture": ["sources/amboss/proximale-femurfraktur.md"],
- "counts": {"ok": 48, "fix": 0, "unclear": 15},
+{
+ "slug": "proximale-femurfraktur",
+ "deck": "reviews/unfallchirurgie/proximale-femurfraktur.html",
+ "capture": [
+  "sources/amboss/proximale-femurfraktur.md"
+ ],
+ "counts": {
+  "ok": 48,
+  "fix": 0,
+  "unclear": 15
+ },
  "fixes": [],
  "unclear": [
-  {"panel": "grundlagen", "deck_text": "medial = intrakapsulär (90 % Adduktionsfraktur, gefährdet)", "reason": "Anteil nicht in Erfassung"},
-  {"panel": "grundlagen", "deck_text": "Bei Kindern zusätzlich A. capitis femoris im Lig. capitis femoris", "reason": "AMBOSS nennt A. capitis femoris ohne Altersbezug"},
-  {"panel": "grundlagen", "deck_text": "Femurkopfnekrose (~20 %)", "reason": "Rate nicht in Erfassung (Pseudarthrose 15 % ✓)"},
-  {"panel": "klinik", "deck_text": "pDMS ... N. ischiadicus", "reason": "pDMS ✓; Nerv nicht in Erfassung"},
-  {"panel": "klinik", "deck_text": "Abgrenzung: hintere Luxation innenrotiert und adduziert; Pertroch. häufigste DD", "reason": "DD-Abschnitt ist bekannte Lücke"},
-  {"panel": "diagnostik", "deck_text": "Lauenstein: Rückenlage, 45° Flexion + Abduktion", "reason": "Lagerungsdetails nicht in Erfassung"},
-  {"panel": "diagnostik", "deck_text": "MRT bei okkulter Schenkelhalsfraktur (sensitivster Nachweis)", "reason": "AMBOSS nennt nur CT bei unklarem Röntgen"},
-  {"panel": "diagnostik", "deck_text": "Labor, Blutgruppe + Kreuzblut, Gerinnung, EKG", "reason": "Nicht in Erfassung"},
-  {"panel": "therapie", "deck_text": "Disloziert + jung: kopferhaltende Osteosynthese ..., OP < 6 h", "reason": "Verfahren ✓; 6-h-Grenze nicht in Erfassung (Therapie-Lücke)"},
-  {"panel": "therapie", "deck_text": "Duokopf (inaktiv, LE < 5 J) bzw. TEP (aktiv / Coxarthrose / LE > 5 J)", "reason": "Kriterien nicht in Erfassung"},
-  {"panel": "therapie", "deck_text": "Luxation (Flexion >90° + Innenrotation + Adduktion); Cut-out", "reason": "Nicht in Erfassung"},
-  {"panel": "perlen", "deck_text": "Muskeln am Trochanter major? M. gluteus medius + minimus", "reason": "Nicht in Erfassung"},
-  {"panel": "protokoll", "deck_text": "Die intertrochantäre Fraktur versorge ich mit einem Gamma-Nagel ... innerhalb von 6 Stunden", "reason": "Gamma-Nagel ✓; 6 h nicht in Erfassung"},
-  {"panel": "protokoll", "deck_text": "Typisch sind die Zementembolie und Blutungen ... Prothesenluxation", "reason": "Nicht in Erfassung"},
-  {"panel": "protokoll", "deck_text": "Daneben kommen die vordere Hüftluxation und die Prothesenluxation infrage", "reason": "DD-Abschnitt ist bekannte Lücke"}
+  {
+   "panel": "grundlagen",
+   "deck_text": "medial = intrakapsulär (90 % Adduktionsfraktur, gefährdet)",
+   "reason": "Anteil nicht in Erfassung"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Bei Kindern zusätzlich A. capitis femoris im Lig. capitis femoris",
+   "reason": "AMBOSS nennt A. capitis femoris ohne Altersbezug"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Femurkopfnekrose (~20 %)",
+   "reason": "Rate nicht in Erfassung (Pseudarthrose 15 % ✓)"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "pDMS ... N. ischiadicus",
+   "reason": "pDMS ✓; Nerv nicht in Erfassung"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Abgrenzung: hintere Luxation innenrotiert und adduziert; Pertroch. häufigste DD",
+   "reason": "DD-Abschnitt ist bekannte Lücke"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Lauenstein: Rückenlage, 45° Flexion + Abduktion",
+   "reason": "Lagerungsdetails nicht in Erfassung"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "MRT bei okkulter Schenkelhalsfraktur (sensitivster Nachweis)",
+   "reason": "AMBOSS nennt nur CT bei unklarem Röntgen"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Labor, Blutgruppe + Kreuzblut, Gerinnung, EKG",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Disloziert + jung: kopferhaltende Osteosynthese ..., OP < 6 h",
+   "reason": "Verfahren ✓; 6-h-Grenze nicht in Erfassung (Therapie-Lücke)"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Duokopf (inaktiv, LE < 5 J) bzw. TEP (aktiv / Coxarthrose / LE > 5 J)",
+   "reason": "Kriterien nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Luxation (Flexion >90° + Innenrotation + Adduktion); Cut-out",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Muskeln am Trochanter major? M. gluteus medius + minimus",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Die intertrochantäre Fraktur versorge ich mit einem Gamma-Nagel ... innerhalb von 6 Stunden",
+   "reason": "Gamma-Nagel ✓; 6 h nicht in Erfassung"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Typisch sind die Zementembolie und Blutungen ... Prothesenluxation",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Daneben kommen die vordere Hüftluxation und die Prothesenluxation infrage",
+   "reason": "DD-Abschnitt ist bekannte Lücke"
+  }
  ],
  "status": "done",
- "validated": "2026-10-09"}
+ "validated": "2026-10-09",
+ "second_pass": {
+  "date": "2026-10-09",
+  "checked": 54,
+  "applied": 0,
+  "rejected_by_orchestrator": []
+ }
+}

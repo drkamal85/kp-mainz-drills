@@ -1,18 +1,114 @@
-{"slug": "harnwegsinfekt", "deck": "reviews/drittes-fach/harnwegsinfekt.html", "capture": ["sources/amboss/harnwegsinfekt.md"],
- "counts": {"ok": 24, "fix": 0, "unclear": 11},
- "fixes": [],
+{
+ "slug": "harnwegsinfekt",
+ "deck": "reviews/drittes-fach/harnwegsinfekt.html",
+ "capture": [
+  "sources/amboss/harnwegsinfekt.md"
+ ],
+ "counts": {
+  "ok": 24,
+  "fix": 5,
+  "unclear": 11
+ },
+ "fixes": [
+  {
+   "panel": "therapie",
+   "deck_text": "Ausnahmen: <strong>Schwangerschaft</strong> und vor urologischen Eingriffen",
+   "new_text": "Ausnahmen: <strong>Risikoschwangerschaft</strong> und vor urologischen Eingriffen",
+   "amboss_quote": "> Eine asymptomatische Bakteriurie soll bei Niedrig-Risiko-Schwangerschaft i.d.R. nicht behandelt werden. Bei Risikopatientinnen ist ein Screening auf eine asymptomatische Bakteriurie und deren Behandlung ggf. sinnvoll!",
+   "pass": 2
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "wird nur bei <strong>Schwangeren</strong> und vor urologischen Eingriffen behandelt",
+   "new_text": "wird nur bei <strong>Risikoschwangeren</strong> und vor urologischen Eingriffen behandelt",
+   "amboss_quote": "> Eine asymptomatische Bakteriurie soll bei Niedrig-Risiko-Schwangerschaft i.d.R. nicht behandelt werden. Bei Risikopatientinnen ist ein Screening auf eine asymptomatische Bakteriurie und deren Behandlung ggf. sinnvoll!",
+   "pass": 2
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Ohne Symptome kein Antibiotikum — außer schwanger",
+   "new_text": "Ohne Symptome kein Antibiotikum — außer Risikoschwangerschaft",
+   "amboss_quote": "> Eine asymptomatische Bakteriurie soll bei Niedrig-Risiko-Schwangerschaft i.d.R. nicht behandelt werden. Bei Risikopatientinnen ist ein Screening auf eine asymptomatische Bakteriurie und deren Behandlung ggf. sinnvoll!",
+   "pass": 2
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "<div class=\"sfa\">nur bei Schwangeren und vor urologischen Eingriffen</div>",
+   "new_text": "<div class=\"sfa\">nur bei Risikoschwangeren und vor urologischen Eingriffen</div>",
+   "amboss_quote": "> Eine asymptomatische Bakteriurie soll bei Niedrig-Risiko-Schwangerschaft i.d.R. nicht behandelt werden. Bei Risikopatientinnen ist ein Screening auf eine asymptomatische Bakteriurie und deren Behandlung ggf. sinnvoll!",
+   "pass": 2
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Ausnahmen sind nur die Schwangerschaft und geplante urologische Eingriffe",
+   "new_text": "Ausnahmen sind nur die Risikoschwangerschaft und geplante urologische Eingriffe",
+   "amboss_quote": "> Eine asymptomatische Bakteriurie soll bei Niedrig-Risiko-Schwangerschaft i.d.R. nicht behandelt werden. Bei Risikopatientinnen ist ein Screening auf eine asymptomatische Bakteriurie und deren Behandlung ggf. sinnvoll!",
+   "pass": 2
+  }
+ ],
  "unclear": [
-  {"panel": "grundlagen", "deck_text": "Escherichia coli macht rund 80 Prozent", "reason": "AMBOSS (nur Pyelonephritis): ca. 70%; Zystitis-Kapitel nicht erfasst"},
-  {"panel": "grundlagen", "deck_text": "Beim Mann ist jeder Harnwegsinfekt kompliziert", "reason": "Mann nicht in AMBOSS-Liste komplizierender Faktoren"},
-  {"panel": "grundlagen", "deck_text": "Proteus alkalisiert den Urin und bildet Struvitsteine", "reason": "Nicht in Erfassung"},
-  {"panel": "klinik", "deck_text": "Verwirrtheit beim alten Menschen ... Harnwegsinfekt", "reason": "Nicht in Erfassung"},
-  {"panel": "diagnostik", "deck_text": "Nitrit ist beweisend ...; Enterokokken können das nicht", "reason": "Nicht in Erfassung"},
-  {"panel": "therapie", "deck_text": "Fosfomycin einmalig oder Nitrofurantoin für 5 Tage", "reason": "Zystitis-Kapitel nicht erfasst"},
-  {"panel": "therapie", "deck_text": "Kein Chinolon bei unkompliziertem Infekt", "reason": "AMBOSS: FQ 1. Wahl bei milder unkompl. Pyelonephritis; Zystitis nicht erfasst"},
-  {"panel": "therapie", "deck_text": "7 bis 10 Tage", "reason": "Therapiedauer nicht in Erfassung"},
-  {"panel": "therapie", "deck_text": "Ausnahmen: Schwangerschaft und vor urologischen Eingriffen", "reason": "AMBOSS: Niedrig-Risiko-SS i.d.R. keine Behandlung; Nuance"},
-  {"panel": "perlen", "deck_text": "ab 10 hoch 5 Keimen pro Milliliter", "reason": "Nicht in Erfassung"},
-  {"panel": "protokoll", "deck_text": "Chinolone erhöhen das Risiko einer Achillessehnenruptur", "reason": "Nicht in Erfassung"}
+  {
+   "panel": "grundlagen",
+   "deck_text": "Escherichia coli macht rund 80 Prozent",
+   "reason": "AMBOSS (nur Pyelonephritis): ca. 70%; Zystitis-Kapitel nicht erfasst"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Beim Mann ist jeder Harnwegsinfekt kompliziert",
+   "reason": "Mann nicht in AMBOSS-Liste komplizierender Faktoren"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Proteus alkalisiert den Urin und bildet Struvitsteine",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Verwirrtheit beim alten Menschen ... Harnwegsinfekt",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Nitrit ist beweisend ...; Enterokokken können das nicht",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Fosfomycin einmalig oder Nitrofurantoin für 5 Tage",
+   "reason": "Zystitis-Kapitel nicht erfasst"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Kein Chinolon bei unkompliziertem Infekt",
+   "reason": "AMBOSS: FQ 1. Wahl bei milder unkompl. Pyelonephritis; Zystitis nicht erfasst"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "7 bis 10 Tage",
+   "reason": "Therapiedauer nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Ausnahmen: Schwangerschaft und vor urologischen Eingriffen",
+   "reason": "AMBOSS: Niedrig-Risiko-SS i.d.R. keine Behandlung; Nuance"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "ab 10 hoch 5 Keimen pro Milliliter",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Chinolone erhöhen das Risiko einer Achillessehnenruptur",
+   "reason": "Nicht in Erfassung"
+  }
  ],
  "status": "done",
- "validated": "2026-10-09"}
+ "validated": "2026-10-09",
+ "second_pass": {
+  "date": "2026-10-09",
+  "checked": 48,
+  "applied": 5,
+  "rejected_by_orchestrator": []
+ }
+}

@@ -1,17 +1,78 @@
-{"slug": "schlaganfall", "deck": "reviews/neurologie/schlaganfall.html", "capture": ["sources/amboss/schlaganfall.md"],
- "counts": {"ok": 38, "fix": 0, "unclear": 10},
+{
+ "slug": "schlaganfall",
+ "deck": "reviews/neurologie/schlaganfall.html",
+ "capture": [
+  "sources/amboss/schlaganfall.md"
+ ],
+ "counts": {
+  "ok": 38,
+  "fix": 0,
+  "unclear": 10
+ },
  "fixes": [],
  "unclear": [
-  {"panel": "grundlagen", "deck_text": "TIA ... 90-Tage-Schlaganfallrisiko ~10 % → Sekundärprophylaxe (vorübergehend DAPT)", "reason": "AMBOSS: einfache TAH; DAPT bei TIA/Minor Stroke nicht erfasst"},
-  {"panel": "grundlagen", "deck_text": "Sinusvenenthrombose (junge Patienten), Endokarditis als Ursache", "reason": "SVT eigenes Kapitel, nicht erfasst"},
-  {"panel": "therapie", "deck_text": "Alteplase (rt-PA) 0,9 mg/kg i.v., max. 90 mg (10 % als Bolus, 90 % über 60 min)", "reason": "Dosierung nicht in Erfassung"},
-  {"panel": "therapie", "deck_text": "NIHSS > 25; Quick < 50 %; OP/Trauma < 2 Wochen; Schwangerschaft", "reason": "Nicht in Erfassung (AMBOSS: große OP/Trauma, Entbindung ohne Frist)"},
-  {"panel": "therapie", "deck_text": "hämorrhagisch: RR-Senkung, ggf. Hämatomausräumung", "reason": "ICB eigenes Kapitel, nicht erfasst"},
-  {"panel": "diagnostik", "deck_text": "Scores: CHA₂DS₂-VASc (Antikoagulation), HAS-BLED", "reason": "AMBOSS nennt CHA2DS2VA; Score-Variante, kein klarer Widerspruch"},
-  {"panel": "klinik", "deck_text": "A. cerebri media: brachiofazial betonte Hemiparese; ACA beinbetont; ACP Hemianopsie", "reason": "Gefäßsymptome nur teilweise erfasst"},
-  {"panel": "protokoll", "deck_text": "Antikoagulation ist eine relative Kontraindikation. Bei einem INR unter 1,7 darf ich trotzdem lysieren.", "reason": "AMBOSS: wirksame Antikoagulation KI; relativ/absolut nicht spezifiziert"},
-  {"panel": "protokoll", "deck_text": "Ich nutze es im erweiterten Zeitfenster über 4,5 Stunden.", "reason": "AMBOSS: PWI-DWI bei >6 h (Thrombektomie), DWI-FLAIR bei Unknown Onset"},
-  {"panel": "protokoll", "deck_text": "meist eine hypertensive Blutung", "reason": "ICB-Ätiologie nicht erfasst"}
+  {
+   "panel": "grundlagen",
+   "deck_text": "TIA ... 90-Tage-Schlaganfallrisiko ~10 % → Sekundärprophylaxe (vorübergehend DAPT)",
+   "reason": "AMBOSS: einfache TAH; DAPT bei TIA/Minor Stroke nicht erfasst"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Sinusvenenthrombose (junge Patienten), Endokarditis als Ursache",
+   "reason": "SVT eigenes Kapitel, nicht erfasst"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Alteplase (rt-PA) 0,9 mg/kg i.v., max. 90 mg (10 % als Bolus, 90 % über 60 min)",
+   "reason": "Dosierung nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "NIHSS > 25; Quick < 50 %; OP/Trauma < 2 Wochen; Schwangerschaft",
+   "reason": "Nicht in Erfassung (AMBOSS: große OP/Trauma, Entbindung ohne Frist)"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "hämorrhagisch: RR-Senkung, ggf. Hämatomausräumung",
+   "reason": "ICB eigenes Kapitel, nicht erfasst"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Scores: CHA₂DS₂-VASc (Antikoagulation), HAS-BLED",
+   "reason": "AMBOSS nennt CHA2DS2VA; Score-Variante, kein klarer Widerspruch"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "A. cerebri media: brachiofazial betonte Hemiparese; ACA beinbetont; ACP Hemianopsie",
+   "reason": "Gefäßsymptome nur teilweise erfasst"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Antikoagulation ist eine relative Kontraindikation. Bei einem INR unter 1,7 darf ich trotzdem lysieren.",
+   "reason": "AMBOSS: wirksame Antikoagulation KI; relativ/absolut nicht spezifiziert"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Ich nutze es im erweiterten Zeitfenster über 4,5 Stunden.",
+   "reason": "AMBOSS: PWI-DWI bei >6 h (Thrombektomie), DWI-FLAIR bei Unknown Onset"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "meist eine hypertensive Blutung",
+   "reason": "ICB-Ätiologie nicht erfasst"
+  }
  ],
  "status": "done",
- "validated": "2026-10-09"}
+ "validated": "2026-10-09",
+ "second_pass": {
+  "date": "2026-10-09",
+  "checked": 76,
+  "applied": 0,
+  "rejected_by_orchestrator": [
+   {
+    "html_old": "Ich nutze es im erweiterten Zeitfenster über 4,5 Stunden.",
+    "reason": "AMBOSS nennt >6 h für Thrombektomie; Lyse-Zeitfenster 4,5–9 h nicht in Erfassung — nicht eindeutig"
+   }
+  ]
+ }
+}

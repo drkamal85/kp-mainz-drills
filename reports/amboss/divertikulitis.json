@@ -1,31 +1,154 @@
-{"slug": "divertikulitis", "deck": "reviews/chirurgie/divertikulitis.html", "capture": ["sources/amboss/divertikulitis.md"],
- "counts": {"ok": 38, "fix": 8, "unclear": 15},
+{
+ "slug": "divertikulitis",
+ "deck": "reviews/chirurgie/divertikulitis.html",
+ "capture": [
+  "sources/amboss/divertikulitis.md"
+ ],
+ "counts": {
+  "ok": 38,
+  "fix": 9,
+  "unclear": 15
+ },
  "fixes": [
-  {"panel": "grundlagen", "deck_text": "95 % im Sigma (Hochdruckabschnitt, linksseitig).", "new_text": "90 % im Sigma (Hochdruckabschnitt, linksseitig).", "amboss_quote": "Meist Sigmadivertikulose mit erworbenen Pseudodivertikeln (bis zu 90% der Fälle)"},
-  {"panel": "perlen", "deck_text": "95 % im Sigma → Schmerz im linken Unterbauch mit Fieber", "new_text": "90 % im Sigma → Schmerz im linken Unterbauch mit Fieber", "amboss_quote": "Meist Sigmadivertikulose mit erworbenen Pseudodivertikeln (bis zu 90% der Fälle)"},
-  {"panel": "perlen", "deck_text": "Häufigste Lokalisation? Sigma (~95 %)", "new_text": "Häufigste Lokalisation? Sigma (~90 %)", "amboss_quote": "Meist Sigmadivertikulose mit erworbenen Pseudodivertikeln (bis zu 90% der Fälle)"},
-  {"panel": "diagnostik", "deck_text": "Koloskopie erst nach 4–6 Wochen im entzündungsfreien Intervall", "new_text": "Koloskopie erst nach 6–8 Wochen im entzündungsfreien Intervall", "amboss_quote": "Koloskopie: Im entzündungsfreien Intervall nach Abklingen der Akutsituation (i.d.R. nach 6–8 Wochen)"},
-  {"panel": "perlen", "deck_text": "— erst nach 4–6 Wochen, um ein Karzinom auszuschließen.", "new_text": "— erst nach 6–8 Wochen, um ein Karzinom auszuschließen.", "amboss_quote": "Koloskopie: Im entzündungsfreien Intervall nach Abklingen der Akutsituation (i.d.R. nach 6–8 Wochen)"},
-  {"panel": "perlen", "deck_text": "Wann Koloskopie? nach 4–6 Wochen im Intervall", "new_text": "Wann Koloskopie? nach 6–8 Wochen im Intervall", "amboss_quote": "Koloskopie: Im entzündungsfreien Intervall nach Abklingen der Akutsituation (i.d.R. nach 6–8 Wochen)"},
-  {"panel": "protokoll", "deck_text": "Deshalb koloskopiere ich erst im entzündungsfreien Intervall nach 4 bis 6 Wochen.", "new_text": "Deshalb koloskopiere ich erst im entzündungsfreien Intervall nach 6 bis 8 Wochen.", "amboss_quote": "Koloskopie: Im entzündungsfreien Intervall nach Abklingen der Akutsituation (i.d.R. nach 6–8 Wochen)"},
-  {"panel": "therapie", "deck_text": "— das Standardverfahren bei Peritonitis, Rückverlagerung später.", "new_text": "— das Alternativverfahren bei Peritonitis, Rückverlagerung später.", "amboss_quote": "Typ 2c: Bevorzugt zweizeitige, minimal-invasive Sigmaresektion mit primärer Anastomosierung und ... Ileostoma ...; alternativ Diskontinuitätsresektion nach Hartmann"}
+  {
+   "panel": "grundlagen",
+   "deck_text": "95 % im Sigma (Hochdruckabschnitt, linksseitig).",
+   "new_text": "90 % im Sigma (Hochdruckabschnitt, linksseitig).",
+   "amboss_quote": "Meist Sigmadivertikulose mit erworbenen Pseudodivertikeln (bis zu 90% der Fälle)"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "95 % im Sigma → Schmerz im linken Unterbauch mit Fieber",
+   "new_text": "90 % im Sigma → Schmerz im linken Unterbauch mit Fieber",
+   "amboss_quote": "Meist Sigmadivertikulose mit erworbenen Pseudodivertikeln (bis zu 90% der Fälle)"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Häufigste Lokalisation? Sigma (~95 %)",
+   "new_text": "Häufigste Lokalisation? Sigma (~90 %)",
+   "amboss_quote": "Meist Sigmadivertikulose mit erworbenen Pseudodivertikeln (bis zu 90% der Fälle)"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Koloskopie erst nach 4–6 Wochen im entzündungsfreien Intervall",
+   "new_text": "Koloskopie erst nach 6–8 Wochen im entzündungsfreien Intervall",
+   "amboss_quote": "Koloskopie: Im entzündungsfreien Intervall nach Abklingen der Akutsituation (i.d.R. nach 6–8 Wochen)"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "— erst nach 4–6 Wochen, um ein Karzinom auszuschließen.",
+   "new_text": "— erst nach 6–8 Wochen, um ein Karzinom auszuschließen.",
+   "amboss_quote": "Koloskopie: Im entzündungsfreien Intervall nach Abklingen der Akutsituation (i.d.R. nach 6–8 Wochen)"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Wann Koloskopie? nach 4–6 Wochen im Intervall",
+   "new_text": "Wann Koloskopie? nach 6–8 Wochen im Intervall",
+   "amboss_quote": "Koloskopie: Im entzündungsfreien Intervall nach Abklingen der Akutsituation (i.d.R. nach 6–8 Wochen)"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Deshalb koloskopiere ich erst im entzündungsfreien Intervall nach 4 bis 6 Wochen.",
+   "new_text": "Deshalb koloskopiere ich erst im entzündungsfreien Intervall nach 6 bis 8 Wochen.",
+   "amboss_quote": "Koloskopie: Im entzündungsfreien Intervall nach Abklingen der Akutsituation (i.d.R. nach 6–8 Wochen)"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "— das Standardverfahren bei Peritonitis, Rückverlagerung später.",
+   "new_text": "— das Alternativverfahren bei Peritonitis, Rückverlagerung später.",
+   "amboss_quote": "Typ 2c: Bevorzugt zweizeitige, minimal-invasive Sigmaresektion mit primärer Anastomosierung und ... Ileostoma ...; alternativ Diskontinuitätsresektion nach Hartmann"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "<b>Merke:</b> Im Schub immer CT",
+   "new_text": "<b>Merke:</b> Im Schub ggf. CT",
+   "amboss_quote": "- Kontrastmittelgestützte CT des Abdomens: Indiziert, wenn sonografischer Befund nicht ausreicht",
+   "pass": 2
+  }
  ],
  "unclear": [
-  {"panel": "grundlagen", "deck_text": "Prävalenz steigt mit dem Alter (über 60 Jahre ~60 %)", "reason": "AMBOSS: <50 J ~13 %, >85 J ~66 %; 60 J nicht genannt"},
-  {"panel": "grundlagen", "deck_text": "Hinchey I perikolischer Abszess ... IV kotige Peritonitis", "reason": "Hinchey nicht in Erfassung"},
-  {"panel": "klinik", "deck_text": "Divertikelblutung = häufigste Ursache der unteren GI-Blutung", "reason": "Nicht in Erfassung"},
-  {"panel": "klinik", "deck_text": "Blutung: peranal, meist schmerzlos", "reason": "Nicht in Erfassung"},
-  {"panel": "diagnostik", "deck_text": "CT Abdomen/Becken mit Kontrast ist der Goldstandard", "reason": "AMBOSS: Sonografie 1. Wahl, CT wenn Sono nicht ausreicht; Goldstandard≠1. Wahl"},
-  {"panel": "diagnostik", "deck_text": "sehr hohes CRP spricht für Abszess/Perforation", "reason": "AMBOSS: CRP↑ als Risikofaktor kompliz. Verlauf; Nuance"},
-  {"panel": "therapie", "deck_text": "Makroabszess > 4–5 cm → CT-gesteuerte Drainage", "reason": "Drainage ✓; Größengrenze nicht in Erfassung"},
-  {"panel": "therapie", "deck_text": "Freie Perforation (CDD 2c) → Notfall-OP (Hartmann)", "reason": "AMBOSS: bevorzugt Resektion+Anastomose, Hartmann alternativ"},
-  {"panel": "therapie", "deck_text": "Ciprofloxacin + Metronidazol", "reason": "AMBOSS: bspw. Cefuroxim/Ceftriaxon+Metronidazol; Cipro bei Penicillinallergie"},
-  {"panel": "perlen", "deck_text": "Freie Perforation mit Peritonitis → Notfall-OP nach Hartmann", "reason": "AMBOSS: Hartmann alternativ zur Resektion mit Anastomose"},
-  {"panel": "perlen", "deck_text": "Merke: Im Schub immer CT; Goldstandard-Bildgebung? CT mit Kontrast", "reason": "AMBOSS: Sonografie 1. Wahl"},
-  {"panel": "protokoll", "deck_text": "jodhaltiges Kontrastmittel intravenös und rektal", "reason": "AMBOSS: i.d.R. i.v."},
-  {"panel": "protokoll", "deck_text": "Clip oder Adrenalinunterspritzung", "reason": "Methode nicht in Erfassung"},
-  {"panel": "protokoll", "deck_text": "Ich verlege nach etwa 3 bis 6 Monaten zurück", "reason": "Nicht in Erfassung"},
-  {"panel": "protokoll", "deck_text": "Arteriae sigmoideae aus der Arteria mesenterica inferior", "reason": "Anatomie nicht in Erfassung"}
+  {
+   "panel": "grundlagen",
+   "deck_text": "Prävalenz steigt mit dem Alter (über 60 Jahre ~60 %)",
+   "reason": "AMBOSS: <50 J ~13 %, >85 J ~66 %; 60 J nicht genannt"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Hinchey I perikolischer Abszess ... IV kotige Peritonitis",
+   "reason": "Hinchey nicht in Erfassung"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Divertikelblutung = häufigste Ursache der unteren GI-Blutung",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Blutung: peranal, meist schmerzlos",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "CT Abdomen/Becken mit Kontrast ist der Goldstandard",
+   "reason": "AMBOSS: Sonografie 1. Wahl, CT wenn Sono nicht ausreicht; Goldstandard≠1. Wahl"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "sehr hohes CRP spricht für Abszess/Perforation",
+   "reason": "AMBOSS: CRP↑ als Risikofaktor kompliz. Verlauf; Nuance"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Makroabszess > 4–5 cm → CT-gesteuerte Drainage",
+   "reason": "Drainage ✓; Größengrenze nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Freie Perforation (CDD 2c) → Notfall-OP (Hartmann)",
+   "reason": "AMBOSS: bevorzugt Resektion+Anastomose, Hartmann alternativ"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Ciprofloxacin + Metronidazol",
+   "reason": "AMBOSS: bspw. Cefuroxim/Ceftriaxon+Metronidazol; Cipro bei Penicillinallergie"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Freie Perforation mit Peritonitis → Notfall-OP nach Hartmann",
+   "reason": "AMBOSS: Hartmann alternativ zur Resektion mit Anastomose"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Merke: Im Schub immer CT; Goldstandard-Bildgebung? CT mit Kontrast",
+   "reason": "AMBOSS: Sonografie 1. Wahl"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "jodhaltiges Kontrastmittel intravenös und rektal",
+   "reason": "AMBOSS: i.d.R. i.v."
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Clip oder Adrenalinunterspritzung",
+   "reason": "Methode nicht in Erfassung"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Ich verlege nach etwa 3 bis 6 Monaten zurück",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Arteriae sigmoideae aus der Arteria mesenterica inferior",
+   "reason": "Anatomie nicht in Erfassung"
+  }
  ],
  "status": "done",
- "validated": "2026-10-09"}
+ "validated": "2026-10-09",
+ "second_pass": {
+  "date": "2026-10-09",
+  "checked": 64,
+  "applied": 1,
+  "rejected_by_orchestrator": []
+ }
+}

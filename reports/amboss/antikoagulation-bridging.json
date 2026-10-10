@@ -6,10 +6,18 @@
  ],
  "counts": {
   "ok": 44,
-  "fix": 0,
+  "fix": 1,
   "unclear": 22
  },
- "fixes": [],
+ "fixes": [
+  {
+   "panel": "perlen",
+   "deck_text": "sinken vor den Faktoren II, VII, IX und X",
+   "new_text": "sinken vor den Faktoren II, IX und X",
+   "amboss_quote": "- Pathophysiologie: Gerinnungshemmende Faktoren Protein C und Protein S mit kürzerer HWZ (6–10 h) als gerinnungsfördernde Faktoren II, IX und X (2–4 d) → Initial passager erhöhte Gerinnungsneigung",
+   "pass": 2
+  }
+ ],
  "unclear": [
   {
    "panel": "grundlagen",
@@ -123,5 +131,11 @@
   }
  ],
  "status": "done",
- "validated": "2026-10-09"
+ "validated": "2026-10-09",
+ "second_pass": {
+  "date": "2026-10-09",
+  "checked": 60,
+  "applied": 1,
+  "rejected_by_orchestrator": []
+ }
 }

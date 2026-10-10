@@ -1,22 +1,98 @@
-{"slug": "saeure-basen-bga", "deck": "reviews/notfallmedizin/saeure-basen-bga.html", "capture": ["sources/amboss/saeure-basen-bga.md"],
- "counts": {"ok": 44, "fix": 0, "unclear": 15},
+{
+ "slug": "saeure-basen-bga",
+ "deck": "reviews/notfallmedizin/saeure-basen-bga.html",
+ "capture": [
+  "sources/amboss/saeure-basen-bga.md"
+ ],
+ "counts": {
+  "ok": 44,
+  "fix": 0,
+  "unclear": 15
+ },
  "fixes": [],
  "unclear": [
-  {"panel": "grundlagen", "deck_text": "pCO₂ 35 bis 45 mmHg", "reason": "AMBOSS 32–45 mmHg; übliche Lehrbuchgrenze, kein klarer Widerspruch"},
-  {"panel": "grundlagen", "deck_text": "Base Excess −2 bis +2", "reason": "AMBOSS −2 bis +3; Rundung"},
-  {"panel": "diagnostik", "deck_text": "Na⁺ minus Cl⁻ minus HCO₃⁻, normal 8 bis 12", "reason": "AMBOSS 3–11 bzw. 8–16 (methodenabhängig)"},
-  {"panel": "grundlagen", "deck_text": "pO₂ arteriell 75 bis 100 mmHg; Laktat unter 2 mmol/l", "reason": "nicht in Erfassung"},
-  {"panel": "grundlagen", "deck_text": "Der Gegenspieler kompensiert, aber nie über den Normbereich hinaus", "reason": "nicht in Erfassung"},
-  {"panel": "grundlagen", "deck_text": "Lunge schnell, in Minuten; Niere langsam, in Tagen", "reason": "Zeitangaben nicht in Erfassung"},
-  {"panel": "diagnostik", "deck_text": "3. Kompensation: bewegt sich der andere Wert gegensinnig mit?", "reason": "Bezugsgröße mehrdeutig"},
-  {"panel": "diagnostik", "deck_text": "Venös reicht für pH, Bikarbonat, Laktat und Kalium; BGA schnellste Hb-Bestimmung", "reason": "nicht in Erfassung"},
-  {"panel": "therapie", "deck_text": "unter 3,5 mmol/l erst Kalium, dann Insulin", "reason": "Ketoazidose-Kapitel nicht erfasst"},
-  {"panel": "therapie", "deck_text": "Bikarbonat nur bei schwerster Azidose, etwa pH unter 6,9", "reason": "nicht in Erfassung"},
-  {"panel": "therapie", "deck_text": "Respiratorische Azidose: NIV, bei Erschöpfung Intubation", "reason": "Therapie nicht in Erfassung"},
-  {"panel": "perlen", "deck_text": "1,5 mal Bikarbonat plus 8, nach Winter", "reason": "Winter-Formel nicht in Erfassung"},
-  {"panel": "perlen", "deck_text": "Glukose um 500 mg/dl ... meist die Erstmanifestation eines Typ-1-Diabetes", "reason": "nicht in Erfassung"},
-  {"panel": "protokoll", "deck_text": "Der pO₂ ist meist erniedrigt.", "reason": "nicht in Erfassung"},
-  {"panel": "protokoll", "deck_text": "venös liegt die Sättigung um 70 Prozent", "reason": "nicht in Erfassung"}
+  {
+   "panel": "grundlagen",
+   "deck_text": "pCO₂ 35 bis 45 mmHg",
+   "reason": "AMBOSS 32–45 mmHg; übliche Lehrbuchgrenze, kein klarer Widerspruch"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Base Excess −2 bis +2",
+   "reason": "AMBOSS −2 bis +3; Rundung"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Na⁺ minus Cl⁻ minus HCO₃⁻, normal 8 bis 12",
+   "reason": "AMBOSS 3–11 bzw. 8–16 (methodenabhängig)"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "pO₂ arteriell 75 bis 100 mmHg; Laktat unter 2 mmol/l",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Der Gegenspieler kompensiert, aber nie über den Normbereich hinaus",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Lunge schnell, in Minuten; Niere langsam, in Tagen",
+   "reason": "Zeitangaben nicht in Erfassung"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "3. Kompensation: bewegt sich der andere Wert gegensinnig mit?",
+   "reason": "Bezugsgröße mehrdeutig"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Venös reicht für pH, Bikarbonat, Laktat und Kalium; BGA schnellste Hb-Bestimmung",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "unter 3,5 mmol/l erst Kalium, dann Insulin",
+   "reason": "Ketoazidose-Kapitel nicht erfasst"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Bikarbonat nur bei schwerster Azidose, etwa pH unter 6,9",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Respiratorische Azidose: NIV, bei Erschöpfung Intubation",
+   "reason": "Therapie nicht in Erfassung"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "1,5 mal Bikarbonat plus 8, nach Winter",
+   "reason": "Winter-Formel nicht in Erfassung"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Glukose um 500 mg/dl ... meist die Erstmanifestation eines Typ-1-Diabetes",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Der pO₂ ist meist erniedrigt.",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "venös liegt die Sättigung um 70 Prozent",
+   "reason": "nicht in Erfassung"
+  }
  ],
  "status": "done",
- "validated": "2026-10-09"}
+ "validated": "2026-10-09",
+ "second_pass": {
+  "date": "2026-10-09",
+  "checked": 72,
+  "applied": 0,
+  "rejected_by_orchestrator": []
+ }
+}

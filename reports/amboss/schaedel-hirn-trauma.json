@@ -1,20 +1,85 @@
-{"slug": "schaedel-hirn-trauma", "deck": "reviews/notfallmedizin/schaedel-hirn-trauma.html", "capture": ["sources/amboss/schaedel-hirn-trauma.md"],
- "counts": {"ok": 24, "fix": 1, "unclear": 11},
+{
+ "slug": "schaedel-hirn-trauma",
+ "deck": "reviews/notfallmedizin/schaedel-hirn-trauma.html",
+ "capture": [
+  "sources/amboss/schaedel-hirn-trauma.md"
+ ],
+ "counts": {
+  "ok": 24,
+  "fix": 1,
+  "unclear": 11
+ },
  "fixes": [
-  {"panel": "protokoll", "deck_text": "Die Indikation war ein GCS unter 8", "new_text": "Die Indikation war ein GCS von 8 oder weniger", "amboss_quote": "Bei GCS ≤8: Indikation zur endotrachealen Intubation!"}
+  {
+   "panel": "protokoll",
+   "deck_text": "Die Indikation war ein GCS unter 8",
+   "new_text": "Die Indikation war ein GCS von 8 oder weniger",
+   "amboss_quote": "Bei GCS ≤8: Indikation zur endotrachealen Intubation!"
+  }
  ],
  "unclear": [
-  {"panel": "grundlagen", "deck_text": "Haupttodesursache ♂ < 45 J.; Sturz (50 %), Verkehrsunfälle (25 %)", "reason": "Zahlen nicht in Erfassung"},
-  {"panel": "grundlagen", "deck_text": "Häufigkeit leicht 90 % / mittel 5 % / schwer 5 %", "reason": "Nicht in Erfassung"},
-  {"panel": "grundlagen", "deck_text": "Normaler ICP 5–15 mmHg; Ziel bei SHT < 20 mmHg", "reason": "Nicht in Erfassung"},
-  {"panel": "diagnostik", "deck_text": "GCS-Tabelle Einzelpunktwerte", "reason": "GCS-Punktesystem bekannte Lücke"},
-  {"panel": "diagnostik", "deck_text": "Kontrolle nach 4–8 h", "reason": "Nicht in Erfassung"},
-  {"panel": "klinik", "deck_text": "Epidural/Subdural/SAB/Intrazerebral Blutungstabelle", "reason": "Blutungs-Kapitel nicht erfasst"},
-  {"panel": "therapie", "deck_text": "Leicht = 24 h stationäre Beobachtung; Hirndrucksenkung; kein Dexamethason", "reason": "Nicht in Erfassung"},
-  {"panel": "therapie", "deck_text": "Epiduralhämatom ~70 % Überleben; Coiling/Clipping 72 h; Nimodipin Tag 4–14", "reason": "Nicht in Erfassung (SAB/EDH eigene Kapitel)"},
-  {"panel": "perlen", "deck_text": "Liquor: Glukose-positiv / β2-Transferrin / Halo-Zeichen", "reason": "Nicht in Erfassung"},
-  {"panel": "protokoll", "deck_text": "Ab 8 Punkten intubiere ich.", "reason": "Mehrdeutig (ab 8 abwärts); Satz davor nennt ≤8 korrekt"},
-  {"panel": "protokoll", "deck_text": "Unsichere Zeichen sind Liquorrhö ..., sicher ist das Brillenhämatom.", "reason": "Schädelbasisfraktur-Zeichen nicht in Erfassung"}
+  {
+   "panel": "grundlagen",
+   "deck_text": "Haupttodesursache ♂ < 45 J.; Sturz (50 %), Verkehrsunfälle (25 %)",
+   "reason": "Zahlen nicht in Erfassung"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Häufigkeit leicht 90 % / mittel 5 % / schwer 5 %",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Normaler ICP 5–15 mmHg; Ziel bei SHT < 20 mmHg",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "GCS-Tabelle Einzelpunktwerte",
+   "reason": "GCS-Punktesystem bekannte Lücke"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Kontrolle nach 4–8 h",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Epidural/Subdural/SAB/Intrazerebral Blutungstabelle",
+   "reason": "Blutungs-Kapitel nicht erfasst"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Leicht = 24 h stationäre Beobachtung; Hirndrucksenkung; kein Dexamethason",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Epiduralhämatom ~70 % Überleben; Coiling/Clipping 72 h; Nimodipin Tag 4–14",
+   "reason": "Nicht in Erfassung (SAB/EDH eigene Kapitel)"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Liquor: Glukose-positiv / β2-Transferrin / Halo-Zeichen",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Ab 8 Punkten intubiere ich.",
+   "reason": "Mehrdeutig (ab 8 abwärts); Satz davor nennt ≤8 korrekt"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Unsichere Zeichen sind Liquorrhö ..., sicher ist das Brillenhämatom.",
+   "reason": "Schädelbasisfraktur-Zeichen nicht in Erfassung"
+  }
  ],
  "status": "done",
- "validated": "2026-10-09"}
+ "validated": "2026-10-09",
+ "second_pass": {
+  "date": "2026-10-09",
+  "checked": 38,
+  "applied": 0,
+  "rejected_by_orchestrator": []
+ }
+}

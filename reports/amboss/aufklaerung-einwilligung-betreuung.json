@@ -1,16 +1,69 @@
-{"slug": "aufklaerung-einwilligung-betreuung", "deck": "reviews/drittes-fach/aufklaerung-einwilligung-betreuung.html", "capture": ["sources/amboss/aufklaerung-einwilligung-betreuung.md", "sources/amboss/aufklaerung-einwilligung-betreuung--betreuung.md"],
- "counts": {"ok": 24, "fix": 0, "unclear": 9},
+{
+ "slug": "aufklaerung-einwilligung-betreuung",
+ "deck": "reviews/drittes-fach/aufklaerung-einwilligung-betreuung.html",
+ "capture": [
+  "sources/amboss/aufklaerung-einwilligung-betreuung.md",
+  "sources/amboss/aufklaerung-einwilligung-betreuung--betreuung.md"
+ ],
+ "counts": {
+  "ok": 24,
+  "fix": 0,
+  "unclear": 9
+ },
  "fixes": [],
  "unclear": [
-  {"panel": "grundlagen", "deck_text": "Bei elektiven Eingriffen mindestens am Vortag (~24 h)", "reason": "AMBOSS: rechtzeitig, ohne Zeitangabe"},
-  {"panel": "grundlagen", "deck_text": "Dokumentation in der Patientenakte (§ 630f BGB); Beweislast trägt der Arzt", "reason": "Nicht in Erfassung"},
-  {"panel": "grundlagen", "deck_text": "wirtschaftliche Aufklärung (Kosten)", "reason": "Nicht in Erfassung"},
-  {"panel": "diagnostik", "deck_text": "Ehegatten-Notvertretung seit 2023, bis zu 6 Monate", "reason": "Nicht in Erfassung"},
-  {"panel": "diagnostik", "deck_text": "Patientenverfügung (§ 1827 BGB); Genehmigung Betreuungsgericht (§ 1829 BGB)", "reason": "Nicht in Erfassung"},
-  {"panel": "diagnostik", "deck_text": "Vorsorgevollmacht hat Vorrang ... Betreuung subsidiär", "reason": "AMBOSS: Erforderlichkeitsgrundsatz; Vollmacht nicht explizit genannt"},
-  {"panel": "therapie", "deck_text": "Unterbringung ... Eigen- oder Fremdgefährdung ... immer mit gerichtlicher Genehmigung", "reason": "AMBOSS: §1831 nur Eigengefährdung; vorläufig ärztlich; Satz kombiniert"},
-  {"panel": "therapie", "deck_text": "Schweigepflicht (§ 203 StGB), § 34 StGB", "reason": "Schweigepflicht bekannte Lücke"},
-  {"panel": "protokoll", "deck_text": "Nur ein approbierter Arzt mit Fachkunde für den Eingriff darf aufklären", "reason": "Nicht in Erfassung"}
+  {
+   "panel": "grundlagen",
+   "deck_text": "Bei elektiven Eingriffen mindestens am Vortag (~24 h)",
+   "reason": "AMBOSS: rechtzeitig, ohne Zeitangabe"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Dokumentation in der Patientenakte (§ 630f BGB); Beweislast trägt der Arzt",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "wirtschaftliche Aufklärung (Kosten)",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Ehegatten-Notvertretung seit 2023, bis zu 6 Monate",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Patientenverfügung (§ 1827 BGB); Genehmigung Betreuungsgericht (§ 1829 BGB)",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Vorsorgevollmacht hat Vorrang ... Betreuung subsidiär",
+   "reason": "AMBOSS: Erforderlichkeitsgrundsatz; Vollmacht nicht explizit genannt"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Unterbringung ... Eigen- oder Fremdgefährdung ... immer mit gerichtlicher Genehmigung",
+   "reason": "AMBOSS: §1831 nur Eigengefährdung; vorläufig ärztlich; Satz kombiniert"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Schweigepflicht (§ 203 StGB), § 34 StGB",
+   "reason": "Schweigepflicht bekannte Lücke"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Nur ein approbierter Arzt mit Fachkunde für den Eingriff darf aufklären",
+   "reason": "Nicht in Erfassung"
+  }
  ],
  "status": "done",
- "validated": "2026-10-09"}
+ "validated": "2026-10-09",
+ "second_pass": {
+  "date": "2026-10-09",
+  "checked": 44,
+  "applied": 0,
+  "rejected_by_orchestrator": []
+ }
+}

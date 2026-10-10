@@ -1,18 +1,120 @@
-{"slug": "acs-myokardinfarkt", "deck": "reviews/kardiologie/acs-myokardinfarkt.html", "capture": ["sources/amboss/acs-myokardinfarkt.md"],
- "counts": {"ok": 58, "fix": 1, "unclear": 11},
- "fixes": [{"panel": "therapie", "deck_text": "Blutdruck < 100 mmHg, PDE-5-Hemmer (Sildenafil)", "new_text": "Blutdruck < 90 mmHg, PDE-5-Hemmer (Sildenafil)", "amboss_quote": "Kontraindikationen - Hypotension (RR systolisch <90 mmHg)"}],
+{
+ "slug": "acs-myokardinfarkt",
+ "deck": "reviews/kardiologie/acs-myokardinfarkt.html",
+ "capture": [
+  "sources/amboss/acs-myokardinfarkt.md"
+ ],
+ "counts": {
+  "ok": 58,
+  "fix": 6,
+  "unclear": 11
+ },
+ "fixes": [
+  {
+   "panel": "therapie",
+   "deck_text": "Blutdruck < 100 mmHg, PDE-5-Hemmer (Sildenafil)",
+   "new_text": "Blutdruck < 90 mmHg, PDE-5-Hemmer (Sildenafil)",
+   "amboss_quote": "Kontraindikationen - Hypotension (RR systolisch <90 mmHg)"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "NSTEMI → Koronarangiografie risikoadaptiert in 24 bis 72 Stunden.",
+   "new_text": "NSTEMI → Koronarangiografie risikoadaptiert in 2 bis 72 Stunden.",
+   "amboss_quote": "- Durchführung: Innerhalb von 2–72 h",
+   "pass": 2
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "<td>PCI in 24–72 h (risikoadaptiert)</td>",
+   "new_text": "<td>PCI in 2–72 h (risikoadaptiert)</td>",
+   "amboss_quote": "- Durchführung: Innerhalb von 2–72 h",
+   "pass": 2
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "NSTEMI Angiografie in 24–72 h",
+   "new_text": "NSTEMI Angiografie in 2–72 h",
+   "amboss_quote": "- Durchführung: Innerhalb von 2–72 h",
+   "pass": 2
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "<div class=\"sfa\">24–72 h risikoadaptiert</div>",
+   "new_text": "<div class=\"sfa\">2–72 h risikoadaptiert</div>",
+   "amboss_quote": "- Durchführung: Innerhalb von 2–72 h",
+   "pass": 2
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "erfolgt die Koronarangiografie innerhalb von 24 bis 72 Stunden",
+   "new_text": "erfolgt die Koronarangiografie innerhalb von 2 bis 72 Stunden",
+   "amboss_quote": "- Durchführung: Innerhalb von 2–72 h",
+   "pass": 2
+  }
+ ],
  "unclear": [
-  {"panel": "grundlagen", "deck_text": "Rauchen, Alter (♂ > 45, ♀ > 55), Familienanamnese", "reason": "Risikofaktoren-Altersgrenzen nicht in Erfassung"},
-  {"panel": "klinik", "deck_text": "Stabile AP < 20 min", "reason": "Nur ACS >20 min erfasst"},
-  {"panel": "klinik", "deck_text": "In den ersten Stunden droht das Kammerflimmern", "reason": "Nicht explizit erfasst"},
-  {"panel": "diagnostik", "deck_text": "Beim NSTEMI nach Risiko, meist binnen 24 Stunden", "reason": "AMBOSS 2–72 h risikoabhängig; 'meist' nicht belegt"},
-  {"panel": "therapie", "deck_text": "ASS 150–300 mg", "reason": "DOSIS-Aufklapper nicht erfasst"},
-  {"panel": "therapie", "deck_text": "Nitrat-KI: Aortenstenose, Rechtsherzinfarkt; keine i.m.-Injektion", "reason": "Nicht in Erfassung"},
-  {"panel": "therapie", "deck_text": "sonst Fibrinolyse (Alteplase)", "reason": "AMBOSS: Tenecteplase, Alteplase als Alternative"},
-  {"panel": "therapie", "deck_text": "Spätkomplikationen (> 48 h): Herzwandaneurysma, Perikarditis (Dressler)...", "reason": "Zeitgrenze nicht erfasst"},
-  {"panel": "protokoll", "deck_text": "Ich gebe sofort ASS 300 mg und Heparin intravenös", "reason": "DOSIS nicht erfasst"},
-  {"panel": "protokoll", "deck_text": "Ich verordne ASS mit Clopidogrel für 12 Monate", "reason": "AMBOSS: Prasugrel/Ticagrelor/Clopidogrel; Kontext Frage"},
-  {"panel": "protokoll", "deck_text": "Betablocker ... bei höhergradigem AV-Block abzusetzen", "reason": "Nur Bradykardie als KI erfasst"}
+  {
+   "panel": "grundlagen",
+   "deck_text": "Rauchen, Alter (♂ > 45, ♀ > 55), Familienanamnese",
+   "reason": "Risikofaktoren-Altersgrenzen nicht in Erfassung"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Stabile AP < 20 min",
+   "reason": "Nur ACS >20 min erfasst"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "In den ersten Stunden droht das Kammerflimmern",
+   "reason": "Nicht explizit erfasst"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Beim NSTEMI nach Risiko, meist binnen 24 Stunden",
+   "reason": "AMBOSS 2–72 h risikoabhängig; 'meist' nicht belegt"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "ASS 150–300 mg",
+   "reason": "DOSIS-Aufklapper nicht erfasst"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Nitrat-KI: Aortenstenose, Rechtsherzinfarkt; keine i.m.-Injektion",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "sonst Fibrinolyse (Alteplase)",
+   "reason": "AMBOSS: Tenecteplase, Alteplase als Alternative"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Spätkomplikationen (> 48 h): Herzwandaneurysma, Perikarditis (Dressler)...",
+   "reason": "Zeitgrenze nicht erfasst"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Ich gebe sofort ASS 300 mg und Heparin intravenös",
+   "reason": "DOSIS nicht erfasst"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Ich verordne ASS mit Clopidogrel für 12 Monate",
+   "reason": "AMBOSS: Prasugrel/Ticagrelor/Clopidogrel; Kontext Frage"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Betablocker ... bei höhergradigem AV-Block abzusetzen",
+   "reason": "Nur Bradykardie als KI erfasst"
+  }
  ],
  "status": "done",
- "validated": "2026-10-09"}
+ "validated": "2026-10-09",
+ "second_pass": {
+  "date": "2026-10-09",
+  "checked": 74,
+  "applied": 5,
+  "rejected_by_orchestrator": []
+ }
+}

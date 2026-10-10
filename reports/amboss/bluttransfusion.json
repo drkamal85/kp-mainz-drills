@@ -1,25 +1,93 @@
 {
  "slug": "bluttransfusion",
  "deck": "reviews/drittes-fach/bluttransfusion.html",
- "capture": ["sources/amboss/bluttransfusion.md"],
- "counts": {"ok": 28, "fix": 0, "unclear": 14},
+ "capture": [
+  "sources/amboss/bluttransfusion.md"
+ ],
+ "counts": {
+  "ok": 28,
+  "fix": 0,
+  "unclear": 14
+ },
  "fixes": [],
  "unclear": [
-  {"panel": "grundlagen", "deck_text": "Unter 6 immer · 6 bis 8 nach Symptomen · über 8 fast nie.", "reason": "Protokoll-Korridor; AMBOSS <7 empfohlen, 8–9,9 bei Hypoxiezeichen empfohlen"},
-  {"panel": "grundlagen", "deck_text": "Herzkrank: schon ab 8 transfundieren", "reason": "AMBOSS: 7–7,9 bei Risikofaktoren empfohlen; Grenze 8 nicht explizit"},
-  {"panel": "klinik", "deck_text": "Fieber, Schüttelfrost, Rückenschmerz, dunkler Urin", "reason": "AMBOSS-Klinikliste anders, aber nicht widersprüchlich"},
-  {"panel": "klinik", "deck_text": "TACO: Überladung des Kreislaufs, besonders beim Herzkranken", "reason": "TACO nicht in Erfassung (nur Volumenüberladung)"},
-  {"panel": "diagnostik", "deck_text": "2 Röhrchen ins Labor: eines für die Blutgruppe, eines für die Kreuzprobe", "reason": "AMBOSS: insg. 3 Monovetten; Deck protokollbasiert"},
-  {"panel": "diagnostik", "deck_text": "Er prüft nur die Blutgruppe des Patienten — nicht die Konserve", "reason": "AMBOSS: evtl. zusätzlich Konservenblut gesondert testen"},
-  {"panel": "therapie", "deck_text": "1. Bevollmächtigter · 2. Ehepartner · 3. Betreuer vom Gericht.", "reason": "nicht in Erfassung"},
-  {"panel": "perlen", "deck_text": "Ein EK hebt den Hb um etwa 1 bis 1,5 g/dl", "reason": "AMBOSS: etwa 1 g/dL; Spanne als Vereinfachung"},
-  {"panel": "perlen", "deck_text": "TRALI — Lungenödem binnen 6 Stunden ohne Herzinsuffizienz", "reason": "6 h ✓; Abgrenzung Herzinsuffizienz nicht in Erfassung"},
-  {"panel": "perlen", "deck_text": "Was weist der Coombs-Test nach? inkomplette Antikörper gegen Erythrozyten", "reason": "Begriff inkomplett nicht in Erfassung"},
-  {"panel": "perlen", "deck_text": "Wie lange läuft ein EK maximal? vier Stunden", "reason": "nicht in Erfassung"},
-  {"panel": "perlen", "deck_text": "Wie lange werden Rückstellproben aufbewahrt? mindestens 24 Stunden", "reason": "nicht in Erfassung"},
-  {"panel": "perlen", "deck_text": "Was gilt bei Zeugen Jehovas? die schriftliche Ablehnung ist bindend", "reason": "nicht in Erfassung"},
-  {"panel": "protokoll", "deck_text": "Ich transfundiere ab einem Hb unter 6 g/dl auch ohne Symptome.", "reason": "Protokoll-Grenze; AMBOSS <7 unabhängig empfohlen (kein Widerspruch)"}
+  {
+   "panel": "grundlagen",
+   "deck_text": "Unter 6 immer · 6 bis 8 nach Symptomen · über 8 fast nie.",
+   "reason": "Protokoll-Korridor; AMBOSS <7 empfohlen, 8–9,9 bei Hypoxiezeichen empfohlen"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Herzkrank: schon ab 8 transfundieren",
+   "reason": "AMBOSS: 7–7,9 bei Risikofaktoren empfohlen; Grenze 8 nicht explizit"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Fieber, Schüttelfrost, Rückenschmerz, dunkler Urin",
+   "reason": "AMBOSS-Klinikliste anders, aber nicht widersprüchlich"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "TACO: Überladung des Kreislaufs, besonders beim Herzkranken",
+   "reason": "TACO nicht in Erfassung (nur Volumenüberladung)"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "2 Röhrchen ins Labor: eines für die Blutgruppe, eines für die Kreuzprobe",
+   "reason": "AMBOSS: insg. 3 Monovetten; Deck protokollbasiert"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Er prüft nur die Blutgruppe des Patienten — nicht die Konserve",
+   "reason": "AMBOSS: evtl. zusätzlich Konservenblut gesondert testen"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "1. Bevollmächtigter · 2. Ehepartner · 3. Betreuer vom Gericht.",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Ein EK hebt den Hb um etwa 1 bis 1,5 g/dl",
+   "reason": "AMBOSS: etwa 1 g/dL; Spanne als Vereinfachung"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "TRALI — Lungenödem binnen 6 Stunden ohne Herzinsuffizienz",
+   "reason": "6 h ✓; Abgrenzung Herzinsuffizienz nicht in Erfassung"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Was weist der Coombs-Test nach? inkomplette Antikörper gegen Erythrozyten",
+   "reason": "Begriff inkomplett nicht in Erfassung"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Wie lange läuft ein EK maximal? vier Stunden",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Wie lange werden Rückstellproben aufbewahrt? mindestens 24 Stunden",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Was gilt bei Zeugen Jehovas? die schriftliche Ablehnung ist bindend",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Ich transfundiere ab einem Hb unter 6 g/dl auch ohne Symptome.",
+   "reason": "Protokoll-Grenze; AMBOSS <7 unabhängig empfohlen (kein Widerspruch)"
+  }
  ],
  "status": "done",
- "validated": "2026-10-09"
+ "validated": "2026-10-09",
+ "second_pass": {
+  "date": "2026-10-09",
+  "checked": 57,
+  "applied": 0,
+  "rejected_by_orchestrator": []
+ }
 }

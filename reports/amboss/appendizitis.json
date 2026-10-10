@@ -1,21 +1,93 @@
-{"slug": "appendizitis", "deck": "reviews/chirurgie/appendizitis.html", "capture": ["sources/amboss/appendizitis.md"],
- "counts": {"ok": 36, "fix": 0, "unclear": 14},
+{
+ "slug": "appendizitis",
+ "deck": "reviews/chirurgie/appendizitis.html",
+ "capture": [
+  "sources/amboss/appendizitis.md"
+ ],
+ "counts": {
+  "ok": 36,
+  "fix": 0,
+  "unclear": 14
+ },
  "fixes": [],
  "unclear": [
-  {"panel": "grundlagen", "deck_text": "Häufigste Ursache des akuten Abdomens", "reason": "AMBOSS: häufigste Ursache im Kindes- und Jugendalter"},
-  {"panel": "grundlagen", "deck_text": "Ulzero-phlegmonös → gangränös — Nekrose", "reason": "Reihenfolge abweichend von AMBOSS-Liste; nicht eindeutig falsch"},
-  {"panel": "klinik", "deck_text": "Phase 2 (nach 4–24 h) ... axillo-rektale Temperaturdifferenz ≥ 1 °C", "reason": "Zeitfenster und Temperaturdifferenz nicht in Erfassung"},
-  {"panel": "diagnostik", "deck_text": "Alvarado-Score 10 Punkte mit Schwellen 0–4 / 5–6 / 7–10", "reason": "Score nicht in Erfassung"},
-  {"panel": "diagnostik", "deck_text": "Sono: Kokarde, Durchmesser > 6 mm, nicht komprimierbar", "reason": "Kokarde ✓; AMBOSS-Normaldurchmesser <6–8 mm"},
-  {"panel": "diagnostik", "deck_text": "CT: nur bei Unklarheit, älteren Patienten (Tumor-DD!)", "reason": "AMBOSS: MRT/CT fakultativ bei Unklarheit; Tumor-DD nicht erfasst"},
-  {"panel": "therapie", "deck_text": "3-Trokar-Technik ... Zökalpolresektion", "reason": "OP-Technikdetails nicht in Erfassung"},
-  {"panel": "therapie", "deck_text": "Perioperative Antibiose: z. B. Cefuroxim + Metronidazol", "reason": "Substanzen nicht in Erfassung"},
-  {"panel": "therapie", "deck_text": "Nur bei unkomplizierter (katarrhalischer) Appendizitis möglich: Antibiose", "reason": "Konservative Therapie nicht in Erfassung"},
-  {"panel": "perlen", "deck_text": "Bei klassischer Appendizitis erwartet man ≥ 15.000", "reason": "Nur 'Leukozytose' erfasst"},
-  {"panel": "perlen", "deck_text": "Diese Wanderung ist das pathognomonische Leitsymptom", "reason": "AMBOSS: klassischer Schmerzverlauf; 'pathognomonisch' Prüfungsformulierung"},
-  {"panel": "perlen", "deck_text": "OP-Timing nach Diagnosestellung? innerhalb von 6 Stunden", "reason": "Zeitfenster nicht in Erfassung"},
-  {"panel": "protokoll", "deck_text": "Am häufigsten ist die retrozäkale Lage. Dann fehlt die typische Abwehrspannung", "reason": "Lagevarianten nicht in Erfassung; Psoas-Zeichen ✓"},
-  {"panel": "protokoll", "deck_text": "Dann muss ich ein Meckel-Divertikel ausschließen", "reason": "Meckel-Divertikulitis nur als DD erfasst"}
+  {
+   "panel": "grundlagen",
+   "deck_text": "Häufigste Ursache des akuten Abdomens",
+   "reason": "AMBOSS: häufigste Ursache im Kindes- und Jugendalter"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Ulzero-phlegmonös → gangränös — Nekrose",
+   "reason": "Reihenfolge abweichend von AMBOSS-Liste; nicht eindeutig falsch"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Phase 2 (nach 4–24 h) ... axillo-rektale Temperaturdifferenz ≥ 1 °C",
+   "reason": "Zeitfenster und Temperaturdifferenz nicht in Erfassung"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Alvarado-Score 10 Punkte mit Schwellen 0–4 / 5–6 / 7–10",
+   "reason": "Score nicht in Erfassung"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Sono: Kokarde, Durchmesser > 6 mm, nicht komprimierbar",
+   "reason": "Kokarde ✓; AMBOSS-Normaldurchmesser <6–8 mm"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "CT: nur bei Unklarheit, älteren Patienten (Tumor-DD!)",
+   "reason": "AMBOSS: MRT/CT fakultativ bei Unklarheit; Tumor-DD nicht erfasst"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "3-Trokar-Technik ... Zökalpolresektion",
+   "reason": "OP-Technikdetails nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Perioperative Antibiose: z. B. Cefuroxim + Metronidazol",
+   "reason": "Substanzen nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Nur bei unkomplizierter (katarrhalischer) Appendizitis möglich: Antibiose",
+   "reason": "Konservative Therapie nicht in Erfassung"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Bei klassischer Appendizitis erwartet man ≥ 15.000",
+   "reason": "Nur 'Leukozytose' erfasst"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Diese Wanderung ist das pathognomonische Leitsymptom",
+   "reason": "AMBOSS: klassischer Schmerzverlauf; 'pathognomonisch' Prüfungsformulierung"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "OP-Timing nach Diagnosestellung? innerhalb von 6 Stunden",
+   "reason": "Zeitfenster nicht in Erfassung"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Am häufigsten ist die retrozäkale Lage. Dann fehlt die typische Abwehrspannung",
+   "reason": "Lagevarianten nicht in Erfassung; Psoas-Zeichen ✓"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Dann muss ich ein Meckel-Divertikel ausschließen",
+   "reason": "Meckel-Divertikulitis nur als DD erfasst"
+  }
  ],
  "status": "done",
- "validated": "2026-10-09"}
+ "validated": "2026-10-09",
+ "second_pass": {
+  "date": "2026-10-09",
+  "checked": 55,
+  "applied": 0,
+  "rejected_by_orchestrator": []
+ }
+}
