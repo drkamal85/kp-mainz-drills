@@ -1,0 +1,18 @@
+{"slug": "herzinsuffizienz", "deck": "reviews/kardiologie/herzinsuffizienz.html", "capture": ["sources/amboss/herzinsuffizienz.md"],
+ "counts": {"ok": 46, "fix": 1, "unclear": 11},
+ "fixes": [{"panel": "grundlagen", "deck_text": "HFmrEF (40–49 %) [Merksatz + Tabelle]", "new_text": "HFmrEF (41–49 %)", "amboss_quote": "HFmrEF (Herzinsuffizienz mit gering reduzierter EF): LVEF 41–49% und Symptome der Herzinsuffizienz"}],
+ "unclear": [
+  {"panel": "grundlagen", "deck_text": "Kausalkette: Hypertonie → KHK → Myokardinfarkt → Herzinsuffizienz", "reason": "Kausalkette nicht in Erfassung"},
+  {"panel": "grundlagen", "deck_text": "HCM: häufigste Ursache plötzlicher Herztod junger Sportler; Septum über 13 mm", "reason": "HCM-Details nicht in Erfassung"},
+  {"panel": "grundlagen", "deck_text": "obstruktive Form: Nitrate, Diuretika und Digitalis kontraindiziert", "reason": "nicht in Erfassung (nur Nitrate bei Aortenstenose)"},
+  {"panel": "klinik", "deck_text": "Die Globalinsuffizienz betrifft beide Seiten — die häufigste klinische Form.", "reason": "Häufigkeit nicht explizit erfasst"},
+  {"panel": "diagnostik", "deck_text": "Ein normales BNP schließt die Herzinsuffizienz weitgehend aus", "reason": "nur Grenzwerte erfasst, Aussage kompatibel"},
+  {"panel": "diagnostik", "deck_text": "Ein völlig normales EKG macht die Herzinsuffizienz unwahrscheinlich", "reason": "nicht in Erfassung"},
+  {"panel": "therapie", "deck_text": "HFpEF: keine etablierte Basistherapie — SGLT2-Hemmer plus Diuretika", "reason": "AMBOSS: SGLT2 empfohlen; Formulierung Ermessen"},
+  {"panel": "protokoll", "deck_text": "HFrEF unter 40 Prozent", "reason": "AMBOSS ≤40 %; gesprochene Vereinfachung"},
+  {"panel": "protokoll", "deck_text": "Reizhusten durch Bradykinin", "reason": "Mechanismus nicht in Erfassung"},
+  {"panel": "protokoll", "deck_text": "SGLT2: proximaler Tubulus; Genitalinfektionen", "reason": "nicht in Erfassung (nur Ketoazidose)"},
+  {"panel": "protokoll", "deck_text": "Schleifendiuretika Henle-Schleife, Thiazide distaler Tubulus, Kaliumsparende Sammelrohr", "reason": "Wirkorte nicht in Erfassung"}
+ ],
+ "status": "done",
+ "validated": "2026-10-09"}

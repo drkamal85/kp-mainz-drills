@@ -1,0 +1,29 @@
+{
+ "slug": "infektioese-endokarditis",
+ "deck": "reviews/kardiologie/infektioese-endokarditis.html",
+ "capture": ["sources/amboss/infektioese-endokarditis.md"],
+ "counts": {"ok": 40, "fix": 3, "unclear": 14},
+ "fixes": [
+  {"panel": "diagnostik", "deck_text": "3–5 separate Paare (aerob + anaerob), vor Antibiose, in 85 % positiv", "new_text": "3–5 separate Paare (aerob + anaerob), vor Antibiose, in 60–70 % positiv", "amboss_quote": "Erfolgsquote: Erregernachweis in ca. 60–70% der Fälle"},
+  {"panel": "therapie", "deck_text": "Amoxicillin p.o. (Ampicillin i.v.) 30–60 min vorher; Penicillinallergie → Clindamycin", "new_text": "Amoxicillin p.o. (Ampicillin i.v.) 30–60 min vorher; Penicillinallergie → Azithromycin", "amboss_quote": "Alternativen bei Penicillinallergie: Azithromycin DOSIS, Clarithromycin DOSIS, Doxycyclin DOSIS"},
+  {"panel": "perlen", "deck_text": "Amoxicillin p.o. (bei Allergie Clindamycin)", "new_text": "Amoxicillin p.o. (bei Allergie Azithromycin)", "amboss_quote": "Alternativen bei Penicillinallergie: Azithromycin DOSIS, Clarithromycin DOSIS, Doxycyclin DOSIS"}
+ ],
+ "unclear": [
+  {"panel": "grundlagen", "deck_text": "S. aureus (45–65 %) / (~50 %); S. viridans (~30 %); Enterokokken (~10 %)", "reason": "Erregerhäufigkeiten nicht in Erfassung"},
+  {"panel": "grundlagen", "deck_text": "Acuta ... zerstört die Klappe in Stunden", "reason": "AMBOSS: fulminant innerhalb von Tagen; Lehrformulierung"},
+  {"panel": "grundlagen", "deck_text": "Ausnahme: i.v.-Drogen → Trikuspidalklappe (rechts)", "reason": "nicht in Erfassung"},
+  {"panel": "grundlagen", "deck_text": "Enterokokkenlücke (Penicillin/Cephalosporin unwirksam)", "reason": "nicht in Erfassung"},
+  {"panel": "grundlagen", "deck_text": "Pathophysiologie: sterile Vegetation auf vorgeschädigter Klappe → bakterielle Besiedelung", "reason": "AMBOSS-Kaskade anders gegliedert, vereinbar"},
+  {"panel": "diagnostik", "deck_text": "Fieber ≥ 38 °C", "reason": "AMBOSS: >38 °C; Rundung"},
+  {"panel": "diagnostik", "deck_text": "Urin (Erythrozytenzylinder bei GN)", "reason": "nicht in Erfassung"},
+  {"panel": "therapie", "deck_text": "Nativ: Ampicillin + Flucloxacillin + Gentamicin", "reason": "AMBOSS: Ampicillin + Ceftriaxon oder Flucloxacillin + Gentamicin; Lesart offen"},
+  {"panel": "therapie", "deck_text": "Prothese: Vancomycin + Gentamicin + Rifampicin, ≥ 6 Wochen", "reason": "AMBOSS-Tabelle PVE kalkuliert wie NVE; Rifampicin bei PVE gezielt"},
+  {"panel": "therapie", "deck_text": "OP bei ... Prothesenendokarditis", "reason": "AMBOSS: PVE durch S. aureus/nicht-HACEK bzw. ≤6 Mon."},
+  {"panel": "therapie", "deck_text": "Prophylaxe vor zahnärztlichen Eingriffen (Schleimhaut/Gingiva)", "reason": "vereinbar, AMBOSS listet weitere Prozeduren"},
+  {"panel": "perlen", "deck_text": "Frühe Prothesen-Endokarditis (< 12 Mon.): Vancomycin + Gentamicin + Rifampicin, mind. 6 Wochen", "reason": "nicht eindeutig in Erfassung"},
+  {"panel": "perlen", "deck_text": "TTE ist für kleine Vegetationen nicht empfindlich genug", "reason": "AMBOSS: TEE > TTE; Größenaussage nicht erfasst"},
+  {"panel": "perlen", "deck_text": "mechanisch: lebenslange Antikoagulation · biologisch: degeneriert früher", "reason": "nicht in Erfassung"}
+ ],
+ "status": "done",
+ "validated": "2026-10-09"
+}

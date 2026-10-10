@@ -1,0 +1,22 @@
+{"slug": "gastroduodenales-ulkus", "deck": "reviews/chirurgie/gastroduodenales-ulkus.html", "capture": ["sources/amboss/gastroduodenales-ulkus.md"],
+ "counts": {"ok": 40, "fix": 1, "unclear": 15},
+ "fixes": [{"panel": "protokoll", "deck_text": "Ich biopsiere am Ulkusrand, nicht im nekrotischen Grund. Insgesamt entnehme ich mindestens 4 Proben, in der Regel bis zu 10.", "new_text": "Ich biopsiere am Ulkusrand und im nekrotischen Grund. Insgesamt entnehme ich mindestens 8 Proben, in der Regel bis zu 10.", "amboss_quote": "Mind. 8 Biopsien unter Einbezug des Randbereiches und aus dem Grund eines Ulcus ventriculi sind obligat"}],
+ "unclear": [
+  {"panel": "therapie", "deck_text": "Bismut-Quadrupel: PPI + Bismut + Tetracyclin + Metronidazol (bei Resistenz)", "reason": "AMBOSS: Bismut-Quadrupel = Erstlinie; Formulierung nicht eindeutig falsch"},
+  {"panel": "perlen", "deck_text": "Erstlinien-Eradikation in Deutschland? Bismut-Quadrupel bzw. franz. Tripel", "reason": "AMBOSS: franz. Tripel nur Zweitlinie nach Resistenztestung"},
+  {"panel": "therapie", "deck_text": "Kombination (7–14 Tage) / 14 Tage / 10 bis 14 Tage", "reason": "Therapiedauer nicht in Erfassung"},
+  {"panel": "therapie", "deck_text": "Eradikationserfolg nach 4–6 Wochen mit Atemtest oder Stuhlantigen prüfen", "reason": "Eradikationskontrolle nicht in Erfassung"},
+  {"panel": "grundlagen", "deck_text": "H. pylori: ventriculi ~70 %, duodeni ~95–99 %", "reason": "AMBOSS ca. 75% bzw. >90%; Näherung"},
+  {"panel": "grundlagen", "deck_text": "Das Ulcus duodeni wird nicht biopsiert.", "reason": "AMBOSS: HP-Biopsien aus Antrum/Korpus; Ulkusbiopsie duodeni nicht thematisiert"},
+  {"panel": "diagnostik", "deck_text": "Forrest-Tabelle mit Rezidivrisiko hoch/mittel/niedrig", "reason": "Forrest nur als Verweis erfasst"},
+  {"panel": "diagnostik", "deck_text": "13C-Harnstoff-Atemtest, Stuhlantigen-Test; Kultur", "reason": "HP-Diagnostik-Kapitel nicht erfasst"},
+  {"panel": "therapie", "deck_text": "Injektion (Adrenalin) plus mechanisch oder thermisch — als Kombination", "reason": "AMBOSS: Unterspritzung, Clip, Fibrinkleber; Kombination nicht erfasst"},
+  {"panel": "therapie", "deck_text": "Übernähung des Ulkus, meist mit Omentum-Patch (Graham-Patch)", "reason": "AMBOSS: Übernähung nach Exzision des Ulkusrandes; Patch nicht erfasst"},
+  {"panel": "therapie", "deck_text": "Kontroll-Gastroskopie nach 6–8 Wochen mit Rebiopsie", "reason": "AMBOSS: Kontrolle bis zur Abheilung; Intervall nicht erfasst"},
+  {"panel": "perlen", "deck_text": "Ulcus ventriculi blutet aus der A. gastrica sinistra", "reason": "Nur A. gastroduodenalis als Blutungsquelle erfasst"},
+  {"panel": "perlen", "deck_text": "Bei mechanischer Herzklappe ist der Vitamin-K-Antagonist zwingend ...", "reason": "Nicht in Erfassung"},
+  {"panel": "perlen", "deck_text": "Biopsie aus allen vier Quadranten des Randes", "reason": "AMBOSS: mind. 8 Biopsien Rand und Grund; Quadranten nicht erfasst"},
+  {"panel": "protokoll", "deck_text": "Endoskopie binnen 24 Stunden", "reason": "GI-Blutungs-Kapitel nicht erfasst"}
+ ],
+ "status": "done",
+ "validated": "2026-10-09"}

@@ -1,0 +1,107 @@
+{
+ "slug": "wirbelsaeulenverletzungen",
+ "deck": "reviews/unfallchirurgie/wirbelsaeulenverletzungen.html",
+ "capture": [
+  "sources/amboss/wirbelsaeulenverletzungen.md"
+ ],
+ "counts": {
+  "ok": 44,
+  "fix": 0,
+  "unclear": 18
+ },
+ "fixes": [],
+ "unclear": [
+  {
+   "panel": "grundlagen",
+   "deck_text": "HWS: zweithäufig, oft bei Hochrasanztrauma",
+   "reason": "AMBOSS: LWS 55%, BWS 32%, HWS 13%; deck splits TL-Übergang/reine BWS"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Typ C ... Verschiebung oder Rotation — immer instabil",
+   "reason": "'immer instabil' nicht explizit in Erfassung"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Typ II (Densbasis) ist die häufigste und hat eine hohe Pseudarthrose-Rate",
+   "reason": "Häufigkeit/Pseudarthrose nicht in Erfassung"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Berstungsfraktur ... → instabil, Myelongefahr",
+   "reason": "AMBOSS: A3/A4 unter Voraussetzungen konservativ; Vereinfachung"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Chance-Fraktur ... alle drei Säulen → instabil",
+   "reason": "AMBOSS nennt 'stabile B1-Verletzungen (Chance-Fraktur)'; Denis-Vereinfachung"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "ASIA-Skala A (komplett) bis E (normal)",
+   "reason": "Nur ASIA-ISNCSCI erwähnt, Skala nicht erfasst"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Brown-Séquard / zentromedullär / Conus-Cauda Syndrome",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Spinaler vs. neurogener Schock, Hypotonie + Bradykardie",
+   "reason": "Nur 'spinaler Schock' genannt, Details nicht erfasst"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Cauda-equina-Syndrom ... sofortige Dekompression",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Röntgen nur noch ergänzend/orientierend",
+   "reason": "AMBOSS: Röntgen Ausgangsuntersuchung, CT bei Trauma/Polytrauma; Nuance"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Bogenwurzeln ... Eulenaugen; Achsknick, verbreiterter Interpedikularabstand",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Labor (Kalzium, Eiweiß-Elektrophorese)",
+   "reason": "AMBOSS nennt AP und LDH bei V.a. pathologische Fraktur"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Sofort operieren bei ... Cauda-equina-Syndrom",
+   "reason": "Cauda nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "KI ... nicht beherrschbare Gerinnungsstörung",
+   "reason": "Nicht in AMBOSS-KI-Liste der Kyphoplastie"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Schmerztherapie nach WHO-Stufenschema; Bestrahlung, Bisphosphonate",
+   "reason": "Metastasentherapie nicht erfasst"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Mamma-, Prostata-, Bronchial-, Nieren- und Schilddrüsenkarzinom",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Hochdosiertes Methylprednisolon ... nicht mehr empfohlen (NASCIS)",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Pathologische Fraktur → Osteoporose oder Metastase/Myelom",
+   "reason": "Myelom nicht explizit erfasst"
+  }
+ ],
+ "status": "done",
+ "validated": "2026-10-09"
+}

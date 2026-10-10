@@ -1,0 +1,22 @@
+{"slug": "impfungen-stiko", "deck": "reviews/drittes-fach/impfungen-stiko.html", "capture": ["sources/amboss/impfungen-stiko.md"],
+ "counts": {"ok": 27, "fix": 0, "unclear": 15},
+ "fixes": [],
+ "unclear": [
+  {"panel": "grundlagen", "deck_text": "SIKO (Sächsische Impfkommission) gibt eigene Empfehlungen", "reason": "nicht in Erfassung"},
+  {"panel": "grundlagen", "deck_text": "Lebend: Typhus (oral); Tot: Influenza (i.m.), Hib, Hepatitis A/B, HPV", "reason": "Impfstoffarten-Kapitel nicht erfasst (Lücke)"},
+  {"panel": "klinik", "deck_text": "Meningokokken C/B — 1. Lebensjahr", "reason": "Kalender nennt nur MenB im Säuglingsalter, ACWY mit 12–14 J."},
+  {"panel": "klinik", "deck_text": "Tetanus/Diphtherie/Pertussis-Auffrischung alle 10 Jahre", "reason": "AMBOSS: Pertussis-A3 einmalig als Tdap; Tabelle mehrdeutig"},
+  {"panel": "klinik", "deck_text": "Titer: Tetanus-AK, Diphtherie-AK, Röteln (HAH-Titer), HBs-AK", "reason": "nicht in Erfassung"},
+  {"panel": "klinik", "deck_text": "MMR + Varizellen (Lebend): 11 · 15 Monate", "reason": "Kalendertabelle in Erfassung spaltenverschoben (Merged Cells)"},
+  {"panel": "diagnostik", "deck_text": "Vier Stufen Impfreaktion/-krankheit/-komplikation/-schaden, Meldung", "reason": "nicht in Erfassung (eigene Kapitel)"},
+  {"panel": "diagnostik", "deck_text": "§ 6 IfSG → Gesundheitsamt → PEI; Meldefrist 24 h", "reason": "nicht in Erfassung; auch Perlen/Rapid-Fire"},
+  {"panel": "therapie", "deck_text": "Echte KI: Fieber > 38,5 °C, Allergie gegen Bestandteil", "reason": "Kontraindikationen-Kapitel nicht erfasst; auch Perlen/Tab 6"},
+  {"panel": "therapie", "deck_text": "Antrag beim Versorgungsamt; SGB XIV seit 2024", "reason": "nicht in dieser Erfassung; auch Perlen/Rapid-Fire/Tab 6"},
+  {"panel": "perlen", "deck_text": "Epidemiologisches Bulletin → G-BA Schutzimpfungs-Richtlinie → Länder", "reason": "nicht in Erfassung"},
+  {"panel": "perlen (Rapid-Fire)", "deck_text": "Masernschutzgesetz / STIKO-Impfkategorien / Tetanus-Immunglobulin", "reason": "nicht in Erfassung (Masern-Impfpflicht nur Verweis)"},
+  {"panel": "protokoll", "deck_text": "2 Dosen im Abstand von 3 bis 6 Wochen ... Ab 60 jährliche Auffrischungen", "reason": "COVID-Kapitel nicht erfasst; Tabelle nennt jährlich, Alter mehrdeutig"},
+  {"panel": "protokoll", "deck_text": "SSPE; Mumps-Komplikationen; Windpocken-Latenz", "reason": "krankheitsspezifische Kapitel nicht erfasst"},
+  {"panel": "protokoll", "deck_text": "Asplenie: Pneumokokken, Meningokokken, Hib; OPSI", "reason": "Asplenie-Kapitel nur Verweis"}
+ ],
+ "status": "done",
+ "validated": "2026-10-09"}

@@ -1,0 +1,82 @@
+{
+ "slug": "aortendissektion",
+ "deck": "reviews/gefaesschirurgie/aortendissektion.html",
+ "capture": [
+  "sources/amboss/aortendissektion.md"
+ ],
+ "counts": {
+  "ok": 34,
+  "fix": 0,
+  "unclear": 13
+ },
+ "fixes": [],
+ "unclear": [
+  {
+   "panel": "grundlagen",
+   "deck_text": "Stanford B: nur descendens (ab A. subclavia)",
+   "reason": "Subclavia-Grenze nicht in Erfassung"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Schwangerschaft · Aortenisthmusstenose als Risikofaktoren",
+   "reason": "Nicht in AMBOSS-Risikofaktorliste"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Marfan-Trias Hochwuchs, Arachnodaktylie, Linsenluxation",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Typ A = vorn · Typ B = zwischen den Schulterblättern",
+   "reason": "AMBOSS: Schulterblätter → eher thorakale Dissektion; Nuance"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "B → Mesenterialischämie · Niereninfarkt · Querschnitt · Beinischämie",
+   "reason": "AMBOSS führt diese als gemeinsame Komplikationen A und B"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Beck-Trias: Hypotonie · gestaute Halsvenen · leise Herztöne",
+   "reason": "Beck-Trias nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Betablocker zuerst (Esmolol/Labetalol)",
+   "reason": "AMBOSS nennt Esmolol, Metoprolol; Labetalol nicht erfasst"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "nie Vasodilatator allein (Reflextachykardie)",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Stanford B: konservativ; TEVAR/OP nur bei Komplikation",
+   "reason": "AMBOSS: TEVAR auch bei unkomplizierter Typ B möglich (Einzelfall)"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Typ A unbehandelt: ~1 % Letalität pro Stunde (erste 48 h)",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Typ B operieren bei: Malperfusion · Ruptur · Progredienz · Dauerschmerz",
+   "reason": "Kriterien nicht einzeln erfasst"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "nach kaudal wandert — pathognomonisch",
+   "reason": "AMBOSS: nur kleiner Teil berichtet wandernde Schmerzen"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Keine Lyse vor Dissektionsausschluss",
+   "reason": "Nicht in Erfassung"
+  }
+ ],
+ "status": "done",
+ "validated": "2026-10-09"
+}

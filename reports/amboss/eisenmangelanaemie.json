@@ -1,0 +1,25 @@
+{
+ "slug": "eisenmangelanaemie",
+ "deck": "reviews/haematologie/eisenmangelanaemie.html",
+ "capture": ["sources/amboss/eisenmangelanaemie.md"],
+ "counts": {"ok": 48, "fix": 0, "unclear": 14},
+ "fixes": [],
+ "unclear": [
+  {"panel": "grundlagen", "deck_text": "Anämie = Hb < 12 g/dl (♀) / < 13 g/dl (♂)", "reason": "Anämie-Grenzwerte nicht in Erfassung"},
+  {"panel": "grundlagen", "deck_text": "MCV/MCH-Tabelle normozytär/makrozytär (B12, Folsäure, renal)", "reason": "nicht in Erfassung"},
+  {"panel": "grundlagen", "deck_text": "Bedarf ↑: Schwangerschaft, Stillzeit, Wachstum", "reason": "Wachstum nicht erfasst"},
+  {"panel": "grundlagen", "deck_text": "jede unklare Eisenmangelanämie → Tumorsuche", "reason": "vereinbar mit Abklärung des Eisenverlusts"},
+  {"panel": "therapie", "deck_text": "Dreiwertiges Eisen wird oral kaum resorbiert.", "reason": "AMBOSS: Resorption fast nur Fe2+, Fe3+ oral als Alternative"},
+  {"panel": "therapie", "deck_text": "Kontrolle nach 1–2 Wochen (Retikulozytenanstieg)", "reason": "AMBOSS: nach 2 Wochen; vereinbar"},
+  {"panel": "therapie", "deck_text": "i.v. ... Dialyse", "reason": "AMBOSS: renale Anämie; vereinbar"},
+  {"panel": "therapie", "deck_text": "Bedarf (mg) ≈ Hb-Defizit × 200 + 250", "reason": "Formel nicht in Erfassung"},
+  {"panel": "perlen", "deck_text": "RDW ↑ früher Hinweis", "reason": "RDW nicht in Erfassung"},
+  {"panel": "perlen", "deck_text": "Reduktion zu Fe²⁺ durch Ferrireduktase (saures Milieu)", "reason": "nicht in Erfassung"},
+  {"panel": "perlen", "deck_text": "Hb 4 g/dl — Erythrozytenkonzentrate transfundieren", "reason": "nicht in Erfassung"},
+  {"panel": "protokoll", "deck_text": "Transferrinsättigung unter 20 %", "reason": "AMBOSS: <20% nur bei präoperativer Anämie"},
+  {"panel": "protokoll", "deck_text": "In Entwicklungsländern sind bis zu 80 % aller Anämien Eisenmangelanämien.", "reason": "AMBOSS: 80 % (Daten Deutschland)"},
+  {"panel": "protokoll", "deck_text": "Bei Hb 4 g/dl transfundiere ich 2 Erythrozytenkonzentrate.", "reason": "nicht in Erfassung"}
+ ],
+ "status": "done",
+ "validated": "2026-10-09"
+}

@@ -1,0 +1,19 @@
+{"slug": "av-block", "deck": "reviews/kardiologie/av-block.html", "capture": ["sources/amboss/av-block.md"],
+ "counts": {"ok": 30, "fix": 0, "unclear": 12},
+ "fixes": [],
+ "unclear": [
+  {"panel": "diagnostik", "deck_text": "Ersatzrhythmus: junktional schmal 40–60/min, ventrikulär breit 20–40/min", "reason": "AMBOSS: sekundär ca. 40–50/min, tertiär ca. 20–30/min; Bereichsnuance"},
+  {"panel": "perlen", "deck_text": "junktional schmal mit 40–60/min … ventrikulär breit mit 20–40/min", "reason": "AMBOSS: ca. 40–50 bzw. 20–30/min; überlappende Bereiche"},
+  {"panel": "grundlagen", "deck_text": "Degenerativ (Lenègre/Lev, am häufigsten)", "reason": "nicht in Erfassung"},
+  {"panel": "grundlagen", "deck_text": "Suprahisär: Atropin-sensibel; infrahisär: Atropin unwirksam", "reason": "supra-/infrahisär-Differenzierung nicht im Detail erfasst"},
+  {"panel": "grundlagen", "deck_text": "Borreliose, Sarkoidose", "reason": "Lyme-Karditis bestätigt; Sarkoidose nicht erfasst"},
+  {"panel": "diagnostik", "deck_text": "Mobitz II: oft 2:1, meist infrahisär", "reason": "Lokalisation nicht in Erfassung"},
+  {"panel": "diagnostik", "deck_text": "Langzeit-EKG, Belastungs-EKG, Ereignisrekorder; Labor Kalium, TSH, Borrelien, Troponin", "reason": "Diagnostik-Abschnitt nicht in Erfassung"},
+  {"panel": "therapie", "deck_text": "Katecholamine (Orciprenalin, Adrenalin) und transkutanes/transvenöses Pacing", "reason": "AMBOSS nur Adrenalin sekundär, temporärer SM; Orciprenalin nicht erfasst"},
+  {"panel": "therapie", "deck_text": "VVI/AAI/DDD/CRT; Schrittmacher-Syndrom", "reason": "Schrittmacher-Typen nicht in Erfassung"},
+  {"panel": "perlen", "deck_text": "Mobitz II und III° bekommen Schrittmacher — bei III° auch, wenn nicht symptomatisch", "reason": "kompatibel mit absoluter SM-Indikation; Asymptomatik nicht explizit"},
+  {"panel": "protokoll", "deck_text": "Ich gebe Atropin 0,5 mg i.v., im Notfall bis maximal 3 mg.", "reason": "AMBOSS: 0,5–1,0 mg i.v.; Maximaldosis nicht erfasst"},
+  {"panel": "protokoll", "deck_text": "Der Dreikammerschrittmacher CRT gilt bei Herzinsuffizienz mit EF unter 35 %.", "reason": "nicht in Erfassung"}
+ ],
+ "status": "done",
+ "validated": "2026-10-09"}

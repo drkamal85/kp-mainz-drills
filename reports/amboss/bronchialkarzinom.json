@@ -1,0 +1,20 @@
+{"slug": "bronchialkarzinom", "deck": "reviews/pneumologie/bronchialkarzinom.html", "capture": ["sources/amboss/bronchialkarzinom.md"],
+ "counts": {"ok": 58, "fix": 0, "unclear": 13},
+ "fixes": [],
+ "unclear": [
+  {"panel": "grundlagen", "deck_text": "NSCLC Anteil 85 %", "reason": "AMBOSS: NSCLC ca. 75 %, SCLC 15 %, unbestimmt 10 % — Rundung/Komplement"},
+  {"panel": "protokoll", "deck_text": "nicht-kleinzelligen Karzinom, das etwa 85 % ausmacht", "reason": "AMBOSS: ca. 75 % + 10 % unbestimmt"},
+  {"panel": "grundlagen", "deck_text": "Rauchen — rund 85 % der Fälle", "reason": "Anteil nicht in Erfassung"},
+  {"panel": "klinik", "deck_text": "Husten über 3 Wochen beim Raucher ist tumorverdächtig", "reason": "AMBOSS: chronischer Husten ≥40 J.; 3-Wochen-Grenze nicht erfasst"},
+  {"panel": "klinik", "deck_text": "PTHrP beim Plattenepithelkarzinom — Hyperkalzämie", "reason": "AMBOSS nennt PTH-ähnliches Peptid ohne Histotyp"},
+  {"panel": "diagnostik", "deck_text": "CT-gesteuerte Punktion — periphere Rundherde; EBUS — Lymphknoten", "reason": "nicht in Erfassung"},
+  {"panel": "diagnostik", "deck_text": "MRT-Schädel — Hirnmetastasen, beim kleinzelligen immer", "reason": "cMRT erfasst, 'immer beim SCLC' nicht"},
+  {"panel": "diagnostik", "deck_text": "Limited disease — auf eine Thoraxhälfte begrenzt, bestrahlbar", "reason": "VALG-Tabelle TNM-basiert; Vereinfachung"},
+  {"panel": "diagnostik", "deck_text": "Perfusionsszintigrafie — berechnet die verbleibende Funktion", "reason": "nicht in Erfassung"},
+  {"panel": "therapie", "deck_text": "NSCLC I bis II: Lobektomie; Operation in Stadien I bis II", "reason": "AMBOSS: OP bis IIIA2; Vereinfachung"},
+  {"panel": "therapie", "deck_text": "Palliativ: WHO-Schema, Morphin, Pleurodese, Stent, Bisphosphonate", "reason": "Palliativtherapie nicht in Erfassung"},
+  {"panel": "perlen", "deck_text": "der Nerv läuft unter dem Aortenbogen", "reason": "Anatomie nicht in Erfassung"},
+  {"panel": "protokoll", "deck_text": "PET zusätzlich den Stoffwechsel über 18F-FDG", "reason": "Tracer nicht in Erfassung"}
+ ],
+ "status": "done",
+ "validated": "2026-10-09"}

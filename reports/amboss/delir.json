@@ -1,0 +1,21 @@
+{"slug": "delir", "deck": "reviews/notfallmedizin/delir.html", "capture": ["sources/amboss/delir.md"],
+ "counts": {"ok": 36, "fix": 0, "unclear": 14},
+ "fixes": [],
+ "unclear": [
+  {"panel": "grundlagen", "deck_text": "Immer Folge einer körperlichen Ursache — und reversibel", "reason": "AMBOSS: i.d.R. reversibel, aber Langzeitfolgen möglich"},
+  {"panel": "grundlagen", "deck_text": "gemischt: wechselnd, am häufigsten", "reason": "AMBOSS (nur ICU): hypoaktiv ca. 2/3, Mischtyp ca. 1/3"},
+  {"panel": "grundlagen", "deck_text": "Harnwegsinfekt und Pneumonie führen die Liste an", "reason": "Rangfolge nicht in Erfassung"},
+  {"panel": "klinik", "deck_text": "Demenz/Psychose: Beginn, Bewusstsein, Verlauf (Tabelle)", "reason": "Vergleichstabelle nicht in Erfassung"},
+  {"panel": "klinik", "deck_text": "bei der Schizophrenie akustisch", "reason": "Nicht in Erfassung"},
+  {"panel": "klinik", "deck_text": "Demenz ... ist der größte Risikofaktor", "reason": "AMBOSS nennt Demenz als Risikofaktor, keine Rangfolge"},
+  {"panel": "klinik", "deck_text": "Delirium tremens: 2–3 Tage, 6–48 h Krämpfe, weiße Mäuse, vegetativ", "reason": "AMBOSS verweist auf separates Kapitel Alkoholentzugsdelir"},
+  {"panel": "klinik", "deck_text": "Wernicke-Trias, Korsakow, Thiamin vor Glukose", "reason": "Nicht in Erfassung"},
+  {"panel": "therapie", "deck_text": "Nur bei Eigen- oder Fremdgefährdung, nicht zur Ruhigstellung.", "reason": "AMBOSS: auch belastende Symptome, Versagen nicht-med. Maßnahmen"},
+  {"panel": "therapie", "deck_text": "Delir mit Unruhe oder Halluzination → Haloperidol, niedrig dosiert", "reason": "AMBOSS: Unruhe eher niedrigpotent (Pipamperon/Melperon); Nuance"},
+  {"panel": "therapie", "deck_text": "Alkoholentzug → Benzodiazepin — plus Thiamin", "reason": "Benzo ✓; Thiamin nicht in Erfassung"},
+  {"panel": "therapie", "deck_text": "extrapyramidale Störungen, malignes neuroleptisches Syndrom", "reason": "NW-Liste nicht in Erfassung (EKG-Monitoring ✓)"},
+  {"panel": "therapie", "deck_text": "GABA-Wirkung ... Haloperidol senkt zusätzlich die Krampfschwelle", "reason": "Nicht in Erfassung"},
+  {"panel": "perlen", "deck_text": "Beim alten Menschen ist der Harnwegsinfekt die häufigste Ursache", "reason": "AMBOSS: Exsikkose häufigster Grund akuter psychiatr. Symptome; unklar"}
+ ],
+ "status": "done",
+ "validated": "2026-10-09"}

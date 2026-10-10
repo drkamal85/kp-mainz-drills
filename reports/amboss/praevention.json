@@ -1,0 +1,26 @@
+{"slug": "praevention", "deck": "reviews/drittes-fach/praevention.html", "capture": ["sources/amboss/praevention.md"],
+ "counts": {"ok": 22, "fix": 5, "unclear": 13},
+ "fixes": [
+  {"panel": "diagnostik", "deck_text": "Mann ab 50, Frau ab 55", "new_text": "Mann ab 50, Frau ab 50", "amboss_quote": "Anspruchsberechtigte Personengruppe: Personen ab 50 Jahren"},
+  {"panel": "diagnostik", "deck_text": "immunologisch, jährlich", "new_text": "immunologisch, alle 2 Jahre", "amboss_quote": "iFOBT alle 2 Jahre"},
+  {"panel": "perlen", "deck_text": "Koloskopie ab 50 beim Mann und ab 55 bei der Frau", "new_text": "Koloskopie ab 50 beim Mann und ab 50 bei der Frau", "amboss_quote": "Anspruchsberechtigte Personengruppe: Personen ab 50 Jahren"},
+  {"panel": "perlen", "deck_text": "Bei der Frau ab? 55 Jahren", "new_text": "Bei der Frau ab? 50 Jahren", "amboss_quote": "Anspruchsberechtigte Personengruppe: Personen ab 50 Jahren"},
+  {"panel": "perlen", "deck_text": "Stuhltest auf okkultes Blut, jährlich", "new_text": "Stuhltest auf okkultes Blut, alle 2 Jahre", "amboss_quote": "iFOBT alle 2 Jahre"}
+ ],
+ "unclear": [
+  {"panel": "grundlagen", "deck_text": "§ 20 / § 25 / § 26 SGB V", "reason": "SGB-Paragrafen nicht in Erfassung"},
+  {"panel": "grundlagen", "deck_text": "Primär/sekundär/tertiär mit Beispielen", "reason": "Präventionskapitel nur Verweis"},
+  {"panel": "diagnostik", "deck_text": "Brust 50 bis 75, Mammographie alle 2 Jahre", "reason": "Mammakarzinom-Screening nur Verweis"},
+  {"panel": "diagnostik", "deck_text": "Gebärmutterhals ab 20, Abstrich, ab 35 mit HPV-Test", "reason": "Zervixkarzinom-Früherkennung nur Verweis"},
+  {"panel": "diagnostik", "deck_text": "PSA steigt auch bei Prostatitis, Vergrößerung und nach Radfahren", "reason": "nicht in Erfassung"},
+  {"panel": "diagnostik", "deck_text": "erwartet wurden PSA, DRU ... Koloskopie", "reason": "Protokollaussage; PSA keine Kassenleistung ✓"},
+  {"panel": "therapie", "deck_text": "Ab 60: Influenza jährlich, Pneumokokken, Herpes zoster, COVID-19", "reason": "Impfkalender nur Verweis"},
+  {"panel": "therapie", "deck_text": "Tetanus und Diphtherie alle 10 Jahre", "reason": "Impfkalender nur Verweis"},
+  {"panel": "perlen", "deck_text": "Pneumokokken einmalig, Herpes zoster zweimal, Grippe jährlich", "reason": "Impfkalender nur Verweis"},
+  {"panel": "perlen", "deck_text": "Wie oft wird sie wiederholt? alle 10 Jahre", "reason": "AMBOSS: max. 2 Koloskopien im Abstand von 10 Jahren; vereinbar"},
+  {"panel": "protokoll", "deck_text": "U1 bis U9, J1; Mutterschaftsvorsorge mit 3 Ultraschalluntersuchungen", "reason": "nicht in Erfassung"},
+  {"panel": "protokoll", "deck_text": "dazu RSV ab 75", "reason": "Impfkalender nur Verweis"},
+  {"panel": "protokoll", "deck_text": "Frauen erhalten ab 20 den Zervixabstrich, ab 50 die Mammographie", "reason": "nur Verweis in Erfassung"}
+ ],
+ "status": "done",
+ "validated": "2026-10-09"}

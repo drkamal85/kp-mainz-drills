@@ -1,0 +1,85 @@
+{
+ "slug": "gerd",
+ "deck": "reviews/gastroenterologie/gerd.html",
+ "capture": [
+  "sources/amboss/gerd.md"
+ ],
+ "counts": {
+  "ok": 44,
+  "fix": 1,
+  "unclear": 12
+ },
+ "fixes": [
+  {
+   "panel": "diagnostik",
+   "deck_text": "Bessert es, ist die Diagnose gestellt.",
+   "new_text": "Bessert es, ist die Diagnose nicht bewiesen.",
+   "amboss_quote": "Eine Besserung der Symptomatik durch die Therapie mit einem PPI ist kein diagnostisches Kriterium!",
+   "note": "Orchestrator-Nachkorrektur: 'nicht gestellt' -> 'nicht bewiesen' (Sinn wie AMBOSS)"
+  }
+ ],
+ "unclear": [
+  {
+   "panel": "grundlagen",
+   "deck_text": "NERD: Beschwerden, aber keine sichtbare Schädigung — rund 60 Prozent",
+   "reason": "Anteil NERD nicht in Erfassung (nur: meiste Personen endoskopisch unauffällig)"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Bessert auf Protonenpumpenhemmer — das stützt die Diagnose",
+   "reason": "AMBOSS: PPI-Besserung kein diagnostisches Kriterium; 'stützt' schwächer formuliert"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Auch bei Therapieversagen und ab 45 bis 50 Jahren",
+   "reason": "Altersgrenze nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "3 Stunden Abstand zwischen Mahlzeit und Hinlegen",
+   "reason": "AMBOSS nur 'ausreichender Abstand zur Nachtruhe'"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Einmal täglich, 30 Minuten vor dem Frühstück — sie wirken nur an aktiven Pumpen.",
+   "reason": "Einmal täglich/Wirkmechanismus nicht in Erfassung; 30–60 min ✓"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "4 bis 8 Wochen, bei Grad C und D länger, danach ausschleichen",
+   "reason": "AMBOSS: A/B 4 Wo, C/D 8 Wo; 'länger' mehrdeutig"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Langzeitfolgen: B12- und Magnesiummangel, Osteoporose",
+   "reason": "PPI-Nebenwirkungen nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Indikation: junger Patient, große Hiatushernie, Therapieversagen",
+   "reason": "Nur Therapieresistenz in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Komplikation: Gas-bloat-Syndrom — Aufstoßen geht nicht mehr",
+   "reason": "OP-Komplikationen nicht in Erfassung"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Beim Zollinger-Ellison-Syndrom produziert ein Gastrinom massiv Säure. Behandelt wird mit hochdosierten PPI.",
+   "reason": "Gastrinom nur als Risikofaktor erfasst"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Ohne Dysplasie PPI und Kontrolle.",
+   "reason": "AMBOSS: PPI symptom-/befundorientiert, keine Ablation; Kontrolle ✓"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Retrosternaler Schmerz — was zuerst? EKG und Troponin",
+   "reason": "Kardiologische Abklärung erfasst, EKG/Troponin nicht explizit"
+  }
+ ],
+ "status": "done",
+ "validated": "2026-10-09"
+}

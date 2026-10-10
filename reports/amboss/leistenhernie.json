@@ -1,0 +1,22 @@
+{"slug": "leistenhernie", "deck": "reviews/chirurgie/leistenhernie.html", "capture": ["sources/amboss/leistenhernie.md"],
+ "counts": {"ok": 36, "fix": 0, "unclear": 15},
+ "fixes": [],
+ "unclear": [
+  {"panel": "grundlagen", "deck_text": "Indirekt: angeboren (Kinder/junge ♂)", "reason": "AMBOSS: angeboren oder erworben; Mnemonic-Vereinfachung"},
+  {"panel": "grundlagen", "deck_text": "Haut → Camper-Fett → 3 Muskeln → Fascia transversalis → Peritoneum", "reason": "Schichtaufbau nicht in Erfassung"},
+  {"panel": "grundlagen", "deck_text": "Nabelhernie / Narbenhernie / Hiatushernie (Übersicht)", "reason": "nicht in Erfassung (Grundlagenkapitel Hernien fehlt)"},
+  {"panel": "klinik", "deck_text": "Narbenhernie: Entsteht nach Laparotomie ... Operation dringlich", "reason": "nicht in Erfassung"},
+  {"panel": "klinik", "deck_text": "Hiatushernie: Axial in über 90 Prozent ... ÖGD, PPI", "reason": "nicht in Erfassung"},
+  {"panel": "diagnostik", "deck_text": "MRT nur bei unklarem Befund", "reason": "nicht in Erfassung"},
+  {"panel": "diagnostik", "deck_text": "Hodentumor; Lymphom, Lymphknotenmetastase", "reason": "nicht explizit in DD-Liste (nicht vollständig)"},
+  {"panel": "therapie", "deck_text": "Lichtenstein: spannungsfreie Netzplastik — Goldstandard offen", "reason": "Goldstandard-Aussage nicht in Erfassung"},
+  {"panel": "therapie", "deck_text": "Rezidiv ~0,5–10 %. Komplikationen: Ductus-deferens-Verletzung, Nervenläsion ...", "reason": "OP-Komplikationen nicht in Erfassung (Lücke)"},
+  {"panel": "perlen", "deck_text": "Schenkelhernie (klemmt in 30 % ein) nicht sicher ausgeschlossen", "reason": "Begründung/Rate nicht in Erfassung"},
+  {"panel": "perlen", "deck_text": "Femoralhernie: unterhalb Leistenband, medial der V. femoralis, ältere Frauen", "reason": "nicht in Erfassung"},
+  {"panel": "protokoll", "deck_text": "Bei Shouldice dopple ich die Fascia transversalis und fixiere sie am Leistenband.", "reason": "AMBOSS: Internus/Transversus am Leistenband fixiert; kompatibel"},
+  {"panel": "protokoll", "deck_text": "Ein Netz lege ich nicht ein, weil die Infektionsgefahr erhöht ist.", "reason": "nicht in Erfassung"},
+  {"panel": "protokoll", "deck_text": "Beim Rezidiv wechsle ich das Verfahren ...", "reason": "nicht in Erfassung"},
+  {"panel": "protokoll", "deck_text": "Bei beidseitigen Hernien operiere ich laparoskopisch mit TAPP oder TEP.", "reason": "nicht in Erfassung"}
+ ],
+ "status": "done",
+ "validated": "2026-10-09"}

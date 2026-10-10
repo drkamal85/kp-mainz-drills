@@ -1,0 +1,20 @@
+{"slug": "gi-blutung", "deck": "reviews/gastroenterologie/gi-blutung.html", "capture": ["sources/amboss/gi-blutung.md"],
+ "counts": {"ok": 52, "fix": 0, "unclear": 13},
+ "fixes": [],
+ "unclear": [
+  {"panel": "grundlagen", "deck_text": "Etwa 80–90 % aller GI-Blutungen sind obere Blutungen.", "reason": "AMBOSS ca. 90 %; Spanne kompatibel"},
+  {"panel": "grundlagen", "deck_text": "Divertikelblutung — häufigste Ursache (untere GI-Blutung)", "reason": "Häufigkeit unterer Ursachen nicht in Erfassung"},
+  {"panel": "diagnostik", "deck_text": "Ib — sickernde (venöse) Blutung", "reason": "AMBOSS: Sickerblutung; 'venös' nicht erfasst"},
+  {"panel": "diagnostik", "deck_text": "Ia–IIb → endoskopische Blutstillung; IIc und III → meist keine", "reason": "Therapie nach Forrest nicht in Erfassung"},
+  {"panel": "diagnostik", "deck_text": "Rockall-Score (Rezidiv-/Mortalitätsrisiko)", "reason": "nicht in Erfassung (nur GBS, AIMS65)"},
+  {"panel": "therapie", "deck_text": "EK-Transfusion (Ziel-Hb > 7 g/dl, bei KHK > 8)", "reason": "AMBOSS Zielwert Hb um 8 g/dL; Leitlinien-Nuance"},
+  {"panel": "therapie", "deck_text": "Varizen: Terlipressin, Ceftriaxon, Sengstaken, TIPS, Propranolol", "reason": "Ösophagusvarizenkapitel nicht erfasst"},
+  {"panel": "klinik", "deck_text": "Schockindex über eins spricht für relevanten Volumenmangel", "reason": "nicht in Erfassung"},
+  {"panel": "perlen", "deck_text": "Ulkus Bulbushinterwand → A. gastroduodenalis", "reason": "nicht in Erfassung"},
+  {"panel": "perlen", "deck_text": "Boerhaave-Syndrom — komplette transmurale Ösophagusruptur", "reason": "nicht in Erfassung"},
+  {"panel": "protokoll", "deck_text": "Endoskopie stabil innerhalb 12 bis 24 Stunden, instabil sofort", "reason": "Zeitfenster nicht in Erfassung"},
+  {"panel": "protokoll", "deck_text": "Apixaban pausieren/absetzen, Überbrückung mit NMH", "reason": "nicht in Erfassung"},
+  {"panel": "protokoll", "deck_text": "Blutung aus terminalem Ileum → in erster Linie Morbus Crohn", "reason": "nicht in Erfassung"}
+ ],
+ "status": "done",
+ "validated": "2026-10-09"}

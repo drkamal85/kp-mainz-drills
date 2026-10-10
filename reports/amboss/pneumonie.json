@@ -1,0 +1,21 @@
+{"slug": "pneumonie", "deck": "reviews/pneumologie/pneumonie.html", "capture": ["sources/amboss/pneumonie.md"],
+ "counts": {"ok": 24, "fix": 0, "unclear": 14},
+ "fixes": [],
+ "unclear": [
+  {"panel": "grundlagen", "deck_text": "HAP = nosokomial, Symptombeginn ≥ 48 Stunden nach Krankenhausaufnahme", "reason": "HAP-Kapitel nicht erfasst; auch Perle 1/Rapid-Fire/Tab 6"},
+  {"panel": "grundlagen", "deck_text": "Erregerspektrum CAP/HAP/Immunsuppression (Pneumokokken ~50 % usw.)", "reason": "Erregerspektrum-Kapitel nur Verweis; auch Perle 2/Tab 6"},
+  {"panel": "klinik", "deck_text": "Typisch vs. atypisch (Erreger, Beginn, Fieber, Husten)", "reason": "AMBOSS: Unterteilung nach Symptomatik nicht mehr empfohlen; Nuance"},
+  {"panel": "klinik", "deck_text": "klingende Rasselgeräusche", "reason": "AMBOSS: inspiratorische, feinblasige RG; 'klingend' nicht erfasst"},
+  {"panel": "diagnostik", "deck_text": "neues Infiltrat im Röntgen-Thorax (2 Ebenen); Nebenkriterien", "reason": "Ebenen/Nebenkriterien nicht in Erfassung"},
+  {"panel": "diagnostik", "deck_text": "CRB-65 (Kriterien, 0/≥1/≥2/≥3)", "reason": "CRB-65 nicht in Erfassung (CAP-Kapitel); auch Perle 3/Rapid-Fire/Tab 6"},
+  {"panel": "diagnostik", "deck_text": "Labor: Leukozytose, CRP, PCT; BGA bei Dyspnoe", "reason": "Laborparameter nicht im Detail erfasst"},
+  {"panel": "diagnostik", "deck_text": "Blutkulturen vor der Antibiose (aerob + anaerob)", "reason": "Zeitpunkt nicht erfasst; Blutkulturen ✓; auch Perle 8/Tab 6"},
+  {"panel": "therapie", "deck_text": "CAP-Memo-Treppe (Amoxicillin … Pip/Taz + Makrolid), Dauer 5–10 Tage", "reason": "Antibiotika-Schemata in separaten Kapiteln (Lücke); auch Perlen/Tab 6"},
+  {"panel": "therapie", "deck_text": "HAP Pip/Taz/Meropenem; MRSA Vancomycin/Linezolid; Aspiration Clindamycin", "reason": "nicht in Erfassung; auch Perle 5/Rapid-Fire/Tab 6"},
+  {"panel": "perlen", "deck_text": "Legionellen (Hotel, Dusche, Whirlpool)", "reason": "Expositionsquellen nicht erfasst; Urin-Antigen ✓"},
+  {"panel": "protokoll", "deck_text": "Sauerstoff bei Sättigung unter 90 %; Ziel 92–96 %, COPD 88–92 %", "reason": "nicht in Erfassung"},
+  {"panel": "protokoll", "deck_text": "COVID-19: Milchglas beidseits peripher subpleural", "reason": "COVID-Kapitel nicht erfasst"},
+  {"panel": "protokoll", "deck_text": "Pleuraerguss: homogene Verschattung mit verstrichenem Randwinkel", "reason": "nicht in Erfassung"}
+ ],
+ "status": "done",
+ "validated": "2026-10-09"}

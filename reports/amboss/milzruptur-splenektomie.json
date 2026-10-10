@@ -1,0 +1,20 @@
+{"slug": "milzruptur-splenektomie", "deck": "reviews/chirurgie/milzruptur-splenektomie.html", "capture": ["sources/amboss/milzruptur-splenektomie.md"],
+ "counts": {"ok": 33, "fix": 0, "unclear": 13},
+ "fixes": [],
+ "unclear": [
+  {"panel": "grundlagen", "deck_text": "IV: Beteiligung der Hilusgefäße, Devaskularisierung über 25 Prozent", "reason": "AMBOSS: ausgedehnte Durchblutungsstörungen; 25 % nicht erfasst"},
+  {"panel": "grundlagen", "deck_text": "Bei Mononukleose 4 bis 6 Wochen Sportverbot", "reason": "nicht in Erfassung"},
+  {"panel": "grundlagen", "deck_text": "Die Milz ist das am häufigsten verletzte Organ beim stumpfen Bauchtrauma", "reason": "AMBOSS: häufigste abdominelle Beteiligung bei Polytrauma; kompatibel"},
+  {"panel": "klinik", "deck_text": "Der Hämoglobinwert kann in der ersten Stunde noch normal sein", "reason": "nicht in Erfassung"},
+  {"panel": "diagnostik", "deck_text": "FAST sucht freie Flüssigkeit an vier Stellen — perihepatisch, perisplenisch, kleines Becken, Perikard", "reason": "AMBOSS nennt Koller, Morison, Douglas/Proust; Perikard nicht genannt"},
+  {"panel": "perlen", "deck_text": "Goldstandard beim stabilen Patienten? das Kontrastmittel-CT", "reason": "AMBOSS: FAST Goldstandard zur Diagnosesicherung; CT fakultativ bei Stabilen"},
+  {"panel": "therapie", "deck_text": "Über 80 Prozent der Milzverletzungen lassen sich heute ohne Operation behandeln", "reason": "nicht in Erfassung"},
+  {"panel": "therapie", "deck_text": "Bei aktiver Blutung ist die Angioembolisation die Alternative zur Operation", "reason": "AMBOSS-Indikation abweichend formuliert (Voroperationen, Zirrhose)"},
+  {"panel": "therapie", "deck_text": "Impfung Pneumokokken, Meningokokken, Hib, jährlich Influenza; 2 Wochen vor/nach OP", "reason": "Asplenie-Kapitel nicht erfasst"},
+  {"panel": "therapie", "deck_text": "Bei Kindern dauerhafte Antibiotikaprophylaxe mit Penicillin", "reason": "Asplenie-Kapitel nicht erfasst"},
+  {"panel": "therapie", "deck_text": "Howell-Jolly-Körperchen; funktionelle Asplenie bei Sichelzellanämie", "reason": "nicht in Erfassung"},
+  {"panel": "perlen", "deck_text": "N. phrenicus aus C3 bis C5", "reason": "Segmenthöhe nicht in Erfassung"},
+  {"panel": "protokoll", "deck_text": "Eine lebenslange Antibiotikaprophylaxe ist umstritten, Standard ist ein Notfall-Antibiotikum bei Fieber.", "reason": "Asplenie-Kapitel nicht erfasst"}
+ ],
+ "status": "done",
+ "validated": "2026-10-09"}

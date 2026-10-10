@@ -1,0 +1,77 @@
+{
+ "slug": "struma",
+ "deck": "reviews/endokrinologie/struma.html",
+ "capture": [
+  "sources/amboss/struma.md"
+ ],
+ "counts": {
+  "ok": 30,
+  "fix": 0,
+  "unclear": 12
+ },
+ "fixes": [],
+ "unclear": [
+  {
+   "panel": "grundlagen",
+   "deck_text": "WHO III: aus der Entfernung sichtbar",
+   "reason": "AMBOSS Grad 3: lokale Komplikationen; Kriterium abweichend, nicht klar falsch"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Rapid-Fire WHO-Grad III? aus der Entfernung sichtbar",
+   "reason": "wie oben"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Levothyroxin oder die Kombination bei erhöhtem TSH",
+   "reason": "AMBOSS: LT4-Monotherapie nicht mehr empfohlen; Hypothyreose separat"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Konservative Therapie? Jodid, Levothyroxin oder die Kombination",
+   "reason": "AMBOSS: LT4-Monotherapie nicht mehr empfohlen; Nuance"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Szintigrafie bei Knoten über 1 cm oder erniedrigtem TSH",
+   "reason": "AMBOSS: >10 mm unabhängig vom TSH; TSH-Zusatz nicht widersprochen"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Heiß ... praktisch nie maligne",
+   "reason": "Nicht explizit in Erfassung"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Malignitätskriterium Größenzunahme",
+   "reason": "Nicht in AMBOSS-Kriterienliste"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "FNP kann follikuläres Karzinom nicht vom Adenom trennen",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "OP: nicht beherrschbare Hyperthyreose; kosmetisch",
+   "reason": "Nicht in AMBOSS-OP-Indikationen"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Hemi-/totale Thyreoidektomie, zentrale Lymphadenektomie",
+   "reason": "Verfahren nicht erfasst"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Recurrensparese, Hypoparathyreoidismus, Nachblutung",
+   "reason": "OP-Komplikationen nicht erfasst"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "schluckverschieblich; Luftnot besonders im Liegen",
+   "reason": "Nicht in Erfassung"
+  }
+ ],
+ "status": "done",
+ "validated": "2026-10-09"
+}

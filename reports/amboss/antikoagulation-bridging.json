@@ -5,179 +5,11 @@
   "sources/amboss/antikoagulation-bridging.md"
  ],
  "counts": {
-  "ok": 33,
+  "ok": 44,
   "fix": 0,
-  "unclear": 12
+  "unclear": 22
  },
  "fixes": [],
- "ok": [
-  {
-   "panel": "grundlagen",
-   "deck_text": "Phenprocoumon, Faktoren II, VII, IX, X, HWZ 6,5 Tage",
-   "amboss": "Phenprocoumon: Synthesehemmung II, VII, IX, X sowie Protein C und S; HWZ 6,5 d"
-  },
-  {
-   "panel": "grundlagen",
-   "deck_text": "Faktor-Xa-Hemmer Apixaban, Rivaroxaban, Edoxaban, HWZ 5–13 h",
-   "amboss": "Apixaban 13 h, Edoxaban 11,5 h, Rivaroxaban 5–9 h"
-  },
-  {
-   "panel": "grundlagen",
-   "deck_text": "Dabigatran, Thrombin direkt, 13–18 h",
-   "amboss": "Dabigatran: selektiver Thrombin-Antagonismus, 13–18 h"
-  },
-  {
-   "panel": "grundlagen",
-   "deck_text": "Merksatz Faktoren II, VII, IX, X und Protein C und S",
-   "amboss": "Synthesehemmung ... sowie Protein C und Protein S"
-  },
-  {
-   "panel": "grundlagen",
-   "deck_text": "Vorhofflimmern",
-   "amboss": "Indikation: Vorhofflimmern"
-  },
-  {
-   "panel": "grundlagen",
-   "deck_text": "TVT und Lungenembolie",
-   "amboss": "Tiefe Venenthrombose bzw. Lungenarterienembolie"
-  },
-  {
-   "panel": "grundlagen",
-   "deck_text": "Nach elektivem Knie- oder Hüftgelenkersatz",
-   "amboss": "Postoperativ nach elektivem Knie- oder Hüftgelenkersatz"
-  },
-  {
-   "panel": "grundlagen",
-   "deck_text": "Nur Marcumar: mechanische Klappe, VHF bei mittelgradiger Mitralstenose, APS",
-   "amboss": "VKA-Indikationen: mechanischer Herzklappenersatz, VHF bei mind. mittelgradiger Mitralstenose, Antiphospholipidsyndrom"
-  },
-  {
-   "panel": "klinik",
-   "deck_text": "Dosisabhängig, verstärkt durch ASS, Clopidogrel, Ticagrelor",
-   "amboss": "Dosisabhängige Erhöhung des Blutungsrisikos, insb. mit ASS, Clopidogrel, Ticagrelor"
-  },
-  {
-   "panel": "klinik",
-   "deck_text": "Leichte Blutung: keine Antagonisierung",
-   "amboss": "Leichte Blutungen: Keine Antagonisierung nötig"
-  },
-  {
-   "panel": "klinik",
-   "deck_text": "Schwere Blutung: absetzen und antagonisieren",
-   "amboss": "Schwere Blutungen: Absetzen; Vitamin K und PPSB"
-  },
-  {
-   "panel": "klinik",
-   "deck_text": "Blutungsrisiko gemeinsame Nebenwirkung aller",
-   "amboss": "wichtigste gemeinsame Nebenwirkung aller Antikoagulanzien"
-  },
-  {
-   "panel": "klinik",
-   "deck_text": "Protein C und S fallen schneller ab",
-   "amboss": "Protein C und S mit kürzerer HWZ (6–10 h) als II, IX, X (2–4 d)"
-  },
-  {
-   "panel": "klinik",
-   "deck_text": "überlappend Heparin bis INR im Zielbereich",
-   "amboss": "Eindosierung unter zusätzlicher parenteraler Antikoagulation bis INR ≥2 bzw. im Zielbereich"
-  },
-  {
-   "panel": "klinik",
-   "deck_text": "Cumarin-Nekrose an Mamma, Hüfte, Gesäß, Oberschenkel",
-   "amboss": "Lokalisation: Mamma, Hüfte, Gesäß oder Oberschenkel"
-  },
-  {
-   "panel": "diagnostik",
-   "deck_text": "DOAK: Quick und PTT nicht aussagekräftig",
-   "amboss": "Quick und PTT unter Therapie nicht aussagekräftig; keine routinemäßige Überwachung"
-  },
-  {
-   "panel": "diagnostik",
-   "deck_text": "eGFR vor Beginn und regelmäßig, renal eliminiert",
-   "amboss": "regelmäßige Laborkontrollen (insb. eGFR); renale Elimination"
-  },
-  {
-   "panel": "diagnostik",
-   "deck_text": "Faktor-Xa-Hemmer KI unter GFR 15",
-   "amboss": "GFR <15 mL/min"
-  },
-  {
-   "panel": "diagnostik",
-   "deck_text": "Dabigatran KI unter GFR 30",
-   "amboss": "GFR <30 mL/min"
-  },
-  {
-   "panel": "therapie",
-   "deck_text": "feste Dosis, keine Steuerung, weniger Hirnblutungen",
-   "amboss": "feste Tagesdosis; keine routinemäßige Steuerung; geringeres ICB-Risiko"
-  },
-  {
-   "panel": "therapie",
-   "deck_text": "Marcumar bei Klappe, Mitralstenose, APS",
-   "amboss": "Indikationen für VKA"
-  },
-  {
-   "panel": "therapie",
-   "deck_text": "Marcumar, Edoxaban, Dabigatran nur nach parenteraler Einleitung",
-   "amboss": "Akuttherapie: VKA, Edoxaban und Dabigatran nur unter initial parenteraler Antikoagulation"
-  },
-  {
-   "panel": "therapie",
-   "deck_text": "Marcumar unter INR-Kontrolle absetzen",
-   "amboss": "Cumaringabe unter engmaschigen INR-Kontrollen unterbrechen"
-  },
-  {
-   "panel": "therapie",
-   "deck_text": "Ab INR unter 2 NMH therapeutisch",
-   "amboss": "Bei INR <2,0: (niedermolekulares) Heparin in therapeutischer Dosis"
-  },
-  {
-   "panel": "therapie",
-   "deck_text": "Heparin direkt präoperativ pausieren, postoperativ wieder",
-   "amboss": "Aussetzen direkt präoperativ; Wiederansetzen direkt postoperativ"
-  },
-  {
-   "panel": "therapie",
-   "deck_text": "Marcumar überlappend bis Ziel-INR",
-   "amboss": "überlappend Heparin, bis Ziel-INR erreicht"
-  },
-  {
-   "panel": "therapie",
-   "deck_text": "geringes/mittleres Risiko oft ohne Bridging, Bridging erhöht Blutungen",
-   "amboss": "ohne Bridging vorteilhafter; Blutungen ohne Bridging signifikant seltener"
-  },
-  {
-   "panel": "therapie",
-   "deck_text": "DOAK: kein Bridging, HWZ kurz",
-   "amboss": "Kurze Halbwertszeit, daher kein Bridging empfohlen"
-  },
-  {
-   "panel": "therapie",
-   "deck_text": "niedriges Risiko ≥24 h",
-   "amboss": "≥24 h präoperativ letzte Dosis"
-  },
-  {
-   "panel": "therapie",
-   "deck_text": "hohes Risiko ≥48 h, mit Amiodaron/Verapamil 24 h länger",
-   "amboss": "≥48 h; bei Amiodaron, Verapamil, Dronedaron ggf. um 24 h verlängern"
-  },
-  {
-   "panel": "therapie",
-   "deck_text": "Dabigatran → Idarucizumab",
-   "amboss": "Spezifisches Antidot für Dabigatran: Idarucizumab"
-  },
-  {
-   "panel": "therapie",
-   "deck_text": "Apixaban, Rivaroxaban → Andexanet alfa",
-   "amboss": "Spezifisches Antidot für Apixaban und Rivaroxaban: Andexanet alfa"
-  },
-  {
-   "panel": "therapie",
-   "deck_text": "Marcumar: PPSB sofort, Vitamin K verzögert",
-   "amboss": "schnell mittels PPSB; verzögert mittels Vitamin K"
-  }
- ],
- "diagnostik_queue": [],
  "unclear": [
   {
    "panel": "grundlagen",
@@ -238,10 +70,58 @@
    "panel": "therapie",
    "deck_text": "Heparin → Protamin",
    "reason": "Heparin-Kapitel nicht erfasst"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Dosisanpassung ab etwa 30 ml/min; Apixaban 2 von 3: ab 80 J, bis 60 kg, Kreatinin ab 1,5",
+   "reason": "Dosisreduktionskriterien nicht in Erfassung"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "bis der INR an 2 Tagen im Ziel liegt",
+   "reason": "AMBOSS: bis INR ≥2 bzw. im Zielbereich; '2 Tage' nicht erfasst"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "bis zum Wiederbeginn reicht prophylaktisches NMH",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Biologische Klappe — 3 Monate",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Schwere Niereninsuffizienz: UFH; Schwangerschaft: NMH",
+   "reason": "Heparin-Kapitel nicht erfasst (bekannte Lücke)"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "HIT II: keine Thrombozytenkonzentrate",
+   "reason": "HIT nicht erfasst"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "INR-Ziel bei mechanischer Mitralklappe höher",
+   "reason": "Zielbereiche nicht erfasst"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "PPSB vor FFP",
+   "reason": "FFP nicht in Erfassung"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Marcumar ist in Woche 6 bis 12 embryotoxisch ... NMH mit Anti-Xa-Kontrolle",
+   "reason": "AMBOSS nur: Schwangerschaft relative KI; Details nicht erfasst"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Clopidogrel blockiert P2Y12",
+   "reason": "Nicht in Erfassung"
   }
  ],
- "notes": [
-  "Deck auf Grundlage der Erfassung gebaut; zwei KP-Intel-Zeilen (F07378 DOAK-Bridging, F01583 24 h Wartezeit bei Marcumar) bewusst nicht übernommen, weil sie der Erfassung widersprechen."
- ],
- "status": "done"
+ "status": "done",
+ "validated": "2026-10-09"
 }

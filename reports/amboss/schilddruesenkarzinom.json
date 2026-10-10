@@ -1,0 +1,103 @@
+{
+ "slug": "schilddruesenkarzinom",
+ "deck": "reviews/endokrinologie/schilddruesenkarzinom.html",
+ "capture": [
+  "sources/amboss/schilddruesenkarzinom.md"
+ ],
+ "counts": {
+  "ok": 36,
+  "fix": 5,
+  "unclear": 11
+ },
+ "fixes": [
+  {
+   "panel": "grundlagen",
+   "deck_text": "Papillär (~80 %) und follikulär (~10 %) … anaplastisch (~2 %)",
+   "new_text": "Papillär (~60 %) und follikulär (~30 %) … anaplastisch (~5 %)",
+   "amboss_quote": "Papilläres … Ca. 60% | Follikuläres … Ca. 30% | Anaplastisches … Ca. 5%"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Tabelle Papillär ~80 %",
+   "new_text": "~60 %",
+   "amboss_quote": "Papilläres Schilddrüsenkarzinom … Ca. 60%"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Tabelle Follikulär ~10 %",
+   "new_text": "~30 %",
+   "amboss_quote": "Follikuläres Schilddrüsenkarzinom … Ca. 30%"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Tabelle Anaplastisch ~2 %",
+   "new_text": "~5 %",
+   "amboss_quote": "Anaplastisches Schilddrüsenkarzinom … Ca. 5%"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Häufigster Typ? papilläres Karzinom (~80 %)",
+   "new_text": "papilläres Karzinom (~60 %)",
+   "amboss_quote": "Häufigstes Schilddrüsenkarzinom … Ca. 60%"
+  }
+ ],
+ "unclear": [
+  {
+   "panel": "grundlagen",
+   "deck_text": "Papillär: Milchglaskerne; Follikulär: Jodmangelgebiete",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Medullär: Prognose mittel",
+   "reason": "AMBOSS 95/75/25–50 % je nach Ausbreitung; Wertung kompatibel"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Risikofaktoren: Strahlung v. a. in der Kindheit → papillär, Jodmangel (follikulär)",
+   "reason": "Zuordnung/Jodmangel nicht in Erfassung"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Medullär: Calcitonin macht Diarrhö und Flush; MEN2 (Phäochromozytom, HPT)",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Heißer Knoten fast nie maligne",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "FNP trennt beim follikulären Tumor Adenom und Karzinom nicht — Histologie",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Thyreoglobulin … aber erst NACH der Thyreoidektomie",
+   "reason": "AMBOSS: Verlaufskontrolle nach Thyreoidektomie; kompatibel"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Basis ist die totale Thyreoidektomie mit Lymphadenektomie",
+   "reason": "AMBOSS: LK-Dissektion nur bei bestimmten Faktoren; Hemithyreoidektomie möglich"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Medullär: totale Thyreoidektomie mit zentraler Lymphadenektomie, vorher Phäo ausschließen",
+   "reason": "AMBOSS: mod. radikale Neck Dissection; Phäo-Ausschluss nicht erfasst"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Danach lebenslang L-Thyroxin zur TSH-Suppression",
+   "reason": "„lebenslang\" nicht explizit; TSH-Suppression bestätigt"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Anaplastisch: meist nur palliativ (Operation, Bestrahlung, Chemotherapie)",
+   "reason": "AMBOSS: radikale OP + adjuvante Multikinase-/Checkpoint-Inhibitoren"
+  }
+ ],
+ "status": "done",
+ "validated": "2026-10-09"
+}

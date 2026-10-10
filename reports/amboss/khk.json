@@ -1,0 +1,19 @@
+{"slug": "khk", "deck": "reviews/kardiologie/khk.html", "capture": ["sources/amboss/khk.md"],
+ "counts": {"ok": 6, "fix": 0, "unclear": 12},
+ "fixes": [],
+ "unclear": [
+  {"panel": "grundlagen", "deck_text": "Definition KHK, Stromgebiete, Hauptstammstenose, Risikofaktoren", "reason": "chronische KHK nicht erfasst (Erfassung = ACS); auch Tab 6"},
+  {"panel": "grundlagen", "deck_text": "Kardiovaskuläre Erkrankungen führende Todesursache", "reason": "nicht in Erfassung"},
+  {"panel": "klinik", "deck_text": "Stabile AP klingt in Ruhe oder auf Nitrat (~2 min) ab", "reason": "stabile AP nicht erfasst; auch Perle 2/Tab 6"},
+  {"panel": "klinik", "deck_text": "Instabile AP: Troponin positiv (NSTEMI)", "reason": "AMBOSS trennt NSTEMI und instabile AP; Tabellenvereinfachung"},
+  {"panel": "klinik", "deck_text": "CCS-Grade 0–IV", "reason": "nicht in Erfassung; auch Perle 3/Rapid-Fire"},
+  {"panel": "klinik", "deck_text": "Prinzmetal: Calciumantagonisten, Betablocker meiden", "reason": "nicht in Erfassung; auch Perle 4/Rapid-Fire"},
+  {"panel": "diagnostik", "deck_text": "Belastungs-EKG ST-Senkung > 0,1/0,2 mV; max. HF 220 − Alter", "reason": "nicht in Erfassung"},
+  {"panel": "diagnostik", "deck_text": "Stress-Echo, Szintigrafie, Koronarangiografie Goldstandard; Belastungs-KI", "reason": "CCS-Diagnostik nicht erfasst; auch Perlen/Rapid-Fire/Tab 6"},
+  {"panel": "therapie", "deck_text": "ASS 100 mg (oder Clopidogrel 75); Statin; ACE-Hemmer", "reason": "Langzeittherapie nicht erfasst; auch Perle 7/Tab 6"},
+  {"panel": "therapie", "deck_text": "PCI Ein-/Zweigefäß vs. Bypass Hauptstamm/Dreigefäß/Diabetiker", "reason": "nicht in Erfassung; auch Perle 8/Rapid-Fire"},
+  {"panel": "perlen (Rapid-Fire)", "deck_text": "hämodynamisch relevant > 70 %", "reason": "nicht in Erfassung"},
+  {"panel": "protokoll", "deck_text": "SYNTAX-Score über 32; spiegelbildliche Senkungen; V1–V4 Vorderwand", "reason": "nicht in Erfassung (EKG bei Myokardinfarkt nur Verweis)"}
+ ],
+ "status": "done",
+ "validated": "2026-10-09"}

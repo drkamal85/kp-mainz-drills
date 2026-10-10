@@ -1,0 +1,23 @@
+{"slug": "akuttoxikologie", "deck": "reviews/notfallmedizin/akuttoxikologie.html", "capture": ["sources/amboss/akuttoxikologie.md"],
+ "counts": {"ok": 30, "fix": 0, "unclear": 16},
+ "fixes": [],
+ "unclear": [
+  {"panel": "klinik", "deck_text": "Paracetamol: Ab etwa 150 mg/kg wird es gefährlich", "reason": "Einzelvergiftungen nicht Teil der Grundlagen-Erfassung"},
+  {"panel": "klinik", "deck_text": "Transaminasen steigen erst nach 24 bis 36 Stunden", "reason": "Paracetamol-Artikel nicht erfasst"},
+  {"panel": "klinik", "deck_text": "Kirschrote Haut ist unzuverlässig", "reason": "CO-Artikel nicht erfasst"},
+  {"panel": "klinik", "deck_text": "Wernicke-Enzephalopathie vorbeugen: Thiamin vor Glukose", "reason": "Alkohol-Artikel nicht erfasst"},
+  {"panel": "diagnostik", "deck_text": "Paracetamol frühestens 4 Stunden nach Einnahme", "reason": "nicht in Erfassung"},
+  {"panel": "therapie", "deck_text": "Aktivkohle nur in der ersten Stunde, etwa 1 g pro Kilogramm", "reason": "Zeitfenster/Dosis nicht erfasst (SOP-Verweis)"},
+  {"panel": "therapie", "deck_text": "Erbrechen wird nicht mehr ausgelöst — Aspirationsgefahr", "reason": "AMBOSS nennt induziertes Erbrechen ohne Wertung; SOP nicht erfasst"},
+  {"panel": "therapie", "deck_text": "Dialysierbar: Methanol, Ethylenglykol, Lithium, Salicylate, Metformin", "reason": "Substanzliste nicht in Erfassung"},
+  {"panel": "therapie", "deck_text": "Kohlenmonoxid — Sauerstoff 100 %", "reason": "CO nicht in Antidot-Tabelle; nur hyperbare Oxygenierung genannt"},
+  {"panel": "therapie", "deck_text": "Betablocker — Glukagon", "reason": "nicht in Antidot-Tabelle"},
+  {"panel": "therapie", "deck_text": "Naloxon: zu schnell löst Entzugssyndrom aus; wirkt kürzer als das Opioid", "reason": "nicht in Erfassung"},
+  {"panel": "therapie", "deck_text": "NAC am besten in den ersten 8 Stunden; ersetzt Glutathion", "reason": "Paracetamol-Artikel nicht erfasst"},
+  {"panel": "perlen", "deck_text": "CO bindet etwa 250-mal stärker als Sauerstoff an Hämoglobin", "reason": "CO-Artikel nicht erfasst"},
+  {"panel": "perlen", "deck_text": "EKG-Zeichen der Digitalisvergiftung: muldenförmige ST-Senkung und Bradykardie", "reason": "nicht in Erfassung"},
+  {"panel": "protokoll", "deck_text": "Weite Pupillen finde ich bei Kokain, Amphetaminen und Benzodiazepinen.", "reason": "Pupillenbefund Benzodiazepine nicht in Erfassung"},
+  {"panel": "protokoll", "deck_text": "Toxisch wird es ab etwa 7,5 bis 10 g. Über 12 g ist die Dosis lebensbedrohlich.", "reason": "Paracetamol-Artikel nicht erfasst"}
+ ],
+ "status": "done",
+ "validated": "2026-10-09"}

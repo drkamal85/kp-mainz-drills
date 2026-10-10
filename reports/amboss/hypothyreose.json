@@ -1,0 +1,15 @@
+{"slug": "hypothyreose", "deck": "reviews/endokrinologie/hypothyreose.html", "capture": ["sources/amboss/hypothyreose.md"],
+ "counts": {"ok": 30, "fix": 0, "unclear": 8},
+ "fixes": [],
+ "unclear": [
+  {"panel": "grundlagen", "deck_text": "Primär (~95 %)", "reason": "Anteil nicht in Erfassung"},
+  {"panel": "grundlagen", "deck_text": "sekundär/tertiär (zentral): TSH niedrig/normal", "reason": "AMBOSS: TSH↓; „normal\" Zusatz, Nuance"},
+  {"panel": "therapie", "deck_text": "Ziel: TSH normal, Kontrolle nach 6–8 Wochen", "reason": "AMBOSS: TSH und fT4 nach ≥2 Monaten; Rundungsnuance"},
+  {"panel": "therapie", "deck_text": "Latent behandeln ab TSH > 10 , bei Symptomen, Kinderwunsch/Schwangerschaft", "reason": "AMBOSS: >10–<20 nur ≤75 J. (✓); symptomatisch ≤10 (—); Vereinfachung"},
+  {"panel": "therapie", "deck_text": "Levothyroxin morgens nüchtern, ~30 min vor dem Essen; einschleichend bei KHK", "reason": "Nicht in Erfassung"},
+  {"panel": "therapie", "deck_text": "Zuerst Hydrokortison, dann L-Thyroxin i.v. (ggf. + T3)", "reason": "AMBOSS nennt L-Thyroxin i.v. und Glucocorticoide ohne Reihenfolge"},
+  {"panel": "perlen", "deck_text": "Weltweit häufigste Ursache? Jodmangel.", "reason": "Nur für kongenitale Form in Erfassung"},
+  {"panel": "perlen", "deck_text": "Schwangerschaft — Bedarf steigt (~25–50 %)", "reason": "Nicht in Erfassung"}
+ ],
+ "status": "done",
+ "validated": "2026-10-09"}

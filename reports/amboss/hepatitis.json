@@ -1,0 +1,30 @@
+{
+ "slug": "hepatitis",
+ "deck": "reviews/gastroenterologie/hepatitis.html",
+ "capture": ["sources/amboss/hepatitis.md"],
+ "counts": {"ok": 24, "fix": 0, "unclear": 19},
+ "fixes": [],
+ "unclear": [
+  {"panel": "grundlagen", "deck_text": "C: Blut / häufig chronisch / keine Impfung; D: nur mit B", "reason": "Hepatitis C und D nicht erfasst (bekannte Lücke)"},
+  {"panel": "grundlagen", "deck_text": "E: chronisch nur bei Immunschwäche", "reason": "AMBOSS: normalerweise keine Chronifizierung; Ausnahme nicht erfasst"},
+  {"panel": "klinik", "deck_text": "Hepatitis A heilt meist in 4 bis 6 Wochen von selbst", "reason": "AMBOSS: mehrere Wochen bis 6 Monate; vereinbar"},
+  {"panel": "klinik", "deck_text": "Hepatitis C wird in etwa 70 Prozent chronisch", "reason": "HCV-Kapitel nicht erfasst"},
+  {"panel": "klinik", "deck_text": "Steatosis hepatis als HCC-Ursache", "reason": "nicht in Erfassung"},
+  {"panel": "klinik", "deck_text": "Kryoglobulinämische Vaskulitis mit Purpura, Glomerulonephritis (HCV)", "reason": "HCV nicht erfasst"},
+  {"panel": "diagnostik", "deck_text": "Anti-HCV zeigt nur Kontakt; HCV-RNA positiv heißt aktiv", "reason": "HCV nicht erfasst"},
+  {"panel": "diagnostik", "deck_text": "Quick und Albumin zeigen die Leistung", "reason": "vereinbar mit Lebersyntheseparametern"},
+  {"panel": "therapie", "deck_text": "C: DAA für 8 bis 12 Wochen, über 95 Prozent geheilt", "reason": "HCV nicht erfasst"},
+  {"panel": "therapie", "deck_text": "Paracetamol zurückhaltend und keine NSAR", "reason": "nicht in Erfassung"},
+  {"panel": "therapie", "deck_text": "Wer gegen B geschützt ist, ist zugleich gegen D geschützt.", "reason": "HDV/Impfung nicht erfasst"},
+  {"panel": "therapie", "deck_text": "Säuglinge: B in der Sechsfachimpfung, im 2., 4. und 11. Lebensmonat", "reason": "Impfung nicht erfasst (Lücke)"},
+  {"panel": "therapie", "deck_text": "Jede akute Virushepatitis ist namentlich meldepflichtig.", "reason": "Meldepflicht nicht erfasst (Lücke)"},
+  {"panel": "therapie", "deck_text": "Bei B ohne Impfschutz aktive und passive Impfung binnen 24 Stunden", "reason": "PEP nicht erfasst"},
+  {"panel": "perlen", "deck_text": "viral, toxisch, autoimmun und Steatohepatitis", "reason": "nicht in Erfassung"},
+  {"panel": "perlen", "deck_text": "Bei erhöhten Leberwerten gehören EBV und CMV in die Differenzialdiagnose", "reason": "DD-Abschnitt unvollständig erfasst"},
+  {"panel": "perlen", "deck_text": "Welcher Marker zeigt die akute Infektion an? HBs-Antigen", "reason": "AMBOSS: akut HBsAg + Anti-HBc-IgM; Vereinfachung"},
+  {"panel": "perlen", "deck_text": "Welcher Marker zeigt hohe Infektiosität? HBe-Antigen", "reason": "Parametertabelle nicht erfasst"},
+  {"panel": "perlen", "deck_text": "Nadelstich: ausbluten lassen, spülen, desinfizieren, D-Arzt", "reason": "nicht in Erfassung"}
+ ],
+ "status": "done",
+ "validated": "2026-10-09"
+}

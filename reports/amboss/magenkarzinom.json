@@ -1,0 +1,22 @@
+{
+ "slug": "magenkarzinom",
+ "deck": "reviews/chirurgie/magenkarzinom.html",
+ "capture": ["sources/amboss/magenkarzinom.md"],
+ "counts": {"ok": 32, "fix": 0, "unclear": 11},
+ "fixes": [],
+ "unclear": [
+  {"panel": "grundlagen", "deck_text": "Prognose/Patient: besser, älter vs. schlechter, jünger, hereditär (CDH1)", "reason": "nicht in Erfassung"},
+  {"panel": "grundlagen", "deck_text": "Correa-Kaskade: Gastritis → Atrophie → Metaplasie → Dysplasie → Karzinom", "reason": "nicht in Erfassung"},
+  {"panel": "grundlagen", "deck_text": "Typ-A-Gastritis, Z. n. Magenteilresektion, perniziöse Anämie, Ménétrier", "reason": "nicht in Erfassung"},
+  {"panel": "klinik", "deck_text": "Sister-Mary-Joseph-Knoten — Nabel", "reason": "nicht in Erfassung"},
+  {"panel": "klinik", "deck_text": "Fleischabneigung als klassisches Frühsymptom", "reason": "AMBOSS: Symptome meist spät; Fleischabneigung ohne Zeitangabe"},
+  {"panel": "diagnostik", "deck_text": "CEA, CA 72-4 und CA 19-9 nur zur Verlaufskontrolle", "reason": "AMBOSS: nicht zur Primärdiagnostik; Verlauf nicht genannt"},
+  {"panel": "therapie", "deck_text": "lokal fortgeschrittenen Karzinom (ab T2 oder N-positiv) … FLOT", "reason": "AMBOSS: Standard ≥cT3, erwägen bei cT2 N0"},
+  {"panel": "therapie", "deck_text": "HER2-positive Tumoren erhalten zusätzlich Trastuzumab", "reason": "AMBOSS: Trastuzumab palliativ; perioperativ nicht genannt"},
+  {"panel": "therapie", "deck_text": "Frühdumping ~30 Min nach dem Essen", "reason": "AMBOSS: ca. 20 min; Näherungswert"},
+  {"panel": "therapie", "deck_text": "Anastomoseninsuffizienz … CT mit oralem Kontrast; Osteoporose", "reason": "nicht in Erfassung"},
+  {"panel": "therapie", "deck_text": "Dumping: trinken zwischen den Mahlzeiten statt dazu", "reason": "kompatibel (AMBOSS: Flüssigkeit bis 30 min nach Mahlzeit meiden)"}
+ ],
+ "status": "done",
+ "validated": "2026-10-09"
+}

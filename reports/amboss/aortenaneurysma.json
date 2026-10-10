@@ -1,0 +1,21 @@
+{"slug": "aortenaneurysma", "deck": "reviews/gefaesschirurgie/aortenaneurysma.html", "capture": ["sources/amboss/aortenaneurysma.md"],
+ "counts": {"ok": 30, "fix": 1, "unclear": 14},
+ "fixes": [{"panel": "diagnostik", "deck_text": "gemessen wird der maximale Querdurchmesser von Außenwand zu Außenwand.", "new_text": "gemessen wird der maximale Querdurchmesser von Außenwand zu Innenwand.", "amboss_quote": "Leading-edge-Methode: Messung von der Außenwand bis zur gegenüberliegenden Innenwand"}],
+ "unclear": [
+  {"panel": "grundlagen", "deck_text": "Erweiterung auf über das Anderthalbfache ... normal etwa 2 Zentimeter", "reason": "1,5-fach-Regel und Normaldurchmesser nicht in Erfassung; ≥3 cm ✓"},
+  {"panel": "grundlagen", "deck_text": "Über 90 Prozent aller Bauchaortenaneurysmen liegen infrarenal", "reason": "AMBOSS nur 'häufigste Lokalisation', kein Prozentwert"},
+  {"panel": "grundlagen", "deck_text": "Weniger Vasa vasorum, weniger elastische Fasern, höchste mechanische Belastung", "reason": "Nicht in Erfassung"},
+  {"panel": "klinik", "deck_text": "Die Gesamtletalität der Ruptur liegt bei etwa 80 Prozent", "reason": "Ruptur in separatem AMBOSS-Kapitel (bekannte Lücke)"},
+  {"panel": "klinik", "deck_text": "Intraabdomineller Druck über 20 mmHg ... Blasendruck ... entlastende Laparotomie", "reason": "Kompartmentsyndrom nicht in Erfassung"},
+  {"panel": "diagnostik", "deck_text": "Crescent Sign als sichelförmige Einblutung in den Wandthrombus", "reason": "Nur Kontrastmittelaustritt erfasst"},
+  {"panel": "diagnostik", "deck_text": "3,0–3,9 cm: alle 2–3 Jahre", "reason": "AMBOSS Männer alle 2 J., Frauen 2–3 J."},
+  {"panel": "diagnostik", "deck_text": "ab 5,0 cm: alle 3–6 Monate", "reason": "AMBOSS Männer 5,0–5,4 cm alle 6 Monate; Bereich umfasst"},
+  {"panel": "therapie", "deck_text": "Blutdruckeinstellung mit Betablocker und ACE-Hemmer", "reason": "Substanzklassen nicht in Erfassung"},
+  {"panel": "therapie", "deck_text": "EVAR beim alten, komorbiden Patienten und offen beim jungen", "reason": "AMBOSS: intakt gleichwertig, Wahl nach Anatomie/Patient"},
+  {"panel": "therapie", "deck_text": "Offen: dauerhaft, kaum Nachsorge", "reason": "AMBOSS: Nachsorge nicht standardisiert, CT alle 5 J. erwägen"},
+  {"panel": "therapie", "deck_text": "Bei freier Ruptur wird sofort laparotomiert — kein CT", "reason": "AMBOSS: instabil sofort OP; Ruptur bevorzugt EVAR wenn machbar"},
+  {"panel": "therapie", "deck_text": "permissive Hypotension mit systolisch 80–90 mmHg", "reason": "Permissive Hypotonie ✓, Zielwert nicht in Erfassung"},
+  {"panel": "perlen", "deck_text": "Ein Kommentar aus dem Protokoll: „die sterben immer“", "reason": "Protokoll-Zitat, nicht prüfbar"}
+ ],
+ "status": "done",
+ "validated": "2026-10-09"}

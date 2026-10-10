@@ -1,0 +1,23 @@
+{"slug": "arterielle-hypertonie", "deck": "reviews/kardiologie/arterielle-hypertonie.html", "capture": ["sources/amboss/arterielle-hypertonie.md"],
+ "counts": {"ok": 52, "fix": 2, "unclear": 13},
+ "fixes": [
+  {"panel": "therapie", "deck_text": "Krise = RR > 180/120 OHNE Organschaden (orale Senkung).", "new_text": "Krise = RR > 180/110 OHNE Organschaden (orale Senkung).", "amboss_quote": "Mitunter wurde der Begriff auch als Synonym für eine hypertensive Entgleisung ≥180 mmHg systolisch oder ≥110 mmHg diastolisch genutzt."},
+  {"panel": "protokoll", "deck_text": "Bei der hypertensiven Krise liegen die Werte über 180 zu 120 mmHg ohne Organschaden.", "new_text": "Bei der hypertensiven Krise liegen die Werte über 180 zu 110 mmHg ohne Organschaden.", "amboss_quote": "Hypertensive Entgleisung: Blutdruckanstieg auf hypertensive Blutdruckwerte ohne Auftreten akuter Endorganschäden; ≥180 mmHg systolisch und/oder ≥110 mmHg diastolisch möglich"}
+ ],
+ "unclear": [
+  {"panel": "grundlagen", "deck_text": "Prävalenz bei Erwachsenen etwa 50 %", "reason": "AMBOSS: über die Hälfte aller >50-Jährigen; Epidemiologie-Lücke"},
+  {"panel": "grundlagen", "deck_text": "Alter, Adipositas und hohe Kochsalzzufuhr sind die stärksten Treiber.", "reason": "Rangfolge nicht in Erfassung"},
+  {"panel": "klinik", "deck_text": "Blutdruckdifferenz zwischen den Armen → Dissektion", "reason": "Dissektion als Hinweis nicht in Erfassung"},
+  {"panel": "diagnostik", "deck_text": "Fundus hypertonicus — I Kaliberschwankung, II Gunn-Kreuzungszeichen", "reason": "AMBOSS: I leichte, II starke Verengung; Formulierung abweichend"},
+  {"panel": "diagnostik", "deck_text": "Hyperaldosteronismus: Aldosteron-Renin-Quotient", "reason": "Nicht in Erfassung"},
+  {"panel": "diagnostik", "deck_text": "Phäochromozytom: Metanephrine im Urin", "reason": "Nicht in Erfassung"},
+  {"panel": "therapie", "deck_text": "Den Blutdruck in der ersten Stunde um höchstens ein Drittel ... senken", "reason": "Nicht in Erfassung; AMBOSS: keine zu rasche Senkung"},
+  {"panel": "perlen", "deck_text": "Häufigste endokrine Ursache ist der primäre Hyperaldosteronismus", "reason": "Rangfolge nicht in Erfassung"},
+  {"panel": "perlen", "deck_text": "ACE-Hemmer-Nebenwirkung? trockener Reizhusten, Hyperkaliämie", "reason": "Reizhusten nicht in Erfassung; Hyperkaliämie ✓"},
+  {"panel": "protokoll", "deck_text": "Ich behandle zuerst medikamentös mit Blutdrucksenkung und Statin.", "reason": "Statin nicht in Erfassung; PTA-Indikationen ✓"},
+  {"panel": "protokoll", "deck_text": "Renin ... Angiotensin 1 ... Angiotensin 2 ... Aldosteron", "reason": "RAAS-Physiologie nicht in Erfassung"},
+  {"panel": "protokoll", "deck_text": "Amlodipin ... Knöchelödeme, Kopfschmerz und Flush", "reason": "NW nicht in Erfassung"},
+  {"panel": "protokoll", "deck_text": "Methyldopa oder Nifedipin, ACE-Hemmer sind kontraindiziert", "reason": "ACE-KI ✓; Methyldopa/Nifedipin nicht in Erfassung"}
+ ],
+ "status": "done",
+ "validated": "2026-10-09"}

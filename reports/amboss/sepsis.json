@@ -1,0 +1,25 @@
+{"slug": "sepsis", "deck": "reviews/notfallmedizin/sepsis.html", "capture": ["sources/amboss/sepsis.md"],
+ "counts": {"ok": 62, "fix": 3, "unclear": 14},
+ "fixes": [
+  {"panel": "grundlagen", "deck_text": "Häufigste Fokusse: Lunge > Harnwege > Abdomen.", "new_text": "Häufigste Fokusse: Lunge > Abdomen > Harnwege.", "amboss_quote": "Häufigster Fokus: Pneumonie; Weitere (in absteigender Häufigkeit): Gastrointestinale Infektionen, Harnwegsinfektionen, ..."},
+  {"panel": "perlen", "deck_text": "Fokus-Häufigkeit: Lunge > Harnwege > Abdomen.", "new_text": "Fokus-Häufigkeit: Lunge > Abdomen > Harnwege.", "amboss_quote": "Weitere (in absteigender Häufigkeit): Gastrointestinale Infektionen, Harnwegsinfektionen"},
+  {"panel": "perlen", "deck_text": "Häufigster Fokus? Lunge (dann Harnwege, Abdomen)", "new_text": "Lunge (dann Abdomen, Harnwege)", "amboss_quote": "Weitere (in absteigender Häufigkeit): Gastrointestinale Infektionen, Harnwegsinfektionen"}
+ ],
+ "unclear": [
+  {"panel": "grundlagen", "deck_text": "Endotoxine → ... → Vasodilatation + Kapillarleck", "reason": "Vasodilatation nicht in Erfassung"},
+  {"panel": "klinik", "deck_text": "Vigilanzminderung (GCS < 15)", "reason": "GCS-Schwelle nicht in Erfassung"},
+  {"panel": "diagnostik", "deck_text": "Blutkulturen VOR Antibiose — mind. 2 Paare (aerob + anaerob), aus 2 Orten", "reason": "Anzahl Paare/Orte nicht in Erfassung"},
+  {"panel": "diagnostik", "deck_text": "CRP (hinkt 6–12 h nach)", "reason": "Zeitangabe nicht in Erfassung"},
+  {"panel": "therapie", "deck_text": "Im Schock (+ Kombi): + Fluorchinolon (Cipro/Levo) o. Fosfomycin", "reason": "AMBOSS: nur bei MRGN-Risikofaktoren; Vereinfachung"},
+  {"panel": "therapie", "deck_text": "MRSA-Verdacht: + Linezolid o. Vancomycin", "reason": "AMBOSS nennt Linezolid; Vancomycin nur bei Katheter-Sepsis"},
+  {"panel": "therapie", "deck_text": "ESBL (E. coli): Carbapenem (Meropenem)", "reason": "ESBL nicht in Erfassung"},
+  {"panel": "therapie", "deck_text": "Reevaluation alle 48–72 h", "reason": "AMBOSS: tägliche Reevaluation; Leitlinien-Nuance"},
+  {"panel": "perlen", "deck_text": "ESBL-Bildner → Meropenem (Penicilline und Cephalosporine sind unwirksam)", "reason": "ESBL nicht in Erfassung"},
+  {"panel": "perlen", "deck_text": "Blutkulturen — wie viele? mind. 2 Paare (aerob + anaerob)", "reason": "nicht in Erfassung"},
+  {"panel": "protokoll", "deck_text": "Im Urikult wurde E. coli gefunden, der häufigste Erreger von Harnwegsinfekten.", "reason": "HWI-Erregerspektrum nicht in Erfassung"},
+  {"panel": "protokoll", "deck_text": "Es war ein ESBL-Bildner ... Carbapenem wie Meropenem.", "reason": "ESBL nicht in Erfassung"},
+  {"panel": "protokoll", "deck_text": "Ich nehme mindestens 2 Paare aus 2 verschiedenen Punktionsstellen ... ab.", "reason": "nicht in Erfassung"},
+  {"panel": "protokoll", "deck_text": "Finde ich nichts, mache ich ein CT von Kopf bis Becken.", "reason": "protokollbasiert, nicht in Erfassung"}
+ ],
+ "status": "done",
+ "validated": "2026-10-09"}

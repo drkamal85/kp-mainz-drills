@@ -1,0 +1,20 @@
+{"slug": "allgemeine-frakturlehre", "deck": "reviews/unfallchirurgie/allgemeine-frakturlehre.html", "capture": ["sources/amboss/allgemeine-frakturlehre.md"],
+ "counts": {"ok": 40, "fix": 0, "unclear": 13},
+ "fixes": [],
+ "unclear": [
+  {"panel": "klinik", "deck_text": "Sichere Zeichen: Achsenfehlstellung / Deformität … Röntgennachweis", "reason": "AMBOSS: Deformität unsicher; Röntgen nicht als Zeichen gelistet"},
+  {"panel": "grundlagen", "deck_text": "Gustilo II 1–10 cm, mäßige Kontamination", "reason": "AMBOSS nur >1 cm; 10-cm-Grenze nicht erfasst"},
+  {"panel": "grundlagen", "deck_text": "Kallus-Phasen Entzündung → weicher → harter Kallus → Remodeling", "reason": "Phasen nicht in Erfassung"},
+  {"panel": "grundlagen", "deck_text": "Grünholz- (Kinder) Fraktur", "reason": "Kinderfrakturen nicht Teil des Kapitels"},
+  {"panel": "klinik", "deck_text": "Kompartmentsyndrom: Dehnschmerz frühestes Zeichen, vier Logen, Tibiaschaft", "reason": "Kompartmentkapitel nicht erfasst"},
+  {"panel": "diagnostik", "deck_text": "Sono bei Kindern (Epiphyse), Frakturhämatom", "reason": "nicht in Erfassung"},
+  {"panel": "therapie", "deck_text": "Osteosynthese-Verfahren (Zuggurtung, DHS, K-Draht, Marknagel)", "reason": "OP-Verfahrenskapitel nicht erfasst"},
+  {"panel": "therapie", "deck_text": "Offene Fraktur: Stabilisierung meist Fixateur externe", "reason": "nicht in Erfassung"},
+  {"panel": "therapie", "deck_text": "Pseudarthrose = ausbleibende Heilung nach > 6 Monaten", "reason": "Definition nicht in Erfassung"},
+  {"panel": "therapie", "deck_text": "Logendruck bis 10 / über 25 mmHg; Zeitfenster etwa 6 Stunden", "reason": "nicht in Erfassung"},
+  {"panel": "therapie", "deck_text": "Fettembolie, Thrombose/LE, Volkmann-Kontraktur", "reason": "nicht in Erfassung"},
+  {"panel": "protokoll", "deck_text": "Blutverlust Becken 1,5–5 L, Femur bis 2 L, Unterschenkel 1 L, Humerus 0,8", "reason": "nicht in Erfassung"},
+  {"panel": "protokoll", "deck_text": "Grad 1 Nagel vertretbar, ab Grad 2 zuerst Fixateur externe", "reason": "nicht in Erfassung"}
+ ],
+ "status": "done",
+ "validated": "2026-10-09"}

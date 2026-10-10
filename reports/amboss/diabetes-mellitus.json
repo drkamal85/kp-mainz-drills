@@ -1,0 +1,19 @@
+{"slug": "diabetes-mellitus", "deck": "reviews/endokrinologie/diabetes-mellitus.html", "capture": ["sources/amboss/diabetes-mellitus.md"],
+ "counts": {"ok": 46, "fix": 0, "unclear": 12},
+ "fixes": [],
+ "unclear": [
+  {"panel": "klinik", "deck_text": "DKA BZ < 700 / HHS BZ > 700, Letalität ~15 % / ~60 %", "reason": "Hyperglykämisches Koma nicht in Erfassung (eigenes SOP-Kapitel)"},
+  {"panel": "klinik", "deck_text": "Hypoglykämie: BZ < 50", "reason": "Hypoglykämie-Definition nicht in Erfassung"},
+  {"panel": "klinik", "deck_text": "Retinopathie/Neuropathie/Diab. Fuß Details", "reason": "Folgeerkrankungen bekannte Lücke"},
+  {"panel": "diagnostik", "deck_text": "HbA1c = BZ-„Gedächtnis\" der letzten 3–4 Monate", "reason": "AMBOSS: letzte 3 Monate; kompatible Vereinfachung"},
+  {"panel": "diagnostik", "deck_text": "1×/Jahr: Augenhintergrund, Fuß, Niere, Lipide, RR, EKG", "reason": "Verlaufskontrollen/DMP nicht erfasst"},
+  {"panel": "therapie", "deck_text": "Ziel-HbA1c meist 6,5–7,5 %", "reason": "AMBOSS Typ 2: 6,5–8,5 % individuell; Teilbereich, kein klarer Widerspruch"},
+  {"panel": "therapie", "deck_text": "48 h vor KM-Gabe / OP absetzen", "reason": "AMBOSS nur „ggf. i.v. jodhaltige KM\"/perioperativ, keine 48 h"},
+  {"panel": "therapie", "deck_text": "Metformin KI: dekompensierte Herzinsuffizienz, respiratorische Insuffizienz", "reason": "In Erfassung nicht explizit genannt"},
+  {"panel": "therapie", "deck_text": "DKA: NaCl 0,9 % → Low-Dose-Insulin → Kalium; ~50 mg/dl/h; Bikarbonat pH < 7", "reason": "DKA-Therapie nicht in Erfassung"},
+  {"panel": "perlen", "deck_text": "Lispro/Aspart/Glulisin 5–15 min; Glargin/Detemir ~24 h; Normalinsulin 15–30 min", "reason": "Insulinpräparate-Kapitel nicht erfasst"},
+  {"panel": "protokoll", "deck_text": "dann 10 IE Insulin intravenös und früh Kalium ... maximal 300 mg/dl täglich", "reason": "DKA-Therapie nicht in Erfassung"},
+  {"panel": "protokoll", "deck_text": "Urämie erzeugt Insulinresistenz, Bedarf zunächst steigen ... später sinkt", "reason": "AMBOSS: eingeschränkte Nierenfunktion → Bedarf↓; Nuance"}
+ ],
+ "status": "done",
+ "validated": "2026-10-09"}

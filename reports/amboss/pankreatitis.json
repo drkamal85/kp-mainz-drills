@@ -1,0 +1,22 @@
+{
+ "slug": "pankreatitis",
+ "deck": "reviews/chirurgie/pankreatitis.html",
+ "capture": ["sources/amboss/pankreatitis.md"],
+ "counts": {"ok": 36, "fix": 0, "unclear": 11},
+ "fixes": [],
+ "unclear": [
+  {"panel": "grundlagen", "deck_text": "Ödematös-interstitiell (~80 %, mild) vs. nekrotisierend (~20 %, schwer)", "reason": "AMBOSS ca. 85/15 %; Verlauf 80/20 leicht/schwer — Rundung"},
+  {"panel": "diagnostik", "deck_text": "CRP > 150 mg/l nach 48 h spricht für eine Nekrose und einen schweren Verlauf", "reason": "AMBOSS: >190 mg/L nach 48 h; Grenzwert leitlinienabhängig, Merksatz enthält 150"},
+  {"panel": "diagnostik", "deck_text": "Kontrast-CT erst nach ~72 h", "reason": "AMBOSS: initial kein CT; 72 h nicht genannt"},
+  {"panel": "therapie", "deck_text": "nur bei nachgewiesener infizierter Nekrose (dann z. B. Carbapenem)", "reason": "Substanz nicht in Erfassung"},
+  {"panel": "therapie", "deck_text": "Cholangitis oder Gallengangsobstruktion → dringliche ERCP", "reason": "AMBOSS: Obstruktion ohne Cholangitis ggf. abwarten bis 48 h"},
+  {"panel": "therapie", "deck_text": "Step-up — erst perkutane Drainage, dann minimalinvasive Nekrosektomie", "reason": "AMBOSS: endoskopisch primär, perkutan bei erschwertem Zugang"},
+  {"panel": "therapie", "deck_text": "Pseudozyste … drainieren (frühestens nach ~6 Wochen)", "reason": "Zeitpunkt nicht in Erfassung"},
+  {"panel": "protokoll", "deck_text": "treiben den intraabdominellen Druck über 20 mmHg", "reason": "Grenzwert nicht in Erfassung"},
+  {"panel": "protokoll", "deck_text": "Pankreas-Elastase im Stuhl … unter 200 Mikrogramm pro Gramm", "reason": "chronische Pankreatitis, nicht in Erfassung"},
+  {"panel": "protokoll", "deck_text": "Somatostatin hemmt die Freisetzung von Gastrin, Sekretin …", "reason": "nicht in Erfassung"},
+  {"panel": "protokoll", "deck_text": "Kopf über Aa. pancreaticoduodenales … Korpus und Schwanz A. splenica", "reason": "Anatomie nicht in Erfassung"}
+ ],
+ "status": "done",
+ "validated": "2026-10-09"
+}

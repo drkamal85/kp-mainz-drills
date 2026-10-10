@@ -1,0 +1,115 @@
+{
+ "slug": "tuberkulose",
+ "deck": "reviews/pneumologie/tuberkulose.html",
+ "capture": [
+  "sources/amboss/tuberkulose.md"
+ ],
+ "counts": {
+  "ok": 38,
+  "fix": 7,
+  "unclear": 11
+ },
+ "fixes": [
+  {
+   "panel": "grundlagen",
+   "deck_text": "Unter Therapie meist nach 2 bis 3 Wochen nicht mehr ansteckend",
+   "new_text": "Unter Therapie meist nach 4 bis 6 Wochen nicht mehr ansteckend",
+   "amboss_quote": "4–6 Wochen nach Therapiebeginn ist ein Patient mit einer unkomplizierten Lungentuberkulose i.d.R. nicht mehr infektiös"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "die Kultur braucht 6 bis 8 Wochen",
+   "new_text": "die Kultur braucht bis zu 6 Wochen",
+   "amboss_quote": "Die kulturelle Anzüchtung dauert bis zu 6 Wochen"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Sputum-PCR: Erreger direkt, Ergebnis in Stunden",
+   "new_text": "Sputum-PCR: Erreger direkt, Ergebnis in 2–3 Tagen",
+   "amboss_quote": "PCR: Schnelldiagnostik in 2–3 Tagen"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Kultur: Goldstandard, aber 6 bis 8 Wochen",
+   "new_text": "Kultur: Goldstandard, aber bis zu 6 Wochen",
+   "amboss_quote": "Die kulturelle Anzüchtung dauert bis zu 6 Wochen ... Goldstandard"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Die Kultur ... braucht aber bis zu 8 Wochen",
+   "new_text": "Die Kultur ... braucht aber bis zu 6 Wochen",
+   "amboss_quote": "Die kulturelle Anzüchtung dauert bis zu 6 Wochen"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Rapid-Fire: Wie lange dauert sie? bis zu 8 Wochen",
+   "new_text": "bis zu 6 Wochen",
+   "amboss_quote": "Die kulturelle Anzüchtung dauert bis zu 6 Wochen"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Die PCR liefert in Stunden ein Ergebnis.",
+   "new_text": "Die PCR liefert in 2–3 Tagen ein Ergebnis.",
+   "amboss_quote": "PCR: Schnelldiagnostik in 2–3 Tagen"
+  }
+ ],
+ "unclear": [
+  {
+   "panel": "grundlagen",
+   "deck_text": "Isolation ... Unter Therapie / binnen 24 Stunden Meldung",
+   "reason": "24-h-Frist nicht in Erfassung"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Die Oberlappen sind besser belüftet — die Erreger lieben Sauerstoff",
+   "reason": "Begründung nicht in Erfassung"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Husten über 3 Wochen",
+   "reason": "Zeitgrenze nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Alle vier belasten die Leber",
+   "reason": "AMBOSS-Tabelle: EMB nur Optikusneuritis; nicht explizit widersprochen"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Beim Kind Magensaft, weil es das Sputum verschluckt",
+   "reason": "Magensaft gelistet, Kind-Begründung nicht erfasst"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "3 Sputumproben an 3 verschiedenen Tagen, morgens",
+   "reason": "'morgens' nicht in Erfassung"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "MDR: resistent gegen Isoniazid und Rifampicin",
+   "reason": "MDR-Definition nicht erfasst"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Der Vorteil des Verzichts ist die Früherkennung",
+   "reason": "AMBOSS-Gründe: Wirksamkeit <50%, NW; Tbc-Test-Aspekt nur als falsch-positiv"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Einzelzimmer, Personal mit FFP2",
+   "reason": "FFP2 nicht in Erfassung"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Risikogruppen: Migration, Obdachlosigkeit",
+   "reason": "Obdachlosigkeit nicht erfasst"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Bluthusten — verdächtig auf Kaverne oder Karzinom",
+   "reason": "Nicht explizit erfasst"
+  }
+ ],
+ "status": "done",
+ "validated": "2026-10-09"
+}

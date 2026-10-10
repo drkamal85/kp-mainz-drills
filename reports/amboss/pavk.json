@@ -1,0 +1,16 @@
+{"slug": "pavk", "deck": "reviews/gefaesschirurgie/pavk.html", "capture": ["sources/amboss/pavk.md"],
+ "counts": {"ok": 34, "fix": 0, "unclear": 9},
+ "fixes": [],
+ "unclear": [
+  {"panel": "diagnostik", "deck_text": "Normal: 0,9 bis 1,3", "reason": "AMBOSS Normwert >0,9–1,2; >1,3 Mediasklerose; Bereichsnuance"},
+  {"panel": "protokoll", "deck_text": "Normal sind 0,9 bis 1,4", "reason": "AMBOSS Normwert >0,9–1,2, >1,3 Mediasklerose; Grenzwert-Nuance (Leitlinie 1,4)"},
+  {"panel": "diagnostik", "deck_text": "unter 0,5: kritische Ischämie", "reason": "AMBOSS: <0,5 schwere pAVK; kompatibel"},
+  {"panel": "therapie", "deck_text": "Gehtraining ... mindestens 3-mal wöchentlich (Karte „In jedem Stadium\")", "reason": "AMBOSS: Gehtraining nur Stadium I/II; Kartentitel nicht editierbar"},
+  {"panel": "protokoll", "deck_text": "Jeder pAVK-Patient bekommt einen Thrombozytenhemmer wie ASS oder Clopidogrel", "reason": "AMBOSS: ab Stadium II, Stadium I (✓)"},
+  {"panel": "therapie", "deck_text": "Rauchstopp — die wirksamste Einzelmaßnahme", "reason": "Nicht explizit in Erfassung"},
+  {"panel": "therapie", "deck_text": "PTA mit Stent — kurze Stenosen; Bypass — lange Verschlüsse", "reason": "Läsionslänge nicht in Erfassung"},
+  {"panel": "therapie", "deck_text": "6 P ...; Heparin, tief lagern; Zeitfenster etwa 6 Stunden", "reason": "Akuter Extremitätenverschluss bekannte Lücke"},
+  {"panel": "klinik", "deck_text": "Spinalkanalstenose: Besserung beim Vornüberbeugen", "reason": "DD-Details nicht erfasst"}
+ ],
+ "status": "done",
+ "validated": "2026-10-09"}

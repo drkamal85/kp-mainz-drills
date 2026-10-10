@@ -1,0 +1,25 @@
+{"slug": "sozialrecht-hygiene", "deck": "reviews/drittes-fach/sozialrecht-hygiene.html", "capture": ["sources/amboss/sozialrecht-hygiene.md"],
+ "counts": {"ok": 32, "fix": 1, "unclear": 16},
+ "fixes": [
+  {"panel": "klinik", "deck_text": "und zwar über die dreizehnte Woche nach dem Unfall hinaus.", "new_text": "und zwar über die sechsundzwanzigste Woche nach dem Unfall hinaus.", "amboss_quote": "Leistungsanspruch besteht ab einer Minderung der Erwerbsfähigkeit von 20%, ab der 26. Woche (6 Monate) nach Eintreten der Minderung der Erwerbsfähigkeit"}
+ ],
+ "unclear": [
+  {"panel": "grundlagen", "deck_text": "SGB V / XI / VI / VII / III je Säule", "reason": "SGB-Zuordnung nur für UV (SGB VII) erfasst"},
+  {"panel": "grundlagen", "deck_text": "Zuschlag für Kinderlose allein AN; Bundeszuschuss Rente", "reason": "nicht in Erfassung"},
+  {"panel": "grundlagen", "deck_text": "sechs Wochen Entgeltfortzahlung, danach Krankengeld bis zu achtundsiebzig Wochen", "reason": "GKV-Kapitel nicht erfasst (Lücke); auch Perlen/Rapid-Fire/Tab 6"},
+  {"panel": "klinik", "deck_text": "mit allen geeigneten Mitteln, ohne Rücksicht auf die Kosten", "reason": "nicht in Erfassung"},
+  {"panel": "klinik", "deck_text": "Unfall bei der versicherten beruflichen Tätigkeit (§ 8 SGB VII)", "reason": "Paragraf nicht erfasst; auch Perlen/Rapid-Fire/Tab 6"},
+  {"panel": "klinik", "deck_text": "Berufskrankheit: in der Berufskrankheitenverordnung gelistet", "reason": "BKV nicht erfasst (nur Ziffer/Öffnungsklausel)"},
+  {"panel": "klinik", "deck_text": "Studierende, Ehrenamtliche und Ersthelfer", "reason": "AMBOSS nennt Beschäftigte, Schüler, Landwirte etc."},
+  {"panel": "klinik", "deck_text": "Facharzt für Chirurgie beziehungsweise Unfallchirurgie oder Orthopädie", "reason": "Fachgebiet nicht in Erfassung; auch Rapid-Fire/Tab 6"},
+  {"panel": "klinik", "deck_text": "D-Arzt-Bericht an die BG; Anzeige an Gewerbeärztlichen Dienst", "reason": "nicht in Erfassung"},
+  {"panel": "diagnostik", "deck_text": "fünf Momente der Händedesinfektion", "reason": "laut Erfassung nur Querverweis, nicht verbatim erfasst"},
+  {"panel": "diagnostik", "deck_text": "bei Clostridioides difficile und Norovirus zusätzlich die Hände waschen", "reason": "erregerspezifisch nicht erfasst; auch Perle 6/Rapid-Fire"},
+  {"panel": "diagnostik", "deck_text": "Grenze von achtundvierzig Stunden nach Aufnahme", "reason": "nosokomial nicht erfasst; auch Perle 7/Rapid-Fire/Tab 6"},
+  {"panel": "diagnostik", "deck_text": "KRINKO am Robert-Koch-Institut; häufigste Formen nosokomialer Infektionen", "reason": "nicht in Erfassung"},
+  {"panel": "therapie", "deck_text": "MRSA: Screening, Risiko, Mupirocin-Sanierung, Vancomycin/Linezolid, VRE", "reason": "MRE in bekannter Lücke; auch Rapid-Fire/Tab 6"},
+  {"panel": "therapie", "deck_text": "Aerogen (Unterdruckzimmer): Tuberkulose, Masern, Varizellen", "reason": "AMBOSS: FFP2/3, Einzelzimmer mit Schleuse; Beispiele nicht erfasst"},
+  {"panel": "therapie", "deck_text": "Nadelstich: HIV 0,3 % · HCV 3 % · HBV 30 %; PEP < 2 h", "reason": "nicht in Erfassung; auch Perle 8/Rapid-Fire/Tab 6"}
+ ],
+ "status": "done",
+ "validated": "2026-10-09"}

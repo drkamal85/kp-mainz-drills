@@ -1,0 +1,25 @@
+{
+ "slug": "cholezystitis",
+ "deck": "reviews/chirurgie/cholezystitis.html",
+ "capture": ["sources/amboss/cholezystitis.md"],
+ "counts": {"ok": 52, "fix": 1, "unclear": 12},
+ "fixes": [
+  {"panel": "protokoll", "deck_text": "Ich lege eine T-Drainage für etwa 5 Tage und entferne die Gallenblase mit.", "new_text": "Ich lege eine T-Drainage für etwa 7 Tage und entferne die Gallenblase mit.", "amboss_quote": "T-Drainage: Ab dem 7. postoperativen Tag nach unauffälliger Cholangiografie, i.d.R. durch behandelnde Ärzt:innen"}
+ ],
+ "unclear": [
+  {"panel": "grundlagen", "deck_text": "meist sekundär bei Steinen, 90–95 %", "reason": "AMBOSS: 90 % kalkulös; Spanne nach oben nicht belegt"},
+  {"panel": "grundlagen", "deck_text": "E. coli, Klebsiella, Enterokokken", "reason": "AMBOSS nennt Enterobacter/Anaerobier, Enterokokken nicht erwähnt"},
+  {"panel": "grundlagen", "deck_text": "Akalkulöse Cholezystitis (5–10 %) … höhere Mortalität", "reason": "Mortalität nicht in Erfassung"},
+  {"panel": "klinik", "deck_text": "Reynolds: + Schock + Verwirrung = septische Cholangitis", "reason": "Reynolds-Pentade nicht in Erfassung"},
+  {"panel": "klinik", "deck_text": "Courvoisier-Zeichen … V. a. Pankreaskopfkarzinom", "reason": "nicht in Erfassung"},
+  {"panel": "diagnostik", "deck_text": "DHC über 7 mm — nach Cholezystektomie über 9 mm", "reason": "AMBOSS ≥7 mm; Wert nach CHE nicht erfasst"},
+  {"panel": "therapie", "deck_text": "Metamizol — NICHT Morphin (Sphincter-Oddi-Spasmus)", "reason": "Morphin-Verbot nicht in Erfassung"},
+  {"panel": "therapie", "deck_text": "Ceftriaxon 2 g i.v. 1-0-0 + Metronidazol 500 mg i.v. 1-0-1", "reason": "Dosierungen nicht in Erfassung"},
+  {"panel": "therapie", "deck_text": "Vor ERCP: Antibiose (Cephalosporin 3. Gen ± Metronidazol)", "reason": "AMBOSS: AB bei Cholangitis; Prophylaxe sonst nur bei frustraner Bergung"},
+  {"panel": "therapie", "deck_text": "Blutung ( A. gastroduodenalis! bei Papillotomie); Mirizzi Einteilung nach McSherry", "reason": "nicht in Erfassung"},
+  {"panel": "perlen", "deck_text": "Faustregel: +1 mm pro Dekade ab dem 60. Lebensjahr", "reason": "nicht in Erfassung"},
+  {"panel": "protokoll", "deck_text": "Die Cholezystektomie folgt dann innerhalb von 24 Stunden.", "reason": "AMBOSS 72 h nach ERC, aber 24 h bei Cholezystitis; Fall hat beides"}
+ ],
+ "status": "done",
+ "validated": "2026-10-09"
+}

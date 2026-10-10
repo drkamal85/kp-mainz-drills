@@ -1,0 +1,25 @@
+{"slug": "kolonkarzinom", "deck": "reviews/chirurgie/kolonkarzinom.html", "capture": ["sources/amboss/kolonkarzinom.md"],
+ "counts": {"ok": 38, "fix": 2, "unclear": 15},
+ "fixes": [
+  {"panel": "diagnostik", "deck_text": "Koloskopie ab 50 beim Mann, 55 bei der Frau, alle 10 Jahre", "new_text": "Koloskopie ab 50 beim Mann, 50 bei der Frau, alle 10 Jahre", "amboss_quote": "Darmkrebsvorsorge in der Regelvorsorge – Startalter: 50 Jahre; Koloskopie: Alle 10 Jahre"},
+  {"panel": "protokoll", "deck_text": "Sie beginnt für Männer ab 50 und für Frauen ab 55 Jahren.", "new_text": "Sie beginnt für Männer ab 50 und für Frauen ab 50 Jahren.", "amboss_quote": "Die Vorsorgekoloskopie bei Nicht-Risikopersonen wird ab 50 Jahren von den gesetzlichen Krankenkassen getragen!"}
+ ],
+ "unclear": [
+  {"panel": "grundlagen", "deck_text": "≈ 95 % Adenokarzinome", "reason": "AMBOSS: 90% Adenokarzinome; Näherungswert, nicht korrigiert"},
+  {"panel": "grundlagen", "deck_text": "≈ 60 % im Rektosigmoid / Häufigste Lokalisation: Rektum, gefolgt vom Sigma", "reason": "AMBOSS nur Kolon ⅔, Rektum ⅓"},
+  {"panel": "grundlagen", "deck_text": "über ~10 Jahre aus einem Adenom (APC → KRAS → p53)", "reason": "Dauer/Mutationsfolge nicht in Erfassung"},
+  {"panel": "grundlagen", "deck_text": "Sporadisch (~70 %) ... Colitis ulcerosa > Morbus Crohn", "reason": "Anteil und Gewichtung nicht in Erfassung"},
+  {"panel": "grundlagen", "deck_text": "FAP vs. HNPCC: Gene, Risiko ~100 %, Amsterdam-Kriterien", "reason": "Lynch-Kapitel bewusst nicht erfasst"},
+  {"panel": "grundlagen", "deck_text": "Tiefes Rektumdrittel: Abfluss über die V. cava → Lunge zuerst", "reason": "AMBOSS-Tabelle: Cava-Typ ab mittlerem Drittel"},
+  {"panel": "klinik", "deck_text": "Neue Änderung der Stuhlgewohnheiten jenseits des 40. Lebensjahres", "reason": "Altersgrenze nicht in Erfassung"},
+  {"panel": "diagnostik", "deck_text": "CEA nur zur Verlaufs- und Rezidivkontrolle", "reason": "AMBOSS: CEA auch im Basis-Staging (außer T1)"},
+  {"panel": "therapie", "deck_text": "regionärer Lymphadenektomie (≥ 12 Lymphknoten)", "reason": "Lymphknotenzahl nicht in Erfassung"},
+  {"panel": "therapie", "deck_text": "Rektum: TME, tiefe anteriore Resektion, Exstirpation, neoadjuvante Radiochemo", "reason": "Rektum-Therapie bewusst nicht erfasst"},
+  {"panel": "therapie", "deck_text": "Metastasiert (UICC IV): palliative Chemo; Metastasektomie", "reason": "Metastasiertes KRK nicht erfasst"},
+  {"panel": "protokoll", "deck_text": "Beim Kolonkarzinom operiere ich dagegen primär.", "reason": "AMBOSS: neoadjuvant bei MSI-positiv UICC II–III; Nuance"},
+  {"panel": "protokoll", "deck_text": "HNPCC jährlich ab 25, Colitis ulcerosa ab dem 8. Krankheitsjahr", "reason": "Nicht in Erfassung"},
+  {"panel": "protokoll", "deck_text": "Im Stadium T3 N0 M0 überleben etwa 90 Prozent 5 Jahre. Im Stadium III 50 ... bis 65 Prozent", "reason": "Stadienbezogene Überlebensraten nicht in Erfassung"},
+  {"panel": "perlen", "deck_text": "Fieber · Nachtschweiß · Gewichtsverlust > 10 % / 6 Mon.", "reason": "B-Symptom-Definition nicht in Erfassung"}
+ ],
+ "status": "done",
+ "validated": "2026-10-09"}

@@ -1,0 +1,23 @@
+{"slug": "schock", "deck": "reviews/notfallmedizin/schock.html", "capture": ["sources/amboss/schock.md"],
+ "counts": {"ok": 32, "fix": 0, "unclear": 16},
+ "fixes": [],
+ "unclear": [
+  {"panel": "grundlagen", "deck_text": "Kardiogen: Myokardinfarkt (~80 %), Arrhythmie, Klappeninsuffizienz", "reason": "AMBOSS: nicht-infarktbedingte Ursachen überwiegen; kein Ersatzwert"},
+  {"panel": "grundlagen", "deck_text": "Schockorgane: ... ZNS (Eintrübung), Gerinnung (DIC)", "reason": "AMBOSS listet Niere, Myokard, Leber, Lunge, Darm"},
+  {"panel": "klinik", "deck_text": "Kardiogen: ... terminal Bradykardie", "reason": "nicht in Erfassung"},
+  {"panel": "klinik", "deck_text": "Septisch (früh): warme, rosige Haut", "reason": "septischer Schock nur Querverweis"},
+  {"panel": "klinik", "deck_text": "Anaphylaxie Ring & Messmer I–IV", "reason": "Anaphylaxie nur Querverweis"},
+  {"panel": "diagnostik", "deck_text": "Hämodynamik-Tabelle HZV/SVR je Schockform", "reason": "nur ZVD in Erfassung (✓); HZV/SVR nicht"},
+  {"panel": "diagnostik", "deck_text": "ZVD Normwert 3–8 mmHg", "reason": "nicht in Erfassung"},
+  {"panel": "therapie", "deck_text": "Lagerung: Beine hoch ~15° — Ausnahme kardiogen: Oberkörper hoch", "reason": "AMBOSS: kardiogen symptomorientiert; Winkel nicht erfasst"},
+  {"panel": "therapie", "deck_text": "Adrenalin 0,5 mg i.m. ... <50 kg → 10 µg/kg; Prednisolon 250–1000 mg", "reason": "Anaphylaxie-Therapie nicht in Erfassung"},
+  {"panel": "therapie", "deck_text": "Septisch: 1-h-Bundle ... 30 ml/kg, Noradrenalin (MAP ≥ 65)", "reason": "Sepsis nur Querverweis in dieser Erfassung"},
+  {"panel": "perlen", "deck_text": "Glukokortikoide seit ERC 2025 nicht mehr routinemäßig", "reason": "nicht in Erfassung"},
+  {"panel": "perlen", "deck_text": "Beck-Trias: Hypotonie + gestaute Halsvenen + leiser Herzton", "reason": "nicht in Erfassung"},
+  {"panel": "perlen", "deck_text": "Spannungspneu — Entlastung: 2. ICR Medioklavikularlinie", "reason": "nicht in Erfassung"},
+  {"panel": "protokoll", "deck_text": "Bei Massivtransfusion ... im Verhältnis 1:1:1.", "reason": "AMBOSS: balancierte Transfusion, Verhältnis nicht genannt"},
+  {"panel": "protokoll", "deck_text": "Kristalloide ... nur etwa 25 Prozent bleiben im Gefäß.", "reason": "nicht in Erfassung"},
+  {"panel": "protokoll", "deck_text": "Akut führen schon 150 bis 200 ml zur Tamponade", "reason": "nicht in Erfassung"}
+ ],
+ "status": "done",
+ "validated": "2026-10-09"}

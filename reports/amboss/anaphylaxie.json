@@ -1,0 +1,23 @@
+{"slug": "anaphylaxie", "deck": "reviews/notfallmedizin/anaphylaxie.html", "capture": ["sources/amboss/anaphylaxie.md"],
+ "counts": {"ok": 28, "fix": 0, "unclear": 16},
+ "fixes": [],
+ "unclear": [
+  {"panel": "grundlagen", "deck_text": "Medikamente — Penicillin, NSAR, Muskelrelaxanzien · beim Erwachsenen führend", "reason": "AMBOSS Erwachsene: Insektengift oder Medikamente am häufigsten"},
+  {"panel": "klinik", "deck_text": "Haut bei etwa 90 Prozent ... Bei etwa jedem Zehnten fehlt die Hautreaktion", "reason": "Häufigkeit nicht in Erfassung"},
+  {"panel": "klinik", "deck_text": "Ab Grad II wird Adrenalin gegeben", "reason": "AMBOSS: Grad II–III nur bei Atemweg/Kreislauf Adrenalin, nicht bei GI"},
+  {"panel": "klinik", "deck_text": "Biphasisch bei bis zu 20 Prozent — Rückfall nach 4 bis 12 Stunden", "reason": "AMBOSS: 6–24 h; Spanne abweichend, Quellennuance"},
+  {"panel": "diagnostik", "deck_text": "Tryptase: Abnahme 1 bis 2 Stunden nach Beginn, Vergleichswert nach Tagen", "reason": "Tryptase-Diagnostik nicht in Erfassung"},
+  {"panel": "diagnostik", "deck_text": "Allergietestung frühestens nach 4 bis 6 Wochen", "reason": "nicht in Erfassung"},
+  {"panel": "therapie", "deck_text": "0,5 mg Adrenalin i.m.; Kind 0,01 mg/kg; Wiederholung nach 5 bis 15 Minuten", "reason": "Dosierungen nicht erfasst (SOP separat)"},
+  {"panel": "therapie", "deck_text": "Volumen: 500 bis 1000 ml kristalloid rasch intravenös", "reason": "Menge nicht in Erfassung"},
+  {"panel": "therapie", "deck_text": "H1-Blocker nur bei Hautsymptomen", "reason": "AMBOSS: H1-Antihistaminikum in allen Graden I–III gelistet"},
+  {"panel": "therapie", "deck_text": "Seit ERC 2025 Das Glukokortikoid ist gestrichen", "reason": "AMBOSS listet Glucocorticoid i.v. in allen Graden; Leitliniennuance"},
+  {"panel": "therapie", "deck_text": "mindestens 6 Stunden überwachen", "reason": "AMBOSS: bis zur anhaltenden Remission; keine Stundenzahl"},
+  {"panel": "perlen", "deck_text": "mindestens 6 bis 24 Stunden überwacht", "reason": "Stundenzahl nicht in Erfassung"},
+  {"panel": "perlen", "deck_text": "Prednisolon ... verhindert die biphasische Reaktion", "reason": "Wirkbegründung nicht in Erfassung"},
+  {"panel": "perlen", "deck_text": "Was tut man bei Betablocker-Patienten? Glukagon geben", "reason": "nicht in Erfassung"},
+  {"panel": "protokoll", "deck_text": "Dimetinden und Prednisolon 250 mg i.v.", "reason": "Präparate ✓, Dosis nicht erfasst"},
+  {"panel": "protokoll", "deck_text": "Bei der Reanimation gebe ich 1 mg i.v., bei schockbarem Rhythmus nach 3 Schocks", "reason": "Reanimation nicht in Erfassung"}
+ ],
+ "status": "done",
+ "validated": "2026-10-09"}

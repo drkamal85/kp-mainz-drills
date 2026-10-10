@@ -1,0 +1,19 @@
+{"slug": "strahlenschutz", "deck": "reviews/drittes-fach/strahlenschutz.html", "capture": ["sources/amboss/strahlenschutz.md"],
+ "counts": {"ok": 30, "fix": 0, "unclear": 12},
+ "fixes": [],
+ "unclear": [
+  {"panel": "diagnostik", "deck_text": "Röntgen Thorax ~ 0,1 mSv (auch Perle 7, Rapid-Fire)", "reason": "AMBOSS ca. 0,2 mSv; Näherungswert, Quellen variieren"},
+  {"panel": "diagnostik", "deck_text": "CT Thorax ~ 7 mSv", "reason": "AMBOSS ca. 10 mSv; Näherungswert"},
+  {"panel": "diagnostik", "deck_text": "CT Abdomen/Becken ~ 10 mSv", "reason": "AMBOSS nur CT-Thorax/Abdomen ca. 20 mSv"},
+  {"panel": "diagnostik", "deck_text": "Röntgen Extremität ~ 0,01 mSv; CT Schädel ~ 2 mSv", "reason": "nicht in Erfassung"},
+  {"panel": "perlen", "deck_text": "Röntgen-Thorax ~0,1 mSv, CT-Abdomen ~10 mSv — etwa Faktor 100", "reason": "abhängig von obigen Näherungswerten"},
+  {"panel": "klinik", "deck_text": "Deterministisch vs. stochastisch (Schwelle, Beispiele)", "reason": "nicht in Erfassung"},
+  {"panel": "klinik", "deck_text": "Akutes Strahlensyndrom ab ~1 Gy Ganzkörperdosis", "reason": "nicht in Erfassung"},
+  {"panel": "grundlagen", "deck_text": "Die drei Prinzipien: Rechtfertigung, Optimierung, Dosisbegrenzung", "reason": "AMBOSS nennt nur Rechtfertigung + Optimierung"},
+  {"panel": "therapie", "deck_text": "5-A-Variante: Aktivität und Arbeitsweise/Anwendung", "reason": "AMBOSS: Aktivitätsbeschränkung, Ausschalten"},
+  {"panel": "therapie", "deck_text": "Rechtfertigende Indikation stellt ein fachkundiger Arzt", "reason": "nicht in Erfassung"},
+  {"panel": "therapie", "deck_text": "Aufbewahrung von Röntgenaufzeichnungen: 30 Jahre", "reason": "nicht in Erfassung"},
+  {"panel": "therapie", "deck_text": "StrlSchG + StrlSchV; früher RöV", "reason": "StrlSchV/RöV nicht in Erfassung"}
+ ],
+ "status": "done",
+ "validated": "2026-10-09"}

@@ -1,0 +1,17 @@
+{"slug": "morbus-crohn", "deck": "reviews/gastroenterologie/morbus-crohn.html", "capture": ["sources/amboss/morbus-crohn.md"],
+ "counts": {"ok": 62, "fix": 0, "unclear": 10},
+ "fixes": [],
+ "unclear": [
+  {"panel": "grundlagen", "deck_text": "CU im Detail (Backwash-Ileitis, Pancolitis, Megakolon > 6 cm, Pouchitis)", "reason": "CU-Artikel nicht erfasst (bekannte Lücke)"},
+  {"panel": "grundlagen", "deck_text": "Nikotin bei CU protektiv", "reason": "CU nicht erfasst"},
+  {"panel": "klinik", "deck_text": "Bis 50 % der CED-Patienten", "reason": "Häufigkeit nicht in Erfassung"},
+  {"panel": "therapie", "deck_text": "Fistel / Abszess → Metronidazol (+ Ciprofloxacin)", "reason": "AMBOSS: Fistel 1. Wahl Infliximab, AB nur kurzfristig; Abszess Drainage"},
+  {"panel": "therapie", "deck_text": "Kurzstreckige Stenose → Strikturoplastik (vor Resektion)", "reason": "AMBOSS: <5 cm Ballondilatation; Strikturoplastik bei ≥5 cm"},
+  {"panel": "therapie", "deck_text": "Remission / steroidrefraktär: Azathioprin, MTX, TNF-α-Hemmer", "reason": "AMBOSS: bei Versagen Biologicals; MTX nachrangig"},
+  {"panel": "therapie", "deck_text": "Mesalazin hemmt Prostaglandine/Leukotriene, antioxidativ", "reason": "Mechanismus nur 'lokale Immunmodulation'"},
+  {"panel": "perlen", "deck_text": "Rapid-Fire: Kurzstreckige Stenose — Verfahren? → Strikturoplastik", "reason": "s. o., Ballondilatation <5 cm"},
+  {"panel": "perlen", "deck_text": "Fistel / perianaler Abszess — Antibiotika? → Metronidazol (+ Ciprofloxacin)", "reason": "Wirkstoff nicht erfasst"},
+  {"panel": "protokoll", "deck_text": "Akut sind es meist Infektionen, chronisch CED, Zöliakie oder Reizdarm", "reason": "DD-Allgemeinaussage nicht erfasst"}
+ ],
+ "status": "done",
+ "validated": "2026-10-09"}

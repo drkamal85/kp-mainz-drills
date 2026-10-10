@@ -1,0 +1,21 @@
+{
+ "slug": "cushing-syndrom",
+ "deck": "reviews/endokrinologie/cushing-syndrom.html",
+ "capture": ["sources/amboss/cushing-syndrom.md"],
+ "counts": {"ok": 34, "fix": 0, "unclear": 10},
+ "fixes": [],
+ "unclear": [
+  {"panel": "grundlagen", "deck_text": "Cushing-Schwelle ~7,5 mg Prednisolon/Tag", "reason": "nicht in Erfassung"},
+  {"panel": "grundlagen", "deck_text": "ACTH-abhängig (~80–85 %) / ACTH-unabhängig (~15–20 %)", "reason": "Anteile nicht in Erfassung"},
+  {"panel": "grundlagen", "deck_text": "Ektop — paraneoplastisch (SCLC, Karzinoid)", "reason": "AMBOSS: SCLC, neuroendokrine Neoplasien — kompatibel"},
+  {"panel": "perlen", "deck_text": "ACTH-Mikroadenom … ~80 % der endogenen", "reason": "AMBOSS: 80 % der M. Cushing durch Mikroadenome; Bezug unscharf"},
+  {"panel": "klinik", "deck_text": "Striae rubrae (> 1 cm, purpurn); ggf. Hypernatriämie", "reason": "Breite und Natrium nicht in Erfassung"},
+  {"panel": "klinik", "deck_text": "Pseudo-Cushing: Alkohol, schwere Depression, ausgeprägte Adipositas", "reason": "AMBOSS nennt Depression/Alkohol (falsch-positiv); Adipositas nicht"},
+  {"panel": "diagnostik", "deck_text": "Mindestens zwei pathologische Tests sichern den Hyperkortisolismus", "reason": "nicht in Erfassung"},
+  {"panel": "diagnostik", "deck_text": "IPSS bei unklarem Hypophysen-MRT", "reason": "AMBOSS: Sinus-petrosus-Katheter zentral vs. ektop; Indikation nicht spezifiziert"},
+  {"panel": "therapie", "deck_text": "bei Versagen Bestrahlung, ggf. bilaterale Adrenalektomie; Metyrapon", "reason": "bilat. Adrenalektomie/Metyrapon nicht in Erfassung"},
+  {"panel": "therapie", "deck_text": "Hydrocortison-Substitution (± Fludrocortison)", "reason": "Fludrocortison nicht in Erfassung"}
+ ],
+ "status": "done",
+ "validated": "2026-10-09"
+}

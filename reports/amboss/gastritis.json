@@ -1,0 +1,135 @@
+{
+ "slug": "gastritis",
+ "deck": "reviews/gastroenterologie/gastritis.html",
+ "capture": [
+  "sources/amboss/gastritis.md"
+ ],
+ "counts": {
+  "ok": 40,
+  "fix": 7,
+  "unclear": 15
+ },
+ "fixes": [
+  {
+   "panel": "therapie",
+   "deck_text": "B: Eradikation über 14 Tage",
+   "new_text": "B: Eradikation über 10 Tage",
+   "amboss_quote": "HP-Eradikationstherapie mittels Bismut-Quadrupeltherapie über 10 d"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Vierfachtherapie über 14 Tage, meist Bismut-Quadrupel mit PPI",
+   "new_text": "Vierfachtherapie über 10 Tage",
+   "amboss_quote": "HP-Eradikationstherapie mittels Bismut-Quadrupeltherapie über 10 d"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Anti-Intrinsic-Factor in 50 %",
+   "new_text": "Anti-Intrinsic-Factor in 70 %",
+   "amboss_quote": "Autoantikörper gegen Parietalzellen (90% der Fälle) und Intrinsic-Faktor (70% der Fälle)"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Typ B ist der häufigste: Etwa 80 Prozent",
+   "new_text": "Etwa 60 Prozent",
+   "amboss_quote": "Typ-B-Gastritis: ca. 60% aller Patienten mit chronischer Gastritis"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Rapid-Fire: Typ B, etwa 80 Prozent",
+   "new_text": "Typ B, etwa 60 Prozent",
+   "amboss_quote": "Typ-B-Gastritis: ca. 60% aller Patienten mit chronischer Gastritis"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Typ B · 80 %",
+   "new_text": "Typ B · 60 %",
+   "amboss_quote": "Typ-B-Gastritis: ca. 60% aller Patienten mit chronischer Gastritis"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Typ C · 15 %",
+   "new_text": "Typ C · 30 %",
+   "amboss_quote": "Typ-C-Gastritis: ca. 30% aller Patienten mit chronischer Gastritis"
+  }
+ ],
+ "unclear": [
+  {
+   "panel": "grundlagen",
+   "deck_text": "Säure: B erhöht, C normal",
+   "reason": "AMBOSS: B initial ↑ dann Hypochlorhydrie; C ggf. Hypochlorhydrie"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Als Karzinogen Gruppe 1 eingestuft",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Gallereflux, typisch nach Billroth II",
+   "reason": "AMBOSS: nach Magenteilresektion; Billroth II nicht genannt"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Französische Tripeltherapie ... für 7 bis 14 Tage",
+   "reason": "Dauer für Tripeltherapie nicht erfasst; AMBOSS: nur Zweitlinie"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Rapid-Fire: Wie lange? 7 bis 14 Tage",
+   "reason": "Dauer für Tripeltherapie nicht erfasst"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Magenulkus immer kontrollieren, Duodenalulkus nicht",
+   "reason": "AMBOSS: Ulcus duodeni je nach Risikofaktoren"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "PPI 2 Wochen, Antibiotika 4 Wochen vorher absetzen",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Auch Eisenmangel — ohne Säure keine Eisenresorption",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Alarmzeichen; erstmalige Beschwerden über 45 Jahre",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Ab 45 bis 50 Jahren mit neuen Beschwerden",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Eisenmangel durch Erosionen bei Typ C",
+   "reason": "AMBOSS: mikrozytäre Anämie bei chronischer Blutung; Typzuordnung nicht"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Rapid-Fire: Karzinomrisiko am meisten — die atrophische Form",
+   "reason": "Nicht explizit erfasst"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "1000 µg i.m. wöchentlich über 4 Wochen, danach alle 3 Monate",
+   "reason": "Dosierung nicht erfasst"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Duodenalulkus Helicobacter in ~95 %, Magenulkus ~70 %",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "oral nur etwa 1 % der Dosis; Folsäure zusätzlich",
+   "reason": "Nicht in Erfassung"
+  }
+ ],
+ "status": "done",
+ "validated": "2026-10-09"
+}

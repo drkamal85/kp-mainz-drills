@@ -1,0 +1,14 @@
+{"slug": "rektumkarzinom", "deck": "reviews/chirurgie/rektumkarzinom.html", "capture": ["sources/amboss/rektumkarzinom.md"],
+ "counts": {"ok": 30, "fix": 0, "unclear": 7},
+ "fixes": [],
+ "unclear": [
+  {"panel": "grundlagen", "deck_text": "~95 % Adenokarzinome", "reason": "AMBOSS: 90% aller Kolonkarzinome Adenokarzinome; Rundungsnuance"},
+  {"panel": "therapie", "deck_text": "lokal fortgeschrittene Rektumkarzinom (UICC II/III) bekommt neoadjuvante Radiochemotherapie", "reason": "AMBOSS: nach Drittel/Risiko, TNT; UICC-Zuordnung nicht erfasst"},
+  {"panel": "therapie", "deck_text": "Frühe T1-Tumoren: lokale, transanale Exzision", "reason": "Nicht in Erfassung"},
+  {"panel": "therapie", "deck_text": "Resektable Leber- oder Lungenmetastasen: Metastasektomie ... plus Chemotherapie", "reason": "Metastasiertes KRK bekannte Lücke"},
+  {"panel": "therapie", "deck_text": "onkologische Prinzip ist die totale mesorektale Exzision (TME)", "reason": "AMBOSS: oberes Drittel PME, mittleres/unteres TME; Vereinfachung"},
+  {"panel": "perlen", "deck_text": "CEA ... nur Verlaufs- und Rezidivkontrolle", "reason": "AMBOSS: CEA auch im Basis-Staging; kein klarer Widerspruch"},
+  {"panel": "klinik", "deck_text": "Tenesmen, Schleimabgang, Gefühl der unvollständigen Entleerung", "reason": "Nicht in Erfassung"}
+ ],
+ "status": "done",
+ "validated": "2026-10-09"}

@@ -1,0 +1,23 @@
+{"slug": "reanimation-cpr", "deck": "reviews/notfallmedizin/reanimation-cpr.html", "capture": ["sources/amboss/reanimation-cpr.md"],
+ "counts": {"ok": 38, "fix": 0, "unclear": 16},
+ "fixes": [],
+ "unclear": [
+  {"panel": "klinik", "deck_text": "Mit gesichertem Atemweg 10 bis 12 Atemhübe pro Minute", "reason": "AMBOSS 10×/min; Spanne kompatibel"},
+  {"panel": "klinik", "deck_text": "Untere Sternumhälfte · 5 bis 6 cm tief", "reason": "Drucktiefe/-punkt im nicht erfassten Grundlagen-Kapitel"},
+  {"panel": "klinik", "deck_text": "Beim Kind: 5 initiale Beatmungen, dann 15:2", "reason": "Kinderreanimation nicht erfasst"},
+  {"panel": "grundlagen", "deck_text": "Jede Minute ohne Kompression kostet etwa 10 % Überlebenschance", "reason": "nicht in Erfassung"},
+  {"panel": "grundlagen", "deck_text": "VT: QRS über 120 ms, 120 bis 250/min; anhaltend > 30 s", "reason": "nicht in Erfassung"},
+  {"panel": "diagnostik", "deck_text": "Kapnografie-Zielwerte (25 mmHg, <10 mmHg nach 20 min, >40 mmHg ROSC)", "reason": "nicht in Erfassung"},
+  {"panel": "therapie", "deck_text": "Nach 3 erfolglosen Schocks Elektroden anterior-posterior", "reason": "nicht in Erfassung"},
+  {"panel": "therapie", "deck_text": "Zwei Versuche peripher, dann intraossär; proximale Tibia, max. 24 h", "reason": "AMBOSS: primär i.v., sonst i.o.; Details nicht erfasst"},
+  {"panel": "therapie", "deck_text": "Postreanimation: SpO2 94–98 %, MAP >65, <37,7 °C, Prognose ≥72 h", "reason": "Postreanimationsphase nicht erfasst"},
+  {"panel": "therapie", "deck_text": "Kardioversion/Torsade/ICD ab EF unter 35 Prozent", "reason": "nicht in Erfassung (AMBOSS: Magnesium bei Torsade ✓)"},
+  {"panel": "perlen", "deck_text": "Energie beim biphasischen Defibrillator? 150 bis 200 Joule", "reason": "AMBOSS: mind. 150 J biphasisch; kompatibel"},
+  {"panel": "perlen", "deck_text": "die kontrollierte Temperatur, 32 bis 36 Grad", "reason": "nicht in Erfassung"},
+  {"panel": "perlen", "deck_text": "Sichere Todeszeichen; Koniotomie Lig. cricothyroideum", "reason": "nicht in Erfassung"},
+  {"panel": "protokoll", "deck_text": "die pulslose VT hat die beste Prognose", "reason": "nicht in Erfassung"},
+  {"panel": "protokoll", "deck_text": "6 ml pro kg und pmax unter 30 mbar ... PEEP von 5 mbar", "reason": "nicht in Erfassung"},
+  {"panel": "protokoll", "deck_text": "Asystolie über 20 Minuten ALS ohne reversible Ursache", "reason": "Abbruchkriterien nicht erfasst"}
+ ],
+ "status": "done",
+ "validated": "2026-10-09"}

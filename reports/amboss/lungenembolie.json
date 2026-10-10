@@ -1,0 +1,20 @@
+{"slug": "lungenembolie", "deck": "reviews/pneumologie/lungenembolie.html", "capture": ["sources/amboss/lungenembolie.md"],
+ "counts": {"ok": 34, "fix": 0, "unclear": 13},
+ "fixes": [],
+ "unclear": [
+  {"panel": "grundlagen", "deck_text": "Bei TVT/LAE unklarer Genese > 50 J. → an okkultes Malignom denken", "reason": "AMBOSS: Malignom-Suche ohne Altersgrenze"},
+  {"panel": "klinik", "deck_text": "Plötzliche Dyspnoe + Tachypnoe (häufigstes Zeichen)", "reason": "Häufigkeit nicht in Erfassung"},
+  {"panel": "klinik", "deck_text": "Instabil: RR < 90 mmHg oder Abfall > 40 mmHg > 15 min", "reason": "AMBOSS: persistierende Hypotonie; Abfallkriterium nicht erfasst"},
+  {"panel": "therapie", "deck_text": "Monitoring, ITS ab intermediärem Risiko", "reason": "AMBOSS: ITS bei hämodynamischer Instabilität; Risikostratifikation separat"},
+  {"panel": "therapie", "deck_text": "Initiale Antikoagulation sofort — schon bei mittlerem/hohem Verdacht, vor Bildgebung", "reason": "Zeitpunkt nicht in Erfassung"},
+  {"panel": "therapie", "deck_text": "Bei Schock: Volumen vorsichtig, Noradrenalin/Dobutamin, ggf. ECMO", "reason": "nicht in Erfassung (SOP separat)"},
+  {"panel": "therapie", "deck_text": "Alternativ NMH → VKA (überlappend ≥5 Tage bis INR 2–3)", "reason": "INR ✓; Überlappungsdauer nicht erfasst"},
+  {"panel": "therapie", "deck_text": "KI der DOAK: GFR < 15 ml/min", "reason": "nicht in Erfassung"},
+  {"panel": "therapie", "deck_text": "Lyse-KI: aktive Blutung, frischer Schlaganfall/OP, ICB, schwere Hypertonie", "reason": "KI-Liste nicht erfasst; Reanimation keine KI ✓"},
+  {"panel": "perlen", "deck_text": "klassisch (aber selten) der SIQIII-Typ + Rechtsschenkelblock", "reason": "Häufigkeit SIQIII nicht erfasst; RSB ca. 10%"},
+  {"panel": "perlen", "deck_text": "Klassische Thrombosezeichen? Meyer · Homans · Payr", "reason": "nicht in Erfassung"},
+  {"panel": "protokoll", "deck_text": "Auch eine große Operation in den letzten 3 Wochen schließt sie aus.", "reason": "Lyse-KI nicht in Erfassung"},
+  {"panel": "protokoll", "deck_text": "Payr-Zeichen der Fußsohlendruckschmerz. Alle 3 sind unsicher.", "reason": "nicht in Erfassung"}
+ ],
+ "status": "done",
+ "validated": "2026-10-09"}

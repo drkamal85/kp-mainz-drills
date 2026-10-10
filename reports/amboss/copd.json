@@ -1,0 +1,23 @@
+{"slug": "copd", "deck": "reviews/pneumologie/copd.html", "capture": ["sources/amboss/copd.md"],
+ "counts": {"ok": 44, "fix": 4, "unclear": 11},
+ "fixes": [
+  {"panel": "grundlagen", "deck_text": "♂ > ♀ · weltweit 3.-häufigste Todesursache", "new_text": "♂ = ♀ · weltweit 3.-häufigste Todesursache", "amboss_quote": "Geschlecht: ♂ = ♀"},
+  {"panel": "therapie", "deck_text": "GOLD 4 + chron. Bronchitis: + Roflumilast (PDE-4-Hemmer)", "new_text": "GOLD 3–4 + chron. Bronchitis: + Roflumilast (PDE-4-Hemmer)", "amboss_quote": "Roflumilast bei FEV1 <50% und chronischer Bronchitis"},
+  {"panel": "therapie", "deck_text": "LTOT bei chron. Hypoxämie (pO₂ < 60 mmHg) ≥ 16 h/Tag", "new_text": "LTOT bei chron. Hypoxämie (pO₂ < 55 mmHg) ≥ 16 h/Tag", "amboss_quote": "Indikation: Fortgeschrittene COPD mit schwerer respiratorischer Insuffizienz, dauerhaft pO2-Werte von <55 mmHg"},
+  {"panel": "perlen", "deck_text": "Bei chronischer Hypoxämie (pO₂ < 60 mmHg in Ruhe): Langzeit-O₂-Therapie ≥ 16 h/Tag", "new_text": "Bei chronischer Hypoxämie (pO₂ < 55 mmHg in Ruhe): Langzeit-O₂-Therapie ≥ 16 h/Tag", "amboss_quote": "Indikation: ... dauerhaft pO2-Werte von <55 mmHg (trotz optimaler Medikation)"}
+ ],
+ "unclear": [
+  {"panel": "diagnostik", "deck_text": "Tiffeneau (FEV₁/VC) < 70 %", "reason": "AMBOSS FEV1/FVC; VC vs FVC Vereinfachung"},
+  {"panel": "diagnostik", "deck_text": "EKG: Rechtsherzhypertrophie (P pulmonale, Rechtstyp)", "reason": "EKG nicht in Erfassung"},
+  {"panel": "klinik", "deck_text": "Eosinophile: Asthma ↑, COPD normal", "reason": "nicht in Erfassung"},
+  {"panel": "therapie", "deck_text": "Prednisolon 40 mg p.o. × 5 Tage", "reason": "5 Tage ✓, Dosis nicht in Erfassung"},
+  {"panel": "therapie", "deck_text": "Antibiotika: Amoxi/Clav; Pseudomonas-Risiko → Pip/Tazo", "reason": "Substanzen nicht in Erfassung"},
+  {"panel": "therapie", "deck_text": "Erreger H. influenzae, S. pneumoniae, M. catarrhalis; schwer: Pseudomonas, Klebsiella", "reason": "nur Pneumokokken/H. influenzae erfasst, meist viral"},
+  {"panel": "therapie", "deck_text": "NIV: pH < 7,35 + pCO₂ > 45, GCS ≥ 8; Intubation pH < 7,25, GCS < 8", "reason": "NIV-Kriterien nicht in Erfassung"},
+  {"panel": "therapie", "deck_text": "Bedarf immer SABA/SAMA", "reason": "nicht explizit in Erfassung"},
+  {"panel": "protokoll", "deck_text": "Bei der COPD ist sie dauerhaft und betrifft meist Raucher über 40.", "reason": "AMBOSS: meist ab 50. Lj.; 'über 40' nicht klar falsch"},
+  {"panel": "protokoll", "deck_text": "beim Emphysem vermeide ich den Subklavia-Zugang wegen Pneumothoraxgefahr", "reason": "nicht in Erfassung"},
+  {"panel": "protokoll", "deck_text": "Chronisch hält die Niere Bikarbonat zurück und kompensiert.", "reason": "nicht in Erfassung"}
+ ],
+ "status": "done",
+ "validated": "2026-10-09"}
