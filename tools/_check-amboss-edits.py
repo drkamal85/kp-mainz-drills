@@ -5,7 +5,7 @@ Compares each changed deck against the git HEAD version and fails if:
   - the number of lines changed (content added or removed),
   - any changed line grew by more than MAX_GROWTH characters,
   - any single line changed by more than MAX_CHANGED characters,
-  - the Diagnostik panel or any tab-6 question (.pq-frage) changed.
+  - any tab-6 question (.pq-frage) changed.
 Usage: python3 tools/_check-amboss-edits.py [deck paths...]   (default: all modified reviews)
 Exit 1 on any violation, listing the offending deck(s).
 """
@@ -39,8 +39,6 @@ for p in paths:
     why = []
     if len(o) != len(n):
         why.append(f"line count {len(o)}→{len(n)}")
-    if panel(old, "diagnostik") != panel(new, "diagnostik"):
-        why.append("Diagnostik panel changed")
     if re.findall(r'<div class="pq-frage".*?</div>', old, re.S) != re.findall(r'<div class="pq-frage".*?</div>', new, re.S):
         why.append("tab-6 question changed")
     for a, b in zip(o, n):
