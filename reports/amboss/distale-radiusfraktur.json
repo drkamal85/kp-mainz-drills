@@ -1,17 +1,74 @@
-{"slug": "distale-radiusfraktur", "deck": "reviews/unfallchirurgie/distale-radiusfraktur.html", "capture": ["sources/amboss/distale-radiusfraktur.md"],
- "counts": {"ok": 22, "fix": 0, "unclear": 10},
+{
+ "slug": "distale-radiusfraktur",
+ "deck": "reviews/unfallchirurgie/distale-radiusfraktur.html",
+ "capture": [
+  "sources/amboss/distale-radiusfraktur.md"
+ ],
+ "counts": {
+  "ok": 22,
+  "fix": 0,
+  "unclear": 10
+ },
  "fixes": [],
  "unclear": [
-  {"panel": "grundlagen", "deck_text": "Ca. ¼ aller Frakturen — die häufigste überhaupt", "reason": "AMBOSS: 'eine der häufigsten Frakturen'; Anteil nicht erfasst"},
-  {"panel": "grundlagen", "deck_text": "Barton, Reversed Barton, Chauffeur; Galeazzi/Monteggia-Mechanismus", "reason": "Nur als Namen/DD erfasst, Details fehlen"},
-  {"panel": "diagnostik", "deck_text": "CT bei komplexer Fraktur; MRT/Arthroskopie bei Bandverletzung", "reason": "Nicht in Erfassung"},
-  {"panel": "therapie", "deck_text": "Smith-Fraktur: meist OP, da instabil", "reason": "Nicht in Erfassung"},
-  {"panel": "therapie", "deck_text": "Ellenbogen mitfixieren bei Instabilität / DRUG-Beteiligung", "reason": "Nicht in Erfassung"},
-  {"panel": "therapie", "deck_text": "Palmare Plattenosteosynthese — Standard beim Erwachsenen", "reason": "AMBOSS listet Verfahren ohne Rangfolge"},
-  {"panel": "perlen", "deck_text": "N. medianus = häufigster betroffener Nerv → Thenar-Atrophie", "reason": "Nur akutes KTS erfasst"},
-  {"panel": "protokoll", "deck_text": "Stabile Frakturen reponiere ich in Bruchspaltanästhesie", "reason": "AMBOSS: Reposition bei dislozierten Frakturen; Wortwahl"},
-  {"panel": "protokoll", "deck_text": "Schon eine Stufe von 2 mm führt zur Arthrose.", "reason": "Nicht in Erfassung"},
-  {"panel": "protokoll", "deck_text": "AO 23A3: 2 Unterarm, 3 distal, A extraartikulär", "reason": "AO-Tabelle bekannte Lücke"}
+  {
+   "panel": "grundlagen",
+   "deck_text": "Ca. ¼ aller Frakturen — die häufigste überhaupt",
+   "reason": "AMBOSS: 'eine der häufigsten Frakturen'; Anteil nicht erfasst"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Barton, Reversed Barton, Chauffeur; Galeazzi/Monteggia-Mechanismus",
+   "reason": "Nur als Namen/DD erfasst, Details fehlen"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "CT bei komplexer Fraktur; MRT/Arthroskopie bei Bandverletzung",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Smith-Fraktur: meist OP, da instabil",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Ellenbogen mitfixieren bei Instabilität / DRUG-Beteiligung",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Palmare Plattenosteosynthese — Standard beim Erwachsenen",
+   "reason": "AMBOSS listet Verfahren ohne Rangfolge"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "N. medianus = häufigster betroffener Nerv → Thenar-Atrophie",
+   "reason": "Nur akutes KTS erfasst"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Stabile Frakturen reponiere ich in Bruchspaltanästhesie",
+   "reason": "AMBOSS: Reposition bei dislozierten Frakturen; Wortwahl"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Schon eine Stufe von 2 mm führt zur Arthrose.",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "AO 23A3: 2 Unterarm, 3 distal, A extraartikulär",
+   "reason": "AO-Tabelle bekannte Lücke"
+  }
  ],
  "status": "done",
- "validated": "2026-10-09"}
+ "validated": "2026-10-09",
+ "third_pass": {
+  "date": "2026-10-10",
+  "model": "fable",
+  "checked": 38,
+  "applied": 0,
+  "rejected_by_orchestrator": []
+ }
+}

@@ -1,19 +1,84 @@
-{"slug": "osteoporose", "deck": "reviews/endokrinologie/osteoporose.html", "capture": ["sources/amboss/osteoporose.md"],
- "counts": {"ok": 42, "fix": 0, "unclear": 12},
+{
+ "slug": "osteoporose",
+ "deck": "reviews/endokrinologie/osteoporose.html",
+ "capture": [
+  "sources/amboss/osteoporose.md"
+ ],
+ "counts": {
+  "ok": 42,
+  "fix": 0,
+  "unclear": 12
+ },
  "fixes": [],
  "unclear": [
-  {"panel": "klinik", "deck_text": "Größenverlust über 4 cm und ein Rundrücken durch eingesunkene Wirbel", "reason": "Größenverlust ✓, 4-cm-Grenze nicht in Erfassung"},
-  {"panel": "klinik", "deck_text": "Multiples Myelom — Osteolysen ohne Randsaum, Schrotschussschädel", "reason": "Myelom nur als DD erfasst"},
-  {"panel": "klinik", "deck_text": "Osteomalazie: zu wenig Vitamin D, der Knochen ist weich statt wenig", "reason": "Vitamin-D-Ursache nicht in Erfassung; Mineralisationsstörung ✓"},
-  {"panel": "diagnostik", "deck_text": "es erkennt Osteoporose erst, wenn schon 30 Prozent Knochen fehlen", "reason": "Prozentwert nicht in Erfassung"},
-  {"panel": "therapie", "deck_text": "1000 mg Kalzium und 800 bis 1000 IE Vitamin D täglich", "reason": "Calcium ✓; Vitamin-D-Dosis ist DOSIS-Lücke"},
-  {"panel": "therapie", "deck_text": "Mittel der ersten Wahl, etwa Alendronat einmal wöchentlich", "reason": "Erste Wahl nicht explizit; wöchentlich ✓"},
-  {"panel": "therapie", "deck_text": "Sie helfen auch gegen Knochenmetastasen und Tumorhyperkalzämie", "reason": "Nicht in Erfassung"},
-  {"panel": "therapie", "deck_text": "Denosumab als Spritze alle 6 Monate, auch bei Niereninsuffizienz", "reason": "6 Monate ✓; Niere nur bei Romosozumab erwähnt"},
-  {"panel": "therapie", "deck_text": "Bei Wirbelfraktur: Schmerztherapie, frühe Mobilisation, selten Zementauffüllung", "reason": "Zementauffüllung nicht in Erfassung"},
-  {"panel": "perlen", "deck_text": "Der Z-Wert vergleicht mit Gleichaltrigen — ... spricht für eine sekundäre Ursache", "reason": "Z-Score nur genannt, nicht erklärt"},
-  {"panel": "perlen", "deck_text": "Häufigste sekundäre Ursache? die Kortisontherapie", "reason": "Rangfolge nicht in Erfassung"},
-  {"panel": "perlen", "deck_text": "Wie wirkt Denosumab? als Antikörper gegen RANK-Ligand", "reason": "Wirkmechanismus nur 'antiresorptiv'"}
+  {
+   "panel": "klinik",
+   "deck_text": "Größenverlust über 4 cm und ein Rundrücken durch eingesunkene Wirbel",
+   "reason": "Größenverlust ✓, 4-cm-Grenze nicht in Erfassung"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Multiples Myelom — Osteolysen ohne Randsaum, Schrotschussschädel",
+   "reason": "Myelom nur als DD erfasst"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Osteomalazie: zu wenig Vitamin D, der Knochen ist weich statt wenig",
+   "reason": "Vitamin-D-Ursache nicht in Erfassung; Mineralisationsstörung ✓"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "es erkennt Osteoporose erst, wenn schon 30 Prozent Knochen fehlen",
+   "reason": "Prozentwert nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "1000 mg Kalzium und 800 bis 1000 IE Vitamin D täglich",
+   "reason": "Calcium ✓; Vitamin-D-Dosis ist DOSIS-Lücke"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Mittel der ersten Wahl, etwa Alendronat einmal wöchentlich",
+   "reason": "Erste Wahl nicht explizit; wöchentlich ✓"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Sie helfen auch gegen Knochenmetastasen und Tumorhyperkalzämie",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Denosumab als Spritze alle 6 Monate, auch bei Niereninsuffizienz",
+   "reason": "6 Monate ✓; Niere nur bei Romosozumab erwähnt"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Bei Wirbelfraktur: Schmerztherapie, frühe Mobilisation, selten Zementauffüllung",
+   "reason": "Zementauffüllung nicht in Erfassung"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Der Z-Wert vergleicht mit Gleichaltrigen — ... spricht für eine sekundäre Ursache",
+   "reason": "Z-Score nur genannt, nicht erklärt"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Häufigste sekundäre Ursache? die Kortisontherapie",
+   "reason": "Rangfolge nicht in Erfassung"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Wie wirkt Denosumab? als Antikörper gegen RANK-Ligand",
+   "reason": "Wirkmechanismus nur 'antiresorptiv'"
+  }
  ],
  "status": "done",
- "validated": "2026-10-09"}
+ "validated": "2026-10-09",
+ "third_pass": {
+  "date": "2026-10-10",
+  "model": "fable",
+  "checked": 46,
+  "applied": 0,
+  "rejected_by_orchestrator": []
+ }
+}

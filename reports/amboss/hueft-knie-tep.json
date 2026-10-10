@@ -1,19 +1,84 @@
-{"slug": "hueft-knie-tep", "deck": "reviews/unfallchirurgie/hueft-knie-tep.html", "capture": ["sources/amboss/hueft-knie-tep.md"],
- "counts": {"ok": 14, "fix": 0, "unclear": 12},
+{
+ "slug": "hueft-knie-tep",
+ "deck": "reviews/unfallchirurgie/hueft-knie-tep.html",
+ "capture": [
+  "sources/amboss/hueft-knie-tep.md"
+ ],
+ "counts": {
+  "ok": 14,
+  "fix": 0,
+  "unclear": 12
+ },
  "fixes": [],
  "unclear": [
-  {"panel": "grundlagen", "deck_text": "Schlitten: isoliert medial, Bänder intakt", "reason": "AMBOSS: isoliert mediale oder laterale Arthrose; Vereinfachung"},
-  {"panel": "grundlagen", "deck_text": "Trochanter-Muskelansätze, Knorpelarten, Trendelenburg/Duchenne", "reason": "Anatomie nicht in Erfassung"},
-  {"panel": "klinik", "deck_text": "Periprothetische Infektion: Früh < 4 Wo., Erreger S. aureus / KNS", "reason": "Infekt-Abschnitt nicht in Erfassung"},
-  {"panel": "klinik", "deck_text": "hintere Luxation, Beugen über 90 Grad mit Adduktion", "reason": "Nicht in Erfassung"},
-  {"panel": "klinik", "deck_text": "Zuerst verloren: Innenrotation und Abduktion", "reason": "Koxarthrose-Artikel nicht erfasst"},
-  {"panel": "diagnostik", "deck_text": "Lockerung: Sklerosesaum > 2 mm", "reason": "Nicht in Erfassung"},
-  {"panel": "diagnostik", "deck_text": "Kultur mindestens 14 Tage", "reason": "Nicht in Erfassung"},
-  {"panel": "diagnostik", "deck_text": "CRP, das nach Tag 5 wieder steigt", "reason": "Nicht in Erfassung"},
-  {"panel": "therapie", "deck_text": "Thromboseprophylaxe Hüfte ca. fünf, Knie ca. zwei Wochen; AHB 14 Tage", "reason": "Nicht in Erfassung"},
-  {"panel": "therapie", "deck_text": "Frühinfekt: Prothese bleibt ... Grenze etwa vier Wochen", "reason": "Nicht in Erfassung"},
-  {"panel": "protokoll", "deck_text": "Außerdem luxiert die Duokopfprothese seltener als die TEP.", "reason": "Nicht in Erfassung"},
-  {"panel": "protokoll", "deck_text": "Der hyaline Gelenkknorpel der Hüfte ist etwa 4 bis 5 mm dick.", "reason": "Nicht in Erfassung"}
+  {
+   "panel": "grundlagen",
+   "deck_text": "Schlitten: isoliert medial, Bänder intakt",
+   "reason": "AMBOSS: isoliert mediale oder laterale Arthrose; Vereinfachung"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Trochanter-Muskelansätze, Knorpelarten, Trendelenburg/Duchenne",
+   "reason": "Anatomie nicht in Erfassung"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Periprothetische Infektion: Früh < 4 Wo., Erreger S. aureus / KNS",
+   "reason": "Infekt-Abschnitt nicht in Erfassung"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "hintere Luxation, Beugen über 90 Grad mit Adduktion",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Zuerst verloren: Innenrotation und Abduktion",
+   "reason": "Koxarthrose-Artikel nicht erfasst"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Lockerung: Sklerosesaum > 2 mm",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Kultur mindestens 14 Tage",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "CRP, das nach Tag 5 wieder steigt",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Thromboseprophylaxe Hüfte ca. fünf, Knie ca. zwei Wochen; AHB 14 Tage",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Frühinfekt: Prothese bleibt ... Grenze etwa vier Wochen",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Außerdem luxiert die Duokopfprothese seltener als die TEP.",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Der hyaline Gelenkknorpel der Hüfte ist etwa 4 bis 5 mm dick.",
+   "reason": "Nicht in Erfassung"
+  }
  ],
  "status": "done",
- "validated": "2026-10-09"}
+ "validated": "2026-10-09",
+ "third_pass": {
+  "date": "2026-10-10",
+  "model": "fable",
+  "checked": 28,
+  "applied": 0,
+  "rejected_by_orchestrator": []
+ }
+}

@@ -1,22 +1,99 @@
-{"slug": "herzklappenerkrankungen", "deck": "reviews/kardiologie/herzklappenerkrankungen.html", "capture": ["sources/amboss/herzklappenerkrankungen.md"],
- "counts": {"ok": 30, "fix": 0, "unclear": 15},
+{
+ "slug": "herzklappenerkrankungen",
+ "deck": "reviews/kardiologie/herzklappenerkrankungen.html",
+ "capture": [
+  "sources/amboss/herzklappenerkrankungen.md"
+ ],
+ "counts": {
+  "ok": 30,
+  "fix": 0,
+  "unclear": 15
+ },
  "fixes": [],
  "unclear": [
-  {"panel": "grundlagen", "deck_text": "Die Mitralklappeninsuffizienz ist das häufigste erworbene Vitium überhaupt.", "reason": "AMBOSS: MI am zweithäufigsten behandlungsbedürftig; rheumatisch weltweit häufigste"},
-  {"panel": "grundlagen", "deck_text": "Ursachen je Vitium (bikuspid, Marfan, Prolaps, fast immer rheumatisch)", "reason": "Vitium-spezifische Ätiologie in separaten Kapiteln (Lücke)"},
-  {"panel": "klinik", "deck_text": "Aortenvitien leiten in die Karotiden", "reason": "AMBOSS: Fortleitung in Karotiden nur für Aortenstenose genannt"},
-  {"panel": "klinik", "deck_text": "Erb-Punkt 3. ICR links parasternal", "reason": "Lage nicht in Erfassung"},
-  {"panel": "klinik", "deck_text": "Aortenstenose-Trias ... Prognose ohne Operation schlecht (2–3 Jahre)", "reason": "Symptome in separatem Kapitel (Lücke)"},
-  {"panel": "diagnostik", "deck_text": "mittlerer Gradient über 40 mmHg, Öffnungsfläche unter 1 cm²", "reason": "Schweregrade in separatem Kapitel (Lücke)"},
-  {"panel": "diagnostik", "deck_text": "TEE bei schlechtem Schallfenster oder Endokarditisverdacht", "reason": "Nicht in Erfassung"},
-  {"panel": "diagnostik", "deck_text": "Vorhofflimmern bei Mitralvitien", "reason": "AMBOSS nennt P-mitrale; VHF nicht in Erfassung"},
-  {"panel": "therapie", "deck_text": "Leicht bis mittel: körperliche Schonung und Verlaufskontrolle", "reason": "AS-Therapie in separatem Kapitel (Lücke)"},
-  {"panel": "therapie", "deck_text": "TAVI = alt + hohes OP-Risiko (transfemoral, biologische Klappe)", "reason": "TAVI-Kapitel nicht erfasst"},
-  {"panel": "therapie", "deck_text": "Biologisch = nur 3 Monate Marcumar, hält aber nur 10–15 Jahre", "reason": "AMBOSS: mind. 3 Monate; Haltbarkeit in Jahren nicht genannt"},
-  {"panel": "therapie", "deck_text": "lebenslang Marcumar (INR 2,5–3,5); < 65 J. / > 65 J.", "reason": "Cumarine ✓; INR/Altersgrenze nicht in Erfassung"},
-  {"panel": "therapie", "deck_text": "Mechanische Klappe → niemals DOAK ... nicht-valvulären Vorhofflimmern", "reason": "Nicht in Erfassung"},
-  {"panel": "perlen", "deck_text": "große Blutdruckamplitude, Wasserhammerpuls", "reason": "Nicht in Erfassung"},
-  {"panel": "perlen", "deck_text": "Vmax > 4 m/s; Bernoulli ΔP = 4·Vmax²", "reason": "Nicht in Erfassung"}
+  {
+   "panel": "grundlagen",
+   "deck_text": "Die Mitralklappeninsuffizienz ist das häufigste erworbene Vitium überhaupt.",
+   "reason": "AMBOSS: MI am zweithäufigsten behandlungsbedürftig; rheumatisch weltweit häufigste"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Ursachen je Vitium (bikuspid, Marfan, Prolaps, fast immer rheumatisch)",
+   "reason": "Vitium-spezifische Ätiologie in separaten Kapiteln (Lücke)"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Aortenvitien leiten in die Karotiden",
+   "reason": "AMBOSS: Fortleitung in Karotiden nur für Aortenstenose genannt"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Erb-Punkt 3. ICR links parasternal",
+   "reason": "Lage nicht in Erfassung"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Aortenstenose-Trias ... Prognose ohne Operation schlecht (2–3 Jahre)",
+   "reason": "Symptome in separatem Kapitel (Lücke)"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "mittlerer Gradient über 40 mmHg, Öffnungsfläche unter 1 cm²",
+   "reason": "Schweregrade in separatem Kapitel (Lücke)"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "TEE bei schlechtem Schallfenster oder Endokarditisverdacht",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Vorhofflimmern bei Mitralvitien",
+   "reason": "AMBOSS nennt P-mitrale; VHF nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Leicht bis mittel: körperliche Schonung und Verlaufskontrolle",
+   "reason": "AS-Therapie in separatem Kapitel (Lücke)"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "TAVI = alt + hohes OP-Risiko (transfemoral, biologische Klappe)",
+   "reason": "TAVI-Kapitel nicht erfasst"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Biologisch = nur 3 Monate Marcumar, hält aber nur 10–15 Jahre",
+   "reason": "AMBOSS: mind. 3 Monate; Haltbarkeit in Jahren nicht genannt"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "lebenslang Marcumar (INR 2,5–3,5); < 65 J. / > 65 J.",
+   "reason": "Cumarine ✓; INR/Altersgrenze nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Mechanische Klappe → niemals DOAK ... nicht-valvulären Vorhofflimmern",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "große Blutdruckamplitude, Wasserhammerpuls",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Vmax > 4 m/s; Bernoulli ΔP = 4·Vmax²",
+   "reason": "Nicht in Erfassung"
+  }
  ],
  "status": "done",
- "validated": "2026-10-09"}
+ "validated": "2026-10-09",
+ "third_pass": {
+  "date": "2026-10-10",
+  "model": "fable",
+  "checked": 36,
+  "applied": 0,
+  "rejected_by_orchestrator": []
+ }
+}

@@ -92,5 +92,12 @@
     "reason": "AMBOSS trennt Typ 1 (≥1 Wert) und Typ 2 (≥2 Werte); Merksatz gilt für Typ 1 — nicht eindeutig"
    }
   ]
+ },
+ "third_pass": {
+  "date": "2026-10-10",
+  "model": "fable",
+  "checked": 62,
+  "applied": 0,
+  "rejected_by_orchestrator": []
  }
 }

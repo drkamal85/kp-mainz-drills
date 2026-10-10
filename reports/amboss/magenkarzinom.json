@@ -1,22 +1,101 @@
 {
  "slug": "magenkarzinom",
  "deck": "reviews/chirurgie/magenkarzinom.html",
- "capture": ["sources/amboss/magenkarzinom.md"],
- "counts": {"ok": 32, "fix": 0, "unclear": 11},
- "fixes": [],
+ "capture": [
+  "sources/amboss/magenkarzinom.md"
+ ],
+ "counts": {
+  "ok": 32,
+  "fix": 3,
+  "unclear": 11
+ },
+ "fixes": [
+  {
+   "panel": "therapie",
+   "deck_text": "<td>~30 Min nach dem Essen: Sturzentleerung",
+   "new_text": "<td>~20 Min nach dem Essen: Sturzentleerung",
+   "amboss_quote": "  - Auftreten ca. 20 min nach Nahrungsaufnahme",
+   "pass": 3
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Früh nach 30 Minuten (osmotisch)",
+   "new_text": "Früh nach 20 Minuten (osmotisch)",
+   "amboss_quote": "  - Auftreten ca. 20 min nach Nahrungsaufnahme",
+   "pass": 3
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "<div class=\"sfa\">~30 Min nach dem Essen</div>",
+   "new_text": "<div class=\"sfa\">~20 Min nach dem Essen</div>",
+   "amboss_quote": "  - Auftreten ca. 20 min nach Nahrungsaufnahme",
+   "pass": 3
+  }
+ ],
  "unclear": [
-  {"panel": "grundlagen", "deck_text": "Prognose/Patient: besser, älter vs. schlechter, jünger, hereditär (CDH1)", "reason": "nicht in Erfassung"},
-  {"panel": "grundlagen", "deck_text": "Correa-Kaskade: Gastritis → Atrophie → Metaplasie → Dysplasie → Karzinom", "reason": "nicht in Erfassung"},
-  {"panel": "grundlagen", "deck_text": "Typ-A-Gastritis, Z. n. Magenteilresektion, perniziöse Anämie, Ménétrier", "reason": "nicht in Erfassung"},
-  {"panel": "klinik", "deck_text": "Sister-Mary-Joseph-Knoten — Nabel", "reason": "nicht in Erfassung"},
-  {"panel": "klinik", "deck_text": "Fleischabneigung als klassisches Frühsymptom", "reason": "AMBOSS: Symptome meist spät; Fleischabneigung ohne Zeitangabe"},
-  {"panel": "diagnostik", "deck_text": "CEA, CA 72-4 und CA 19-9 nur zur Verlaufskontrolle", "reason": "AMBOSS: nicht zur Primärdiagnostik; Verlauf nicht genannt"},
-  {"panel": "therapie", "deck_text": "lokal fortgeschrittenen Karzinom (ab T2 oder N-positiv) … FLOT", "reason": "AMBOSS: Standard ≥cT3, erwägen bei cT2 N0"},
-  {"panel": "therapie", "deck_text": "HER2-positive Tumoren erhalten zusätzlich Trastuzumab", "reason": "AMBOSS: Trastuzumab palliativ; perioperativ nicht genannt"},
-  {"panel": "therapie", "deck_text": "Frühdumping ~30 Min nach dem Essen", "reason": "AMBOSS: ca. 20 min; Näherungswert"},
-  {"panel": "therapie", "deck_text": "Anastomoseninsuffizienz … CT mit oralem Kontrast; Osteoporose", "reason": "nicht in Erfassung"},
-  {"panel": "therapie", "deck_text": "Dumping: trinken zwischen den Mahlzeiten statt dazu", "reason": "kompatibel (AMBOSS: Flüssigkeit bis 30 min nach Mahlzeit meiden)"}
+  {
+   "panel": "grundlagen",
+   "deck_text": "Prognose/Patient: besser, älter vs. schlechter, jünger, hereditär (CDH1)",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Correa-Kaskade: Gastritis → Atrophie → Metaplasie → Dysplasie → Karzinom",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Typ-A-Gastritis, Z. n. Magenteilresektion, perniziöse Anämie, Ménétrier",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Sister-Mary-Joseph-Knoten — Nabel",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Fleischabneigung als klassisches Frühsymptom",
+   "reason": "AMBOSS: Symptome meist spät; Fleischabneigung ohne Zeitangabe"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "CEA, CA 72-4 und CA 19-9 nur zur Verlaufskontrolle",
+   "reason": "AMBOSS: nicht zur Primärdiagnostik; Verlauf nicht genannt"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "lokal fortgeschrittenen Karzinom (ab T2 oder N-positiv) … FLOT",
+   "reason": "AMBOSS: Standard ≥cT3, erwägen bei cT2 N0"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "HER2-positive Tumoren erhalten zusätzlich Trastuzumab",
+   "reason": "AMBOSS: Trastuzumab palliativ; perioperativ nicht genannt"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Frühdumping ~30 Min nach dem Essen",
+   "reason": "AMBOSS: ca. 20 min; Näherungswert"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Anastomoseninsuffizienz … CT mit oralem Kontrast; Osteoporose",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Dumping: trinken zwischen den Mahlzeiten statt dazu",
+   "reason": "kompatibel (AMBOSS: Flüssigkeit bis 30 min nach Mahlzeit meiden)"
+  }
  ],
  "status": "done",
- "validated": "2026-10-09"
+ "validated": "2026-10-09",
+ "third_pass": {
+  "date": "2026-10-10",
+  "model": "fable",
+  "checked": 44,
+  "applied": 3,
+  "rejected_by_orchestrator": []
+ }
 }

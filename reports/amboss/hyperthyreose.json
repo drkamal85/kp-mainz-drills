@@ -1,24 +1,89 @@
 {
  "slug": "hyperthyreose",
  "deck": "reviews/endokrinologie/hyperthyreose.html",
- "capture": ["sources/amboss/hyperthyreose.md"],
- "counts": {"ok": 34, "fix": 0, "unclear": 13},
+ "capture": [
+  "sources/amboss/hyperthyreose.md"
+ ],
+ "counts": {
+  "ok": 34,
+  "fix": 0,
+  "unclear": 13
+ },
  "fixes": [],
  "unclear": [
-  {"panel": "grundlagen", "deck_text": "Anatomie: 4 Epithelkörperchen, N. laryngeus recurrens, A. thyroidea sup./inf.", "reason": "Anatomie nicht in Erfassung"},
-  {"panel": "klinik", "deck_text": "Struma: Grad 1 tastbar, Grad 2 sichtbar; Jodmangel häufigste Ursache", "reason": "Struma-Artikel nicht erfasst"},
-  {"panel": "diagnostik", "deck_text": "Normwert TSH ca. 0,4–4,0 mU/l", "reason": "Normwert nicht in Erfassung"},
-  {"panel": "diagnostik", "deck_text": "Autonomie → Antikörper negativ", "reason": "nicht explizit in Erfassung"},
-  {"panel": "diagnostik", "deck_text": "Heißer Knoten: autonom, meist benigne; FNP trennt follikuläres Ca nicht vom Adenom", "reason": "nicht in Erfassung (nur kalte Knoten = Malignomverdacht)"},
-  {"panel": "diagnostik", "deck_text": "Knoten → Malignitätskriterien per TIRADS bewerten", "reason": "TIRADS nicht in Erfassung"},
-  {"panel": "therapie", "deck_text": "Carbimazol 20–40 mg/d … Thiamazol 10–20 mg 1-0-1", "reason": "Dosierungen nicht in Erfassung"},
-  {"panel": "therapie", "deck_text": "Propranolol Beginn 10–20 mg alle 6–8 h, Zieldosis 80–160 mg/d", "reason": "Dosierung nicht in Erfassung"},
-  {"panel": "therapie", "deck_text": "Indikation OP: … Therapieversagen, Kinderwunsch", "reason": "Kinderwunsch nicht in Erfassung"},
-  {"panel": "therapie", "deck_text": "Perchlorat (bei Jod)", "reason": "AMBOSS: Natriumperchlorat ohne Einschränkung; kompatibel"},
-  {"panel": "perlen", "deck_text": "N. laryngeus recurrens (Heiserkeit; bds → Tracheotomie)", "reason": "Schilddrüsenchirurgie nicht erfasst"},
-  {"panel": "protokoll", "deck_text": "Perchlorat, 40 Tropfen 2 Stunden vor und nach dem CT … 20 Tropfen über 7 bis 14 Tage", "reason": "KM-Prophylaxe-Schema nicht in Erfassung"},
-  {"panel": "protokoll", "deck_text": "Amiodaron ist bei Hyperthyreose kontraindiziert", "reason": "nicht explizit in Erfassung"}
+  {
+   "panel": "grundlagen",
+   "deck_text": "Anatomie: 4 Epithelkörperchen, N. laryngeus recurrens, A. thyroidea sup./inf.",
+   "reason": "Anatomie nicht in Erfassung"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Struma: Grad 1 tastbar, Grad 2 sichtbar; Jodmangel häufigste Ursache",
+   "reason": "Struma-Artikel nicht erfasst"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Normwert TSH ca. 0,4–4,0 mU/l",
+   "reason": "Normwert nicht in Erfassung"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Autonomie → Antikörper negativ",
+   "reason": "nicht explizit in Erfassung"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Heißer Knoten: autonom, meist benigne; FNP trennt follikuläres Ca nicht vom Adenom",
+   "reason": "nicht in Erfassung (nur kalte Knoten = Malignomverdacht)"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Knoten → Malignitätskriterien per TIRADS bewerten",
+   "reason": "TIRADS nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Carbimazol 20–40 mg/d … Thiamazol 10–20 mg 1-0-1",
+   "reason": "Dosierungen nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Propranolol Beginn 10–20 mg alle 6–8 h, Zieldosis 80–160 mg/d",
+   "reason": "Dosierung nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Indikation OP: … Therapieversagen, Kinderwunsch",
+   "reason": "Kinderwunsch nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Perchlorat (bei Jod)",
+   "reason": "AMBOSS: Natriumperchlorat ohne Einschränkung; kompatibel"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "N. laryngeus recurrens (Heiserkeit; bds → Tracheotomie)",
+   "reason": "Schilddrüsenchirurgie nicht erfasst"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Perchlorat, 40 Tropfen 2 Stunden vor und nach dem CT … 20 Tropfen über 7 bis 14 Tage",
+   "reason": "KM-Prophylaxe-Schema nicht in Erfassung"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Amiodaron ist bei Hyperthyreose kontraindiziert",
+   "reason": "nicht explizit in Erfassung"
+  }
  ],
  "status": "done",
- "validated": "2026-10-09"
+ "validated": "2026-10-09",
+ "third_pass": {
+  "date": "2026-10-10",
+  "model": "fable",
+  "checked": 46,
+  "applied": 0,
+  "rejected_by_orchestrator": []
+ }
 }

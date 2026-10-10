@@ -1,24 +1,115 @@
-{"slug": "verbrennung", "deck": "reviews/notfallmedizin/verbrennung.html", "capture": ["sources/amboss/verbrennung.md"],
- "counts": {"ok": 31, "fix": 3, "unclear": 13},
+{
+ "slug": "verbrennung",
+ "deck": "reviews/notfallmedizin/verbrennung.html",
+ "capture": [
+  "sources/amboss/verbrennung.md"
+ ],
+ "counts": {
+  "ok": 31,
+  "fix": 4,
+  "unclear": 13
+ },
  "fixes": [
-  {"panel": "therapie", "deck_text": "Gegeben wird Ringer-Laktat", "new_text": "Gegeben wird Ringer-Acetat", "amboss_quote": "Balancierte Vollelektrolytlösung, bspw. Ringer-Acetat- oder Ringer-Malat-Lösung … Nicht mehr empfohlen: Ringer-Lactat-Lösung"},
-  {"panel": "perlen", "deck_text": "4 ml × Kilogramm × Prozent verbrannter Oberfläche, Ringer-Laktat, in 24 Stunden", "new_text": "4 ml × Kilogramm × Prozent verbrannter Oberfläche, Ringer-Acetat, in 24 Stunden", "amboss_quote": "Nicht mehr empfohlen: Ringer-Lactat-Lösung"},
-  {"panel": "perlen", "deck_text": "Rapid-Fire: Welche Lösung? — Ringer-Laktat", "new_text": "Ringer-Acetat", "amboss_quote": "Nicht mehr empfohlen: Ringer-Lactat-Lösung"}
+  {
+   "panel": "therapie",
+   "deck_text": "Gegeben wird Ringer-Laktat",
+   "new_text": "Gegeben wird Ringer-Acetat",
+   "amboss_quote": "Balancierte Vollelektrolytlösung, bspw. Ringer-Acetat- oder Ringer-Malat-Lösung … Nicht mehr empfohlen: Ringer-Lactat-Lösung"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "4 ml × Kilogramm × Prozent verbrannter Oberfläche, Ringer-Laktat, in 24 Stunden",
+   "new_text": "4 ml × Kilogramm × Prozent verbrannter Oberfläche, Ringer-Acetat, in 24 Stunden",
+   "amboss_quote": "Nicht mehr empfohlen: Ringer-Lactat-Lösung"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Rapid-Fire: Welche Lösung? — Ringer-Laktat",
+   "new_text": "Ringer-Acetat",
+   "amboss_quote": "Nicht mehr empfohlen: Ringer-Lactat-Lösung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Ziel etwa 0,5 bis 1 ml pro kg und Stunde",
+   "new_text": "Ziel etwa 0,3 bis 0,5 ml pro kg und Stunde",
+   "amboss_quote": "| Diurese | 0,3–0,5 mL/kgKG/h (bei Starkstromverbrennung 2 mL/kgKG/h) |",
+   "pass": 3
+  }
  ],
  "unclear": [
-  {"panel": "therapie", "deck_text": "Urinausscheidung: Ziel etwa 0,5 bis 1 ml pro kg und Stunde", "reason": "AMBOSS-Zielwert Diurese 0,3–0,5 mL/kgKG/h; Bereichsnuance, überlappend"},
-  {"panel": "therapie", "deck_text": "Kühlen nur kurz und nur kleine Flächen, lauwarm um 20 Grad", "reason": "AMBOSS: ca. 20 min, kühl bis Zimmertemperatur; „nur kurz\" nicht belegt"},
-  {"panel": "therapie", "deck_text": "Morphin oder Piritramid intravenös, titriert", "reason": "AMBOSS nur „Opioide\"; Präparate nicht erfasst"},
-  {"panel": "perlen", "deck_text": "Weil der Verbrennungsschmerz stärker ist als alles, was Nichtopioide abdecken", "reason": "protokollbasiert; AMBOSS multimodal inkl. Nicht-Opioide"},
-  {"panel": "diagnostik", "deck_text": "Kinder über 10 (Verlegung Verbrennungszentrum)", "reason": "AMBOSS nennt Alter <8 J.; Kinderkapitel nicht erfasst"},
-  {"panel": "diagnostik", "deck_text": "Gesicht, Hände, Füße, Genital, große Gelenke — auch bei kleiner Fläche", "reason": "AMBOSS nur „komplizierte Areale\""},
-  {"panel": "diagnostik", "deck_text": "Grad 1 wird nicht mitgerechnet", "reason": "nicht in Erfassung"},
-  {"panel": "klinik", "deck_text": "Ab etwa 15 bis 20 Prozent verbrannter Fläche wird der ganze Körper krank", "reason": "AMBOSS: Flüssigkeitstherapie ab 15% VKOF; Schwelle Verbrennungskrankheit nicht genannt"},
-  {"panel": "perlen", "deck_text": "Ab etwa 50 Prozent steigt die Sterblichkeit stark", "reason": "protokollbasiert; AMBOSS nur ABSI-Score"},
-  {"panel": "grundlagen", "deck_text": "Verbrühung — beim Kind die häufigste Ursache", "reason": "Kinderkapitel nicht erfasst"},
-  {"panel": "grundlagen", "deck_text": "Strom: außen klein, innen groß — Muskelschaden, Rhythmusstörungen", "reason": "Stromunfall-Kapitel nicht erfasst"},
-  {"panel": "grundlagen", "deck_text": "Zerstörte Erythrozyten und Muskelzerfall setzen Hämoglobin und Myoglobin frei", "reason": "nicht in Erfassung"},
-  {"panel": "therapie", "deck_text": "Nie großflächig — der Patient unterkühlt, die Gerinnung leidet", "reason": "AMBOSS: Hypothermie vermeiden; Gerinnung nicht erwähnt"}
+  {
+   "panel": "therapie",
+   "deck_text": "Urinausscheidung: Ziel etwa 0,5 bis 1 ml pro kg und Stunde",
+   "reason": "AMBOSS-Zielwert Diurese 0,3–0,5 mL/kgKG/h; Bereichsnuance, überlappend"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Kühlen nur kurz und nur kleine Flächen, lauwarm um 20 Grad",
+   "reason": "AMBOSS: ca. 20 min, kühl bis Zimmertemperatur; „nur kurz\" nicht belegt"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Morphin oder Piritramid intravenös, titriert",
+   "reason": "AMBOSS nur „Opioide\"; Präparate nicht erfasst"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Weil der Verbrennungsschmerz stärker ist als alles, was Nichtopioide abdecken",
+   "reason": "protokollbasiert; AMBOSS multimodal inkl. Nicht-Opioide"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Kinder über 10 (Verlegung Verbrennungszentrum)",
+   "reason": "AMBOSS nennt Alter <8 J.; Kinderkapitel nicht erfasst"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Gesicht, Hände, Füße, Genital, große Gelenke — auch bei kleiner Fläche",
+   "reason": "AMBOSS nur „komplizierte Areale\""
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Grad 1 wird nicht mitgerechnet",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Ab etwa 15 bis 20 Prozent verbrannter Fläche wird der ganze Körper krank",
+   "reason": "AMBOSS: Flüssigkeitstherapie ab 15% VKOF; Schwelle Verbrennungskrankheit nicht genannt"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Ab etwa 50 Prozent steigt die Sterblichkeit stark",
+   "reason": "protokollbasiert; AMBOSS nur ABSI-Score"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Verbrühung — beim Kind die häufigste Ursache",
+   "reason": "Kinderkapitel nicht erfasst"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Strom: außen klein, innen groß — Muskelschaden, Rhythmusstörungen",
+   "reason": "Stromunfall-Kapitel nicht erfasst"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Zerstörte Erythrozyten und Muskelzerfall setzen Hämoglobin und Myoglobin frei",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Nie großflächig — der Patient unterkühlt, die Gerinnung leidet",
+   "reason": "AMBOSS: Hypothermie vermeiden; Gerinnung nicht erwähnt"
+  }
  ],
  "status": "done",
- "validated": "2026-10-09"}
+ "validated": "2026-10-09",
+ "third_pass": {
+  "date": "2026-10-10",
+  "model": "fable",
+  "checked": 58,
+  "applied": 1,
+  "rejected_by_orchestrator": []
+ }
+}

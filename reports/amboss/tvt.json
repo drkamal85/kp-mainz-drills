@@ -1,17 +1,74 @@
-{"slug": "tvt", "deck": "reviews/gefaesschirurgie/tvt.html", "capture": ["sources/amboss/tvt.md"],
- "counts": {"ok": 38, "fix": 0, "unclear": 10},
+{
+ "slug": "tvt",
+ "deck": "reviews/gefaesschirurgie/tvt.html",
+ "capture": [
+  "sources/amboss/tvt.md"
+ ],
+ "counts": {
+  "ok": 38,
+  "fix": 0,
+  "unclear": 10
+ },
  "fixes": [],
  "unclear": [
-  {"panel": "grundlagen", "deck_text": "Faktor-V-Leiden (häufigste Thrombophilie)", "reason": "AMBOSS: APC-Resistenz und Faktor-VIII-Erhöhung je ca. 5 %"},
-  {"panel": "klinik", "deck_text": "Chronisch-venöse Insuffizienz: chronisch, oft beidseits; Erysipel: Fieber", "reason": "DD-Hinweise nicht in Erfassung"},
-  {"panel": "diagnostik", "deck_text": "Bei niedriger Wahrscheinlichkeit schließt ein negativer D-Dimer die TVT aus", "reason": "Algorithmus nur als Bild; AMBOSS: negativ schließt weitgehend aus"},
-  {"panel": "therapie", "deck_text": "ausgelöst 3–6 Monate · unprovoziert/Rezidiv/Tumor länger oder dauerhaft", "reason": "AMBOSS: mind. 3 Mo., eher 6 Mo./verlängert; vereinfachend"},
-  {"panel": "therapie", "deck_text": "mechanische Herzklappe / schweres APS → Vitamin-K-Antagonist, kein DOAK", "reason": "nicht in Erfassung; auch Perle 6/Rapid-Fire"},
-  {"panel": "therapie", "deck_text": "DOAK ohne INR, weniger Wechselwirkungen, geringeres Blutungsrisiko", "reason": "nicht in Erfassung; auch Tab 6"},
-  {"panel": "therapie", "deck_text": "Antidote: Andexanet alfa, Idarucizumab", "reason": "nicht in Erfassung; auch Rapid-Fire/Tab 6"},
-  {"panel": "perlen", "deck_text": "unprovozierte Thrombose paraneoplastisch — Trousseau-Syndrom", "reason": "Eponym nicht in Erfassung"},
-  {"panel": "protokoll", "deck_text": "Tumoren setzen gerinnungsaktivierende Stoffe frei", "reason": "Mechanismus nicht in Erfassung"},
-  {"panel": "protokoll", "deck_text": "Ein kaltes Bein spricht eher für eine pAVK", "reason": "nicht in Erfassung"}
+  {
+   "panel": "grundlagen",
+   "deck_text": "Faktor-V-Leiden (häufigste Thrombophilie)",
+   "reason": "AMBOSS: APC-Resistenz und Faktor-VIII-Erhöhung je ca. 5 %"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Chronisch-venöse Insuffizienz: chronisch, oft beidseits; Erysipel: Fieber",
+   "reason": "DD-Hinweise nicht in Erfassung"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Bei niedriger Wahrscheinlichkeit schließt ein negativer D-Dimer die TVT aus",
+   "reason": "Algorithmus nur als Bild; AMBOSS: negativ schließt weitgehend aus"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "ausgelöst 3–6 Monate · unprovoziert/Rezidiv/Tumor länger oder dauerhaft",
+   "reason": "AMBOSS: mind. 3 Mo., eher 6 Mo./verlängert; vereinfachend"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "mechanische Herzklappe / schweres APS → Vitamin-K-Antagonist, kein DOAK",
+   "reason": "nicht in Erfassung; auch Perle 6/Rapid-Fire"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "DOAK ohne INR, weniger Wechselwirkungen, geringeres Blutungsrisiko",
+   "reason": "nicht in Erfassung; auch Tab 6"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Antidote: Andexanet alfa, Idarucizumab",
+   "reason": "nicht in Erfassung; auch Rapid-Fire/Tab 6"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "unprovozierte Thrombose paraneoplastisch — Trousseau-Syndrom",
+   "reason": "Eponym nicht in Erfassung"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Tumoren setzen gerinnungsaktivierende Stoffe frei",
+   "reason": "Mechanismus nicht in Erfassung"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Ein kaltes Bein spricht eher für eine pAVK",
+   "reason": "nicht in Erfassung"
+  }
  ],
  "status": "done",
- "validated": "2026-10-09"}
+ "validated": "2026-10-09",
+ "third_pass": {
+  "date": "2026-10-10",
+  "model": "fable",
+  "checked": 41,
+  "applied": 0,
+  "rejected_by_orchestrator": []
+ }
+}

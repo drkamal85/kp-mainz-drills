@@ -1,22 +1,111 @@
-{"slug": "hyponatriaemie-siadh", "deck": "reviews/drittes-fach/hyponatriaemie-siadh.html", "capture": ["sources/amboss/hyponatriaemie-siadh.md"],
- "counts": {"ok": 30, "fix": 2, "unclear": 12},
+{
+ "slug": "hyponatriaemie-siadh",
+ "deck": "reviews/drittes-fach/hyponatriaemie-siadh.html",
+ "capture": [
+  "sources/amboss/hyponatriaemie-siadh.md"
+ ],
+ "counts": {
+  "ok": 30,
+  "fix": 4,
+  "unclear": 12
+ },
  "fixes": [
-  {"panel": "perlen", "deck_text": "Höchstens 8 bis 10 mmol pro Liter in 24 Stunden.", "new_text": "Höchstens 6 bis 8 mmol pro Liter in 24 Stunden.", "amboss_quote": "sehr vorsichtige Steigerung/Senkung des Serumnatriums um max. 6–8 mmol/L je 24 Stunden"},
-  {"panel": "perlen", "deck_text": "Maximale Korrektur in 24 Stunden? — 8 bis 10 mmol pro Liter", "new_text": "6 bis 8 mmol pro Liter", "amboss_quote": "Prävention: Maximaler Anstieg der Natriumkonzentration im Serum um 6–8 mmol/L je 24 h"}
+  {
+   "panel": "perlen",
+   "deck_text": "Höchstens 8 bis 10 mmol pro Liter in 24 Stunden.",
+   "new_text": "Höchstens 6 bis 8 mmol pro Liter in 24 Stunden.",
+   "amboss_quote": "sehr vorsichtige Steigerung/Senkung des Serumnatriums um max. 6–8 mmol/L je 24 Stunden"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Maximale Korrektur in 24 Stunden? — 8 bis 10 mmol pro Liter",
+   "new_text": "6 bis 8 mmol pro Liter",
+   "amboss_quote": "Prävention: Maximaler Anstieg der Natriumkonzentration im Serum um 6–8 mmol/L je 24 h"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Acht bis zehn am Tag, nicht mehr",
+   "new_text": "Sechs bis acht am Tag, nicht mehr",
+   "amboss_quote": "- Prävention: Maximaler Anstieg der Natriumkonzentration im Serum um 6–8 mmol/L je 24 h",
+   "pass": 3
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Flüssigkeit auf 800 bis 1000 ml täglich",
+   "new_text": "Flüssigkeit auf 500 bis 800 ml täglich",
+   "amboss_quote": "- Normovolämische Formen: Trinkmengenbeschränkung auf 500–800 mL/24 h, Beseitigung der auslösenden Ursache, bei symptomatischem Leidensdruck Gabe von isotonischer Kochsalzlösung wie bei hypovolämischen Formen möglich",
+   "pass": 3
+  }
  ],
  "unclear": [
-  {"panel": "perlen", "deck_text": "Merke: Acht bis zehn am Tag, nicht mehr", "reason": "Mnemonik — nicht editierbar; widerspricht AMBOSS 6–8 mmol/L"},
-  {"panel": "therapie", "deck_text": "SIADH: Flüssigkeit auf 800 bis 1000 ml täglich", "reason": "AMBOSS 500–800 mL/24 h; Spannen überlappen"},
-  {"panel": "grundlagen", "deck_text": "130 leicht · 125 mittel · unter 125 schwer", "reason": "Schweregrade nicht in Erfassung"},
-  {"panel": "grundlagen", "deck_text": "Akut heißt unter 48 Stunden", "reason": "nicht in Erfassung"},
-  {"panel": "grundlagen", "deck_text": "euvoläm: SIADH, Polydipsie", "reason": "AMBOSS führt psychogene Polydipsie unter hypervoläm"},
-  {"panel": "grundlagen", "deck_text": "hypervoläm: Herz-, Leber-, Niereninsuffizienz", "reason": "AMBOSS: nephrotisches Syndrom; Niere nicht explizit"},
-  {"panel": "perlen", "deck_text": "Euvoläm: SIADH, Hypothyreose, Nebenniereninsuffizienz", "reason": "AMBOSS: Hypothyreose hypervoläm, NNR-Insuff. hypovoläm (renal)"},
-  {"panel": "grundlagen", "deck_text": "SIADH-Ursachen: SCLC, ZNS, Pneumonie, SSRI, Carbamazepin", "reason": "SIADH-Ursachen nicht in Erfassung"},
-  {"panel": "diagnostik", "deck_text": "Pseudohyponatriämie bei hoher Glukose; Serumosmolarität normal", "reason": "nicht in Erfassung"},
-  {"panel": "diagnostik", "deck_text": "SIADH-Ausschlussdiagnose: Schilddrüse, Nebenniere, Medikamente", "reason": "nicht in Erfassung"},
-  {"panel": "perlen", "deck_text": "Myelinolyse nach 2 bis 6 Tagen; Dysarthrie, Locked-in", "reason": "AMBOSS: 'Tage'; Symptome teils nicht erfasst"},
-  {"panel": "perlen", "deck_text": "TURP-Syndrom: dilutionale Hyponatriämie durch Spülflüssigkeit", "reason": "AMBOSS nennt TUR-Syndrom nur bei Urinosm ≤100"}
+  {
+   "panel": "perlen",
+   "deck_text": "Merke: Acht bis zehn am Tag, nicht mehr",
+   "reason": "Mnemonik — nicht editierbar; widerspricht AMBOSS 6–8 mmol/L"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "SIADH: Flüssigkeit auf 800 bis 1000 ml täglich",
+   "reason": "AMBOSS 500–800 mL/24 h; Spannen überlappen"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "130 leicht · 125 mittel · unter 125 schwer",
+   "reason": "Schweregrade nicht in Erfassung"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Akut heißt unter 48 Stunden",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "euvoläm: SIADH, Polydipsie",
+   "reason": "AMBOSS führt psychogene Polydipsie unter hypervoläm"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "hypervoläm: Herz-, Leber-, Niereninsuffizienz",
+   "reason": "AMBOSS: nephrotisches Syndrom; Niere nicht explizit"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Euvoläm: SIADH, Hypothyreose, Nebenniereninsuffizienz",
+   "reason": "AMBOSS: Hypothyreose hypervoläm, NNR-Insuff. hypovoläm (renal)"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "SIADH-Ursachen: SCLC, ZNS, Pneumonie, SSRI, Carbamazepin",
+   "reason": "SIADH-Ursachen nicht in Erfassung"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Pseudohyponatriämie bei hoher Glukose; Serumosmolarität normal",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "SIADH-Ausschlussdiagnose: Schilddrüse, Nebenniere, Medikamente",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Myelinolyse nach 2 bis 6 Tagen; Dysarthrie, Locked-in",
+   "reason": "AMBOSS: 'Tage'; Symptome teils nicht erfasst"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "TURP-Syndrom: dilutionale Hyponatriämie durch Spülflüssigkeit",
+   "reason": "AMBOSS nennt TUR-Syndrom nur bei Urinosm ≤100"
+  }
  ],
  "status": "done",
- "validated": "2026-10-09"}
+ "validated": "2026-10-09",
+ "third_pass": {
+  "date": "2026-10-10",
+  "model": "fable",
+  "checked": 40,
+  "applied": 2,
+  "rejected_by_orchestrator": []
+ }
+}

@@ -1,25 +1,119 @@
-{"slug": "morbus-hodgkin", "deck": "reviews/haematologie/morbus-hodgkin.html", "capture": ["sources/amboss/morbus-hodgkin.md"],
- "counts": {"ok": 47, "fix": 2, "unclear": 15},
+{
+ "slug": "morbus-hodgkin",
+ "deck": "reviews/haematologie/morbus-hodgkin.html",
+ "capture": [
+  "sources/amboss/morbus-hodgkin.md"
+ ],
+ "counts": {
+  "ok": 47,
+  "fix": 3,
+  "unclear": 15
+ },
  "fixes": [
-  {"panel": "therapie", "deck_text": "fortgeschritten: BEACOPP, Bestrahlung nur bei Restbefund", "new_text": "fortgeschritten: BrECADD, Bestrahlung nur bei Restbefund", "amboss_quote": "Fortgeschrittenes Stadium | 18–60 Jahre: PET-adaptierte Therapie mit 4 oder 6 Zyklen BrECADD"},
-  {"panel": "perlen", "deck_text": "Schema im fortgeschrittenen Stadium? BEACOPP", "new_text": "BrECADD", "amboss_quote": "in fortgeschrittenen Stadien PET-adaptiert mit 4 oder 6 Zyklen der kombinierten Immunchemotherapie BrECADD"}
+  {
+   "panel": "therapie",
+   "deck_text": "fortgeschritten: BEACOPP, Bestrahlung nur bei Restbefund",
+   "new_text": "fortgeschritten: BrECADD, Bestrahlung nur bei Restbefund",
+   "amboss_quote": "Fortgeschrittenes Stadium | 18–60 Jahre: PET-adaptierte Therapie mit 4 oder 6 Zyklen BrECADD"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Schema im fortgeschrittenen Stadium? BEACOPP",
+   "new_text": "BrECADD",
+   "amboss_quote": "in fortgeschrittenen Stadien PET-adaptiert mit 4 oder 6 Zyklen der kombinierten Immunchemotherapie BrECADD"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "<td>4× ABVD plus Bestrahlung</td>",
+   "new_text": "<td>„2+2“ (2× BEACOPP eskaliert, 2× ABVD) plus Bestrahlung</td>",
+   "amboss_quote": "| Intermediäres Stadium | 18–60 Jahre: „2+2\"-Schema (2 Zyklen BEACOPP eskaliert gefolgt von 2 Zyklen ABVD); >60 Jahre: 2 Zyklen ABVD gefolgt von 2 Zyklen AVD | Nach „2+2\"-Schema: PET-adaptierte Bestrahlungstherapie, 30 Gy Involved Site Radiatio PET-positiver Reste; Nach 4 Zyklen A(B)VD: 30 Gy Involved Site Radiatio initial (prätherapeutisch) befallener Lokalisationen |",
+   "pass": 3
+  }
  ],
  "unclear": [
-  {"panel": "grundlagen", "deck_text": "Bimodaler Altersgipfel: um das 25. und um das 65. Lebensjahr", "reason": "AMBOSS: 20.–30. und >55. LJ; Rundung"},
-  {"panel": "grundlagen", "deck_text": "Nodulär-sklerosierend: häufigster — junge Frauen, mediastinal", "reason": "Häufigkeit ✓; Alters-/Geschlechtsmerkmal nicht in Erfassung"},
-  {"panel": "grundlagen", "deck_text": "Gemischtzellig: zweithäufigster — ältere Patienten, EBV-assoziiert", "reason": "nicht in Erfassung"},
-  {"panel": "grundlagen", "deck_text": "Lymphozytenreich: gute / Lymphozytenarm: schlechteste Prognose", "reason": "Prognose der Subtypen nicht in Erfassung"},
-  {"panel": "grundlagen", "deck_text": "NLPHL — CD20 positiv, CD30 negativ", "reason": "CD20+ ✓; CD30-negativ nicht explizit"},
-  {"panel": "grundlagen", "deck_text": "Hodgkin wandert kontinuierlich ... NHL springt", "reason": "Ausbreitungsmuster nicht in Erfassung"},
-  {"panel": "klinik", "deck_text": "nicht verschieblich", "reason": "Hodgkin-LK: derb, gummiartig, indolent; Verschieblichkeit nur in DD"},
-  {"panel": "klinik", "deck_text": "Obere Einflussstauung / Stokes-Kragen", "reason": "nicht in Erfassung"},
-  {"panel": "diagnostik", "deck_text": "BSG — stark erhöht ... Anämie", "reason": "Anämie nicht in Erfassung"},
-  {"panel": "diagnostik", "deck_text": "Bulk — Tumor über 5 cm", "reason": "nur als Rezidiv-Risikofaktor Bulk ≥5 cm erfasst"},
-  {"panel": "therapie", "deck_text": "früh, ungünstig: 4× ABVD plus Bestrahlung", "reason": "AMBOSS: 18–60 J. 2+2-Schema; 4× A(B)VD nur >60 J."},
-  {"panel": "therapie", "deck_text": "Heilungsrate über 80 Prozent", "reason": "AMBOSS: 5-JÜR >90%; kompatibel"},
-  {"panel": "therapie", "deck_text": "Echo vor Anthrazyklin, Lungenfunktion vor Bleomycin; Fertilitätserhalt; Tumorlyse", "reason": "Vorbereitung nicht in Erfassung"},
-  {"panel": "therapie", "deck_text": "Unfruchtbarkeit: Alkylanzien", "reason": "nicht in Erfassung"},
-  {"panel": "perlen", "deck_text": "Das trennt es vom NHL, das mit dem Alter kontinuierlich zunimmt.", "reason": "NHL-Epidemiologie nicht in Erfassung"}
+  {
+   "panel": "grundlagen",
+   "deck_text": "Bimodaler Altersgipfel: um das 25. und um das 65. Lebensjahr",
+   "reason": "AMBOSS: 20.–30. und >55. LJ; Rundung"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Nodulär-sklerosierend: häufigster — junge Frauen, mediastinal",
+   "reason": "Häufigkeit ✓; Alters-/Geschlechtsmerkmal nicht in Erfassung"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Gemischtzellig: zweithäufigster — ältere Patienten, EBV-assoziiert",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Lymphozytenreich: gute / Lymphozytenarm: schlechteste Prognose",
+   "reason": "Prognose der Subtypen nicht in Erfassung"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "NLPHL — CD20 positiv, CD30 negativ",
+   "reason": "CD20+ ✓; CD30-negativ nicht explizit"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Hodgkin wandert kontinuierlich ... NHL springt",
+   "reason": "Ausbreitungsmuster nicht in Erfassung"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "nicht verschieblich",
+   "reason": "Hodgkin-LK: derb, gummiartig, indolent; Verschieblichkeit nur in DD"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Obere Einflussstauung / Stokes-Kragen",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "BSG — stark erhöht ... Anämie",
+   "reason": "Anämie nicht in Erfassung"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Bulk — Tumor über 5 cm",
+   "reason": "nur als Rezidiv-Risikofaktor Bulk ≥5 cm erfasst"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "früh, ungünstig: 4× ABVD plus Bestrahlung",
+   "reason": "AMBOSS: 18–60 J. 2+2-Schema; 4× A(B)VD nur >60 J."
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Heilungsrate über 80 Prozent",
+   "reason": "AMBOSS: 5-JÜR >90%; kompatibel"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Echo vor Anthrazyklin, Lungenfunktion vor Bleomycin; Fertilitätserhalt; Tumorlyse",
+   "reason": "Vorbereitung nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Unfruchtbarkeit: Alkylanzien",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Das trennt es vom NHL, das mit dem Alter kontinuierlich zunimmt.",
+   "reason": "NHL-Epidemiologie nicht in Erfassung"
+  }
  ],
  "status": "done",
- "validated": "2026-10-09"}
+ "validated": "2026-10-09",
+ "third_pass": {
+  "date": "2026-10-10",
+  "model": "fable",
+  "checked": 41,
+  "applied": 1,
+  "rejected_by_orchestrator": []
+ }
+}

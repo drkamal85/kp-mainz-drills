@@ -1,21 +1,94 @@
-{"slug": "lebertumoren", "deck": "reviews/gastroenterologie/lebertumoren.html", "capture": ["sources/amboss/lebertumoren.md"],
- "counts": {"ok": 14, "fix": 0, "unclear": 14},
+{
+ "slug": "lebertumoren",
+ "deck": "reviews/gastroenterologie/lebertumoren.html",
+ "capture": [
+  "sources/amboss/lebertumoren.md"
+ ],
+ "counts": {
+  "ok": 14,
+  "fix": 0,
+  "unclear": 14
+ },
  "fixes": [],
  "unclear": [
-  {"panel": "grundlagen", "deck_text": "Metastasen sind rund 20-mal häufiger als primäre Lebertumoren", "reason": "Metastasen/HCC nicht erfasst (bekannte Lücke); auch Perlen/Rapid-Fire"},
-  {"panel": "grundlagen", "deck_text": "Pfortader 75 %, Leberarterie 25 %; 3 Lebervenen; 8 Segmente nach Couinaud", "reason": "Anatomie nicht in Erfassung; auch Perlen/Rapid-Fire"},
-  {"panel": "grundlagen", "deck_text": "Adenom bei Pille und Anabolika", "reason": "AMBOSS nennt östrogenhaltige Kontrazeptiva; Anabolika nicht erfasst"},
-  {"panel": "grundlagen", "deck_text": "HCC fast immer auf Zirrhose; Herkunft kolorektal, Pankreas, Magen, Lunge, Mamma", "reason": "nicht in Erfassung; auch Tab 6"},
-  {"panel": "klinik", "deck_text": "Spät: Druck rechts oben, Gewichtsverlust, Ikterus", "reason": "nur für benigne Tumoren erfasst (Oberbauchbeschwerden)"},
-  {"panel": "klinik", "deck_text": "Abszess: Fieber, CRP hoch, schmerzhaft", "reason": "AMBOSS nennt nur Sonomerkmale des Abszesses"},
-  {"panel": "diagnostik", "deck_text": "Metastase: multipel, echoarm, heller Randsaum — Halo; Hämangiom kein Halo", "reason": "Metastasen-Sono nicht erfasst; auch Perle 6/Rapid-Fire/Tab 6"},
-  {"panel": "diagnostik", "deck_text": "HCC: früh anreichern, spät auswaschen; Primärsuche Endoskopie, CT", "reason": "HCC-Kapitel nicht erfasst"},
-  {"panel": "diagnostik", "deck_text": "Biopsie vom Primärtumor und aus der Leber; AFP; Marker zur Verlaufskontrolle", "reason": "nicht in Erfassung; auch Perle 7/Rapid-Fire/Tab 6"},
-  {"panel": "therapie", "deck_text": "Nur kolorektale Lebermetastasen operiert; Restleber 30 %; 5-JÜ bis 40 %", "reason": "nicht in Erfassung; auch Perle 8/Rapid-Fire"},
-  {"panel": "therapie", "deck_text": "Mailand-Kriterien: 1 Herd bis 5 cm oder bis 3 Herde bis je 3 cm", "reason": "nicht in Erfassung; auch Rapid-Fire/Tab 6"},
-  {"panel": "therapie", "deck_text": "RFA / TACE", "reason": "lokoregionäre Verfahren nicht erfasst (Lücke)"},
-  {"panel": "therapie", "deck_text": "Das Adenom wird entfernt … Pille absetzen, ab 5 cm resezieren", "reason": "Therapie-Zeile der AMBOSS-Tabelle spaltenverschoben; >5 cm vereinbar"},
-  {"panel": "protokoll", "deck_text": "TNM/N0 = 12 LK; Steatosis → HCC; WHO-Stufenschema; Stoma", "reason": "nicht in Erfassung"}
+  {
+   "panel": "grundlagen",
+   "deck_text": "Metastasen sind rund 20-mal häufiger als primäre Lebertumoren",
+   "reason": "Metastasen/HCC nicht erfasst (bekannte Lücke); auch Perlen/Rapid-Fire"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Pfortader 75 %, Leberarterie 25 %; 3 Lebervenen; 8 Segmente nach Couinaud",
+   "reason": "Anatomie nicht in Erfassung; auch Perlen/Rapid-Fire"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Adenom bei Pille und Anabolika",
+   "reason": "AMBOSS nennt östrogenhaltige Kontrazeptiva; Anabolika nicht erfasst"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "HCC fast immer auf Zirrhose; Herkunft kolorektal, Pankreas, Magen, Lunge, Mamma",
+   "reason": "nicht in Erfassung; auch Tab 6"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Spät: Druck rechts oben, Gewichtsverlust, Ikterus",
+   "reason": "nur für benigne Tumoren erfasst (Oberbauchbeschwerden)"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Abszess: Fieber, CRP hoch, schmerzhaft",
+   "reason": "AMBOSS nennt nur Sonomerkmale des Abszesses"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Metastase: multipel, echoarm, heller Randsaum — Halo; Hämangiom kein Halo",
+   "reason": "Metastasen-Sono nicht erfasst; auch Perle 6/Rapid-Fire/Tab 6"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "HCC: früh anreichern, spät auswaschen; Primärsuche Endoskopie, CT",
+   "reason": "HCC-Kapitel nicht erfasst"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Biopsie vom Primärtumor und aus der Leber; AFP; Marker zur Verlaufskontrolle",
+   "reason": "nicht in Erfassung; auch Perle 7/Rapid-Fire/Tab 6"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Nur kolorektale Lebermetastasen operiert; Restleber 30 %; 5-JÜ bis 40 %",
+   "reason": "nicht in Erfassung; auch Perle 8/Rapid-Fire"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Mailand-Kriterien: 1 Herd bis 5 cm oder bis 3 Herde bis je 3 cm",
+   "reason": "nicht in Erfassung; auch Rapid-Fire/Tab 6"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "RFA / TACE",
+   "reason": "lokoregionäre Verfahren nicht erfasst (Lücke)"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Das Adenom wird entfernt … Pille absetzen, ab 5 cm resezieren",
+   "reason": "Therapie-Zeile der AMBOSS-Tabelle spaltenverschoben; >5 cm vereinbar"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "TNM/N0 = 12 LK; Steatosis → HCC; WHO-Stufenschema; Stoma",
+   "reason": "nicht in Erfassung"
+  }
  ],
  "status": "done",
- "validated": "2026-10-09"}
+ "validated": "2026-10-09",
+ "third_pass": {
+  "date": "2026-10-10",
+  "model": "fable",
+  "checked": 22,
+  "applied": 0,
+  "rejected_by_orchestrator": []
+ }
+}

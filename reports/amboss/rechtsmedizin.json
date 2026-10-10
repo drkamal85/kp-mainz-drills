@@ -1,23 +1,101 @@
-{"slug": "rechtsmedizin", "deck": "reviews/drittes-fach/rechtsmedizin.html", "capture": ["sources/amboss/rechtsmedizin.md"],
- "counts": {"ok": 48, "fix": 1, "unclear": 14},
+{
+ "slug": "rechtsmedizin",
+ "deck": "reviews/drittes-fach/rechtsmedizin.html",
+ "capture": [
+  "sources/amboss/rechtsmedizin.md"
+ ],
+ "counts": {
+  "ok": 48,
+  "fix": 1,
+  "unclear": 14
+ },
  "fixes": [
-  {"panel": "protokoll", "deck_text": "Die Starre beginnt nach 1 bis 2 Stunden und löst sich nach 2 bis 3 Tagen.", "new_text": "Die Starre beginnt nach 2 bis 4 Stunden und löst sich nach 2 bis 3 Tagen.", "amboss_quote": "Nach 2–4 Stunden (nach Todeseintritt): Beginn der Totenstarre"}
+  {
+   "panel": "protokoll",
+   "deck_text": "Die Starre beginnt nach 1 bis 2 Stunden und löst sich nach 2 bis 3 Tagen.",
+   "new_text": "Die Starre beginnt nach 2 bis 4 Stunden und löst sich nach 2 bis 3 Tagen.",
+   "amboss_quote": "Nach 2–4 Stunden (nach Todeseintritt): Beginn der Totenstarre"
+  }
  ],
  "unclear": [
-  {"panel": "klinik", "deck_text": "mit dem Abbau des Hämoglobins entstehen die Verfärbungen", "reason": "Mechanismus nicht in Erfassung"},
-  {"panel": "klinik", "deck_text": "Konfluenz nach ~6 Stunden", "reason": "nicht in Erfassung"},
-  {"panel": "klinik", "deck_text": "Farbe zuerst rot, dann livide (blau-violett)", "reason": "Farbverlauf nicht in Erfassung"},
-  {"panel": "klinik", "deck_text": "in den ersten ~6 Stunden wegdrückbar und umlagerbar, nach ~6–12 Stunden fixiert", "reason": "AMBOSS trennt Wegdrückbarkeit (4 h/20–30 h) und Umlagerbarkeit (6/12 h)"},
-  {"panel": "perlen", "deck_text": "Wann sind Totenflecke fixiert? Nach ~6–12 Stunden.", "reason": "Umlagerbarkeit bis 12 h; Wegdrückbarkeit bis 20–30 h"},
-  {"panel": "klinik", "deck_text": "Totenflecke, die nicht zur Lage passen → ... Hinweis auf einen nicht-natürlichen Tod", "reason": "AMBOSS: Hinweis auf Lageveränderung; Schlussfolgerung nicht explizit"},
-  {"panel": "grundlagen", "deck_text": "Vita minima, Unterkühlung", "reason": "Begriff Vita minima nicht in Erfassung (AEIOU kompatibel)"},
-  {"panel": "therapie", "deck_text": "Kindesmisshandlung & Schütteltrauma (Warnzeichen, Meldung)", "reason": "nicht in Erfassung"},
-  {"panel": "therapie", "deck_text": "Plötzlicher Kindstod (SIDS) – Ausschlussdiagnose, Risikofaktoren", "reason": "nur Querverweis in Erfassung"},
-  {"panel": "diagnostik", "deck_text": "die Polizei verständigen (Kriminalpolizei)", "reason": "Kriminalpolizei nicht spezifiziert"},
-  {"panel": "protokoll", "deck_text": "Der Hirntod ... stellen 2 qualifizierte Ärzte unabhängig voneinander fest", "reason": "Hirntoddiagnostik nicht in Erfassung"},
-  {"panel": "protokoll", "deck_text": "Epiphysenfugen im Röntgen der linken Hand nach Greulich-Pyle", "reason": "nicht in Erfassung"},
-  {"panel": "protokoll", "deck_text": "Zuerst sind sie rot, dann livide, weil das Hämoglobin ... den Sauerstoff abgibt.", "reason": "nicht in Erfassung"},
-  {"panel": "protokoll", "deck_text": "Dann reanimiere ich, weil der Patient ohne sichere Todeszeichen nicht als tot gilt.", "reason": "protokollbasiert; kompatibel"}
+  {
+   "panel": "klinik",
+   "deck_text": "mit dem Abbau des Hämoglobins entstehen die Verfärbungen",
+   "reason": "Mechanismus nicht in Erfassung"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Konfluenz nach ~6 Stunden",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Farbe zuerst rot, dann livide (blau-violett)",
+   "reason": "Farbverlauf nicht in Erfassung"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "in den ersten ~6 Stunden wegdrückbar und umlagerbar, nach ~6–12 Stunden fixiert",
+   "reason": "AMBOSS trennt Wegdrückbarkeit (4 h/20–30 h) und Umlagerbarkeit (6/12 h)"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Wann sind Totenflecke fixiert? Nach ~6–12 Stunden.",
+   "reason": "Umlagerbarkeit bis 12 h; Wegdrückbarkeit bis 20–30 h"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Totenflecke, die nicht zur Lage passen → ... Hinweis auf einen nicht-natürlichen Tod",
+   "reason": "AMBOSS: Hinweis auf Lageveränderung; Schlussfolgerung nicht explizit"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Vita minima, Unterkühlung",
+   "reason": "Begriff Vita minima nicht in Erfassung (AEIOU kompatibel)"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Kindesmisshandlung & Schütteltrauma (Warnzeichen, Meldung)",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Plötzlicher Kindstod (SIDS) – Ausschlussdiagnose, Risikofaktoren",
+   "reason": "nur Querverweis in Erfassung"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "die Polizei verständigen (Kriminalpolizei)",
+   "reason": "Kriminalpolizei nicht spezifiziert"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Der Hirntod ... stellen 2 qualifizierte Ärzte unabhängig voneinander fest",
+   "reason": "Hirntoddiagnostik nicht in Erfassung"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Epiphysenfugen im Röntgen der linken Hand nach Greulich-Pyle",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Zuerst sind sie rot, dann livide, weil das Hämoglobin ... den Sauerstoff abgibt.",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Dann reanimiere ich, weil der Patient ohne sichere Todeszeichen nicht als tot gilt.",
+   "reason": "protokollbasiert; kompatibel"
+  }
  ],
  "status": "done",
- "validated": "2026-10-09"}
+ "validated": "2026-10-09",
+ "third_pass": {
+  "date": "2026-10-10",
+  "model": "fable",
+  "checked": 34,
+  "applied": 0,
+  "rejected_by_orchestrator": []
+ }
+}

@@ -1,23 +1,104 @@
-{"slug": "leberzirrhose", "deck": "reviews/gastroenterologie/leberzirrhose.html", "capture": ["sources/amboss/leberzirrhose.md"],
- "counts": {"ok": 44, "fix": 0, "unclear": 16},
+{
+ "slug": "leberzirrhose",
+ "deck": "reviews/gastroenterologie/leberzirrhose.html",
+ "capture": [
+  "sources/amboss/leberzirrhose.md"
+ ],
+ "counts": {
+  "ok": 44,
+  "fix": 0,
+  "unclear": 16
+ },
  "fixes": [],
  "unclear": [
-  {"panel": "grundlagen", "deck_text": "Steatosis hepatis ... ebenso wie die Hepatitis B, ein HCC auch ohne vollständige Zirrhose", "reason": "Nicht in Erfassung"},
-  {"panel": "klinik", "deck_text": "Hodenatrophie; Viele Zeichen entstehen durch Hyperöstrogenismus", "reason": "Nicht in Erfassung"},
-  {"panel": "klinik", "deck_text": "Auslöser der Enzephalopathie ... Diuretika", "reason": "Diuretika nicht in Trigger-Liste; Rest ✓"},
-  {"panel": "diagnostik", "deck_text": "bei Alkohol GOT > GPT, De-Ritis > 1", "reason": "Nicht in Erfassung"},
-  {"panel": "diagnostik", "deck_text": "ÖGD: Screening auf Ösophagusvarizen; rote Zeichen", "reason": "Nicht in Erfassung"},
-  {"panel": "diagnostik", "deck_text": "> 250 neutrophile Granulozyten/µl beweisen die SBP; SAAG", "reason": "Nicht in Erfassung"},
-  {"panel": "diagnostik", "deck_text": "Quick (INR) > 70 % (<1,7) ... < 40 % (>2,3)", "reason": "Quick ✓; INR-Grenzen nicht in Erfassung"},
-  {"panel": "therapie", "deck_text": "Impfungen: Hepatitis A/B, Pneumokokken, Influenza; Aderlass", "reason": "Nicht in Erfassung"},
-  {"panel": "therapie", "deck_text": "bei Entlastung > 5 l Albumin substituieren", "reason": "Nicht in Erfassung"},
-  {"panel": "therapie", "deck_text": "Terlipressin (senkt den Pfortaderdruck); Ligatur", "reason": "Varizenblutungstherapie nicht in Erfassung (Ceftriaxon ✓)"},
-  {"panel": "therapie", "deck_text": "nicht-selektiver Betablocker (Propranolol/Carvedilol) und/oder Ligatur", "reason": "Propranolol ✓; Carvedilol/Ligatur nicht in Erfassung"},
-  {"panel": "therapie", "deck_text": "Lactulose (senkt Ammoniak) und Rifaximin", "reason": "AMBOSS: Rifaximin nach Lactulose und Ornithinaspartat"},
-  {"panel": "therapie", "deck_text": "Sonografie alle 6 Monate (± AFP)", "reason": "AMBOSS: regelmäßige Sonografie, Intervall nicht genannt"},
-  {"panel": "perlen", "deck_text": "Transsudat mit SAAG ≥ 1,1 g/dl", "reason": "Nicht in Erfassung"},
-  {"panel": "protokoll", "deck_text": "Am häufigsten führt die Hepatitis C zur Zirrhose ... gefolgt von B", "reason": "Rangfolge nicht in Erfassung"},
-  {"panel": "protokoll", "deck_text": "Ich pausiere die Diuretika ...; Albumin 6 bis 8 g pro Liter; PPI", "reason": "Nicht in Erfassung"}
+  {
+   "panel": "grundlagen",
+   "deck_text": "Steatosis hepatis ... ebenso wie die Hepatitis B, ein HCC auch ohne vollständige Zirrhose",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Hodenatrophie; Viele Zeichen entstehen durch Hyperöstrogenismus",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Auslöser der Enzephalopathie ... Diuretika",
+   "reason": "Diuretika nicht in Trigger-Liste; Rest ✓"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "bei Alkohol GOT > GPT, De-Ritis > 1",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "ÖGD: Screening auf Ösophagusvarizen; rote Zeichen",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "> 250 neutrophile Granulozyten/µl beweisen die SBP; SAAG",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Quick (INR) > 70 % (<1,7) ... < 40 % (>2,3)",
+   "reason": "Quick ✓; INR-Grenzen nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Impfungen: Hepatitis A/B, Pneumokokken, Influenza; Aderlass",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "bei Entlastung > 5 l Albumin substituieren",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Terlipressin (senkt den Pfortaderdruck); Ligatur",
+   "reason": "Varizenblutungstherapie nicht in Erfassung (Ceftriaxon ✓)"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "nicht-selektiver Betablocker (Propranolol/Carvedilol) und/oder Ligatur",
+   "reason": "Propranolol ✓; Carvedilol/Ligatur nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Lactulose (senkt Ammoniak) und Rifaximin",
+   "reason": "AMBOSS: Rifaximin nach Lactulose und Ornithinaspartat"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Sonografie alle 6 Monate (± AFP)",
+   "reason": "AMBOSS: regelmäßige Sonografie, Intervall nicht genannt"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Transsudat mit SAAG ≥ 1,1 g/dl",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Am häufigsten führt die Hepatitis C zur Zirrhose ... gefolgt von B",
+   "reason": "Rangfolge nicht in Erfassung"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Ich pausiere die Diuretika ...; Albumin 6 bis 8 g pro Liter; PPI",
+   "reason": "Nicht in Erfassung"
+  }
  ],
  "status": "done",
- "validated": "2026-10-09"}
+ "validated": "2026-10-09",
+ "third_pass": {
+  "date": "2026-10-10",
+  "model": "fable",
+  "checked": 55,
+  "applied": 0,
+  "rejected_by_orchestrator": []
+ }
+}

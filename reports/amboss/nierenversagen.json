@@ -1,23 +1,104 @@
-{"slug": "nierenversagen", "deck": "reviews/drittes-fach/nierenversagen.html", "capture": ["sources/amboss/nierenversagen.md"],
- "counts": {"ok": 30, "fix": 0, "unclear": 16},
+{
+ "slug": "nierenversagen",
+ "deck": "reviews/drittes-fach/nierenversagen.html",
+ "capture": [
+  "sources/amboss/nierenversagen.md"
+ ],
+ "counts": {
+  "ok": 30,
+  "fix": 0,
+  "unclear": 16
+ },
  "fixes": [],
  "unclear": [
-  {"panel": "grundlagen", "deck_text": "Kreatinin steigt erst, wenn die halbe Nierenfunktion weg ist", "reason": "nicht in Erfassung (kreatininblinder Bereich)"},
-  {"panel": "grundlagen", "deck_text": "Urinnatrium unter 20", "reason": "Grenzwerte Urin-Na/FENa nicht erfasst (nur Verweis)"},
-  {"panel": "grundlagen", "deck_text": "Chronisch KDIGO-Stadien nach GFR G1–G5", "reason": "CKD nicht Teil der Erfassung"},
-  {"panel": "grundlagen", "deck_text": "Chronisch spricht für kleine Nieren in der Sonografie", "reason": "nicht in Erfassung"},
-  {"panel": "klinik", "deck_text": "Oligurie unter 500 ml am Tag, Anurie unter 100 ml", "reason": "Volumengrenzen nicht in Erfassung"},
-  {"panel": "klinik", "deck_text": "Ab 6,5 mmol/l oder EKG-Zeichen sofort handeln", "reason": "Hyperkaliämie-Schwelle nicht in Erfassung"},
-  {"panel": "klinik", "deck_text": "Renale Anämie, sek. HPT, Vitamin-D-Mangel, renale Osteopathie", "reason": "CKD nicht Teil der Erfassung"},
-  {"panel": "diagnostik", "deck_text": "Urinnatrium über 40 · FENa unter 1 / über 2 Prozent · isosthenurisch", "reason": "FENa-Kapitel nur Verweis"},
-  {"panel": "therapie", "deck_text": "Wechsel nach 3 bis 6 Monaten", "reason": "Doppel-J nicht in Erfassung"},
-  {"panel": "therapie", "deck_text": "AEIOU-Dialyseindikationen", "reason": "nur 'Indikationen zur Akutdialyse prüfen' erfasst"},
-  {"panel": "therapie", "deck_text": "Akut ein Shaldon-Katheter, dauerhaft ein Cimino-Shunt", "reason": "nicht in Erfassung"},
-  {"panel": "therapie", "deck_text": "RR unter 130/80, SGLT-2, Eiweiß 0,8 g/kg, Dialyse ab GFR unter 15", "reason": "CKD nicht Teil der Erfassung"},
-  {"panel": "perlen", "deck_text": "Kalzium schützt das Herz, Insulin und Glukose verschieben, Furosemid und Harz", "reason": "Hyperkaliämie-Therapie nicht in Erfassung"},
-  {"panel": "perlen", "deck_text": "EKG-Zeichen der Hyperkaliämie? hohe spitze T-Wellen, breiter QRS", "reason": "nicht in Erfassung"},
-  {"panel": "perlen", "deck_text": "Die Niere baut Insulin ab ... der Bedarf sinkt", "reason": "nicht in Erfassung"},
-  {"panel": "protokoll", "deck_text": "Kreatinin steigt erst, wenn die GFR etwa auf die Hälfte gesunken ist", "reason": "nicht in Erfassung"}
+  {
+   "panel": "grundlagen",
+   "deck_text": "Kreatinin steigt erst, wenn die halbe Nierenfunktion weg ist",
+   "reason": "nicht in Erfassung (kreatininblinder Bereich)"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Urinnatrium unter 20",
+   "reason": "Grenzwerte Urin-Na/FENa nicht erfasst (nur Verweis)"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Chronisch KDIGO-Stadien nach GFR G1–G5",
+   "reason": "CKD nicht Teil der Erfassung"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Chronisch spricht für kleine Nieren in der Sonografie",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Oligurie unter 500 ml am Tag, Anurie unter 100 ml",
+   "reason": "Volumengrenzen nicht in Erfassung"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Ab 6,5 mmol/l oder EKG-Zeichen sofort handeln",
+   "reason": "Hyperkaliämie-Schwelle nicht in Erfassung"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Renale Anämie, sek. HPT, Vitamin-D-Mangel, renale Osteopathie",
+   "reason": "CKD nicht Teil der Erfassung"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Urinnatrium über 40 · FENa unter 1 / über 2 Prozent · isosthenurisch",
+   "reason": "FENa-Kapitel nur Verweis"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Wechsel nach 3 bis 6 Monaten",
+   "reason": "Doppel-J nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "AEIOU-Dialyseindikationen",
+   "reason": "nur 'Indikationen zur Akutdialyse prüfen' erfasst"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Akut ein Shaldon-Katheter, dauerhaft ein Cimino-Shunt",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "RR unter 130/80, SGLT-2, Eiweiß 0,8 g/kg, Dialyse ab GFR unter 15",
+   "reason": "CKD nicht Teil der Erfassung"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Kalzium schützt das Herz, Insulin und Glukose verschieben, Furosemid und Harz",
+   "reason": "Hyperkaliämie-Therapie nicht in Erfassung"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "EKG-Zeichen der Hyperkaliämie? hohe spitze T-Wellen, breiter QRS",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Die Niere baut Insulin ab ... der Bedarf sinkt",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Kreatinin steigt erst, wenn die GFR etwa auf die Hälfte gesunken ist",
+   "reason": "nicht in Erfassung"
+  }
  ],
  "status": "done",
- "validated": "2026-10-09"}
+ "validated": "2026-10-09",
+ "third_pass": {
+  "date": "2026-10-10",
+  "model": "fable",
+  "checked": 49,
+  "applied": 0,
+  "rejected_by_orchestrator": []
+ }
+}

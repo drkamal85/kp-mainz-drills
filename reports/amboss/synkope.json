@@ -1,19 +1,91 @@
-{"slug": "synkope", "deck": "reviews/kardiologie/synkope.html", "capture": ["sources/amboss/synkope.md"],
- "counts": {"ok": 38, "fix": 1, "unclear": 12},
- "fixes": [{"panel": "protokoll", "deck_text": "Beim jüngeren Patienten denke ich an eine orthostatische Synkope, die ich mit der Kipptischuntersuchung nachweisen kann.", "new_text": "Beim jüngeren Patienten denke ich an eine vasovagale Synkope, die ich mit der Kipptischuntersuchung nachweisen kann.", "amboss_quote": "Orthostatische Synkope – Überwiegend bei älteren Menschen, bei jungen Menschen selten; Neurokardiogene Synkope – Überwiegend bei jungen gesunden Menschen"}],
+{
+ "slug": "synkope",
+ "deck": "reviews/kardiologie/synkope.html",
+ "capture": [
+  "sources/amboss/synkope.md"
+ ],
+ "counts": {
+  "ok": 38,
+  "fix": 1,
+  "unclear": 12
+ },
+ "fixes": [
+  {
+   "panel": "protokoll",
+   "deck_text": "Beim jüngeren Patienten denke ich an eine orthostatische Synkope, die ich mit der Kipptischuntersuchung nachweisen kann.",
+   "new_text": "Beim jüngeren Patienten denke ich an eine vasovagale Synkope, die ich mit der Kipptischuntersuchung nachweisen kann.",
+   "amboss_quote": "Orthostatische Synkope – Überwiegend bei älteren Menschen, bei jungen Menschen selten; Neurokardiogene Synkope – Überwiegend bei jungen gesunden Menschen"
+  }
+ ],
  "unclear": [
-  {"panel": "grundlagen", "deck_text": "Lebenszeitprävalenz 30–50 %", "reason": "nicht in Erfassung"},
-  {"panel": "klinik", "deck_text": "Kardial: plötzlich, OHNE Prodromi, oft im Liegen / bei Belastung", "reason": "nicht in Erfassung"},
-  {"panel": "diagnostik", "deck_text": "Körperliche Untersuchung — Herz, Blutdruck an beiden Armen", "reason": "nicht explizit in Erfassung"},
-  {"panel": "diagnostik", "deck_text": "Schellong neurogen: RR fällt, Frequenz bleibt; nicht-neurogen: Frequenz steigt", "reason": "Pulsreaktion nicht in Erfassung"},
-  {"panel": "therapie", "deck_text": "CSS kardioinhibitorisch → Schrittmacher", "reason": "nicht in Erfassung"},
-  {"panel": "therapie", "deck_text": "Orthostatisch: Kompressionsstrümpfe", "reason": "nicht in Erfassung"},
-  {"panel": "therapie", "deck_text": "~30 % sturzbedingte Verletzungen", "reason": "Rezidiv 30 % ✓; Verletzungsrate nicht erfasst"},
-  {"panel": "perlen", "deck_text": "Karotissinusmassage positiv: Asystolie > 3 s oder RR-Abfall > 50 mmHg", "reason": "nicht in Erfassung"},
-  {"panel": "perlen", "deck_text": "AS-Trias Belastungsdyspnoe, Angina pectoris, Synkope", "reason": "AS-Kapitel nicht erfasst"},
-  {"panel": "protokoll", "deck_text": "Epilepsie: seitlicher Zungenbiss, Enuresis, postiktale Verwirrtheit", "reason": "AMBOSS: Einnässen auch bei Synkope möglich"},
-  {"panel": "protokoll", "deck_text": "AV-Block meist nicht im 12-Kanal-EKG, sondern im Langzeit-EKG", "reason": "nicht in Erfassung"},
-  {"panel": "protokoll", "deck_text": "Opioid-Intox, Eigenschutz, Anaphylaxie, Hyponatriämie (Fallantworten)", "reason": "außerhalb des Artikels"}
+  {
+   "panel": "grundlagen",
+   "deck_text": "Lebenszeitprävalenz 30–50 %",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Kardial: plötzlich, OHNE Prodromi, oft im Liegen / bei Belastung",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Körperliche Untersuchung — Herz, Blutdruck an beiden Armen",
+   "reason": "nicht explizit in Erfassung"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Schellong neurogen: RR fällt, Frequenz bleibt; nicht-neurogen: Frequenz steigt",
+   "reason": "Pulsreaktion nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "CSS kardioinhibitorisch → Schrittmacher",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Orthostatisch: Kompressionsstrümpfe",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "~30 % sturzbedingte Verletzungen",
+   "reason": "Rezidiv 30 % ✓; Verletzungsrate nicht erfasst"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Karotissinusmassage positiv: Asystolie > 3 s oder RR-Abfall > 50 mmHg",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "AS-Trias Belastungsdyspnoe, Angina pectoris, Synkope",
+   "reason": "AS-Kapitel nicht erfasst"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Epilepsie: seitlicher Zungenbiss, Enuresis, postiktale Verwirrtheit",
+   "reason": "AMBOSS: Einnässen auch bei Synkope möglich"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "AV-Block meist nicht im 12-Kanal-EKG, sondern im Langzeit-EKG",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Opioid-Intox, Eigenschutz, Anaphylaxie, Hyponatriämie (Fallantworten)",
+   "reason": "außerhalb des Artikels"
+  }
  ],
  "status": "done",
- "validated": "2026-10-09"}
+ "validated": "2026-10-09",
+ "third_pass": {
+  "date": "2026-10-10",
+  "model": "fable",
+  "checked": 42,
+  "applied": 0,
+  "rejected_by_orchestrator": []
+ }
+}

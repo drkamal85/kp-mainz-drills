@@ -1,23 +1,92 @@
 {
  "slug": "non-hodgkin-lymphome",
  "deck": "reviews/haematologie/non-hodgkin-lymphome.html",
- "capture": ["sources/amboss/non-hodgkin-lymphome.md"],
- "counts": {"ok": 30, "fix": 0, "unclear": 12},
- "fixes": [],
+ "capture": [
+  "sources/amboss/non-hodgkin-lymphome.md"
+ ],
+ "counts": {
+  "ok": 30,
+  "fix": 1,
+  "unclear": 12
+ },
+ "fixes": [
+  {
+   "panel": "grundlagen",
+   "deck_text": "DLBCL (häufigstes!), Burkitt, Mantelzell",
+   "new_text": "DLBCL (häufigstes!), Burkitt, lymphoblastisch",
+   "amboss_quote": "| Niedrigmaligne (indolent) | Chronische lymphatische Leukämie = kleinzelliges, lymphozytisches Lymphom; Haarzellleukämie; Morbus Waldenström (Immunozytom); Follikuläres Lymphom; Extranodales MALT-Lymphom; Weitere: Zentrozytisches (Mantelzelllymphom), zentroblastisch-zentrozytisch | Mycosis fungoides; T-Zonen-Lymphom; Multiples Myelom; NK-Zell-Leukämie; Angioimmunoblastisches T-Zell-Lymphom; Pleomorph-kleinzellig |",
+   "pass": 3
+  }
+ ],
  "unclear": [
-  {"panel": "grundlagen", "deck_text": "≈ 85 % B-Zell; OHNE Reed-Sternberg-Zellen", "reason": "nicht in Erfassung"},
-  {"panel": "grundlagen", "deck_text": "Indolent = nicht heilbar, aber langsam", "reason": "AMBOSS: I/II kurativ per Radiatio; systemisch palliativ — Vereinfachung"},
-  {"panel": "grundlagen", "deck_text": "aggressiv: DLBCL (häufigstes!), Burkitt, Mantelzell", "reason": "AMBOSS listet Mantelzell als niedrigmaligne; Klassifikationsnuance"},
-  {"panel": "grundlagen", "deck_text": "EBV (Burkitt), H. pylori (MALT), HTLV-1, HCV; Sjögren → MALT", "reason": "HCV und Sjögren nicht in Erfassung"},
-  {"panel": "klinik", "deck_text": "Fieber > 38 °C … Gewichtsverlust > 10 % in 6 Monaten", "reason": "B-Symptom-Definition nicht in Erfassung"},
-  {"panel": "klinik", "deck_text": "NHL breitet sich diskontinuierlich … Hodgkin kontinuierlich; Alkoholschmerz", "reason": "Hodgkin-Abgrenzung nicht in Erfassung"},
-  {"panel": "diagnostik", "deck_text": "LDH und β2-Mikroglobulin als Tumorlastmarker", "reason": "β2-Mikroglobulin nicht in Erfassung"},
-  {"panel": "diagnostik", "deck_text": "Feinnadelpunktion reicht NICHT", "reason": "AMBOSS: Exstirpation ✓; FNP-Aussage nicht erfasst"},
-  {"panel": "diagnostik", "deck_text": "t(11;14) — CCND1 — Mantelzell-Lymphom", "reason": "nicht in Erfassung"},
-  {"panel": "therapie", "deck_text": "Burkitt: intensive Chemo + ZNS-Prophylaxe", "reason": "AMBOSS: wie ALL behandelt; ZNS-Prophylaxe nicht erfasst"},
-  {"panel": "therapie", "deck_text": "watch & wait; bei Symptomen R-Bendamustin", "reason": "AMBOSS nennt R-CHOP; Bendamustin nicht erfasst"},
-  {"panel": "therapie", "deck_text": "Tumorlyse: Hydratation und Allopurinol oder Rasburicase", "reason": "Prophylaxe nicht in Erfassung"}
+  {
+   "panel": "grundlagen",
+   "deck_text": "≈ 85 % B-Zell; OHNE Reed-Sternberg-Zellen",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Indolent = nicht heilbar, aber langsam",
+   "reason": "AMBOSS: I/II kurativ per Radiatio; systemisch palliativ — Vereinfachung"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "aggressiv: DLBCL (häufigstes!), Burkitt, Mantelzell",
+   "reason": "AMBOSS listet Mantelzell als niedrigmaligne; Klassifikationsnuance"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "EBV (Burkitt), H. pylori (MALT), HTLV-1, HCV; Sjögren → MALT",
+   "reason": "HCV und Sjögren nicht in Erfassung"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Fieber > 38 °C … Gewichtsverlust > 10 % in 6 Monaten",
+   "reason": "B-Symptom-Definition nicht in Erfassung"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "NHL breitet sich diskontinuierlich … Hodgkin kontinuierlich; Alkoholschmerz",
+   "reason": "Hodgkin-Abgrenzung nicht in Erfassung"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "LDH und β2-Mikroglobulin als Tumorlastmarker",
+   "reason": "β2-Mikroglobulin nicht in Erfassung"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Feinnadelpunktion reicht NICHT",
+   "reason": "AMBOSS: Exstirpation ✓; FNP-Aussage nicht erfasst"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "t(11;14) — CCND1 — Mantelzell-Lymphom",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Burkitt: intensive Chemo + ZNS-Prophylaxe",
+   "reason": "AMBOSS: wie ALL behandelt; ZNS-Prophylaxe nicht erfasst"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "watch & wait; bei Symptomen R-Bendamustin",
+   "reason": "AMBOSS nennt R-CHOP; Bendamustin nicht erfasst"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Tumorlyse: Hydratation und Allopurinol oder Rasburicase",
+   "reason": "Prophylaxe nicht in Erfassung"
+  }
  ],
  "status": "done",
- "validated": "2026-10-09"
+ "validated": "2026-10-09",
+ "third_pass": {
+  "date": "2026-10-10",
+  "model": "fable",
+  "checked": 38,
+  "applied": 1,
+  "rejected_by_orchestrator": []
+ }
 }

@@ -1,23 +1,104 @@
-{"slug": "diarrhoe", "deck": "reviews/gastroenterologie/diarrhoe.html", "capture": ["sources/amboss/diarrhoe.md"],
- "counts": {"ok": 14, "fix": 0, "unclear": 16},
+{
+ "slug": "diarrhoe",
+ "deck": "reviews/gastroenterologie/diarrhoe.html",
+ "capture": [
+  "sources/amboss/diarrhoe.md"
+ ],
+ "counts": {
+  "ok": 14,
+  "fix": 0,
+  "unclear": 16
+ },
  "fixes": [],
  "unclear": [
-  {"panel": "diagnostik", "deck_text": "Labor Bei jedem (Kartentitel)", "reason": "AMBOSS: Basislabor bei schwerer Infektion/Dehydratation; Überschrift, nicht editierbar"},
-  {"panel": "grundlagen", "deck_text": "Mehr als 3 Stühle am Tag, zu weich, über 250 Gramm", "reason": "Definition nicht in Erfassung"},
-  {"panel": "grundlagen", "deck_text": "Akut: unter 2 Wochen; Chronisch: über 4 Wochen", "reason": "AMBOSS: Dauer wenige Tage bis 2 Wochen; Grenzen nicht erfasst"},
-  {"panel": "grundlagen", "deck_text": "Chronische DD: CED, Tumor, Zöliakie, Medikamente, Reizdarm", "reason": "chronische Diarrhö nicht erfasst"},
-  {"panel": "klinik", "deck_text": "Exsikkosezeichen; Warnzeichen", "reason": "nicht in Erfassung"},
-  {"panel": "diagnostik", "deck_text": "Unkompliziert unter 3 Tagen: keine Stuhldiagnostik", "reason": "AMBOSS: nur wenn handlungsrelevant; 3 Tage nicht erfasst"},
-  {"panel": "diagnostik", "deck_text": "Fieber über 38,5 Grad, Dauer über 7 Tage, Alter über 65", "reason": "Schwellen nicht in Erfassung"},
-  {"panel": "diagnostik", "deck_text": "Kultur auf Shigellen, Yersinien; Parasiten bei Reise", "reason": "AMBOSS-Basis: Noro, Rota, Campylobacter, Salmonellen"},
-  {"panel": "diagnostik", "deck_text": "C. difficile zweistufig Antigen/Toxin", "reason": "CDI-Kapitel nicht erfasst"},
-  {"panel": "diagnostik", "deck_text": "Calprotectin, Transglutaminase-AK, TSH, H2-Atemtest", "reason": "chronische Diagnostik nicht erfasst"},
-  {"panel": "therapie", "deck_text": "Oral: Lösung mit Glukose und Natrium; i.v. bei Erbrechen, Schock", "reason": "AMBOSS: ORS / Vollelektrolyt; Indikationen nicht erfasst"},
-  {"panel": "therapie", "deck_text": "Antibiotika-Indikationen; Azithromycin oder Ciprofloxacin", "reason": "nicht in Erfassung"},
-  {"panel": "therapie", "deck_text": "Loperamid-Kontraindikationen", "reason": "nicht in Erfassung"},
-  {"panel": "therapie", "deck_text": "Vancomycin oral 10 Tage; Fidaxomicin; Mikrobiota-Transplantation", "reason": "CDI-Kapitel nicht erfasst"},
-  {"panel": "therapie", "deck_text": "Einzelzimmer bis 48 Stunden nach Symptomende; Meldepflicht ab 2 Fällen", "reason": "Meldepflicht/Hygiene-Details nicht erfasst"},
-  {"panel": "protokoll", "deck_text": "Inkubationszeiten S. aureus/B. cereus Stunden, sonst 1 bis 3 Tage", "reason": "Erreger-DD nicht erfasst"}
+  {
+   "panel": "diagnostik",
+   "deck_text": "Labor Bei jedem (Kartentitel)",
+   "reason": "AMBOSS: Basislabor bei schwerer Infektion/Dehydratation; Überschrift, nicht editierbar"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Mehr als 3 Stühle am Tag, zu weich, über 250 Gramm",
+   "reason": "Definition nicht in Erfassung"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Akut: unter 2 Wochen; Chronisch: über 4 Wochen",
+   "reason": "AMBOSS: Dauer wenige Tage bis 2 Wochen; Grenzen nicht erfasst"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Chronische DD: CED, Tumor, Zöliakie, Medikamente, Reizdarm",
+   "reason": "chronische Diarrhö nicht erfasst"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Exsikkosezeichen; Warnzeichen",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Unkompliziert unter 3 Tagen: keine Stuhldiagnostik",
+   "reason": "AMBOSS: nur wenn handlungsrelevant; 3 Tage nicht erfasst"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Fieber über 38,5 Grad, Dauer über 7 Tage, Alter über 65",
+   "reason": "Schwellen nicht in Erfassung"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Kultur auf Shigellen, Yersinien; Parasiten bei Reise",
+   "reason": "AMBOSS-Basis: Noro, Rota, Campylobacter, Salmonellen"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "C. difficile zweistufig Antigen/Toxin",
+   "reason": "CDI-Kapitel nicht erfasst"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Calprotectin, Transglutaminase-AK, TSH, H2-Atemtest",
+   "reason": "chronische Diagnostik nicht erfasst"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Oral: Lösung mit Glukose und Natrium; i.v. bei Erbrechen, Schock",
+   "reason": "AMBOSS: ORS / Vollelektrolyt; Indikationen nicht erfasst"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Antibiotika-Indikationen; Azithromycin oder Ciprofloxacin",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Loperamid-Kontraindikationen",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Vancomycin oral 10 Tage; Fidaxomicin; Mikrobiota-Transplantation",
+   "reason": "CDI-Kapitel nicht erfasst"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Einzelzimmer bis 48 Stunden nach Symptomende; Meldepflicht ab 2 Fällen",
+   "reason": "Meldepflicht/Hygiene-Details nicht erfasst"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Inkubationszeiten S. aureus/B. cereus Stunden, sonst 1 bis 3 Tage",
+   "reason": "Erreger-DD nicht erfasst"
+  }
  ],
  "status": "done",
- "validated": "2026-10-09"}
+ "validated": "2026-10-09",
+ "third_pass": {
+  "date": "2026-10-10",
+  "model": "fable",
+  "checked": 26,
+  "applied": 0,
+  "rejected_by_orchestrator": []
+ }
+}

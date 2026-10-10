@@ -150,5 +150,21 @@
   "checked": 64,
   "applied": 1,
   "rejected_by_orchestrator": []
+ },
+ "third_pass": {
+  "date": "2026-10-10",
+  "model": "fable",
+  "checked": 48,
+  "applied": 0,
+  "rejected_by_orchestrator": [
+   {
+    "html_old": "(wenn indiziert): Ciprofloxacin + Metronidazol",
+    "reason": "AMBOSS nennt Ciprofloxacin+Metronidazol als Option (Penicillinallergie) — Alternative, kein Widerspruch"
+   },
+   {
+    "html_old": "<div class=\"sfa\">Ciprofloxacin + Metronidazol</div>",
+    "reason": "wie 0"
+   }
+  ]
  }
 }

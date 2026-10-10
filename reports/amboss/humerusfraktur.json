@@ -1,33 +1,134 @@
 {
  "slug": "humerusfraktur",
  "deck": "reviews/unfallchirurgie/humerusfraktur.html",
- "capture": ["sources/amboss/humerusfraktur.md"],
- "counts": {"ok": 22, "fix": 0, "unclear": 22},
+ "capture": [
+  "sources/amboss/humerusfraktur.md"
+ ],
+ "counts": {
+  "ok": 22,
+  "fix": 0,
+  "unclear": 22
+ },
  "fixes": [],
  "unclear": [
-  {"panel": "grundlagen", "deck_text": "Schaft: direkte Gewalt", "reason": "Mechanismus nicht in Erfassung"},
-  {"panel": "grundlagen", "deck_text": "distal: Gefäße und Nerven, Cubitus varus", "reason": "Kinderkapitel nicht erfasst (Lücke)"},
-  {"panel": "grundlagen", "deck_text": "dritthäufigste Fraktur des alten Menschen — nach distalem Radius und Schenkelhals", "reason": "Rangfolge nicht in Erfassung"},
-  {"panel": "grundlagen", "deck_text": "Collum anatomicum gefährlicher ... Blutversorgung; Aa. circumflexae humeri", "reason": "Anatomie nicht in Erfassung"},
-  {"panel": "grundlagen", "deck_text": "Rotatorenmanschette SSC/SSP/ISP/TM und Fragmentzug", "reason": "nicht in Erfassung"},
-  {"panel": "klinik", "deck_text": "Sensibel: Ausfall über dem ersten Zwischenfingerraum am Handrücken", "reason": "AMBOSS: Handrücken und Digiti I–III; vereinbar"},
-  {"panel": "klinik", "deck_text": "Meist eine Druckschädigung — sie erholt sich in Wochen", "reason": "Prognose nicht in Erfassung"},
-  {"panel": "klinik", "deck_text": "Distale Radiusfraktur → N. medianus → Schwurhand", "reason": "nicht in Erfassung"},
-  {"panel": "diagnostik", "deck_text": "true a.p. und axial oder Y-Aufnahme; axiale deckt hintere Luxation auf", "reason": "Projektionen nicht in Erfassung"},
-  {"panel": "diagnostik", "deck_text": "CT bei mehrfragmentärer Fraktur und zur Operationsplanung", "reason": "AMBOSS: je nach Lokalisation; vereinbar"},
-  {"panel": "diagnostik", "deck_text": "Beim Kind: Gegenseite nur im Ausnahmefall", "reason": "Kinderkapitel nicht erfasst"},
-  {"panel": "diagnostik", "deck_text": "Neer: ab 1 cm Verschiebung oder 45 Grad; AO A/B/C", "reason": "Klassifikationen nicht erfasst (Lücke)"},
-  {"panel": "therapie", "deck_text": "Etwa 80 Prozent der proximalen Humerusfrakturen werden konservativ behandelt.", "reason": "Anteil nicht in Erfassung"},
-  {"panel": "therapie", "deck_text": "Gilfchen oder Armschlinge für 1 bis 2 Wochen", "reason": "AMBOSS: z.B. 1 Woche Gilchrist; Bereich vereinbar"},
-  {"panel": "therapie", "deck_text": "Röntgenkontrolle nach 1 und 2 Wochen", "reason": "nicht in Erfassung"},
-  {"panel": "therapie", "deck_text": "proximal, jung: winkelstabile Platte; alt mit Trümmerzone: inverse Prothese", "reason": "AMBOSS: Platte/Marknagel bzw. anatomische oder inverse Prothese"},
-  {"panel": "therapie", "deck_text": "Kind, suprakondylär: gekreuzte Kirschner-Drähte", "reason": "AMBOSS: Spickdrahtosteosynthese; 'gekreuzt' nicht erfasst"},
-  {"panel": "therapie", "deck_text": "Humeruskopfnekrose, besonders nach 4-Fragment-Fraktur", "reason": "Fragmentbezug nicht in Erfassung"},
-  {"panel": "therapie", "deck_text": "Pseudarthrose am Schaft", "reason": "nicht in Erfassung"},
-  {"panel": "therapie", "deck_text": "Beim Kind der Cubitus varus nach suprakondylärer Fraktur", "reason": "Kinderkapitel nicht erfasst"},
-  {"panel": "perlen", "deck_text": "Die Schulter verzeiht Fehlstellung, nicht Steife", "reason": "nicht in Erfassung"},
-  {"panel": "perlen", "deck_text": "Supraspinatus leitet die Abduktion ein", "reason": "nicht in Erfassung"}
+  {
+   "panel": "grundlagen",
+   "deck_text": "Schaft: direkte Gewalt",
+   "reason": "Mechanismus nicht in Erfassung"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "distal: Gefäße und Nerven, Cubitus varus",
+   "reason": "Kinderkapitel nicht erfasst (Lücke)"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "dritthäufigste Fraktur des alten Menschen — nach distalem Radius und Schenkelhals",
+   "reason": "Rangfolge nicht in Erfassung"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Collum anatomicum gefährlicher ... Blutversorgung; Aa. circumflexae humeri",
+   "reason": "Anatomie nicht in Erfassung"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Rotatorenmanschette SSC/SSP/ISP/TM und Fragmentzug",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Sensibel: Ausfall über dem ersten Zwischenfingerraum am Handrücken",
+   "reason": "AMBOSS: Handrücken und Digiti I–III; vereinbar"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Meist eine Druckschädigung — sie erholt sich in Wochen",
+   "reason": "Prognose nicht in Erfassung"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Distale Radiusfraktur → N. medianus → Schwurhand",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "true a.p. und axial oder Y-Aufnahme; axiale deckt hintere Luxation auf",
+   "reason": "Projektionen nicht in Erfassung"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "CT bei mehrfragmentärer Fraktur und zur Operationsplanung",
+   "reason": "AMBOSS: je nach Lokalisation; vereinbar"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Beim Kind: Gegenseite nur im Ausnahmefall",
+   "reason": "Kinderkapitel nicht erfasst"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Neer: ab 1 cm Verschiebung oder 45 Grad; AO A/B/C",
+   "reason": "Klassifikationen nicht erfasst (Lücke)"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Etwa 80 Prozent der proximalen Humerusfrakturen werden konservativ behandelt.",
+   "reason": "Anteil nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Gilfchen oder Armschlinge für 1 bis 2 Wochen",
+   "reason": "AMBOSS: z.B. 1 Woche Gilchrist; Bereich vereinbar"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Röntgenkontrolle nach 1 und 2 Wochen",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "proximal, jung: winkelstabile Platte; alt mit Trümmerzone: inverse Prothese",
+   "reason": "AMBOSS: Platte/Marknagel bzw. anatomische oder inverse Prothese"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Kind, suprakondylär: gekreuzte Kirschner-Drähte",
+   "reason": "AMBOSS: Spickdrahtosteosynthese; 'gekreuzt' nicht erfasst"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Humeruskopfnekrose, besonders nach 4-Fragment-Fraktur",
+   "reason": "Fragmentbezug nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Pseudarthrose am Schaft",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Beim Kind der Cubitus varus nach suprakondylärer Fraktur",
+   "reason": "Kinderkapitel nicht erfasst"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Die Schulter verzeiht Fehlstellung, nicht Steife",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Supraspinatus leitet die Abduktion ein",
+   "reason": "nicht in Erfassung"
+  }
  ],
  "status": "done",
- "validated": "2026-10-09"
+ "validated": "2026-10-09",
+ "third_pass": {
+  "date": "2026-10-10",
+  "model": "fable",
+  "checked": 31,
+  "applied": 0,
+  "rejected_by_orchestrator": []
+ }
 }

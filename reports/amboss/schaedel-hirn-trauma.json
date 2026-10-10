@@ -81,5 +81,12 @@
   "checked": 38,
   "applied": 0,
   "rejected_by_orchestrator": []
+ },
+ "third_pass": {
+  "date": "2026-10-10",
+  "model": "fable",
+  "checked": 34,
+  "applied": 0,
+  "rejected_by_orchestrator": []
  }
 }

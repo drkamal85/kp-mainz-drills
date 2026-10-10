@@ -74,5 +74,12 @@
     "reason": "AMBOSS nennt >6 h für Thrombektomie; Lyse-Zeitfenster 4,5–9 h nicht in Erfassung — nicht eindeutig"
    }
   ]
+ },
+ "third_pass": {
+  "date": "2026-10-10",
+  "model": "fable",
+  "checked": 46,
+  "applied": 0,
+  "rejected_by_orchestrator": []
  }
 }

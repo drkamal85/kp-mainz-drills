@@ -6,7 +6,7 @@
  ],
  "counts": {
   "ok": 52,
-  "fix": 1,
+  "fix": 2,
   "unclear": 12
  },
  "fixes": [
@@ -15,6 +15,13 @@
    "deck_text": "Ich lege eine T-Drainage für etwa 5 Tage und entferne die Gallenblase mit.",
    "new_text": "Ich lege eine T-Drainage für etwa 7 Tage und entferne die Gallenblase mit.",
    "amboss_quote": "T-Drainage: Ab dem 7. postoperativen Tag nach unauffälliger Cholangiografie, i.d.R. durch behandelnde Ärzt:innen"
+  },
+  {
+   "panel": "tab6",
+   "deck_text": "Die Cholezystektomie folgt dann innerhalb von 24 Stunden.",
+   "new_text": "Die Cholezystektomie folgt dann innerhalb von 72 Stunden.",
+   "amboss_quote": "- Bei symptomatischer Choledocholithiasis und gleichzeitig vorliegender Cholezystolithiasis: Endoskopische Intervention, Cholezystektomie innerhalb von 72 h",
+   "pass": 3
   }
  ],
  "unclear": [
@@ -85,6 +92,13 @@
   "date": "2026-10-09",
   "checked": 78,
   "applied": 0,
+  "rejected_by_orchestrator": []
+ },
+ "third_pass": {
+  "date": "2026-10-10",
+  "model": "fable",
+  "checked": 62,
+  "applied": 1,
   "rejected_by_orchestrator": []
  }
 }

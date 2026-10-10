@@ -131,5 +131,17 @@
   }
  ],
  "status": "done",
- "validated": "2026-10-09"
+ "validated": "2026-10-09",
+ "third_pass": {
+  "date": "2026-10-10",
+  "model": "fable",
+  "checked": 56,
+  "applied": 0,
+  "rejected_by_orchestrator": [
+   {
+    "html_old": "⭐ Perle 5 · Die Eradikation",
+    "reason": "Perlen-Kopf ist didaktischer Rahmen, kein Faktenwert; Erstlinie bereits in Rapid-Fire korrigiert"
+   }
+  ]
+ }
 }

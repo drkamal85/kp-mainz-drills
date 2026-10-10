@@ -1,19 +1,84 @@
-{"slug": "haemorrhoiden", "deck": "reviews/chirurgie/haemorrhoiden.html", "capture": ["sources/amboss/haemorrhoiden.md"],
- "counts": {"ok": 36, "fix": 0, "unclear": 12},
+{
+ "slug": "haemorrhoiden",
+ "deck": "reviews/chirurgie/haemorrhoiden.html",
+ "capture": [
+  "sources/amboss/haemorrhoiden.md"
+ ],
+ "counts": {
+  "ok": 36,
+  "fix": 0,
+  "unclear": 12
+ },
  "fixes": [],
  "unclear": [
-  {"panel": "grundlagen", "deck_text": "Gespeist aus der Arteria rectalis superior — deshalb ist das Blut hellrot", "reason": "AMBOSS: arteriell gespeist; Arterienname nicht genannt"},
-  {"panel": "grundlagen", "deck_text": "Ursachen: Pressen bei Verstopfung, sitzende Tätigkeit, Schwangerschaft", "reason": "AMBOSS: Ätiologie unklar; Defäkationsverhalten, BMI, Ernährung"},
-  {"panel": "grundlagen", "deck_text": "Analfissur / Analvenenthrombose / Rektumkarzinom Leitzeichen", "reason": "DD nur aufgelistet, Leitzeichen nicht in Erfassung"},
-  {"panel": "klinik", "deck_text": "Bei Grad III und IV Stuhlschmieren und Wäscheverschmutzung", "reason": "Stuhlschmieren ✓; Gradzuordnung nicht in Erfassung"},
-  {"panel": "diagnostik", "deck_text": "Digital-rektal: Hämorrhoiden sind meist nicht tastbar, ein Tumor schon", "reason": "Nicht in Erfassung"},
-  {"panel": "therapie", "deck_text": "Gummibandligatur nach Barron", "reason": "Eponym nicht in Erfassung"},
-  {"panel": "therapie", "deck_text": "Analvenenthrombose: unterhalb Linea dentata; 48 Stunden Stichinzision", "reason": "Analvenenthrombose nicht in Erfassung"},
-  {"panel": "therapie", "deck_text": "Nie alle Polster entfernen, sonst droht die Feinkontinenz verloren zu gehen", "reason": "Nicht explizit in Erfassung"},
-  {"panel": "perlen", "deck_text": "Was klassifiziert Parks? die Analfisteln nach ihrem Verlauf zum Sphinkter", "reason": "AMBOSS nennt Parks nur als submuköse Hämorrhoidektomie"},
-  {"panel": "perlen", "deck_text": "Hauptpolster bei 3, 7 und 11 Uhr in Steinschnittlage", "reason": "Nur als Bild erfasst"},
-  {"panel": "perlen", "deck_text": "Wann zusätzlich Koloskopie? ab 50 Jahren oder bei Alarmzeichen", "reason": "Altersgrenze nicht in Erfassung"},
-  {"panel": "perlen", "deck_text": "HAL ... unter Dopplerkontrolle", "reason": "HAL ✓; Doppler nicht in Erfassung"}
+  {
+   "panel": "grundlagen",
+   "deck_text": "Gespeist aus der Arteria rectalis superior — deshalb ist das Blut hellrot",
+   "reason": "AMBOSS: arteriell gespeist; Arterienname nicht genannt"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Ursachen: Pressen bei Verstopfung, sitzende Tätigkeit, Schwangerschaft",
+   "reason": "AMBOSS: Ätiologie unklar; Defäkationsverhalten, BMI, Ernährung"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Analfissur / Analvenenthrombose / Rektumkarzinom Leitzeichen",
+   "reason": "DD nur aufgelistet, Leitzeichen nicht in Erfassung"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Bei Grad III und IV Stuhlschmieren und Wäscheverschmutzung",
+   "reason": "Stuhlschmieren ✓; Gradzuordnung nicht in Erfassung"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Digital-rektal: Hämorrhoiden sind meist nicht tastbar, ein Tumor schon",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Gummibandligatur nach Barron",
+   "reason": "Eponym nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Analvenenthrombose: unterhalb Linea dentata; 48 Stunden Stichinzision",
+   "reason": "Analvenenthrombose nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Nie alle Polster entfernen, sonst droht die Feinkontinenz verloren zu gehen",
+   "reason": "Nicht explizit in Erfassung"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Was klassifiziert Parks? die Analfisteln nach ihrem Verlauf zum Sphinkter",
+   "reason": "AMBOSS nennt Parks nur als submuköse Hämorrhoidektomie"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Hauptpolster bei 3, 7 und 11 Uhr in Steinschnittlage",
+   "reason": "Nur als Bild erfasst"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Wann zusätzlich Koloskopie? ab 50 Jahren oder bei Alarmzeichen",
+   "reason": "Altersgrenze nicht in Erfassung"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "HAL ... unter Dopplerkontrolle",
+   "reason": "HAL ✓; Doppler nicht in Erfassung"
+  }
  ],
  "status": "done",
- "validated": "2026-10-09"}
+ "validated": "2026-10-09",
+ "third_pass": {
+  "date": "2026-10-10",
+  "model": "fable",
+  "checked": 40,
+  "applied": 0,
+  "rejected_by_orchestrator": []
+ }
+}

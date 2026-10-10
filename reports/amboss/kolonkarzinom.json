@@ -6,7 +6,7 @@
  ],
  "counts": {
   "ok": 38,
-  "fix": 2,
+  "fix": 4,
   "unclear": 15
  },
  "fixes": [
@@ -21,6 +21,20 @@
    "deck_text": "Sie beginnt für Männer ab 50 und für Frauen ab 55 Jahren.",
    "new_text": "Sie beginnt für Männer ab 50 und für Frauen ab 50 Jahren.",
    "amboss_quote": "Die Vorsorgekoloskopie bei Nicht-Risikopersonen wird ab 50 Jahren von den gesetzlichen Krankenkassen getragen!"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Kolorektales Karzinom — ≈ 95 % Adenokarzinome",
+   "new_text": "Kolorektales Karzinom — ≈ 90 % Adenokarzinome",
+   "amboss_quote": "**90% aller Kolonkarzinome sind Adenokarzinome!**",
+   "pass": 3
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "<div class=\"sfa\">Adenokarzinom (~95 %)</div>",
+   "new_text": "<div class=\"sfa\">Adenokarzinom (~90 %)</div>",
+   "amboss_quote": "**90% aller Kolonkarzinome sind Adenokarzinome!**",
+   "pass": 3
   }
  ],
  "unclear": [
@@ -116,5 +130,13 @@
     "reason": "Näherungswert: ~95 % vs. 90 %"
    }
   ]
+ },
+ "third_pass": {
+  "date": "2026-10-10",
+  "model": "fable",
+  "checked": 55,
+  "applied": 2,
+  "rejected_by_orchestrator": [],
+  "note": "Adenokarzinom 95→90 % in Durchgang 2 verworfen, in Durchgang 3 von zweitem Leser erneut gemeldet — jetzt übernommen (AMBOSS nennt 90 % fett als Merksatz)."
  }
 }

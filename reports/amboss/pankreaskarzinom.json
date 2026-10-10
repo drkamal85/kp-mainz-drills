@@ -1,21 +1,94 @@
-{"slug": "pankreaskarzinom", "deck": "reviews/chirurgie/pankreaskarzinom.html", "capture": ["sources/amboss/pankreaskarzinom.md"],
- "counts": {"ok": 30, "fix": 0, "unclear": 14},
+{
+ "slug": "pankreaskarzinom",
+ "deck": "reviews/chirurgie/pankreaskarzinom.html",
+ "capture": [
+  "sources/amboss/pankreaskarzinom.md"
+ ],
+ "counts": {
+  "ok": 30,
+  "fix": 0,
+  "unclear": 14
+ },
  "fixes": [],
  "unclear": [
-  {"panel": "grundlagen", "deck_text": "zu ~95 % duktales Adenokarzinom", "reason": "Anteil nicht in Erfassung (nur 'häufigste Form')"},
-  {"panel": "grundlagen", "deck_text": "Ein neu aufgetretener Diabetes mellitus beim älteren Patienten kann ein Frühzeichen sein.", "reason": "nicht in Erfassung"},
-  {"panel": "grundlagen", "deck_text": "Familiär: BRCA2, hereditäre Pankreatitis, Peutz-Jeghers-Syndrom, HNPCC", "reason": "nur 'genetische Prädisposition' erfasst"},
-  {"panel": "grundlagen", "deck_text": "Vorläufer: PanIN, IPMN", "reason": "PanIN nicht in Erfassung; IPMN Präkanzerose ✓"},
-  {"panel": "klinik", "deck_text": "Spät: Kachexie, Aszites, tastbarer Tumor", "reason": "nicht explizit in Erfassung"},
-  {"panel": "diagnostik", "deck_text": "CT im Pankreas-Protokoll ist die Schlüsseluntersuchung", "reason": "AMBOSS: CT und Endosonografie beide 1. Wahl"},
-  {"panel": "therapie", "deck_text": "nur etwa 20 % sind bei Diagnose resektabel", "reason": "nicht in Erfassung"},
-  {"panel": "therapie", "deck_text": "bei Korpus/Schwanz die distale Pankreatektomie mit Splenektomie", "reason": "AMBOSS: Linksresektion, ggf. Splenektomie"},
-  {"panel": "therapie", "deck_text": "adjuvante Chemotherapie (Gemcitabin, FOLFIRINOX)", "reason": "AMBOSS: meist mFOLFIRINOX; Gemcitabin nicht genannt"},
-  {"panel": "therapie", "deck_text": "Chemotherapie (FOLFIRINOX oder Gemcitabin)", "reason": "AMBOSS: FOLFIRINOX, NALIRIFOX oder GEM-NABP; Vereinfachung"},
-  {"panel": "perlen", "deck_text": "CA 19-9 ... ist auch bei jeder Cholestase erhöht", "reason": "Cholestase-Erhöhung nicht in Erfassung"},
-  {"panel": "perlen", "deck_text": "Kontakt zu den großen Gefäßen (A. mesenterica superior, Truncus coeliacus)", "reason": "Resektabilitätskriterien nicht in Erfassung"},
-  {"panel": "perlen", "deck_text": "Einen resektablen Tumor biopsiere ich nicht perkutan (Gefahr der Impfmetastasen)", "reason": "nicht in Erfassung"},
-  {"panel": "perlen", "deck_text": "Pankreaslinksresektion + Splenektomie", "reason": "AMBOSS: ggf. Splenektomie"}
+  {
+   "panel": "grundlagen",
+   "deck_text": "zu ~95 % duktales Adenokarzinom",
+   "reason": "Anteil nicht in Erfassung (nur 'häufigste Form')"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Ein neu aufgetretener Diabetes mellitus beim älteren Patienten kann ein Frühzeichen sein.",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Familiär: BRCA2, hereditäre Pankreatitis, Peutz-Jeghers-Syndrom, HNPCC",
+   "reason": "nur 'genetische Prädisposition' erfasst"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Vorläufer: PanIN, IPMN",
+   "reason": "PanIN nicht in Erfassung; IPMN Präkanzerose ✓"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Spät: Kachexie, Aszites, tastbarer Tumor",
+   "reason": "nicht explizit in Erfassung"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "CT im Pankreas-Protokoll ist die Schlüsseluntersuchung",
+   "reason": "AMBOSS: CT und Endosonografie beide 1. Wahl"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "nur etwa 20 % sind bei Diagnose resektabel",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "bei Korpus/Schwanz die distale Pankreatektomie mit Splenektomie",
+   "reason": "AMBOSS: Linksresektion, ggf. Splenektomie"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "adjuvante Chemotherapie (Gemcitabin, FOLFIRINOX)",
+   "reason": "AMBOSS: meist mFOLFIRINOX; Gemcitabin nicht genannt"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Chemotherapie (FOLFIRINOX oder Gemcitabin)",
+   "reason": "AMBOSS: FOLFIRINOX, NALIRIFOX oder GEM-NABP; Vereinfachung"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "CA 19-9 ... ist auch bei jeder Cholestase erhöht",
+   "reason": "Cholestase-Erhöhung nicht in Erfassung"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Kontakt zu den großen Gefäßen (A. mesenterica superior, Truncus coeliacus)",
+   "reason": "Resektabilitätskriterien nicht in Erfassung"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Einen resektablen Tumor biopsiere ich nicht perkutan (Gefahr der Impfmetastasen)",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Pankreaslinksresektion + Splenektomie",
+   "reason": "AMBOSS: ggf. Splenektomie"
+  }
  ],
  "status": "done",
- "validated": "2026-10-09"}
+ "validated": "2026-10-09",
+ "third_pass": {
+  "date": "2026-10-10",
+  "model": "fable",
+  "checked": 34,
+  "applied": 0,
+  "rejected_by_orchestrator": []
+ }
+}

@@ -1,17 +1,74 @@
-{"slug": "ikterus-cholestase", "deck": "reviews/gastroenterologie/ikterus-cholestase.html", "capture": ["sources/amboss/ikterus-cholestase.md"],
- "counts": {"ok": 30, "fix": 0, "unclear": 10},
+{
+ "slug": "ikterus-cholestase",
+ "deck": "reviews/gastroenterologie/ikterus-cholestase.html",
+ "capture": [
+  "sources/amboss/ikterus-cholestase.md"
+ ],
+ "counts": {
+  "ok": 30,
+  "fix": 0,
+  "unclear": 10
+ },
  "fixes": [],
  "unclear": [
-  {"panel": "grundlagen", "deck_text": "Gilbert ~5 %, reduzierte UDP-Glucuronyltransferase", "reason": "Nur als Beispiel genannt, Details nicht erfasst"},
-  {"panel": "klinik", "deck_text": "Courvoisier-Zeichen, Charcot-Trias, Reynolds-Pentade", "reason": "Nicht in Erfassung"},
-  {"panel": "diagnostik", "deck_text": "sind die Gallenwege gestaut (DHC > 7 mm)?", "reason": "Grenzwert nicht in Erfassung"},
-  {"panel": "diagnostik", "deck_text": "De-Ritis > 1 → ... / Alkohol / Zirrhose", "reason": "Alkohol nicht explizit genannt; sonst kompatibel"},
-  {"panel": "diagnostik", "deck_text": "MRCP vor ERCP; EUS bei distalen Prozessen", "reason": "Nur 'ERCP, MRCP, CT nach Klinik' erfasst"},
-  {"panel": "diagnostik", "deck_text": "AMA → PBC; pANCA → PSC; CA 19-9, AFP", "reason": "Nicht in Erfassung"},
-  {"panel": "therapie", "deck_text": "Kausaltabelle (ERCP, Whipple, UDCA)", "reason": "Therapie nur 'je nach Grunderkrankung' erfasst"},
-  {"panel": "perlen", "deck_text": "Post-ERCP-Pankreatitis (häufigste)", "reason": "Nicht in Erfassung"},
-  {"panel": "protokoll", "deck_text": "ERCP innerhalb von 24 Stunden ... Cholezystektomie nach etwa 72 Stunden", "reason": "Zeitfenster nicht in Erfassung"},
-  {"panel": "protokoll", "deck_text": "Steine ... sammeln sich meist im Ductus choledochus", "reason": "Nicht in Erfassung"}
+  {
+   "panel": "grundlagen",
+   "deck_text": "Gilbert ~5 %, reduzierte UDP-Glucuronyltransferase",
+   "reason": "Nur als Beispiel genannt, Details nicht erfasst"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Courvoisier-Zeichen, Charcot-Trias, Reynolds-Pentade",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "sind die Gallenwege gestaut (DHC > 7 mm)?",
+   "reason": "Grenzwert nicht in Erfassung"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "De-Ritis > 1 → ... / Alkohol / Zirrhose",
+   "reason": "Alkohol nicht explizit genannt; sonst kompatibel"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "MRCP vor ERCP; EUS bei distalen Prozessen",
+   "reason": "Nur 'ERCP, MRCP, CT nach Klinik' erfasst"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "AMA → PBC; pANCA → PSC; CA 19-9, AFP",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Kausaltabelle (ERCP, Whipple, UDCA)",
+   "reason": "Therapie nur 'je nach Grunderkrankung' erfasst"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Post-ERCP-Pankreatitis (häufigste)",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "ERCP innerhalb von 24 Stunden ... Cholezystektomie nach etwa 72 Stunden",
+   "reason": "Zeitfenster nicht in Erfassung"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Steine ... sammeln sich meist im Ductus choledochus",
+   "reason": "Nicht in Erfassung"
+  }
  ],
  "status": "done",
- "validated": "2026-10-09"}
+ "validated": "2026-10-09",
+ "third_pass": {
+  "date": "2026-10-10",
+  "model": "fable",
+  "checked": 52,
+  "applied": 0,
+  "rejected_by_orchestrator": []
+ }
+}

@@ -134,5 +134,12 @@
     "reason": "AMBOSS nennt Sinusrhythmus, schließt Frequenzkontrolle nicht aus — nicht eindeutig"
    }
   ]
+ },
+ "third_pass": {
+  "date": "2026-10-10",
+  "model": "fable",
+  "checked": 62,
+  "applied": 0,
+  "rejected_by_orchestrator": []
  }
 }

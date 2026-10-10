@@ -1,20 +1,89 @@
-{"slug": "sprunggelenksfraktur", "deck": "reviews/unfallchirurgie/sprunggelenksfraktur.html", "capture": ["sources/amboss/sprunggelenksfraktur.md"],
- "counts": {"ok": 38, "fix": 0, "unclear": 13},
+{
+ "slug": "sprunggelenksfraktur",
+ "deck": "reviews/unfallchirurgie/sprunggelenksfraktur.html",
+ "capture": [
+  "sources/amboss/sprunggelenksfraktur.md"
+ ],
+ "counts": {
+  "ok": 38,
+  "fix": 0,
+  "unclear": 13
+ },
  "fixes": [],
  "unclear": [
-  {"panel": "grundlagen", "deck_text": "Syndesmose: 2 Anteile (vordere + hintere), die hintere ist die wichtigere (stabiler)", "reason": "Syndesmosenanatomie nicht in Erfassung"},
-  {"panel": "grundlagen", "deck_text": "Supinationstrauma (Umknicken nach außen) / Pronationstrauma (Umknicken nach innen)", "reason": "Zuordnung ✓; Richtungsbeschreibung nicht in Erfassung"},
-  {"panel": "grundlagen", "deck_text": "AO 44-A/B/C entspricht Weber A/B/C", "reason": "AO-Klassifikation nicht in Erfassung"},
-  {"panel": "klinik", "deck_text": "Syndesmosentest: Frick-Stresstest / Dorsiflexionstest", "reason": "Nicht in Erfassung"},
-  {"panel": "klinik", "deck_text": "sofort grob reponieren (vor dem Röntgen), dann ruhigstellen", "reason": "Notfallreposition nicht in Erfassung"},
-  {"panel": "diagnostik", "deck_text": "Sonografie der Syndesmose, ggf. MRT; CT bei Volkmann/Pilon", "reason": "Nur Röntgen OSG/Unterschenkel erfasst"},
-  {"panel": "therapie", "deck_text": "Unterschenkelgips ~6 Wochen + Thromboseprophylaxe (konservativ)", "reason": "Gips ✓; Thromboseprophylaxe nur postoperativ erfasst"},
-  {"panel": "therapie", "deck_text": "Fibula: Plattenosteosynthese · Innenknöchel: Zugschrauben/Zuggurtung", "reason": "AMBOSS nur Stell- und Zugschrauben"},
-  {"panel": "therapie", "deck_text": "Teilruptur → Naht · komplette Ruptur → Stellschraube (Teilbelastung bis 20 kg)", "reason": "Naht/Stellschraube ✓; Abgrenzung und 20 kg nicht erfasst"},
-  {"panel": "therapie", "deck_text": "Volkmann-Dreieck: großes Fragment → Verschraubung, kleines konservativ", "reason": "Volkmann-Therapie nicht in Erfassung"},
-  {"panel": "protokoll", "deck_text": "Die Stellschraube lasse ich nach etwa 6 bis 8 Wochen entfernen.", "reason": "AMBOSS etwa 6 Wochen; Bereich kompatibel"},
-  {"panel": "protokoll", "deck_text": "Häufig ist die Basis des 5. Metatarsale mitbetroffen, besonders bei Weber-C-Frakturen.", "reason": "Nicht in Erfassung"},
-  {"panel": "protokoll", "deck_text": "Pilon-Fraktur ... durch axiale Stauchung, etwa beim Sturz aus großer Höhe", "reason": "Definition ✓; Mechanismus nicht erfasst"}
+  {
+   "panel": "grundlagen",
+   "deck_text": "Syndesmose: 2 Anteile (vordere + hintere), die hintere ist die wichtigere (stabiler)",
+   "reason": "Syndesmosenanatomie nicht in Erfassung"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Supinationstrauma (Umknicken nach außen) / Pronationstrauma (Umknicken nach innen)",
+   "reason": "Zuordnung ✓; Richtungsbeschreibung nicht in Erfassung"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "AO 44-A/B/C entspricht Weber A/B/C",
+   "reason": "AO-Klassifikation nicht in Erfassung"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Syndesmosentest: Frick-Stresstest / Dorsiflexionstest",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "sofort grob reponieren (vor dem Röntgen), dann ruhigstellen",
+   "reason": "Notfallreposition nicht in Erfassung"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Sonografie der Syndesmose, ggf. MRT; CT bei Volkmann/Pilon",
+   "reason": "Nur Röntgen OSG/Unterschenkel erfasst"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Unterschenkelgips ~6 Wochen + Thromboseprophylaxe (konservativ)",
+   "reason": "Gips ✓; Thromboseprophylaxe nur postoperativ erfasst"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Fibula: Plattenosteosynthese · Innenknöchel: Zugschrauben/Zuggurtung",
+   "reason": "AMBOSS nur Stell- und Zugschrauben"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Teilruptur → Naht · komplette Ruptur → Stellschraube (Teilbelastung bis 20 kg)",
+   "reason": "Naht/Stellschraube ✓; Abgrenzung und 20 kg nicht erfasst"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Volkmann-Dreieck: großes Fragment → Verschraubung, kleines konservativ",
+   "reason": "Volkmann-Therapie nicht in Erfassung"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Die Stellschraube lasse ich nach etwa 6 bis 8 Wochen entfernen.",
+   "reason": "AMBOSS etwa 6 Wochen; Bereich kompatibel"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Häufig ist die Basis des 5. Metatarsale mitbetroffen, besonders bei Weber-C-Frakturen.",
+   "reason": "Nicht in Erfassung"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Pilon-Fraktur ... durch axiale Stauchung, etwa beim Sturz aus großer Höhe",
+   "reason": "Definition ✓; Mechanismus nicht erfasst"
+  }
  ],
  "status": "done",
- "validated": "2026-10-09"}
+ "validated": "2026-10-09",
+ "third_pass": {
+  "date": "2026-10-10",
+  "model": "fable",
+  "checked": 36,
+  "applied": 0,
+  "rejected_by_orchestrator": []
+ }
+}

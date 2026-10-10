@@ -99,5 +99,12 @@
   }
  ],
  "status": "done",
- "validated": "2026-10-09"
+ "validated": "2026-10-09",
+ "third_pass": {
+  "date": "2026-10-10",
+  "model": "fable",
+  "checked": 41,
+  "applied": 0,
+  "rejected_by_orchestrator": []
+ }
 }

@@ -1,20 +1,89 @@
-{"slug": "meningitis", "deck": "reviews/neurologie/meningitis.html", "capture": ["sources/amboss/meningitis.md"],
- "counts": {"ok": 36, "fix": 0, "unclear": 13},
+{
+ "slug": "meningitis",
+ "deck": "reviews/neurologie/meningitis.html",
+ "capture": [
+  "sources/amboss/meningitis.md"
+ ],
+ "counts": {
+  "ok": 36,
+  "fix": 0,
+  "unclear": 13
+ },
  "fixes": [],
  "unclear": [
-  {"panel": "grundlagen", "deck_text": "Enzephalitis — Häufigster Erreger: Herpes simplex", "reason": "Enzephalitis-Kapitel nicht erfasst (bekannte Lücke)"},
-  {"panel": "grundlagen", "deck_text": "Meningoenzephalitis — das ist der Regelfall bei der viralen Form", "reason": "nicht in Erfassung"},
-  {"panel": "grundlagen", "deck_text": "Über 50 oder immungeschwächt: zusätzlich Listerien", "reason": "AMBOSS nennt Listerien bei Erwachsenen ohne Altersgrenze"},
-  {"panel": "therapie", "deck_text": "Ampicillin dazu wegen der Listerien — ab 50 und bei Immunschwäche", "reason": "AMBOSS: Ampicillin bei Erwachsenen generell; Einschränkung Leitlinien-Nuance"},
-  {"panel": "diagnostik", "deck_text": "Punktion zwischen L3/L4 oder L4/L5; Rückenmark endet bei L1 bis L2", "reason": "Anatomie nicht in Erfassung"},
-  {"panel": "diagnostik", "deck_text": "Die Herpes-Enzephalitis sitzt im Temporallappen", "reason": "nicht in Erfassung"},
-  {"panel": "therapie", "deck_text": "Dexamethason senkt Hörschaden und Sterblichkeit", "reason": "Begründung nicht in Erfassung"},
-  {"panel": "therapie", "deck_text": "sofort Aciclovir — 10 Tage lang", "reason": "Dauer nicht in Erfassung (DOSIS nicht aufgelöst)"},
-  {"panel": "therapie", "deck_text": "Viel Flüssigkeit, Aciclovir belastet die Niere", "reason": "nicht in Erfassung"},
-  {"panel": "perlen", "deck_text": "Der Zuckerwert ist der schnellste Unterscheider", "reason": "Didaktische Wertung, nicht in Erfassung"},
-  {"panel": "perlen", "deck_text": "Petechien, die sich nicht wegdrücken lassen — der Glastest", "reason": "Glastest nicht in Erfassung"},
-  {"panel": "perlen", "deck_text": "Welcher Erreger macht Epidemien? Neisseria meningitidis", "reason": "nicht explizit in Erfassung"},
-  {"panel": "perlen", "deck_text": "Was zeigt das MRT bei HSV? temporale Signalanhebung", "reason": "Enzephalitis-Bildgebung nicht erfasst"}
+  {
+   "panel": "grundlagen",
+   "deck_text": "Enzephalitis — Häufigster Erreger: Herpes simplex",
+   "reason": "Enzephalitis-Kapitel nicht erfasst (bekannte Lücke)"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Meningoenzephalitis — das ist der Regelfall bei der viralen Form",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Über 50 oder immungeschwächt: zusätzlich Listerien",
+   "reason": "AMBOSS nennt Listerien bei Erwachsenen ohne Altersgrenze"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Ampicillin dazu wegen der Listerien — ab 50 und bei Immunschwäche",
+   "reason": "AMBOSS: Ampicillin bei Erwachsenen generell; Einschränkung Leitlinien-Nuance"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Punktion zwischen L3/L4 oder L4/L5; Rückenmark endet bei L1 bis L2",
+   "reason": "Anatomie nicht in Erfassung"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Die Herpes-Enzephalitis sitzt im Temporallappen",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Dexamethason senkt Hörschaden und Sterblichkeit",
+   "reason": "Begründung nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "sofort Aciclovir — 10 Tage lang",
+   "reason": "Dauer nicht in Erfassung (DOSIS nicht aufgelöst)"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Viel Flüssigkeit, Aciclovir belastet die Niere",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Der Zuckerwert ist der schnellste Unterscheider",
+   "reason": "Didaktische Wertung, nicht in Erfassung"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Petechien, die sich nicht wegdrücken lassen — der Glastest",
+   "reason": "Glastest nicht in Erfassung"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Welcher Erreger macht Epidemien? Neisseria meningitidis",
+   "reason": "nicht explizit in Erfassung"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Was zeigt das MRT bei HSV? temporale Signalanhebung",
+   "reason": "Enzephalitis-Bildgebung nicht erfasst"
+  }
  ],
  "status": "done",
- "validated": "2026-10-09"}
+ "validated": "2026-10-09",
+ "third_pass": {
+  "date": "2026-10-10",
+  "model": "fable",
+  "checked": 46,
+  "applied": 0,
+  "rejected_by_orchestrator": []
+ }
+}

@@ -6,10 +6,25 @@
  ],
  "counts": {
   "ok": 30,
-  "fix": 0,
+  "fix": 2,
   "unclear": 12
  },
- "fixes": [],
+ "fixes": [
+  {
+   "panel": "grundlagen",
+   "deck_text": "<td>aus der Entfernung sichtbar</td>",
+   "new_text": "<td>lokale Komplikationen (Atmung oder Blutzirkulation behindert)</td>",
+   "amboss_quote": "- Grad 3: Bereits lokale Komplikationen (Behinderung von Atmung oder Blutzirkulation)",
+   "pass": 3
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "WHO-Grad III?</summary><div class=\"sfa\">aus der Entfernung sichtbar",
+   "new_text": "WHO-Grad III?</summary><div class=\"sfa\">lokale Komplikationen (Atmung oder Blutzirkulation behindert)",
+   "amboss_quote": "- Grad 3: Bereits lokale Komplikationen (Behinderung von Atmung oder Blutzirkulation)",
+   "pass": 3
+  }
+ ],
  "unclear": [
   {
    "panel": "grundlagen",
@@ -73,5 +88,12 @@
   }
  ],
  "status": "done",
- "validated": "2026-10-09"
+ "validated": "2026-10-09",
+ "third_pass": {
+  "date": "2026-10-10",
+  "model": "fable",
+  "checked": 49,
+  "applied": 2,
+  "rejected_by_orchestrator": []
+ }
 }

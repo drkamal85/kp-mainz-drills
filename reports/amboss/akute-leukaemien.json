@@ -1,23 +1,84 @@
 {
  "slug": "akute-leukaemien",
  "deck": "reviews/haematologie/akute-leukaemien.html",
- "capture": ["sources/amboss/akute-leukaemien.md"],
- "counts": {"ok": 46, "fix": 0, "unclear": 12},
+ "capture": [
+  "sources/amboss/akute-leukaemien.md"
+ ],
+ "counts": {
+  "ok": 46,
+  "fix": 0,
+  "unclear": 12
+ },
  "fixes": [],
  "unclear": [
-  {"panel": "grundlagen", "deck_text": "CML: Philadelphia t(9;22), Splenomegalie, Basophilie, Imatinib, Blastenkrise ab 20 %", "reason": "CML nicht in Erfassung"},
-  {"panel": "grundlagen", "deck_text": "Ph⁺ ALL → + TKI (Imatinib)", "reason": "AMBOSS nur allgemein Proteinkinaseinhibitoren"},
-  {"panel": "klinik", "deck_text": "Fieber bei Neutropenie = febrile Neutropenie = Notfall → sofort Breitband-Antibiotika", "reason": "febrile Neutropenie nicht in Erfassung"},
-  {"panel": "klinik", "deck_text": "Monozytäre AML (M4/M5): Gingivahyperplasie", "reason": "AMBOSS: myelomonozytäre Leukämie; FAB-Nummern nicht erfasst"},
-  {"panel": "diagnostik", "deck_text": "Die Knochenmarkpunktion beweist: ≥ 20 % Blasten", "reason": "AMBOSS: AML >20 %, ALL >25 %; Vereinfachung"},
-  {"panel": "therapie", "deck_text": "Ziel: < 5 % Blasten", "reason": "Remissionsgrenze nicht in Erfassung"},
-  {"panel": "therapie", "deck_text": "APL → ATRA + Arsentrioxid", "reason": "AMBOSS: Standardrisiko ATRA+ATO, Hochrisiko ATRA+Zytostatika"},
-  {"panel": "perlen", "deck_text": "Darunter (z. B. 10–19 %) spricht man von einem myelodysplastischen Syndrom", "reason": "MDS-Grenze nicht in Erfassung"},
-  {"panel": "perlen", "deck_text": "Auerstäbchen ... kommen bei der ALL nie vor", "reason": "AMBOSS: typisch für AML; 'nie' nicht explizit"},
-  {"panel": "perlen", "deck_text": "Neutropen + Fieber = Antibiose in der ersten Stunde.", "reason": "nicht in Erfassung"},
-  {"panel": "perlen", "deck_text": "AML median ~65–70 J.", "reason": "AMBOSS: ca. 70 Jahre; Rundung"},
-  {"panel": "perlen", "deck_text": "Tumorlyse: Gefahr von Rhythmusstörung und Nierenversagen; Calcium fällt", "reason": "vereinbar, nicht wortgleich"}
+  {
+   "panel": "grundlagen",
+   "deck_text": "CML: Philadelphia t(9;22), Splenomegalie, Basophilie, Imatinib, Blastenkrise ab 20 %",
+   "reason": "CML nicht in Erfassung"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Ph⁺ ALL → + TKI (Imatinib)",
+   "reason": "AMBOSS nur allgemein Proteinkinaseinhibitoren"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Fieber bei Neutropenie = febrile Neutropenie = Notfall → sofort Breitband-Antibiotika",
+   "reason": "febrile Neutropenie nicht in Erfassung"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Monozytäre AML (M4/M5): Gingivahyperplasie",
+   "reason": "AMBOSS: myelomonozytäre Leukämie; FAB-Nummern nicht erfasst"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Die Knochenmarkpunktion beweist: ≥ 20 % Blasten",
+   "reason": "AMBOSS: AML >20 %, ALL >25 %; Vereinfachung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Ziel: < 5 % Blasten",
+   "reason": "Remissionsgrenze nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "APL → ATRA + Arsentrioxid",
+   "reason": "AMBOSS: Standardrisiko ATRA+ATO, Hochrisiko ATRA+Zytostatika"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Darunter (z. B. 10–19 %) spricht man von einem myelodysplastischen Syndrom",
+   "reason": "MDS-Grenze nicht in Erfassung"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Auerstäbchen ... kommen bei der ALL nie vor",
+   "reason": "AMBOSS: typisch für AML; 'nie' nicht explizit"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Neutropen + Fieber = Antibiose in der ersten Stunde.",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "AML median ~65–70 J.",
+   "reason": "AMBOSS: ca. 70 Jahre; Rundung"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Tumorlyse: Gefahr von Rhythmusstörung und Nierenversagen; Calcium fällt",
+   "reason": "vereinbar, nicht wortgleich"
+  }
  ],
  "status": "done",
- "validated": "2026-10-09"
+ "validated": "2026-10-09",
+ "third_pass": {
+  "date": "2026-10-10",
+  "model": "fable",
+  "checked": 42,
+  "applied": 0,
+  "rejected_by_orchestrator": []
+ }
 }

@@ -6,7 +6,7 @@
  ],
  "counts": {
   "ok": 56,
-  "fix": 4,
+  "fix": 5,
   "unclear": 12
  },
  "fixes": [
@@ -33,6 +33,13 @@
    "deck_text": "Perle 2 · +15 % / −20 %",
    "new_text": "Perle 2 · +12 % / −20 %",
    "amboss_quote": "Anstieg des FEV1 um mind. 12% UND um 200 mL"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "<b>Merke:</b> Salbutamol rauf 15, Metacholin runter 20",
+   "new_text": "<b>Merke:</b> Salbutamol rauf 12, Metacholin runter 20",
+   "amboss_quote": "  - Im Gegensatz zur COPD ist bei Asthma die bronchiale Obstruktion durch Bronchospasmolyse deutlich reversibel: Anstieg des FEV1 um mind. 12% UND um 200 mL",
+   "pass": 3
   }
  ],
  "unclear": [
@@ -98,5 +105,12 @@
   }
  ],
  "status": "done",
- "validated": "2026-10-09"
+ "validated": "2026-10-09",
+ "third_pass": {
+  "date": "2026-10-10",
+  "model": "fable",
+  "checked": 58,
+  "applied": 1,
+  "rejected_by_orchestrator": []
+ }
 }
