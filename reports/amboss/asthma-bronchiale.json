@@ -1,23 +1,102 @@
-{"slug": "asthma-bronchiale", "deck": "reviews/pneumologie/asthma-bronchiale.html", "capture": ["sources/amboss/asthma-bronchiale.md"],
- "counts": {"ok": 56, "fix": 3, "unclear": 12},
+{
+ "slug": "asthma-bronchiale",
+ "deck": "reviews/pneumologie/asthma-bronchiale.html",
+ "capture": [
+  "sources/amboss/asthma-bronchiale.md"
+ ],
+ "counts": {
+  "ok": 56,
+  "fix": 4,
+  "unclear": 12
+ },
  "fixes": [
-  {"panel": "diagnostik", "deck_text": "Bronchospasmolyse: FEV₁ +15 % nach Salbutamol", "new_text": "Bronchospasmolyse: FEV₁ +12 % nach Salbutamol", "amboss_quote": "Anstieg des FEV1 um mind. 12% UND um 200 mL"},
-  {"panel": "perlen", "deck_text": "Bronchospasmolyse positiv bei FEV₁ +15 % nach Salbutamol", "new_text": "Bronchospasmolyse positiv bei FEV₁ +12 % nach Salbutamol", "amboss_quote": "Anstieg des FEV1 um mind. 12% UND um 200 mL"},
-  {"panel": "perlen (Rapid-Fire)", "deck_text": "Bronchospasmolyse positiv ab? FEV₁ +15 % nach Salbutamol", "new_text": "FEV₁ +12 % nach Salbutamol", "amboss_quote": "Anstieg des FEV1 um mind. 12% UND um 200 mL"}
+  {
+   "panel": "diagnostik",
+   "deck_text": "Bronchospasmolyse: FEV₁ +15 % nach Salbutamol",
+   "new_text": "Bronchospasmolyse: FEV₁ +12 % nach Salbutamol",
+   "amboss_quote": "Anstieg des FEV1 um mind. 12% UND um 200 mL"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Bronchospasmolyse positiv bei FEV₁ +15 % nach Salbutamol",
+   "new_text": "Bronchospasmolyse positiv bei FEV₁ +12 % nach Salbutamol",
+   "amboss_quote": "Anstieg des FEV1 um mind. 12% UND um 200 mL"
+  },
+  {
+   "panel": "perlen (Rapid-Fire)",
+   "deck_text": "Bronchospasmolyse positiv ab? FEV₁ +15 % nach Salbutamol",
+   "new_text": "FEV₁ +12 % nach Salbutamol",
+   "amboss_quote": "Anstieg des FEV1 um mind. 12% UND um 200 mL"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Perle 2 · +15 % / −20 %",
+   "new_text": "Perle 2 · +12 % / −20 %",
+   "amboss_quote": "Anstieg des FEV1 um mind. 12% UND um 200 mL"
+  }
  ],
  "unclear": [
-  {"panel": "therapie", "deck_text": "Inhalatives Kortison wirkt erst nach ~1 Woche", "reason": "AMBOSS: volle Wirkung nach 2–4 Wochen; Wirkbeginn nicht erfasst"},
-  {"panel": "perlen", "deck_text": "Inhalative Kortikosteroide wirken erst nach ~1 Woche", "reason": "AMBOSS: volle Wirkung nach 2–4 Wochen; Wirkbeginn nicht erfasst"},
-  {"panel": "perlen (Rapid-Fire)", "deck_text": "ICS — Wirkungseintritt? erst nach etwa einer Woche", "reason": "AMBOSS: volle Wirkung nach 2–4 Wochen; Wirkbeginn nicht erfasst"},
-  {"panel": "therapie", "deck_text": "Bei Bedarf immer SABA.", "reason": "AMBOSS: ICS+Formoterol oder SABA (Alternativen)"},
-  {"panel": "perlen", "deck_text": "Auf jeder Stufe gilt: Bedarfsmedikation = SABA (Salbutamol)", "reason": "AMBOSS: ICS+Formoterol oder SABA (Alternativen)"},
-  {"panel": "therapie", "deck_text": "SABA inhalativ (Wdh. nach 10 min) + Prednisolon 20–25 mg p.o.", "reason": "Dosierungen in Erfassung nur als DOSIS (Lücke)"},
-  {"panel": "therapie", "deck_text": "Prednisolon 1–2 mg/kg", "reason": "Dosierung nicht erfasst (DOSIS)"},
-  {"panel": "therapie", "deck_text": "Magnesium 2 g i.v.", "reason": "Dosierung nicht erfasst (DOSIS); auch Rapid-Fire"},
-  {"panel": "diagnostik", "deck_text": "Hypoxämie mit respiratorischer Alkalose (pH ↑, pO₂ ↓, pCO₂ ↓)", "reason": "Respiratorische Alkalose nicht in Erfassung; auch Perle 7/Rapid-Fire"},
-  {"panel": "perlen", "deck_text": "Status asthmaticus = Anfall, der trotz adäquater Therapie ≥ 24 h andauert", "reason": "AMBOSS-Definition ohne Zeitangabe (Nichtansprechen auf Initialtherapie)"},
-  {"panel": "perlen (Rapid-Fire)", "deck_text": "Status asthmaticus? Anfall über 24 h trotz Therapie", "reason": "AMBOSS-Definition ohne Zeitangabe"},
-  {"panel": "perlen (Rapid-Fire)", "deck_text": "ICS-Nebenwirkung — Prophylaxe? Mund ausspülen", "reason": "nicht in Erfassung"}
+  {
+   "panel": "therapie",
+   "deck_text": "Inhalatives Kortison wirkt erst nach ~1 Woche",
+   "reason": "AMBOSS: volle Wirkung nach 2–4 Wochen; Wirkbeginn nicht erfasst"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Inhalative Kortikosteroide wirken erst nach ~1 Woche",
+   "reason": "AMBOSS: volle Wirkung nach 2–4 Wochen; Wirkbeginn nicht erfasst"
+  },
+  {
+   "panel": "perlen (Rapid-Fire)",
+   "deck_text": "ICS — Wirkungseintritt? erst nach etwa einer Woche",
+   "reason": "AMBOSS: volle Wirkung nach 2–4 Wochen; Wirkbeginn nicht erfasst"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Bei Bedarf immer SABA.",
+   "reason": "AMBOSS: ICS+Formoterol oder SABA (Alternativen)"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Auf jeder Stufe gilt: Bedarfsmedikation = SABA (Salbutamol)",
+   "reason": "AMBOSS: ICS+Formoterol oder SABA (Alternativen)"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "SABA inhalativ (Wdh. nach 10 min) + Prednisolon 20–25 mg p.o.",
+   "reason": "Dosierungen in Erfassung nur als DOSIS (Lücke)"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Prednisolon 1–2 mg/kg",
+   "reason": "Dosierung nicht erfasst (DOSIS)"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Magnesium 2 g i.v.",
+   "reason": "Dosierung nicht erfasst (DOSIS); auch Rapid-Fire"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Hypoxämie mit respiratorischer Alkalose (pH ↑, pO₂ ↓, pCO₂ ↓)",
+   "reason": "Respiratorische Alkalose nicht in Erfassung; auch Perle 7/Rapid-Fire"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Status asthmaticus = Anfall, der trotz adäquater Therapie ≥ 24 h andauert",
+   "reason": "AMBOSS-Definition ohne Zeitangabe (Nichtansprechen auf Initialtherapie)"
+  },
+  {
+   "panel": "perlen (Rapid-Fire)",
+   "deck_text": "Status asthmaticus? Anfall über 24 h trotz Therapie",
+   "reason": "AMBOSS-Definition ohne Zeitangabe"
+  },
+  {
+   "panel": "perlen (Rapid-Fire)",
+   "deck_text": "ICS-Nebenwirkung — Prophylaxe? Mund ausspülen",
+   "reason": "nicht in Erfassung"
+  }
  ],
  "status": "done",
- "validated": "2026-10-09"}
+ "validated": "2026-10-09"
+}
