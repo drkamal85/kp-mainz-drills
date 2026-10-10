@@ -6,7 +6,7 @@
  ],
  "counts": {
   "ok": 28,
-  "fix": 1,
+  "fix": 4,
   "unclear": 16
  },
  "fixes": [
@@ -15,6 +15,27 @@
    "deck_text": "Rückfall nach 4 bis 12 Stunden ohne neuen Kontakt",
    "new_text": "Rückfall nach 6 bis 24 Stunden ohne neuen Kontakt",
    "amboss_quote": "  - Biphasische anaphylaktische Reaktion: Erneute Symptomatik 6–24 h nach initial erfolgreicher Therapie",
+   "pass": 3
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Antihistaminikum nur bei Hautsymptomen, Kortison nicht mehr routinemäßig.",
+   "new_text": "Antihistaminikum und Kortison nur als Zweitlinie.",
+   "amboss_quote": "AMBOSS-Tabelle: H1-Antihistaminikum i.v.; Glucocorticoid i.v. in jedem Grad nach Adrenalin/Volumen — Entscheidung Mohamed 10.10.2026: ERC-Aussage auf 'Zweitlinie' abgeschwächt",
+   "pass": 3
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "<strong>H1-Blocker</strong> nur bei Hautsymptomen, langsam intravenös",
+   "new_text": "<strong>H1-Blocker</strong> als Zweitlinie, langsam intravenös",
+   "amboss_quote": "AMBOSS-Tabelle: H1-Antihistaminikum i.v.; Glucocorticoid i.v. in jedem Grad nach Adrenalin/Volumen — Entscheidung Mohamed 10.10.2026: ERC-Aussage auf 'Zweitlinie' abgeschwächt",
+   "pass": 3
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "<strong>Glukokortikoid ist gestrichen</strong>",
+   "new_text": "<strong>Glukokortikoid ist nur noch Zweitlinie</strong>",
+   "amboss_quote": "AMBOSS-Tabelle: H1-Antihistaminikum i.v.; Glucocorticoid i.v. in jedem Grad nach Adrenalin/Volumen — Entscheidung Mohamed 10.10.2026: ERC-Aussage auf 'Zweitlinie' abgeschwächt",
    "pass": 3
   }
  ],
@@ -107,19 +128,6 @@
   "model": "fable",
   "checked": 52,
   "applied": 1,
-  "rejected_by_orchestrator": [
-   {
-    "html_old": "Volumen ja, Antihistaminikum nur bei Hautsymptomen, Kortison nicht mehr routinemäßig.",
-    "reason": "Deck beruft sich ausdrücklich auf ERC 2025; AMBOSS-Erfassung älterer Stand — Leitlinien-Nuance, Mohamed entscheidet"
-   },
-   {
-    "html_old": "<strong>H1-Blocker</strong> nur bei Hautsymptomen, langsam intravenös",
-    "reason": "wie 1 (ERC 2025 vs. AMBOSS-Tabelle)"
-   },
-   {
-    "html_old": "Das <strong>Glukokortikoid ist gestrichen</strong>.",
-    "reason": "wie 1 (ERC 2025 vs. AMBOSS-Tabelle)"
-   }
-  ]
+  "rejected_by_orchestrator": []
  }
 }

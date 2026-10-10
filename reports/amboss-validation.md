@@ -254,8 +254,8 @@ Ohne Erfassung, nicht geprüft: beckenringfrakturen, claviculafraktur, kreuzband
 
 ## Offen für Mohamed
 
-- **anaphylaxie**: Deck sagt „Seit ERC 2025: Glukokortikoid gestrichen, Antihistaminikum nur bei Hautsymptomen“; die AMBOSS-Erfassung listet beides in jedem Grad. Leitlinienkonflikt — bewusst nicht geändert.
-- **pavk**: Gehtraining steht unter „In jedem Stadium“; AMBOSS: bei kritischer Ischämie kontraindiziert. Korrektur bräuchte einen Zusatz — nicht geändert.
+- **anaphylaxie** (entschieden 10.10.2026): „gestrichen“ / „nur bei Hautsymptomen“ → „Zweitlinie“. ERC-Kontext bleibt, widerspricht AMBOSS nicht mehr.
+- **pavk** (entschieden 10.10.2026): Gehtraining (Stadium I–II) — Zusatz auf Anweisung ergänzt.
 - **strahlenschutz**: Perle 7 Faktor 100 → 50 als Folgekorrektur von 0,1 → 0,2 mSv (CT-Abdomen 10 mSv nicht in Erfassung).
 
 ## AMBOSS-validiert
