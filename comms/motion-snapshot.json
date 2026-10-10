@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-09T10:05:10.949Z",
+  "generatedAt": "2026-10-10T09:26:19.937Z",
   "totals": {
     "open": 153,
     "completed": 450,
-    "overdue": 17,
-    "schedulingIssues": 52
+    "overdue": 19,
+    "schedulingIssues": 48
   },
   "byLevel": {
     "R1": {
@@ -336,18 +336,6 @@
       "scheduledStart": null
     },
     {
-      "name": "Mentor check-in #13",
-      "dueDate": "2026-11-12",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Mentor check-in #4",
-      "dueDate": "2026-11-12",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
       "name": "Practice: Anamnesebogen — Complete from real Akte (Session 1)",
       "dueDate": "2026-11-17",
       "schedulingIssue": true,
@@ -374,12 +362,6 @@
     {
       "name": "Oral Simulation with Partner — Session 11",
       "dueDate": "2027-02-20",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Drittes Fach: Protocol Review — Session 11",
-      "dueDate": "2026-11-12",
       "schedulingIssue": true,
       "scheduledStart": null
     },
@@ -428,12 +410,6 @@
     {
       "name": "Drittes Fach: Protocol Review — Session 2",
       "dueDate": "2026-11-13",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Drittes Fach: Protocol Review — Session 9",
-      "dueDate": "2026-11-12",
       "schedulingIssue": true,
       "scheduledStart": null
     },
@@ -540,12 +516,20 @@
       "dueDate": "2026-10-04"
     },
     {
+      "name": "Review: Elektrolytstörungen K⁺/Ca²⁺ R3",
+      "dueDate": "2026-10-09"
+    },
+    {
       "name": "Review: Elektrolytstörungen K⁺/Ca²⁺ R2",
       "dueDate": "2026-10-08"
     },
     {
       "name": "Review: Elektrolytstörungen K⁺/Ca²⁺ R1",
       "dueDate": "2026-10-07"
+    },
+    {
+      "name": "Review: Makrozytäre Anämie / Vitamin-B12-Mangel R2",
+      "dueDate": "2026-10-09"
     },
     {
       "name": "Review: Makrozytäre Anämie / Vitamin-B12-Mangel R1",
@@ -569,16 +553,6 @@
     }
   ],
   "upcoming14d": [
-    {
-      "name": "Review: Elektrolytstörungen K⁺/Ca²⁺ R3",
-      "dueDate": "2026-10-09",
-      "duration": 60
-    },
-    {
-      "name": "Review: Makrozytäre Anämie / Vitamin-B12-Mangel R2",
-      "dueDate": "2026-10-09",
-      "duration": 45
-    },
     {
       "name": "Review: Elektrolytstörungen K⁺/Ca²⁺ R4",
       "dueDate": "2026-10-10",
@@ -702,6 +676,26 @@
     {
       "name": "Review: Appendizitis R5",
       "dueDate": "2026-10-23",
+      "duration": 120
+    },
+    {
+      "name": "Akte-Sim #8",
+      "dueDate": "2026-10-24",
+      "duration": 60
+    },
+    {
+      "name": "Review: Cholezystitis R5",
+      "dueDate": "2026-10-24",
+      "duration": 120
+    },
+    {
+      "name": "Review: Lungenembolie R5",
+      "dueDate": "2026-10-24",
+      "duration": 120
+    },
+    {
+      "name": "Review: Pneumothorax R5",
+      "dueDate": "2026-10-24",
       "duration": 120
     }
   ],
