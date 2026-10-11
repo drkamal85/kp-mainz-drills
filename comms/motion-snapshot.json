@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-10-10T09:26:19.937Z",
+  "generatedAt": "2026-10-11T09:41:33.976Z",
   "totals": {
     "open": 153,
-    "completed": 450,
-    "overdue": 19,
-    "schedulingIssues": 48
+    "completed": 446,
+    "overdue": 21,
+    "schedulingIssues": 45
   },
   "byLevel": {
     "R1": {
       "open": 4,
-      "completed": 103
+      "completed": 102
     },
     "R2": {
       "open": 4,
@@ -30,10 +30,10 @@
   },
   "byWorkstream": {
     "A_coverage": {
-      "topicsTotal": 214,
-      "studied": 67,
+      "topicsTotal": 213,
+      "studied": 65,
       "studyOpen": 0,
-      "r1Built": 97,
+      "r1Built": 96,
       "r1Open": 4
     },
     "B_r5": {
@@ -366,12 +366,6 @@
       "scheduledStart": null
     },
     {
-      "name": "Oral Simulation with Partner — Session 5",
-      "dueDate": "2026-11-13",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
       "name": "Oral Simulation with Partner — Session 9",
       "dueDate": "2027-01-23",
       "schedulingIssue": true,
@@ -408,12 +402,6 @@
       "scheduledStart": null
     },
     {
-      "name": "Drittes Fach: Protocol Review — Session 2",
-      "dueDate": "2026-11-13",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
       "name": "Oral Simulation with Partner — Session 10",
       "dueDate": "2027-02-06",
       "schedulingIssue": true,
@@ -422,12 +410,6 @@
     {
       "name": "Practice: Anamnesebogen — Complete from real Akte (Session 5)",
       "dueDate": "2027-01-25",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Drittes Fach: Protocol Review — Session 10",
-      "dueDate": "2026-11-13",
       "schedulingIssue": true,
       "scheduledStart": null
     },
@@ -516,6 +498,10 @@
       "dueDate": "2026-10-04"
     },
     {
+      "name": "Review: Elektrolytstörungen K⁺/Ca²⁺ R4",
+      "dueDate": "2026-10-10"
+    },
+    {
       "name": "Review: Elektrolytstörungen K⁺/Ca²⁺ R3",
       "dueDate": "2026-10-09"
     },
@@ -526,6 +512,10 @@
     {
       "name": "Review: Elektrolytstörungen K⁺/Ca²⁺ R1",
       "dueDate": "2026-10-07"
+    },
+    {
+      "name": "Review: Makrozytäre Anämie / Vitamin-B12-Mangel R3",
+      "dueDate": "2026-10-10"
     },
     {
       "name": "Review: Makrozytäre Anämie / Vitamin-B12-Mangel R2",
@@ -553,16 +543,6 @@
     }
   ],
   "upcoming14d": [
-    {
-      "name": "Review: Elektrolytstörungen K⁺/Ca²⁺ R4",
-      "dueDate": "2026-10-10",
-      "duration": 30
-    },
-    {
-      "name": "Review: Makrozytäre Anämie / Vitamin-B12-Mangel R3",
-      "dueDate": "2026-10-10",
-      "duration": 60
-    },
     {
       "name": "Review: Makrozytäre Anämie / Vitamin-B12-Mangel R4",
       "dueDate": "2026-10-11",
@@ -696,6 +676,16 @@
     {
       "name": "Review: Pneumothorax R5",
       "dueDate": "2026-10-24",
+      "duration": 120
+    },
+    {
+      "name": "Review: Arterielle Hypertonie R5",
+      "dueDate": "2026-10-25",
+      "duration": 120
+    },
+    {
+      "name": "Review: Impfungen/STIKO R5",
+      "dueDate": "2026-10-25",
       "duration": 120
     }
   ],
