@@ -6,12 +6,19 @@
  ],
  "counts": {
   "ok": 70,
-  "fix": 0,
+  "fix": 1,
   "unclear": 0
  },
- "fixes": [],
+ "fixes": [
+  {
+   "panel": "grundlagen/therapie",
+   "deck_text": "Prednisolon 12,5–25 mg/d",
+   "new_text": "Prednisolon 15–25 mg/d",
+   "amboss_quote": "AMBOSS Quelle 12: S2e-Leitlinie PMR Update 2024 (2025); Empfehlung 2: 15 bis 25 mg Prednison-Aequivalent"
+  }
+ ],
  "unclear": [],
  "status": "done",
- "note": "Neubau R1 13.10.2026; Fakten in 2 unabhaengigen Audit-Runden gegen die Erfassung bzw. deutschen Standard geprueft, Fehler vor Veroeffentlichung behoben.",
+ "note": "Neubau R1 13.10.2026; Fakten in 2 unabhaengigen Audit-Runden gegen die Erfassung bzw. deutschen Standard geprueft, Fehler vor Veroeffentlichung behoben. Am 13.10.2026 auf ca. 320 Woerter vereinfacht, Merkbild PMR/RZA/axSpA; Audit-Runden 3-5: RZA-Dosis mit Bedingung, PMR-Startdosis 15-25 mg/d (AWMF S2e 060-006, 2025), CLEARED.",
  "validated": "2026-10-13"
 }

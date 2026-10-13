@@ -211,6 +211,19 @@
   .tier.std{background:#FDF2E2;color:#B07214}
   .tier.rand{background:#EFEDE8;color:#7A736A}
   .tier .zt{font-weight:600;letter-spacing:.02em;text-transform:none;opacity:.8}
+  .mb{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:4px 0 6px}
+  .mb-tile{border-radius:12px;padding:12px 12px 10px;border:1px solid var(--line);background:var(--card);text-align:center;display:flex;flex-direction:column}
+  .mb-tile.lo{border-top:5px solid #1E5F9E;color:#1E5F9E}
+  .mb-tile.hi{border-top:5px solid #C0392B;color:#C0392B}
+  .mb-h{font-weight:800;font-size:14.5px;color:var(--ink);letter-spacing:.04em;text-transform:uppercase}
+  .mb-arrow{font-size:40px;font-weight:800;line-height:1.1;margin:2px 0}
+  .mb-arrow span{font-size:13px;font-weight:700;margin-left:4px;vertical-align:middle}
+  .mb-s{font-size:13px;color:var(--ink);margin:4px 0 6px;line-height:1.4}
+  .mb-t{margin-top:auto;font-size:13.5px;font-weight:800;border-top:1px dashed var(--line);padding-top:6px}
+  .mb-col{grid-column:1/-1;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-align:center;margin-top:6px}
+  .mb-pair{border-radius:10px;border:1px solid var(--line);border-left:4px solid var(--grundlagen);background:var(--card);padding:8px 10px;font-size:12.5px;line-height:1.4}
+  .mb-pair b{display:block;font-size:13px;color:var(--ink)}
+  @media (max-width:520px){.mb{gap:7px}.mb-tile{padding:10px 8px 8px}.mb-h{font-size:13px}.mb-pair{padding:7px 8px}}
 </style>
 <link rel="stylesheet" media="print" href="/print.css">
 <script src="/print.js" defer></script>
@@ -238,55 +251,29 @@
   <section class="panel active" data-panel="grundlagen">
     <p class="panel-intro">Interaktion über den Spiegel oder über die Wirkung.</p>
 
-    <details class="card grundlagen" open><summary><span class="ct"><span class="ctag">Mechanismus</span><span class="ctitle">Spiegel oder Wirkung</span></span><span class="plus">+</span></summary>
+    <details class="card grundlagen" open><summary><span class="ct"><span class="ctag">Merkbild</span><span class="ctitle">Die CYP450-Wippe</span></span><span class="plus">+</span></summary>
       <div class="body">
-        <ul class="b">
-          <li><strong>Pharmakokinetisch:</strong> ein Mittel verändert den Spiegel des anderen, meist über <strong>CYP450</strong>
-            <ul>
-              <li><strong>Induktoren</strong> senken den Spiegel: Rifampicin, Carbamazepin, Phenytoin, Johanniskraut</li>
-              <li><strong>Hemmer</strong> heben ihn: Clarithromycin, Azol-Antimykotika, Amiodaron, Verapamil, Grapefruitsaft</li>
-            </ul>
-          </li>
-          <li><strong>Pharmakodynamisch:</strong> 2 Mittel wirken gleichsinnig, etwa 2 QT-Verlängerer</li>
-        </ul>
+        <div class="mb">
+          <div class="mb-tile lo"><div class="mb-h">Induktor</div><div class="mb-arrow">↓<span>Spiegel</span></div><div class="mb-s">Rifampicin, Carbamazepin, Phenytoin, Johanniskraut</div><div class="mb-t">wirkungslos</div></div>
+          <div class="mb-tile hi"><div class="mb-h">Hemmer</div><div class="mb-arrow">↑<span>Spiegel</span></div><div class="mb-s">Clarithromycin, Azole, Amiodaron, Verapamil, Grapefruit</div><div class="mb-t">giftig</div></div>
+          <div class="mb-col">Gefährliche Paare</div>
+          <div class="mb-pair"><b>Betablocker + Verapamil</b>Bradykardie, AV-Block</div>
+          <div class="mb-pair"><b>Amiodaron + Dabigatran</b>Blutung</div>
+          <div class="mb-pair"><b>Amiodaron + Statin</b>Myopathie</div>
+          <div class="mb-pair"><b>NSAR + ACE-Hemmer + Diuretikum</b>akutes Nierenversagen</div>
+        </div>
         <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Ein Induktor macht wirkungslos, ein Hemmer macht giftig.</strong></div>
-      </div>
-    </details>
-
-    <details class="card grundlagen"><summary><span class="ct"><span class="ctag">Kombinationen</span><span class="ctitle">Die Klassiker</span></span><span class="plus">+</span></summary>
-      <div class="body">
-        <table class="dd"><tr><th>Kombination</th><th>Folge</th></tr>
-          <tr><td>Betablocker + Verapamil</td><td>Bradykardie, AV-Block</td></tr>
-          <tr><td>Amiodaron + Dabigatran</td><td>Blutung</td></tr>
-          <tr><td>Amiodaron + Statin</td><td>Myopathie bis Rhabdomyolyse</td></tr>
-          <tr><td>Digitalis + Hypokaliämie, Amiodaron oder Verapamil</td><td>Digitalisintoxikation</td></tr>
-          <tr><td>ASS + Ibuprofen</td><td>schwächere Plättchenhemmung</td></tr>
-          <tr><td>NSAR + ACE-Hemmer + Diuretikum</td><td>akutes Nierenversagen</td></tr>
-          <tr><td>SSRI + Tramadol oder Linezolid</td><td>Serotoninsyndrom</td></tr>
-        </table>
-        <div class="callout fact"><span class="lab">⚙ Dokumentiert</span>Betablocker plus Verapamil sowie Amiodaron mit Dabigatran und mit Statinen.</div>
         <!-- KP-Intel F01750 · F10976 · F08163 · F08165 · KP-034 · KP-453 · KP-266 -->
-      </div>
-    </details>
-
-    <details class="card grundlagen"><summary><span class="ct"><span class="ctag">Alter</span><span class="ctitle">Polypharmazie und PRISCUS</span></span><span class="plus">+</span></summary>
-      <div class="body">
-        <ul class="b">
-          <li><strong>Polypharmazie:</strong> ab 5 Dauermedikamenten, mit jedem Mittel mehr Interaktionen</li>
-          <li><strong>PRISCUS-Liste:</strong> potenziell inadäquate Medikamente für Ältere, etwa langwirksame Benzodiazepine, Amitriptylin</li>
-        </ul>
-        <div class="callout fact"><span class="lab">⚙ Dokumentiert</span>80-Jähriger wünscht ein Schlafmittel: Benzodiazepin, Sturzgefahr.</div>
-        <!-- KP-Intel F04506 · F04507 · KP-149 -->
       </div>
     </details>
 
     <details class="card grundlagen"><summary><span class="ct"><span class="ctag">Pharmakovigilanz</span><span class="ctitle">Melden und informieren</span></span><span class="plus">+</span></summary>
       <div class="body">
         <ul class="b">
-          <li>Schon der <strong>Verdacht</strong> wird gemeldet: an die <strong>AkdÄ</strong> (Berufspflicht) oder das <strong>BfArM</strong>, Impfkomplikationen namentlich ans <strong>Gesundheitsamt</strong> (§ 6 IfSG), das an das <strong>PEI</strong> weiterleitet</li>
-          <li><strong>Rote-Hand-Brief:</strong> der Hersteller informiert in Abstimmung mit BfArM oder PEI über neue Risiken</li>
+          <li>Schon der <strong>Verdacht</strong> geht an <strong>AkdÄ</strong> oder <strong>BfArM</strong></li>
+          <li>Impfkomplikation: <strong>Gesundheitsamt</strong> (§ 6 IfSG) → PEI</li>
+          <li><strong>Rote-Hand-Brief:</strong> Hersteller warnt, z. B. Metamizol wegen Agranulozytose</li>
         </ul>
-        <div class="callout fact"><span class="lab">⚙ Dokumentiert</span>Rote-Hand-Brief zu Metamizol wegen Agranulozytose.</div>
         <!-- KP-Intel F00458 · F10539 · KP-106 · KP-431 · KP-402 -->
       </div>
     </details>
@@ -296,19 +283,26 @@
   <section class="panel" data-panel="klinik">
     <p class="panel-intro">Zu jedem Wirkstoff im Plan eine typische UAW.</p>
 
-    <details class="card klinik" open><summary><span class="ct"><span class="ctag">Dauermedikation</span><span class="ctitle">Der typische Medikationsplan</span></span><span class="plus">+</span></summary>
+    <details class="card klinik" open><summary><span class="ct"><span class="ctag">Dauermedikation</span><span class="ctitle">Herz und Kreislauf</span></span><span class="plus">+</span></summary>
       <div class="body">
-        <table class="dd"><tr><th>Wirkstoff</th><th>Typische UAW</th></tr>
-          <tr><td>Betablocker</td><td>Bradykardie, AV-Block, Bronchospasmus, verschleierte Hypoglykämie</td></tr>
-          <tr><td>ACE-Hemmer</td><td>Reizhusten durch Bradykinin, Hyperkaliämie, Angioödem</td></tr>
-          <tr><td>Thiazide</td><td>Hypokaliämie, Hyponatriämie, Hyperglykämie, Hyperurikämie</td></tr>
-          <tr><td>Amlodipin</td><td>Knöchelödeme, Flush, Kopfschmerz</td></tr>
-          <tr><td>Statine</td><td>Myalgie, CK-Anstieg, selten Rhabdomyolyse</td></tr>
-          <tr><td>PPI, langfristig</td><td>Hypomagnesiämie, Vitamin-B12-Mangel, Hypergastrinämie</td></tr>
-          <tr><td>Doxycyclin</td><td>Photosensibilität: Sonne meiden</td></tr>
-        </table>
-        <div class="callout fact"><span class="lab">⚙ Dokumentiert</span>Kontraindikationen der Betablocker: Asthma bronchiale, AV-Block, Diabetes nur relativ.</div>
+        <ul class="b">
+          <li><strong>Betablocker:</strong> Bradykardie, Bronchospasmus, verschleierte Hypoglykämie</li>
+          <li><strong>Betablocker, KI:</strong> Asthma, AV-Block; Diabetes nur relativ</li>
+          <li><strong>ACE-Hemmer:</strong> Reizhusten, Hyperkaliämie, Angioödem</li>
+          <li><strong>Amlodipin:</strong> Knöchelödeme</li>
+        </ul>
         <!-- KP-Intel F02239 · F11333 · F10976 · KP-054 · KP-513 · KP-453 -->
+      </div>
+    </details>
+
+    <details class="card klinik"><summary><span class="ct"><span class="ctag">Dauermedikation</span><span class="ctitle">Weitere Klassiker</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <ul class="b">
+          <li><strong>Thiazide:</strong> Hypokaliämie, Hyponatriämie</li>
+          <li><strong>Statine:</strong> Myalgie, CK ↑, selten Rhabdomyolyse</li>
+          <li><strong>PPI, langfristig:</strong> Magnesium ↓, Vitamin B12 ↓</li>
+          <li><strong>Doxycyclin:</strong> Photosensibilität</li>
+        </ul>
         <div class="callout fact"><span class="lab">⚙ Nachbardecks</span>Metamizol, NSAR, Opioide: Schmerztherapie · Antibiotika, Antidiabetika, DOAK, Tuberkulostatika, Prilocain, Impfschaden, Lyse-Kontraindikationen: eigene Decks.</div>
       </div>
     </details>
@@ -317,11 +311,10 @@
       <div class="body">
         <ul class="b">
           <li><strong>Schilddrüse:</strong> Hypo- und Hyperthyreose</li>
-          <li><strong>Lunge:</strong> Pneumonitis bis Lungenfibrose</li>
-          <li>Leber, Hornhautablagerungen, Photosensibilität, QT-Verlängerung</li>
-          <li>Halbwertszeit <strong>20 bis 100 Tage</strong>: UAW überdauern das Absetzen</li>
+          <li><strong>Lunge:</strong> Pneumonitis bis Fibrose</li>
+          <li>Außerdem Leber, Hornhaut, Photosensibilität, QT ↑</li>
+          <li>Halbwertszeit <strong>20–100 Tage</strong>: UAW bleiben nach Absetzen</li>
         </ul>
-        <div class="callout fact"><span class="lab">⚙ Dokumentiert</span>Schilddrüsenstörung und lange Halbwertszeit.</div>
         <!-- KP-Intel F05116 · F08625 · KP-169 · KP-287 -->
       </div>
     </details>
@@ -329,35 +322,28 @@
     <details class="card klinik"><summary><span class="ct"><span class="ctag">Glukokortikoide</span><span class="ctitle">Systemisch und inhalativ</span></span><span class="plus">+</span></summary>
       <div class="body">
         <ul class="b">
-          <li><strong>Systemisch:</strong> Osteoporose, Diabetes, Infektanfälligkeit, Katarakt, Myopathie, Cushing-Habitus</li>
+          <li><strong>Systemisch:</strong> Osteoporose, Diabetes, Infekte, Katarakt, Myopathie, Cushing-Habitus</li>
           <li><strong>Inhalativ:</strong> Mundsoor, Heiserkeit</li>
+          <li><strong>Nie abrupt absetzen:</strong> die Nebenniere versagt</li>
         </ul>
-        <div class="callout warn"><span class="lab">⚠ Nie abrupt absetzen</span>Die supprimierte Nebenniere versagt: siehe Cushing-Syndrom.</div>
       </div>
     </details>
 
     <details class="card klinik"><summary><span class="ct"><span class="ctag">Blutbild</span><span class="ctitle">Agranulozytose</span></span><span class="plus">+</span></summary>
       <div class="body">
         <ul class="b">
-          <li>Auslöser: <strong>Metamizol</strong>, <strong>Thiamazol und Carbimazol</strong>, Clozapin</li>
+          <li>Auslöser: <strong>Metamizol</strong>, <strong>Thiamazol, Carbimazol</strong>, Clozapin</li>
           <li>Zeichen: Fieber, Halsschmerz, Schleimhautulzera</li>
         </ul>
-        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Fieber unter Metamizol oder Thyreostatikum ist bis zum Blutbild eine Agranulozytose.</strong></div>
       </div>
     </details>
 
     <details class="card klinik"><summary><span class="ct"><span class="ctag">Zytostatika</span><span class="ctitle">Chemotherapie und Methotrexat</span></span><span class="plus">+</span></summary>
       <div class="body">
         <ul class="b">
-          <li><strong>Schnell teilende Gewebe:</strong> Knochenmark, Schleimhaut, Haarwurzel, Keimzellen
-            <ul>
-              <li>Myelosuppression: Infekte, Anämie, Blutung; dagegen G-CSF, Transfusion</li>
-              <li>Übelkeit und Erbrechen: 5-HT3-Antagonist, NK1-Antagonist, Dexamethason</li>
-              <li>Mukositis, Alopezie, Infertilität</li>
-            </ul>
-          </li>
-          <li><strong>Substanzspezifisch:</strong> Anthrazykline Kardiotoxizität, Bleomycin Lungenfibrose, Vincristin Polyneuropathie, Cisplatin Niere und Gehör</li>
-          <li><strong>Methotrexat:</strong> Myelosuppression, Mukositis, Leber- und Lungenschaden; niedrig dosiert 1-mal wöchentlich, Folsäure 24 bis 48 h danach</li>
+          <li>Übelkeit, Myelosuppression, Mukositis, Alopezie</li>
+          <li>Anthrazykline: Herz · Bleomycin: Lunge · Vincristin: Nerven · Cisplatin: Niere</li>
+          <li><strong>Methotrexat:</strong> Knochenmark, Leber, Lunge; Folsäure 24–48 h danach</li>
         </ul>
       </div>
     </details>
@@ -365,8 +351,8 @@
     <details class="card klinik"><summary><span class="ct"><span class="ctag">Psychopharmaka</span><span class="ctitle">Sturz und Dyskinesie</span></span><span class="plus">+</span></summary>
       <div class="body">
         <ul class="b">
-          <li><strong>Benzodiazepine:</strong> Sturz, Verwirrtheit, Abhängigkeit</li>
-          <li><strong>Haloperidol, MCP:</strong> Frühdyskinesien mit Blickkrämpfen, Parkinsonoid; Haloperidol verlängert die QT-Zeit</li>
+          <li><strong>Benzodiazepine:</strong> Sturz, Abhängigkeit</li>
+          <li><strong>Haloperidol, MCP:</strong> Frühdyskinesie → Biperiden</li>
           <li><strong>Pregabalin:</strong> Abhängigkeit</li>
         </ul>
       </div>
@@ -375,9 +361,9 @@
     <details class="card klinik"><summary><span class="ct"><span class="ctag">Kontrastmittel</span><span class="ctitle">Jod, Gadolinium, Barium</span></span><span class="plus">+</span></summary>
       <div class="body">
         <ul class="b">
-          <li><strong>Jodhaltig:</strong> allergoide Reaktion bis Schock, Nierenschädigung, Hyperthyreose bis thyreotoxische Krise; kontraindiziert bei manifester Hyperthyreose</li>
-          <li><strong>Gadolinium, linear:</strong> nicht bei GFR unter 30 ml/min oder Dialyse, sonst nephrogene systemische Fibrose</li>
-          <li><strong>Barium:</strong> nicht bei Perforationsverdacht oder akuter Darmentzündung, dann wasserlösliches jodhaltiges Kontrastmittel</li>
+          <li><strong>Jod:</strong> Allergie, Niere, Hyperthyreose; KI: manifeste Hyperthyreose</li>
+          <li><strong>Gadolinium, linear:</strong> nicht bei GFR &lt; 30 → nephrogene systemische Fibrose</li>
+          <li><strong>Barium:</strong> nicht bei Perforationsverdacht</li>
         </ul>
       </div>
     </details>
@@ -390,10 +376,9 @@
     <details class="card diagnostik" open><summary><span class="ct"><span class="ctag">Medikationsanamnese</span><span class="ctitle">Alles, was eingenommen wird</span></span><span class="plus">+</span></summary>
       <div class="body">
         <ul class="b">
-          <li>Vollständiger Plan, auch Selbstmedikation und Pflanzenmittel</li>
-          <li>Zeitlicher Zusammenhang: neues Mittel, neue Dosis, neue Kombination</li>
+          <li>Ganzer Plan, auch Selbstmedikation und Pflanzenmittel</li>
+          <li>Was ist neu: Mittel, Dosis, Kombination?</li>
         </ul>
-        <div class="callout fact"><span class="lab">⚙ Dokumentiert</span>Fieber und Bauchschmerzen ohne Vorerkrankung; Anamnese: Metamizol mehrmals täglich.</div>
         <!-- KP-Intel F04260 · F04268 · F04401 · KP-139 · KP-144 -->
       </div>
     </details>
@@ -401,8 +386,9 @@
     <details class="card diagnostik"><summary><span class="ct"><span class="ctag">EKG</span><span class="ctitle">QTc und Überleitung</span></span><span class="plus">+</span></summary>
       <div class="body">
         <ul class="b">
-          <li><strong>QTc</strong> vor und unter QT-Verlängerern; über 500 ms hohes Torsade-Risiko</li>
-          <li>Bradykardie, AV-Block unter Betablocker, Verapamil, Digitalis</li>
+          <li><strong>QTc</strong> über 500 ms: Torsade-Gefahr</li>
+          <li>2 QT-Verlängerer addieren sich</li>
+          <li>Bradykardie, AV-Block: Betablocker, Verapamil, Digitalis</li>
         </ul>
       </div>
     </details>
@@ -410,19 +396,9 @@
     <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Labor</span><span class="ctitle">Nach Wirkstoff</span></span><span class="plus">+</span></summary>
       <div class="body">
         <ul class="b">
-          <li><strong>Differenzialblutbild</strong> bei Fieber unter Metamizol oder Thyreostatika</li>
-          <li><strong>Kalium, Kreatinin</strong> unter ACE-Hemmer, Diuretika, NSAR</li>
-          <li><strong>TSH, Leberwerte</strong> vor und unter Amiodaron</li>
-          <li><strong>CK</strong> bei Muskelschmerz unter Statin</li>
-          <li><strong>Spiegel</strong> nur bei enger therapeutischer Breite: Digitalis, Aminoglykoside, Vancomycin</li>
-        </ul>
-      </div>
-    </details>
-
-    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Bildgebung</span><span class="ctitle">Lunge unter Amiodaron</span></span><span class="plus">+</span></summary>
-      <div class="body">
-        <ul class="b">
-          <li><strong>Röntgen-Thorax</strong> bei neuem Husten oder Luftnot: Pneumonitis, Fibrose</li>
+          <li>Fieber unter Metamizol: <strong>Differenzialblutbild</strong></li>
+          <li>ACE-Hemmer, Diuretika, NSAR: <strong>Kalium, Kreatinin</strong></li>
+          <li>Amiodaron: <strong>TSH, Leberwerte</strong>, Röntgen-Thorax</li>
         </ul>
       </div>
     </details>
@@ -430,28 +406,26 @@
   </section>
 
   <section class="panel" data-panel="therapie">
-    <p class="panel-intro">Absetzen, behandeln, melden und den Plan aufräumen.</p>
+    <p class="panel-intro">Absetzen, behandeln, melden, den Plan aufräumen.</p>
 
     <details class="card therapie" open><summary><span class="ct"><span class="ctag">Vorgehen</span><span class="ctitle">Bei Verdacht auf UAW</span></span><span class="plus">+</span></summary>
       <div class="body">
         <ul class="b">
-          <li>Auslöser <strong>absetzen</strong> oder Dosis senken, Alternative wählen</li>
-          <li>Folge behandeln und kontrollieren</li>
-          <li>Dokumentieren, Patienten aufklären, <strong>melden</strong></li>
+          <li>Auslöser <strong>absetzen</strong> oder Dosis senken</li>
+          <li>Folge behandeln</li>
+          <li>Dokumentieren, aufklären, <strong>melden</strong></li>
         </ul>
       </div>
     </details>
 
     <details class="card therapie"><summary><span class="ct"><span class="ctag">Spezifisch</span><span class="ctitle">Was nachgefragt wird</span></span><span class="plus">+</span></summary>
       <div class="body">
-        <table class="dd"><tr><th>Situation</th><th>Vorgehen</th></tr>
-          <tr><td>ACE-Hemmer-Husten</td><td>Wechsel auf AT1-Blocker</td></tr>
-          <tr><td>ACE-Hemmer-Angioödem</td><td>Atemweg sichern, ACE-Hemmer dauerhaft meiden; Antihistaminika und Kortison wirken kaum</td></tr>
-          <tr><td>Agranulozytose</td><td>sofort absetzen, Isolation, bei Fieber Breitspektrum-Antibiose i.v.</td></tr>
-          <tr><td>Torsade de pointes</td><td>Magnesium i.v., Auslöser absetzen, Kalium ausgleichen; pulslos defibrillieren</td></tr>
-          <tr><td>Frühdyskinesie</td><td>Biperiden</td></tr>
-        </table>
-        <div class="callout fact"><span class="lab">⚙ Dokumentiert</span>QT-Verlängerung unter Makrolid, Torsade, Therapie mit Magnesium.</div>
+        <ul class="b">
+          <li>ACE-Hemmer-Husten → AT1-Blocker</li>
+          <li>Angioödem → Atemweg sichern, ACE-Hemmer dauerhaft meiden</li>
+          <li>Agranulozytose → absetzen, isolieren, Antibiose i.v.</li>
+          <li>Torsade de pointes → <strong>Magnesium i.v.</strong></li>
+        </ul>
         <!-- KP-Intel F06929 · KP-225 -->
       </div>
     </details>
@@ -459,11 +433,12 @@
     <details class="card therapie"><summary><span class="ct"><span class="ctag">Polypharmazie</span><span class="ctitle">Den Plan entrümpeln</span></span><span class="plus">+</span></summary>
       <div class="body">
         <ul class="b">
-          <li>Für jedes Mittel prüfen: Indikation noch gegeben? Nicht Notwendiges absetzen</li>
-          <li>PRISCUS-Mittel ersetzen, Dosis an die Nierenfunktion anpassen</li>
-          <li>Bundeseinheitlichen <strong>Medikationsplan</strong> aushändigen</li>
+          <li><strong>Polypharmazie:</strong> ab 5 Dauermedikamenten</li>
+          <li><strong>PRISCUS-Liste:</strong> ungeeignet im Alter, etwa Benzodiazepine, Amitriptylin</li>
+          <li>Nicht Notwendiges absetzen</li>
+          <li><strong>Medikationsplan</strong> mitgeben</li>
         </ul>
-        <div class="callout fact"><span class="lab">⚙ Dokumentiert</span>Polypharmazie im Alter: nicht notwendige Medikamente absetzen.</div>
+        <!-- KP-Intel F04506 · F04507 · KP-149 -->
         <!-- KP-Intel F03554 · KP-107 -->
       </div>
     </details>

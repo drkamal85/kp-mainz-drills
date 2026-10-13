@@ -211,6 +211,17 @@
   .tier.std{background:#FDF2E2;color:#B07214}
   .tier.rand{background:#EFEDE8;color:#7A736A}
   .tier .zt{font-weight:600;letter-spacing:.02em;text-transform:none;opacity:.8}
+  .mb{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:4px 0 6px}
+  .mb-tile{border-radius:12px;padding:12px 12px 10px;border:1px solid var(--line);background:var(--card)}
+  .mb-tile.pmr{border-top:5px solid #D97706}
+  .mb-tile.rza{border-top:5px solid #C0392B}
+  .mb-tile.spa{border-top:5px solid #1E5F9E}
+  .mb-h{font-weight:800;font-size:14.5px;color:var(--ink);margin-bottom:4px}
+  .mb-h span{font-weight:600;font-size:12.5px;color:var(--muted);margin-left:4px}
+  .mb-r{font-size:13px;line-height:1.4;color:var(--ink);border-top:1px dashed var(--line);padding:5px 0 4px}
+  .mb-r i{display:block;font-style:normal;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .mb-alarm{background:#C0392B;color:#fff;border-radius:10px;padding:10px 14px;font-size:14px;font-weight:700;line-height:1.45;margin:4px 0 10px}
+  @media (max-width:560px){.mb{grid-template-columns:1fr;gap:8px}.mb-tile{display:grid;grid-template-columns:1fr 1fr;column-gap:12px}.mb-h{grid-column:1/-1}}
 </style>
 <link rel="stylesheet" media="print" href="/print.css">
 <script src="/print.js" defer></script>
@@ -236,68 +247,63 @@
   </div>
 
   <section class="panel active" data-panel="grundlagen">
-    <p class="panel-intro">2 Krankheiten des Alters, eine des jungen Erwachsenen.</p>
+    <p class="panel-intro">3 Krankheiten, 1 Notfall.</p>
 
-    <details class="card grundlagen" open><summary><span class="ct"><span class="ctag">Überblick</span><span class="ctitle">3 Entitäten im Vergleich</span></span><span class="plus">+</span></summary>
+    <details class="card grundlagen" open><summary><span class="ct"><span class="ctag">Merkbild</span><span class="ctitle">PMR, RZA, axSpA auf einen Blick</span></span><span class="plus">+</span></summary>
       <div class="body">
-        <table class="dd"><tr><th></th><th>Was entzündet ist</th><th>Wer</th></tr>
-          <tr><td><strong>PMR</strong></td><td>Schulter- und Beckengürtel: Bursitis, Synovitis</td><td>ab 50, Gipfel um 70, meist Frauen</td></tr>
-          <tr><td><strong>RZA</strong></td><td>granulomatöse Vaskulitis: A. temporalis, Aorta und Abgänge</td><td>ab 50, meist Frauen</td></tr>
-          <tr><td><strong>axSpA</strong></td><td>Iliosakralgelenke, Wirbelsäule, Sehnenansätze</td><td>Beginn meist vor 30, HLA-B27 bis 90 %</td></tr>
-        </table>
-        <ul class="b">
-          <li><strong>Morbus Bechterew</strong> = radiografische axSpA; ohne Röntgenbefund nicht-radiografische axSpA</li>
-        </ul>
-        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Die Hälfte der RZA hat eine PMR, etwa jede 5. PMR eine RZA.</strong></div>
+        <div class="mb-alarm">RZA + Sehstörung → sofort hochdosiert Kortison, nicht auf die Biopsie warten.</div>
+        <div class="mb">
+          <div class="mb-tile pmr"><div class="mb-h">PMR</div><div class="mb-r"><i>Wer</i>ab 50, meist Frauen</div><div class="mb-r"><i>Leitsymptom</i>Schultern morgens steif</div><div class="mb-r"><i>Schlüsseltest</i>BSG, CRP ↑</div><div class="mb-r"><i>Therapie</i>Prednisolon 15–25 mg/d</div></div>
+          <div class="mb-tile rza"><div class="mb-h">RZA</div><div class="mb-r"><i>Wer</i>ab 50, meist Frauen</div><div class="mb-r"><i>Leitsymptom</i>Schläfenkopfschmerz, Kieferclaudicatio</div><div class="mb-r"><i>Schlüsseltest</i>Halo-Zeichen, BSG ≥ 50</div><div class="mb-r"><i>Therapie</i>ohne Sehstörung: Prednisolon 40–60 mg/d</div></div>
+          <div class="mb-tile spa"><div class="mb-h">axSpA <span>M. Bechterew</span></div><div class="mb-r"><i>Wer</i>Beginn meist vor 30</div><div class="mb-r"><i>Leitsymptom</i>Rückenschmerz nachts</div><div class="mb-r"><i>Schlüsseltest</i>MRT der Iliosakralgelenke</div><div class="mb-r"><i>Therapie</i>Physiotherapie + NSAR</div></div>
+        </div>
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Schulter = PMR, Schläfe = RZA, Rücken = Bechterew.</strong></div>
       </div>
     </details>
 
   </section>
 
   <section class="panel" data-panel="klinik">
-    <p class="panel-intro">Kopf, Schultergürtel, Rücken.</p>
+    <p class="panel-intro">Schläfe, Schultern, Rücken.</p>
 
     <details class="card klinik" open><summary><span class="ct"><span class="ctag">RZA</span><span class="ctitle">Schläfe, Kiefer, Auge</span></span><span class="plus">+</span></summary>
       <div class="body">
         <ul class="b">
-          <li><strong>Neuer Schläfenkopfschmerz</strong>, meist einseitig; A. temporalis verhärtet, druckschmerzhaft</li>
+          <li><strong>Neuer Schläfenkopfschmerz</strong>, A. temporalis verhärtet und druckschmerzhaft</li>
           <li><strong>Kieferclaudicatio</strong></li>
-          <li><strong>Sehstörung:</strong> Amaurosis fugax, Doppelbilder bis zur Erblindung</li>
+          <li><strong>Sehstörung:</strong> Amaurosis fugax bis zur Erblindung</li>
           <li>Fieber, Gewichtsverlust, Nachtschweiß</li>
         </ul>
-        <div class="callout fact"><span class="lab">⚙ Dokumentiert</span>Foto der entzündeten Schläfenregion: Diagnose aus Bild und Symptomatik.</div>
         <!-- KP-Intel F07801 · F07805 · KP-256 -->
       </div>
     </details>
 
-    <details class="card klinik"><summary><span class="ct"><span class="ctag">PMR</span><span class="ctitle">Morgens steif in Schultern und Hüften</span></span><span class="plus">+</span></summary>
+    <details class="card klinik"><summary><span class="ct"><span class="ctag">PMR</span><span class="ctitle">Morgens steif</span></span><span class="plus">+</span></summary>
       <div class="body">
         <ul class="b">
-          <li>Symmetrische Schmerzen an Schulter-, Beckengürtel und Nacken, Morgensteifigkeit 45–60 min</li>
-          <li>Kraft normal, nur schmerzbedingt eingeschränkt; Abgeschlagenheit, Gewichtsverlust</li>
+          <li>Schulter- und Beckengürtel symmetrisch schmerzhaft</li>
+          <li>Morgensteifigkeit 45–60 min</li>
+          <li>Kraft normal</li>
         </ul>
       </div>
     </details>
 
-    <details class="card klinik"><summary><span class="ct"><span class="ctag">axSpA</span><span class="ctitle">Entzündlicher Rückenschmerz</span></span><span class="plus">+</span></summary>
+    <details class="card klinik"><summary><span class="ct"><span class="ctag">Abgrenzung</span><span class="ctitle">Reaktive Arthritis</span></span><span class="plus">+</span></summary>
       <div class="body">
         <ul class="b">
-          <li>Tiefer Rückenschmerz über 3 Monate, <strong>nachts</strong>, besser durch Bewegung</li>
-          <li>Enthesitis an der Ferse, <strong>Uveitis anterior</strong> bei 30–50 %</li>
-          <li>Schober-Maß vermindert, Finger-Boden-Abstand vergrößert</li>
+          <li>Nach Harnwegs- oder Darminfekt</li>
+          <li>Große Beingelenke, asymmetrisch</li>
+          <li>Meist selbstlimitierend</li>
         </ul>
-        <table class="dd"><tr><th></th><th>Morbus Bechterew</th><th>Reaktive Arthritis</th></tr>
-          <tr><td><strong>Beginn</strong></td><td>schleichend</td><td>nach Harnwegs- oder Darminfekt</td></tr>
-          <tr><td><strong>Befall</strong></td><td>Wirbelsäule, Iliosakralgelenke</td><td>große Beingelenke, asymmetrisch</td></tr>
-          <tr><td><strong>Verlauf</strong></td><td>chronisch, versteifend</td><td>meist selbstlimitierend</td></tr>
-        </table>
       </div>
     </details>
 
     <details class="card klinik"><summary><span class="ct"><span class="ctag">Abgrenzung</span><span class="ctitle">Rheumatoide Arthritis</span></span><span class="plus">+</span></summary>
       <div class="body">
         <ul class="b">
-          <li>Symmetrischer Befall der <strong>MCP- und PIP-Gelenke</strong>, Morgensteifigkeit, B-Symptomatik; meist Frauen im mittleren Alter</li>
+          <li>Symmetrisch <strong>MCP- und PIP-Gelenke</strong></li>
+          <li>Morgensteifigkeit, B-Symptomatik</li>
+          <li>Meist Frauen im mittleren Alter</li>
         </ul>
       </div>
     </details>
@@ -305,45 +311,38 @@
   </section>
 
   <section class="panel" data-panel="diagnostik">
-    <p class="panel-intro">Labor für alle, Bildgebung je nach Entität.</p>
+    <p class="panel-intro">RZA: BSG und Halo. Bechterew: MRT.</p>
 
-    <details class="card diagnostik" open><summary><span class="ct"><span class="ctag">Labor</span><span class="ctitle">Entzündung und Serologie</span></span><span class="plus">+</span></summary>
-      <div class="body">
-        <table class="dd"><tr><th></th><th>Entzündung</th><th>Serologie</th></tr>
-          <tr><td><strong>PMR</strong></td><td>BSG und CRP ↑</td><td>RF, Anti-CCP negativ</td></tr>
-          <tr><td><strong>RZA</strong></td><td>BSG ≥ 50 mm/h, CRP ↑, Thrombozytose</td><td>—</td></tr>
-          <tr><td><strong>axSpA</strong></td><td>CRP ggf. ↑</td><td>RF, Anti-CCP negativ; HLA-B27 positiv, nicht beweisend</td></tr>
-          <tr><td><strong>RA</strong></td><td>CRP, BSG ↑</td><td>RF, Anti-CCP positiv</td></tr>
-        </table>
-      </div>
-    </details>
-
-    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Bildgebung</span><span class="ctitle">Duplex und MRT</span></span><span class="plus">+</span></summary>
+    <details class="card diagnostik" open><summary><span class="ct"><span class="ctag">RZA</span><span class="ctitle">BSG, Halo, Biopsie</span></span><span class="plus">+</span></summary>
       <div class="body">
         <ul class="b">
-          <li><strong>RZA:</strong> Duplex der A. temporalis: nicht komprimierbares <strong>Halo-Zeichen</strong></li>
-          <li><strong>axSpA:</strong> MRT der Iliosakralgelenke, früh positiv; Röntgen erst spät: Syndesmophyten, Bambusstab</li>
+          <li><strong>BSG ≥ 50 mm/h</strong>, CRP ↑, Thrombozytose</li>
+          <li>Duplex der A. temporalis: <strong>Halo-Zeichen</strong></li>
+          <li>Biopsie nur bei unklarer Bildgebung; negativ schließt nicht aus</li>
         </ul>
       </div>
     </details>
 
-    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Biopsie</span><span class="ctitle">A. temporalis</span></span><span class="plus">+</span></summary>
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Labor</span><span class="ctitle">Serologie im Vergleich</span></span><span class="plus">+</span></summary>
       <div class="body">
         <ul class="b">
-          <li>Nur bei unklarer Bildgebung; segmentaler Befall, negativ schließt nicht aus</li>
+          <li><strong>PMR:</strong> RF, Anti-CCP negativ</li>
+          <li><strong>axSpA:</strong> RF negativ; HLA-B27 positiv, nicht beweisend</li>
+          <li><strong>RA:</strong> RF und Anti-CCP positiv</li>
         </ul>
       </div>
     </details>
 
-    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Augenarzt</span><span class="ctitle">Spaltlampe</span></span><span class="plus">+</span></summary>
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">axSpA</span><span class="ctitle">MRT und Auge</span></span><span class="plus">+</span></summary>
       <div class="body">
         <ul class="b">
-          <li><strong>axSpA:</strong> Uveitis anterior ausschließen</li>
+          <li>MRT der Iliosakralgelenke, früh positiv</li>
+          <li>Augenarzt: Uveitis anterior ausschließen</li>
         </ul>
       </div>
     </details>
 
-    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Einteilung</span><span class="ctitle">ASAS-Kriterien der axSpA</span></span><span class="plus">+</span></summary>
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">Einteilung</span><span class="ctitle">ASAS-Kriterien</span></span><span class="plus">+</span></summary>
       <div class="body">
         <ul class="b">
           <li>Rückenschmerz ≥ 3 Monate, Beginn vor 45</li>
@@ -355,17 +354,16 @@
   </section>
 
   <section class="panel" data-panel="therapie">
-    <p class="panel-intro">Kortison für PMR und RZA, Bewegung für den Bechterew.</p>
+    <p class="panel-intro">Kortison für PMR und RZA, Bewegung für Bechterew.</p>
 
     <details class="card therapie" open><summary><span class="ct"><span class="ctag">RZA</span><span class="ctitle">Sofort Kortison</span></span><span class="plus">+</span></summary>
       <div class="body">
         <ul class="b">
           <li><strong>Mit Sehstörung:</strong> stationär Methylprednisolon 500–1000 mg/d i.v.</li>
-          <li><strong>Ohne:</strong> Prednisolon 40–60 mg/d p.o., über 1–2 Jahre ausschleichen</li>
+          <li><strong>Ohne:</strong> Prednisolon 40–60 mg/d p.o., langsam ausschleichen</li>
           <li>Kortisonsparend: Tocilizumab</li>
         </ul>
-        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Beim Verdacht sofort Glukokortikoide, nicht auf die Biopsie warten. Ein Sehverlust ist meist bleibend.</strong></div>
-        <div class="callout fact"><span class="lab">⚙ Dokumentiert</span>Akuttherapie mit Prednisolon 1000 mg i.v., Vorgehen bei Augenbefall.</div>
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Nicht auf die Biopsie warten. Ein Sehverlust ist meist bleibend.</strong></div>
         <!-- KP-Intel F07801 · F07805 · F07808 · F10041 · KP-256 · KP-361 -->
       </div>
     </details>
@@ -373,7 +371,7 @@
     <details class="card therapie"><summary><span class="ct"><span class="ctag">PMR</span><span class="ctitle">Niedrig dosiert</span></span><span class="plus">+</span></summary>
       <div class="body">
         <ul class="b">
-          <li>Prednisolon 12,5–25 mg/d, rasches Ansprechen; in 4–8 Wochen auf 10 mg</li>
+          <li>Prednisolon 15–25 mg/d</li>
           <li>Bei Rezidiven Methotrexat</li>
         </ul>
       </div>
@@ -382,16 +380,17 @@
     <details class="card therapie"><summary><span class="ct"><span class="ctag">axSpA</span><span class="ctitle">Physiotherapie und NSAR</span></span><span class="plus">+</span></summary>
       <div class="body">
         <ul class="b">
-          <li><strong>Physiotherapie</strong> plus <strong>NSAR</strong>; nach 2 erfolglosen NSAR TNF- oder IL-17-Hemmer</li>
+          <li><strong>Physiotherapie</strong> plus <strong>NSAR</strong></li>
+          <li>Nach 2 erfolglosen NSAR: TNF- oder IL-17-Hemmer</li>
         </ul>
       </div>
     </details>
 
-    <details class="card therapie"><summary><span class="ct"><span class="ctag">Begleitend</span><span class="ctitle">RA-Schub und Kortisonschutz</span></span><span class="plus">+</span></summary>
+    <details class="card therapie"><summary><span class="ct"><span class="ctag">Abgrenzung</span><span class="ctitle">RA-Schub</span></span><span class="plus">+</span></summary>
       <div class="body">
         <ul class="b">
-          <li><strong>RA-Schub:</strong> Glukokortikoide überbrückend, Basis Methotrexat</li>
-          <li>Langzeit-Kortison: Osteoporoseprophylaxe (→ Osteoporose), Impfungen</li>
+          <li>Glukokortikoide überbrückend</li>
+          <li>Basis Methotrexat</li>
         </ul>
       </div>
     </details>
