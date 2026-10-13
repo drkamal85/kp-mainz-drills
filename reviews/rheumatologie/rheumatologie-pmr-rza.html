@@ -211,17 +211,6 @@
   .tier.std{background:#FDF2E2;color:#B07214}
   .tier.rand{background:#EFEDE8;color:#7A736A}
   .tier .zt{font-weight:600;letter-spacing:.02em;text-transform:none;opacity:.8}
-  .mb{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:4px 0 6px}
-  .mb-tile{border-radius:12px;padding:12px 12px 10px;border:1px solid var(--line);background:var(--card)}
-  .mb-tile.pmr{border-top:5px solid #D97706}
-  .mb-tile.rza{border-top:5px solid #C0392B}
-  .mb-tile.spa{border-top:5px solid #1E5F9E}
-  .mb-h{font-weight:800;font-size:14.5px;color:var(--ink);margin-bottom:4px}
-  .mb-h span{font-weight:600;font-size:12.5px;color:var(--muted);margin-left:4px}
-  .mb-r{font-size:13px;line-height:1.4;color:var(--ink);border-top:1px dashed var(--line);padding:5px 0 4px}
-  .mb-r i{display:block;font-style:normal;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-  .mb-alarm{background:#C0392B;color:#fff;border-radius:10px;padding:10px 14px;font-size:14px;font-weight:700;line-height:1.45;margin:4px 0 10px}
-  @media (max-width:560px){.mb{grid-template-columns:1fr;gap:8px}.mb-tile{display:grid;grid-template-columns:1fr 1fr;column-gap:12px}.mb-h{grid-column:1/-1}}
 </style>
 <link rel="stylesheet" media="print" href="/print.css">
 <script src="/print.js" defer></script>
@@ -235,7 +224,7 @@
     <div class="subtitle">Ein seltenes Thema mit einem echten Notfall: die Riesenzellarteriitis mit Sehstörung. Gefragt werden Symptome, Labor, Halo-Zeichen und die sofortige Kortisongabe, daneben PMR und Morbus Bechterew in der Abgrenzung.</div>
     <div class="meta">
       <span class="rk lo">Rang 84 von 92</span>
-      <span>R1</span>
+      <span>R2</span>
     </div>
   </header>
   <div class="tabs">
@@ -243,7 +232,8 @@
     <button class="tab" data-c="klinik" data-tab="klinik">Klinik</button>
     <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik ★</button>
     <button class="tab" data-c="therapie" data-tab="therapie">Therapie</button>
-    <span class="tier-sticky rand">RAND<span class="zt">Ziel R2</span></span>
+    <button class="tab" data-c="perlen" data-tab="perlen">KP-Perlen</button>
+    <span class="tier-sticky rand">RAND<span class="zt">Ziel erreicht</span></span>
   </div>
 
   <section class="panel active" data-panel="grundlagen">
@@ -334,6 +324,29 @@
       </div>
     </details>
 
+  </section>
+
+  <section class="panel" data-panel="perlen">
+    <p class="panel-intro">Vier Sätze, die in der Prüfung gewinnen.</p>
+    <div class="pearl"><div class="ph">⭐ Perle 1 · RZA mit Sehstörung ist ein Notfall</div><div class="pt">Sofort Methylprednisolon <strong>500–1000 mg/d i.v.</strong>, nicht auf die Biopsie warten. Ohne Sehstörung reicht Prednisolon <strong>40–60 mg/d</strong> p.o.</div><div class="mn"><b>Merke:</b> Auge in Gefahr: erst Kortison</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 2 · Neuer Schläfenschmerz ab 50: an RZA denken</div><div class="pt">Typisch sind <strong>Schläfenkopfschmerz</strong>, verhärtete A. temporalis, Kauschmerz als <strong>Kieferclaudicatio</strong> und Sehstörung bis zur Erblindung.</div><div class="mn"><b>Merke:</b> Schläfe, Kiefer, Auge</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 3 · Halo-Zeichen sichert, Sturzsenkung stützt die RZA</div><div class="pt">Im Duplex der A. temporalis zeigt sich das <strong>Halo-Zeichen</strong>, im Labor <strong>BSG ≥ 50 mm/h</strong> und CRP erhöht. Die Biopsie braucht man nur, wenn die Bildgebung unklar bleibt.</div><div class="mn"><b>Merke:</b> Erst Duplex, Biopsie nur bei Zweifel</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 4 · Steife Schultern am Morgen heißt PMR</div><div class="pt">Ab 50, BSG und CRP erhöht, Therapie mit Prednisolon <strong>15–25 mg/d</strong>. Immer nach Schläfe und Auge fragen: PMR und RZA treten oft zusammen auf.</div><div class="mn"><b>Merke:</b> Bei PMR die RZA mitdenken</div></div>
+
+    <div class="sf-wrap">
+      <h3>Schnellfragen · Rapid-Fire</h3>
+      <div class="sf-intro">Atomare Einzelfakten — Ein-Wort-Abruf, keine Optionen. Laut, sofort, dann aufdecken.</div>
+      <details class="sf"><summary>Typisches Alter bei RZA?</summary><div class="sfa">ab 50</div></details>
+      <details class="sf"><summary>Kauschmerz bei RZA heißt?</summary><div class="sfa">Kieferclaudicatio</div></details>
+      <details class="sf"><summary>BSG bei RZA?</summary><div class="sfa">≥ 50 mm/h</div></details>
+      <details class="sf"><summary>Zeichen im Duplex der A. temporalis?</summary><div class="sfa">Halo-Zeichen</div></details>
+      <details class="sf"><summary>RZA mit Sehstörung: Therapie?</summary><div class="sfa">Methylprednisolon 500–1000 mg/d i.v.</div></details>
+      <details class="sf"><summary>RZA ohne Sehstörung: Dosis?</summary><div class="sfa">Prednisolon 40–60 mg/d</div></details>
+      <details class="sf"><summary>Auf die Biopsie warten?</summary><div class="sfa">nein</div></details>
+      <details class="sf"><summary>Leitsymptom der PMR?</summary><div class="sfa">Schultern morgens steif</div></details>
+      <details class="sf"><summary>PMR: Dosis?</summary><div class="sfa">Prednisolon 15–25 mg/d</div></details>
+      <details class="sf"><summary>Bechterew: Bildgebung?</summary><div class="sfa">MRT der Iliosakralgelenke</div></details>
+    </div>
   </section>
 
 </div>

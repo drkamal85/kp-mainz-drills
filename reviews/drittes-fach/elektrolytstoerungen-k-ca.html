@@ -211,18 +211,6 @@
   .tier.std{background:#FDF2E2;color:#B07214}
   .tier.rand{background:#EFEDE8;color:#7A736A}
   .tier .zt{font-weight:600;letter-spacing:.02em;text-transform:none;opacity:.8}
-  .mb{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:4px 0 6px}
-  .mb-col{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-align:center}
-  .mb-tile{border-radius:12px;padding:12px 12px 10px;border:1px solid var(--line);background:var(--card)}
-  .mb-tile.lo{border-top:5px solid #1E5F9E;color:#1E5F9E}
-  .mb-tile.hi{border-top:5px solid #C0392B;color:#C0392B}
-  .mb-h{font-weight:800;font-size:14.5px;color:var(--ink)}
-  .mb-h span{font-weight:600;font-size:12.5px;color:var(--muted);margin-left:4px}
-  .mb-s{font-size:13px;color:var(--ink);margin:4px 0 2px;line-height:1.4}
-  .mb-tile .ekg{width:100%;height:auto;display:block;margin:4px 0 0}
-  .mb-ekg{font-size:12.5px;font-weight:800;text-align:center;margin-bottom:6px}
-  .mb-t{font-size:12.5px;color:var(--ink);border-top:1px dashed var(--line);padding-top:6px}
-  @media (max-width:520px){.mb{gap:7px}.mb-tile{padding:10px 8px 8px}.mb-h{font-size:13px}}
 </style>
 <link rel="stylesheet" media="print" href="/print.css">
 <script src="/print.js" defer></script>
@@ -236,7 +224,7 @@
     <div class="subtitle">Beide bedrohen das Herz. Gefragt werden das EKG, die Hyperkaliämie-Therapie und die Hypokalzämie nach Schilddrüsen-OP.</div>
     <div class="meta">
       <span class="rk mid">Rang 60 von 92</span>
-      <span>R1</span>
+      <span>R2</span>
     </div>
   </header>
   <div class="tabs">
@@ -244,6 +232,7 @@
     <button class="tab" data-c="klinik" data-tab="klinik">Störungen</button>
     <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik ★</button>
     <button class="tab" data-c="therapie" data-tab="therapie">Therapie</button>
+    <button class="tab" data-c="perlen" data-tab="perlen">KP-Perlen</button>
     <span class="tier-sticky std">STANDARD<span class="zt">Ziel R4</span></span>
   </div>
 
@@ -392,6 +381,36 @@
       </div>
     </details>
 
+  </section>
+
+  <section class="panel" data-panel="perlen">
+    <p class="panel-intro">Sechs Sätze, die in der Prüfung gewinnen.</p>
+    <div class="pearl"><div class="ph">⭐ Perle 1 · Nach Schilddrüsen-OP droht die Hypokalzämie</div><div class="pt">Sind die Nebenschilddrüsen verletzt, fehlt PTH — <strong>Hypokalzämie</strong>. Zeichen: <strong>Kribbeln um den Mund</strong>, Tetanie, Chvostek und Trousseau positiv.</div><div class="mn"><b>Merke:</b> Kribbeln nach der OP: Kalzium messen</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 2 · Tetanie: Calciumgluconat langsam i.v.</div><div class="pt">Akut <strong>Calciumgluconat langsam i.v.</strong>, dauerhaft <strong>Kalzium p.o. plus Calcitriol</strong>. Unter Digitalis kein Kalzium i.v.</div><div class="mn"><b>Merke:</b> Akut i.v., dauerhaft mit Calcitriol</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 3 · Kalium formt die T-Welle</div><div class="pt">Hypokaliämie: <strong>T flach</strong>, U-Welle. Hyperkaliämie: <strong>T spitz</strong>, dann QRS breit bis zur Asystolie.</div><div class="mn"><b>Merke:</b> Zu viel Kalium spitzt, zu wenig flacht</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 4 · Kalzium formt die QT-Zeit</div><div class="pt">Hypokalzämie verlängert die QT-Zeit — Gefahr der <strong>Torsade de pointes</strong>. Darum gehört zu jeder Hypokalzämie ein <strong>EKG</strong>.</div><div class="mn"><b>Merke:</b> Wenig Kalzium, langes QT</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 5 · Hyperkaliämie: schützen, verschieben, entfernen</div><div class="pt"><strong>Calciumgluconat i.v.</strong> schützt das Herz, <strong>Insulin mit Glukose</strong> und Salbutamol verschieben Kalium in die Zelle, Kaliumbinder entfernen es. Notfall ab <strong>6,5 mmol/l</strong> oder ab 6,0 mit EKG-Veränderungen.</div><div class="mn"><b>Merke:</b> Außer Dialyse: Kalzium, Insulin, Salbutamol, Binder</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 6 · Azidose treibt Kalium aus der Zelle</div><div class="pt">In der <strong>metabolischen Azidose</strong> wandert Kalium nach extrazellulär — das Serumkalium steigt. Alkalose und Insulin senken es.</div><div class="mn"><b>Merke:</b> Saurer Patient, hohes Kalium</div></div>
+
+    <div class="sf-wrap">
+      <h3>Schnellfragen · Rapid-Fire</h3>
+      <div class="sf-intro">Atomare Einzelfakten — Ein-Wort-Abruf, keine Optionen. Laut, sofort, dann aufdecken.</div>
+      <details class="sf"><summary>Grenzwert Hypokaliämie?</summary><div class="sfa">unter 3,6 mmol/l</div></details>
+      <details class="sf"><summary>Grenzwert Hyperkaliämie?</summary><div class="sfa">über 5,2 mmol/l</div></details>
+      <details class="sf"><summary>Grenzwert Hypokalzämie?</summary><div class="sfa">unter 2,2 mmol/l</div></details>
+      <details class="sf"><summary>Grenzwert Hyperkalzämie?</summary><div class="sfa">über 2,65 mmol/l</div></details>
+      <details class="sf"><summary>EKG bei Hypokaliämie?</summary><div class="sfa">T flach, U-Welle</div></details>
+      <details class="sf"><summary>EKG bei Hyperkaliämie?</summary><div class="sfa">T spitz, QRS breit</div></details>
+      <details class="sf"><summary>EKG bei Hypokalzämie?</summary><div class="sfa">QT lang</div></details>
+      <details class="sf"><summary>EKG bei Hyperkalzämie?</summary><div class="sfa">QT kurz</div></details>
+      <details class="sf"><summary>Hyperkaliämie mit EKG-Veränderung — zuerst?</summary><div class="sfa">Calciumgluconat i.v.</div></details>
+      <details class="sf"><summary>Was verschiebt Kalium in die Zelle?</summary><div class="sfa">Insulin mit Glukose, Salbutamol</div></details>
+      <details class="sf"><summary>Hohes Kalium — erst was ausschließen?</summary><div class="sfa">Hämolyse</div></details>
+      <details class="sf"><summary>Kalium i.v. höchstens?</summary><div class="sfa">20 mmol/h</div></details>
+      <details class="sf"><summary>Chvostek-Zeichen?</summary><div class="sfa">Fazialis beklopfen, Mundwinkel zuckt</div></details>
+      <details class="sf"><summary>Spironolacton plus ACE-Hemmer?</summary><div class="sfa">Hyperkaliämie</div></details>
+      <details class="sf"><summary>Hyperkalzämie, Rückenschmerz, Nierenversagen?</summary><div class="sfa">multiples Myelom</div></details>
+    </div>
   </section>
 
 </div>

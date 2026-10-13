@@ -211,19 +211,6 @@
   .tier.std{background:#FDF2E2;color:#B07214}
   .tier.rand{background:#EFEDE8;color:#7A736A}
   .tier .zt{font-weight:600;letter-spacing:.02em;text-transform:none;opacity:.8}
-  .mb{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:4px 0 6px}
-  .mb-tile{border-radius:12px;padding:12px 12px 10px;border:1px solid var(--line);background:var(--card);text-align:center;display:flex;flex-direction:column}
-  .mb-tile.lo{border-top:5px solid #1E5F9E;color:#1E5F9E}
-  .mb-tile.hi{border-top:5px solid #C0392B;color:#C0392B}
-  .mb-h{font-weight:800;font-size:14.5px;color:var(--ink);letter-spacing:.04em;text-transform:uppercase}
-  .mb-arrow{font-size:40px;font-weight:800;line-height:1.1;margin:2px 0}
-  .mb-arrow span{font-size:13px;font-weight:700;margin-left:4px;vertical-align:middle}
-  .mb-s{font-size:13px;color:var(--ink);margin:4px 0 6px;line-height:1.4}
-  .mb-t{margin-top:auto;font-size:13.5px;font-weight:800;border-top:1px dashed var(--line);padding-top:6px}
-  .mb-col{grid-column:1/-1;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-align:center;margin-top:6px}
-  .mb-pair{border-radius:10px;border:1px solid var(--line);border-left:4px solid var(--grundlagen);background:var(--card);padding:8px 10px;font-size:12.5px;line-height:1.4}
-  .mb-pair b{display:block;font-size:13px;color:var(--ink)}
-  @media (max-width:520px){.mb{gap:7px}.mb-tile{padding:10px 8px 8px}.mb-h{font-size:13px}.mb-pair{padding:7px 8px}}
 </style>
 <link rel="stylesheet" media="print" href="/print.css">
 <script src="/print.js" defer></script>
@@ -237,7 +224,7 @@
     <div class="subtitle">Das meistgefragte Querschnittsthema: Zum Medikationsplan des Patienten will der Prüfer je Wirkstoff die typische Nebenwirkung, die gefährliche Kombination und Ihr Vorgehen hören.</div>
     <div class="meta">
       <span class="rk hi">Rang 1 von 92</span>
-      <span>R1</span>
+      <span>R2</span>
     </div>
   </header>
   <div class="tabs">
@@ -245,6 +232,7 @@
     <button class="tab" data-c="klinik" data-tab="klinik">Typische UAW</button>
     <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik ★</button>
     <button class="tab" data-c="therapie" data-tab="therapie">Therapie</button>
+    <button class="tab" data-c="perlen" data-tab="perlen">KP-Perlen</button>
     <span class="tier-sticky kern">KERN<span class="zt">Ziel R5</span></span>
   </div>
 
@@ -469,6 +457,48 @@
       </div>
     </details>
 
+  </section>
+
+  <section class="panel" data-panel="perlen">
+    <p class="panel-intro">Acht Sätze, die in der Prüfung gewinnen.</p>
+    <div class="pearl"><div class="ph">⭐ Perle 1 · Fieber unter Metamizol heißt Blutbild</div><div class="pt">Die <strong>Agranulozytose</strong> ist selten, dosisunabhängig und jederzeit möglich. Fieber, Halsschmerz oder Schleimhautulzera heißen: <strong>sofort absetzen, Differenzialblutbild</strong>.</div><div class="mn"><b>Merke:</b> Fieber plus Metamizol: sofort Blutbild</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 2 · Betablocker nicht bei Asthma und AV-Block</div><div class="pt">β2-Blockade verengt die Bronchien, β1-Blockade bremst die Überleitung. Diabetes ist nur <strong>relativ</strong> kontraindiziert, weil die Warnzeichen der Hypoglykämie fehlen.</div><div class="mn"><b>Merke:</b> Nie zusammen mit Verapamil</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 3 · Kortison nie abrupt absetzen</div><div class="pt">Langzeitgabe macht einen <strong>Cushing von außen</strong>: Osteoporose, Diabetes, Infekte, Katarakt. Die Nebenniere schläft ein — abruptes Absetzen löst eine <strong>Addison-Krise</strong> aus.</div><div class="mn"><b>Merke:</b> Kortison wird ausgeschlichen</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 4 · ACE-Hemmer-Husten: auf AT1-Blocker umstellen</div><div class="pt">ACE-Hemmer bauen <strong>Bradykinin</strong> nicht ab: Reizhusten, selten Angioödem, dazu <strong>Kalium ↑</strong>. Mit NSAR und Diuretikum droht das akute Nierenversagen.</div><div class="mn"><b>Merke:</b> Husten unter Ramipril: AT1-Blocker</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 5 · Amiodaron trifft Schilddrüse und Lunge</div><div class="pt">Viel <strong>Jod</strong> macht Hypo- oder Hyperthyreose, dazu Pneumonitis bis Fibrose. Die Halbwertszeit von <strong>20–100 Tagen</strong> hält die UAW lange nach dem Absetzen.</div><div class="mn"><b>Merke:</b> Kontrollieren: TSH, Leber, Röntgen-Thorax</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 6 · Chemotherapie trifft, was sich schnell teilt</div><div class="pt"><strong>Knochenmark, Schleimhaut, Haarwurzeln</strong>: Infekte, Mukositis, Alopezie. Nach Methotrexat <strong>Folsäure 24–48 h</strong> später.</div><div class="mn"><b>Merke:</b> Schnelle Zellen, schnelle Schäden</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 7 · Ein Hemmer macht giftig, ein Induktor wirkungslos</div><div class="pt">CYP-Hemmer wie Clarithromycin, Azole, Amiodaron, Verapamil heben den Spiegel: <strong>Amiodaron plus Statin</strong> gibt Myopathie. Rifampicin und Johanniskraut senken ihn.</div><div class="mn"><b>Merke:</b> Neues Mittel: erst Interaktion prüfen</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 8 · Benzodiazepine im Alter heißen Sturz</div><div class="pt">Benzodiazepine machen <strong>Sturz und Abhängigkeit</strong> und stehen auf der <strong>PRISCUS-Liste</strong>. Ab 5 Dauermedikamenten den Plan entrümpeln.</div><div class="mn"><b>Merke:</b> Im Alter weglassen, was nicht nötig ist</div></div>
+
+    <div class="sf-wrap">
+      <h3>Schnellfragen · Rapid-Fire</h3>
+      <div class="sf-intro">Atomare Einzelfakten — Ein-Wort-Abruf, keine Optionen. Laut, sofort, dann aufdecken.</div>
+      <details class="sf"><summary>UAW Typ A?</summary><div class="sfa">dosisabhängig, vorhersehbar</div></details>
+      <details class="sf"><summary>UAW Typ B?</summary><div class="sfa">dosisunabhängig, nicht vorhersehbar</div></details>
+      <details class="sf"><summary>Gefürchtete UAW von Metamizol?</summary><div class="sfa">Agranulozytose</div></details>
+      <details class="sf"><summary>Metamizol zu schnell i.v.?</summary><div class="sfa">Blutdruckabfall</div></details>
+      <details class="sf"><summary>Metamizol, Tageshöchstdosis?</summary><div class="sfa">4 g, i.v. bei Bedarf 5 g</div></details>
+      <details class="sf"><summary>Warum kein Betablocker bei Asthma?</summary><div class="sfa">β2-Blockade, Bronchospasmus</div></details>
+      <details class="sf"><summary>Betablocker plus Verapamil?</summary><div class="sfa">AV-Block</div></details>
+      <details class="sf"><summary>Betablocker bei Diabetes?</summary><div class="sfa">relative Kontraindikation</div></details>
+      <details class="sf"><summary>Kortison abrupt abgesetzt?</summary><div class="sfa">Addison-Krise</div></details>
+      <details class="sf"><summary>UAW von inhalativem Kortison?</summary><div class="sfa">Mundsoor, Heiserkeit</div></details>
+      <details class="sf"><summary>Mediator des ACE-Hemmer-Hustens?</summary><div class="sfa">Bradykinin</div></details>
+      <details class="sf"><summary>Seltene, gefährliche ACE-Hemmer-UAW?</summary><div class="sfa">Angioödem</div></details>
+      <details class="sf"><summary>Kalium unter ACE-Hemmer?</summary><div class="sfa">erhöht</div></details>
+      <details class="sf"><summary>Elektrolyte unter Thiazid?</summary><div class="sfa">Hypokaliämie, Hyponatriämie</div></details>
+      <details class="sf"><summary>NSAR plus ACE-Hemmer plus Diuretikum?</summary><div class="sfa">akutes Nierenversagen</div></details>
+      <details class="sf"><summary>Halbwertszeit von Amiodaron?</summary><div class="sfa">20–100 Tage</div></details>
+      <details class="sf"><summary>Kontrollen unter Amiodaron?</summary><div class="sfa">TSH, Leberwerte, Röntgen-Thorax</div></details>
+      <details class="sf"><summary>Amiodaron plus Dabigatran?</summary><div class="sfa">Blutung</div></details>
+      <details class="sf"><summary>Amiodaron plus Statin?</summary><div class="sfa">Myopathie</div></details>
+      <details class="sf"><summary>Typische Statin-UAW?</summary><div class="sfa">Myalgie, CK ↑</div></details>
+      <details class="sf"><summary>Was nach Methotrexat?</summary><div class="sfa">Folsäure, 24–48 h danach</div></details>
+      <details class="sf"><summary>Anthrazykline schädigen?</summary><div class="sfa">das Herz</div></details>
+      <details class="sf"><summary>Frühdyskinesie unter MCP, Therapie?</summary><div class="sfa">Biperiden</div></details>
+      <details class="sf"><summary>Therapie der Torsade de pointes?</summary><div class="sfa">Magnesium i.v.</div></details>
+      <details class="sf"><summary>Wohin meldet der Arzt eine UAW?</summary><div class="sfa">AkdÄ oder BfArM</div></details>
+    </div>
   </section>
 
 </div>
