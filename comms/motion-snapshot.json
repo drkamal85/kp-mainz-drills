@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-12T10:15:41.950Z",
+  "generatedAt": "2026-10-13T10:07:20.399Z",
   "totals": {
     "open": 153,
     "completed": 446,
     "overdue": 22,
-    "schedulingIssues": 41
+    "schedulingIssues": 44
   },
   "byLevel": {
     "R1": {
@@ -216,6 +216,48 @@
       "scheduledStart": null
     },
     {
+      "name": "Review: Rheumatologie (PMR, RZA, Spondyloarthritis) R2",
+      "dueDate": "2026-10-05",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Rheumatologie (PMR, RZA, Spondyloarthritis) R1",
+      "dueDate": "2026-10-04",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Elektrolytstörungen K⁺/Ca²⁺ R3",
+      "dueDate": "2026-10-09",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Elektrolytstörungen K⁺/Ca²⁺ R2",
+      "dueDate": "2026-10-08",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Makrozytäre Anämie / Vitamin-B12-Mangel R4",
+      "dueDate": "2026-10-11",
+      "schedulingIssue": false,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Makrozytäre Anämie / Vitamin-B12-Mangel R3",
+      "dueDate": "2026-10-10",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Makrozytäre Anämie / Vitamin-B12-Mangel R2",
+      "dueDate": "2026-10-09",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
       "name": "Akte-Sim #25",
       "dueDate": "2027-02-20",
       "schedulingIssue": true,
@@ -300,24 +342,6 @@
       "scheduledStart": null
     },
     {
-      "name": "Akte-Sim #11",
-      "dueDate": "2026-11-14",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Mentor check-in #15",
-      "dueDate": "2026-11-14",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Mentor check-in #14",
-      "dueDate": "2026-11-14",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
       "name": "Practice: Anamnesebogen — Complete from real Akte (Session 1)",
       "dueDate": "2026-11-17",
       "schedulingIssue": true,
@@ -362,12 +386,6 @@
     {
       "name": "Drittes Fach: Protocol Review — Session 12",
       "dueDate": "2026-11-15",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Oral Simulation with Partner — Session 6",
-      "dueDate": "2026-11-14",
       "schedulingIssue": true,
       "scheduledStart": null
     },
@@ -671,6 +689,16 @@
     {
       "name": "Review: Aufklärung, Einwilligung & Betreuung R5",
       "dueDate": "2026-10-26",
+      "duration": 120
+    },
+    {
+      "name": "Review: ACS/Myokardinfarkt R5",
+      "dueDate": "2026-10-27",
+      "duration": 120
+    },
+    {
+      "name": "Review: Herzinsuffizienz R5",
+      "dueDate": "2026-10-27",
       "duration": 120
     }
   ],
