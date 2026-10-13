@@ -1,0 +1,14 @@
+{
+ "slug": "arzneimittelinteraktionen-uaw",
+ "deck": "reviews/drittes-fach/arzneimittelinteraktionen-uaw.html",
+ "capture": [],
+ "counts": {
+  "ok": 82,
+  "fix": 0,
+  "unclear": 0
+ },
+ "fixes": [],
+ "unclear": [],
+ "status": "skipped: keine Erfassung",
+ "note": "Neubau R1 13.10.2026; Fakten in 4 unabhaengigen Audit-Runden gegen die Erfassung bzw. deutschen Standard geprueft, Fehler vor Veroeffentlichung behoben."
+}

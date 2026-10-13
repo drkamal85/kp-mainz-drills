@@ -1,0 +1,17 @@
+{
+ "slug": "rheumatologie-pmr-rza",
+ "deck": "reviews/rheumatologie/rheumatologie-pmr-rza.html",
+ "capture": [
+  "sources/amboss/rheumatologie-pmr-rza.md"
+ ],
+ "counts": {
+  "ok": 70,
+  "fix": 0,
+  "unclear": 0
+ },
+ "fixes": [],
+ "unclear": [],
+ "status": "done",
+ "note": "Neubau R1 13.10.2026; Fakten in 2 unabhaengigen Audit-Runden gegen die Erfassung bzw. deutschen Standard geprueft, Fehler vor Veroeffentlichung behoben.",
+ "validated": "2026-10-13"
+}

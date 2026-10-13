@@ -26,7 +26,7 @@ SPEC = {  # specialty -> (display label, hue)  — mirrors the library groups
  'gastroenterologie':('Gastroenterologie',150), 'unfallchirurgie':('Unfallchirurgie',50),
  'drittes-fach':('Drittes Fach',18), 'notfallmedizin':('Notfallmedizin',255),
  'gefaesschirurgie':('Gefäßchirurgie',10), 'neurologie':('Neurologie',300),
- 'endokrinologie':('Endokrinologie',330), 'haematologie':('Hämatologie',350),
+ 'endokrinologie':('Endokrinologie',330), 'haematologie':('Hämatologie',350),'rheumatologie':('Rheumatologie',360),
 }
 def esc(s): return (s or '').replace('&','&amp;').replace('<','&lt;').replace('>','&gt;')
 def txt(b):
