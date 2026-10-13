@@ -211,6 +211,18 @@
   .tier.std{background:#FDF2E2;color:#B07214}
   .tier.rand{background:#EFEDE8;color:#7A736A}
   .tier .zt{font-weight:600;letter-spacing:.02em;text-transform:none;opacity:.8}
+  .mb{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:4px 0 6px}
+  .mb-col{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-align:center}
+  .mb-tile{border-radius:12px;padding:12px 12px 10px;border:1px solid var(--line);background:var(--card)}
+  .mb-tile.lo{border-top:5px solid #1E5F9E;color:#1E5F9E}
+  .mb-tile.hi{border-top:5px solid #C0392B;color:#C0392B}
+  .mb-h{font-weight:800;font-size:14.5px;color:var(--ink)}
+  .mb-h span{font-weight:600;font-size:12.5px;color:var(--muted);margin-left:4px}
+  .mb-s{font-size:13px;color:var(--ink);margin:4px 0 2px;line-height:1.4}
+  .mb-tile .ekg{width:100%;height:auto;display:block;margin:4px 0 0}
+  .mb-ekg{font-size:12.5px;font-weight:800;text-align:center;margin-bottom:6px}
+  .mb-t{font-size:12.5px;color:var(--ink);border-top:1px dashed var(--line);padding-top:6px}
+  @media (max-width:520px){.mb{gap:7px}.mb-tile{padding:10px 8px 8px}.mb-h{font-size:13px}}
 </style>
 <link rel="stylesheet" media="print" href="/print.css">
 <script src="/print.js" defer></script>
@@ -221,7 +233,7 @@
   <header>
     <div class="eyebrow">Nephrologie</div>
     <h1>Kalium <span class="accent">&amp; Kalzium</span></h1><span class="amboss-pill" data-amboss-validated="2026-10-13" style="display:inline-block;margin-left:8px;padding:2px 9px;border-radius:999px;font-size:11px;font-weight:700;background:#e6f4ea;color:#1e6b34;vertical-align:middle">AMBOSS-validiert · 13.10.2026</span>
-    <div class="subtitle">Beide Kationen bedrohen vor allem das Herz. Gefragt werden die EKG-Zeichen, die Hyperkaliämie-Therapie außer Dialyse und die Hypokalzämie nach Schilddrüsen-OP.</div>
+    <div class="subtitle">Beide bedrohen das Herz. Gefragt werden das EKG, die Hyperkaliämie-Therapie und die Hypokalzämie nach Schilddrüsen-OP.</div>
     <div class="meta">
       <span class="rk mid">Rang 60 von 92</span>
       <span>R1</span>
@@ -238,36 +250,36 @@
   <section class="panel active" data-panel="grundlagen">
     <p class="panel-intro">2 Kationen, ein Zielorgan: das Herz.</p>
 
-    <details class="card grundlagen" open><summary><span class="ct"><span class="ctag">Grenzwerte</span><span class="ctitle">Ab wann es eine Störung ist</span></span><span class="plus">+</span></summary>
+    <details class="card grundlagen" open><summary><span class="ct"><span class="ctag">Merkbild</span><span class="ctitle">4 Störungen auf einen Blick</span></span><span class="plus">+</span></summary>
       <div class="body">
-        <table class="dd"><tr><th>Ion</th><th>Zu niedrig</th><th>Zu hoch</th></tr>
-          <tr><td><strong>Kalium</strong></td><td>unter 3,6 mmol/l</td><td>über 5,2 mmol/l</td></tr>
-          <tr><td><strong>Kalzium gesamt</strong></td><td>unter 2,2 mmol/l</td><td>über 2,65 mmol/l</td></tr>
-          <tr><td><strong>Kalzium ionisiert</strong></td><td>unter 1,15 mmol/l</td><td>über 1,35 mmol/l</td></tr>
-        </table>
-        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Kalium unter 3 oder über 6 mmol/l ist ein Notfall.</strong> Über 3,5 mmol/l Kalzium droht die hyperkalzämische Krise.</div>
+        <div class="mb">
+          <div class="mb-col">zu niedrig</div><div class="mb-col">zu hoch</div>
+          <div class="mb-tile lo"><div class="mb-h">Hypokaliämie <span>&lt; 3,6</span></div><div class="mb-s">Schwäche, Obstipation bis Ileus</div><svg class="ekg" viewBox="0 0 120 36" role="img" aria-label="EKG: T flach · U-Welle"><path d="M2 24 H10 Q14 20 18 24 H24 L27 27 L30 7 L33 29 L36 24 H46 Q52 21 58 24 H62 Q69 15 76 24 H118" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></svg><div class="mb-ekg">T flach · U-Welle</div><div class="mb-t">KCl, lieber oral</div></div>
+          <div class="mb-tile hi"><div class="mb-h">Hyperkaliämie <span>&gt; 5,2</span></div><div class="mb-s">Bradykardie bis Asystolie</div><svg class="ekg" viewBox="0 0 120 36" role="img" aria-label="EKG: T spitz · QRS breit"><path d="M2 24 H14 Q17 23 20 24 H24 L28 28 L32 9 L38 30 L42 24 H48 L58 3 L68 24 H118" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></svg><div class="mb-ekg">T spitz · QRS breit</div><div class="mb-t">Kalzium i.v., Insulin + Glukose</div></div>
+          <div class="mb-tile lo"><div class="mb-h">Hypokalzämie <span>&lt; 2,2</span></div><div class="mb-s">Kribbeln, Tetanie</div><svg class="ekg" viewBox="0 0 120 36" role="img" aria-label="EKG: QT lang"><path d="M2 24 H10 Q14 20 18 24 H24 L27 27 L30 7 L33 29 L36 24 H74 Q82 13 90 24 H118" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></svg><div class="mb-ekg">QT lang</div><div class="mb-t">Calciumgluconat langsam i.v.</div></div>
+          <div class="mb-tile hi"><div class="mb-h">Hyperkalzämie <span>&gt; 2,65</span></div><div class="mb-s">Polyurie, Obstipation, Verwirrtheit</div><svg class="ekg" viewBox="0 0 120 36" role="img" aria-label="EKG: QT kurz"><path d="M2 24 H10 Q14 20 18 24 H24 L27 27 L30 7 L33 29 L36 24 H38 Q45 13 52 24 H118" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></svg><div class="mb-ekg">QT kurz</div><div class="mb-t">NaCl i.v., dann Bisphosphonat</div></div>
+        </div>
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Kalium formt die T-Welle, Kalzium die QT-Zeit.</strong> Kalium unter 3 oder über 6 mmol/l ist ein Notfall.</div>
       </div>
     </details>
 
-    <details class="card grundlagen"><summary><span class="ct"><span class="ctag">Kalium</span><span class="ctitle">Aldosteron und pH</span></span><span class="plus">+</span></summary>
+    <details class="card grundlagen"><summary><span class="ct"><span class="ctag">Kalium</span><span class="ctitle">Was es verschiebt</span></span><span class="plus">+</span></summary>
       <div class="body">
         <ul class="b">
-          <li><strong>Aldosteron</strong> scheidet Kalium aus — Hyperaldosteronismus macht Hypokaliämie</li>
-          <li>Kalium verhält sich wie H⁺: <strong>Azidose</strong> geht mit Hyperkaliämie, <strong>Alkalose</strong> mit Hypokaliämie einher (siehe BGA)</li>
-          <li><strong>Insulin</strong> treibt Kalium in die Zelle — Hypokaliämie unter Ketoazidose-Therapie</li>
+          <li><strong>Aldosteron</strong> scheidet Kalium aus</li>
+          <li><strong>Azidose</strong> hebt Kalium, Alkalose senkt es</li>
+          <li><strong>Insulin</strong> treibt Kalium in die Zelle</li>
         </ul>
       </div>
     </details>
 
-    <details class="card grundlagen"><summary><span class="ct"><span class="ctag">Kalzium</span><span class="ctitle">Albumin, PTH, Niere</span></span><span class="plus">+</span></summary>
+    <details class="card grundlagen"><summary><span class="ct"><span class="ctag">Kalzium</span><span class="ctitle">Albumin und PTH</span></span><span class="plus">+</span></summary>
       <div class="body">
         <ul class="b">
-          <li>Etwa die Hälfte ist an <strong>Albumin</strong> gebunden — wirksam ist nur das ionisierte</li>
-          <li><strong>Parathormon</strong> hebt Kalzium und senkt Phosphat</li>
-          <li><strong>Chronische Niereninsuffizienz:</strong> Phosphat steigt, Calcitriol fällt, Kalzium sinkt → sekundärer Hyperparathyreoidismus → renale Osteopathie</li>
-          <li>Wird die Nebenschilddrüse autonom: <strong>tertiärer</strong> Hyperparathyreoidismus mit Hyperkalzämie</li>
+          <li>Die Hälfte ist an Albumin gebunden, wirksam ist das ionisierte</li>
+          <li><strong>PTH</strong> hebt Kalzium und senkt Phosphat</li>
+          <li>Niereninsuffizienz: Kalzium ↓ → sekundärer Hyperparathyreoidismus → renale Osteopathie</li>
         </ul>
-        <div class="callout fact"><span class="lab">⚙ Dokumentiert</span>Genau diese Kette bis zur renalen Osteopathie.</div>
         <!-- KP-Intel F02550 · KP-067; F03867 · KP-127 -->
       </div>
     </details>
@@ -275,30 +287,16 @@
   </section>
 
   <section class="panel" data-panel="klinik">
-    <p class="panel-intro">4 Störungen, 4 Muster.</p>
+    <p class="panel-intro">Die Klinik steht im Merkbild — hier die Fälle, die gefragt werden.</p>
 
-    <details class="card klinik" open><summary><span class="ct"><span class="ctag">Überblick</span><span class="ctitle">Klinik und Ursachen</span></span><span class="plus">+</span></summary>
-      <div class="body">
-        <table class="dd"><tr><th>Störung</th><th>Klinik</th><th>Typische Ursachen</th></tr>
-          <tr><td><strong>Hypokaliämie</strong></td><td>Muskelschwäche, Obstipation bis Ileus, Extrasystolen</td><td>Erbrechen, Diarrhö, Diuretika, Laxanzien</td></tr>
-          <tr><td><strong>Hyperkaliämie</strong></td><td>Parästhesien, Schwäche, Bradykardie bis Asystolie</td><td>Niereninsuffizienz, Spironolacton, ACE-Hemmer, Zellzerfall</td></tr>
-          <tr><td><strong>Hypokalzämie</strong></td><td>Kribbeln, Tetanie, Krampfanfall</td><td>Hypoparathyreoidismus nach OP, Vitamin-D-Mangel, Pankreatitis, Hyperventilation</td></tr>
-          <tr><td><strong>Hyperkalzämie</strong></td><td>Polyurie, Exsikkose, Obstipation, Verwirrtheit</td><td>Primärer Hyperparathyreoidismus, Malignome, Thiazide</td></tr>
-        </table>
-        <div class="callout fact"><span class="lab">⚙ Dokumentiert</span>Ileus durch Elektrolyte: meist Hypokaliämie oder Hyperkalzämie.</div>
-        <!-- KP-Intel F07316, F07324 · KP-239 -->
-      </div>
-    </details>
-
-    <details class="card klinik"><summary><span class="ct"><span class="ctag">Nach Schilddrüsen-OP</span><span class="ctitle">Hypokalzämie</span></span><span class="plus">+</span></summary>
+    <details class="card klinik" open><summary><span class="ct"><span class="ctag">Schilddrüsen-OP</span><span class="ctitle">Hypokalzämie danach</span></span><span class="plus">+</span></summary>
       <div class="body">
         <ul class="b">
-          <li>Nebenschilddrüsen verletzt oder entfernt → <strong>Hypoparathyreoidismus</strong></li>
-          <li>Kribbeln um den Mund, Muskelkrämpfe, Tetanie</li>
-          <li><strong>Chvostek:</strong> Beklopfen des N. facialis → Mundwinkelzucken</li>
-          <li><strong>Trousseau:</strong> Blutdruckmanschette über systolisch → Pfötchenstellung</li>
+          <li>Nebenschilddrüsen verletzt → <strong>Hypoparathyreoidismus</strong></li>
+          <li>Kribbeln um den Mund, Tetanie</li>
+          <li><strong>Chvostek:</strong> Beklopfen des N. facialis → Mundwinkel zuckt</li>
+          <li><strong>Trousseau:</strong> Blutdruckmanschette → Pfötchenstellung</li>
         </ul>
-        <div class="callout fact"><span class="lab">⚙ Dokumentiert</span>Hypokalzämie neben Recurrensparese als typische Komplikation der Thyreoidektomie.</div>
         <!-- KP-Intel F09579 · KP-338; F10094 · KP-363; F10344 · KP-383; F00462 · KP-110, KP-112 -->
       </div>
     </details>
@@ -306,22 +304,19 @@
     <details class="card klinik"><summary><span class="ct"><span class="ctag">Medikamente</span><span class="ctitle">Spironolacton und Digitalis</span></span><span class="plus">+</span></summary>
       <div class="body">
         <ul class="b">
-          <li><strong>Spironolacton</strong> plus ACE-Hemmer bei Niereninsuffizienz: hohes Hyperkaliämierisiko</li>
-          <li><strong>Digitalis:</strong> Hypokaliämie steigert die Toxizität; die akute Intoxikation macht Hyperkaliämie</li>
+          <li>Spironolacton plus ACE-Hemmer → <strong>Hyperkaliämie</strong></li>
+          <li>Hypokaliämie macht Digitalis giftiger</li>
         </ul>
-        <div class="callout fact"><span class="lab">⚙ Dokumentiert</span>„Worauf achten unter Spironolacton?" — auf die Hyperkaliämie.</div>
         <!-- KP-Intel F07248, F07252 · KP-237 -->
       </div>
     </details>
 
-    <details class="card klinik"><summary><span class="ct"><span class="ctag">Fallvignette</span><span class="ctitle">Hyperkalzämie, Nierenversagen, Rückenschmerz</span></span><span class="plus">+</span></summary>
+    <details class="card klinik"><summary><span class="ct"><span class="ctag">Fall</span><span class="ctitle">Hyperkalzämie und Rückenschmerz</span></span><span class="plus">+</span></summary>
       <div class="body">
         <ul class="b">
-          <li>LWS-Schmerzen, schlechter Allgemeinzustand, dazu Hyperkalzämie und Nierenversagen → an das <strong>multiple Myelom</strong> denken</li>
-          <li>Dazu passen Anämie und Osteolysen</li>
-          <li>DD: Knochenmetastasen, paraneoplastisches PTHrP</li>
+          <li>Rückenschmerz, Hyperkalzämie, Nierenversagen → an das <strong>multiple Myelom</strong> denken</li>
+          <li>DD: Knochenmetastasen</li>
         </ul>
-        <div class="callout fact"><span class="lab">⚙ Dokumentiert</span>Genau dieser Laborbefund, gefragt nach der DD.</div>
         <!-- KP-Intel F03681 · KP-114; F05915 · KP-195; F10810 · KP-428 -->
       </div>
     </details>
@@ -329,29 +324,24 @@
   </section>
 
   <section class="panel" data-panel="diagnostik">
-    <p class="panel-intro">Erst Labor und BGA, dann das EKG.</p>
+    <p class="panel-intro">Erst Labor, dann EKG.</p>
 
-    <details class="card diagnostik" open><summary><span class="ct"><span class="ctag">Labor</span><span class="ctitle">Elektrolyte, BGA, Hormone</span></span><span class="plus">+</span></summary>
+    <details class="card diagnostik" open><summary><span class="ct"><span class="ctag">Labor</span><span class="ctitle">Elektrolyte und PTH</span></span><span class="plus">+</span></summary>
       <div class="body">
         <ul class="b">
-          <li><strong>Kalium</strong> — Hämolyse täuscht Hyperkaliämie vor, Kontrolle per BGA</li>
-          <li><strong>Kreatinin</strong> und pH zur Ursachensuche</li>
-          <li><strong>Kalzium</strong> gesamt und ionisiert, Albumin, Phosphat</li>
-          <li><strong>PTH bei Hypokalzämie:</strong> erniedrigt mit hohem Phosphat → Hypoparathyreoidismus; dazu Magnesium, 25-OH-Vitamin-D</li>
-          <li><strong>PTH bei Hyperkalzämie:</strong> erhöht → primärer Hyperparathyreoidismus; erniedrigt → Tumor, dann PTHrP und Eiweißelektrophorese</li>
+          <li>Hohes Kalium? Erst <strong>Hämolyse</strong> ausschließen, Kontrolle per BGA</li>
+          <li>Kalzium immer mit Albumin lesen</li>
+          <li><strong>PTH:</strong> hoch bei primärem Hyperparathyreoidismus, niedrig nach Schilddrüsen-OP und bei Tumor</li>
         </ul>
       </div>
     </details>
 
-    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">EKG</span><span class="ctitle">4 Störungen, 4 Bilder</span></span><span class="plus">+</span></summary>
+    <details class="card diagnostik"><summary><span class="ct"><span class="ctag">EKG</span><span class="ctitle">Bei jeder Störung</span></span><span class="plus">+</span></summary>
       <div class="body">
-        <table class="dd"><tr><th>Störung</th><th>EKG</th></tr>
-          <tr><td><strong>Hypokaliämie</strong></td><td>flache T-Welle, ST-Senkung, U-Welle</td></tr>
-          <tr><td><strong>Hyperkaliämie</strong></td><td>hohe spitze T-Welle, breiter QRS, flaches P, Bradykardie</td></tr>
-          <tr><td><strong>Hypokalzämie</strong></td><td>QT verlängert → Torsade de pointes</td></tr>
-          <tr><td><strong>Hyperkalzämie</strong></td><td>QT verkürzt</td></tr>
-        </table>
-        <div class="callout fact"><span class="lab">⚙ Dokumentiert</span>„Warum EKG bei Hypokalzämie?" — wegen Long-QT und Torsade de pointes.</div>
+        <ul class="b">
+          <li>Die 4 EKG-Bilder stehen im Merkbild</li>
+          <li>Hypokalzämie: <strong>QT lang</strong> → Gefahr der Torsade de pointes</li>
+        </ul>
         <!-- KP-Intel F02566 · KP-068; F10928 · KP-449; F01058 · KP-009; F04896 · KP-161 -->
       </div>
     </details>
@@ -364,13 +354,11 @@
     <details class="card therapie" open><summary><span class="ct"><span class="ctag">Hyperkaliämie</span><span class="ctitle">Schützen, verschieben, entfernen</span></span><span class="plus">+</span></summary>
       <div class="body">
         <ul class="b">
-          <li><strong>Notfall</strong> ab 6,5 mmol/l oder ab 6,0 mmol/l mit EKG-Veränderungen</li>
-          <li><strong>Schützen:</strong> Calciumgluconat i.v. stabilisiert die Membran</li>
-          <li><strong>Verschieben:</strong> Insulin mit Glukose, dazu Salbutamol</li>
-          <li><strong>Entfernen:</strong> Kaliumbinder, Schleifendiuretikum nur bei Hypervolämie, Dialyse bei Nierenversagen</li>
-          <li>Auslöser wie Spironolacton absetzen</li>
+          <li><strong>Schützen:</strong> Calciumgluconat i.v.</li>
+          <li><strong>Verschieben:</strong> Insulin mit Glukose, Salbutamol</li>
+          <li><strong>Entfernen:</strong> Kaliumbinder, Dialyse</li>
         </ul>
-        <div class="callout fact"><span class="lab">⚙ Dokumentiert</span>„Therapie außer Dialyse" — 2-mal gefragt.</div>
+        <div class="callout fact"><span class="lab">⚙ Notfall</span>Ab 6,5 mmol/l oder ab 6,0 mmol/l mit EKG-Veränderungen.</div>
         <!-- KP-Intel F01721 · KP-033; F10626 · KP-407 -->
       </div>
     </details>
@@ -378,35 +366,28 @@
     <details class="card therapie"><summary><span class="ct"><span class="ctag">Hypokaliämie</span><span class="ctitle">Lieber oral</span></span><span class="plus">+</span></summary>
       <div class="body">
         <ul class="b">
-          <li><strong>3,0 bis 3,4 mmol/l:</strong> Kaliumchlorid p.o.</li>
-          <li><strong>Unter 3,0 mmol/l:</strong> Kaliumchlorid i.v., höchstens 20 mmol/h, am Monitor</li>
-          <li>Ursache beheben, ggf. Spironolacton ergänzen</li>
+          <li>Kaliumchlorid p.o.; unter 3,0 mmol/l i.v.</li>
+          <li>i.v. höchstens 20 mmol/h, am Monitor</li>
         </ul>
-        <div class="callout warning"><span class="lab">⚠ Venentoxisch</span>Nie als Bolus — zu schnell gegeben drohen Rhythmusstörungen.</div>
       </div>
     </details>
 
-    <details class="card therapie"><summary><span class="ct"><span class="ctag">Hypokalzämie</span><span class="ctitle">Kalzium langsam i.v.</span></span><span class="plus">+</span></summary>
+    <details class="card therapie"><summary><span class="ct"><span class="ctag">Hypokalzämie</span><span class="ctitle">Langsam i.v.</span></span><span class="plus">+</span></summary>
       <div class="body">
         <ul class="b">
-          <li><strong>Tetanie:</strong> Calciumgluconat langsam i.v. unter Monitor</li>
-          <li><strong>Dauerhaft:</strong> Kalzium p.o. plus Vitamin D, beim Hypoparathyreoidismus als Calcitriol</li>
-          <li>Versehentlich entfernte Nebenschilddrüse intraoperativ in einen Muskel reimplantieren</li>
-          <li>Hyperventilation: beruhigen, Rückatmung</li>
+          <li>Tetanie: Calciumgluconat langsam i.v.</li>
+          <li>Dauerhaft: Kalzium p.o. plus Calcitriol</li>
         </ul>
-        <div class="callout fact"><span class="lab">⚙ Dokumentiert</span>Langsame Kalziumgabe; dauerhaft Kalzium plus Calcitriol.</div>
+        <div class="callout warning"><span class="lab">⚠ Digitalis</span>Unter Digitalis kein Kalzium i.v.</div>
         <!-- KP-Intel F11345 · KP-514; F02579 · KP-068 -->
-        <div class="callout warning"><span class="lab">⚠ Digitalis</span>Unter Digitalis kein Kalzium i.v. — Gefahr des Kammerflimmerns.</div>
       </div>
     </details>
 
     <details class="card therapie"><summary><span class="ct"><span class="ctag">Hyperkalzämie</span><span class="ctitle">Erst Volumen</span></span><span class="plus">+</span></summary>
       <div class="body">
         <ul class="b">
-          <li><strong>NaCl 0,9 %</strong> i.v., erst danach Schleifendiuretikum</li>
-          <li><strong>Bisphosphonat</strong>, bei Bedarf Calcitonin</li>
-          <li>Glukokortikoid bei Sarkoidose, Lymphom, Myelom</li>
-          <li>Thiazide absetzen; Dialyse als Ultima Ratio</li>
+          <li>NaCl 0,9 % i.v., danach Schleifendiuretikum</li>
+          <li>Bisphosphonat</li>
         </ul>
       </div>
     </details>
