@@ -211,18 +211,6 @@
   .tier.std{background:#FDF2E2;color:#B07214}
   .tier.rand{background:#EFEDE8;color:#7A736A}
   .tier .zt{font-weight:600;letter-spacing:.02em;text-transform:none;opacity:.8}
-  .mb{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:4px 0 6px}
-  .mb-col{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-align:center}
-  .mb-tile{border-radius:12px;padding:12px 12px 10px;border:1px solid var(--line);background:var(--card)}
-  .mb-tile.lo{border-top:5px solid #1E5F9E;color:#1E5F9E}
-  .mb-tile.hi{border-top:5px solid #C0392B;color:#C0392B}
-  .mb-h{font-weight:800;font-size:14.5px;color:var(--ink)}
-  .mb-h span{font-weight:600;font-size:12.5px;color:var(--muted);margin-left:4px}
-  .mb-s{font-size:13px;color:var(--ink);margin:4px 0 2px;line-height:1.4}
-  .mb-tile .ekg{width:100%;height:auto;display:block;margin:4px 0 0}
-  .mb-ekg{font-size:12.5px;font-weight:800;text-align:center;margin-bottom:6px}
-  .mb-t{font-size:12.5px;color:var(--ink);border-top:1px dashed var(--line);padding-top:6px}
-  @media (max-width:520px){.mb{gap:7px}.mb-tile{padding:10px 8px 8px}.mb-h{font-size:13px}}
 </style>
 <link rel="stylesheet" media="print" href="/print.css">
 <script src="/print.js" defer></script>
@@ -236,7 +224,7 @@
     <div class="subtitle">Beide bedrohen das Herz. Gefragt werden das EKG, die Hyperkaliämie-Therapie und die Hypokalzämie nach Schilddrüsen-OP.</div>
     <div class="meta">
       <span class="rk mid">Rang 60 von 92</span>
-      <span>R2</span>
+      <span>R3</span>
     </div>
   </header>
   <div class="tabs">
@@ -245,6 +233,7 @@
     <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik ★</button>
     <button class="tab" data-c="therapie" data-tab="therapie">Therapie</button>
     <button class="tab" data-c="perlen" data-tab="perlen">KP-Perlen</button>
+    <button class="tab" data-c="protokoll" data-tab="protokoll">Fragen &amp; Protokolle ★ · 13</button>
     <span class="tier-sticky std">STANDARD<span class="zt">Ziel R4</span></span>
   </div>
 
@@ -424,6 +413,98 @@
       <details class="sf"><summary>Hyperkalzämie, Rückenschmerz, Nierenversagen?</summary><div class="sfa">multiples Myelom</div></details>
     </div>
   </section>
+
+  <section class="panel" data-panel="protokoll">
+    <p class="panel-intro">Dokumentierte Mainz-Fragen aus KP-Intel zu Kalium und Kalzium, Natrium und BGA stehen in den Nachbardecks.</p>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · 15.01.2025</span><span>Prüfer nicht überliefert · Chirurgie</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <!-- KP-Intel F00462 · n=2 -->
+      <div class="pq"><div class="pq-frage">„Welche Symptome hat ein Hypoparathyreoidismus mit Hypokalzämie?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Der Patient klagt über Kribbelparästhesien um den Mund und bekommt eine Tetanie mit Pfötchenstellung. Chvostek- und Trousseau-Zeichen sind positiv.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · Datum nicht überliefert</span><span>Dr. Gohrbandt · Chirurgie</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <!-- KP-Intel F10344 · n=1 -->
+      <div class="pq"><div class="pq-frage">„Welche beiden typischen Komplikationen fürchten Sie bei der Schilddrüsenoperation?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich fürchte die Recurrensparese mit Heiserkeit, beidseitig sogar mit Stridor. Werden die Nebenschilddrüsen geschädigt, fehlt PTH, und es droht die Hypokalzämie.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · Datum nicht überliefert</span><span>Prüfer nicht überliefert · Chirurgie</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <!-- KP-Intel F11345 · n=1 -->
+      <div class="pq"><div class="pq-frage">„Was tun Sie, wenn bei der Operation Nebenschilddrüsen entfernt wurden, und wie behandeln Sie die Hypokalzämie mit Tetanie?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Entfernte Nebenschilddrüsen reimplantiere ich zerkleinert in den M. sternocleidomastoideus. Bei Tetanie gebe ich Calciumgluconat langsam i.v., weil zu schnelle Gabe Rhythmusstörungen auslöst.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · 13.09.2025</span><span>Prüfer nicht überliefert · Pharmakologie</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <!-- KP-Intel F02579 · n=1 -->
+      <div class="pq"><div class="pq-frage">„Wie behandeln Sie eine Hypokalzämie, und wozu geben Sie Calcitriol?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Akut gebe ich Calciumgluconat langsam i.v., dauerhaft Kalzium oral mit Calcitriol. Calcitriol ist aktives Vitamin D und steigert die Aufnahme im Darm.</div></details></div>
+      <!-- KP-Intel F02566 · n=1 -->
+      <div class="pq"><div class="pq-frage">„Warum schreiben Sie bei einer Hypokalzämie ein EKG?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Die Hypokalzämie verlängert die QT-Zeit, dadurch drohen Torsade de pointes und Kammerflimmern. Ich überwache den Patienten deshalb am Monitor.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · 01.07.2026</span><span>Prüfer nicht überliefert · Innere</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <!-- KP-Intel F01132 · n=1 -->
+      <div class="pq"><div class="pq-frage">„Welche Ursachen und EKG-Zeichen hat die Hyperkaliämie, warum ist sie gefährlich, und wie setzen Sie Insulin mit Glukose und Calciumgluconat ein?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ursachen sind Niereninsuffizienz und kaliumsparende Medikamente, das EKG zeigt spitze T-Wellen. Wegen drohender Asystolie und Kammerflimmern gebe ich sofort Calciumgluconat, dann Insulin mit Glukose.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · 04.03.2026</span><span>Prüfer nicht überliefert · Innere</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <!-- KP-Intel F01721 · n=1 -->
+      <div class="pq"><div class="pq-frage">„Wie behandeln Sie eine Hyperkaliämie außer mit Dialyse? Bitte im Detail."</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich gebe zuerst Calciumgluconat zum Herzschutz, dann verschieben Insulin mit Glukose und Salbutamol Kalium in die Zelle. Kaliumbinder und bei Hypervolämie Furosemid entfernen es.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · 15.07.2026</span><span>Prüfer nicht überliefert · EKG</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <!-- KP-Intel F01058 · n=1 -->
+      <div class="pq"><div class="pq-frage">„Das EKG zeigt abgeflachte T-Wellen. An welche Elektrolytstörung denken Sie?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich denke an eine Hypokaliämie, typisch sind außerdem ST-Senkung und betonte U-Welle. Ich kontrolliere sofort das Serumkalium.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · 26.01.2024</span><span>Dr. Tannert / Dr. Duda / Dr. Zorbach · Innere</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <!-- KP-Intel F05812 · n=1 -->
+      <div class="pq"><div class="pq-frage">„Wie behandeln Sie eine Hypokaliämie?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich substituiere Kaliumchlorid möglichst oral und setze auslösende Diuretika ab. Unter 3,0 mmol/l gebe ich es i.v., höchstens 20 mmol/h am Monitor.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · 27.09.2023</span><span>Dr. Voßeler / Dr. Alt / Dr. Hilbert · Innere</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <!-- KP-Intel F07248 · n=1 -->
+      <div class="pq"><div class="pq-frage">„Worauf achten Sie bei den Elektrolyten unter Spironolacton?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich achte auf eine Hyperkaliämie, besonders bei Niereninsuffizienz oder zusätzlichem ACE-Hemmer. Deshalb kontrolliere ich Kalium und Kreatinin regelmäßig.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · 11.01.2025</span><span>Prüfer nicht überliefert · Innere</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <!-- KP-Intel F03681 · n=1 -->
+      <div class="pq"><div class="pq-frage">„Im Labor sehen Sie Hyperkalzämie und Nierenversagen, der Patient hat LWS-Schmerzen und einen reduzierten Allgemeinzustand. Welche Differenzialdiagnosen haben Sie?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich denke zuerst an ein multiples Myelom, daneben an Knochenmetastasen und einen primären Hyperparathyreoidismus. Ich sichere die Diagnose mit Elektrophorese, Leichtketten und PTH.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · 04.12.2024</span><span>Dr. Alt / Dr. Claus · Innere</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <!-- KP-Intel F03867 · n=1 -->
+      <div class="pq"><div class="pq-frage">„Was ist ein tertiärer Hyperparathyreoidismus bei Hyperkalzämie?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ein lange bestehender sekundärer Hyperparathyreoidismus bei Niereninsuffizienz wird autonom. Das PTH bleibt hoch und erzeugt eine Hyperkalzämie, deshalb behandle ich durch Parathyreoidektomie.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · 13.09.2025</span><span>Prüfer nicht überliefert · Chirurgie</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <!-- KP-Intel F02550 · n=1 -->
+      <div class="pq"><div class="pq-frage">„Wie hängen chronische Niereninsuffizienz, Hypokalzämie, sekundärer Hyperparathyreoidismus und renale Osteopathie zusammen?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Die Niere bildet zu wenig Calcitriol, das Kalzium sinkt und die Nebenschilddrüsen steigern das PTH. Das hohe PTH führt über Knochenabbau zur renalen Osteopathie.</div></details></div>
+    </div>
+
+  </section>
+
 
 </div>
 <script>

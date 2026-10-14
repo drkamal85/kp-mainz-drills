@@ -20,7 +20,7 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 ## TIER 1 · höchste Präsenz (≥200 Treffer)
 | # | Prot. | als Fall | 12 M | Stufe | Typ | Fach | Thema | Review |
 |--:|--:|--:|--:|---|---|---|---|---|
-| 1 | 157 | 0 | 37 | KERN | Frage | Drittes Fach | Arzneimittelinteraktionen & UAW | ✓ R2 |
+| 1 | 157 | 0 | 37 | KERN | Frage | Drittes Fach | Arzneimittelinteraktionen & UAW | ✓ R3 |
 | 2 | 130 | 4 | 29 | KERN | Frage | Drittes Fach | Schmerztherapie / WHO-Schema | ✓ R3 |
 | 3 | 152 | 19 | 21 | KERN | Frage | Allgemein- und Viszeralchirurgie | Leistenhernie / Hernien | ✓ R4 |
 | 4 | 147 | 19 | 22 | KERN | Frage | Allgemein- und Viszeralchirurgie | Cholezystitis / Cholelithiasis | ✓ R4 |
@@ -75,11 +75,11 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 53 | 42 | 2 | 9 | STANDARD | Frage | Notfallmedizin | Anaphylaxie | ✓ R3 |
 | 54 | 47 | 9 | 7 | STANDARD | Fall | Angiologie | Tiefe Beinvenenthrombose (TVT) | ✓ R4 |
 | 55 | 46 | 3 | 7 | STANDARD | Frage | Drittes Fach | Sozialrecht & Hygiene | ✓ R4 |
-| 56 | 56 | 24 | 4 | STANDARD | Fall | Hämatologie | Makrozytäre Anämie / Vitamin-B12-Mangel | ✓ R2 |
+| 56 | 56 | 24 | 4 | STANDARD | Fall | Hämatologie | Makrozytäre Anämie / Vitamin-B12-Mangel | ✓ R3 |
 | 57 | 51 | 7 | 5 | STANDARD | Frage | Gastroenterologie | Morbus Crohn & Colitis ulcerosa | ✓ R4 |
 | 58 | 35 | 12 | 9 | STANDARD | Fall | Pneumologie | Bronchialkarzinom | ✓ R3 |
 | 59 | 55 | 22 | 3 | STANDARD | Fall | Gastroenterologie | Diarrhoe / Gastroenteritis | ✓ R3 |
-| 60 | 44 | 8 | 5 | STANDARD | Fall | Nephrologie | Elektrolytstörungen K⁺/Ca²⁺ | ✓ R2 |
+| 60 | 44 | 8 | 5 | STANDARD | Fall | Nephrologie | Elektrolytstörungen K⁺/Ca²⁺ | ✓ R3 |
 | 61 | 36 | 8 | 7 | STANDARD | Fall | Nephrologie | Nierenversagen (akut / akut-auf-chron.) | ✓ R4 |
 | 62 | 38 | 9 | 6 | STANDARD | Fall | Unfallchirurgie | Humerusfraktur | ✓ R4 |
 | 63 | 41 | 8 | 5 | STANDARD | Fall | Angiologie | pAVK | ✓ R3 |
@@ -103,7 +103,7 @@ Review-Spalte: „✓ Rn" = Review vorhanden · „—" = noch nicht.
 | 81 | 20 | 6 | 2 | RAND | Fall | Angiologie | Aortenaneurysma (AAA) | ✓ R2 |
 | 82 | 22 | 10 | 1 | RAND | Fall | Gastroenterologie | GERD / Refluxkrankheit | ✓ R2 |
 | 83 | 22 | 1 | 1 | RAND | Frage | Neurologie | Meningitis / Enzephalitis | ✓ R2 |
-| 84 | 18 | 4 | 2 | RAND | Fall | Innere | Rheumatologie (PMR, RZA, Spondyloarthritis) | ✓ R2 |
+| 84 | 18 | 4 | 2 | RAND | Fall | Innere | Rheumatologie (PMR, RZA, Spondyloarthritis) | ✓ R3 |
 | 85 | 12 | 0 | 3 | RAND | Frage | Angiologie | Aortendissektion | ✓ R4 |
 | 86 | 15 | 2 | 2 | RAND | Frage | Unfallchirurgie | Wirbelsäulenverletzungen | ✓ R2 |
 | 87 | 15 | 7 | 1 | RAND | Fall | Notfallmedizin | Delir | ✓ R2 |

@@ -211,24 +211,6 @@
   .tier.std{background:#FDF2E2;color:#B07214}
   .tier.rand{background:#EFEDE8;color:#7A736A}
   .tier .zt{font-weight:600;letter-spacing:.02em;text-transform:none;opacity:.8}
-  .cyp-flow{display:flex;align-items:center;justify-content:center;gap:4px;flex-wrap:nowrap;font-size:12px;font-weight:700;color:var(--muted);margin:2px 0 12px}
-  .cyp-flow span{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:5px 7px;text-align:center;white-space:nowrap}
-  .cyp-flow .cyp-liver{color:var(--ink)}
-  .cyp-flow small{display:block;font-weight:600;font-size:11px;color:var(--muted)}
-  .cyp-flow b{color:var(--muted)}
-  .cyp-row{display:flex;gap:12px;align-items:flex-start;border-radius:12px;padding:12px 14px;margin-bottom:10px;border:1px solid var(--line);background:var(--card)}
-  .cyp-row.gas{border-left:5px solid #1E5F9E}
-  .cyp-row.brake{border-left:5px solid #C0392B}
-  .cyp-ic{font-size:26px;line-height:1}
-  .cyp-h{font-weight:800;font-size:15px}
-  .cyp-row.gas .cyp-h{color:#1E5F9E}
-  .cyp-row.brake .cyp-h{color:#C0392B}
-  .cyp-s{font-size:14px;margin:3px 0}
-  .cyp-x{font-size:13px;color:var(--muted)}
-  .cyp-e{font-size:13px;font-style:italic;margin-top:4px}
-  .uaw td:first-child{white-space:nowrap}
-  .uaw .uaw-m{display:block;font-size:12.5px;color:var(--muted);font-style:italic;margin-top:3px}
-  @media (max-width:520px){.uaw td:first-child{white-space:normal;width:32%}.uaw th,.uaw td{padding:7px 8px;font-size:13px}}
 </style>
 <link rel="stylesheet" media="print" href="/print.css">
 <script src="/print.js" defer></script>
@@ -242,7 +224,7 @@
     <div class="subtitle">Das meistgefragte Querschnittsthema: Zum Medikationsplan des Patienten will der Prüfer je Wirkstoff die typische Nebenwirkung, die gefährliche Kombination und Ihr Vorgehen hören.</div>
     <div class="meta">
       <span class="rk hi">Rang 1 von 92</span>
-      <span>R2</span>
+      <span>R3</span>
     </div>
   </header>
   <div class="tabs">
@@ -251,6 +233,7 @@
     <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik ★</button>
     <button class="tab" data-c="therapie" data-tab="therapie">Therapie</button>
     <button class="tab" data-c="perlen" data-tab="perlen">KP-Perlen</button>
+    <button class="tab" data-c="protokoll" data-tab="protokoll">Fragen &amp; Protokolle ★ · 18</button>
     <span class="tier-sticky kern">KERN<span class="zt">Ziel R5</span></span>
   </div>
 
@@ -465,6 +448,133 @@
       <details class="sf"><summary>Wohin meldet der Arzt eine UAW?</summary><div class="sfa">AkdÄ oder BfArM</div></details>
     </div>
   </section>
+
+  <section class="panel" data-panel="protokoll">
+    <p class="panel-intro">Dokumentierte Mainz-Fragen aus KP-Intel zu Nebenwirkungen und Interaktionen, die meistgefragten zuerst.</p>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · 11.03.2026</span><span>Dr. Laakmann / Dr. Bader / Dr. Fichtner · Innere</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <!-- KP-Intel F00051 · n=4 -->
+      <div class="pq"><div class="pq-frage">„Welche Kontraindikationen haben Betablocker?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich gebe keinen Betablocker bei Asthma bronchiale, höhergradigem AV-Block und symptomatischer Bradykardie. Diabetes ist nur relativ kontraindiziert, weil Hypoglykämien verschleiert werden.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · 03.07.2024</span><span>Dr. Hock / Dr. Gohrbandt / Dr. Matthias · Pharmakologie</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <!-- KP-Intel F00602 · n=2 -->
+      <div class="pq"><div class="pq-frage">„Welche Nebenwirkungen haben Betablocker?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Über β1 machen sie Bradykardie, AV-Block und Hypotonie. Über β2 drohen Bronchospasmus und kalte Extremitäten, zudem verschleiern sie Hypoglykämien.</div></details></div>
+      <!-- KP-Intel F04680 · n=1 -->
+      <div class="pq"><div class="pq-frage">„Welche Nebenwirkungen haben ACE-Hemmer, woher kommt der Reizhusten, und wie wirken sie an der Niere nephroprotektiv?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Nicht abgebautes Bradykinin macht Reizhusten, dazu kommen Hyperkaliämie und Angioödem. Sie weiten das Vas efferens, senken den glomerulären Druck und damit die Proteinurie.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · 12.09.2026</span><span>Dr. Talmon / Dr. Brill / Dr. Fischer · Pharmakologie</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <!-- KP-Intel F00072 · n=3 -->
+      <div class="pq"><div class="pq-frage">„Welche Nebenwirkungen hat Amiodaron?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Durch seinen Jodgehalt macht Amiodaron eine Hypo- oder Hyperthyreose, außerdem fürchte ich die Lungenfibrose. Dazu kommen Leberschaden, QT-Verlängerung und Photosensibilität.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · 12.07.2023</span><span>Dr. Schneider / Dr. Gries / Dr. Morgenthaler · Pharmakologie</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <!-- KP-Intel F08163 · n=1 -->
+      <div class="pq"><div class="pq-frage">„Welche wichtigen Interaktionen hat Amiodaron, etwa mit Dabigatran und mit Statinen?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Amiodaron hemmt P-Glykoprotein und CYP3A4 und hebt so die Spiegel anderer Mittel. Mit Dabigatran steigt das Blutungsrisiko, mit Statinen das Risiko einer Rhabdomyolyse.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · 10.01.2024</span><span>Dr. Hennekes / Dr. Fehringer / Dr. Fischer · Innere</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <!-- KP-Intel F00148 · n=3 -->
+      <div class="pq"><div class="pq-frage">„Welche Nebenwirkungen haben Glukokortikoide?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Langfristig machen sie ein iatrogenes Cushing-Syndrom mit Osteoporose, Diabetes und Infektanfälligkeit. Dazu kommen Katarakt, Glaukom und Psychosen, abruptes Absetzen löst eine Addison-Krise aus.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · 06.02.2026</span><span>Dr. Hoffart / Dr. Tannert · Innere</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <!-- KP-Intel F02048 · n=1 -->
+      <div class="pq"><div class="pq-frage">„Welche Nebenwirkungen haben Glukokortikoide bei oraler und bei inhalativer Langzeitgabe, und warum?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Oral wirken sie systemisch und machen deshalb ein Cushing-Syndrom mit Osteoporose. Inhalativ wirken sie vor allem lokal, deshalb drohen Mundsoor und Heiserkeit.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · 30.11.2025</span><span>Prüfer nicht überliefert · Innere</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <!-- KP-Intel F00086 · n=3 -->
+      <div class="pq"><div class="pq-frage">„Welche Langzeitnebenwirkungen haben Protonenpumpenhemmer, auch an den Parietalzellen?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Die Säurehemmung steigert das Gastrin, das Parietal- und ECL-Zellen hyperplastisch macht. Langfristig drohen außerdem Magnesium- und Vitamin-B12-Mangel sowie Osteoporose.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · 12.02.2025</span><span>Dr. Hoffart / Dr. Unglaube / Dr. Bader · Pharmakologie</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <!-- KP-Intel F00458 · n=2 -->
+      <div class="pq"><div class="pq-frage">„Welche Nebenwirkungen hat Metamizol, und was hat es mit der Agranulozytose und dem Rote-Hand-Brief auf sich?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Gefürchtet ist die Agranulozytose, häufiger ist ein Blutdruckabfall. Laut Rote-Hand-Brief kläre ich über Fieber und Halsschmerz auf, dann setze ich sofort ab.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · 06.09.2024</span><span>Dr. Tannert / Dr. Blum / Dr. Baum · Innere</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <!-- KP-Intel F04268 · n=1 -->
+      <div class="pq"><div class="pq-frage">„Eine Patientin hat leichte Bauchschmerzen und Fieber. Wie gehen Sie mit Anamnese, Untersuchung, Labor und Medikamentenanamnese vor, und woran denken Sie unter Metamizol?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Nach Anamnese, Befund und Labor frage ich gezielt nach Medikamenten. Unter Metamizol suche ich per Differenzialblutbild eine Agranulozytose und setze sofort ab.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · 11.11.2023</span><span>Dr. Kieninger-Baum / Dr. Zorbach / Dr. Kirdorf · Pharmakologie</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <!-- KP-Intel F00698 · n=2 -->
+      <div class="pq"><div class="pq-frage">„Welche Nebenwirkungen hat die Chemotherapie?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Sie trifft schnell teilende Zellen in Knochenmark, Schleimhaut und Haarwurzeln. Daraus folgen Infekte, Mukositis und Haarausfall, dazu kommt Übelkeit.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · 07.02.2024</span><span>Dr. Unglaube / Dr. Hake / Dr. Brill · Innere</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <!-- KP-Intel F05528 · n=1 -->
+      <div class="pq"><div class="pq-frage">„Welche Nebenwirkungen hat Methotrexat, und warum geben Sie Folsäure?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Methotrexat schädigt Knochenmark, Leber und Lunge und macht Mukositis. Es hemmt den Folsäurestoffwechsel, deshalb gebe ich 24 bis 48 Stunden danach Folsäure.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · 19.04.2024</span><span>Prüfer nicht überliefert · Pharmakologie</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <!-- KP-Intel F00637 · n=2 -->
+      <div class="pq"><div class="pq-frage">„Welche Nebenwirkungen hat die Immuntherapie?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich denke an Azathioprin und TNF-Antikörper, die vor allem Infekte machen. Unter TNF-Antikörpern droht eine Tuberkulose-Reaktivierung, Azathioprin macht Leukopenie.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · 05.04.2024</span><span>Dr. Duda / Dr. Bader / Dr. Brill · Innere</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <!-- KP-Intel F05189 · n=1 -->
+      <div class="pq"><div class="pq-frage">„Welche Statine kennen Sie, wie wirken sie, und welche Nebenwirkungen haben sie?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich kenne Simvastatin und Atorvastatin, die die HMG-CoA-Reduktase hemmen und das LDL senken. Typisch sind Myalgien mit CK-Anstieg, selten eine Rhabdomyolyse.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · 19.03.2026</span><span>Prüfer nicht überliefert · Pharmakologie</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <!-- KP-Intel F01609 · n=1 -->
+      <div class="pq"><div class="pq-frage">„Welche Komplikationen hat die Polypharmazie, gerade durch Medikamenteninteraktionen?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ab 5 Dauermedikamenten häufen sich Interaktionen, etwa hebt Clarithromycin den Simvastatinspiegel bis zur Rhabdomyolyse. Typische Folgen sind Stürze, Blutungen und Nierenversagen.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · 18.09.2025</span><span>Prüfer nicht überliefert · Pharmakologie</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <!-- KP-Intel F02528 · n=1 -->
+      <div class="pq"><div class="pq-frage">„Welche Nebenwirkungen von NSAR und Benzodiazepinen fürchten Sie bei älteren Patienten mit Polypharmazie?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">NSAR machen im Alter Magenblutungen und Nierenversagen, besonders mit ACE-Hemmer und Diuretikum. Benzodiazepine führen zu Stürzen, Verwirrtheit und Abhängigkeit.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · 20.07.2024</span><span>Dr. Hoff / Dr. Kirdorf / Dr. Duda · Pharmakologie</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <!-- KP-Intel F04589 · n=1 -->
+      <div class="pq"><div class="pq-frage">„Welche Nebenwirkungen hat Metoclopramid, was ist mit dem Nystagmus, und warum kontrollieren Sie bei jeder Visite?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">MCP blockiert Dopamin und macht Frühdyskinesien mit Blickkrämpfen, die einem Nystagmus ähneln. Deshalb achte ich bei jeder Visite darauf und gebe Biperiden.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · 06.11.2024</span><span>Prüfer nicht überliefert · Radiologie</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <!-- KP-Intel F04033 · n=1 -->
+      <div class="pq"><div class="pq-frage">„Welche Kontraindikationen gibt es für Kontrastmittel?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Jodhaltiges Kontrastmittel gebe ich nicht bei manifester Hyperthyreose oder schwerer Kontrastmittelallergie. Lineares Gadolinium meide ich bei einer GFR unter 30, Barium bei Perforationsverdacht.</div></details></div>
+    </div>
+
+  </section>
+
 
 </div>
 <script>
