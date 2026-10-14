@@ -211,6 +211,21 @@
   .tier.std{background:#FDF2E2;color:#B07214}
   .tier.rand{background:#EFEDE8;color:#7A736A}
   .tier .zt{font-weight:600;letter-spacing:.02em;text-transform:none;opacity:.8}
+  .cyp-flow{display:flex;align-items:center;justify-content:center;gap:4px;flex-wrap:nowrap;font-size:12px;font-weight:700;color:var(--muted);margin:2px 0 12px}
+  .cyp-flow span{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:5px 7px;text-align:center;white-space:nowrap}
+  .cyp-flow .cyp-liver{color:var(--ink)}
+  .cyp-flow small{display:block;font-weight:600;font-size:11px;color:var(--muted)}
+  .cyp-flow b{color:var(--muted)}
+  .cyp-row{display:flex;gap:12px;align-items:flex-start;border-radius:12px;padding:12px 14px;margin-bottom:10px;border:1px solid var(--line);background:var(--card)}
+  .cyp-row.gas{border-left:5px solid #1E5F9E}
+  .cyp-row.brake{border-left:5px solid #C0392B}
+  .cyp-ic{font-size:26px;line-height:1}
+  .cyp-h{font-weight:800;font-size:15px}
+  .cyp-row.gas .cyp-h{color:#1E5F9E}
+  .cyp-row.brake .cyp-h{color:#C0392B}
+  .cyp-s{font-size:14px;margin:3px 0}
+  .cyp-x{font-size:13px;color:var(--muted)}
+  .cyp-e{font-size:13px;font-style:italic;margin-top:4px}
 </style>
 <link rel="stylesheet" media="print" href="/print.css">
 <script src="/print.js" defer></script>
@@ -251,18 +266,35 @@
       </div>
     </details>
 
-    <details class="card grundlagen"><summary><span class="ct"><span class="ctag">Merkbild</span><span class="ctitle">Die CYP450-Wippe</span></span><span class="plus">+</span></summary>
+    <details class="card grundlagen" open><summary><span class="ct"><span class="ctag">Merkbild</span><span class="ctitle">Die Leber als Abbau-Maschine</span></span><span class="plus">+</span></summary>
       <div class="body">
-        <div class="mb">
-          <div class="mb-tile lo"><div class="mb-h">Induktor</div><div class="mb-arrow">↓<span>Spiegel</span></div><div class="mb-s">Rifampicin, Carbamazepin, Phenytoin, Johanniskraut</div><div class="mb-t">wirkungslos</div></div>
-          <div class="mb-tile hi"><div class="mb-h">Hemmer</div><div class="mb-arrow">↑<span>Spiegel</span></div><div class="mb-s">Clarithromycin, Azole, Amiodaron, Verapamil, Grapefruit</div><div class="mb-t">giftig</div></div>
-          <div class="mb-col">Gefährliche Paare</div>
-          <div class="mb-pair"><b>Betablocker + Verapamil</b>Bradykardie, AV-Block</div>
-          <div class="mb-pair"><b>Amiodaron + Dabigatran</b>Blutung</div>
-          <div class="mb-pair"><b>Amiodaron + Statin</b>Myopathie</div>
-          <div class="mb-pair"><b>NSAR + ACE-Hemmer + Diuretikum</b>akutes Nierenversagen</div>
+        <div class="cyp-flow"><span>Medikament</span><b>→</b><span class="cyp-liver">Leber baut ab<small>Enzym CYP450</small></span><b>→</b><span>Ausscheidung</span></div>
+        <div class="cyp-row gas">
+          <div class="cyp-ic">🚀</div>
+          <div><div class="cyp-h">Induktor = Gaspedal</div>
+          <div class="cyp-s">Leber baut <strong>schneller</strong> ab → Spiegel ↓ → <strong>wirkt nicht</strong></div>
+          <div class="cyp-x">Rifampicin, Carbamazepin, Johanniskraut</div>
+          <div class="cyp-e">Beispiel: Rifampicin + Pille → Pille unwirksam</div></div>
         </div>
-        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Ein Induktor macht wirkungslos, ein Hemmer macht giftig.</strong></div>
+        <div class="cyp-row brake">
+          <div class="cyp-ic">🛑</div>
+          <div><div class="cyp-h">Hemmer = Bremse</div>
+          <div class="cyp-s">Leber baut <strong>langsamer</strong> ab → Spiegel ↑ → <strong>giftig</strong></div>
+          <div class="cyp-x">Clarithromycin, Azole, Amiodaron, Grapefruit</div>
+          <div class="cyp-e">Beispiel: Clarithromycin + Simvastatin → Rhabdomyolyse</div></div>
+        </div>
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Gaspedal macht wirkungslos, Bremse macht giftig.</strong></div>
+      </div>
+    </details>
+
+    <details class="card grundlagen"><summary><span class="ct"><span class="ctag">Kombinationen</span><span class="ctitle">Gefährliche Paare</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <ul class="b">
+          <li><strong>Betablocker + Verapamil:</strong> Bradykardie, AV-Block</li>
+          <li><strong>Amiodaron + Dabigatran:</strong> Blutung</li>
+          <li><strong>Amiodaron + Statin:</strong> Myopathie</li>
+          <li><strong>NSAR + ACE-Hemmer + Diuretikum:</strong> akutes Nierenversagen</li>
+        </ul>
         <!-- KP-Intel F01750 · F10976 · F08163 · F08165 · KP-034 · KP-453 · KP-266 -->
       </div>
     </details>
