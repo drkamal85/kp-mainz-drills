@@ -5,37 +5,16 @@
   "sources/amboss/herzinsuffizienz.md"
  ],
  "counts": {
-  "ok": 46,
-  "fix": 3,
+  "ok": 52,
+  "fix": 0,
   "unclear": 11
  },
- "fixes": [
-  {
-   "panel": "grundlagen",
-   "deck_text": "HFmrEF (40–49 %) [Merksatz + Tabelle]",
-   "new_text": "HFmrEF (41–49 %)",
-   "amboss_quote": "HFmrEF (Herzinsuffizienz mit gering reduzierter EF): LVEF 41–49% und Symptome der Herzinsuffizienz"
-  },
-  {
-   "panel": "grundlagen",
-   "deck_text": "<td>41–49 %</td><td>mittelgradig</td>",
-   "new_text": "<td>41–49 %</td><td>gering</td>",
-   "amboss_quote": "- HFmrEF (Herzinsuffizienz mit gering reduzierter EF): LVEF 41–49% und Symptome der Herzinsuffizienz",
-   "pass": 2
-  },
-  {
-   "panel": "protokoll",
-   "deck_text": "HFrEF unter 40 Prozent, HFmrEF",
-   "new_text": "HFrEF bis 40 Prozent, HFmrEF",
-   "amboss_quote": "- HFrEF (Herzinsuffizienz mit reduzierter EF): LVEF ≤40% und Symptome der Herzinsuffizienz",
-   "pass": 2
-  }
- ],
+ "fixes": [],
  "unclear": [
   {
    "panel": "grundlagen",
    "deck_text": "Kausalkette: Hypertonie → KHK → Myokardinfarkt → Herzinsuffizienz",
-   "reason": "Kausalkette nicht in Erfassung"
+   "reason": "Kausalkette nicht in Erfassung (nur KHK + Hypertonie 70–90 %)"
   },
   {
    "panel": "grundlagen",
@@ -45,7 +24,7 @@
   {
    "panel": "grundlagen",
    "deck_text": "obstruktive Form: Nitrate, Diuretika und Digitalis kontraindiziert",
-   "reason": "nicht in Erfassung (nur Nitrate bei Aortenstenose)"
+   "reason": "nicht in Erfassung"
   },
   {
    "panel": "klinik",
@@ -55,7 +34,7 @@
   {
    "panel": "diagnostik",
    "deck_text": "Ein normales BNP schließt die Herzinsuffizienz weitgehend aus",
-   "reason": "nur Grenzwerte erfasst, Aussage kompatibel"
+   "reason": "Erfassung nennt nur Grenzwerte (akut: BNP <100/NT-proBNP <300 ausgeschlossen); kompatibel"
   },
   {
    "panel": "diagnostik",
@@ -64,13 +43,13 @@
   },
   {
    "panel": "therapie",
-   "deck_text": "HFpEF: keine etablierte Basistherapie — SGLT2-Hemmer plus Diuretika",
-   "reason": "AMBOSS: SGLT2 empfohlen; Formulierung Ermessen"
+   "deck_text": "CRT bei Linksschenkelblock mit breitem QRS",
+   "reason": "AMBOSS: QRS ≥130 ms und EF ≤35 %; Vereinfachung"
   },
   {
-   "panel": "protokoll",
-   "deck_text": "HFrEF unter 40 Prozent",
-   "reason": "AMBOSS ≤40 %; gesprochene Vereinfachung"
+   "panel": "therapie",
+   "deck_text": "HFpEF: keine etablierte Basistherapie — SGLT2-Hemmer plus Diuretika",
+   "reason": "AMBOSS: SGLT2 empfohlen, Diuretika bei Stauung; Formulierung Ermessen"
   },
   {
    "panel": "protokoll",
@@ -89,18 +68,5 @@
   }
  ],
  "status": "done",
- "validated": "2026-10-09",
- "second_pass": {
-  "date": "2026-10-09",
-  "checked": 65,
-  "applied": 2,
-  "rejected_by_orchestrator": []
- },
- "third_pass": {
-  "date": "2026-10-10",
-  "model": "fable",
-  "checked": 52,
-  "applied": 0,
-  "rejected_by_orchestrator": []
- }
+ "validated": "2026-10-14"
 }

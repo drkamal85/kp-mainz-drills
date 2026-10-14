@@ -5,85 +5,63 @@
   "sources/amboss/hyperthyreose.md"
  ],
  "counts": {
-  "ok": 34,
+  "ok": 48,
   "fix": 0,
-  "unclear": 13
+  "unclear": 10
  },
  "fixes": [],
  "unclear": [
   {
    "panel": "grundlagen",
-   "deck_text": "Anatomie: 4 Epithelkörperchen, N. laryngeus recurrens, A. thyroidea sup./inf.",
-   "reason": "Anatomie nicht in Erfassung"
+   "deck_text": "Anatomie (Ringknorpel, 4 Epithelkörperchen, A. thyroidea sup./inf.)",
+   "reason": "nicht in Erfassung"
   },
   {
    "panel": "klinik",
-   "deck_text": "Struma: Grad 1 tastbar, Grad 2 sichtbar; Jodmangel häufigste Ursache",
-   "reason": "Struma-Artikel nicht erfasst"
+   "deck_text": "Struma WHO-Grade, OP-Indikation kosmetisch, Jodsalz",
+   "reason": "nicht in Erfassung"
   },
   {
    "panel": "diagnostik",
-   "deck_text": "Normwert TSH ca. 0,4–4,0 mU/l",
-   "reason": "Normwert nicht in Erfassung"
+   "deck_text": "TSH-Normwert 0,4–4,0 mU/l",
+   "reason": "nicht in Erfassung"
   },
   {
    "panel": "diagnostik",
-   "deck_text": "Autonomie → Antikörper negativ",
-   "reason": "nicht explizit in Erfassung"
-  },
-  {
-   "panel": "diagnostik",
-   "deck_text": "Heißer Knoten: autonom, meist benigne; FNP trennt follikuläres Ca nicht vom Adenom",
-   "reason": "nicht in Erfassung (nur kalte Knoten = Malignomverdacht)"
-  },
-  {
-   "panel": "diagnostik",
-   "deck_text": "Knoten → Malignitätskriterien per TIRADS bewerten",
-   "reason": "TIRADS nicht in Erfassung"
+   "deck_text": "FNP-Nachteil follikuläres Karzinom; TIRADS",
+   "reason": "nicht in Erfassung"
   },
   {
    "panel": "therapie",
-   "deck_text": "Carbimazol 20–40 mg/d … Thiamazol 10–20 mg 1-0-1",
-   "reason": "Dosierungen nicht in Erfassung"
+   "deck_text": "Carbimazol 20–40 mg/d, Erhaltung 2,5–15 mg; Thiamazol 10–20 mg 1-0-1; Propranolol 10–20 mg alle 6–8 h, 80–160 mg/d",
+   "reason": "Dosierungen in Erfassung als DOSIS-Platzhalter"
   },
   {
    "panel": "therapie",
-   "deck_text": "Propranolol Beginn 10–20 mg alle 6–8 h, Zieldosis 80–160 mg/d",
-   "reason": "Dosierung nicht in Erfassung"
+   "deck_text": "OP-Indikation Kinderwunsch",
+   "reason": "nicht in Erfassung"
   },
   {
    "panel": "therapie",
-   "deck_text": "Indikation OP: … Therapieversagen, Kinderwunsch",
-   "reason": "Kinderwunsch nicht in Erfassung"
-  },
-  {
-   "panel": "therapie",
-   "deck_text": "Perchlorat (bei Jod)",
-   "reason": "AMBOSS: Natriumperchlorat ohne Einschränkung; kompatibel"
-  },
-  {
-   "panel": "perlen",
-   "deck_text": "N. laryngeus recurrens (Heiserkeit; bds → Tracheotomie)",
-   "reason": "Schilddrüsenchirurgie nicht erfasst"
+   "deck_text": "Thyreotoxische Krise: Glukokortikoide (Protokoll: Hydrocortison)",
+   "reason": "AMBOSS: 'bspw. Prednisolon'; Wirkstoffwahl Ermessen"
   },
   {
    "panel": "protokoll",
-   "deck_text": "Perchlorat, 40 Tropfen 2 Stunden vor und nach dem CT … 20 Tropfen über 7 bis 14 Tage",
-   "reason": "KM-Prophylaxe-Schema nicht in Erfassung"
+   "deck_text": "Perchlorat 40 Tropfen 2 h vor/nach CT, dann 20 Tropfen 7–14 Tage",
+   "reason": "Dosierung nicht erfasst"
   },
   {
    "panel": "protokoll",
-   "deck_text": "Amiodaron ist bei Hyperthyreose kontraindiziert",
-   "reason": "nicht explizit in Erfassung"
+   "deck_text": "Amiodaron bei Hyperthyreose kontraindiziert",
+   "reason": "Erfassung: bei AIH Typ 2 Fortführung i.d.R. möglich; Kontext Neuverordnung – kein klarer Widerspruch"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "De Quervain mit erhöhter BSG; Vorhofflimmern-Mechanismus (Refraktärzeit)",
+   "reason": "nicht in Erfassung"
   }
  ],
  "status": "done",
- "validated": "2026-10-09",
- "third_pass": {
-  "date": "2026-10-10",
-  "model": "fable",
-  "checked": 46,
-  "applied": 0,
-  "rejected_by_orchestrator": []
- }
+ "validated": "2026-10-14"
 }

@@ -5,114 +5,63 @@
   "sources/amboss/schock.md"
  ],
  "counts": {
-  "ok": 32,
-  "fix": 1,
-  "unclear": 16
+  "ok": 38,
+  "fix": 0,
+  "unclear": 10
  },
- "fixes": [
-  {
-   "panel": "grundlagen",
-   "deck_text": "Myokardinfarkt (~80 %), Arrhythmie, Klappeninsuffizienz",
-   "new_text": "Myokardinfarkt (&lt;50 %), Arrhythmie, Klappeninsuffizienz",
-   "amboss_quote": "Dank verbesserter Prävention und früher Revaskularisation ist der klassische infarktbedingte kardiogene Schock seltener geworden, sodass heute nicht-infarktbedingte Ursachen überwiegen!",
-   "pass": 2
-  }
- ],
+ "fixes": [],
  "unclear": [
   {
    "panel": "grundlagen",
-   "deck_text": "Kardiogen: Myokardinfarkt (~80 %), Arrhythmie, Klappeninsuffizienz",
-   "reason": "AMBOSS: nicht-infarktbedingte Ursachen überwiegen; kein Ersatzwert"
-  },
-  {
-   "panel": "grundlagen",
-   "deck_text": "Schockorgane: ... ZNS (Eintrübung), Gerinnung (DIC)",
-   "reason": "AMBOSS listet Niere, Myokard, Leber, Lunge, Darm"
+   "deck_text": "Kardiogen: Myokardinfarkt (<50 %)",
+   "reason": "Bedeutung der Prozentangabe unklar; Erfassung: nicht-infarktbedingte Ursachen überwiegen heute"
   },
   {
    "panel": "klinik",
-   "deck_text": "Kardiogen: ... terminal Bradykardie",
-   "reason": "nicht in Erfassung"
-  },
-  {
-   "panel": "klinik",
-   "deck_text": "Septisch (früh): warme, rosige Haut",
-   "reason": "septischer Schock nur Querverweis"
+   "deck_text": "Halsvenen gestaut, terminal Bradykardie (kardiogen); warme Haut septisch früh/neurogen",
+   "reason": "Hautbefunde je Typ nur teilweise erfasst"
   },
   {
    "panel": "klinik",
    "deck_text": "Anaphylaxie Ring & Messmer I–IV",
-   "reason": "Anaphylaxie nur Querverweis"
+   "reason": "nur Verweis auf Anaphylaxie-Kapitel"
   },
   {
    "panel": "diagnostik",
-   "deck_text": "Hämodynamik-Tabelle HZV/SVR je Schockform",
-   "reason": "nur ZVD in Erfassung (✓); HZV/SVR nicht"
-  },
-  {
-   "panel": "diagnostik",
-   "deck_text": "ZVD Normwert 3–8 mmHg",
-   "reason": "nicht in Erfassung"
+   "deck_text": "Hämodynamik-Tabelle HZV/SVR je Typ; ZVD-Normwert 3–8 mmHg",
+   "reason": "nur ZVD-Richtung erfasst"
   },
   {
    "panel": "therapie",
-   "deck_text": "Lagerung: Beine hoch ~15° — Ausnahme kardiogen: Oberkörper hoch",
-   "reason": "AMBOSS: kardiogen symptomorientiert; Winkel nicht erfasst"
+   "deck_text": "Lagerung kardiogen: Oberkörper hoch",
+   "reason": "AMBOSS: 'Symptomorientierte Lagerung' (Bildverweis Oberkörperhochlagerung); kein klarer Widerspruch"
   },
   {
    "panel": "therapie",
-   "deck_text": "Adrenalin 0,5 mg i.m. ... <50 kg → 10 µg/kg; Prednisolon 250–1000 mg",
-   "reason": "Anaphylaxie-Therapie nicht in Erfassung"
+   "deck_text": "Hypovoläm: Volumen/EK, dann Noradrenalin",
+   "reason": "AMBOSS: Noradrenalin nur in Ausnahmefällen bei fehlendem Ansprechen; Nuance"
   },
   {
    "panel": "therapie",
-   "deck_text": "Septisch: 1-h-Bundle ... 30 ml/kg, Noradrenalin (MAP ≥ 65)",
-   "reason": "Sepsis nur Querverweis in dieser Erfassung"
+   "deck_text": "Sepsis-Bundle 30 ml/kg, MAP ≥ 65; Anaphylaxie Adrenalin 0,5 mg i.m., Prednisolon 250–1000 mg",
+   "reason": "Verweis auf Sepsis-/Anaphylaxie-Kapitel, nicht erfasst"
   },
   {
    "panel": "perlen",
-   "deck_text": "Glukokortikoide seit ERC 2025 nicht mehr routinemäßig",
-   "reason": "nicht in Erfassung"
-  },
-  {
-   "panel": "perlen",
-   "deck_text": "Beck-Trias: Hypotonie + gestaute Halsvenen + leiser Herzton",
-   "reason": "nicht in Erfassung"
-  },
-  {
-   "panel": "perlen",
-   "deck_text": "Spannungspneu — Entlastung: 2. ICR Medioklavikularlinie",
+   "deck_text": "Septischer Schock: Laktat > 2 mmol/L; Spannungspneu 2. ICR MCL; Beck-Trias",
    "reason": "nicht in Erfassung"
   },
   {
    "panel": "protokoll",
-   "deck_text": "Bei Massivtransfusion ... im Verhältnis 1:1:1.",
-   "reason": "AMBOSS: balancierte Transfusion, Verhältnis nicht genannt"
+   "deck_text": "Massivtransfusion 1:1:1; 0-negativ; Kristalloide 25 % intravasal; HAES/Gelatine/Albumin",
+   "reason": "nicht in Erfassung (nur balancierte Transfusion EK+FFP+TK)"
   },
   {
    "panel": "protokoll",
-   "deck_text": "Kristalloide ... nur etwa 25 Prozent bleiben im Gefäß.",
-   "reason": "nicht in Erfassung"
-  },
-  {
-   "panel": "protokoll",
-   "deck_text": "Akut führen schon 150 bis 200 ml zur Tamponade",
+   "deck_text": "Tamponade 150–200 ml akut / >1 L chronisch; H1/H2-Rezeptoren",
    "reason": "nicht in Erfassung"
   }
  ],
  "status": "done",
- "validated": "2026-10-09",
- "second_pass": {
-  "date": "2026-10-09",
-  "checked": 66,
-  "applied": 1,
-  "rejected_by_orchestrator": []
- },
- "third_pass": {
-  "date": "2026-10-10",
-  "model": "fable",
-  "checked": 44,
-  "applied": 0,
-  "rejected_by_orchestrator": []
- }
+ "validated": "2026-10-14"
 }

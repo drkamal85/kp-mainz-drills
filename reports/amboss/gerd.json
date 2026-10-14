@@ -5,95 +5,68 @@
   "sources/amboss/gerd.md"
  ],
  "counts": {
-  "ok": 44,
-  "fix": 2,
-  "unclear": 12
+  "ok": 55,
+  "fix": 0,
+  "unclear": 11
  },
- "fixes": [
-  {
-   "panel": "diagnostik",
-   "deck_text": "Bessert es, ist die Diagnose gestellt.",
-   "new_text": "Bessert es, ist die Diagnose nicht bewiesen.",
-   "amboss_quote": "Eine Besserung der Symptomatik durch die Therapie mit einem PPI ist kein diagnostisches Kriterium!",
-   "note": "Orchestrator-Nachkorrektur: 'nicht gestellt' -> 'nicht bewiesen' (Sinn wie AMBOSS)"
-  },
-  {
-   "panel": "klinik",
-   "deck_text": "Bessert auf Protonenpumpenhemmer — das stützt die Diagnose",
-   "new_text": "Bessert auf Protonenpumpenhemmer — das beweist die Diagnose nicht",
-   "amboss_quote": "- Eine Besserung der Symptomatik durch die Therapie mit einem PPI ist kein diagnostisches Kriterium!",
-   "pass": 3
-  }
- ],
+ "fixes": [],
  "unclear": [
   {
    "panel": "grundlagen",
-   "deck_text": "NERD: Beschwerden, aber keine sichtbare Schädigung — rund 60 Prozent",
-   "reason": "Anteil NERD nicht in Erfassung (nur: meiste Personen endoskopisch unauffällig)"
+   "deck_text": "NERD rund 60 Prozent",
+   "reason": "AMBOSS: bei den meisten Personen mit GERD endoskopisch keine Auffälligkeiten; Prozentzahl nicht erfasst"
   },
   {
-   "panel": "klinik",
-   "deck_text": "Bessert auf Protonenpumpenhemmer — das stützt die Diagnose",
-   "reason": "AMBOSS: PPI-Besserung kein diagnostisches Kriterium; 'stützt' schwächer formuliert"
+   "panel": "grundlagen",
+   "deck_text": "Aszites; späte Mahlzeiten",
+   "reason": "nicht explizit in Erfassung"
   },
   {
    "panel": "diagnostik",
-   "deck_text": "Auch bei Therapieversagen und ab 45 bis 50 Jahren",
+   "deck_text": "ÖGD auch ab 45 bis 50 Jahren",
    "reason": "Altersgrenze nicht in Erfassung"
   },
   {
    "panel": "therapie",
-   "deck_text": "3 Stunden Abstand zwischen Mahlzeit und Hinlegen",
-   "reason": "AMBOSS nur 'ausreichender Abstand zur Nachtruhe'"
+   "deck_text": "3 Stunden Abstand zwischen Mahlzeit und Hinlegen; Kopfende erhöhen statt Kissen",
+   "reason": "AMBOSS: ausreichender Abstand zur Nachtruhe; 3 h nicht genannt"
   },
   {
    "panel": "therapie",
-   "deck_text": "Einmal täglich, 30 Minuten vor dem Frühstück — sie wirken nur an aktiven Pumpen.",
-   "reason": "Einmal täglich/Wirkmechanismus nicht in Erfassung; 30–60 min ✓"
+   "deck_text": "PPI 4 bis 8 Wochen, bei Grad C und D länger",
+   "reason": "AMBOSS: A/B 4 Wochen, C/D 8 Wochen; Formulierung mehrdeutig, kein klarer Widerspruch"
   },
   {
    "panel": "therapie",
-   "deck_text": "4 bis 8 Wochen, bei Grad C und D länger, danach ausschleichen",
-   "reason": "AMBOSS: A/B 4 Wo, C/D 8 Wo; 'länger' mehrdeutig"
+   "deck_text": "PPI-Langzeitfolgen B12, Magnesium, Osteoporose",
+   "reason": "nicht in Erfassung"
   },
   {
    "panel": "therapie",
-   "deck_text": "Langzeitfolgen: B12- und Magnesiummangel, Osteoporose",
-   "reason": "PPI-Nebenwirkungen nicht in Erfassung"
+   "deck_text": "OP-Indikation junger Patient, große Hiatushernie",
+   "reason": "AMBOSS-Indikationen anders formuliert (fortgeschrittenes Stadium, Unverträglichkeit, Therapieresistenz); nicht widersprüchlich"
   },
   {
    "panel": "therapie",
-   "deck_text": "Indikation: junger Patient, große Hiatushernie, Therapieversagen",
-   "reason": "Nur Therapieresistenz in Erfassung"
-  },
-  {
-   "panel": "therapie",
-   "deck_text": "Komplikation: Gas-bloat-Syndrom — Aufstoßen geht nicht mehr",
-   "reason": "OP-Komplikationen nicht in Erfassung"
+   "deck_text": "Gas-bloat-Syndrom",
+   "reason": "nicht in Erfassung"
   },
   {
    "panel": "perlen",
-   "deck_text": "Beim Zollinger-Ellison-Syndrom produziert ein Gastrinom massiv Säure. Behandelt wird mit hochdosierten PPI.",
-   "reason": "Gastrinom nur als Risikofaktor erfasst"
+   "deck_text": "Gastrinom/Zollinger-Ellison: hochdosierte PPI",
+   "reason": "Gastrinom nur als Ursache genannt, Therapie nicht erfasst"
   },
   {
    "panel": "perlen",
-   "deck_text": "Ohne Dysplasie PPI und Kontrolle.",
-   "reason": "AMBOSS: PPI symptom-/befundorientiert, keine Ablation; Kontrolle ✓"
+   "deck_text": "Barrett ohne Dysplasie PPI und Kontrolle",
+   "reason": "AMBOSS: PPI symptom-/befundorientiert"
   },
   {
-   "panel": "perlen",
-   "deck_text": "Retrosternaler Schmerz — was zuerst? EKG und Troponin",
-   "reason": "Kardiologische Abklärung erfasst, EKG/Troponin nicht explizit"
+   "panel": "klinik",
+   "deck_text": "Achalasie Dysphagie für Festes und Flüssiges; Karzinom erst Festes; Tietze, Boerhaave",
+   "reason": "Details nicht in Erfassung"
   }
  ],
  "status": "done",
- "validated": "2026-10-09",
- "third_pass": {
-  "date": "2026-10-10",
-  "model": "fable",
-  "checked": 46,
-  "applied": 1,
-  "rejected_by_orchestrator": []
- }
+ "validated": "2026-10-14"
 }

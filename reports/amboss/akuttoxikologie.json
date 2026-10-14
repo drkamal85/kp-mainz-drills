@@ -5,100 +5,73 @@
   "sources/amboss/akuttoxikologie.md"
  ],
  "counts": {
-  "ok": 30,
+  "ok": 40,
   "fix": 0,
-  "unclear": 16
+  "unclear": 12
  },
  "fixes": [],
  "unclear": [
   {
    "panel": "klinik",
-   "deck_text": "Paracetamol: Ab etwa 150 mg/kg wird es gefährlich",
-   "reason": "Einzelvergiftungen nicht Teil der Grundlagen-Erfassung"
+   "deck_text": "Paracetamol ab 150 mg/kg; Transaminasen nach 24–36 h",
+   "reason": "nicht in Erfassung"
   },
   {
    "panel": "klinik",
-   "deck_text": "Transaminasen steigen erst nach 24 bis 36 Stunden",
-   "reason": "Paracetamol-Artikel nicht erfasst"
+   "deck_text": "CO: Pulsoxymeter normal, kirschrote Haut unzuverlässig",
+   "reason": "nur Sauerstoff-Sättigungsdefizit bei CO erfasst; kompatibel"
   },
   {
    "panel": "klinik",
-   "deck_text": "Kirschrote Haut ist unzuverlässig",
-   "reason": "CO-Artikel nicht erfasst"
-  },
-  {
-   "panel": "klinik",
-   "deck_text": "Wernicke-Enzephalopathie vorbeugen: Thiamin vor Glukose",
-   "reason": "Alkohol-Artikel nicht erfasst"
+   "deck_text": "Alkohol: Thiamin vor Glukose",
+   "reason": "nicht in Erfassung"
   },
   {
    "panel": "diagnostik",
-   "deck_text": "Paracetamol frühestens 4 Stunden nach Einnahme",
+   "deck_text": "Große Anionenlücke: Methanol, Ethylenglykol, Salicylate",
+   "reason": "Erfassung: Salicylate erhöhte AL; Methanol/EG unter 'zusätzliche metabolische Azidose'; kompatibel"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Paracetamol-Spiegel frühestens 4 h",
    "reason": "nicht in Erfassung"
   },
   {
    "panel": "therapie",
-   "deck_text": "Aktivkohle nur in der ersten Stunde, etwa 1 g pro Kilogramm",
-   "reason": "Zeitfenster/Dosis nicht erfasst (SOP-Verweis)"
-  },
-  {
-   "panel": "therapie",
-   "deck_text": "Erbrechen wird nicht mehr ausgelöst — Aspirationsgefahr",
-   "reason": "AMBOSS nennt induziertes Erbrechen ohne Wertung; SOP nicht erfasst"
+   "deck_text": "Aktivkohle nur in der ersten Stunde, ~1 g/kg",
+   "reason": "Zeitfenster/Dosis nicht erfasst (nur Verweis)"
   },
   {
    "panel": "therapie",
    "deck_text": "Dialysierbar: Methanol, Ethylenglykol, Lithium, Salicylate, Metformin",
-   "reason": "Substanzliste nicht in Erfassung"
+   "reason": "nur 'Hämodialyse' als Maßnahme erfasst"
   },
   {
    "panel": "therapie",
-   "deck_text": "Kohlenmonoxid — Sauerstoff 100 %",
-   "reason": "CO nicht in Antidot-Tabelle; nur hyperbare Oxygenierung genannt"
-  },
-  {
-   "panel": "therapie",
-   "deck_text": "Betablocker — Glukagon",
-   "reason": "nicht in Antidot-Tabelle"
-  },
-  {
-   "panel": "therapie",
-   "deck_text": "Naloxon: zu schnell löst Entzugssyndrom aus; wirkt kürzer als das Opioid",
+   "deck_text": "Betablocker → Glukagon; Flumazenil-Krampfgefahr; NAC innerhalb 8 h",
    "reason": "nicht in Erfassung"
   },
   {
-   "panel": "therapie",
-   "deck_text": "NAC am besten in den ersten 8 Stunden; ersetzt Glutathion",
-   "reason": "Paracetamol-Artikel nicht erfasst"
+   "panel": "perlen",
+   "deck_text": "CO bindet 250-mal stärker; hyperbare O2-Therapie",
+   "reason": "nur 'Hyperbare Oxygenierung' als Maßnahme erfasst"
   },
   {
-   "panel": "perlen",
-   "deck_text": "CO bindet etwa 250-mal stärker als Sauerstoff an Hämoglobin",
-   "reason": "CO-Artikel nicht erfasst"
+   "panel": "protokoll",
+   "deck_text": "Weite Pupillen bei Kokain, Amphetaminen und Benzodiazepinen",
+   "reason": "Benzodiazepine: Pupillen im Sedativa-Syndrom nicht erfasst"
   },
   {
-   "panel": "perlen",
-   "deck_text": "EKG-Zeichen der Digitalisvergiftung: muldenförmige ST-Senkung und Bradykardie",
+   "panel": "protokoll",
+   "deck_text": "Paracetamol toxisch ab 7,5–10 g, >12 g lebensbedrohlich; Leberversagen nach 48 h",
    "reason": "nicht in Erfassung"
   },
   {
    "panel": "protokoll",
-   "deck_text": "Weite Pupillen finde ich bei Kokain, Amphetaminen und Benzodiazepinen.",
-   "reason": "Pupillenbefund Benzodiazepine nicht in Erfassung"
-  },
-  {
-   "panel": "protokoll",
-   "deck_text": "Toxisch wird es ab etwa 7,5 bis 10 g. Über 12 g ist die Dosis lebensbedrohlich.",
-   "reason": "Paracetamol-Artikel nicht erfasst"
+   "deck_text": "Digitalis: Gelbsehen, Betablocker verstärkt Wirkung",
+   "reason": "nicht in Erfassung"
   }
  ],
  "status": "done",
- "validated": "2026-10-09",
- "third_pass": {
-  "date": "2026-10-10",
-  "model": "fable",
-  "checked": 58,
-  "applied": 0,
-  "rejected_by_orchestrator": []
- }
+ "validated": "2026-10-14"
 }

@@ -5,46 +5,31 @@
   "sources/amboss/impfungen-stiko.md"
  ],
  "counts": {
-  "ok": 27,
-  "fix": 2,
+  "ok": 30,
+  "fix": 0,
   "unclear": 15
  },
- "fixes": [
-  {
-   "panel": "klinik",
-   "deck_text": "Tetanus/Diphtherie/Pertussis-Auffrischung alle 10 Jahre",
-   "new_text": "Tetanus/Diphtherie-Auffrischung alle 10 Jahre",
-   "amboss_quote": "| Pertussis | A3 (einmalig)*² | N | (wie Tetanus/Diphtherie ab hier) | | | | | | | |",
-   "pass": 2
-  },
-  {
-   "panel": "klinik",
-   "deck_text": "<strong>Meningokokken C/B</strong></td><td>1. Lebensjahr",
-   "new_text": "<strong>Meningokokken B</strong></td><td>1. Lebensjahr",
-   "amboss_quote": "| Meningokokken ACWY | — | — | — | G1 | N | — | — | — | | |",
-   "pass": 2
-  }
- ],
+ "fixes": [],
  "unclear": [
   {
    "panel": "grundlagen",
-   "deck_text": "SIKO (Sächsische Impfkommission) gibt eigene Empfehlungen",
+   "deck_text": "Aktualisierung etwa jährlich",
    "reason": "nicht in Erfassung"
   },
   {
    "panel": "grundlagen",
-   "deck_text": "Lebend: Typhus (oral); Tot: Influenza (i.m.), Hib, Hepatitis A/B, HPV",
-   "reason": "Impfstoffarten-Kapitel nicht erfasst (Lücke)"
+   "deck_text": "Zwei Lebendimpfungen: gleichzeitig oder im Abstand von ≥ 4 Wochen",
+   "reason": "Erfassung nur Mindestabstand MMR/V 4 Wochen bzw. 'Mindestabstände zwischen parenteralen Lebendimpfungen'"
   },
   {
    "panel": "klinik",
-   "deck_text": "Meningokokken C/B — 1. Lebensjahr",
-   "reason": "Kalender nennt nur MenB im Säuglingsalter, ACWY mit 12–14 J."
+   "deck_text": "MMR + Varizellen 11 · 15 Monate",
+   "reason": "Varizellen-Zeile der Tabelle nur G1 (2. Dosis via MMRV möglich); Tabellenausrichtung unklar"
   },
   {
    "panel": "klinik",
-   "deck_text": "Tetanus/Diphtherie/Pertussis-Auffrischung alle 10 Jahre",
-   "reason": "AMBOSS: Pertussis-A3 einmalig als Tdap; Tabelle mehrdeutig"
+   "deck_text": "Ab 60: ... COVID-19",
+   "reason": "COVID-19 'S (jährlich)' in Tabelle unter ≥75 ausgerichtet; Spaltenzuordnung der Erfassung mehrdeutig"
   },
   {
    "panel": "klinik",
@@ -52,69 +37,56 @@
    "reason": "nicht in Erfassung"
   },
   {
-   "panel": "klinik",
-   "deck_text": "MMR + Varizellen (Lebend): 11 · 15 Monate",
-   "reason": "Kalendertabelle in Erfassung spaltenverschoben (Merged Cells)"
-  },
-  {
    "panel": "diagnostik",
-   "deck_text": "Vier Stufen Impfreaktion/-krankheit/-komplikation/-schaden, Meldung",
-   "reason": "nicht in Erfassung (eigene Kapitel)"
-  },
-  {
-   "panel": "diagnostik",
-   "deck_text": "§ 6 IfSG → Gesundheitsamt → PEI; Meldefrist 24 h",
-   "reason": "nicht in Erfassung; auch Perlen/Rapid-Fire"
+   "deck_text": "Vier Stufen Impfreaktion/-krankheit/-komplikation/-schaden, Meldepflicht, Meldeweg § 6 IfSG → PEI, 24 h",
+   "reason": "Abschnitt unerwünschte Wirkungen/Meldewesen nicht in dieser Erfassung"
   },
   {
    "panel": "therapie",
-   "deck_text": "Echte KI: Fieber > 38,5 °C, Allergie gegen Bestandteil",
-   "reason": "Kontraindikationen-Kapitel nicht erfasst; auch Perlen/Tab 6"
+   "deck_text": "Echte KI: Fieber > 38,5 °C; Nicht-KI-Liste",
+   "reason": "Kontraindikationen nur als Verweis erfasst"
   },
   {
    "panel": "therapie",
-   "deck_text": "Antrag beim Versorgungsamt; SGB XIV seit 2024",
-   "reason": "nicht in dieser Erfassung; auch Perlen/Rapid-Fire/Tab 6"
-  },
-  {
-   "panel": "perlen",
-   "deck_text": "Epidemiologisches Bulletin → G-BA Schutzimpfungs-Richtlinie → Länder",
+   "deck_text": "Entschädigung: Versorgungsamt, SGB XIV",
    "reason": "nicht in Erfassung"
   },
   {
-   "panel": "perlen (Rapid-Fire)",
-   "deck_text": "Masernschutzgesetz / STIKO-Impfkategorien / Tetanus-Immunglobulin",
-   "reason": "nicht in Erfassung (Masern-Impfpflicht nur Verweis)"
+   "panel": "perlen",
+   "deck_text": "G-BA / Schutzimpfungs-Richtlinie, Beweiserleichterung, Kann-Versorgung",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Masernschutzgesetz: Nachweispflicht",
+   "reason": "nur Verweis 'gesetzliche Masern-Impfpflicht'"
   },
   {
    "panel": "protokoll",
-   "deck_text": "2 Dosen im Abstand von 3 bis 6 Wochen ... Ab 60 jährliche Auffrischungen",
-   "reason": "COVID-Kapitel nicht erfasst; Tabelle nennt jährlich, Alter mehrdeutig"
+   "deck_text": "COVID-19: 2 Dosen im Abstand 3–6 Wochen + Auffrischung; ab 60 jährlich",
+   "reason": "Erfassung: SIKO-Abweichung 'keine grundsätzliche Empfehlung mehr zur vollständigen Grundimmunisierung', Tabelle 'S (jährlich)' – Schema nicht erfasst, Altersgrenze mehrdeutig"
   },
   {
    "panel": "protokoll",
-   "deck_text": "SSPE; Mumps-Komplikationen; Windpocken-Latenz",
-   "reason": "krankheitsspezifische Kapitel nicht erfasst"
+   "deck_text": "SSPE nicht heilbar, tödlich",
+   "reason": "nicht in Erfassung"
   },
   {
    "panel": "protokoll",
-   "deck_text": "Asplenie: Pneumokokken, Meningokokken, Hib; OPSI",
-   "reason": "Asplenie-Kapitel nur Verweis"
+   "deck_text": "Hib schützt vor Epiglottitis und Meningitis",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Splenektomie: Pneumokokken, Meningokokken, Hib; OPSI",
+   "reason": "Asplenie-Abschnitt nur als Überschrift; Immunsuppressions-Liste kompatibel"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Mumps-Komplikationen Orchitis, Meningitis, Pankreatitis, Innenohr",
+   "reason": "nicht in Erfassung"
   }
  ],
  "status": "done",
- "validated": "2026-10-09",
- "second_pass": {
-  "date": "2026-10-09",
-  "checked": 50,
-  "applied": 2,
-  "rejected_by_orchestrator": []
- },
- "third_pass": {
-  "date": "2026-10-10",
-  "model": "fable",
-  "checked": 41,
-  "applied": 0,
-  "rejected_by_orchestrator": []
- }
+ "validated": "2026-10-14"
 }

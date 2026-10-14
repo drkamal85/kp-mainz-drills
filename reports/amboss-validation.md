@@ -6,6 +6,8 @@ Referenz ausschließlich `sources/amboss/`. Marke `AMBOSS-validiert` = kein Wide
 **Durchgang 2 (09.10.2026, Opus, unabhängig, 31 KERN-Decks):** 1949 Fakten · 24 weitere ✗ · 6 Meldungen verworfen.
 **Durchgang 3 (10.10.2026, Fable, unabhängig, alle 88 Decks):** 3911 Fakten · 34 weitere ✗ in 17 Decks · 10 Meldungen verworfen.
 
+**Durchgang 4 (14.10.2026, nach AMBOSS-Neu-Erfassung, 20 Decks):** 837 ✓ · 4 ✗ korrigiert · 219 ? protokolliert. Erstmals validiert: arzneimittelinteraktionen-uaw.
+
 Ohne Erfassung, nicht geprüft: beckenringfrakturen, claviculafraktur, kreuzbandruptur.
 
 | Deck | ✓ | ✗ gesamt | ? | D2 | D3 |
@@ -13,7 +15,7 @@ Ohne Erfassung, nicht geprüft: beckenringfrakturen, claviculafraktur, kreuzband
 | acs-myokardinfarkt | 58 | 6 | 11 | 5/74 | 0/71 |
 | akute-leukaemien | 46 | 0 | 12 | — | 0/42 |
 | akutes-abdomen | 52 | 0 | 12 | 0/72 | 0/48 |
-| akuttoxikologie | 30 | 0 | 16 | — | 0/58 |
+| akuttoxikologie | 40 | 0 | 12 | — | 0/58 |
 | allgemeine-frakturlehre | 40 | 2 | 13 | 2/68 | 0/44 |
 | anaesthesie-atemweg | 24 | 0 | 18 | 0/68 | 0/42 |
 | anaphylaxie | 28 | 1 | 16 | — | 1/52 |
@@ -22,9 +24,9 @@ Ohne Erfassung, nicht geprüft: beckenringfrakturen, claviculafraktur, kreuzband
 | aortenaneurysma | 30 | 1 | 14 | — | 0/42 |
 | aortendissektion | 34 | 0 | 13 | — | 0/41 |
 | appendizitis | 36 | 0 | 14 | 0/55 | 0/41 |
-| arterielle-hypertonie | 52 | 2 | 13 | 0/62 | 0/48 |
+| arterielle-hypertonie | 52 | 2 | 9 | 0/62 | 0/48 |
 | asthma-bronchiale | 56 | 5 | 12 | — | 1/58 |
-| aufklaerung-einwilligung-betreuung | 24 | 0 | 9 | 0/44 | 0/42 |
+| aufklaerung-einwilligung-betreuung | 30 | 0 | 7 | 0/44 | 0/42 |
 | av-block | 30 | 0 | 12 | — | 0/47 |
 | bluttransfusion | 28 | 0 | 14 | 0/57 | 0/46 |
 | borreliose-fsme | 30 | 0 | 17 | — | 0/38 |
@@ -34,36 +36,36 @@ Ohne Erfassung, nicht geprüft: beckenringfrakturen, claviculafraktur, kreuzband
 | cushing-syndrom | 34 | 0 | 10 | — | 0/45 |
 | delir | 36 | 1 | 14 | — | 1/46 |
 | diabetes-mellitus | 46 | 1 | 12 | 1/84 | 0/62 |
-| diarrhoe | 14 | 0 | 16 | — | 0/26 |
+| diarrhoe | 34 | 3 | 22 | — | 0/26 |
 | distale-radiusfraktur | 22 | 0 | 10 | — | 0/38 |
 | divertikulitis | 38 | 9 | 15 | 1/64 | 0/48 |
 | eisenmangelanaemie | 48 | 0 | 14 | — | 0/46 |
-| gastritis | 40 | 7 | 15 | — | 0/56 |
+| gastritis | 42 | 7 | 9 | — | 0/56 |
 | gastroduodenales-ulkus | 40 | 4 | 15 | 3/61 | 0/44 |
-| gerd | 44 | 2 | 12 | — | 1/46 |
+| gerd | 55 | 2 | 11 | — | 1/46 |
 | gi-blutung | 52 | 0 | 13 | 0/64 | 0/46 |
 | haemorrhoiden | 36 | 0 | 12 | — | 0/40 |
 | harnwegsinfekt | 24 | 5 | 11 | 5/48 | 0/36 |
-| hepatitis | 24 | 0 | 19 | — | 0/52 |
-| herzinsuffizienz | 46 | 3 | 11 | 2/65 | 0/52 |
+| hepatitis | 48 | 0 | 14 | — | 0/52 |
+| herzinsuffizienz | 52 | 3 | 11 | 2/65 | 0/52 |
 | herzklappenerkrankungen | 30 | 0 | 15 | — | 0/36 |
 | hueft-knie-tep | 14 | 0 | 12 | — | 0/28 |
 | humerusfraktur | 22 | 0 | 22 | — | 0/31 |
-| hyperthyreose | 34 | 0 | 13 | — | 0/46 |
+| hyperthyreose | 48 | 0 | 10 | — | 0/46 |
 | hyponatriaemie-siadh | 30 | 4 | 12 | — | 2/40 |
 | hypothyreose | 30 | 0 | 8 | — | 0/42 |
 | ikterus-cholestase | 30 | 0 | 10 | — | 0/52 |
 | ileus | 52 | 0 | 13 | 0/78 | 0/47 |
-| impfungen-stiko | 27 | 2 | 15 | 2/50 | 0/41 |
+| impfungen-stiko | 30 | 2 | 15 | 2/50 | 0/41 |
 | infektioese-endokarditis | 40 | 8 | 14 | — | 5/58 |
 | khk | 6 | 0 | 12 | — | 0/12 |
-| kolonkarzinom | 38 | 4 | 15 | 0/72 | 2/55 |
+| kolonkarzinom | 50 | 4 | 11 | 0/72 | 2/55 |
 | lebertumoren | 14 | 0 | 14 | — | 0/22 |
 | leberzirrhose | 44 | 0 | 16 | — | 0/55 |
 | leistenhernie | 36 | 1 | 15 | 1/46 | 0/42 |
 | lungenembolie | 34 | 0 | 13 | 0/58 | 0/47 |
-| magenkarzinom | 32 | 3 | 11 | — | 3/44 |
-| meningitis | 36 | 0 | 13 | — | 0/46 |
+| magenkarzinom | 52 | 3 | 11 | — | 3/44 |
+| meningitis | 58 | 1 | 12 | — | 0/46 |
 | milzruptur-splenektomie | 33 | 0 | 13 | — | 0/46 |
 | morbus-crohn | 62 | 0 | 10 | — | 0/52 |
 | morbus-hodgkin | 47 | 3 | 15 | — | 1/41 |
@@ -73,20 +75,20 @@ Ohne Erfassung, nicht geprüft: beckenringfrakturen, claviculafraktur, kreuzband
 | pankreaskarzinom | 30 | 0 | 14 | — | 0/34 |
 | pankreatitis | 36 | 4 | 11 | — | 4/52 |
 | pavk | 34 | 1 | 9 | — | 1/58 |
-| pneumonie | 24 | 0 | 14 | — | 0/32 |
+| pneumonie | 30 | 0 | 9 | — | 0/32 |
 | pneumothorax | 52 | 0 | 10 | 0/63 | 0/47 |
 | polytrauma-abcde | 34 | 0 | 18 | 0/56 | 0/46 |
 | praevention | 22 | 5 | 13 | — | 0/27 |
 | proximale-femurfraktur | 48 | 0 | 15 | 0/54 | 0/47 |
 | reanimation-cpr | 38 | 0 | 16 | — | 0/38 |
 | rechtsmedizin | 48 | 1 | 14 | — | 0/34 |
-| rektumkarzinom | 30 | 0 | 7 | — | 0/38 |
+| rektumkarzinom | 34 | 0 | 7 | — | 0/38 |
 | saeure-basen-bga | 44 | 0 | 15 | 0/72 | 0/48 |
 | schaedel-hirn-trauma | 24 | 1 | 11 | 0/38 | 0/34 |
 | schilddruesenkarzinom | 36 | 5 | 11 | — | 0/41 |
 | schlaganfall | 38 | 0 | 10 | 0/76 | 0/46 |
-| schmerztherapie | 30 | 0 | 16 | 0/56 | 0/32 |
-| schock | 32 | 1 | 16 | 1/66 | 0/44 |
+| schmerztherapie | 24 | 0 | 10 | 0/56 | 0/32 |
+| schock | 38 | 1 | 10 | 1/66 | 0/44 |
 | sepsis | 62 | 3 | 14 | — | 0/58 |
 | sozialrecht-hygiene | 32 | 1 | 16 | — | 0/46 |
 | sprunggelenksfraktur | 38 | 0 | 13 | — | 0/36 |
@@ -96,7 +98,7 @@ Ohne Erfassung, nicht geprüft: beckenringfrakturen, claviculafraktur, kreuzband
 | tuberkulose | 38 | 7 | 11 | — | 0/52 |
 | tvt | 38 | 0 | 10 | — | 0/41 |
 | verbrennung | 31 | 4 | 13 | — | 1/58 |
-| vorhofflimmern | 58 | 0 | 22 | 0/88 | 0/62 |
+| vorhofflimmern | 48 | 0 | 13 | 0/88 | 0/62 |
 | wirbelsaeulenverletzungen | 44 | 1 | 18 | — | 1/46 |
 
 ## Korrekturen Durchgang 1
@@ -233,6 +235,13 @@ Ohne Erfassung, nicht geprüft: beckenringfrakturen, claviculafraktur, kreuzband
 - **verbrennung** (therapie): „Ziel etwa 0,5 bis 1 ml pro kg und Stunde“ → „Ziel etwa 0,3 bis 0,5 ml pro kg und Stunde“ — AMBOSS: | Diurese | 0,3–0,5 mL/kgKG/h (bei Starkstromverbrennung 2 mL/kgKG/h) |
 - **wirbelsaeulenverletzungen** (grundlagen): „<strong>HWS:</strong> zweithäufig, oft bei Hochrasanztrauma“ → „<strong>HWS:</strong> am seltensten, oft bei Hochrasanztrauma“ — AMBOSS:   - Prozentuale Verteilung: 55% LWS-Frakturen (70,5/100.000 Einwohner); 32% BWS-Frakturen (41,3/100.000 Einwohner); 13% HWS-Frakturen (16,5/100.000 Einwohner)
 
+## Korrekturen Durchgang 4
+
+- **diarrhoe** (diagnostik): „Blut im Stuhl, Fieber über 38,5 Grad, Dauer über 7 Tage“ → „Blut im Stuhl, Fieber über 38,5 Grad, Dauer über 14 Tage“ — AMBOSS: Symptombezogen ... Blutige Diarrhö / Diarrhö >14 Tage
+- **diarrhoe** (therapie): „Empirisch Azithromycin oder Ciprofloxacin, dann nach Resistenztest.“ → „Empirisch Azithromycin oder Aminopenicillin plus Betalaktamase-Inhibitor, dann nach Resistenztest.“ — AMBOSS: Azithromycin als Einmalgabe oder über 3 Tage / Alternative: Aminopenicillin + Betalaktamase-Inhibitor i.v. / Nicht empfohlen: Cephalosporine Gruppe 3a, Fluorchinolone, Metronidazol
+- **diarrhoe** (perlen): „Blut, Fieber über 38,5 Grad, Dauer über 7 Tage, Immunschwäche, Antibiotikum“ → „Blut, Fieber über 38,5 Grad, Dauer über 14 Tage, Immunschwäche, Antibiotikum“ — AMBOSS: Diarrhö >14 Tage
+- **meningitis** (therapie): „Ampicillin dazu wegen der Listerien — ab 50 und bei Immunschwäche“ → „Ampicillin dazu wegen der Listerien — bei jedem Erwachsenen“ — AMBOSS: Und Ampicillin i.v. bei Erwachsenen und Neugeborenen: Zur Abdeckung von Listerien / Im Erwachsenenalter: Kombination Ampicillin + Cephalosporin der 3. Generation
+
 ## Verworfene Meldungen (mit Begründung)
 
 - **anaphylaxie** (D3): „Volumen ja, Antihistaminikum nur bei Hautsymptomen, Kortison nicht mehr routinemäßig.“ — Deck beruft sich ausdrücklich auf ERC 2025; AMBOSS-Erfassung älterer Stand — Leitlinien-Nuance, Mohamed entscheidet
@@ -260,4 +269,4 @@ Ohne Erfassung, nicht geprüft: beckenringfrakturen, claviculafraktur, kreuzband
 
 ## AMBOSS-validiert
 
-acs-myokardinfarkt, akute-leukaemien, akutes-abdomen, akuttoxikologie, allgemeine-frakturlehre, anaesthesie-atemweg, anaphylaxie, antibiotikatherapie, antikoagulation-bridging, aortenaneurysma, aortendissektion, appendizitis, arterielle-hypertonie, asthma-bronchiale, aufklaerung-einwilligung-betreuung, av-block, bluttransfusion, borreliose-fsme, bronchialkarzinom, cholezystitis, copd, cushing-syndrom, delir, diabetes-mellitus, diarrhoe, distale-radiusfraktur, divertikulitis, eisenmangelanaemie, gastritis, gastroduodenales-ulkus, gerd, gi-blutung, haemorrhoiden, harnwegsinfekt, hepatitis, herzinsuffizienz, herzklappenerkrankungen, hueft-knie-tep, humerusfraktur, hyperthyreose, hyponatriaemie-siadh, hypothyreose, ikterus-cholestase, ileus, impfungen-stiko, infektioese-endokarditis, khk, kolonkarzinom, lebertumoren, leberzirrhose, leistenhernie, lungenembolie, magenkarzinom, meningitis, milzruptur-splenektomie, morbus-crohn, morbus-hodgkin, nierenversagen, non-hodgkin-lymphome, osteoporose, pankreaskarzinom, pankreatitis, pavk, pneumonie, pneumothorax, polytrauma-abcde, praevention, proximale-femurfraktur, reanimation-cpr, rechtsmedizin, rektumkarzinom, saeure-basen-bga, schaedel-hirn-trauma, schilddruesenkarzinom, schlaganfall, schmerztherapie, schock, sepsis, sozialrecht-hygiene, sprunggelenksfraktur, strahlenschutz, struma, synkope, tuberkulose, tvt, verbrennung, vorhofflimmern, wirbelsaeulenverletzungen
+arzneimittelinteraktionen-uaw, acs-myokardinfarkt, akute-leukaemien, akutes-abdomen, akuttoxikologie, allgemeine-frakturlehre, anaesthesie-atemweg, anaphylaxie, antibiotikatherapie, antikoagulation-bridging, aortenaneurysma, aortendissektion, appendizitis, arterielle-hypertonie, asthma-bronchiale, aufklaerung-einwilligung-betreuung, av-block, bluttransfusion, borreliose-fsme, bronchialkarzinom, cholezystitis, copd, cushing-syndrom, delir, diabetes-mellitus, diarrhoe, distale-radiusfraktur, divertikulitis, eisenmangelanaemie, gastritis, gastroduodenales-ulkus, gerd, gi-blutung, haemorrhoiden, harnwegsinfekt, hepatitis, herzinsuffizienz, herzklappenerkrankungen, hueft-knie-tep, humerusfraktur, hyperthyreose, hyponatriaemie-siadh, hypothyreose, ikterus-cholestase, ileus, impfungen-stiko, infektioese-endokarditis, khk, kolonkarzinom, lebertumoren, leberzirrhose, leistenhernie, lungenembolie, magenkarzinom, meningitis, milzruptur-splenektomie, morbus-crohn, morbus-hodgkin, nierenversagen, non-hodgkin-lymphome, osteoporose, pankreaskarzinom, pankreatitis, pavk, pneumonie, pneumothorax, polytrauma-abcde, praevention, proximale-femurfraktur, reanimation-cpr, rechtsmedizin, rektumkarzinom, saeure-basen-bga, schaedel-hirn-trauma, schilddruesenkarzinom, schlaganfall, schmerztherapie, schock, sepsis, sozialrecht-hygiene, sprunggelenksfraktur, strahlenschutz, struma, synkope, tuberkulose, tvt, verbrennung, vorhofflimmern, wirbelsaeulenverletzungen

@@ -1,14 +1,57 @@
 {
  "slug": "arzneimittelinteraktionen-uaw",
  "deck": "reviews/drittes-fach/arzneimittelinteraktionen-uaw.html",
- "capture": [],
+ "capture": [
+  "sources/amboss/arzneimittelinteraktionen-uaw.md"
+ ],
  "counts": {
-  "ok": 82,
+  "ok": 14,
   "fix": 0,
-  "unclear": 0
+  "unclear": 8
  },
  "fixes": [],
- "unclear": [],
- "status": "skipped: keine Erfassung",
- "note": "Neubau R1 13.10.2026; Fakten in 4 unabhaengigen Audit-Runden gegen die Erfassung bzw. deutschen Standard geprueft, Fehler vor Veroeffentlichung behoben. Am 13.10.2026 auf ca. 420 Woerter vereinfacht, Merkbild CYP450-Wippe; Audit-Runden 5-6, Fix Gadolinium linear, CLEARED. R2 13.10.2026: KP-Perlen und Rapid-Fire unabhaengig geprueft, CLEARED. R3 14.10.2026: Tab 6 aus KP-Intel, Antworten unabhaengig gegen Erfassung bzw. Standard geprueft, CLEARED."
+ "unclear": [
+  {
+   "panel": "grundlagen",
+   "deck_text": "UAW-Definition, Typ A/Typ B",
+   "reason": "Kapitel Pharmakologische Grundlagen hat kein UAW-Kapitel (bekannte Lücke)"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Betablocker + Verapamil; NSAR + ACE-Hemmer + Diuretikum",
+   "reason": "Kombinationsfolgen nicht in Erfassung"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Pharmakovigilanz: AkdÄ/BfArM, § 6 IfSG, PEI, Rote-Hand-Brief",
+   "reason": "Meldewege bekannte Lücke"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Substanz-UAW-Tabelle (Metamizol max. 4 g/d, Amiodaron HWZ 20–100 Tage, MTX-Folsäure 24–48 h, Gadolinium GFR < 30 u. a.)",
+   "reason": "Einzel-UAW nicht in Erfassung"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "QTc über 500 ms: Torsade-Gefahr; Labor nach Wirkstoff",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "AT1-Blocker bei Husten, Magnesium bei Torsade, Polypharmazie ab 5, PRISCUS",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Perlen 1–6, 8 und Rapid-Fire zu Einzel-UAW",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Antworten zu Betablocker-, ACE-Hemmer-, Kortison-, PPI-, Metamizol-, Zytostatika-, Statin-, MCP- und KM-UAW",
+   "reason": "nicht in Erfassung"
+  }
+ ],
+ "status": "done",
+ "validated": "2026-10-14"
 }

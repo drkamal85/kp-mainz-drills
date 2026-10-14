@@ -5,141 +5,78 @@
   "sources/amboss/vorhofflimmern.md"
  ],
  "counts": {
-  "ok": 58,
+  "ok": 48,
   "fix": 0,
-  "unclear": 22
+  "unclear": 13
  },
  "fixes": [],
  "unclear": [
   {
    "panel": "grundlagen",
-   "deck_text": "Permanent (akzeptiert, nicht mehr konvertierbar)",
-   "reason": "AMBOSS: akzeptiert ohne Ziel der Rhythmuskontrolle; 'nicht konvertierbar' nicht erfasst"
+   "deck_text": "Persistierend (Kardioversion nötig) · Permanent (nicht mehr konvertierbar)",
+   "reason": "AMBOSS: >7 d; permanent = akzeptiert ohne Ziel der Rhythmuskontrolle"
   },
   {
    "panel": "grundlagen",
    "deck_text": "Häufigste Ursache: arterielle Hypertonie",
-   "reason": "Rangfolge der Ursachen nicht in Erfassung"
+   "reason": "Rangfolge nicht in Erfassung"
   },
   {
    "panel": "grundlagen",
-   "deck_text": "AVNRT ... AVRT ... Kent-Bündel; Frequenz 150 bis 220",
-   "reason": "AVNRT/AVRT-Details nicht in Erfassung"
+   "deck_text": "> 300/min",
+   "reason": "AMBOSS: Vorhoffrequenz 350–600/min; kompatibel"
   },
   {
    "panel": "grundlagen",
-   "deck_text": "Dokumentiert EKG-Befund wörtlich: „regelmäßig, RR-Abstände gleich, P-Welle nicht beurteilbar.\"",
-   "reason": "Protokollaussage, nicht prüfbar"
+   "deck_text": "AVNRT/AVRT-Details, Frequenz 150–220",
+   "reason": "nicht in Erfassung"
   },
   {
    "panel": "therapie",
-   "deck_text": "Sc — weibliches Geschlecht 1; Indikation ab ≥ 2 (Männer) / ≥ 3 (Frauen)",
-   "reason": "CHA2DS2VASc nur als 'vormals empfohlen' erwähnt, Schwellen nicht erfasst"
+   "deck_text": "CHA2DS2-VASc mit Sc, Schwellen ≥2 M / ≥3 F",
+   "reason": "AMBOSS: CHA2DS2VA (ESC 2024), VASc nur vormals empfohlen; Deck nennt ESC-2024-Variante zusätzlich"
   },
   {
    "panel": "therapie",
-   "deck_text": "Marcumar (VKA, Ziel-INR 2–3)",
-   "reason": "Ziel-INR nicht in Erfassung"
+   "deck_text": "Ziel-INR 2–3; HAS-BLED",
+   "reason": "INR-Ziel nicht in Erfassung; HAS-BLED vormals empfohlen"
   },
   {
    "panel": "therapie",
-   "deck_text": "ESC 2024 hat diese Grenze von 48 h auf 24 h gesenkt",
-   "reason": "Historie nicht erfasst; 24 h stimmt mit AMBOSS"
+   "deck_text": "Betablocker 1. Wahl, alternativ Verapamil",
+   "reason": "AMBOSS: BB, NDCA oder Digitalis gleichrangig"
   },
   {
    "panel": "therapie",
-   "deck_text": "Betablocker (Bisoprolol/Metoprolol) 1. Wahl, alternativ Verapamil",
-   "reason": "AMBOSS: BB, NDCA oder Digitalis gleichrangig Mittel der Wahl"
+   "deck_text": "ESC 2024 Grenze 48 h → 24 h",
+   "reason": "Historie nicht in Erfassung; 24 h stimmt"
   },
   {
    "panel": "therapie",
-   "deck_text": "HAS-BLED schätzt das Blutungsrisiko",
-   "reason": "AMBOSS: HAS-BLED nur 'vormals empfohlen'"
-  },
-  {
-   "panel": "therapie",
-   "deck_text": "Paroxysmale SVT: Vagusmanöver, Karotisdruck, Adenosin 6/12 mg, Ablation über 95 %",
-   "reason": "SVT-Therapie nicht in Erfassung"
-  },
-  {
-   "panel": "perlen",
-   "deck_text": "ASS hat dafür keinen Stellenwert mehr",
+   "deck_text": "Paroxysmale SVT: Vagusmanöver, Adenosin 6/12 mg, Ablation > 95 %",
    "reason": "nicht in Erfassung"
   },
   {
    "panel": "perlen",
-   "deck_text": "DOAK brauchen kein INR-Monitoring, haben weniger Hirnblutungen; Antidote Idarucizumab / Andexanet alfa",
+   "deck_text": "ASS ohne Stellenwert; DOAK-Vorteile; Antidote Idarucizumab/Andexanet; synchron vs. asynchron",
    "reason": "nicht in Erfassung"
   },
   {
    "panel": "perlen",
-   "deck_text": "Kardioversion = synchron, Defibrillation = asynchron",
-   "reason": "nicht in Erfassung"
-  },
-  {
-   "panel": "perlen",
-   "deck_text": "Frequenzkontrolle ist der Rhythmuskontrolle prognostisch nicht unterlegen",
-   "reason": "AMBOSS nennt Prognosevorteil der Rhythmuskontrolle in bestimmten Gruppen"
-  },
-  {
-   "panel": "perlen",
-   "deck_text": "Nach guter Frequenzkontrolle erholt sich das Herz wieder.",
-   "reason": "AMBOSS: reversibel durch Sinusrhythmus, Ablation bevorzugt"
-  },
-  {
-   "panel": "perlen",
-   "deck_text": "Rapid-Fire: Frequenzkontrolle erste Wahl? Betablocker",
-   "reason": "AMBOSS: BB, NDCA oder Digitalis"
+   "deck_text": "Frequenzkontrolle prognostisch nicht unterlegen; Erholung nach Frequenzkontrolle",
+   "reason": "AMBOSS: Prognosevorteil Rhythmuskontrolle in Gruppen; Nuance"
   },
   {
    "panel": "protokoll",
-   "deck_text": "Paroxysmal endet innerhalb von 7 Tagen von selbst.",
+   "deck_text": "Paroxysmal endet innerhalb von 7 Tagen von selbst",
    "reason": "AMBOSS: spontan oder durch Intervention"
   },
   {
    "panel": "protokoll",
-   "deck_text": "Die Kardioversion ist mit der R-Zacke synchronisiert und energieärmer.",
+   "deck_text": "Vaughan-Williams; Blutungsmanagement; Adenosin bei Flattern; Ablation > 90 %",
    "reason": "nicht in Erfassung"
-  },
-  {
-   "panel": "protokoll",
-   "deck_text": "Klasse 1 Natriumkanalblocker ... Klasse 4 Kalziumantagonisten",
-   "reason": "Vaughan-Williams nicht in Erfassung"
-  },
-  {
-   "panel": "protokoll",
-   "deck_text": "Ich pausiere die Antikoagulation, stille die Blutung endoskopisch",
-   "reason": "Blutungsmanagement nicht in Erfassung"
-  },
-  {
-   "panel": "protokoll",
-   "deck_text": "Adenosin ... macht die Flatterwellen sichtbar",
-   "reason": "nicht in Erfassung"
-  },
-  {
-   "panel": "protokoll",
-   "deck_text": "Katheterablation der akzessorischen Bahn. Sie heilt in über 90 Prozent.",
-   "reason": "Erfolgsrate nicht in Erfassung"
   }
  ],
  "status": "done",
- "validated": "2026-10-09",
- "second_pass": {
-  "date": "2026-10-09",
-  "checked": 88,
-  "applied": 0,
-  "rejected_by_orchestrator": [
-   {
-    "html_old": "Nach guter Frequenzkontrolle erholt sich das Herz wieder.",
-    "reason": "AMBOSS nennt Sinusrhythmus, schließt Frequenzkontrolle nicht aus — nicht eindeutig"
-   }
-  ]
- },
- "third_pass": {
-  "date": "2026-10-10",
-  "model": "fable",
-  "checked": 62,
-  "applied": 0,
-  "rejected_by_orchestrator": []
- }
+ "validated": "2026-10-14"
 }
