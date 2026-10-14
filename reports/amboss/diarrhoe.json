@@ -5,100 +5,107 @@
   "sources/amboss/diarrhoe.md"
  ],
  "counts": {
-  "ok": 14,
-  "fix": 0,
-  "unclear": 16
+  "ok": 34,
+  "fix": 3,
+  "unclear": 22
  },
- "fixes": [],
- "unclear": [
+ "fixes": [
   {
    "panel": "diagnostik",
-   "deck_text": "Labor Bei jedem (Kartentitel)",
-   "reason": "AMBOSS: Basislabor bei schwerer Infektion/Dehydratation; Überschrift, nicht editierbar"
+   "deck_text": "Blut im Stuhl, Fieber über 38,5 Grad, Dauer über 7 Tage",
+   "new_text": "Blut im Stuhl, Fieber über 38,5 Grad, Dauer über 14 Tage",
+   "amboss_quote": "Symptombezogen ... Blutige Diarrhö / Diarrhö >14 Tage"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Empirisch Azithromycin oder Ciprofloxacin, dann nach Resistenztest.",
+   "new_text": "Empirisch Azithromycin oder Aminopenicillin plus Betalaktamase-Inhibitor, dann nach Resistenztest.",
+   "amboss_quote": "Azithromycin als Einmalgabe oder über 3 Tage / Alternative: Aminopenicillin + Betalaktamase-Inhibitor i.v. / Nicht empfohlen: Cephalosporine Gruppe 3a, Fluorchinolone, Metronidazol"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Blut, Fieber über 38,5 Grad, Dauer über 7 Tage, Immunschwäche, Antibiotikum",
+   "new_text": "Blut, Fieber über 38,5 Grad, Dauer über 14 Tage, Immunschwäche, Antibiotikum",
+   "amboss_quote": "Diarrhö >14 Tage"
+  }
+ ],
+ "unclear": [
+  {
+   "panel": "grundlagen",
+   "deck_text": "Mehr als 3 Stühle am Tag, zu weich, über 250 Gramm; akut unter 2 Wochen, chronisch über 4 Wochen",
+   "reason": "Definition/Zeitgrenzen nicht im Kapitel Akute Gastroenteritis"
   },
   {
    "panel": "grundlagen",
-   "deck_text": "Mehr als 3 Stühle am Tag, zu weich, über 250 Gramm",
-   "reason": "Definition nicht in Erfassung"
+   "deck_text": "Chronische DD-Tabelle, paradoxe Diarrhö",
+   "reason": "chronische Diarrhö nicht in Erfassung"
   },
   {
-   "panel": "grundlagen",
-   "deck_text": "Akut: unter 2 Wochen; Chronisch: über 4 Wochen",
-   "reason": "AMBOSS: Dauer wenige Tage bis 2 Wochen; Grenzen nicht erfasst"
+   "panel": "diagnostik",
+   "deck_text": "Labor Bei jedem",
+   "reason": "AMBOSS: Basislabor bei schwerer Infektion/Dehydratation; didaktische Überschrift, nicht geändert"
   },
   {
-   "panel": "grundlagen",
-   "deck_text": "Chronische DD: CED, Tumor, Zöliakie, Medikamente, Reizdarm",
-   "reason": "chronische Diarrhö nicht erfasst"
+   "panel": "diagnostik",
+   "deck_text": "Unkompliziert unter 3 Tagen: keine Stuhldiagnostik; Fieber über 38,5 Grad; Alter über 65",
+   "reason": "Werte nicht in Erfassung"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Clostridien zweistufiger Nachweis (Antigen/Toxin)",
+   "reason": "nicht in Erfassung (eigener Artikel)"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Endoskopie bei schwerem Verlauf, CT bei Megakolonverdacht; chronische Diagnostik (Koloskopie, Calprotectin, tTG, TSH, H2-Atemtest)",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Alter über 65, Klappenprothese als AB-Indikation",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Bei Salmonellen verlängert es die Ausscheidung",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Loperamid zulässig beim unkomplizierten Reisedurchfall; toxisches Megakolon",
+   "reason": "AMBOSS nur kurzfristig <48 h ohne Fieber/Blut; Reisedurchfall nicht genannt"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "C. difficile: Vancomycin oral 10 Tage, Fidaxomicin, Mikrobiota-Transplantation, Kolektomie",
+   "reason": "nicht in Erfassung (eigener Artikel)"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Händewaschen, Desinfektion unwirksam gegen Sporen",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Perlen 1,2,5,6,7; Rapid-Fire zu Definition, Zeitgrenzen, Clostridien, Calprotectin, Salmonellen, Vancomycin",
+   "reason": "nicht in Erfassung"
   },
   {
    "panel": "klinik",
-   "deck_text": "Exsikkosezeichen; Warnzeichen",
-   "reason": "nicht in Erfassung"
-  },
-  {
-   "panel": "diagnostik",
-   "deck_text": "Unkompliziert unter 3 Tagen: keine Stuhldiagnostik",
-   "reason": "AMBOSS: nur wenn handlungsrelevant; 3 Tage nicht erfasst"
-  },
-  {
-   "panel": "diagnostik",
-   "deck_text": "Fieber über 38,5 Grad, Dauer über 7 Tage, Alter über 65",
-   "reason": "Schwellen nicht in Erfassung"
-  },
-  {
-   "panel": "diagnostik",
-   "deck_text": "Kultur auf Shigellen, Yersinien; Parasiten bei Reise",
-   "reason": "AMBOSS-Basis: Noro, Rota, Campylobacter, Salmonellen"
-  },
-  {
-   "panel": "diagnostik",
-   "deck_text": "C. difficile zweistufig Antigen/Toxin",
-   "reason": "CDI-Kapitel nicht erfasst"
-  },
-  {
-   "panel": "diagnostik",
-   "deck_text": "Calprotectin, Transglutaminase-AK, TSH, H2-Atemtest",
-   "reason": "chronische Diagnostik nicht erfasst"
-  },
-  {
-   "panel": "therapie",
-   "deck_text": "Oral: Lösung mit Glukose und Natrium; i.v. bei Erbrechen, Schock",
-   "reason": "AMBOSS: ORS / Vollelektrolyt; Indikationen nicht erfasst"
-  },
-  {
-   "panel": "therapie",
-   "deck_text": "Antibiotika-Indikationen; Azithromycin oder Ciprofloxacin",
-   "reason": "nicht in Erfassung"
-  },
-  {
-   "panel": "therapie",
-   "deck_text": "Loperamid-Kontraindikationen",
-   "reason": "nicht in Erfassung"
-  },
-  {
-   "panel": "therapie",
-   "deck_text": "Vancomycin oral 10 Tage; Fidaxomicin; Mikrobiota-Transplantation",
-   "reason": "CDI-Kapitel nicht erfasst"
-  },
-  {
-   "panel": "therapie",
-   "deck_text": "Einzelzimmer bis 48 Stunden nach Symptomende; Meldepflicht ab 2 Fällen",
-   "reason": "Meldepflicht/Hygiene-Details nicht erfasst"
+   "deck_text": "Beim Alten oft nur Verwirrtheit oder Sturz; Blutdruck fällt spät",
+   "reason": "nur teilweise (Delir) in Erfassung"
   },
   {
    "panel": "protokoll",
-   "deck_text": "Inkubationszeiten S. aureus/B. cereus Stunden, sonst 1 bis 3 Tage",
-   "reason": "Erreger-DD nicht erfasst"
+   "deck_text": "Toxine von S. aureus/B. cereus nach Stunden; Salmonellen/Campylobacter/Noroviren 1 bis 3 Tage",
+   "reason": "Inkubationszeiten nicht in Erfassung"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Vancomycin oral oder Fidaxomicin; CED/Reizdarm/Malabsorption; paradoxe Diarrhö; Kurzdarmsyndrom",
+   "reason": "nicht in Erfassung"
   }
  ],
  "status": "done",
- "validated": "2026-10-09",
- "third_pass": {
-  "date": "2026-10-10",
-  "model": "fable",
-  "checked": 26,
-  "applied": 0,
-  "rejected_by_orchestrator": []
- }
+ "validated": "2026-10-14"
 }
