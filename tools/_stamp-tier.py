@@ -55,7 +55,7 @@ for f in sorted(glob.glob('reviews/*/*.html')):
     mt=re.search(r'(<div class="tabs">)(.*?)(\n\s*</div>)',t,re.S)
     if mt: t=t[:mt.end(2)]+sticky+t[mt.end(2):]
     # CSS immer erneuern, sonst bleiben alte Fassungen stehen
-    t=re.sub(r'\n\s*/\* Tier-Marke zusaetzlich in der Reiterleiste.*?(?=</style>)','',t,flags=re.S)
+    t=re.sub(r'\n\s*/\* Tier-Marke zusaetzlich in der Reiterleiste.*?\.tier \.zt\{[^}]*\}[ \t]*\n?','',t,count=1,flags=re.S)  # nur den eigenen Block entfernen, nachfolgendes CSS bleibt
     t=t.replace('</style>',CSS+'</style>',1)
     io.open(f,'w',encoding='utf-8').write(t); n+=1
 print(f'  Tier-Marke: {n} Seiten gesetzt \u00b7 {skip} ohne Rangeintrag')
