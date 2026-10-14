@@ -226,6 +226,9 @@
   .cyp-s{font-size:14px;margin:3px 0}
   .cyp-x{font-size:13px;color:var(--muted)}
   .cyp-e{font-size:13px;font-style:italic;margin-top:4px}
+  .uaw td:first-child{white-space:nowrap}
+  .uaw .uaw-m{display:block;font-size:12.5px;color:var(--muted);font-style:italic;margin-top:3px}
+  @media (max-width:520px){.uaw td:first-child{white-space:normal;width:32%}.uaw th,.uaw td{padding:7px 8px;font-size:13px}}
 </style>
 <link rel="stylesheet" media="print" href="/print.css">
 <script src="/print.js" defer></script>
@@ -315,102 +318,32 @@
   </section>
 
   <section class="panel" data-panel="klinik">
-    <p class="panel-intro">Zu jedem Wirkstoff: die typische UAW — und warum sie entsteht.</p>
+    <p class="panel-intro">Alle typischen UAW in einer Tabelle — oben die meistgefragten.</p>
 
-    <details class="card klinik" open><summary><span class="ct"><span class="ctag">Metamizol</span><span class="ctitle">Die meistgefragte UAW</span></span><span class="plus">+</span></summary>
+    <details class="card klinik" open><summary><span class="ct"><span class="ctag">Typische UAW</span><span class="ctitle">Alles auf einen Blick</span></span><span class="plus">+</span></summary>
       <div class="body">
-        <ul class="b">
-          <li>Wirkt schmerzstillend, fiebersenkend und krampflösend</li>
-          <li><strong>Agranulozytose:</strong> selten, dosisunabhängig, jederzeit möglich — Typ B</li>
-          <li>Zeichen: Fieber, Halsschmerz, Schleimhautulzera → sofort absetzen, Differenzialblutbild</li>
-          <li>Zu schnell i.v.: <strong>Blutdruckabfall</strong> — deshalb langsam als Kurzinfusion</li>
-          <li>Höchstens <strong>4 g pro Tag</strong>, i.v. bei Bedarf 5 g</li>
-        </ul>
-        <div class="callout warning"><span class="lab">⚠ Aufklären</span>Der Patient muss wissen: Fieber oder Halsschmerz unter Metamizol heißt sofort zum Arzt.</div>
-        <!-- KP-Intel Metamizol-Cluster, 30 Protokolle; F00458 · F10539 -->
-      </div>
-    </details>
-
-    <details class="card klinik"><summary><span class="ct"><span class="ctag">Betablocker</span><span class="ctitle">Warum Asthma und AV-Block</span></span><span class="plus">+</span></summary>
-      <div class="body">
-        <ul class="b">
-          <li><strong>β1 am Herzen:</strong> Bradykardie, AV-Block</li>
-          <li><strong>β2 an den Bronchien:</strong> Bronchospasmus — deshalb ist Asthma eine Kontraindikation</li>
-          <li><strong>Hypoglykämie verschleiert:</strong> Zittern und Herzrasen fehlen als Warnzeichen — Diabetes ist nur eine relative Kontraindikation</li>
-          <li>Mit Verapamil oder Diltiazem: Gefahr des totalen AV-Blocks</li>
-        </ul>
-        <!-- KP-Intel F02239 · F11333 · F10976 · F01750 · KP-054 · KP-513 · KP-453 -->
-      </div>
-    </details>
-
-    <details class="card klinik"><summary><span class="ct"><span class="ctag">Glukokortikoide</span><span class="ctitle">Cushing von außen</span></span><span class="plus">+</span></summary>
-      <div class="body">
-        <ul class="b">
-          <li><strong>Knochen und Muskel:</strong> Osteoporose, Myopathie</li>
-          <li><strong>Stoffwechsel:</strong> Diabetes, Gewichtszunahme, Cushing-Habitus</li>
-          <li><strong>Abwehr:</strong> Infekte, schlechte Wundheilung</li>
-          <li><strong>Auge und Psyche:</strong> Katarakt, Glaukom, Unruhe bis Psychose</li>
-          <li>Mit NSAR: hohes Risiko für ein Magenulkus</li>
-          <li><strong>Inhalativ:</strong> Mundsoor, Heiserkeit — nach dem Inhalieren Mund ausspülen</li>
-        </ul>
-        <div class="callout warning"><span class="lab">⚠ Nie abrupt absetzen</span>Nach längerer Gabe bildet die Nebenniere selbst kein Kortisol mehr — abruptes Absetzen löst eine Addison-Krise aus. Deshalb ausschleichen.</div>
-      </div>
-    </details>
-
-    <details class="card klinik"><summary><span class="ct"><span class="ctag">Herz und Kreislauf</span><span class="ctitle">Der typische Medikationsplan</span></span><span class="plus">+</span></summary>
-      <div class="body">
-        <ul class="b">
-          <li><strong>ACE-Hemmer:</strong> Bradykinin wird nicht abgebaut → Reizhusten, selten Angioödem; Kalium ↑</li>
-          <li><strong>Thiazide:</strong> Hypokaliämie, Hyponatriämie</li>
-          <li><strong>Amlodipin:</strong> Knöchelödeme</li>
-          <li><strong>Statine:</strong> Myalgie, CK ↑, selten Rhabdomyolyse</li>
-          <li><strong>PPI, langfristig:</strong> Magnesium ↓, Vitamin B12 ↓</li>
-          <li><strong>Doxycyclin:</strong> Photosensibilität</li>
-        </ul>
+        <table class="dd uaw"><tr><th>Wirkstoff</th><th>Typische UAW · Merke</th></tr>
+          <tr><td>Metamizol</td><td><strong>Agranulozytose</strong> (Typ B, jederzeit); Blutdruckabfall bei schneller i.v.-Gabe<span class="uaw-m">Fieber, Halsschmerz → sofort absetzen, Blutbild. Max. 4 g/d, i.v. bei Bedarf 5 g</span></td></tr>
+          <tr><td>Betablocker</td><td>Bradykardie, AV-Block (β1); <strong>Bronchospasmus</strong> (β2); verschleierte Hypoglykämie<span class="uaw-m">KI: Asthma; Diabetes nur relativ. Nie mit Verapamil oder Diltiazem</span></td></tr>
+          <tr><td>Glukokortikoide</td><td>Osteoporose, Diabetes, Infekte, Cushing-Habitus, Katarakt, Psychose; mit NSAR Ulkus; inhalativ Mundsoor<span class="uaw-m"><strong>Nach Langzeitgabe nie abrupt absetzen</strong> → Addison-Krise; ausschleichen</span></td></tr>
+          <tr><td>ACE-Hemmer</td><td><strong>Reizhusten</strong>, Angioödem, Kalium ↑<span class="uaw-m">Bradykinin wird nicht abgebaut → auf AT1-Blocker wechseln</span></td></tr>
+          <tr><td>Amiodaron</td><td>Schilddrüse (Jod), <strong>Lungenfibrose</strong>, Leber, Hornhaut, Photosensibilität, QT ↑<span class="uaw-m">Halbwertszeit 20–100 Tage</span></td></tr>
+          <tr><td>Zytostatika</td><td>Knochenmark, Schleimhaut, Haare: Infekte, Blutung, Übelkeit, Alopezie<span class="uaw-m">Anthrazykline: Herz · Bleomycin: Lunge · Vincristin: Nerven · Cisplatin: Niere</span></td></tr>
+          <tr><td>Methotrexat</td><td>Knochenmark, Leber, Lunge<span class="uaw-m">Folsäure 24–48 h danach</span></td></tr>
+          <tr><td>Thiazide</td><td>Hypokaliämie, Hyponatriämie</td></tr>
+          <tr><td>Amlodipin</td><td>Knöchelödeme</td></tr>
+          <tr><td>Statine</td><td>Myalgie, CK ↑, selten Rhabdomyolyse</td></tr>
+          <tr><td>PPI, langfristig</td><td>Magnesium ↓, Vitamin B12 ↓</td></tr>
+          <tr><td>Doxycyclin</td><td>Photosensibilität</td></tr>
+          <tr><td>Benzodiazepine</td><td>Sturz, Abhängigkeit<span class="uaw-m">im Alter besonders gefährlich</span></td></tr>
+          <tr><td>Haloperidol, MCP</td><td>Frühdyskinesie<span class="uaw-m">Therapie: Biperiden</span></td></tr>
+          <tr><td>Pregabalin</td><td>Abhängigkeit</td></tr>
+          <tr><td>KM jodhaltig</td><td>Allergie, Niere, Hyperthyreose<span class="uaw-m">KI: manifeste Hyperthyreose</span></td></tr>
+          <tr><td>Gadolinium, linear</td><td>nephrogene systemische Fibrose<span class="uaw-m">nicht bei GFR &lt; 30</span></td></tr>
+          <tr><td>Barium</td><td>—<span class="uaw-m">nicht bei Perforationsverdacht</span></td></tr>
+        </table>
         <div class="callout fact"><span class="lab">⚙ Nachbardecks</span>NSAR, Opioide: Schmerztherapie · Antibiotika, Antidiabetika, DOAK, Tuberkulostatika, Prilocain, Impfschaden, Lyse-Kontraindikationen: eigene Decks.</div>
-      </div>
-    </details>
-
-    <details class="card klinik"><summary><span class="ct"><span class="ctag">Amiodaron</span><span class="ctitle">Jodhaltig und langlebig</span></span><span class="plus">+</span></summary>
-      <div class="body">
-        <ul class="b">
-          <li>Enthält viel <strong>Jod</strong> → Hypo- oder Hyperthyreose</li>
-          <li><strong>Lunge:</strong> Pneumonitis bis Fibrose</li>
-          <li>Außerdem Leber, Hornhautablagerungen, Photosensibilität, QT ↑</li>
-          <li>Halbwertszeit <strong>20–100 Tage</strong>: die UAW bleiben nach dem Absetzen lange bestehen</li>
-        </ul>
-        <!-- KP-Intel F05116 · F08625 · KP-169 · KP-287 -->
-      </div>
-    </details>
-
-    <details class="card klinik"><summary><span class="ct"><span class="ctag">Zytostatika</span><span class="ctitle">Chemotherapie und Methotrexat</span></span><span class="plus">+</span></summary>
-      <div class="body">
-        <ul class="b">
-          <li>Treffen alles, was sich schnell teilt: <strong>Knochenmark, Schleimhaut, Haarwurzeln</strong></li>
-          <li>Folgen: Infekte, Anämie, Blutung; Übelkeit, Mukositis; Alopezie</li>
-          <li>Anthrazykline: Herz · Bleomycin: Lunge · Vincristin: Nerven · Cisplatin: Niere</li>
-          <li><strong>Methotrexat:</strong> Knochenmark, Leber, Lunge; Folsäure 24–48 h danach</li>
-        </ul>
-      </div>
-    </details>
-
-    <details class="card klinik"><summary><span class="ct"><span class="ctag">Psychopharmaka</span><span class="ctitle">Sturz und Dyskinesie</span></span><span class="plus">+</span></summary>
-      <div class="body">
-        <ul class="b">
-          <li><strong>Benzodiazepine:</strong> Sturz, Abhängigkeit — im Alter besonders gefährlich</li>
-          <li><strong>Haloperidol, MCP:</strong> Frühdyskinesie → Biperiden</li>
-          <li><strong>Pregabalin:</strong> Abhängigkeit</li>
-        </ul>
-      </div>
-    </details>
-
-    <details class="card klinik"><summary><span class="ct"><span class="ctag">Kontrastmittel</span><span class="ctitle">Jod, Gadolinium, Barium</span></span><span class="plus">+</span></summary>
-      <div class="body">
-        <ul class="b">
-          <li><strong>Jod:</strong> Allergie, Niere, Hyperthyreose; KI: manifeste Hyperthyreose</li>
-          <li><strong>Gadolinium, linear:</strong> nicht bei GFR &lt; 30 → nephrogene systemische Fibrose</li>
-          <li><strong>Barium:</strong> nicht bei Perforationsverdacht</li>
-        </ul>
+        <!-- KP-Intel Metamizol-Cluster, 30 Protokolle; F00458 · F10539 --> <!-- KP-Intel F02239 · F11333 · F10976 · F01750 · KP-054 · KP-513 · KP-453 --> <!-- KP-Intel F05116 · F08625 · KP-169 · KP-287 -->
       </div>
     </details>
 
