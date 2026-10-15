@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-14T08:24:33.566Z",
+  "generatedAt": "2026-10-15T08:00:18.992Z",
   "totals": {
-    "open": 145,
-    "completed": 454,
-    "overdue": 14,
-    "schedulingIssues": 36
+    "open": 143,
+    "completed": 461,
+    "overdue": 7,
+    "schedulingIssues": 40
   },
   "byLevel": {
     "R1": {
@@ -16,12 +16,12 @@
       "completed": 104
     },
     "R3": {
-      "open": 4,
-      "completed": 85
+      "open": 0,
+      "completed": 89
     },
     "R4": {
-      "open": 11,
-      "completed": 73
+      "open": 8,
+      "completed": 76
     },
     "R5": {
       "open": 38,
@@ -30,7 +30,7 @@
   },
   "byWorkstream": {
     "A_coverage": {
-      "topicsTotal": 213,
+      "topicsTotal": 218,
       "studied": 65,
       "studyOpen": 0,
       "r1Built": 100,
@@ -47,7 +47,7 @@
         },
         {
           "name": "Review: Cholezystitis R5",
-          "dueDate": "2026-10-24",
+          "dueDate": "2026-11-23",
           "completed": false
         }
       ]
@@ -77,11 +77,6 @@
           "completed": false
         },
         {
-          "name": "Akte-Sim #8",
-          "dueDate": "2026-10-24",
-          "completed": false
-        },
-        {
           "name": "Akte-Sim #9",
           "dueDate": "2026-10-31",
           "completed": false
@@ -97,6 +92,11 @@
           "completed": false
         },
         {
+          "name": "Akte-Sim #8",
+          "dueDate": "2026-11-07",
+          "completed": false
+        },
+        {
           "name": "Akte-Sim #6",
           "dueDate": "2026-11-13",
           "completed": false
@@ -107,12 +107,12 @@
           "completed": false
         },
         {
-          "name": "Akte-Sim #12",
-          "dueDate": "2026-11-21",
+          "name": "Akte-Sim #13",
+          "dueDate": "2026-11-28",
           "completed": false
         },
         {
-          "name": "Akte-Sim #13",
+          "name": "Akte-Sim #12",
           "dueDate": "2026-11-28",
           "completed": false
         },
@@ -179,40 +179,40 @@
       ]
     },
     "D_bildsprint": {
-      "open": 2,
+      "open": 3,
       "completed": 10,
       "note": "Drill tasks live as komplett library files, not Motion tasks"
     }
   },
   "flagged": [
     {
-      "name": "Fragen-Mining 09: Milzruptur / Splenektomie",
-      "dueDate": "2026-11-17",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Fragen-Mining 08: Nierenversagen",
-      "dueDate": "2026-11-17",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Review: Elektrolytstörungen K⁺/Ca²⁺ R3",
-      "dueDate": "2026-10-09",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Review: Makrozytäre Anämie / Vitamin-B12-Mangel R4",
-      "dueDate": "2026-10-11",
+      "name": "KP Crashkurs (Home) – Tag 5 – Probeexamen (Mock #1)",
+      "dueDate": "2026-11-21",
       "schedulingIssue": false,
       "scheduledStart": null
     },
     {
-      "name": "Review: Makrozytäre Anämie / Vitamin-B12-Mangel R3",
-      "dueDate": "2026-10-10",
-      "schedulingIssue": true,
+      "name": "KP Crashkurs (Home) – Tag 4 – Geriatrie/Palliativ/Bildgebung/Sozialrecht",
+      "dueDate": "2026-11-20",
+      "schedulingIssue": false,
+      "scheduledStart": null
+    },
+    {
+      "name": "KP Crashkurs (Home) – Tag 3 – Notfall + Neurologie",
+      "dueDate": "2026-11-19",
+      "schedulingIssue": false,
+      "scheduledStart": null
+    },
+    {
+      "name": "KP Crashkurs (Home) – Tag 2 – Chirurgie",
+      "dueDate": "2026-10-24",
+      "schedulingIssue": false,
+      "scheduledStart": null
+    },
+    {
+      "name": "KP Crashkurs (Home) – Tag 1 – Innere Medizin",
+      "dueDate": "2026-10-23",
+      "schedulingIssue": false,
       "scheduledStart": null
     },
     {
@@ -295,13 +295,37 @@
     },
     {
       "name": "Akte-Sim #12",
-      "dueDate": "2026-11-21",
+      "dueDate": "2026-11-28",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
-      "name": "Practice: Anamnesebogen — Complete from real Akte (Session 1)",
-      "dueDate": "2026-11-17",
+      "name": "Review: Ileus R5",
+      "dueDate": "2026-11-18",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Appendizitis R5",
+      "dueDate": "2026-11-22",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Cholezystitis R5",
+      "dueDate": "2026-11-23",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Lungenembolie R5",
+      "dueDate": "2026-11-24",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Pneumothorax R5",
+      "dueDate": "2026-11-25",
       "schedulingIssue": true,
       "scheduledStart": null
     },
@@ -408,40 +432,12 @@
       "dueDate": "2026-10-05"
     },
     {
-      "name": "Review: Antibiotikatherapie (kalkuliert) R3",
-      "dueDate": "2026-10-04"
-    },
-    {
       "name": "Review: Säure-Basen-Haushalt / BGA R4",
       "dueDate": "2026-10-06"
     },
     {
       "name": "Review: Antikoagulation & Bridging R4",
       "dueDate": "2026-10-06"
-    },
-    {
-      "name": "Review: Arzneimittelinteraktionen & UAW R4",
-      "dueDate": "2026-10-07"
-    },
-    {
-      "name": "Review: Arzneimittelinteraktionen & UAW R3",
-      "dueDate": "2026-10-06"
-    },
-    {
-      "name": "Review: Elektrolytstörungen K⁺/Ca²⁺ R4",
-      "dueDate": "2026-10-10"
-    },
-    {
-      "name": "Review: Elektrolytstörungen K⁺/Ca²⁺ R3",
-      "dueDate": "2026-10-09"
-    },
-    {
-      "name": "Review: Makrozytäre Anämie / Vitamin-B12-Mangel R4",
-      "dueDate": "2026-10-11"
-    },
-    {
-      "name": "Review: Makrozytäre Anämie / Vitamin-B12-Mangel R3",
-      "dueDate": "2026-10-10"
     },
     {
       "name": "Review: Diarrhoe / Gastroenteritis R4",
@@ -552,44 +548,14 @@
       "duration": 120
     },
     {
-      "name": "Review: Schlaganfall/Apoplex R5",
+      "name": "KP Crashkurs (Home) – Tag 1 – Innere Medizin",
       "dueDate": "2026-10-23",
-      "duration": 120
+      "duration": 600
     },
     {
-      "name": "Review: Leistenhernie R5",
-      "dueDate": "2026-10-23",
-      "duration": 120
-    },
-    {
-      "name": "Review: Ileus R5",
-      "dueDate": "2026-10-23",
-      "duration": 120
-    },
-    {
-      "name": "Review: Appendizitis R5",
-      "dueDate": "2026-10-23",
-      "duration": 120
-    },
-    {
-      "name": "Akte-Sim #8",
+      "name": "KP Crashkurs (Home) – Tag 2 – Chirurgie",
       "dueDate": "2026-10-24",
-      "duration": 60
-    },
-    {
-      "name": "Review: Cholezystitis R5",
-      "dueDate": "2026-10-24",
-      "duration": 120
-    },
-    {
-      "name": "Review: Lungenembolie R5",
-      "dueDate": "2026-10-24",
-      "duration": 120
-    },
-    {
-      "name": "Review: Pneumothorax R5",
-      "dueDate": "2026-10-24",
-      "duration": 120
+      "duration": 600
     },
     {
       "name": "Review: Arterielle Hypertonie R5",
@@ -629,6 +595,16 @@
     {
       "name": "Review: Kolonkarzinom R5",
       "dueDate": "2026-10-28",
+      "duration": 120
+    },
+    {
+      "name": "Review: Pankreatitis R5",
+      "dueDate": "2026-10-29",
+      "duration": 120
+    },
+    {
+      "name": "Review: Gastroduodenales Ulkus R5",
+      "dueDate": "2026-10-29",
       "duration": 120
     }
   ],
