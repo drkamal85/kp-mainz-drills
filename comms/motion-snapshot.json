@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-10-15T08:00:18.992Z",
+  "generatedAt": "2026-10-16T07:54:36.548Z",
   "totals": {
-    "open": 143,
-    "completed": 461,
-    "overdue": 7,
+    "open": 139,
+    "completed": 465,
+    "overdue": 0,
     "schedulingIssues": 40
   },
   "byLevel": {
@@ -20,8 +20,8 @@
       "completed": 89
     },
     "R4": {
-      "open": 8,
-      "completed": 76
+      "open": 4,
+      "completed": 80
     },
     "R5": {
       "open": 38,
@@ -67,13 +67,13 @@
           "completed": true
         },
         {
-          "name": "Akte-Sim #3",
-          "dueDate": "2026-10-16",
+          "name": "Akte-Sim #7",
+          "dueDate": "2026-10-20",
           "completed": false
         },
         {
-          "name": "Akte-Sim #7",
-          "dueDate": "2026-10-17",
+          "name": "Akte-Sim #3",
+          "dueDate": "2026-10-20",
           "completed": false
         },
         {
@@ -179,8 +179,8 @@
       ]
     },
     "D_bildsprint": {
-      "open": 3,
-      "completed": 10,
+      "open": 2,
+      "completed": 11,
       "note": "Drill tasks live as komplett library files, not Motion tasks"
     }
   },
@@ -188,31 +188,37 @@
     {
       "name": "KP Crashkurs (Home) – Tag 5 – Probeexamen (Mock #1)",
       "dueDate": "2026-11-21",
-      "schedulingIssue": false,
+      "schedulingIssue": true,
       "scheduledStart": null
     },
     {
       "name": "KP Crashkurs (Home) – Tag 4 – Geriatrie/Palliativ/Bildgebung/Sozialrecht",
       "dueDate": "2026-11-20",
-      "schedulingIssue": false,
+      "schedulingIssue": true,
       "scheduledStart": null
     },
     {
       "name": "KP Crashkurs (Home) – Tag 3 – Notfall + Neurologie",
       "dueDate": "2026-11-19",
-      "schedulingIssue": false,
+      "schedulingIssue": true,
       "scheduledStart": null
     },
     {
-      "name": "KP Crashkurs (Home) – Tag 2 – Chirurgie",
-      "dueDate": "2026-10-24",
-      "schedulingIssue": false,
+      "name": "Review: Antibiotikatherapie (kalkuliert) R5",
+      "dueDate": "2026-12-25",
+      "schedulingIssue": true,
       "scheduledStart": null
     },
     {
-      "name": "KP Crashkurs (Home) – Tag 1 – Innere Medizin",
-      "dueDate": "2026-10-23",
-      "schedulingIssue": false,
+      "name": "Review: Säure-Basen-Haushalt / BGA R5",
+      "dueDate": "2026-12-26",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Antikoagulation & Bridging R5",
+      "dueDate": "2026-12-27",
+      "schedulingIssue": true,
       "scheduledStart": null
     },
     {
@@ -296,12 +302,6 @@
     {
       "name": "Akte-Sim #12",
       "dueDate": "2026-11-28",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Review: Ileus R5",
-      "dueDate": "2026-11-18",
       "schedulingIssue": true,
       "scheduledStart": null
     },
@@ -426,100 +426,31 @@
       "scheduledStart": null
     }
   ],
-  "overdue": [
-    {
-      "name": "Review: Antibiotikatherapie (kalkuliert) R4",
-      "dueDate": "2026-10-05"
-    },
-    {
-      "name": "Review: Säure-Basen-Haushalt / BGA R4",
-      "dueDate": "2026-10-06"
-    },
-    {
-      "name": "Review: Antikoagulation & Bridging R4",
-      "dueDate": "2026-10-06"
-    },
+  "overdue": [],
+  "upcoming14d": [
     {
       "name": "Review: Diarrhoe / Gastroenteritis R4",
-      "dueDate": "2026-10-03"
+      "dueDate": "2026-10-19",
+      "duration": 30
     },
     {
       "name": "Review: Anaphylaxie R4",
-      "dueDate": "2026-10-03"
+      "dueDate": "2026-10-19",
+      "duration": 30
     },
     {
       "name": "Review: Check-up / Prävention R4",
-      "dueDate": "2026-10-03"
-    },
-    {
-      "name": "Review: Reanimation / CPR R4",
-      "dueDate": "2026-10-03"
-    }
-  ],
-  "upcoming14d": [
-    {
-      "name": "Review: Morbus Crohn & Colitis ulcerosa R5",
-      "dueDate": "2026-10-16",
-      "duration": 120
-    },
-    {
-      "name": "Deck-Einschub: Kontrastmittel → Strahlenschutz",
-      "dueDate": "2026-10-16",
-      "duration": 45
-    },
-    {
-      "name": "Pull-forward-Entscheidung",
-      "dueDate": "2026-10-16",
-      "duration": 10
-    },
-    {
-      "name": "Akte-Sim #3",
-      "dueDate": "2026-10-16",
-      "duration": 60
-    },
-    {
-      "name": "Review: GI-Blutung R5",
-      "dueDate": "2026-10-16",
-      "duration": 120
-    },
-    {
-      "name": "Review: Ikterus + Cholestase R5",
-      "dueDate": "2026-10-17",
-      "duration": 120
+      "dueDate": "2026-10-19",
+      "duration": 30
     },
     {
       "name": "Review: Leberzirrhose R5",
-      "dueDate": "2026-10-17",
+      "dueDate": "2026-10-20",
       "duration": 120
     },
     {
       "name": "Review: AV-Block R5",
-      "dueDate": "2026-10-17",
-      "duration": 120
-    },
-    {
-      "name": "Akte-Sim #7",
-      "dueDate": "2026-10-17",
-      "duration": 60
-    },
-    {
-      "name": "Review: Vorhofflimmern R5",
-      "dueDate": "2026-10-18",
-      "duration": 120
-    },
-    {
-      "name": "Review: Diabetes mellitus R5",
-      "dueDate": "2026-10-18",
-      "duration": 120
-    },
-    {
-      "name": "Review: Allgemeine Frakturlehre R5",
-      "dueDate": "2026-10-19",
-      "duration": 120
-    },
-    {
-      "name": "Review: Proximale Femurfrakturen R5",
-      "dueDate": "2026-10-19",
+      "dueDate": "2026-10-20",
       "duration": 120
     },
     {
@@ -538,9 +469,44 @@
       "duration": 120
     },
     {
+      "name": "Akte-Sim #7",
+      "dueDate": "2026-10-20",
+      "duration": 60
+    },
+    {
+      "name": "Pull-forward-Entscheidung",
+      "dueDate": "2026-10-20",
+      "duration": 10
+    },
+    {
+      "name": "Akte-Sim #3",
+      "dueDate": "2026-10-20",
+      "duration": 60
+    },
+    {
+      "name": "Review: GI-Blutung R5",
+      "dueDate": "2026-10-20",
+      "duration": 120
+    },
+    {
+      "name": "Review: Ikterus + Cholestase R5",
+      "dueDate": "2026-10-21",
+      "duration": 120
+    },
+    {
       "name": "Review: Schock (alle Typen) R5",
       "dueDate": "2026-10-21",
       "duration": 120
+    },
+    {
+      "name": "Review: Morbus Crohn & Colitis ulcerosa R5",
+      "dueDate": "2026-10-22",
+      "duration": 120
+    },
+    {
+      "name": "Deck-Einschub: Kontrastmittel → Strahlenschutz",
+      "dueDate": "2026-10-22",
+      "duration": 45
     },
     {
       "name": "Review: Polytrauma/ABCDE R5",
@@ -553,12 +519,27 @@
       "duration": 600
     },
     {
+      "name": "Review: Vorhofflimmern R5",
+      "dueDate": "2026-10-23",
+      "duration": 120
+    },
+    {
       "name": "KP Crashkurs (Home) – Tag 2 – Chirurgie",
       "dueDate": "2026-10-24",
       "duration": 600
     },
     {
+      "name": "Review: Diabetes mellitus R5",
+      "dueDate": "2026-10-24",
+      "duration": 120
+    },
+    {
       "name": "Review: Arterielle Hypertonie R5",
+      "dueDate": "2026-10-25",
+      "duration": 120
+    },
+    {
+      "name": "Review: Allgemeine Frakturlehre R5",
       "dueDate": "2026-10-25",
       "duration": 120
     },
@@ -598,6 +579,11 @@
       "duration": 120
     },
     {
+      "name": "Review: Proximale Femurfrakturen R5",
+      "dueDate": "2026-10-28",
+      "duration": 120
+    },
+    {
       "name": "Review: Pankreatitis R5",
       "dueDate": "2026-10-29",
       "duration": 120
@@ -605,6 +591,31 @@
     {
       "name": "Review: Gastroduodenales Ulkus R5",
       "dueDate": "2026-10-29",
+      "duration": 120
+    },
+    {
+      "name": "Deck-Einschub: Kardioversion → Vorhofflimmern",
+      "dueDate": "2026-10-30",
+      "duration": 45
+    },
+    {
+      "name": "Deck-Einschub: Krampfanfall → Schädel-Hirn-Trauma",
+      "dueDate": "2026-10-30",
+      "duration": 45
+    },
+    {
+      "name": "Review: Harnwegsinfekt / Pyelonephritis R5",
+      "dueDate": "2026-10-30",
+      "duration": 120
+    },
+    {
+      "name": "Review: Schmerztherapie / WHO-Stufenschema R5",
+      "dueDate": "2026-10-30",
+      "duration": 120
+    },
+    {
+      "name": "Review: Bluttransfusion R5",
+      "dueDate": "2026-10-30",
       "duration": 120
     }
   ],
