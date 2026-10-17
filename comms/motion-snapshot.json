@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-16T07:54:36.548Z",
+  "generatedAt": "2026-10-17T07:32:26.087Z",
   "totals": {
-    "open": 139,
-    "completed": 465,
+    "open": 97,
+    "completed": 471,
     "overdue": 0,
-    "schedulingIssues": 40
+    "schedulingIssues": 57
   },
   "byLevel": {
     "R1": {
@@ -20,8 +20,8 @@
       "completed": 89
     },
     "R4": {
-      "open": 4,
-      "completed": 80
+      "open": 0,
+      "completed": 84
     },
     "R5": {
       "open": 38,
@@ -30,30 +30,25 @@
   },
   "byWorkstream": {
     "A_coverage": {
-      "topicsTotal": 218,
+      "topicsTotal": 182,
       "studied": 65,
       "studyOpen": 0,
       "r1Built": 100,
       "r1Open": 0
     },
     "B_r5": {
-      "open": 40,
+      "open": 38,
       "completed": 1,
       "pilot": [
         {
-          "name": "R5-Pilot: Cholezystitis #2",
-          "dueDate": "2026-11-10",
-          "completed": false
-        },
-        {
           "name": "Review: Cholezystitis R5",
-          "dueDate": "2026-11-23",
+          "dueDate": "2026-11-24",
           "completed": false
         }
       ]
     },
     "C_akte": {
-      "open": 22,
+      "open": 18,
       "completed": 2,
       "sessions": [
         {
@@ -67,124 +62,194 @@
           "completed": true
         },
         {
-          "name": "Akte-Sim #7",
-          "dueDate": "2026-10-20",
-          "completed": false
-        },
-        {
           "name": "Akte-Sim #3",
-          "dueDate": "2026-10-20",
-          "completed": false
-        },
-        {
-          "name": "Akte-Sim #9",
-          "dueDate": "2026-10-31",
+          "dueDate": "2026-10-22",
           "completed": false
         },
         {
           "name": "Akte-Sim #4",
-          "dueDate": "2026-11-06",
-          "completed": false
-        },
-        {
-          "name": "Akte-Sim #10",
-          "dueDate": "2026-11-07",
-          "completed": false
-        },
-        {
-          "name": "Akte-Sim #8",
-          "dueDate": "2026-11-07",
+          "dueDate": "2026-10-31",
           "completed": false
         },
         {
           "name": "Akte-Sim #6",
-          "dueDate": "2026-11-13",
+          "dueDate": "2026-11-07",
           "completed": false
         },
         {
-          "name": "Akte-Sim #11",
+          "name": "Akte-Sim #7",
           "dueDate": "2026-11-14",
           "completed": false
         },
         {
-          "name": "Akte-Sim #13",
+          "name": "Akte-Sim #8",
           "dueDate": "2026-11-28",
           "completed": false
         },
         {
-          "name": "Akte-Sim #12",
-          "dueDate": "2026-11-28",
-          "completed": false
-        },
-        {
-          "name": "Akte-Sim #14",
+          "name": "Akte-Sim #9",
           "dueDate": "2026-12-05",
           "completed": false
         },
         {
-          "name": "Akte-Sim #15",
+          "name": "Akte-Sim #10",
           "dueDate": "2026-12-12",
           "completed": false
         },
         {
-          "name": "Akte-Sim #16",
+          "name": "Akte-Sim #11",
           "dueDate": "2026-12-19",
           "completed": false
         },
         {
-          "name": "Akte-Sim #17",
+          "name": "Akte-Sim #12",
           "dueDate": "2026-12-26",
           "completed": false
         },
         {
-          "name": "Akte-Sim #18",
+          "name": "Akte-Sim #13",
           "dueDate": "2027-01-02",
           "completed": false
         },
         {
-          "name": "Akte-Sim #19",
+          "name": "Akte-Sim #14",
           "dueDate": "2027-01-09",
           "completed": false
         },
         {
-          "name": "Akte-Sim #20",
+          "name": "Akte-Sim #15",
           "dueDate": "2027-01-16",
           "completed": false
         },
         {
-          "name": "Akte-Sim #21",
+          "name": "Akte-Sim #16",
           "dueDate": "2027-01-23",
           "completed": false
         },
         {
-          "name": "Akte-Sim #22",
+          "name": "Akte-Sim #17",
           "dueDate": "2027-01-30",
           "completed": false
         },
         {
-          "name": "Akte-Sim #23",
+          "name": "Akte-Sim #18",
           "dueDate": "2027-02-06",
           "completed": false
         },
         {
-          "name": "Akte-Sim #24",
+          "name": "Akte-Sim #19",
           "dueDate": "2027-02-13",
           "completed": false
         },
         {
-          "name": "Akte-Sim #25",
+          "name": "Akte-Sim #20",
           "dueDate": "2027-02-20",
+          "completed": false
+        },
+        {
+          "name": "Akte-Sim #21",
+          "dueDate": "2027-02-27",
           "completed": false
         }
       ]
     },
     "D_bildsprint": {
-      "open": 2,
+      "open": 22,
       "completed": 11,
       "note": "Drill tasks live as komplett library files, not Motion tasks"
     }
   },
   "flagged": [
+    {
+      "name": "Drill: Sono/US komplett (Feb)",
+      "dueDate": "2027-02-26",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Drill: Sono/US komplett (Jan)",
+      "dueDate": "2027-01-31",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Drill: Sono/US komplett (Dez)",
+      "dueDate": "2026-12-31",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Drill: BGA (Feb)",
+      "dueDate": "2027-02-26",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Drill: BGA (Jan)",
+      "dueDate": "2027-01-31",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Drill: BGA (Dez)",
+      "dueDate": "2026-12-31",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Drill: MRT (Feb)",
+      "dueDate": "2027-02-26",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Drill: MRT (Jan)",
+      "dueDate": "2027-01-31",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Drill: MRT (Dez)",
+      "dueDate": "2026-12-31",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Drill: CT (Feb)",
+      "dueDate": "2027-02-26",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Drill: CT (Jan)",
+      "dueDate": "2027-01-31",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Drill: CT (Dez)",
+      "dueDate": "2026-12-31",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Drill: Röntgen (Feb)",
+      "dueDate": "2027-02-26",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Drill: Röntgen (Jan)",
+      "dueDate": "2027-01-31",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Drill: Röntgen (Dez)",
+      "dueDate": "2026-12-31",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
     {
       "name": "KP Crashkurs (Home) – Tag 5 – Probeexamen (Mock #1)",
       "dueDate": "2026-11-21",
@@ -205,127 +270,139 @@
     },
     {
       "name": "Review: Antibiotikatherapie (kalkuliert) R5",
-      "dueDate": "2026-12-25",
+      "dueDate": "2026-11-28",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
       "name": "Review: Säure-Basen-Haushalt / BGA R5",
-      "dueDate": "2026-12-26",
+      "dueDate": "2026-11-30",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
       "name": "Review: Antikoagulation & Bridging R5",
-      "dueDate": "2026-12-27",
+      "dueDate": "2026-11-29",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
-      "name": "Akte-Sim #25",
-      "dueDate": "2027-02-20",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Akte-Sim #24",
-      "dueDate": "2027-02-13",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Akte-Sim #23",
-      "dueDate": "2027-02-06",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Akte-Sim #22",
-      "dueDate": "2027-01-30",
+      "name": "Review: Arzneimittelinteraktionen & UAW R5",
+      "dueDate": "2026-11-25",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
       "name": "Akte-Sim #21",
-      "dueDate": "2027-01-23",
+      "dueDate": "2027-02-27",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
       "name": "Akte-Sim #20",
-      "dueDate": "2027-01-16",
+      "dueDate": "2027-02-20",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
       "name": "Akte-Sim #19",
-      "dueDate": "2027-01-09",
+      "dueDate": "2027-02-13",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
       "name": "Akte-Sim #18",
-      "dueDate": "2027-01-02",
+      "dueDate": "2027-02-06",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
       "name": "Akte-Sim #17",
-      "dueDate": "2026-12-26",
+      "dueDate": "2027-01-30",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
       "name": "Akte-Sim #16",
-      "dueDate": "2026-12-19",
+      "dueDate": "2027-01-23",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
       "name": "Akte-Sim #15",
-      "dueDate": "2026-12-12",
+      "dueDate": "2027-01-16",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
       "name": "Akte-Sim #14",
-      "dueDate": "2026-12-05",
+      "dueDate": "2027-01-09",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
       "name": "Akte-Sim #13",
-      "dueDate": "2026-11-28",
+      "dueDate": "2027-01-02",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
       "name": "Akte-Sim #12",
+      "dueDate": "2026-12-26",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Akte-Sim #11",
+      "dueDate": "2026-12-19",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Akte-Sim #10",
+      "dueDate": "2026-12-12",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Akte-Sim #9",
+      "dueDate": "2026-12-05",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Akte-Sim #8",
       "dueDate": "2026-11-28",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
-      "name": "Review: Appendizitis R5",
-      "dueDate": "2026-11-22",
+      "name": "Review: Schlaganfall/Apoplex R5",
+      "dueDate": "2026-11-26",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Leistenhernie R5",
+      "dueDate": "2026-11-26",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Ileus R5",
+      "dueDate": "2026-11-27",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
       "name": "Review: Cholezystitis R5",
-      "dueDate": "2026-11-23",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Review: Lungenembolie R5",
       "dueDate": "2026-11-24",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
       "name": "Review: Pneumothorax R5",
-      "dueDate": "2026-11-25",
+      "dueDate": "2026-11-27",
       "schedulingIssue": true,
       "scheduledStart": null
     },
@@ -429,89 +506,29 @@
   "overdue": [],
   "upcoming14d": [
     {
-      "name": "Review: Diarrhoe / Gastroenteritis R4",
-      "dueDate": "2026-10-19",
-      "duration": 30
-    },
-    {
-      "name": "Review: Anaphylaxie R4",
-      "dueDate": "2026-10-19",
-      "duration": 30
-    },
-    {
-      "name": "Review: Check-up / Prävention R4",
-      "dueDate": "2026-10-19",
-      "duration": 30
-    },
-    {
-      "name": "Review: Leberzirrhose R5",
-      "dueDate": "2026-10-20",
-      "duration": 120
-    },
-    {
       "name": "Review: AV-Block R5",
-      "dueDate": "2026-10-20",
-      "duration": 120
-    },
-    {
-      "name": "Deck-Einschub: DKA → Diabetes mellitus",
-      "dueDate": "2026-10-20",
-      "duration": 45
-    },
-    {
-      "name": "Deck-Einschub: Pleuraerguss → Pneumothorax",
-      "dueDate": "2026-10-20",
-      "duration": 45
+      "dueDate": "2026-10-19",
+      "duration": 180
     },
     {
       "name": "Review: Schädel-Hirn-Trauma R5",
       "dueDate": "2026-10-20",
-      "duration": 120
-    },
-    {
-      "name": "Akte-Sim #7",
-      "dueDate": "2026-10-20",
-      "duration": 60
-    },
-    {
-      "name": "Pull-forward-Entscheidung",
-      "dueDate": "2026-10-20",
-      "duration": 10
-    },
-    {
-      "name": "Akte-Sim #3",
-      "dueDate": "2026-10-20",
-      "duration": 60
+      "duration": 180
     },
     {
       "name": "Review: GI-Blutung R5",
-      "dueDate": "2026-10-20",
-      "duration": 120
+      "dueDate": "2026-10-21",
+      "duration": 180
     },
     {
       "name": "Review: Ikterus + Cholestase R5",
-      "dueDate": "2026-10-21",
-      "duration": 120
-    },
-    {
-      "name": "Review: Schock (alle Typen) R5",
-      "dueDate": "2026-10-21",
-      "duration": 120
-    },
-    {
-      "name": "Review: Morbus Crohn & Colitis ulcerosa R5",
       "dueDate": "2026-10-22",
-      "duration": 120
+      "duration": 180
     },
     {
-      "name": "Deck-Einschub: Kontrastmittel → Strahlenschutz",
+      "name": "Akte-Sim #3",
       "dueDate": "2026-10-22",
-      "duration": 45
-    },
-    {
-      "name": "Review: Polytrauma/ABCDE R5",
-      "dueDate": "2026-10-22",
-      "duration": 120
+      "duration": 60
     },
     {
       "name": "KP Crashkurs (Home) – Tag 1 – Innere Medizin",
@@ -519,108 +536,50 @@
       "duration": 600
     },
     {
-      "name": "Review: Vorhofflimmern R5",
-      "dueDate": "2026-10-23",
-      "duration": 120
-    },
-    {
       "name": "KP Crashkurs (Home) – Tag 2 – Chirurgie",
       "dueDate": "2026-10-24",
       "duration": 600
     },
     {
+      "name": "Review: Schock (alle Typen) R5",
+      "dueDate": "2026-10-25",
+      "duration": 180
+    },
+    {
+      "name": "Review: Morbus Crohn & Colitis ulcerosa R5",
+      "dueDate": "2026-10-27",
+      "duration": 180
+    },
+    {
+      "name": "Review: Polytrauma/ABCDE R5",
+      "dueDate": "2026-10-27",
+      "duration": 180
+    },
+    {
+      "name": "Review: Vorhofflimmern R5",
+      "dueDate": "2026-10-28",
+      "duration": 180
+    },
+    {
       "name": "Review: Diabetes mellitus R5",
-      "dueDate": "2026-10-24",
-      "duration": 120
+      "dueDate": "2026-10-29",
+      "duration": 180
     },
     {
       "name": "Review: Arterielle Hypertonie R5",
-      "dueDate": "2026-10-25",
-      "duration": 120
+      "dueDate": "2026-10-30",
+      "duration": 180
     },
     {
       "name": "Review: Allgemeine Frakturlehre R5",
-      "dueDate": "2026-10-25",
-      "duration": 120
+      "dueDate": "2026-10-31",
+      "duration": 180
     },
     {
-      "name": "Review: Impfungen/STIKO R5",
-      "dueDate": "2026-10-25",
-      "duration": 120
-    },
-    {
-      "name": "Review: Rechtsmedizin R5",
-      "dueDate": "2026-10-26",
-      "duration": 120
-    },
-    {
-      "name": "Review: Aufklärung, Einwilligung & Betreuung R5",
-      "dueDate": "2026-10-26",
-      "duration": 120
-    },
-    {
-      "name": "Review: ACS/Myokardinfarkt R5",
-      "dueDate": "2026-10-27",
-      "duration": 120
-    },
-    {
-      "name": "Review: Herzinsuffizienz R5",
-      "dueDate": "2026-10-27",
-      "duration": 120
-    },
-    {
-      "name": "Review: Divertikulitis R5",
-      "dueDate": "2026-10-28",
-      "duration": 120
-    },
-    {
-      "name": "Review: Kolonkarzinom R5",
-      "dueDate": "2026-10-28",
-      "duration": 120
-    },
-    {
-      "name": "Review: Proximale Femurfrakturen R5",
-      "dueDate": "2026-10-28",
-      "duration": 120
-    },
-    {
-      "name": "Review: Pankreatitis R5",
-      "dueDate": "2026-10-29",
-      "duration": 120
-    },
-    {
-      "name": "Review: Gastroduodenales Ulkus R5",
-      "dueDate": "2026-10-29",
-      "duration": 120
-    },
-    {
-      "name": "Deck-Einschub: Kardioversion → Vorhofflimmern",
-      "dueDate": "2026-10-30",
-      "duration": 45
-    },
-    {
-      "name": "Deck-Einschub: Krampfanfall → Schädel-Hirn-Trauma",
-      "dueDate": "2026-10-30",
-      "duration": 45
-    },
-    {
-      "name": "Review: Harnwegsinfekt / Pyelonephritis R5",
-      "dueDate": "2026-10-30",
-      "duration": 120
-    },
-    {
-      "name": "Review: Schmerztherapie / WHO-Stufenschema R5",
-      "dueDate": "2026-10-30",
-      "duration": 120
-    },
-    {
-      "name": "Review: Bluttransfusion R5",
-      "dueDate": "2026-10-30",
-      "duration": 120
+      "name": "Akte-Sim #4",
+      "dueDate": "2026-10-31",
+      "duration": 60
     }
   ],
-  "nextCheckpoint": {
-    "name": "CHECKPOINT: September Review Complete",
-    "dueDate": "2026-10-31"
-  }
+  "nextCheckpoint": null
 }
