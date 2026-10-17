@@ -207,6 +207,8 @@
   .uaw td:first-child{white-space:nowrap}
   .uaw .uaw-m{display:block;font-size:12.5px;color:var(--muted);font-style:italic;margin-top:3px}
   @media (max-width:520px){.uaw td:first-child{white-space:normal;width:32%}.uaw th,.uaw td{padding:7px 8px;font-size:13px}}
+  .einschub-h{margin:26px 0 12px;padding:8px 14px;border-left:5px solid var(--protokoll,#7B3F9E);background:#F3ECF7;color:var(--protokoll,#7B3F9E);font:800 13px/1.3 'Manrope',sans-serif;letter-spacing:.08em;text-transform:uppercase;border-radius:6px}.r4pill{display:inline-block;font-family:var(--m,'Manrope',sans-serif);font-size:12px;font-weight:800;letter-spacing:.04em;background:#2D7A3E;color:#fff;padding:3px 10px;border-radius:999px;vertical-align:middle;margin-left:10px}
+
   /* Tier-Marke zusaetzlich in der Reiterleiste: der Kopfbereich scrollt weg,
      die Leiste bleibt haften - so ist das Ziel beim Lernen immer sichtbar. */
   .tier-sticky{margin-left:auto;align-self:center;display:inline-flex;align-items:center;gap:4px;
@@ -229,7 +231,6 @@
   .tier.std{background:#FDF2E2;color:#B07214}
   .tier.rand{background:#EFEDE8;color:#7A736A}
   .tier .zt{font-weight:600;letter-spacing:.02em;text-transform:none;opacity:.8}
-.r4pill{display:inline-block;font-family:var(--m,'Manrope',sans-serif);font-size:12px;font-weight:800;letter-spacing:.04em;background:#2D7A3E;color:#fff;padding:3px 10px;border-radius:999px;vertical-align:middle;margin-left:10px}
 </style>
 <link rel="stylesheet" media="print" href="/print.css">
 <script src="/print.js" defer></script>
@@ -243,7 +244,7 @@
     <div class="subtitle">Das meistgefragte Querschnittsthema: Zum Medikationsplan des Patienten will der Prüfer je Wirkstoff die typische Nebenwirkung, die gefährliche Kombination und Ihr Vorgehen hören.</div>
     <div class="meta">
       <span class="rk hi">Rang 1 von 92</span>
-      <span>R3</span>
+      <span>R4</span>
     </div>
   </header>
   <div class="tabs">
@@ -252,7 +253,7 @@
     <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik ★</button>
     <button class="tab" data-c="therapie" data-tab="therapie">Therapie</button>
     <button class="tab" data-c="perlen" data-tab="perlen">KP-Perlen</button>
-    <button class="tab" data-c="protokoll" data-tab="protokoll">Fragen &amp; Protokolle ★ · 18</button>
+    <button class="tab" data-c="protokoll" data-tab="protokoll">Fragen &amp; Protokolle ★ · 30</button>
     <span class="tier-sticky kern">KERN<span class="zt">Ziel R5</span></span>
   </div>
 
@@ -590,6 +591,87 @@
       <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
       <!-- KP-Intel F04033 · n=1 -->
       <div class="pq"><div class="pq-frage">„Welche Kontraindikationen gibt es für Kontrastmittel?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Jodhaltiges Kontrastmittel gebe ich nicht bei manifester Hyperthyreose oder schwerer Kontrastmittelallergie. Lineares Gadolinium meide ich bei einer GFR unter 30, Barium bei Perforationsverdacht.</div></details></div>
+    </div>
+
+    <div class="einschub-h" id="einschub-kontrastmittel">Einschub: Kontrastmittel</div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · 25.04.2026</span><span>Prüfer nicht überliefert · Innere</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <!-- KP-Intel F01442 · n=1 · KP-022 -->
+      <div class="pq"><div class="pq-frage">„Welche Vorsichtsmaßnahmen treffen Sie vor einer Kontrastmittelgabe, und wie gehen Sie bei einer Allergie vor?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Vorher kläre ich Allergien, Schilddrüse und Nierenfunktion ab. Bei Anaphylaxie stoppe ich die Injektion und gebe Adrenalin 0,5 mg i.m.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · 07.03.2026</span><span>Dr. Tannert / Dr. Trautmann / Dr. Müller-Forell · Radiologie</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <!-- KP-Intel F01710 · n=1 · KP-032 -->
+      <div class="pq"><div class="pq-frage">„Welche Kontrollen sind vor Kontrastmittel bei CT und MRT erforderlich, und welche Komplikationen kennen Sie?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Vor CT bestimme ich eGFR und TSH, vor MRT die eGFR. Jodhaltiges Mittel kann Allergie, Nephropathie und Thyreotoxikose auslösen, Gadolinium eine nephrogene systemische Fibrose.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · 26.09.2025</span><span>Dr. Kirdorf / Dr. Müller-Forell · Radiologie</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <!-- KP-Intel F02384 · n=1 · KP-060 -->
+      <div class="pq"><div class="pq-frage">„Welches Kontrastmittel wählen Sie für CT und MRT, und welche Komplikationen drohen?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Für das CT nehme ich nichtionisches, niedrigosmolares Jod-KM, für das MRT makrozyklisches Gadolinium. Beide lösen selten Allergien aus, Jod belastet zusätzlich Niere und Schilddrüse.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · 19.09.2024</span><span>Dr. Baum · Radiologie</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <!-- KP-Intel F04244 · n=1 · KP-138 -->
+      <div class="pq"><div class="pq-frage">„Welche Kontrastmittelarten kennen Sie, und welche Laborwerte kontrollieren Sie vor der Gabe?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich unterscheide jodhaltiges, gadoliniumhaltiges und bariumhaltiges Kontrastmittel. Dazu kommt Ultraschallkontrastmittel. Vorher kontrolliere ich Kreatinin mit eGFR und das TSH.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · 10.01.2024</span><span>Dr. Hennekes / Dr. Fehringer / Dr. Fischer · Radiologie</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <!-- KP-Intel F05982 · n=1 · KP-196 -->
+      <div class="pq"><div class="pq-frage">„Welche Komplikationen haben jodhaltige Kontrastmittel, was bedeutet die Grenz-GFR von 30, in welchen Einheiten rechnen Sie, und wie dosieren Sie das Jod?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Es drohen Allergie, Nephropathie und Thyreotoxikose. Unter GFR 30 ml/min/1,73 m² wird es kritisch. Ich gebe etwa 1 ml/kg, also 300 mg Jod/kg.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · 04.12.2023</span><span>Dr. Brantzen / Dr. Weimer / Dr. Hilbert · Radiologie</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <!-- KP-Intel F06229 · n=1 · KP-203 -->
+      <div class="pq"><div class="pq-frage">„Welche Kontrastmitteltypen gibt es, und welche Komplikationen und Kontraindikationen haben jodhaltige Kontrastmittel?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich unterscheide ionische und nichtionische jodhaltige Mittel, heute nehme ich niedrigosmolare. Sie können Anaphylaxie, Nierenschaden oder Thyreotoxikose auslösen, kontraindiziert sind sie bei manifester Hyperthyreose.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · 22.11.2023</span><span>Dr. Laakmann / Dr. Meier / Dr. Müller-Forell · Radiologie</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <!-- KP-Intel F06490 · n=1 · KP-212 -->
+      <div class="pq"><div class="pq-frage">„Welche Komplikationen hat Gadolinium als Kontrastmittel?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Lineare Präparate können bei schwerer Niereninsuffizienz eine nephrogene systemische Fibrose auslösen. Außerdem lagert sich Gadolinium im Gehirn ab, Allergien sind selten.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · 14.07.2023</span><span>Dr. Hock / Dr. Qashaa / Dr. Hilbert · Radiologie</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <!-- KP-Intel F08084 · n=1 · KP-265 -->
+      <div class="pq"><div class="pq-frage">„Warum ist bariumhaltiges Kontrastmittel bei Perforationsverdacht und akuter Darmentzündung kontraindiziert?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Bei akuter Entzündung droht eine Perforation, und ausgetretenes Barium macht eine schwere Peritonitis. Ich nehme dann wasserlösliches Kontrastmittel wie Gastrografin.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · 17.05.2023</span><span>Dr. Deckers / Prof. Dr. Dahm / Dr. Hilbert · Strahlenschutz</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <!-- KP-Intel F08391 · n=1 · KP-275 -->
+      <div class="pq"><div class="pq-frage">„Welche 3 Aspekte sind bei Kontrastmittelgabe wichtig, also Allergie, Schilddrüsen- und Nierenfunktion, und wie vermeiden Sie Komplikationen?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Bei Allergie prämediziere ich mit Kortison und Antihistaminikum. Bei latenter Hyperthyreose gebe ich Perchlorat, bei eingeschränkter Niere hydriere ich und dosiere sparsam.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · Datum nicht überliefert</span><span>Dr. Laakmann / Dr. Meier / Dr. Müller-Forell · Radiologie</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <!-- KP-Intel F09928 · n=1 · KP-355 -->
+      <div class="pq"><div class="pq-frage">„Warum geben Sie bei einer GFR unter 30 ml/min oder bei Dialyse kein lineares Gadolinium?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ohne Ausscheidung setzen lineare Chelate freies Gadolinium frei, das eine nephrogene systemische Fibrose auslöst. Ich wähle dann makrozyklisches Gadolinium in niedrigster Dosis.</div></details></div>
+      <!-- KP-Intel F09930 · n=1 · KP-355 -->
+      <div class="pq"><div class="pq-frage">„Wie beugen Sie einer Kontrastmittelnephropathie vor?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Der Nutzen ist umstritten, trotzdem hydriere ich Risikopatienten mit NaCl 0,9 %. Ich pausiere NSAR und gebe wenig niedrigosmolares Kontrastmittel.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · Datum nicht überliefert</span><span>Prüfer nicht überliefert · Radiologie</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <!-- KP-Intel F11235 · n=1 · KP-502 -->
+      <div class="pq"><div class="pq-frage">„Welche Laborwerte bestimmen Sie vor einem CT mit Kontrastmittel, und wie entscheiden Sie bei einer GFR über 60 und zwischen 30 und 60?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich bestimme Kreatinin, eGFR und TSH. Über 60 ml/min ist die Gabe unbedenklich, zwischen 30 und 60 wäge ich Nutzen und Risiko ab.</div></details></div>
     </div>
 
   </section>
