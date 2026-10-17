@@ -74,6 +74,7 @@
   .r2{background:oklch(95% 0.045 245);color:oklch(34% 0.13 245)}
   .r3{background:oklch(95% 0.045 300);color:oklch(34% 0.14 300)}
   .r4{background:oklch(95% 0.045 75);color:oklch(34% 0.13 75)}
+  .r5{background:oklch(94% 0.05 25);color:oklch(36% 0.15 25)}
   .c-title{font-size:14.5px;font-weight:600;line-height:1.32;letter-spacing:-.015em;color:var(--t1);text-wrap:pretty}
   .c-foot{display:flex;align-items:center;justify-content:flex-end;padding-top:9px;border-top:1px solid var(--border);margin-top:auto}
   .c-arrow{font-size:14px;color:var(--t3);transition:transform .18s,color .18s;line-height:1}
@@ -1373,24 +1374,25 @@
 
 
   /* Fortschritt — direkt aus dem DOM, kann nie veralten */
-  var LVLC = { 1:'oklch(72% 0.12 160)', 2:'oklch(66% 0.13 245)', 3:'oklch(62% 0.14 300)', 4:'oklch(70% 0.13 75)' };
+  var LVLC = { 1:'oklch(72% 0.12 160)', 2:'oklch(66% 0.13 245)', 3:'oklch(62% 0.14 300)', 4:'oklch(70% 0.13 75)', 5:'oklch(60% 0.16 25)' };
   /* Stufe: das sichtbare Badge gewinnt, data-lvl nur als Rueckfall */
   function lvlOf(c) {
     var b = c.querySelector('.lvl');
-    var m = b && b.className.match(/\br([1-4])\b/);
+    var m = b && b.className.match(/\br([1-5])\b/);
     return m ? m[1] : (c.getAttribute('data-lvl') || '');
   }
   (function () {
     var rev = document.querySelector('[data-block="reviews"]');
     if (!rev) return;
     var cards = [].slice.call(rev.querySelectorAll('.card'));
-    var by = { 1:0, 2:0, 3:0, 4:0 }, total = cards.length;
+    var by = { 1:0, 2:0, 3:0, 4:0, 5:0 }, total = cards.length;
     cards.forEach(function (c) { var l = lvlOf(c); if (by[l] !== undefined) by[l]++; });
-    var reif = by[3] + by[4];
+    var reif = by[3] + by[4] + by[5];
     var days = Math.ceil((new Date('2027-03-01') - Date.now()) / 86400000);
     var rows = [
       [total, 'Themen', 'Reviews gesamt'],
-      [by[4], 'R4 · Audio', 'Drill abgeschlossen'],
+      [by[4] + by[5], 'ab R4 · Audio', 'Drill abgeschlossen'],
+      [by[5], 'R5 · sitzt', 'Kern-Sitzung bestanden'],
       [reif, 'ab R3', 'mit Prüfungsfragen'],
       [days > 0 ? days : 0, 'Tage', 'bis zur Prüfung']
     ];
@@ -1398,7 +1400,7 @@
       return '<div class="stat"><div class="stat-n">' + r[0] + '</div><div class="stat-l">' + r[1] + '</div><div class="stat-s">' + r[2] + '</div></div>';
     }).join('');
     var segs = '', lg = '';
-    [1, 2, 3, 4].forEach(function (l) {
+    [1, 2, 3, 4, 5].forEach(function (l) {
       var p = total ? (by[l] / total * 100) : 0;
       if (p > 0) segs += '<span class="cov-seg" style="width:' + p.toFixed(1) + '%;background:' + LVLC[l] + '"></span>';
       lg += '<span><i style="background:' + LVLC[l] + '"></i>R' + l + ' · ' + by[l] + '</span>';
@@ -1434,9 +1436,9 @@
   /* Filter-Chips — Stufen + Fachgebiete, aus dem DOM erzeugt */
   var fLvl = 'all', fSpe = 'all';
   (function () {
-    var lvlNames = { 1:'R1 Basis', 2:'R2 Perlen', 3:'R3 Fragen', 4:'R4 Audio' };
+    var lvlNames = { 1:'R1 Basis', 2:'R2 Perlen', 3:'R3 Fragen', 4:'R4 Audio', 5:'R5 sitzt' };
     var h = '<button class="chip on" data-f="lvl" data-v="all">Alle Stufen</button>';
-    [1, 2, 3, 4].forEach(function (l) { h += '<button class="chip" data-f="lvl" data-v="' + l + '">' + lvlNames[l] + '</button>'; });
+    [1, 2, 3, 4, 5].forEach(function (l) { h += '<button class="chip" data-f="lvl" data-v="' + l + '">' + lvlNames[l] + '</button>'; });
     h += '<button class="chip-rst" id="rst" hidden>zurücksetzen</button>';
     document.getElementById('chipsLvl').innerHTML = h;
     var s = '<button class="chip on" data-f="spe" data-v="all">Alle Fächer</button>';
