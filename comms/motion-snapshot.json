@@ -1,19 +1,19 @@
 {
-  "generatedAt": "2026-10-17T07:32:26.087Z",
+  "generatedAt": "2026-10-18T07:47:33.097Z",
   "totals": {
-    "open": 97,
-    "completed": 471,
+    "open": 91,
+    "completed": 468,
     "overdue": 0,
-    "schedulingIssues": 57
+    "schedulingIssues": 51
   },
   "byLevel": {
     "R1": {
       "open": 0,
-      "completed": 106
+      "completed": 105
     },
     "R2": {
       "open": 0,
-      "completed": 104
+      "completed": 103
     },
     "R3": {
       "open": 0,
@@ -24,25 +24,25 @@
       "completed": 84
     },
     "R5": {
-      "open": 38,
+      "open": 32,
       "completed": 1
     }
   },
   "byWorkstream": {
     "A_coverage": {
       "topicsTotal": 182,
-      "studied": 65,
+      "studied": 64,
       "studyOpen": 0,
-      "r1Built": 100,
+      "r1Built": 99,
       "r1Open": 0
     },
     "B_r5": {
-      "open": 38,
+      "open": 32,
       "completed": 1,
       "pilot": [
         {
           "name": "Review: Cholezystitis R5",
-          "dueDate": "2026-11-24",
+          "dueDate": "2026-10-22",
           "completed": false
         }
       ]
@@ -287,12 +287,6 @@
       "scheduledStart": null
     },
     {
-      "name": "Review: Arzneimittelinteraktionen & UAW R5",
-      "dueDate": "2026-11-25",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
       "name": "Akte-Sim #21",
       "dueDate": "2027-02-27",
       "schedulingIssue": true,
@@ -373,36 +367,6 @@
     {
       "name": "Akte-Sim #8",
       "dueDate": "2026-11-28",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Review: Schlaganfall/Apoplex R5",
-      "dueDate": "2026-11-26",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Review: Leistenhernie R5",
-      "dueDate": "2026-11-26",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Review: Ileus R5",
-      "dueDate": "2026-11-27",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Review: Cholezystitis R5",
-      "dueDate": "2026-11-24",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Review: Pneumothorax R5",
-      "dueDate": "2026-11-27",
       "schedulingIssue": true,
       "scheduledStart": null
     },
@@ -506,11 +470,6 @@
   "overdue": [],
   "upcoming14d": [
     {
-      "name": "Review: AV-Block R5",
-      "dueDate": "2026-10-19",
-      "duration": 180
-    },
-    {
       "name": "Review: Schädel-Hirn-Trauma R5",
       "dueDate": "2026-10-20",
       "duration": 180
@@ -521,14 +480,14 @@
       "duration": 180
     },
     {
-      "name": "Review: Ikterus + Cholestase R5",
-      "dueDate": "2026-10-22",
-      "duration": 180
-    },
-    {
       "name": "Akte-Sim #3",
       "dueDate": "2026-10-22",
       "duration": 60
+    },
+    {
+      "name": "Review: Cholezystitis R5",
+      "dueDate": "2026-10-22",
+      "duration": 180
     },
     {
       "name": "KP Crashkurs (Home) – Tag 1 – Innere Medizin",
@@ -546,8 +505,8 @@
       "duration": 180
     },
     {
-      "name": "Review: Morbus Crohn & Colitis ulcerosa R5",
-      "dueDate": "2026-10-27",
+      "name": "Review: Arzneimittelinteraktionen & UAW R5",
+      "dueDate": "2026-10-26",
       "duration": 180
     },
     {
@@ -579,6 +538,16 @@
       "name": "Akte-Sim #4",
       "dueDate": "2026-10-31",
       "duration": 60
+    },
+    {
+      "name": "Review: Schlaganfall/Apoplex R5",
+      "dueDate": "2026-11-01",
+      "duration": 180
+    },
+    {
+      "name": "Review: Impfungen/STIKO R5",
+      "dueDate": "2026-11-01",
+      "duration": 180
     }
   ],
   "nextCheckpoint": null
