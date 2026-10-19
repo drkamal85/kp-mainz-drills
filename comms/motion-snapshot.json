@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-10-18T07:47:33.097Z",
+  "generatedAt": "2026-10-19T08:30:37.172Z",
   "totals": {
-    "open": 91,
-    "completed": 468,
+    "open": 95,
+    "completed": 469,
     "overdue": 0,
     "schedulingIssues": 51
   },
@@ -24,21 +24,21 @@
       "completed": 84
     },
     "R5": {
-      "open": 32,
-      "completed": 1
+      "open": 35,
+      "completed": 2
     }
   },
   "byWorkstream": {
     "A_coverage": {
-      "topicsTotal": 182,
+      "topicsTotal": 183,
       "studied": 64,
       "studyOpen": 0,
       "r1Built": 99,
       "r1Open": 0
     },
     "B_r5": {
-      "open": 32,
-      "completed": 1,
+      "open": 35,
+      "completed": 2,
       "pilot": [
         {
           "name": "Review: Cholezystitis R5",
@@ -470,9 +470,9 @@
   "overdue": [],
   "upcoming14d": [
     {
-      "name": "Review: Schädel-Hirn-Trauma R5",
-      "dueDate": "2026-10-20",
-      "duration": 180
+      "name": "Review: Morbus Crohn & Colitis ulcerosa R5",
+      "dueDate": "2026-10-19",
+      "duration": 120
     },
     {
       "name": "Review: GI-Blutung R5",
@@ -506,7 +506,7 @@
     },
     {
       "name": "Review: Arzneimittelinteraktionen & UAW R5",
-      "dueDate": "2026-10-26",
+      "dueDate": "2026-10-27",
       "duration": 180
     },
     {
@@ -523,6 +523,16 @@
       "name": "Review: Diabetes mellitus R5",
       "dueDate": "2026-10-29",
       "duration": 180
+    },
+    {
+      "name": "Review: Rechtsmedizin R5",
+      "dueDate": "2026-10-30",
+      "duration": 120
+    },
+    {
+      "name": "Review: AV-Block R5",
+      "dueDate": "2026-10-30",
+      "duration": 120
     },
     {
       "name": "Review: Arterielle Hypertonie R5",
@@ -548,6 +558,11 @@
       "name": "Review: Impfungen/STIKO R5",
       "dueDate": "2026-11-01",
       "duration": 180
+    },
+    {
+      "name": "Review: Pankreatitis R5",
+      "dueDate": "2026-11-02",
+      "duration": 120
     }
   ],
   "nextCheckpoint": null
