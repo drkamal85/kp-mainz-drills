@@ -6,10 +6,12 @@ Aufruf aus dem Repo-Root:  python3 tools/_mark-r5.py <slug> [<slug> ...]
 Macht pro Slug, idempotent:
   1. Slug in R5_TOPICS in tools/_build-master.py eintragen
   2. Indexkarte: data-lvl="5" und Badge <span class="lvl r5">R5</span>
+  3. Deckseite: Stufe in der Meta-Zeile auf R5
 Danach die Build-Kette vollstaendig laufen lassen:
   _build-master -> _build-fragen -> _build-content -> _build-kernprinzip
   -> _check-feeds -> _check-themenliste -> _check-fragen -> _check-mining
 """
+import os
 import csv, io, re, sys
 
 if len(sys.argv) < 2:
@@ -37,6 +39,16 @@ for slug in sys.argv[1:]:
     if '<span class="lvl r5">R5</span>' not in c2:
         sys.exit(f"{slug}: Badge auf der Karte nicht gefunden")
     idx = idx.replace(c, c2)
+    # Deckseite: Stufenangabe in der Meta-Zeile (<span>R4</span>) auf R5
+    href = re.search(r'href="([^"]+)"', c).group(1)
+    if os.path.exists(href):
+        deck = io.open(href, encoding='utf-8').read()
+        meta = re.search(r'<div class="meta">.*?</div>', deck, re.S)
+        if meta:
+            m2 = re.sub(r'<span>R\d</span>', '<span>R5</span>', meta.group(0), count=1)
+            if m2 != meta.group(0):
+                io.open(href, 'w', encoding='utf-8').write(deck.replace(meta.group(0), m2))
+                print(f"{slug}: Deckseite {href} auf R5")
     cur.add(slug)
     print(f"{slug}: R5 gesetzt")
 
