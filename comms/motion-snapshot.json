@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-19T08:30:37.172Z",
+  "generatedAt": "2026-10-20T08:12:09.262Z",
   "totals": {
-    "open": 95,
+    "open": 91,
     "completed": 469,
     "overdue": 0,
-    "schedulingIssues": 51
+    "schedulingIssues": 52
   },
   "byLevel": {
     "R1": {
@@ -24,7 +24,7 @@
       "completed": 84
     },
     "R5": {
-      "open": 35,
+      "open": 31,
       "completed": 2
     }
   },
@@ -37,7 +37,7 @@
       "r1Open": 0
     },
     "B_r5": {
-      "open": 35,
+      "open": 31,
       "completed": 2,
       "pilot": [
         {
@@ -63,7 +63,7 @@
         },
         {
           "name": "Akte-Sim #3",
-          "dueDate": "2026-10-22",
+          "dueDate": "2026-10-29",
           "completed": false
         },
         {
@@ -465,24 +465,20 @@
       "dueDate": "2026-12-26",
       "schedulingIssue": true,
       "scheduledStart": null
+    },
+    {
+      "name": "Review: GI-Blutung R5",
+      "dueDate": "2026-10-21",
+      "schedulingIssue": false,
+      "scheduledStart": null
     }
   ],
   "overdue": [],
   "upcoming14d": [
     {
-      "name": "Review: Morbus Crohn & Colitis ulcerosa R5",
-      "dueDate": "2026-10-19",
-      "duration": 120
-    },
-    {
       "name": "Review: GI-Blutung R5",
       "dueDate": "2026-10-21",
       "duration": 180
-    },
-    {
-      "name": "Akte-Sim #3",
-      "dueDate": "2026-10-22",
-      "duration": 60
     },
     {
       "name": "Review: Cholezystitis R5",
@@ -520,19 +516,14 @@
       "duration": 180
     },
     {
+      "name": "Akte-Sim #3",
+      "dueDate": "2026-10-29",
+      "duration": 60
+    },
+    {
       "name": "Review: Diabetes mellitus R5",
       "dueDate": "2026-10-29",
       "duration": 180
-    },
-    {
-      "name": "Review: Rechtsmedizin R5",
-      "dueDate": "2026-10-30",
-      "duration": 120
-    },
-    {
-      "name": "Review: AV-Block R5",
-      "dueDate": "2026-10-30",
-      "duration": 120
     },
     {
       "name": "Review: Arterielle Hypertonie R5",
@@ -560,9 +551,14 @@
       "duration": 180
     },
     {
-      "name": "Review: Pankreatitis R5",
-      "dueDate": "2026-11-02",
-      "duration": 120
+      "name": "Review: Aufklärung, Einwilligung & Betreuung R5",
+      "dueDate": "2026-11-03",
+      "duration": 180
+    },
+    {
+      "name": "Review: Leistenhernie R5",
+      "dueDate": "2026-11-03",
+      "duration": 180
     }
   ],
   "nextCheckpoint": null
