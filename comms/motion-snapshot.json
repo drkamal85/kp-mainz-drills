@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-20T08:12:09.262Z",
+  "generatedAt": "2026-10-21T08:17:21.954Z",
   "totals": {
     "open": 91,
-    "completed": 469,
+    "completed": 470,
     "overdue": 0,
-    "schedulingIssues": 52
+    "schedulingIssues": 53
   },
   "byLevel": {
     "R1": {
@@ -24,21 +24,21 @@
       "completed": 84
     },
     "R5": {
-      "open": 31,
-      "completed": 2
+      "open": 30,
+      "completed": 3
     }
   },
   "byWorkstream": {
     "A_coverage": {
-      "topicsTotal": 183,
+      "topicsTotal": 184,
       "studied": 64,
       "studyOpen": 0,
       "r1Built": 99,
       "r1Open": 0
     },
     "B_r5": {
-      "open": 31,
-      "completed": 2,
+      "open": 30,
+      "completed": 3,
       "pilot": [
         {
           "name": "Review: Cholezystitis R5",
@@ -154,12 +154,18 @@
       ]
     },
     "D_bildsprint": {
-      "open": 22,
+      "open": 23,
       "completed": 11,
       "note": "Drill tasks live as komplett library files, not Motion tasks"
     }
   },
   "flagged": [
+    {
+      "name": "Bildbefundung: dokumentierte Prüfungsbilder der KERN-Themen lernen",
+      "dueDate": "2026-12-10",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
     {
       "name": "Drill: Sono/US komplett (Feb)",
       "dueDate": "2027-02-26",
@@ -371,6 +377,12 @@
       "scheduledStart": null
     },
     {
+      "name": "Review: Cholezystitis R5",
+      "dueDate": "2026-10-22",
+      "schedulingIssue": false,
+      "scheduledStart": null
+    },
+    {
       "name": "Drittes Fach: Protocol Review — Session 15",
       "dueDate": "2026-12-27",
       "schedulingIssue": true,
@@ -465,21 +477,10 @@
       "dueDate": "2026-12-26",
       "schedulingIssue": true,
       "scheduledStart": null
-    },
-    {
-      "name": "Review: GI-Blutung R5",
-      "dueDate": "2026-10-21",
-      "schedulingIssue": false,
-      "scheduledStart": null
     }
   ],
   "overdue": [],
   "upcoming14d": [
-    {
-      "name": "Review: GI-Blutung R5",
-      "dueDate": "2026-10-21",
-      "duration": 180
-    },
     {
       "name": "Review: Cholezystitis R5",
       "dueDate": "2026-10-22",
@@ -558,6 +559,11 @@
     {
       "name": "Review: Leistenhernie R5",
       "dueDate": "2026-11-03",
+      "duration": 180
+    },
+    {
+      "name": "Review: ACS/Myokardinfarkt R5",
+      "dueDate": "2026-11-04",
       "duration": 180
     }
   ],
