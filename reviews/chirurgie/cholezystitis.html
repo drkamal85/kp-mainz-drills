@@ -188,6 +188,8 @@
     .tier{font-size:8.5px;padding:4px 7px}
     .tier .zt{font-size:8.5px}
   }
+  ol.b{padding-left:22px;margin:6px 0 10px}
+  ol.b>li{margin-bottom:8px;line-height:1.55;padding-left:2px}
   /* Tier-Marke zusaetzlich in der Reiterleiste: der Kopfbereich scrollt weg,
      die Leiste bleibt haften - so ist das Ziel beim Lernen immer sichtbar. */
   .tier-sticky{margin-left:auto;align-self:center;display:inline-flex;align-items:center;gap:4px;
@@ -339,43 +341,49 @@
   <section class="panel" data-panel="therapie">
     <p class="panel-intro">Antibiotika + OP binnen 24 h — das ist die Mainz-Antwort. Erst laut, dann abgleichen.</p>
     <details class="card therapie" open><summary><span class="ct"><span class="ctag">Konservativ</span><span class="ctitle">Aufnahme-Standard — der Block</span></span><span class="plus">+</span></summary>
-      <div class="body"><ul class="b">
-        <li><strong>Nahrungskarenz</strong>, i.v.-Volumen, Thromboseprophylaxe</li>
-        <li><strong>Spasmolyse:</strong> Butylscopolamin (Buscopan)</li>
-        <li><strong>Analgesie:</strong> Metamizol — <em>NICHT</em> Morphin (Sphincter-Oddi-Spasmus)</li>
-        <li>Stufen: leichte Schmerzen NSAR, mittlere bis starke Metamizol, starke Pethidin oder Buprenorphin</li>
-        <li><strong>Antibiose:</strong> <em>Ceftriaxon 2 g i.v. 1-0-0 + Metronidazol 500 mg i.v. 1-0-1</em>, Dauer 3 bis 5 Tage</li>
-        <li>Indikation: bei <strong>komplizierter</strong> Cholezystitis und bei Cholangitis. Die unkomplizierte Cholezystitis mit Cholezystektomie braucht nur eine perioperative Prophylaxe</li>
-        <li>Bei <strong>Risiko für multiresistente Erreger</strong>: Piperacillin/Tazobactam, alternativ Meropenem</li>
-      </ul></div>
+      <div class="body">
+        <table class="dd">
+          <tr><th>Bereich</th><th>Maßnahme</th></tr>
+          <tr><td>Basis</td><td><strong>Nahrungskarenz</strong>, i.v.-Volumen, Thromboseprophylaxe</td></tr>
+          <tr><td>Spasmolyse</td><td>Butylscopolamin (Buscopan)</td></tr>
+          <tr><td>Analgesie</td><td><strong>Metamizol</strong> — <em>NICHT</em> Morphin (Sphincter-Oddi-Spasmus)<br>Stufen: leicht NSAR · mittel bis stark Metamizol · stark Pethidin oder Buprenorphin</td></tr>
+          <tr><td>Antibiose</td><td><em>Ceftriaxon 2 g i.v. 1-0-0 + Metronidazol 500 mg i.v. 1-0-1</em>, 3 bis 5 Tage<br>Nur bei <strong>komplizierter</strong> Cholezystitis und bei Cholangitis</td></tr>
+          <tr><td>MRE-Risiko</td><td>Piperacillin/Tazobactam, alternativ Meropenem</td></tr>
+        </table>
+        <div class="callout fact"><span class="lab">★ Merke</span>Unkomplizierte Cholezystitis mit Cholezystektomie: nur perioperative Prophylaxe.</div>
+      </div>
     </details>
     <details class="card therapie"><summary><span class="ct"><span class="ctag">Operativ</span><span class="ctitle">Cholezystektomie — Wann + Wie?</span></span><span class="plus">+</span></summary>
       <div class="body">
-        <h4>Indikation</h4>
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Akute Cholezystitis: laparoskopische Cholezystektomie binnen 24 h</strong> (früh-elektiv) — Standard!</div>
+        <h4>Wann?</h4>
+        <table class="dd">
+          <tr><td>Akute Cholezystitis</td><td>laparoskopisch binnen 24 h</td></tr>
+          <tr><td>Symptomatische Cholezystolithiasis</td><td>elektiv</td></tr>
+          <tr><td>Asymptomatisch</td><td>in der Regel <strong>KEINE OP</strong> — außer Steine &gt; 3 cm, Polypen ≥ 1 cm, Porzellangallenblase, Schrumpfgallenblase</td></tr>
+        </table>
+        <h4>Wie?</h4>
+        <ol class="b">
+          <li><strong>Calot-Dreieck</strong> darstellen — begrenzt von Leberunterrand, D. cysticus, D. hepaticus communis</li>
+          <li><strong>Critical View of Safety nach Strasberg</strong> dokumentieren — nur zwei Strukturen ziehen in die Gallenblase</li>
+          <li>A. cystica + D. cysticus clippen und durchtrennen</li>
+        </ol>
         <ul class="b">
-          <li><strong>Akute Cholezystitis: laparoskopische Cholezystektomie binnen 24 h</strong> (früh-elektiv) — Standard!</li>
-          <li><strong>Symptomatische Cholezystolithiasis:</strong> elektive Cholezystektomie</li>
-          <li><strong>Asymptomatisch:</strong> in der Regel KEINE OP — Ausnahmen: Steine &gt; 3 cm, Polypen ≥ 1 cm, Porzellangallenblase, Schrumpfgallenblase</li>
+          <li><strong>Konversion auf offene OP</strong> bei unklarer Anatomie, schwerer Entzündung mit Verwachsungen, Verletzung von Gallenwegen oder Gefäßen, Blutung</li>
+          <li><strong>Mirizzi-Syndrom:</strong> Stein im Gallenblasenhals oder D. cysticus komprimiert den D. hepaticus communis — Klinik wie Choledocholithiasis, Einteilung nach McSherry, häufig Konversion</li>
         </ul>
-        <h4>OP-Technik</h4>
-        <ul class="b">
-          <li>Laparoskopisch: <strong>Calot-Dreieck</strong> darstellen (begrenzt von Leberunterrand, D. cysticus, D. hepaticus communis) → A. cystica + D. cysticus identifizieren, clippen, durchtrennen</li>
-          <li><strong>Critical View of Safety nach Strasberg</strong> dokumentieren: im freipräparierten Dreieck dürfen nur zwei Strukturen in die Gallenblase ziehen</li>
-          <li><strong>Mirizzi-Syndrom</strong>: ein Stein im Gallenblasenhals oder Ductus cysticus komprimiert den Ductus hepaticus communis. Klinik wie bei Choledocholithiasis, Einteilung nach McSherry, häufig Konversion auf das offene Verfahren</li>
-          <li><strong>Konversion auf offene OP</strong> bei: unklarer Anatomie, schwerer Entzündung mit Verwachsungen, Verletzung von Gallenwegen oder Gefäßen, Blutung</li>
-        </ul>
-        <div class="callout critical"><span class="lab">▲ Komplikationen</span>Verletzung D. hepaticus communis, Galleleckage / biliäre Peritonitis, Blutung (<strong>A. gastroduodenalis!</strong> bei Papillotomie), Wundheilungsstörung, Stumpfinsuffizienz D. cysticus, Trokarverletzung.</div>
+        <div class="callout critical"><span class="lab">▲ Komplikationen</span>Verletzung D. hepaticus communis, Galleleckage / biliäre Peritonitis, Blutung, Wundheilungsstörung, Stumpfinsuffizienz D. cysticus, Trokarverletzung.</div>
       </div>
     </details>
     <details class="card therapie"><summary><span class="ct"><span class="ctag">ERCP</span><span class="ctitle">Bei Choledocholithiasis / Cholangitis</span></span><span class="plus">+</span></summary>
-      <div class="body"><ul class="b">
-        <li><strong>Weg des Endoskops:</strong> Mund → Ösophagus → Magen → Duodenum → Papilla Vateri</li>
-        <li>Papillotomie (Sphincter Oddi spalten) + Steinextraktion mit Ballon oder Dormia-Körbchen</li>
-        <li><strong>Vor ERCP:</strong> Antibiose (Cephalosporin 3. Gen ± Metronidazol)</li>
-        <li>Anschließend <strong>Cholezystektomie innerhalb von 72 Stunden</strong></li>
-      </ul>
-        <h4>Komplikationen ERCP (ca. 10 % gesamt)</h4>
-        <ul class="b"><li>Post-ERCP-Pankreatitis 5 % · Blutung 3 % (A. gastroduodenalis) · Cholangitis 3 % · Perforation 1 %</li></ul>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span>Erst ERCP mit Steinextraktion, dann <strong>Cholezystektomie innerhalb von 72 Stunden</strong>.</div>
+        <ul class="b">
+          <li><strong>Vor ERCP:</strong> Antibiose (Cephalosporin 3. Gen ± Metronidazol)</li>
+          <li><strong>Weg:</strong> Mund → Ösophagus → Magen → Duodenum → Papilla Vateri</li>
+          <li>Papillotomie (Sphincter Oddi spalten) + Steinextraktion mit Ballon oder Dormia-Körbchen</li>
+          <li><strong>Komplikationen (ca. 10 % gesamt):</strong> Post-ERCP-Pankreatitis 5 % · Blutung 3 % (A. gastroduodenalis) · Cholangitis 3 % · Perforation 1 %</li>
+        </ul>
       </div>
     </details>
   </section>
