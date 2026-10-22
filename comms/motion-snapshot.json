@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-21T08:17:21.954Z",
+  "generatedAt": "2026-10-22T08:19:31.936Z",
   "totals": {
-    "open": 91,
-    "completed": 470,
+    "open": 124,
+    "completed": 471,
     "overdue": 0,
-    "schedulingIssues": 53
+    "schedulingIssues": 86
   },
   "byLevel": {
     "R1": {
@@ -20,30 +20,30 @@
       "completed": 89
     },
     "R4": {
-      "open": 0,
+      "open": 34,
       "completed": 84
     },
     "R5": {
-      "open": 30,
-      "completed": 3
+      "open": 29,
+      "completed": 4
     }
   },
   "byWorkstream": {
     "A_coverage": {
-      "topicsTotal": 184,
+      "topicsTotal": 193,
       "studied": 64,
       "studyOpen": 0,
       "r1Built": 99,
       "r1Open": 0
     },
     "B_r5": {
-      "open": 30,
-      "completed": 3,
+      "open": 29,
+      "completed": 4,
       "pilot": [
         {
           "name": "Review: Cholezystitis R5",
           "dueDate": "2026-10-22",
-          "completed": false
+          "completed": true
         }
       ]
     },
@@ -73,7 +73,7 @@
         },
         {
           "name": "Akte-Sim #6",
-          "dueDate": "2026-11-07",
+          "dueDate": "2026-11-05",
           "completed": false
         },
         {
@@ -160,6 +160,210 @@
     }
   },
   "flagged": [
+    {
+      "name": "Review: COPD R4",
+      "dueDate": "2026-12-31",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Milzruptur / Splenektomie R4",
+      "dueDate": "2026-12-30",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Synkope R4",
+      "dueDate": "2026-12-29",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: pAVK R4",
+      "dueDate": "2026-12-28",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Humerusfraktur R4",
+      "dueDate": "2026-12-27",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Nierenversagen (akut / akut-auf-chron.) R4",
+      "dueDate": "2026-12-26",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Elektrolytstörungen K⁺/Ca²⁺ R4",
+      "dueDate": "2026-12-26",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Diarrhoe / Gastroenteritis R4",
+      "dueDate": "2026-12-25",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Bronchialkarzinom R4",
+      "dueDate": "2026-12-25",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Morbus Crohn & Colitis ulcerosa R4",
+      "dueDate": "2026-12-24",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Makrozytäre Anämie / Vitamin-B12-Mangel R4",
+      "dueDate": "2026-12-23",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Sozialrecht & Hygiene R4",
+      "dueDate": "2026-12-22",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Tiefe Beinvenenthrombose (TVT) R4",
+      "dueDate": "2026-12-21",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Anaphylaxie R4",
+      "dueDate": "2026-12-20",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Gastritis (Typ A/B/C) R4",
+      "dueDate": "2026-12-19",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Strahlenschutz R4",
+      "dueDate": "2026-12-19",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Schilddrüsenkarzinom R4",
+      "dueDate": "2026-12-18",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Sprunggelenksfraktur (OSG) R4",
+      "dueDate": "2026-12-18",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Hyperthyreose R4",
+      "dueDate": "2026-12-17",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: KHK / Koronarsyndrom R4",
+      "dueDate": "2026-12-16",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Pankreatitis R4",
+      "dueDate": "2026-12-15",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Sepsis & septischer Schock R4",
+      "dueDate": "2026-12-14",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Lebermetastasen / Lebertumor R4",
+      "dueDate": "2026-12-13",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: AV-Block R4",
+      "dueDate": "2026-12-12",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Check-up / Prävention R4",
+      "dueDate": "2026-12-12",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Hüft- / Knie-TEP R4",
+      "dueDate": "2026-12-11",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Pneumonie R4",
+      "dueDate": "2026-12-11",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Reanimation / CPR R4",
+      "dueDate": "2026-12-10",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Akuttoxikologie / Intoxikation R4",
+      "dueDate": "2026-12-09",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Leberzirrhose R4",
+      "dueDate": "2026-12-08",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Rechtsmedizin / Leichenschau R4",
+      "dueDate": "2026-12-07",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Distale Radiusfraktur R4",
+      "dueDate": "2026-12-06",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Ikterus & Cholestase R4",
+      "dueDate": "2026-12-02",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Eisenmangelanämie R4",
+      "dueDate": "2026-12-01",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
     {
       "name": "Bildbefundung: dokumentierte Prüfungsbilder der KERN-Themen lernen",
       "dueDate": "2026-12-10",
@@ -258,25 +462,19 @@
     },
     {
       "name": "KP Crashkurs (Home) – Tag 5 – Probeexamen (Mock #1)",
-      "dueDate": "2026-11-21",
+      "dueDate": "2026-12-05",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
       "name": "KP Crashkurs (Home) – Tag 4 – Geriatrie/Palliativ/Bildgebung/Sozialrecht",
-      "dueDate": "2026-11-20",
+      "dueDate": "2026-12-04",
       "schedulingIssue": true,
       "scheduledStart": null
     },
     {
       "name": "KP Crashkurs (Home) – Tag 3 – Notfall + Neurologie",
-      "dueDate": "2026-11-19",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Review: Antibiotikatherapie (kalkuliert) R5",
-      "dueDate": "2026-11-28",
+      "dueDate": "2026-12-03",
       "schedulingIssue": true,
       "scheduledStart": null
     },
@@ -288,7 +486,7 @@
     },
     {
       "name": "Review: Antikoagulation & Bridging R5",
-      "dueDate": "2026-11-29",
+      "dueDate": "2026-11-26",
       "schedulingIssue": true,
       "scheduledStart": null
     },
@@ -321,181 +519,10 @@
       "dueDate": "2027-01-30",
       "schedulingIssue": true,
       "scheduledStart": null
-    },
-    {
-      "name": "Akte-Sim #16",
-      "dueDate": "2027-01-23",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Akte-Sim #15",
-      "dueDate": "2027-01-16",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Akte-Sim #14",
-      "dueDate": "2027-01-09",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Akte-Sim #13",
-      "dueDate": "2027-01-02",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Akte-Sim #12",
-      "dueDate": "2026-12-26",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Akte-Sim #11",
-      "dueDate": "2026-12-19",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Akte-Sim #10",
-      "dueDate": "2026-12-12",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Akte-Sim #9",
-      "dueDate": "2026-12-05",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Akte-Sim #8",
-      "dueDate": "2026-11-28",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Review: Cholezystitis R5",
-      "dueDate": "2026-10-22",
-      "schedulingIssue": false,
-      "scheduledStart": null
-    },
-    {
-      "name": "Drittes Fach: Protocol Review — Session 15",
-      "dueDate": "2026-12-27",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Oral Simulation with Partner — Session 13 (final)",
-      "dueDate": "2027-02-24",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Drittes Fach: Protocol Review — Session 16",
-      "dueDate": "2026-12-28",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Oral Simulation with Partner — Session 11",
-      "dueDate": "2027-02-20",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Oral Simulation with Partner — Session 9",
-      "dueDate": "2027-01-23",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Drittes Fach: Protocol Review — Session 17",
-      "dueDate": "2026-12-29",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Practice: Anamnesebogen — Complete from real Akte (Session 4)",
-      "dueDate": "2027-01-10",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Oral Simulation with Partner — Session 7",
-      "dueDate": "2026-12-26",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Oral Simulation with Partner — Session 10",
-      "dueDate": "2027-02-06",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Practice: Anamnesebogen — Complete from real Akte (Session 5)",
-      "dueDate": "2027-01-25",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Drittes Fach: Protocol Review — Session 18",
-      "dueDate": "2026-12-30",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Oral Simulation with Partner — Session 12",
-      "dueDate": "2027-02-21",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Drittes Fach: Protocol Review — Session 19",
-      "dueDate": "2026-12-31",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Oral Simulation with Partner — Session 8",
-      "dueDate": "2027-01-09",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Drittes Fach: Protocol Review — Session 13",
-      "dueDate": "2026-12-25",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Drittes Fach: Protocol Review — Session 14",
-      "dueDate": "2026-12-26",
-      "schedulingIssue": true,
-      "scheduledStart": null
     }
   ],
   "overdue": [],
   "upcoming14d": [
-    {
-      "name": "Review: Cholezystitis R5",
-      "dueDate": "2026-10-22",
-      "duration": 180
-    },
-    {
-      "name": "KP Crashkurs (Home) – Tag 1 – Innere Medizin",
-      "dueDate": "2026-10-23",
-      "duration": 600
-    },
-    {
-      "name": "KP Crashkurs (Home) – Tag 2 – Chirurgie",
-      "dueDate": "2026-10-24",
-      "duration": 600
-    },
     {
       "name": "Review: Schock (alle Typen) R5",
       "dueDate": "2026-10-25",
@@ -564,6 +591,16 @@
     {
       "name": "Review: ACS/Myokardinfarkt R5",
       "dueDate": "2026-11-04",
+      "duration": 180
+    },
+    {
+      "name": "Akte-Sim #6",
+      "dueDate": "2026-11-05",
+      "duration": 60
+    },
+    {
+      "name": "Review: Herzinsuffizienz R5",
+      "dueDate": "2026-11-05",
       "duration": 180
     }
   ],
