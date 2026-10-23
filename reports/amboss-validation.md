@@ -298,3 +298,14 @@ arzneimittelinteraktionen-uaw, acs-myokardinfarkt, akute-leukaemien, akutes-abdo
 - asthma-bronchiale
 - schlaganfall
 - morbus-hodgkin
+
+### Nachtrag 23.10.2026 — 4 weitere Decks nach Neu-Erfassung
+
+| Deck | ✓ | ✗ | ? | Korrekturen (Panel) | Status | Flag |
+|---|---|---|---|---|---|---|
+| polytrauma-abcde | 36 | 0 | 21 | – | done | 2026-10-23 |
+| bluttransfusion | 30 | 0 | 14 | – | done | 2026-10-23 |
+| makrozytaere-anaemie-b12 | 48 | 0 | 8 | – | done | 2026-10-23 |
+| pankreaskarzinom | 36 | 0 | 11 | – | done | 2026-10-23 |
+
+AMBOSS-validiert (23.10.2026): polytrauma-abcde, bluttransfusion, makrozytaere-anaemie-b12, pankreaskarzinom

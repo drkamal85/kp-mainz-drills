@@ -5,7 +5,7 @@
   "sources/amboss/bluttransfusion.md"
  ],
  "counts": {
-  "ok": 28,
+  "ok": 30,
   "fix": 0,
   "unclear": 14
  },
@@ -14,17 +14,17 @@
   {
    "panel": "grundlagen",
    "deck_text": "Unter 6 immer · 6 bis 8 nach Symptomen · über 8 fast nie.",
-   "reason": "Protokoll-Korridor; AMBOSS <7 empfohlen, 8–9,9 bei Hypoxiezeichen empfohlen"
+   "reason": "Protokoll-Korridor; AMBOSS <7 empfohlen, 8–9,9 bei anämischer Hypoxie empfohlen"
   },
   {
    "panel": "grundlagen",
    "deck_text": "Herzkrank: schon ab 8 transfundieren",
-   "reason": "AMBOSS: 7–7,9 bei Risikofaktoren empfohlen; Grenze 8 nicht explizit"
+   "reason": "AMBOSS: 7–7,9 bei eingeschränkter Kompensation/Risikofaktoren empfohlen; Grenze 8 nicht explizit"
   },
   {
    "panel": "klinik",
    "deck_text": "Fieber, Schüttelfrost, Rückenschmerz, dunkler Urin",
-   "reason": "AMBOSS-Klinikliste anders, aber nicht widersprüchlich"
+   "reason": "AMBOSS-Klinikliste anders (Schock, Dyspnoe, Urtikaria, Ikterus), aber nicht widersprüchlich"
   },
   {
    "panel": "klinik",
@@ -83,18 +83,5 @@
   }
  ],
  "status": "done",
- "validated": "2026-10-09",
- "second_pass": {
-  "date": "2026-10-09",
-  "checked": 57,
-  "applied": 0,
-  "rejected_by_orchestrator": []
- },
- "third_pass": {
-  "date": "2026-10-10",
-  "model": "fable",
-  "checked": 46,
-  "applied": 0,
-  "rejected_by_orchestrator": []
- }
+ "validated": "2026-10-23"
 }

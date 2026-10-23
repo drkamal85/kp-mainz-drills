@@ -5,16 +5,16 @@
   "sources/amboss/polytrauma-abcde.md"
  ],
  "counts": {
-  "ok": 34,
+  "ok": 36,
   "fix": 0,
-  "unclear": 18
+  "unclear": 21
  },
  "fixes": [],
  "unclear": [
   {
    "panel": "grundlagen",
    "deck_text": "Unfallort-Tabelle: wach / bewusstlos atmet / keine Atmung → Vorgehen",
-   "reason": "präklinisches Vorgehen nicht erfasst (cABCDE-Companion-Artikel nicht erfasst)"
+   "reason": "präklinisches Vorgehen nicht erfasst (Verweis auf Präklinische Traumaversorgung)"
   },
   {
    "panel": "grundlagen",
@@ -24,7 +24,7 @@
   {
    "panel": "grundlagen",
    "deck_text": "Höchste Gefahr ist die Blutung → hämorrhagischer Schock",
-   "reason": "AMBOSS nennt SHT und häm. Schock als häufigste Todesursachen"
+   "reason": "AMBOSS: häufigste Todesursachen schweres SHT und ausgeprägter Blutverlust (ca. 30%); Gewichtung Protokoll"
   },
   {
    "panel": "klinik",
@@ -44,12 +44,12 @@
   {
    "panel": "klinik",
    "deck_text": "Spannungspneumothorax → Entlastung im 2. ICR medioklavikulär",
-   "reason": "Punktionsort nicht in Erfassung"
+   "reason": "Punktionsort nicht in Erfassung (bei Trauma-HKS: beidseitige Eröffnung des Pleuraraums)"
   },
   {
    "panel": "klinik",
    "deck_text": "Beck-Trias (Hypotonie, gestaute Halsvenen, leise Herztöne)",
-   "reason": "nicht in Erfassung"
+   "reason": "Trias als solche nicht in Erfassung (gedämpfte Herztöne, gestaute Halsvenen einzeln erwähnt)"
   },
   {
    "panel": "klinik",
@@ -58,13 +58,18 @@
   },
   {
    "panel": "diagnostik",
-   "deck_text": "eFAST Die vier Fenster: RUQ, LUQ, subxiphoidal, suprapubisch + Pleura",
-   "reason": "Schallfenster nicht im Detail erfasst"
+   "deck_text": "Röntgen Thorax + Becken",
+   "reason": "AMBOSS: Einzelfallentscheidung, falls keine unmittelbare CT; kein Widerspruch"
   },
   {
    "panel": "diagnostik",
-   "deck_text": "Labor: Laktat, Kreuzprobe",
-   "reason": "AMBOSS nennt BGA, Blutgruppe + Antikörpersuchtest; Detail nicht erfasst"
+   "deck_text": "eFAST Die vier Fenster: RUQ, LUQ, subxiphoidal, suprapubisch + Pleura",
+   "reason": "Schallfenster nicht im Detail erfasst (nur Abdomen, Becken, Perikard, Pleura)"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Labor: Laktat, Blutgruppe + Kreuzprobe",
+   "reason": "AMBOSS: BGA, Blutgruppe + Antikörpersuchtest; Laktat als Steuerparameter"
   },
   {
    "panel": "therapie",
@@ -84,7 +89,7 @@
   {
    "panel": "therapie",
    "deck_text": "4H + HITS (Hypokaliämie, Intoxikation, Thromboembolie, Hypothermie)",
-   "reason": "AMBOSS-Trauma: nur Hypoxie, Hypovolämie, Tamponade, Spannungspneu"
+   "reason": "AMBOSS-Trauma: nur Hypoxie, Hypovolämie, Perikardtamponade, Spannungspneu"
   },
   {
    "panel": "perlen",
@@ -100,21 +105,18 @@
    "panel": "protokoll",
    "deck_text": "Mit dem Log-Roll-Manöver drehen 3 Helfer ihn achsengerecht zur Seite, ein 4. führt den Kopf.",
    "reason": "Helferzahl nicht in Erfassung"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Das x steht für die kritische äußere Blutung.",
+   "reason": "AMBOSS nutzt cABCDE (c = Critical Bleeding); x-Variante nicht in Erfassung"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "bei kleineren Verletzungen erhalte ich die Milz mit Fibrinkleber oder einer partiellen Resektion",
+   "reason": "Milzversorgung nicht in Erfassung"
   }
  ],
  "status": "done",
- "validated": "2026-10-09",
- "second_pass": {
-  "date": "2026-10-09",
-  "checked": 56,
-  "applied": 0,
-  "rejected_by_orchestrator": []
- },
- "third_pass": {
-  "date": "2026-10-10",
-  "model": "fable",
-  "checked": 46,
-  "applied": 0,
-  "rejected_by_orchestrator": []
- }
+ "validated": "2026-10-23"
 }
