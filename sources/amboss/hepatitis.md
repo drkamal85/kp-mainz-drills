@@ -1,17 +1,17 @@
 # Hepatitis (AMBOSS)
 
-**Quellen:**
-1. AMBOSS, Artikel "Hepatitis A", Artikel-ID `kS0m-2` — https://next.amboss.com/de/article/kS0m-2 — Zuletzt bearbeitet (AMBOSS): 01.10.2026
-2. AMBOSS, Artikel "Hepatitis B und HBV-Infektion", Artikel-ID `OS0I-2` — https://next.amboss.com/de/article/OS0I-2 — Zuletzt bearbeitet (AMBOSS): 01.10.2026
-
-- **Erfasst:** 2026-10-14
+- **Artikel-ID:** kS0m-2 (Hepatitis A), OS0I-2 (Hepatitis B und HBV-Infektion)
+- **URL:** https://next.amboss.com/de/article/kS0m-2
+- **URL:** https://next.amboss.com/de/article/OS0I-2
+- **Zuletzt bearbeitet (AMBOSS):** 01.10.2026 (kS0m-2), 13.10.2026 (OS0I-2)
+- **Erfasst:** 2026-10-23
 - **Methode:** Browser-Tool Copy/Paste-Methode (Claude-Browser, AMBOSS Lernansicht), keine Website-Bearbeitung. Jeder Abschnitt einzeln ausgeklappt, in den Viewport gescrollt und per DOM-Textextraktion wörtlich übernommen; Listen-Hierarchie und Tabellen aus der Seitenstruktur übertragen (Zeilenumbrüche in Tabellenzellen als <br>). Keine Paraphrasierung, nichts ergänzt.
 - **KP-Zuordnung:** Topic #70 "Hepatitis" (RAND) — AMBOSS führt Virushepatitiden als Einzelkapitel je Erreger; erfasst: Hepatitis A und Hepatitis B (beide vollständig)
-- **Bekannte Lücken:** Bildinhalte/Grafiken nur soweit als Text (Bildunterschrift/Verweis) im Artikel vorhanden; Popup-Definitionen (Info-Kästchen) und Dosierungs-Aufklapper nicht einzeln geöffnet; Audio/Video (Podcast, Meditricks) nur als Titel. Alle Abschnitte des Kapitels lieferten Text (kein leerer Abschnitt).
+- **Bekannte Lücken:** Bildinhalte/Grafiken nur soweit als Text (Bildunterschrift/Verweis) im Artikel vorhanden; Popup-Definitionen (Info-Kästchen) und Dosierungs-Aufklapper nicht einzeln geöffnet; Audio/Video (Podcast, Meditricks) nur als Titel. Alle Abschnitte des Kapitels lieferten Text (kein leerer Abschnitt). Hinweis TEIL 2: Die Abschnitte Patienteninformationen, Meditricks, Kodierung nach ICD-10-GM, Tipps & Links und Quellen liegen im Seiten-DOM doppelt vor und erscheinen daher zweimal; unverändert übernommen.
 
 ---
 
-# TEIL 1: Hepatitis A
+# TEIL 1: Hepatitis A (Artikel-ID kS0m-2)
 
 ## Zusammenfassung
 
@@ -42,7 +42,11 @@ Wenn nicht anders angegeben, beziehen sich die epidemiologischen Daten auf Deuts
 
 ## Symptomatik
 
+### Inkubationszeit
+
 - 14–50 Tage
+
+### Symptome
 
 Bei Kindern verläuft die Infektion zumeist asymptomatisch. Symptomatik und fulminante Verläufe nehmen mit dem Lebensalter und Co-Infektionen (Hepatitis B) zu.
 
@@ -52,7 +56,7 @@ Bei Kindern verläuft die Infektion zumeist asymptomatisch. Symptomatik und fulm
   - Sehr selten: Fulminanter Verlauf mit Leberversagen
 - Bauchschmerzen, Übelkeit, Erbrechen, Durchfall
 
-Eine Hepatitis A chronifiziert nie!
+> Eine Hepatitis A chronifiziert nie!
 
 Symptomkarte: Virushepatitis A–EAuditor: Virushepatitiden
 
@@ -67,13 +71,16 @@ Symptomkarte: Virushepatitis A–EAuditor: Virushepatitiden
     - De-Ritis-Quotient typischerweise <1 (Werte >1 bei fulminantem Verlauf)
   - Lebersyntheseparameter: Gesamteiweiß bzw. Albumin↓, Gerinnung (insb. Quick↓), Cholinesterase↓ bei sehr seltener fulminanter Hepatitis mit akutem Leberversagen
 
-Ein positiver IgG-Wert entspricht einer Immunität gegenüber HAV!
+> Ein positiver IgG-Wert entspricht einer Immunität gegenüber HAV!
 
 Hepatitis A - Schematischer Verlauf der SerologieAuditor: Virushepatitiden
 
 ## Differenzialdiagnosen
 
 - Andere akute Hepatitiden, insb.
+
+### Hepatitis E
+
 - Erreger: Hepatitis-E-Virus (HEV), RNA-Virus
 - Infektionsweg
   - Fäkal-oral
@@ -88,7 +95,7 @@ Hepatitis A - Schematischer Verlauf der SerologieAuditor: Virushepatitiden
   - Bei Immunsuppression: HEV-RNA im Stuhl mittels RT-PCR
 - Therapie: Keine kausale Therapie möglich
 
-Bei Schwangeren sind fulminante Verläufe deutlich häufiger (bis ca. 20%) und können lebensbedrohlich für Mutter und Kind sein!
+> Bei Schwangeren sind fulminante Verläufe deutlich häufiger (bis ca. 20%) und können lebensbedrohlich für Mutter und Kind sein!
 
 Virushepatitiden – ÜbersichtAuditor: Virushepatitiden
 
@@ -102,14 +109,23 @@ AMBOSS erhebt für die hier aufgeführten Differenzialdiagnosen keinen Anspruch 
 
 ## Prävention
 
+### Allgemeine Hinweise
+
 - Wirksamste Maßnahme: Hepatitis-A-Impfung, auch zur Hepatitis-A-Postexpositionsprophylaxe
 - Bei Ausbrüchen ggf. zusätzliche Maßnahmen, siehe: Maßnahmen bei Hepatitis-A-Epidemien
 
-Die sehr wirksame Hepatitis-A-Impfung wird als Indikationsimpfung für Risikogruppen und als Reiseimpfung (v.a. in tropischen und subtropischen Regionen) empfohlen! Sie zählt nicht zu den Standardimpfungen!
+> Die sehr wirksame Hepatitis-A-Impfung wird als Indikationsimpfung für Risikogruppen und als Reiseimpfung (v.a. in tropischen und subtropischen Regionen) empfohlen! Sie zählt nicht zu den Standardimpfungen!
+
+### Maßnahmen bei Hepatitis-A-Epidemien [2]
+
+#### Allgemeine Maßnahmen
 
 - Identifizieren und Beheben der Ursache des Ausbruchs, i.d.R. kontaminiertes Trinkwasser oder kontaminierte Lebensmittel
 - Riegelungsimpfung bei Hepatitis-A-Ausbrüchen: Impfung infektionsgefährdeter Personen im Umfeld eines Ausbruchs
   - Vorgehen analog zur Hepatitis-A-Postexpositionsprophylaxe
+
+#### Maßnahmen für Patienten und Kontaktpersonen
+
 - Hepatitis-A-Postexpositionsprophylaxe
 - Einhalten von Hygieneregeln: Höhepunkt der Infektiosität in der späten Inkubationsphase (1–2 Wochen vor Auftreten des Ikterus)
   - Händedesinfektionsmittel mit viruzider Wirksamkeit (z.B. Desderman® pure, Sterillium® Virugard, Skinman® complete pure) und Tragen von Handschuhen
@@ -174,7 +190,7 @@ Die sehr wirksame Hepatitis-A-Impfung wird als Indikationsimpfung für Risikogru
 
 - Siehe: Hepatitis-A-Postexpositionsprophylaxe
 
-Eine Bestimmung von Anti-HAV-Antikörpern wird nicht routinemäßig empfohlen, um die Notwendigkeit einer Impfung zu beurteilen!
+> Eine Bestimmung von Anti-HAV-Antikörpern wird nicht routinemäßig empfohlen, um die Notwendigkeit einer Impfung zu beurteilen!
 
 ### Impfschutz
 
@@ -201,7 +217,7 @@ Eine Bestimmung von Anti-HAV-Antikörpern wird nicht routinemäßig empfohlen, u
     - Bei erhöhter gesundheitlicher Gefährdung : Hepatitis-A-Simultanimpfung (= simultane Gabe von Immunglobulinen und Hepatitis-A-Impfung)
   - 2. Impfdosis nach Fachinformation
 
-Bei einer postexpositionellen Impfung müssen immer monovalente Hepatitis-A-Impfstoffe verwendet werden, weil der Kombinationsimpfstoff 50% weniger Hepatitis-A-Antigen enthält!
+> Bei einer postexpositionellen Impfung müssen immer monovalente Hepatitis-A-Impfstoffe verwendet werden, weil der Kombinationsimpfstoff 50% weniger Hepatitis-A-Antigen enthält!
 
 ## Meldepflicht
 
@@ -232,7 +248,11 @@ Bei einer postexpositionellen Impfung müssen immer monovalente Hepatitis-A-Impf
 
 In Kooperation mit Meditricks bieten wir durchdachte Merkhilfen an, mit denen du dir relevante Fakten optimal einprägen kannst. Dabei handelt es sich um animierte Videos und Erkundungsbilder, die auf AMBOSS abgestimmt oder ergänzend sind. Die Inhalte liegen meist in Lang- und Kurzfassung vor, enthalten Basis- sowie Expertenwissen und teilweise auch ein Quiz sowie eine Kurzwiederholung. Eine Übersicht aller Inhalte findest du im Kapitel „Meditricks“. Meditricks gibt es in unterschiedlichen Paketen – für genauere Informationen empfehlen wir einen Besuch im Shop.
 
+### Hepatitis A
+
 Meditricks - Hepatitis A
+
+### Hepatitiden: Histopathologie
 
 Meditricks - Hepatitiden: Histopathologie
 
@@ -244,6 +264,7 @@ Inhaltliches Feedback zu den Meditricks-Videos bitte über den zugehörigen Feed
   - B15.0: Virushepatitis A mit Coma hepaticum
   - B15.9: Virushepatitis A ohne Coma hepaticum
     - Hepatitis A (akut) (durch Viren) o.n.A.
+
 - B17.-: Sonstige akute Virushepatitis
   - B17.2: Akute Virushepatitis E
   - B17.8: Sonstige näher bezeichnete akute Virushepatitis
@@ -255,45 +276,35 @@ Quelle: In Anlehnung an die ICD-10-GM Version 2026, BfArM.
 
 ## Quellen
 
-1.
+1. Anhang zu Epid Bull 27/2026: Ländertabellen mit WHO-Polio-Statement 03/2026Stand: 2026. Abgerufen am: 18.08.2026.
 
-Anhang zu Epid Bull 27/2026: Ländertabellen mit WHO-Polio-Statement 03/2026Stand: 2026. Abgerufen am: 18.08.2026.
+2. RKI-Ratgeber Hepatitis AStand: 2025. Abgerufen am: 16.04.2025.
 
-2.
+3. Ständige Impfkommission (STIKO): Empfehlungen der Ständigen Impfkommission (STIKO) beim Robert Koch-Institut 2026In: Robert Koch-Institut. 2026, doi: 10.25646/13636Öffnen in LIVIVO by ZB MED
 
-RKI-Ratgeber Hepatitis AStand: 2025. Abgerufen am: 16.04.2025.
+4. Empfehlungen der Ständigen Impfkommission (STIKO) und der Deutschen Gesellschaft für Tropenmedizin, Reisemedizin und Globale Gesundheit e.V. (DTG) zu ReiseimpfungenStand: 2026. Abgerufen am: 06.08.2026.
 
-3.
+5. Herold et al.: Innere Medizin. Eigenverlag 2012, ISBN: 978-3-981-46602-7. Öffnen in LIVIVO by ZB MED
 
-Ständige Impfkommission (STIKO): Empfehlungen der Ständigen Impfkommission (STIKO) beim Robert Koch-Institut 2026In: Robert Koch-Institut. 2026, doi: 10.25646/13636Öffnen in LIVIVO by ZB MED
+6. Kamar et al.: Hepatitis E Virus and Chronic Hepatitis in Organ-Transplant RecipientsIn: New England Journal of Medicine. Band: 358, Nummer: 8, 2008, doi: 10.1056/nejmoa0706992p.811-817. Öffnen in LIVIVO by ZB MED
 
-4.
+7. Hepatitis E, RKI-Ratgeber für ÄrzteStand: 2015. Abgerufen am: 09.10.2017.
 
-Empfehlungen der Ständigen Impfkommission (STIKO) und der Deutschen Gesellschaft für Tropenmedizin, Reisemedizin und Globale Gesundheit e.V. (DTG) zu ReiseimpfungenStand: 2026. Abgerufen am: 06.08.2026.
+8. Herold et al.: Innere Medizin 2020. Herold 2020, ISBN: 978-3-981-46609-6. Öffnen in LIVIVO by ZB MED
 
-5.
+---
 
-Herold et al.: Innere Medizin. Eigenverlag 2012, ISBN: 978-3-981-46602-7. Öffnen in LIVIVO by ZB MED
+# TEIL 2: Hepatitis B und HBV-Infektion (Artikel-ID OS0I-2)
 
-6.
+## Patienteninformationen
 
-Kamar et al.: Hepatitis E Virus and Chronic Hepatitis in Organ-Transplant RecipientsIn: New England Journal of Medicine. Band: 358, Nummer: 8, 2008, doi: 10.1056/nejmoa0706992p.811-817. Öffnen in LIVIVO by ZB MED
-
-7.
-
-Hepatitis E, RKI-Ratgeber für ÄrzteStand: 2015. Abgerufen am: 09.10.2017.
-
-8.
-
-Herold et al.: Innere Medizin 2020. Herold 2020, ISBN: 978-3-981-46609-6. Öffnen in LIVIVO by ZB MED
-
-# TEIL 2: Hepatitis B und HBV-Infektion
+Patienteninformationen zu Hepatitis B von gesundheitsinformation.de
 
 ## Zusammenfassung
 
 Hepatitis B zählt zu den häufigsten Viruserkrankungen des Menschen und wird v.a. sexuell, aber auch parenteral oder perinatal weitergegeben. Nach meist mehreren Monaten Inkubationszeit kommt es in den meisten Fällen zu einer asymptomatischen oder milde verlaufenden akuten Hepatitis. In etwa 5% der Fälle entsteht jedoch eine persistierende, asymptomatische HBV-Trägerschaft oder eine chronische Hepatitis mit hohem Risiko für die Entwicklung einer Leberzirrhose sowie eines hepatozellulären Karzinoms. Diagnostisch ist die Serologie entscheidend: Als Screening-Test wird das HBs-Antigen (HBsAg) bestimmt, das etwa 2–5 Monate nach Infektion nachweisbar ist. Bei Ausheilung kommt es im Verlauf zu einer Normalisierung des HBsAg, wohingegen als Zeichen der Immunität (auch nach Impfung) die Anti-HBs-Antikörper ansteigen (sog. Serokonversion). Die chronische Hepatitis ist u.a. durch ein Persistieren des HBsAg sowie der HBV-DNA und evtl. durch hohe Transaminasen gekennzeichnet. Eine antivirale Therapie kann mit Interferon-α oder Nukleosid-/Nukleotidanaloga erfolgen. Die Prophylaxe der Hepatitis B besteht in einer Impfung (Totimpfstoff), die bei jedem Menschen bereits im Rahmen der Grundimmunisierung empfohlen wird.
 
-Du möchtest diesen Artikel lieber hören als lesen? Wir haben ihn für dich im Rahmen unserer studentischen AMBOSS-Audio-Reihe im Podcastformat vertont. Den Link findest du am Kapitelende in der Sektion “Tipps & Links".
+> Du möchtest diesen Artikel lieber hören als lesen? Wir haben ihn für dich im Rahmen unserer studentischen AMBOSS-Audio-Reihe im Podcastformat vertont. Den Link findest du am Kapitelende in der Sektion “Tipps & Links".
 
 Symptomkarte: Virushepatitis A–E
 
@@ -308,7 +319,7 @@ Die folgenden Verlaufsformen einer HBV-Infektion werden u.a. anhand serologische
   - Asymptomatische HBV-Trägerschaft: Chronische HBV-Infektion, die keine Zeichen einer Hepatitis aufweist
   - Okkulte HBV-Infektion: Chronische HBV-Infektion, die mitunter nur eine gering positive HBV-DNA als einzigen auffälligen HBV-Laborparameter aufweisen kann.
 
-Die chronische Hepatitis B unterscheidet sich von der chronischen HBV-Infektion durch die zusätzlichen Zeichen einer Leberentzündung!
+> Die chronische Hepatitis B unterscheidet sich von der chronischen HBV-Infektion durch die zusätzlichen Zeichen einer Leberentzündung!
 
 ## Epidemiologie
 
@@ -322,13 +333,41 @@ Die chronische Hepatitis B unterscheidet sich von der chronischen HBV-Infektion 
 
 Wenn nicht anders angegeben, beziehen sich die epidemiologischen Daten auf Deutschland.
 
+## Meditricks
+
+In Kooperation mit Meditricks bieten wir durchdachte Merkhilfen an, mit denen du dir relevante Fakten optimal einprägen kannst. Dabei handelt es sich um animierte Videos und Erkundungsbilder, die auf AMBOSS abgestimmt oder ergänzend sind. Die Inhalte liegen meist in Lang- und Kurzfassung vor, enthalten Basis- sowie Expertenwissen und teilweise auch ein Quiz sowie eine Kurzwiederholung. Eine Übersicht aller Inhalte findest du im Kapitel „Meditricks“. Meditricks gibt es in unterschiedlichen Paketen – für genauere Informationen empfehlen wir einen Besuch im Shop.
+
+### Hepatitis B
+
+#### Hepatitis B – Teil 1: Erreger, Infektion, Klinik
+
+Meditricks - Hepatitis B - Teil 1: Erreger, Infektion, Klinik
+
+#### Hepatitis B – Teil 2: Diagnostik
+
+Meditricks - Hepatitis B - Teil 2: Diagnostik
+
+#### Hepatitis B – Teil 3: Therapie
+
+Meditricks - Hepatitis B - Teil 3: Therapie
+
+### Hepatitiden: Histopathologie
+
+Meditricks - Hepatitiden: Histopathologie
+
+Inhaltliches Feedback zu den Meditricks-Videos bitte über den zugehörigen Feedback-Button einreichen (dieser erscheint beim Öffnen der Meditricks).
+
 ## Ätiologie
+
+### Erreger
 
 - Hepatitis-B-Virus
   - DNA-Virus („Hepadnavirus“)
   - Besitzt eine reverse Transkriptase
 
 Hepatitis-B-Virus (EM-Bild)
+
+### Infektionswege der HBV-Infektion
 
 1. Sexuell: ⅔ aller Infektionen
 2. Parenteral
@@ -343,9 +382,47 @@ Auditor: Virushepatitiden
 
 Die Schädigung der Leberzellen bei akuter Hepatitis B entsteht durch eine zelluläre Immunantwort. Infizierte Hepatozyten, die an ihrer Zelloberfläche Virusantigene präsentieren, werden durch HBV-spezifische CD8+-zytotoxische T-Zellen zerstört.
 
+## Kodierung nach ICD-10-GM Version 2026
+
+### B16.-: Akute Virushepatitis B
+
+- B16.0: Akute Virushepatitis B mit Delta-Virus (Begleitinfektion) und mit Coma hepaticum
+- B16.1: Akute Virushepatitis B mit Delta-Virus (Begleitinfektion) ohne Coma hepaticum
+- B16.2: Akute Virushepatitis B ohne Delta-Virus mit Coma hepaticum
+- B16.9: Akute Virushepatitis B ohne Delta-Virus und ohne Coma hepaticum
+  - Akute Hepatitis B (viral) o.n.A.
+
+### B18.-: Chronische Virushepatitis
+
+- B18.0: Chronische Virushepatitis B mit Delta-Virus
+- B18.1-: Chronische Virushepatitis B ohne Delta-Virus
+  - B18.11: Chronische Virushepatitis B ohne Delta-Virus, Phase 1
+    - Chronische Virushepatitis B ohne Delta-Virus:
+      - HBeAg positiv, ohne Entzündungsaktivität, hochreplikativ
+      - Immuntolerante Phase
+  - B18.12: Chronische Virushepatitis B ohne Delta-Virus, Phase 2
+    - Aktive chronische Hepatitis B
+    - Chronische Virushepatitis B ohne Delta-Virus, HBeAg positiv, mit Entzündungsaktivität, hochreplikativ
+  - B18.13: Chronische Virushepatitis B ohne Delta-Virus, Phase 3
+    - Chronische Virushepatitis B ohne Delta-Virus, HBeAg negativ, ohne Entzündungsaktivität, niedrigreplikativ
+    - Keimträger von Hepatitis-B-Oberflächen-Antigen [HBsAg]
+  - B18.14: Chronische Virushepatitis B ohne Delta-Virus, Phase 4
+    - Chronische Virushepatitis B ohne Delta-Virus, HBeAg negativ, mit Entzündungsaktivität, hochreplikativ
+    - Reaktivierte Hepatitis B
+- B18.2: Chronische Virushepatitis C
+- B18.8: Sonstige chronische Virushepatitis
+- B18.9: Chronische Virushepatitis, nicht näher bezeichnet
+
+Quelle: In Anlehnung an die ICD-10-GM Version 2026, BfArM.
+
 ## Symptomatik
 
+### Inkubationszeit
+
 - 1–6 Monate
+
+### Akuter Verlauf der Hepatitis-B-Infektion
+
 - Asymptomatischer Verlauf (ca. ⅔ der Fälle)
 - Akute, meist ikterische Hepatitis (ca. ⅓ der Fälle)
   - Akuter Verlauf mit eher unspezifischen Symptomen (wie bei allen Virushepatitiden)
@@ -353,11 +430,16 @@ Die Schädigung der Leberzellen bei akuter Hepatitis B entsteht durch eine zellu
     - Meist nach 3–6 Wochen rückläufig
     - Evtl. extrahepatische Manifestation (Hautausschlag, Arthralgie, Myalgie, neurologische/kardiale/hämatologische Beteiligung)
 - Insg. kommt es bei über 90% zur Ausheilung
+
+### Chronischer Verlauf der Hepatitis-B-Infektion
+
 - Viruspersistenz: 5% aller HBV-Infektionen
   - Davon 70% gesunde Träger:innen (Carrier)
   - Und 30% chronische Hepatitis
 
-20% der Patient:innen mit chronischer Hepatitis entwickeln innerhalb von 10 Jahren eine Leberzirrhose!
+> 20% der Patient:innen mit chronischer Hepatitis entwickeln innerhalb von 10 Jahren eine Leberzirrhose!
+
+#### Extrahepatische Manifestationen der Hepatitis B
 
 Bei 10–20% der Patient:innen mit chronischer Hepatitis B finden sich ganz unterschiedliche extrahepatische Manifestationen, die u.a. auf zirkulierende Immunkomplexe aus Virusbestandteilen, Antikörpern und Komplementfaktoren zurückzuführen sind.
 
@@ -374,11 +456,17 @@ Symptomkarte: Virushepatitis A–EAuditor: Virushepatitiden
 
 ## Diagnostik
 
+### Anamnese und körperliche Untersuchung
+
 - Klinische Symptomatik (siehe auch: Symptome bei Hepatitis B )
 - Familien- und Partneranamnese
 - Risikofaktoren (siehe auch: Indikationen für ein Hepatitis-B-Screening)
 
-Bei engem Kontakt zu Hepatitis-B-Infizierten sollte ein Hepatitis-B-Screening sowie bei fehlender Immunität eine Impfung angeboten werden!
+> Bei engem Kontakt zu Hepatitis-B-Infizierten sollte ein Hepatitis-B-Screening sowie bei fehlender Immunität eine Impfung angeboten werden!
+
+### HBV-Labordiagnostik
+
+#### Indikationen für ein Hepatitis-B-Screening [2]
 
 Ein Screening spezifischer Hepatitis-B-Parameter sollte v.a. bei Zeichen einer Hepatitis, bei Risikofaktoren für einen schweren Verlauf oder bei hohem Expositionsrisiko durchgeführt werden.
 
@@ -407,6 +495,9 @@ Ein Screening spezifischer Hepatitis-B-Parameter sollte v.a. bei Zeichen einer H
   - Personen in psychiatrischen Einrichtungen, Fürsorgeeinrichtungen für Zerebralgeschädigte oder Verhaltensgestörte sowie Justizvollzugsanstalten
 - Schwangerschaft [4]
 - Check-up 35: Einmalige Bestimmung von HBs-Antigen
+
+#### Durchführung des Hepatitis-B-Screenings [2][5]
+
 - Initiale Parameter
   - HBsAg (nach 2–5 Monaten nachweisbar )
   - Ggf. Anti-HBc-Antikörper (i.d.R. Anti-HBc-Gesamt )
@@ -425,9 +516,11 @@ Ein Screening spezifischer Hepatitis-B-Parameter sollte v.a. bei Zeichen einer H
         - HBV-DNA negativ → Zurückliegende Infektion ohne sichere Immunität, ggf. Impfung und weiterführende Diagnostik
   - Beide negativ → Keine HBV-Infektion, ggf. Impfung empfehlen
 
-Das Screening basiert auf der Bestimmung von HBsAg und Anti-HBc-Antikörpern. Sind beide Parameter positiv, kann von einer Infektion ausgegangen werden. Sind beide negativ, ist sie ausgeschlossen!
+> Das Screening basiert auf der Bestimmung von HBsAg und Anti-HBc-Antikörpern. Sind beide Parameter positiv, kann von einer Infektion ausgegangen werden. Sind beide negativ, ist sie ausgeschlossen!
 
 HBV-Labordiagnostik
+
+#### Vorgehen nach positivem Screening-Befund [2]
 
 Nach Diagnose einer Hepatitis-B-Infektion sollten weitere Laboruntersuchungen durchgeführt werden, damit eine Zuordnung zu einer Verlaufsform mit entsprechender Planung der weiteren Betreuung und Therapie erfolgen kann.
 
@@ -451,7 +544,11 @@ Nach Diagnose einer Hepatitis-B-Infektion sollten weitere Laboruntersuchungen du
 
 FIB-4 for Noninvasive Diagnosis of Hepatic Fibrosis
 
+### Einordnung in Verlaufsformen einer HBV-Infektion [2]
+
 Die Diagnosesicherung und Unterscheidung bspw. der akuten und chronischen Verlaufsformen gelingt anhand der Bestimmung der Virusantigene, der Antikörper und der Virus-DNA (siehe auch: HBV-Labordiagnostik). Ca. 5–10% der akuten Infektionen bei Erwachsenen persistieren über 6 Monate und gehen in eine chronische Hepatitis B über. Bei Neugeborenen hingegen verläuft die Hepatitis-B-Infektion in bis zu 90% der Fälle chronisch, die Rate an Chronifizierungen nimmt mit steigendem Lebensalter ab. [3]
+
+#### Akute Verläufe, ausgeheilte Infektionen und Z.n. Impfung
 
 - Akute Hepatitis B
   - Verlauf ≤6 Monate
@@ -465,6 +562,9 @@ Die Diagnosesicherung und Unterscheidung bspw. der akuten und chronischen Verlau
   - HBV-DNA negativ
 - Z.n. HBV-Impfung
   - Anti-HBs-Antikörper positiv, Anti-HBc-Antikörper jedoch negativ!
+
+#### Chronische Verläufe einer HBV-Infektion
+
 - Chronische Hepatitis B
   - HBsAg↑ >6 Monate
   - Anti-HBe- und Anti-HBs-Antikörper steigen nicht an (keine Serokonversion)
@@ -491,6 +591,8 @@ Die Diagnosesicherung und Unterscheidung bspw. der akuten und chronischen Verlau
 
 Hepatitis B – Schematischer Verlauf einer ausheilenden, nicht-chronifizierenden Hepatitis BHepatitis B – Schematischer Verlauf einer chronifizierenden InfektionAuditor: Hepatitis B SerologieAuditor: Virushepatitiden
 
+### Weitere Diagnostik [2]
+
 - Sonografie Abdomen
 - Transiente Leberelastografie (FibroScan) [7]
   - Gut geeignet zum Ausschluss einer Zirrhose
@@ -507,7 +609,7 @@ Hepatitis B – Schematischer Verlauf einer ausheilenden, nicht-chronifizierende
     - Zur Verlaufskontrolle
   - Nutzen-Risiko-Abwägung: Bei Leberzirrhose aufgrund eines erhöhten Blutungsrisikos
 
-Bei unklaren serologischen Befunden (bspw. HBV-DNA >2.000 IE/mL und normale Transaminasen) kann eine Leberbiopsie zur Beurteilung der Entzündungsaktivität (Grading) und des Fibroseausmaßes (Staging) erfolgen!
+> Bei unklaren serologischen Befunden (bspw. HBV-DNA >2.000 IE/mL und normale Transaminasen) kann eine Leberbiopsie zur Beurteilung der Entzündungsaktivität (Grading) und des Fibroseausmaßes (Staging) erfolgen!
 
 - Abklärung von Koinfektionen
   - Hepatitis C: Anti-HCV-Antikörper; wenn positiv: Zusätzlich von HCV-RNA
@@ -516,41 +618,82 @@ Bei unklaren serologischen Befunden (bspw. HBV-DNA >2.000 IE/mL und normale Tran
   - Ggf. HIV-Test
 - Abklärung des Hepatitis-A-Impfstatus: Anti-HAV-IgG
 
-Bei Hepatitis B-Infektion und fehlender Immunität gegen Hepatitis A soll eine Impfung gegen Hepatitis A erfolgen, um eine zusätzliche potenzielle Leberschädigung zu vermeiden!
+> Bei Hepatitis B-Infektion und fehlender Immunität gegen Hepatitis A soll eine Impfung gegen Hepatitis A erfolgen, um eine zusätzliche potenzielle Leberschädigung zu vermeiden!
 
 - Einschätzung des HCC-Risikos anhand Scores
   - Bei asiatischer Herkunft: GAG-HCC, CU-HCC, REACH-B [8]
   - Bei europäischer Herkunft: PAGE-B [9]
 
+## Tipps & Links
+
+- Aktueller AMBOSS-Impfkalender
+- Vertonung dieses Kapitels – AMBOSS Audio: Innere Medizin – Hepatitis B
+- Anmeldung Kongress-Telegramm Innere Medizin
+- Anmeldung One-Minute Telegram
+- AMBOSS-Podcast
+- AMBOSS Leitlinien-Telegramm
+
 ## Übersicht und Interpretation der Hepatitis-B-Parameter (Virusbestandteile und Antikörper)
 
-| Diagnostisch relevante Virusbestandteile und Antikörper (HBV) |  |
-| --- | --- |
+| Diagnostisch relevante Virusbestandteile und Antikörper (HBV) [2] |
+| --- |
 | Virusbestandteil | Korrespondierender Antikörper |
 | HBsAg (Surface-Antigen)<br>Protein der Virusoberfläche<br>Bei akuter und chronischer Hepatitis und asymptomatischer HBV-Trägerschaft erhöht | Anti-HBs-Antikörper<br>Ausheilungszeichen<br>Nachweis nach erfolgreicher Hepatitis-B-Impfung |
 | HBcAg (Core-Antigen)<br>Protein des Viruskapsids, wird nicht sezerniert und ist daher nicht im Blut, nur in Leberzellen nachweisbar<br>Spielt in der HBV-Labordiagnostik keine Rolle | Anti-HBc-Antikörper<br>Anti-HBc-Gesamt: Verbreiteter Screening-Parameter, zeigt Viruskontakt an, keine Differenzierung zwischen akuter, chronischer oder abgelaufener Infektion<br>Anti-HBc-IgM: Vorliegen einer akuten Hepatitis<br>Anti-HBc-IgG: Nach jedem Viruskontakt vorhanden, keine Aussage über Viruspersistenz oder Abheilung möglich<br>Unzuverlässige Ausbildung insb. bei Immunschwäche |
 | HBeAg (Envelope-Antigen oder exkretorisches Antigen )<br>Protein, das nicht direkt in der Struktur des Virus enthalten ist, sondern sezerniert wird („exkretorisch“)<br>Diagnostik der Replikationsrate und Infektiosität (Surrogatparameter für die Menge an HBV-DNA → Aktivität der viralen Transkription in Hepatozyten)<br>Prognostischer Marker bei chronischer Hepatitis B | Anti-HBe-Antikörper<br>Prognostisch günstiger Faktor bei chronischer Hepatitis B , da es einen Übergang der Erkrankung in eine nicht-replikative Phase anzeigt |
 | HBV-DNA: DNA des Hepatitis-B-Virus<br>Diagnostik der Viruslast und Infektiosität<br>Bedeutsamer prognostischer Marker bei chronischer Hepatitis B | — |
 
-Die Serokonversion zu Anti-HBs-Antikörpern mit Verlust des „Aktivitätsmarkers“ HBsAg zeigt die Ausheilung der HBV-Infektion an!
+> Die Serokonversion zu Anti-HBs-Antikörpern mit Verlust des „Aktivitätsmarkers“ HBsAg zeigt die Ausheilung der HBV-Infektion an!
 
 Bestandteile des Hepatitis-B-Virus
 
 ## Übersicht der Befunde der Hepatitis-B-Parameter bei verschiedenen Verlaufsformen
 
-|  | Parameter |  |  |  |  |  |  |  |  |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| HBsAg | Anti-HBs-Antikörper | Anti-HBc-IgM | Anti-HBc-IgG | HBeAg | Anti-HBe-Antikörper | HBV-DNA | Transaminasen |  |  |
-| Akute Hepatitis B | ↑ | — | ↑↑ | — | ↑ | — | — oder ↑ | ↑↑ |  |
-| Ausgeheilte Hepatitis B | — | ↑ (selten auch —) | — | ↑ | — | ↑ | — | — |  |
-| Z.n. HBV-Impfung | — | ↑ | — | — | — | — | — | — |  |
+|  | Parameter |
+| --- | --- |
+| HBsAg | Anti-HBs-Antikörper | Anti-HBc-IgM | Anti-HBc-IgG | HBeAg | Anti-HBe-Antikörper | HBV-DNA | Transaminasen |
+| Akute Hepatitis B | ↑ | — | ↑↑ | — | ↑ | — | — oder ↑ | ↑↑ |
+| Ausgeheilte Hepatitis B | — | ↑ (selten auch —) | — | ↑ | — | ↑ | — | — |
+| Z.n. HBV-Impfung | — | ↑ | — | — | — | — | — | — |
 | Chronische Hepatitis B | HBeAg-positiv | ↑ | — | — | ↑ | ↑ | — | ↑–↑↑ | ↑–↑↑ |
-| HBeAg-negativ | — |  |  |  |  |  |  |  |  |
+| HBeAg-negativ | — |
 | Asymptomatische HBV-Trägerschaft | HBeAg-positiv | ↑↑ | — | — | ↑ | ↑ | — | ↑↑↑ | — |
-| HBeAg-negativ | ↑ | — | — | ↑ | — | ↑ | — oder ↑ | — |  |
-| Okkulte HBV-Infektion | — | — (oder ↑ ) | — (oder ↑ ) | — oder ↑ | — | ↑ | ↑ | — (oder ↑ ) |  |
+| HBeAg-negativ | ↑ | — | — | ↑ | — | ↑ | — oder ↑ | — |
+| Okkulte HBV-Infektion | — | — (oder ↑ ) | — (oder ↑ ) | — oder ↑ | — | ↑ | ↑ | — (oder ↑ ) |
 
 Hepatitis B – Schematischer Verlauf einer ausheilenden, nicht-chronifizierenden Hepatitis BHepatitis B – Schematischer Verlauf einer chronifizierenden Infektion
+
+## Quellen
+
+1. Empfehlungen der Ständigen Impfkommission (STIKO) und der Deutschen Gesellschaft für Tropenmedizin, Reisemedizin und Globale Gesundheit e.V. (DTG) zu ReiseimpfungenStand: 2026. Abgerufen am: 06.08.2026.
+
+2. S3-Leitlinie der Deutschen Gesellschaft für Gastroenterologie, Verdauungs- und Stoffwechselkrankheiten (DGVS) zur Prophylaxe, Diagnostik und Therapie der Hepatitis-B-Virusinfektion
+
+3. Hepatitis B und D, RKI-Ratgeber für ÄrzteStand: 2016. Abgerufen am: 09.10.2017.
+
+4. Prüfung des Zeitpunkts des Screenings auf Hepatitis B im Rahmen der Vorsorgeuntersuchungen gemäß MutterschaftsRichtlinienStand: 2023. Abgerufen am: 03.07.2023.
+
+5. Terrault et al.: Update on prevention, diagnosis, and treatment of chronic hepatitis B: AASLD 2018 hepatitis B guidance.In: Hepatology (Baltimore, Md.). Band: 67, Nummer: 4, 2018, doi: 10.1002/hep.29800p.1560-1599. Öffnen in LIVIVO by ZB MED
+
+6. Makvandi: Update on occult hepatitis B virus infectionIn: World Journal of Gastroenterology. Band: 22, Nummer: 39, 2016, doi: 10.3748/wjg.v22.i39.8720p.8720. Öffnen in LIVIVO by ZB MED
+
+7. European, European: EASL 2017 Clinical Practice Guidelines on the management of hepatitis B virus infection.In: Journal of hepatology. Band: 67, Nummer: 2, 2017, doi: 10.1016/j.jhep.2017.03.021p.370-398. Öffnen in LIVIVO by ZB MED
+
+8. Lee, Ahn: Prediction models of hepatocellular carcinoma development in chronic hepatitis B patientsIn: World Journal of Gastroenterology. Band: 22, Nummer: 37, 2016, doi: 10.3748/wjg.v22.i37.8314p.8314. Öffnen in LIVIVO by ZB MED
+
+9. Papatheodoridis et al.: PAGE-B predicts the risk of developing hepatocellular carcinoma in Caucasians with chronic hepatitis B on 5-year antiviral therapyIn: Journal of Hepatology. Band: 64, Nummer: 4, 2016, doi: 10.1016/j.jhep.2015.11.035p.800-806. Öffnen in LIVIVO by ZB MED
+
+10. Diagnostik und Therapie des Hepatozellulären Karzinoms und biliärer KarzinomeStand: 2023. Abgerufen am: 17.10.2023.
+
+11. Ständige Impfkommission (STIKO): Empfehlungen der Ständigen Impfkommission (STIKO) beim Robert Koch-Institut 2026In: Robert Koch-Institut. 2026, doi: 10.25646/13636Öffnen in LIVIVO by ZB MED
+
+12. Stellungnahme der Ständigen Impfkommission zu Impfungen von Personal in medizinischen Einrichtungen in DeutschlandStand: 2021. Abgerufen am: 28.01.2021.
+
+13. Epidemiologisches Bulletin 36/37 2013Stand: 2013. Abgerufen am: 24.03.2025.
+
+14. Sonneveld, Janssen: Pros and Cons of Peginterferon Versus Nucleos(t)ide Analogues for Treatment of Chronic Hepatitis BIn: Current Hepatitis Reports. Band: 9, Nummer: 2, 2010, doi: 10.1007/s11901-010-0041-7p.91-98. Öffnen in LIVIVO by ZB MED
+
+15. Herold et al.: Innere Medizin 2020. Herold 2020, ISBN: 978-3-981-46609-6. Öffnen in LIVIVO by ZB MED
 
 ## Pathologie
 
@@ -564,13 +707,15 @@ Hepatitis B – Schematischer Verlauf einer ausheilenden, nicht-chronifizierende
   - Fibröse Septen
   - Nur bei Hepatitis B: Milchglashepatozyten
 
-Milchglashepatozyten kommen nur bei der Hepatitis B vor, während Mottenfraßnekrosen, fibröse Septen und periportale Infiltrate auch bei anderen chronischen Virushepatitiden zu finden sind!
+> Milchglashepatozyten kommen nur bei der Hepatitis B vor, während Mottenfraßnekrosen, fibröse Septen und periportale Infiltrate auch bei anderen chronischen Virushepatitiden zu finden sind!
 
 Leberzirrhose bei chronischer Hepatitis BLeberzirrhose bei chronischer Hepatitis B, Elastica-van-Gieson-Färbung (EvG)Milchglashepatozyten bei chronischer Hepatitis BCouncilman-Körperchen
 
 Zum Vergleich: Normalbefunde
 
 ## Differenzialdiagnosen
+
+### Hepatitis A
 
 - Akute Infektion: Anti-HAV-IgM positiv, Anti-HAV-IgG negativ oder schon positiv
 - Zustand nach Impfung oder nach durchgemachter Infektion: Anti-HAV-IgM negativ, Anti-HAV-IgG positiv
@@ -593,7 +738,7 @@ AMBOSS erhebt für die hier aufgeführten Differenzialdiagnosen keinen Anspruch 
 
 ## Therapie der chronischen Hepatitis B und chronischen HBV-Infektion
 
-### Antivirale Therapie
+### Antivirale Therapie [2]
 
 #### Indikationen
 
@@ -635,12 +780,12 @@ Ziel der Therapie ist es, Folgeerkrankungen wie bspw. ein HCC zu verhindern und 
 
 Zur antiviralen Therapie können Nukleosid- bzw. Nukleotidanaloga oder PEG-Interferon-α eingesetzt werden. Bei der Therapieauswahl sollte geprüft werden, ob die Behandlung mit PEG-Interferon-α möglich und sinnvoll ist .
 
-| Medikamentenauswahl zur HBV-Therapie |  |  |
-| --- | --- | --- |
+| Medikamentenauswahl zur HBV-Therapie [10] |
+| --- |
 |  | PEG-Interferon-α | Nukleosid- oder Nukleotidanalogon |
 | Vorteile | Begrenzte Therapiedauer<br>Höhere HBsAg-Serokonversionsrate<br>Keine Resistenzentwicklung | Weniger Nebenwirkungen<br>Orale Einnahme<br>Effektivere HBV-DNA-Suppression<br>Weniger Kontraindikationen<br>Konsistente Virussuppression |
 | Nachteile | Viele Nebenwirkungen<br>Subkutane Injektionen<br>Weniger effektive HBV-DNA-Suppression<br>Viele Kontraindikationen (siehe auch: Kontraindikationen der Interferontherapie) | Langfristige , mitunter dauerhafte Therapie<br>Geringere HBsAg-Serokonversionsrate<br>Resistenzentwicklung möglich (bei Nutzung der neueren Substanzen aber sehr unwahrscheinlich) |
-| Bevorzugte Therapie bei | Kompensierter Lebererkrankung (max. Child-Pugh A Leberzirrhose)<br>HBV-Genotyp A | Fortgeschrittener oder dekompensierter Leberzirrhose (Child B/C)<br>HCC<br>Extrahepatischen Manifestationen<br>Dialysepflichtigkeit<br>Vor/nach Lebertransplantation<br>HDV-Koinfektion<br>HIV-Koinfektion<br>HCV-Koinfektion und DAA-Therapie |
+| Bevorzugte Therapie bei | Kompensierter Lebererkrankung (max. Child-Pugh A Leberzirrhose)<br>HBV-Genotyp A | Fortgeschrittener oder dekompensierter Leberzirrhose (Child B/C)<br>HCC<br>Extrahepatischen Manifestationen<br>Dialysepflichtigkeit<br>Vor/nach Lebertransplantation [7]<br>HDV-Koinfektion [7]<br>HIV-Koinfektion [7]<br>HCV-Koinfektion und DAA-Therapie [7]<br>Schwangerschaft : Bei aktiver Hepatitis oder bei HBV-DNA >200.000 IE/mL<br>Prävention einer Transmission [7]<br>De-novo-HBV-Infektion nach Organtransplantation |
 
 - PEG-Interferon-α DOSIS
   - Kontraindikationen, u.a.
@@ -686,15 +831,15 @@ Zur antiviralen Therapie können Nukleosid- bzw. Nukleotidanaloga oder PEG-Inter
     - Bei HBeAg-Positivität: Therapieende 12 Monate nach HBeAg-Verlust und Serokonversion zu Anti-HBe-Antikörpern möglich
     - Bei HBeAg-Negativität: Beendigung vor HBsAg-Verlust möglich, wenn HBV-DNA mind. 3 Jahre negativ und engmaschige Kontrollen gewährleistet
 
-Eine Kombinationstherapie wird nicht empfohlen!
+> Eine Kombinationstherapie wird nicht empfohlen!
 
-Wenn kein Kriterium für ein Therapieende erreicht wird, sollte eine Therapie mit einem Nukleosid- oder Nukleotidanalogon bei guter Verträglichkeit und Therapieansprechen ggf. langfristig erfolgen!
+> Wenn kein Kriterium für ein Therapieende erreicht wird, sollte eine Therapie mit einem Nukleosid- oder Nukleotidanalogon bei guter Verträglichkeit und Therapieansprechen ggf. langfristig erfolgen!
 
 #### HCC-Screening
 
 - Für detaillierte Informationen siehe: HCC-Screening
 
-Ein HCC-Screening soll unter Therapie und auch nach Therapieende mind. alle 6 Monate erfolgen!
+> Ein HCC-Screening soll unter Therapie und auch nach Therapieende mind. alle 6 Monate erfolgen!
 
 ### Keine antivirale Therapie (nur Überwachung)
 
@@ -725,7 +870,7 @@ Ein HCC-Screening soll unter Therapie und auch nach Therapieende mind. alle 6 Mo
     - Therapie: Analog einer HCV-Monoinfektion (siehe: Therapie der Hepatitis C)
     - Monitoring: HBV-DNA und ALT
 
-Bei asymptomatischen Verläufen mit geringer Virusaktivität kann unter engmaschiger Überwachung auf eine antivirale Therapie verzichtet werden. Falls Hinweise auf eine (Re‑)Aktivierung auftreten, muss jedoch eine Reevaluation erfolgen!
+> Bei asymptomatischen Verläufen mit geringer Virusaktivität kann unter engmaschiger Überwachung auf eine antivirale Therapie verzichtet werden. Falls Hinweise auf eine (Re‑)Aktivierung auftreten, muss jedoch eine Reevaluation erfolgen!
 
 ### Prophylaxe einer HBV-Reaktivierung
 
@@ -756,21 +901,21 @@ Bei asymptomatischen Verläufen mit geringer Virusaktivität kann unter engmasch
   - Leberfibrose, Leberzirrhose
   - Hepatozelluläres Karzinom
 
-| PAGE-B-Score zur Berechnung des HCC-Risikos bei chronischer HBV-Infektion [11] |  |  |
-| --- | --- | --- |
-|  | Punkte |  |
+| PAGE-B-Score zur Berechnung des HCC-Risikos bei chronischer HBV-Infektion [11] |
+| --- |
+|  | Punkte |
 | Alter | 16–29 Jahre | 0 |
-| 30–39 Jahre | 2 |  |
-| 40–49 Jahre | 4 |  |
-| 50–59 Jahre | 6 |  |
-| 60–69 Jahre | 8 |  |
-| >70 Jahre | 10 |  |
+| 30–39 Jahre | 2 |
+| 40–49 Jahre | 4 |
+| 50–59 Jahre | 6 |
+| 60–69 Jahre | 8 |
+| >70 Jahre | 10 |
 | Geschlecht | Weiblich | 0 |
-| Männlich | 6 |  |
+| Männlich | 6 |
 | Thrombozytenzahl | ≥200 × 109/L | 0 |
-| 100–199 × 109/L | 6 |  |
-| <100 × 109/L | 9 |  |
-| ≤9 Punkte: 5-Jahres-HCC-Risiko 0% 10–17 Punkte: 5-Jahres-HCC-Risiko 3% ≥18 Punkte: 5-Jahres-HCC-Risiko 17% |  |  |
+| 100–199 × 109/L | 6 |
+| <100 × 109/L | 9 |
+| ≤9 Punkte: 5-Jahres-HCC-Risiko 0% 10–17 Punkte: 5-Jahres-HCC-Risiko 3% ≥18 Punkte: 5-Jahres-HCC-Risiko 17% |
 
 - Hepatische Dekompensationen
   - Siehe auch: Akut-auf-chronisches Leberversagen
@@ -806,7 +951,7 @@ Auditor: Virushepatitiden
 
 ## Hepatitis-B-Impfung
 
-### STIKO-Empfehlungen
+### STIKO-Empfehlungen [12]
 
 #### Standardimpfung
 
@@ -849,9 +994,9 @@ Auditor: Virushepatitiden
 - Serologische Impferfolgskontrolle: Nicht routinemäßig empfohlen
 - Auffrischungsimpfung: Nur bei Reisen mit hohem Expositionsrisiko erforderlich, dann abhängig vom Impferfolg der Grundimmunisierung/Nachholimpfung, siehe: Überprüfung des HBV-Impferfolgs
 
-Routinemäßige Voruntersuchungen zum Ausschluss einer bestehenden oder abgelaufenen HBV-Infektion sind nicht routinemäßig empfohlen, können in bestimmten Situationen (z.B. bei hohem anamnestischen Risiko) zur Vermeidung unnötiger Impfungen aber sinnvoll sein!
+> Routinemäßige Voruntersuchungen zum Ausschluss einer bestehenden oder abgelaufenen HBV-Infektion sind nicht routinemäßig empfohlen, können in bestimmten Situationen (z.B. bei hohem anamnestischen Risiko) zur Vermeidung unnötiger Impfungen aber sinnvoll sein!
 
-Bei Personen mit Immundefizienz stehen je nach Impfstoff abweichende Schemata zur Verfügung. Beschleunigte Impfschemata sollten bei diesen Personen nicht angewendet werden!
+> Bei Personen mit Immundefizienz stehen je nach Impfstoff abweichende Schemata zur Verfügung. Beschleunigte Impfschemata sollten bei diesen Personen nicht angewendet werden!
 
 #### Überprüfung des HBV-Impferfolgs
 
@@ -1047,62 +1192,32 @@ Quelle: In Anlehnung an die ICD-10-GM Version 2026, BfArM.
 
 ## Quellen
 
-1.
+1. Empfehlungen der Ständigen Impfkommission (STIKO) und der Deutschen Gesellschaft für Tropenmedizin, Reisemedizin und Globale Gesundheit e.V. (DTG) zu ReiseimpfungenStand: 2026. Abgerufen am: 06.08.2026.
 
-Empfehlungen der Ständigen Impfkommission (STIKO) und der Deutschen Gesellschaft für Tropenmedizin, Reisemedizin und Globale Gesundheit e.V. (DTG) zu ReiseimpfungenStand: 2026. Abgerufen am: 06.08.2026.
+2. S3-Leitlinie der Deutschen Gesellschaft für Gastroenterologie, Verdauungs- und Stoffwechselkrankheiten (DGVS) zur Prophylaxe, Diagnostik und Therapie der Hepatitis-B-Virusinfektion
 
-2.
+3. Hepatitis B und D, RKI-Ratgeber für ÄrzteStand: 2016. Abgerufen am: 09.10.2017.
 
-S3-Leitlinie der Deutschen Gesellschaft für Gastroenterologie, Verdauungs- und Stoffwechselkrankheiten (DGVS) zur Prophylaxe, Diagnostik und Therapie der Hepatitis-B-Virusinfektion
+4. Prüfung des Zeitpunkts des Screenings auf Hepatitis B im Rahmen der Vorsorgeuntersuchungen gemäß MutterschaftsRichtlinienStand: 2023. Abgerufen am: 03.07.2023.
 
-3.
+5. Terrault et al.: Update on prevention, diagnosis, and treatment of chronic hepatitis B: AASLD 2018 hepatitis B guidance.In: Hepatology (Baltimore, Md.). Band: 67, Nummer: 4, 2018, doi: 10.1002/hep.29800p.1560-1599. Öffnen in LIVIVO by ZB MED
 
-Hepatitis B und D, RKI-Ratgeber für ÄrzteStand: 2016. Abgerufen am: 09.10.2017.
+6. Makvandi: Update on occult hepatitis B virus infectionIn: World Journal of Gastroenterology. Band: 22, Nummer: 39, 2016, doi: 10.3748/wjg.v22.i39.8720p.8720. Öffnen in LIVIVO by ZB MED
 
-4.
+7. European, European: EASL 2017 Clinical Practice Guidelines on the management of hepatitis B virus infection.In: Journal of hepatology. Band: 67, Nummer: 2, 2017, doi: 10.1016/j.jhep.2017.03.021p.370-398. Öffnen in LIVIVO by ZB MED
 
-Prüfung des Zeitpunkts des Screenings auf Hepatitis B im Rahmen der Vorsorgeuntersuchungen gemäß MutterschaftsRichtlinienStand: 2023. Abgerufen am: 03.07.2023.
+8. Lee, Ahn: Prediction models of hepatocellular carcinoma development in chronic hepatitis B patientsIn: World Journal of Gastroenterology. Band: 22, Nummer: 37, 2016, doi: 10.3748/wjg.v22.i37.8314p.8314. Öffnen in LIVIVO by ZB MED
 
-5.
+9. Papatheodoridis et al.: PAGE-B predicts the risk of developing hepatocellular carcinoma in Caucasians with chronic hepatitis B on 5-year antiviral therapyIn: Journal of Hepatology. Band: 64, Nummer: 4, 2016, doi: 10.1016/j.jhep.2015.11.035p.800-806. Öffnen in LIVIVO by ZB MED
 
-Terrault et al.: Update on prevention, diagnosis, and treatment of chronic hepatitis B: AASLD 2018 hepatitis B guidance.In: Hepatology (Baltimore, Md.). Band: 67, Nummer: 4, 2018, doi: 10.1002/hep.29800p.1560-1599. Öffnen in LIVIVO by ZB MED
+10. Diagnostik und Therapie des Hepatozellulären Karzinoms und biliärer KarzinomeStand: 2023. Abgerufen am: 17.10.2023.
 
-6.
+11. Ständige Impfkommission (STIKO): Empfehlungen der Ständigen Impfkommission (STIKO) beim Robert Koch-Institut 2026In: Robert Koch-Institut. 2026, doi: 10.25646/13636Öffnen in LIVIVO by ZB MED
 
-Makvandi: Update on occult hepatitis B virus infectionIn: World Journal of Gastroenterology. Band: 22, Nummer: 39, 2016, doi: 10.3748/wjg.v22.i39.8720p.8720. Öffnen in LIVIVO by ZB MED
+12. Stellungnahme der Ständigen Impfkommission zu Impfungen von Personal in medizinischen Einrichtungen in DeutschlandStand: 2021. Abgerufen am: 28.01.2021.
 
-7.
+13. Epidemiologisches Bulletin 36/37 2013Stand: 2013. Abgerufen am: 24.03.2025.
 
-European, European: EASL 2017 Clinical Practice Guidelines on the management of hepatitis B virus infection.In: Journal of hepatology. Band: 67, Nummer: 2, 2017, doi: 10.1016/j.jhep.2017.03.021p.370-398. Öffnen in LIVIVO by ZB MED
+14. Sonneveld, Janssen: Pros and Cons of Peginterferon Versus Nucleos(t)ide Analogues for Treatment of Chronic Hepatitis BIn: Current Hepatitis Reports. Band: 9, Nummer: 2, 2010, doi: 10.1007/s11901-010-0041-7p.91-98. Öffnen in LIVIVO by ZB MED
 
-8.
-
-Lee, Ahn: Prediction models of hepatocellular carcinoma development in chronic hepatitis B patientsIn: World Journal of Gastroenterology. Band: 22, Nummer: 37, 2016, doi: 10.3748/wjg.v22.i37.8314p.8314. Öffnen in LIVIVO by ZB MED
-
-9.
-
-Papatheodoridis et al.: PAGE-B predicts the risk of developing hepatocellular carcinoma in Caucasians with chronic hepatitis B on 5-year antiviral therapyIn: Journal of Hepatology. Band: 64, Nummer: 4, 2016, doi: 10.1016/j.jhep.2015.11.035p.800-806. Öffnen in LIVIVO by ZB MED
-
-10.
-
-Diagnostik und Therapie des Hepatozellulären Karzinoms und biliärer KarzinomeStand: 2023. Abgerufen am: 17.10.2023.
-
-11.
-
-Ständige Impfkommission (STIKO): Empfehlungen der Ständigen Impfkommission (STIKO) beim Robert Koch-Institut 2026In: Robert Koch-Institut. 2026, doi: 10.25646/13636Öffnen in LIVIVO by ZB MED
-
-12.
-
-Stellungnahme der Ständigen Impfkommission zu Impfungen von Personal in medizinischen Einrichtungen in DeutschlandStand: 2021. Abgerufen am: 28.01.2021.
-
-13.
-
-Epidemiologisches Bulletin 36/37 2013Stand: 2013. Abgerufen am: 24.03.2025.
-
-14.
-
-Sonneveld, Janssen: Pros and Cons of Peginterferon Versus Nucleos(t)ide Analogues for Treatment of Chronic Hepatitis BIn: Current Hepatitis Reports. Band: 9, Nummer: 2, 2010, doi: 10.1007/s11901-010-0041-7p.91-98. Öffnen in LIVIVO by ZB MED
-
-15.
-
-Herold et al.: Innere Medizin 2020. Herold 2020, ISBN: 978-3-981-46609-6. Öffnen in LIVIVO by ZB MED
+15. Herold et al.: Innere Medizin 2020. Herold 2020, ISBN: 978-3-981-46609-6. Öffnen in LIVIVO by ZB MED

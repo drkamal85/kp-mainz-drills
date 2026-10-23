@@ -2,8 +2,8 @@
 
 - **Artikel-ID:** kO0msT
 - **URL:** https://next.amboss.com/de/article/kO0msT
-- **Zuletzt bearbeitet (AMBOSS):** 06.10.2026
-- **Erfasst:** 2026-10-14
+- **Zuletzt bearbeitet (AMBOSS):** 21.10.2026
+- **Erfasst:** 2026-10-23
 - **Methode:** Browser-Tool Copy/Paste-Methode (Claude-Browser, AMBOSS Lernansicht), keine Website-Bearbeitung. Jeder Abschnitt einzeln ausgeklappt, in den Viewport gescrollt und per DOM-Textextraktion wörtlich übernommen; Listen-Hierarchie und Tabellen aus der Seitenstruktur übertragen (Zeilenumbrüche in Tabellenzellen als <br>). Keine Paraphrasierung, nichts ergänzt.
 - **KP-Zuordnung:** Topic #32 "Schock" (KERN)
 - **Bekannte Lücken:** Bildinhalte/Grafiken nur soweit als Text (Bildunterschrift/Verweis) im Artikel vorhanden; Popup-Definitionen (Info-Kästchen) und Dosierungs-Aufklapper nicht einzeln geöffnet; Audio/Video (Podcast, Meditricks) nur als Titel. Alle Abschnitte des Kapitels lieferten Text (kein leerer Abschnitt).
@@ -16,11 +16,11 @@ Als Schock wird eine lebensbedrohliche Kreislaufstörung beschrieben, die zu Mik
 
 ## Übersicht
 
-### Definition
+### Definition [1]
 
 Der Begriff „Schock" bezeichnet – unabhängig von der Ursache – ein gravierendes Missverhältnis zwischen Sauerstoffangebot und Sauerstoffbedarf auf zellulärer Ebene mit daraus folgender unzureichender Sauerstoffversorgung des Gewebes. Es kommt zu einer akuten Minderperfusion vitaler Organsysteme sowie einer Gewebehypoxie mit lebensbedrohlicher Störung des Stoffwechsels und der Zellfunktion.
 
-### Pathophysiologie
+### Pathophysiologie [2]
 
 - Sympathikusaktivierung: Tachykardie, Vasokonstriktion, Tachypnoe
 - Zentralisation (Makrozirkulationsstörung): Sicherung der Blutversorgung von Gehirn und Herz durch verminderte Blutversorgung anderer Organe (Haut, Extremitätenmuskulatur, Nieren, Splanchnikusgebiet)
@@ -33,7 +33,7 @@ Der Begriff „Schock" bezeichnet – unabhängig von der Ursache – ein gravie
   - Hypovolämie → Herzzeitvolumen↓ → Hypoxie mit resultierender Gewebsazidose → Erhöhung der Kapillarpermeabilität mit resultierender Zunahme der Hypovolämie
   - Je nach Schockform kann es an verschiedenen Stellen zum Einstieg in die Schockspirale kommen mit dem Resultat der kontinuierlichen Verschlechterung der Kreislaufsituation
 
-### Schockorgane
+### Schockorgane [3][4]
 
 - Niere: Tubuluszellen als erste von Hypoxie betroffen → Ischämie der Nierenrinde durch Minderperfusion und Hämostase v.a. im Nierenmark aufgrund einer venösen Stauung und massiven Flüssigkeitsverschiebung → Anurie/akute Nierenschädigung
 - Myokard: Verminderte Koronarperfusion → Herzinsuffizienz bis hin zum Kreislaufversagen
@@ -53,9 +53,9 @@ Schockniere
     - Kardiales Pumpversagen: Kardiogener Schock (∼15%)
     - Extrakardiale Flussbehinderung: Obstruktiver Schock (∼2%)
 
-Gelegentlich wird der obstruktive Schock als Unterform des kardiogenen Schocks gewertet! Da sich die therapeutischen Maßnahmen jedoch deutlich unterscheiden, ist eine Differenzierung sinnvoll! [5][6]
+> Gelegentlich wird der obstruktive Schock als Unterform des kardiogenen Schocks gewertet! Da sich die therapeutischen Maßnahmen jedoch deutlich unterscheiden, ist eine Differenzierung sinnvoll! [5][6]
 
-Klinisch lassen sich obstruktiver und kardiogener Schock aufgrund der ähnlichen Symptomatik häufig nicht gut unterscheiden!
+> Klinisch lassen sich obstruktiver und kardiogener Schock aufgrund der ähnlichen Symptomatik häufig nicht gut unterscheiden!
 
 Schockformen
 
@@ -99,7 +99,7 @@ Schockformen
   - Starker Schmerz bzw. extreme Stressbelastung
 - Pathophysiologie: Funktionsstörung der Kreislaufregulationszentren im ZNS oder der Sympathikus-Efferenzen → Regulationsstörung der peripheren Vasomotion → Generalisierte, ausgedehnte Vasodilatation (relative Hypovolämie) → Plötzlich einsetzende Hypotonie → Schockspirale
 - Symptomatik: Typische Trias mit Hypotonie, Bradykardie und Hypothermie [7]
-  - Ja nach Ursache weitere Symptome
+  - Je nach Ursache weitere Symptome
     - Bewusstseinsstörung bis Bewusstseinstrübung
     - Evtl. Verlust der spinalen Reflexe und der Sensibilität bei hoher medullärer Schädigung
 - Diagnostik: Siehe Notfallmanagement - Disability
@@ -108,7 +108,7 @@ Schockformen
 
 ## Hypovolämischer Schock
 
-### Übersicht
+### Übersicht [8]
 
 - Definition: Schock durch absoluten Volumenmangel mit kritischer Abnahme der kardialen Vorlast
   - Ohne Blutung (Plasmavolumen↓) → Hypovolämischer Schock im engeren Sinne
@@ -180,7 +180,7 @@ Anlage eines DruckverbandesAnlage eines Tourniquets bei kritischer Extremitäten
   - Diagnosekriterien
     - Kreislauffunktionsstörung [11]
       - Systolischer Blutdruck <90 mmHg über >30 min
-      - Herzindex <2,2 L/min/m2, häufig in Kombination mit erhöhtem SVRI
+      - Herzindex <2,2 L/min/m[2], häufig in Kombination mit erhöhtem SVRI
       - Kreislaufzentralisation
     - Ausschluss eines Volumenmangels
     - Nachweis einer primär kardialen Funktionsstörung
@@ -209,8 +209,8 @@ Anlage eines DruckverbandesAnlage eines Tourniquets bei kritischer Extremitäten
 - Diagnostik: Siehe Differenzialdiagnostik bei kardial bedingtem Schock
 - Therapie: Siehe Kardiogener Schock - AMBOSS-SOP
 
-| SCAI-Klassifikation des kardiogenen Schocks |  |
-| --- | --- |
+| SCAI-Klassifikation des kardiogenen Schocks [11][13] |
+| --- |
 | Schweregrad | Beschreibung |
 | A („At risk“) | Risikokonstellation für die Entwicklung eines kardiogenen Schocks<br>Lactat ≤2 mmol/L |
 | B („Beginning“) | Beginnender kardiogener Schock<br>Relative Hypotonie oder Tachykardie<br>Noch keine Zeichen der Organminderperfusion<br>Lactat ≤2 mmol/L |
@@ -218,9 +218,9 @@ Anlage eines DruckverbandesAnlage eines Tourniquets bei kritischer Extremitäten
 | D („Deteriorating“) | Progredienter kardiogener Schock<br>Steigendes oder dauerhaft erhöhtes Lactat (>2 mmol/L)<br>Zunehmender Katecholaminbedarf und/oder zusätzliche mechanische Kreislaufunterstützung erforderlich |
 | E („Extremis“) | Therapierefraktärer kardiogener Schock<br>Ausgeprägte Hypotonie trotz maximaler hämodynamischer Unterstützung<br>Bedarf multipler simultaner Akutinterventionen inkl. kardiopulmonaler Reanimation<br>Lactat >8 mmol/L |
 
-Dank verbesserter Prävention und früher Revaskularisation ist der klassische infarktbedingte kardiogene Schock seltener geworden, sodass heute nicht-infarktbedingte Ursachen überwiegen! [11]
+> Dank verbesserter Prävention und früher Revaskularisation ist der klassische infarktbedingte kardiogene Schock seltener geworden, sodass heute nicht-infarktbedingte Ursachen überwiegen! [11]
 
-Trotz moderner Behandlungsmethoden ist die Mortalität beim kardiogenen Schock mit bis zu 50% nach wie vor hoch! [14]
+> Trotz moderner Behandlungsmethoden ist die Mortalität beim kardiogenen Schock mit bis zu 50% nach wie vor hoch! [14]
 
 ## Obstruktiver Schock
 
@@ -255,7 +255,7 @@ Trotz moderner Behandlungsmethoden ist die Mortalität beim kardiogenen Schock m
   - Eine erhöhte Rekapillarisierungszeit kann auf eine relevante Mikrozirkulationsstörung hindeuten
 - Atemfrequenz- und Temperaturmessung
 
-In der notfallmedizinischen Praxis besitzt der Schockindex eine begrenzte Relevanz, da er insb. bei jungen Personen sehr unspezifisch ist! Dies erklärt sich durch eine gute Kompensationsfähigkeit junger Menschen, bei denen ein Blutverlust häufig erst spät zu einer Kreislaufreaktion führt!
+> In der notfallmedizinischen Praxis besitzt der Schockindex eine begrenzte Relevanz, da er insb. bei jungen Personen sehr unspezifisch ist! Dies erklärt sich durch eine gute Kompensationsfähigkeit junger Menschen, bei denen ein Blutverlust häufig erst spät zu einer Kreislaufreaktion führt!
 
 ### Labordiagnostik
 
@@ -274,7 +274,7 @@ In der notfallmedizinischen Praxis besitzt der Schockindex eine begrenzte Releva
 - Bei V.a. septischen Schock: Blutkulturen
 - Bei V.a. Myokardinfarkt: Troponin und CK-MB, EKG bei Myokardinfarkt
 
-Ein Patient kann verbluten und einen „normalen“ Hämoglobinwert aufweisen (hochakute Blutung ohne „Verwässerungseffekt“)! Wichtig und aussagekräftig ist das kontinuierliche Monitoring von Blutdruck und Herzfrequenz!
+> Ein Patient kann verbluten und einen „normalen“ Hämoglobinwert aufweisen (hochakute Blutung ohne „Verwässerungseffekt“)! Wichtig und aussagekräftig ist das kontinuierliche Monitoring von Blutdruck und Herzfrequenz!
 
 ### Apparative Diagnostik
 
@@ -302,7 +302,7 @@ Ein Patient kann verbluten und einen „normalen“ Hämoglobinwert aufweisen (h
   - Sonografie: Bspw. bei V.a. abdominalen Infektionsherd, Urosepsis
   - Herzkatheteruntersuchung: Zur Diagnostik der Ursache (bspw. Myokardinfarkt) und ggf. interventioneller Therapie per PTCA
 
-Die Einzelkomponenten des erweiterten hämodynamischen Monitorings sollten immer in der Zusammenschau und unter Berücksichtigung des klinischen Gesamtbildes interpretiert werden!
+> Die Einzelkomponenten des erweiterten hämodynamischen Monitorings sollten immer in der Zusammenschau und unter Berücksichtigung des klinischen Gesamtbildes interpretiert werden!
 
 Invasive arterielle BlutdruckmessungArterielle DruckkurvePiCCO®-System (Pulse Contour Cardiac Output)Ruhe-EKG schreiben (12-Kanal-EKG) | Praktische Fähigkeiten | AMBOSS
 
@@ -340,7 +340,7 @@ SchocklagerungOberkörperhochlagerungHalbsitzende LagerungOberkörperhochpositio
   - Perikardtamponade - AMBOSS-SOP
   - Spannungspneumothorax - AMBOSS-SOP
 
-## Kodierung nach ICD-10-GM Version 2026
+## Kodierung nach ICD-10-GM Version (2026)
 
 - R57.-: Schock, anderenorts nicht klassifiziert
   - Exklusive:
@@ -432,82 +432,42 @@ Inhaltliches Feedback zu den Meditricks-Videos bitte über den zugehörigen Feed
 
 ## Quellen
 
-1.
+1. Herold et al.: Innere Medizin 2024. Dr. med. Gerd Herold 2023, ISBN: 978-3-982-11663-1. Öffnen in LIVIVO by ZB MED
 
-Herold et al.: Innere Medizin 2024. Dr. med. Gerd Herold 2023, ISBN: 978-3-982-11663-1. Öffnen in LIVIVO by ZB MED
+2. Thiel et al.: Pathophysiologie des SchocksIn: Notfall + Rettungsmedizin. Band: 9, Nummer: 6, 2006, doi: 10.1007/s10049-006-0850-yp.509-515. Öffnen in LIVIVO by ZB MED
 
-2.
+3. Krams et al.: Kurzlehrbuch Pathologie. 1. Auflage Thieme 2009, ISBN: 978-3-131-43251-3. Öffnen in LIVIVO by ZB MED
 
-Thiel et al.: Pathophysiologie des SchocksIn: Notfall + Rettungsmedizin. Band: 9, Nummer: 6, 2006, doi: 10.1007/s10049-006-0850-yp.509-515. Öffnen in LIVIVO by ZB MED
+4. Riede: Allgemeine und spezielle Pathologie. 1. Auflage Thieme 2001, ISBN: 978-3-131-29684-9. Öffnen in LIVIVO by ZB MED
 
-3.
+5. Pich, Heller: Obstruktiver SchockIn: Der Anaesthesist. Band: 64, Nummer: 5, 2015, doi: 10.1007/s00101-015-0031-9p.403-419. Öffnen in LIVIVO by ZB MED
 
-Krams et al.: Kurzlehrbuch Pathologie. 1. Auflage Thieme 2009, ISBN: 978-3-131-43251-3. Öffnen in LIVIVO by ZB MED
+6. Standl et al.: The nomenclature, definition and distinction of types of shockIn: Deutsches Aerzteblatt Online. 2018, doi: 10.3238/arztebl.2018.0757Öffnen in LIVIVO by ZB MED
 
-4.
+7. S3-Leitlinie Diagnostik und Therapie der akuten QuerschnittlähmungAbgerufen am: 23.04.2026.
 
-Riede: Allgemeine und spezielle Pathologie. 1. Auflage Thieme 2001, ISBN: 978-3-131-29684-9. Öffnen in LIVIVO by ZB MED
+8. Lier et al.: Hypovolämisch-hämorrhagischer SchockIn: Der Anaesthesist. Band: 67, Nummer: 3, 2018, doi: 10.1007/s00101-018-0411-zp.225-244. Öffnen in LIVIVO by ZB MED
 
-5.
+9. Intravenous fluid therapy in adults in hospitalStand: 2017. Abgerufen am: 04.06.2020.
 
-Pich, Heller: Obstruktiver SchockIn: Der Anaesthesist. Band: 64, Nummer: 5, 2015, doi: 10.1007/s00101-015-0031-9p.403-419. Öffnen in LIVIVO by ZB MED
+10. Cannon, Longo: Hemorrhagic ShockIn: New England Journal of Medicine. Band: 378, Nummer: 4, 2018, doi: 10.1056/nejmra1705649p.370-379. Öffnen in LIVIVO by ZB MED
 
-6.
+11. Thiele, Hassager: Cardiogenic ShockIn: New England Journal of Medicine. Band: 394, Nummer: 1, 2026, doi: 10.1056/nejmra2312086p.62-77. Öffnen in LIVIVO by ZB MED
 
-Standl et al.: The nomenclature, definition and distinction of types of shockIn: Deutsches Aerzteblatt Online. 2018, doi: 10.3238/arztebl.2018.0757Öffnen in LIVIVO by ZB MED
+12. Pérez Vela et al.: Clinical management of postcardiotomy shock in adultsIn: Medicina Intensiva (English Edition). Band: 46, Nummer: 6, 2022, doi: 10.1016/j.medine.2022.04.014p.312-325. Öffnen in LIVIVO by ZB MED
 
-7.
+13. Køber et al.: 2026 ESC Guidelines for the management of heart failureIn: European Heart Journal. 2026, doi: 10.1093/eurheartj/ehag100Öffnen in LIVIVO by ZB MED
 
-S3-Leitlinie Diagnostik und Therapie der akuten QuerschnittlähmungAbgerufen am: 23.04.2026.
+14. Sinha et al.: Cardiogenic Shock From Heart Failure Versus Acute Myocardial Infarction: Clinical Characteristics, Hospital Course, and 1-Year OutcomesIn: Circulation: Heart Failure. Band: 15, Nummer: 6, 2022, doi: 10.1161/circheartfailure.121.009279Öffnen in LIVIVO by ZB MED
 
-8.
+15. Wollborn et al.: Evaluation der Mikrozirkulation bei kritisch kranken PatientenIn: Der Anaesthesist. Band: 69, Nummer: 10, 2020, doi: 10.1007/s00101-020-00832-4p.753-757. Öffnen in LIVIVO by ZB MED
 
-Lier et al.: Hypovolämisch-hämorrhagischer SchockIn: Der Anaesthesist. Band: 67, Nummer: 3, 2018, doi: 10.1007/s00101-018-0411-zp.225-244. Öffnen in LIVIVO by ZB MED
+16. Monteerarat et al.: Reliability of capillary refill time for evaluation of tissue perfusion in simulated vascular occluded limbsIn: European Journal of Trauma and Emergency Surgery. Band: 48, Nummer: 2, 2021, doi: 10.1007/s00068-020-01594-9p.1231-1237. Öffnen in LIVIVO by ZB MED
 
-9.
+17. Meyburg et al.: Grundlagen für die Behandlung von Notfällen im KindesalterIn: Deutsches Ärzteblatt. Band: 106, Nummer: 45, 2009, doi: 10.3238/arztebl.2009.0739p.739-748. Öffnen in LIVIVO by ZB MED
 
-Intravenous fluid therapy in adults in hospitalStand: 2017. Abgerufen am: 04.06.2020.
+18. S2K-Leitlinie Polytraumaversorgung im KindesalterStand: 2020. Abgerufen am: 29.12.2021.
 
-10.
+19. S3-Leitlinie Intravasale Volumentherapie bei ErwachsenenStand: 2020. Abgerufen am: 12.10.2020.
 
-Cannon, Longo: Hemorrhagic ShockIn: New England Journal of Medicine. Band: 378, Nummer: 4, 2018, doi: 10.1056/nejmra1705649p.370-379. Öffnen in LIVIVO by ZB MED
-
-11.
-
-Thiele, Hassager: Cardiogenic ShockIn: New England Journal of Medicine. Band: 394, Nummer: 1, 2026, doi: 10.1056/nejmra2312086p.62-77. Öffnen in LIVIVO by ZB MED
-
-12.
-
-Pérez Vela et al.: Clinical management of postcardiotomy shock in adultsIn: Medicina Intensiva (English Edition). Band: 46, Nummer: 6, 2022, doi: 10.1016/j.medine.2022.04.014p.312-325. Öffnen in LIVIVO by ZB MED
-
-13.
-
-Køber et al.: 2026 ESC Guidelines for the management of heart failureIn: European Heart Journal. 2026, doi: 10.1093/eurheartj/ehag100Öffnen in LIVIVO by ZB MED
-
-14.
-
-Sinha et al.: Cardiogenic Shock From Heart Failure Versus Acute Myocardial Infarction: Clinical Characteristics, Hospital Course, and 1-Year OutcomesIn: Circulation: Heart Failure. Band: 15, Nummer: 6, 2022, doi: 10.1161/circheartfailure.121.009279Öffnen in LIVIVO by ZB MED
-
-15.
-
-Wollborn et al.: Evaluation der Mikrozirkulation bei kritisch kranken PatientenIn: Der Anaesthesist. Band: 69, Nummer: 10, 2020, doi: 10.1007/s00101-020-00832-4p.753-757. Öffnen in LIVIVO by ZB MED
-
-16.
-
-Monteerarat et al.: Reliability of capillary refill time for evaluation of tissue perfusion in simulated vascular occluded limbsIn: European Journal of Trauma and Emergency Surgery. Band: 48, Nummer: 2, 2021, doi: 10.1007/s00068-020-01594-9p.1231-1237. Öffnen in LIVIVO by ZB MED
-
-17.
-
-Meyburg et al.: Grundlagen für die Behandlung von Notfällen im KindesalterIn: Deutsches Ärzteblatt. Band: 106, Nummer: 45, 2009, doi: 10.3238/arztebl.2009.0739p.739-748. Öffnen in LIVIVO by ZB MED
-
-18.
-
-S2K-Leitlinie Polytraumaversorgung im KindesalterStand: 2020. Abgerufen am: 29.12.2021.
-
-19.
-
-S3-Leitlinie Intravasale Volumentherapie bei ErwachsenenStand: 2020. Abgerufen am: 12.10.2020.
-
-20.
-
-Zotzmann et al.: Obstructive Shock, from Diagnosis to TreatmentIn: Reviews in Cardiovascular Medicine. Band: 23, Nummer: 7, 2022, doi: 10.31083/j.rcm2307248Öffnen in LIVIVO by ZB MED
+20. Zotzmann et al.: Obstructive Shock, from Diagnosis to TreatmentIn: Reviews in Cardiovascular Medicine. Band: 23, Nummer: 7, 2022, doi: 10.31083/j.rcm2307248Öffnen in LIVIVO by ZB MED
