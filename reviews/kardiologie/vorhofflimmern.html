@@ -189,6 +189,11 @@
     .tier .zt{font-size:8.5px}
   }
   .einschub-h{margin:26px 0 12px;padding:8px 14px;border-left:5px solid var(--protokoll,#7B3F9E);background:#F3ECF7;color:var(--protokoll,#7B3F9E);font:800 13px/1.3 'Manrope',sans-serif;letter-spacing:.08em;text-transform:uppercase;border-radius:6px}
+  details.einschub{margin:26px 0 12px}
+  details.einschub>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;margin:0 0 12px}
+  details.einschub>summary::-webkit-details-marker{display:none}
+  details.einschub .einschub-plus{font-size:18px;line-height:1;transition:transform .2s}
+  details.einschub[open] .einschub-plus{transform:rotate(45deg)}
   /* Tier-Marke zusaetzlich in der Reiterleiste: der Kopfbereich scrollt weg,
      die Leiste bleibt haften - so ist das Ziel beim Lernen immer sichtbar. */
   .tier-sticky{margin-left:auto;align-self:center;display:inline-flex;align-items:center;gap:4px;
@@ -489,7 +494,8 @@
 
 
 
-    <div class="einschub-h" id="einschub-kardioversion">Einschub: Kardioversion</div>
+    <details class="einschub" id="einschub-kardioversion"><summary class="einschub-h">Einschub: Kardioversion · 7 Fragen<span class="einschub-plus">+</span></summary>
+
 
     <div class="pk">
       <div class="pk-meta"><span>Mainz · 28.02.2026</span><span>Prüfer nicht überliefert · Innere</span></div>
@@ -539,6 +545,7 @@
       <!-- KP-Intel F10564 · n=1 · KP-404 -->
       <div class="pq"><div class="pq-frage">„Wann kardiovertieren Sie, wann defibrillieren Sie, warum defibrillieren Sie kein Vorhofflimmern, und warum kardiovertieren Sie kein Kammerflimmern?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich kardiovertiere Tachykardien mit Puls und defibrilliere Kammerflimmern. Ungetriggert kann der Schock die T-Welle treffen und Kammerflimmern auslösen. Kammerflimmern hat keine R-Zacke zum Triggern.</div></details></div>
     </div>
+    </details>
 
   </section>
 

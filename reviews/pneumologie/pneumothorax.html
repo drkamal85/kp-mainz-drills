@@ -189,6 +189,11 @@
     .tier .zt{font-size:8.5px}
   }
   .einschub-h{margin:26px 0 12px;padding:8px 14px;border-left:5px solid var(--protokoll,#7B3F9E);background:#F3ECF7;color:var(--protokoll,#7B3F9E);font:800 13px/1.3 'Manrope',sans-serif;letter-spacing:.08em;text-transform:uppercase;border-radius:6px}
+  details.einschub{margin:26px 0 12px}
+  details.einschub>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;margin:0 0 12px}
+  details.einschub>summary::-webkit-details-marker{display:none}
+  details.einschub .einschub-plus{font-size:18px;line-height:1;transition:transform .2s}
+  details.einschub[open] .einschub-plus{transform:rotate(45deg)}
   /* Tier-Marke zusaetzlich in der Reiterleiste: der Kopfbereich scrollt weg,
      die Leiste bleibt haften - so ist das Ziel beim Lernen immer sichtbar. */
   .tier-sticky{margin-left:auto;align-self:center;display:inline-flex;align-items:center;gap:4px;
@@ -440,7 +445,8 @@
 
 
 
-    <div class="einschub-h" id="einschub-pleuraerguss">Einschub: Pleuraerguss</div>
+    <details class="einschub" id="einschub-pleuraerguss"><summary class="einschub-h">Einschub: Pleuraerguss · 9 Fragen<span class="einschub-plus">+</span></summary>
+
 
     <div class="pk">
       <div class="pk-meta"><span>Mainz · 25.10.2025</span><span>Dr. Kirdorf / Dr. Baum / Dr. Bader / Dr. Zaki / Dr. Werner · Chirurgie</span></div>
@@ -499,6 +505,7 @@
       <!-- KP-Intel F03026 · n=1 · KP-087 -->
       <div class="pq"><div class="pq-frage">„Das Röntgenbild zeigt einen Verdacht auf Pleuraerguss. Wie gehen Sie nach der Drainage weiter vor, und wann liegt das Ergebnis der Tuberkulose-PCR vor?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich röntge zur Kontrolle und schicke das Punktat in Labor, Zytologie und Mikrobiologie. Die Tuberkulose-PCR liegt nach 2 bis 3 Tagen vor.</div></details></div>
     </div>
+    </details>
 
   </section>
 
