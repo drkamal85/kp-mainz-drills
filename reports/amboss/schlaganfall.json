@@ -5,31 +5,55 @@
   "sources/amboss/schlaganfall.md"
  ],
  "counts": {
-  "ok": 38,
-  "fix": 0,
-  "unclear": 10
+  "ok": 56,
+  "fix": 3,
+  "unclear": 11
  },
- "fixes": [],
+ "fixes": [
+  {
+   "panel": "therapie",
+   "deck_text": "RR vorher auf &lt; 185/110 senken.",
+   "new_text": "RR vorher auf &lt; 180/105 senken.",
+   "amboss_quote": "Vor Thrombolyse oder Thrombektomie auf <180/105 mmHg senken"
+  },
+  {
+   "panel": "perlen (Rapid-Fire)",
+   "deck_text": "RR vor Lyse? &lt; 185/110 mmHg",
+   "new_text": "&lt; 180/105 mmHg",
+   "amboss_quote": "Vor Thrombolyse oder Thrombektomie auf <180/105 mmHg senken"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "OP/Trauma &lt; 2 Wochen",
+   "new_text": "OP/Trauma ≤ 3 Monate",
+   "amboss_quote": "Große Operation oder Trauma (≤3 Monate)"
+  }
+ ],
  "unclear": [
   {
    "panel": "grundlagen",
-   "deck_text": "TIA ... 90-Tage-Schlaganfallrisiko ~10 % → Sekundärprophylaxe (vorübergehend DAPT)",
-   "reason": "AMBOSS: einfache TAH; DAPT bei TIA/Minor Stroke nicht erfasst"
-  },
-  {
-   "panel": "grundlagen",
-   "deck_text": "Sinusvenenthrombose (junge Patienten), Endokarditis als Ursache",
+   "deck_text": "Sinusvenenthrombose (junge Patienten) als Ursache; auch Perle 9/Rapid-Fire",
    "reason": "SVT eigenes Kapitel, nicht erfasst"
   },
   {
-   "panel": "therapie",
-   "deck_text": "Alteplase (rt-PA) 0,9 mg/kg i.v., max. 90 mg (10 % als Bolus, 90 % über 60 min)",
-   "reason": "Dosierung nicht in Erfassung"
+   "panel": "klinik",
+   "deck_text": "Zentrale Fazialisparese: Stirn ausgespart (bilaterale Innervation); auch Perle 2/Protokoll",
+   "reason": "nicht in Erfassung"
   },
   {
    "panel": "therapie",
-   "deck_text": "NIHSS > 25; Quick < 50 %; OP/Trauma < 2 Wochen; Schwangerschaft",
-   "reason": "Nicht in Erfassung (AMBOSS: große OP/Trauma, Entbindung ohne Frist)"
+   "deck_text": "Alteplase ... max. 90 mg",
+   "reason": "Maximaldosis nicht in Erfassung (0,9 mg/kg, 10 %/90 % ✓)"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Quick < 50 %",
+   "reason": "nicht in Erfassung (AMBOSS: INR >1,7)"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Schwangerschaft als Lyse-KI",
+   "reason": "AMBOSS nennt nur Entbindung <10 Tage"
   },
   {
    "panel": "therapie",
@@ -38,48 +62,30 @@
   },
   {
    "panel": "diagnostik",
-   "deck_text": "Scores: CHA₂DS₂-VASc (Antikoagulation), HAS-BLED",
-   "reason": "AMBOSS nennt CHA2DS2VA; Score-Variante, kein klarer Widerspruch"
+   "deck_text": "Scores: CHA₂DS₂-VASc, HAS-BLED",
+   "reason": "nicht in Erfassung"
   },
   {
-   "panel": "klinik",
-   "deck_text": "A. cerebri media: brachiofazial betonte Hemiparese; ACA beinbetont; ACP Hemianopsie",
-   "reason": "Gefäßsymptome nur teilweise erfasst"
+   "panel": "perlen",
+   "deck_text": "Thrombus im linken Vorhofohr (Perle 4, Rapid-Fire, Protokoll)",
+   "reason": "Vorhofohr nicht explizit; Thromboembolie bei VHF ✓"
   },
   {
    "panel": "protokoll",
    "deck_text": "Antikoagulation ist eine relative Kontraindikation. Bei einem INR unter 1,7 darf ich trotzdem lysieren.",
-   "reason": "AMBOSS: wirksame Antikoagulation KI; relativ/absolut nicht spezifiziert"
-  },
-  {
-   "panel": "protokoll",
-   "deck_text": "Ich nutze es im erweiterten Zeitfenster über 4,5 Stunden.",
-   "reason": "AMBOSS: PWI-DWI bei >6 h (Thrombektomie), DWI-FLAIR bei Unknown Onset"
+   "reason": "AMBOSS: wirksame Antikoagulation KI, viele KI relativ; nicht eindeutig"
   },
   {
    "panel": "protokoll",
    "deck_text": "meist eine hypertensive Blutung",
-   "reason": "ICB-Ätiologie nicht erfasst"
+   "reason": "ICB-Ätiologie nur als Bildunterschrift („loco typico“ bei Hypertonus)"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "MRT (DWI): unklares Zeitfenster, vertebrobasilär, kleine Läsionen",
+   "reason": "teilweise erfasst (kleinere/infratentorielle Infarkte, DWI-FLAIR-Mismatch)"
   }
  ],
  "status": "done",
- "validated": "2026-10-09",
- "second_pass": {
-  "date": "2026-10-09",
-  "checked": 76,
-  "applied": 0,
-  "rejected_by_orchestrator": [
-   {
-    "html_old": "Ich nutze es im erweiterten Zeitfenster über 4,5 Stunden.",
-    "reason": "AMBOSS nennt >6 h für Thrombektomie; Lyse-Zeitfenster 4,5–9 h nicht in Erfassung — nicht eindeutig"
-   }
-  ]
- },
- "third_pass": {
-  "date": "2026-10-10",
-  "model": "fable",
-  "checked": 46,
-  "applied": 0,
-  "rejected_by_orchestrator": []
- }
+ "validated": "2026-10-23"
 }

@@ -5,91 +5,63 @@
   "sources/amboss/ileus.md"
  ],
  "counts": {
-  "ok": 52,
+  "ok": 58,
   "fix": 0,
-  "unclear": 13
+  "unclear": 10
  },
  "fixes": [],
  "unclear": [
   {
    "panel": "grundlagen",
-   "deck_text": "Jeder mechanische Ileus geht am Ende in einen paralytischen über.",
-   "reason": "AMBOSS: Ischämie/Nekrose; Übergang in Paralyse nicht explizit"
+   "deck_text": "Jeder mechanische Ileus geht am Ende in einen paralytischen über",
+   "reason": "AMBOSS: kompletter mechanischer Ileus → Ischämie/Nekrose; Übergang in Paralyse nicht explizit"
   },
   {
    "panel": "grundlagen",
-   "deck_text": "Metabolisch: Hypokaliämie, Hyperkalzämie, Urämie, Diabetes/Ketoazidose",
-   "reason": "Ketoazidose nicht erfasst; AMBOSS: diabetische Neuropathie"
+   "deck_text": "Metabolisch: Diabetes/Ketoazidose",
+   "reason": "AMBOSS: autonome Neuropathie bei Diabetes; Ketoazidose nicht erfasst"
   },
   {
    "panel": "klinik",
-   "deck_text": "fehlende Darmgeräusche über 3 Minuten — die „Totenstille\"",
+   "deck_text": "fehlende Darmgeräusche über 3 Minuten",
    "reason": "3-Minuten-Grenze nicht in Erfassung"
   },
   {
    "panel": "klinik",
-   "deck_text": "Paralytisch: kaum Schmerzen, eher dumpfes Druckgefühl",
+   "deck_text": "Paralytisch: kaum Schmerzen, eher dumpfes Druckgefühl; hoher Ileus wenig Distension",
    "reason": "nicht in Erfassung"
   },
   {
-   "panel": "klinik",
-   "deck_text": "Hoher (Dünndarm-)Ileus: frühes schwallartiges Erbrechen, wenig Distension",
-   "reason": "Distensionsgrad nicht erfasst"
-  },
-  {
    "panel": "diagnostik",
-   "deck_text": "Gastrografin: KM oral/rektal ... NICHT bei komplettem mechanischem Verschluss",
-   "reason": "AMBOSS: p.o./Magensonde; KI nicht explizit"
+   "deck_text": "Gastrografin oral/rektal; NICHT bei komplettem mechanischem Verschluss",
+   "reason": "AMBOSS: p.o./Magensonde; abführend bei inkompletten Ileusbildern; KI nicht explizit"
   },
   {
    "panel": "therapie",
-   "deck_text": "Thromboseprophylaxe, Antibiose bei Entzündungszeichen",
-   "reason": "Thromboseprophylaxe nur präoperativ erfasst"
+   "deck_text": "Erythromycin i.v.",
+   "reason": "AMBOSS: Erythromycin ergänzend bei Magenentleerungsstörung; Applikationsweg nicht erfasst"
   },
   {
    "panel": "perlen",
-   "deck_text": "Prokinetikum 1. Wahl beim paralytischen Ileus? Neostigmin",
+   "deck_text": "Prokinetikum 1. Wahl beim paralytischen Ileus: Neostigmin",
    "reason": "AMBOSS: Kombination MCP + Neostigmin"
   },
   {
    "panel": "perlen",
-   "deck_text": "Anästhesie: Aspiration, Rapid Sequence Induction",
-   "reason": "nicht in Erfassung"
-  },
-  {
-   "panel": "perlen",
-   "deck_text": "Vitamin-B12-Resorption — terminales Ileum",
+   "deck_text": "Anästhesie: Aspiration, Rapid Sequence Induction; Vitamin B12 terminales Ileum",
    "reason": "nicht in Erfassung"
   },
   {
    "panel": "protokoll",
-   "deck_text": "Vorher prüfe ich die GFR, unter 30 ml/min gebe ich es nur nach strenger Abwägung.",
-   "reason": "KM-Grenzwert nicht in Erfassung"
+   "deck_text": "GFR unter 30 ml/min KM nur nach strenger Abwägung; TAPP",
+   "reason": "nicht in Erfassung"
   },
   {
    "panel": "protokoll",
-   "deck_text": "laparoskopische Vorgehen möglich, zum Beispiel als TAPP",
-   "reason": "TAPP nicht erfasst; Laparoskopie generell ✓"
-  },
-  {
-   "panel": "protokoll",
-   "deck_text": "Volvulus ... Am häufigsten betrifft er Sigma, Zökum und Magen.",
-   "reason": "Volvulus-Lokalisation nicht in Erfassung"
+   "deck_text": "Volvulus: Sigma, Zökum und Magen; 4 Gruppen akutes Abdomen",
+   "reason": "Magen-Volvulus und Gruppeneinteilung nicht erfasst (Sigma/Zäkum als Bildverweise)"
   }
  ],
  "status": "done",
- "validated": "2026-10-09",
- "second_pass": {
-  "date": "2026-10-09",
-  "checked": 78,
-  "applied": 0,
-  "rejected_by_orchestrator": []
- },
- "third_pass": {
-  "date": "2026-10-10",
-  "model": "fable",
-  "checked": 47,
-  "applied": 0,
-  "rejected_by_orchestrator": []
- }
+ "validated": "2026-10-23"
 }

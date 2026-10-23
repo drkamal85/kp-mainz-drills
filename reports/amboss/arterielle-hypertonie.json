@@ -5,58 +5,63 @@
   "sources/amboss/arterielle-hypertonie.md"
  ],
  "counts": {
-  "ok": 52,
+  "ok": 55,
   "fix": 0,
-  "unclear": 9
+  "unclear": 10
  },
  "fixes": [],
  "unclear": [
   {
    "panel": "grundlagen",
-   "deck_text": "Über 90 % primär, etwa 10 % sekundär",
-   "reason": "Anteil nicht in Erfassung"
-  },
-  {
-   "panel": "grundlagen",
    "deck_text": "Alter, Adipositas und hohe Kochsalzzufuhr sind die stärksten Treiber",
-   "reason": "Rangfolge nicht in Erfassung"
+   "reason": "Rangfolge nicht in Erfassung (nur Liste der Risikofaktoren)"
   },
   {
    "panel": "klinik",
-   "deck_text": "Blutdruckdifferenz zwischen den Armen → Dissektion; Non-Dipper",
-   "reason": "nicht in Erfassung"
+   "deck_text": "Blutdruckdifferenz zwischen den Armen → Dissektion",
+   "reason": "AMBOSS nennt Armdifferenz nur bei Aortenisthmusstenose"
   },
   {
    "panel": "diagnostik",
-   "deck_text": "Fundus I Kaliberschwankung, II Gunn-Kreuzungszeichen",
-   "reason": "AMBOSS: I leichte Verengung/Schlängelung, II starke Verengung; Formulierung abweichend"
+   "deck_text": "Fundus I Kaliberschwankung",
+   "reason": "AMBOSS: I leichte Verengung und sichtbare Schlängelung der Arteriolen; Formulierung abweichend"
   },
   {
    "panel": "therapie",
-   "deck_text": "Zielwert < 130/80 bei guter Verträglichkeit",
+   "deck_text": "D — Diuretikum (Thiazid): HCT",
+   "reason": "AMBOSS: Hydrochlorothiazid nur 2. Wahl (Chlortalidon/Xipamid/Indapamid); Beispiel, kein klarer Widerspruch"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Zielwert < 130/80 mmHg bei guter Verträglichkeit",
    "reason": "AMBOSS: langfristig ~130 systolisch, 70–79 diastolisch; kompatibel"
   },
   {
    "panel": "therapie",
-   "deck_text": "Krise oral (Nitrendipin); Notfall i.v. Urapidil, Nitrate, Clonidin",
-   "reason": "Nitrendipin nicht in Erfassung (AMBOSS: retardiertes Nifedipin, Captopril)"
+   "deck_text": "Krise > 180/110 ohne Organschaden; oral z. B. Nitrendipin",
+   "reason": "AMBOSS: Begriff 'Krise' obsolet (hypertensive Entgleisung); Nitrendipin nicht erfasst (retardiertes Nifedipin, Captopril, Lisinopril)"
   },
   {
    "panel": "therapie",
    "deck_text": "in der ersten Stunde um höchstens ein Drittel senken",
-   "reason": "AMBOSS: keine zu rasche Senkung, MAD 20–25 % je nach Organschaden; nicht direkt vergleichbar"
+   "reason": "AMBOSS: keine zu rasche Senkung; MAD 20–25 % je nach Organschaden; nicht direkt vergleichbar"
   },
   {
    "panel": "perlen",
-   "deck_text": "ACE-Hemmer: trockener Reizhusten",
+   "deck_text": "ACE-Hemmer-Nebenwirkung: trockener Reizhusten",
    "reason": "Reizhusten nicht in Erfassung"
   },
   {
    "panel": "protokoll",
-   "deck_text": "Statin; RAAS-Physiologie; Amlodipin-NW; Methyldopa/Nifedipin in der Schwangerschaft",
+   "deck_text": "Reizhusten durch Bradykinin, Angioödem; RAAS-Physiologie; Amlodipin-NW Knöchelödeme/Flush",
    "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Schwangerschaft: Methyldopa oder Nifedipin",
+   "reason": "nicht in Erfassung (nur ACE-Hemmer-KI erfasst ✓)"
   }
  ],
  "status": "done",
- "validated": "2026-10-14"
+ "validated": "2026-10-23"
 }

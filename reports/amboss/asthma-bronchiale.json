@@ -5,112 +5,78 @@
   "sources/amboss/asthma-bronchiale.md"
  ],
  "counts": {
-  "ok": 56,
-  "fix": 5,
-  "unclear": 12
+  "ok": 57,
+  "fix": 0,
+  "unclear": 13
  },
- "fixes": [
-  {
-   "panel": "diagnostik",
-   "deck_text": "Bronchospasmolyse: FEV₁ +15 % nach Salbutamol",
-   "new_text": "Bronchospasmolyse: FEV₁ +12 % nach Salbutamol",
-   "amboss_quote": "Anstieg des FEV1 um mind. 12% UND um 200 mL"
-  },
-  {
-   "panel": "perlen",
-   "deck_text": "Bronchospasmolyse positiv bei FEV₁ +15 % nach Salbutamol",
-   "new_text": "Bronchospasmolyse positiv bei FEV₁ +12 % nach Salbutamol",
-   "amboss_quote": "Anstieg des FEV1 um mind. 12% UND um 200 mL"
-  },
-  {
-   "panel": "perlen (Rapid-Fire)",
-   "deck_text": "Bronchospasmolyse positiv ab? FEV₁ +15 % nach Salbutamol",
-   "new_text": "FEV₁ +12 % nach Salbutamol",
-   "amboss_quote": "Anstieg des FEV1 um mind. 12% UND um 200 mL"
-  },
-  {
-   "panel": "perlen",
-   "deck_text": "Perle 2 · +15 % / −20 %",
-   "new_text": "Perle 2 · +12 % / −20 %",
-   "amboss_quote": "Anstieg des FEV1 um mind. 12% UND um 200 mL"
-  },
-  {
-   "panel": "perlen",
-   "deck_text": "<b>Merke:</b> Salbutamol rauf 15, Metacholin runter 20",
-   "new_text": "<b>Merke:</b> Salbutamol rauf 12, Metacholin runter 20",
-   "amboss_quote": "  - Im Gegensatz zur COPD ist bei Asthma die bronchiale Obstruktion durch Bronchospasmolyse deutlich reversibel: Anstieg des FEV1 um mind. 12% UND um 200 mL",
-   "pass": 3
-  }
- ],
+ "fixes": [],
  "unclear": [
   {
    "panel": "therapie",
    "deck_text": "Inhalatives Kortison wirkt erst nach ~1 Woche",
-   "reason": "AMBOSS: volle Wirkung nach 2–4 Wochen; Wirkbeginn nicht erfasst"
+   "reason": "AMBOSS: vollständige Wirkung erst nach 2–4 Wochen; Wirkbeginn nicht beziffert"
   },
   {
    "panel": "perlen",
    "deck_text": "Inhalative Kortikosteroide wirken erst nach ~1 Woche",
-   "reason": "AMBOSS: volle Wirkung nach 2–4 Wochen; Wirkbeginn nicht erfasst"
+   "reason": "AMBOSS: vollständige Wirkung erst nach 2–4 Wochen; Wirkbeginn nicht beziffert"
   },
   {
    "panel": "perlen (Rapid-Fire)",
    "deck_text": "ICS — Wirkungseintritt? erst nach etwa einer Woche",
-   "reason": "AMBOSS: volle Wirkung nach 2–4 Wochen; Wirkbeginn nicht erfasst"
+   "reason": "AMBOSS: Wirkungseintritt nach Wochen regelmäßiger Anwendung"
   },
   {
    "panel": "therapie",
    "deck_text": "Bei Bedarf immer SABA.",
-   "reason": "AMBOSS: ICS+Formoterol oder SABA (Alternativen)"
+   "reason": "AMBOSS: Bedarfstherapie ICS+Formoterol oder SABA (Alternativen)"
   },
   {
    "panel": "perlen",
    "deck_text": "Auf jeder Stufe gilt: Bedarfsmedikation = SABA (Salbutamol)",
-   "reason": "AMBOSS: ICS+Formoterol oder SABA (Alternativen)"
+   "reason": "AMBOSS: ICS+Formoterol oder SABA; Stufe 2 nur ggf. SABA"
   },
   {
    "panel": "therapie",
    "deck_text": "SABA inhalativ (Wdh. nach 10 min) + Prednisolon 20–25 mg p.o.",
-   "reason": "Dosierungen in Erfassung nur als DOSIS (Lücke)"
+   "reason": "AMBOSS: Prednisolon 20–50 mg p.o. (Teilbereich, kein Widerspruch); SABA-Dosis/Wdh. nur DOSIS"
   },
   {
    "panel": "therapie",
    "deck_text": "Prednisolon 1–2 mg/kg",
-   "reason": "Dosierung nicht erfasst (DOSIS)"
+   "reason": "AMBOSS schwer: Prednisolon 40–50 mg p.o./i.v.; gewichtsbezogene Angabe nicht direkt vergleichbar"
   },
   {
    "panel": "therapie",
-   "deck_text": "Magnesium 2 g i.v.",
-   "reason": "Dosierung nicht erfasst (DOSIS); auch Rapid-Fire"
+   "deck_text": "SaO₂ < 92 % oder PaCO₂ > 45 mmHg = lebensbedrohlich → Intensiv",
+   "reason": "AMBOSS lebensbedrohlich: pCO2 ≥35 mmHg; ITS-Kriterium Hyperkapnie ohne Zahl — kein klarer Widerspruch"
   },
   {
    "panel": "diagnostik",
    "deck_text": "Hypoxämie mit respiratorischer Alkalose (pH ↑, pO₂ ↓, pCO₂ ↓)",
-   "reason": "Respiratorische Alkalose nicht in Erfassung; auch Perle 7/Rapid-Fire"
+   "reason": "Respiratorische Alkalose nicht in Erfassung"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "Im Anfall zunächst respiratorische Alkalose (Hyperventilation, pCO₂ ↓)",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "perlen (Rapid-Fire)",
+   "deck_text": "BGA im Anfall? respiratorische Alkalose",
+   "reason": "nicht in Erfassung"
   },
   {
    "panel": "perlen",
    "deck_text": "Status asthmaticus = Anfall, der trotz adäquater Therapie ≥ 24 h andauert",
-   "reason": "AMBOSS-Definition ohne Zeitangabe (Nichtansprechen auf Initialtherapie)"
+   "reason": "AMBOSS-Definition ohne Zeitangabe (kein Ansprechen auf initiale Therapie); auch Rapid-Fire"
   },
   {
-   "panel": "perlen (Rapid-Fire)",
-   "deck_text": "Status asthmaticus? Anfall über 24 h trotz Therapie",
-   "reason": "AMBOSS-Definition ohne Zeitangabe"
-  },
-  {
-   "panel": "perlen (Rapid-Fire)",
-   "deck_text": "ICS-Nebenwirkung — Prophylaxe? Mund ausspülen",
-   "reason": "nicht in Erfassung"
+   "panel": "therapie",
+   "deck_text": "LTRA (Alternative, Kinder) — Montelukast",
+   "reason": "Kinder-Bezug nicht im Erwachsenen-Kapitel erfasst"
   }
  ],
  "status": "done",
- "validated": "2026-10-09",
- "third_pass": {
-  "date": "2026-10-10",
-  "model": "fable",
-  "checked": 58,
-  "applied": 1,
-  "rejected_by_orchestrator": []
- }
+ "validated": "2026-10-23"
 }

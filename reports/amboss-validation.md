@@ -270,3 +270,31 @@ Ohne Erfassung, nicht geprüft: beckenringfrakturen, claviculafraktur, kreuzband
 ## AMBOSS-validiert
 
 arzneimittelinteraktionen-uaw, acs-myokardinfarkt, akute-leukaemien, akutes-abdomen, akuttoxikologie, allgemeine-frakturlehre, anaesthesie-atemweg, anaphylaxie, antibiotikatherapie, antikoagulation-bridging, aortenaneurysma, aortendissektion, appendizitis, arterielle-hypertonie, asthma-bronchiale, aufklaerung-einwilligung-betreuung, av-block, bluttransfusion, borreliose-fsme, bronchialkarzinom, cholezystitis, copd, cushing-syndrom, delir, diabetes-mellitus, diarrhoe, distale-radiusfraktur, divertikulitis, eisenmangelanaemie, gastritis, gastroduodenales-ulkus, gerd, gi-blutung, haemorrhoiden, harnwegsinfekt, hepatitis, herzinsuffizienz, herzklappenerkrankungen, hueft-knie-tep, humerusfraktur, hyperthyreose, hyponatriaemie-siadh, hypothyreose, ikterus-cholestase, ileus, impfungen-stiko, infektioese-endokarditis, khk, kolonkarzinom, lebertumoren, leberzirrhose, leistenhernie, lungenembolie, magenkarzinom, meningitis, milzruptur-splenektomie, morbus-crohn, morbus-hodgkin, nierenversagen, non-hodgkin-lymphome, osteoporose, pankreaskarzinom, pankreatitis, pavk, pneumonie, pneumothorax, polytrauma-abcde, praevention, proximale-femurfraktur, reanimation-cpr, rechtsmedizin, rektumkarzinom, saeure-basen-bga, schaedel-hirn-trauma, schilddruesenkarzinom, schlaganfall, schmerztherapie, schock, sepsis, sozialrecht-hygiene, sprunggelenksfraktur, strahlenschutz, struma, synkope, tuberkulose, tvt, verbrennung, vorhofflimmern, wirbelsaeulenverletzungen
+
+## Lauf 2026-10-23 — Re-Validierung nach Neu-Erfassung (10 Decks)
+
+| Deck | ✓ | ✗ | ? | Korrekturen (Panel) | Status | Flag |
+|---|---|---|---|---|---|---|
+| arterielle-hypertonie | 55 | 0 | 10 | – | done | 2026-10-23 |
+| schock | 40 | 0 | 10 | – | done | 2026-10-23 |
+| hyponatriaemie-siadh | 38 | 1 | 12 | diagnostik | done | 2026-10-23 |
+| ileus | 58 | 0 | 10 | – | done | 2026-10-23 |
+| rheumatologie-pmr-rza | 52 | 0 | 4 | – | done | 2026-10-23 |
+| hepatitis | 50 | 0 | 13 | – | done | 2026-10-23 |
+| delir | 40 | 0 | 15 | – | done | 2026-10-23 |
+| asthma-bronchiale | 57 | 0 | 13 | – | done | 2026-10-23 |
+| schlaganfall | 56 | 3 | 11 | perlen (Rapid-Fire), therapie | done | 2026-10-23 |
+| morbus-hodgkin | 52 | 0 | 14 | – | done | 2026-10-23 |
+
+### AMBOSS-validiert (23.10.2026)
+
+- arterielle-hypertonie
+- schock
+- hyponatriaemie-siadh
+- ileus
+- rheumatologie-pmr-rza
+- hepatitis
+- delir
+- asthma-bronchiale
+- schlaganfall
+- morbus-hodgkin

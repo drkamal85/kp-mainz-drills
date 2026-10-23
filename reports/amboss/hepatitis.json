@@ -5,30 +5,30 @@
   "sources/amboss/hepatitis.md"
  ],
  "counts": {
-  "ok": 48,
+  "ok": 50,
   "fix": 0,
-  "unclear": 14
+  "unclear": 13
  },
  "fixes": [],
  "unclear": [
   {
    "panel": "grundlagen",
-   "deck_text": "Hepatitis C: Blut, häufig chronisch, keine Impfung; Drogenkonsum, Posttransfusionshepatitis",
+   "deck_text": "Hepatitis C: Blut, häufig chronisch, keine Impfung, Drogen, Posttransfusion",
    "reason": "Hepatitis C nicht in Erfassung (nur A und B)"
   },
   {
    "panel": "grundlagen",
-   "deck_text": "E: Impfung nein",
-   "reason": "nicht in Erfassung"
+   "deck_text": "E: Impfung nein; chronisch nur bei Immunschwäche",
+   "reason": "Impfung nicht erfasst; AMBOSS: 'Normalerweise keine Chronifizierung'"
   },
   {
    "panel": "klinik",
-   "deck_text": "Hepatitis A heilt meist in 4 bis 6 Wochen von selbst",
-   "reason": "AMBOSS: Normalisierung innerhalb von mehreren Wochen bis 6 Monaten; Vereinfachung, kein klarer Widerspruch"
+   "deck_text": "Hepatitis A heilt meist in 4 bis 6 Wochen",
+   "reason": "AMBOSS: Normalisierung innerhalb mehrerer Wochen bis 6 Monaten; Vereinfachung"
   },
   {
    "panel": "klinik",
-   "deck_text": "Hepatitis C in etwa 70 Prozent chronisch, Hauptgrund für Zirrhose; Kryoglobulinämie",
+   "deck_text": "C in etwa 70 Prozent chronisch, Hauptgrund Zirrhose; Kryoglobulinämie, GN",
    "reason": "Hepatitis C nicht in Erfassung"
   },
   {
@@ -38,12 +38,12 @@
   },
   {
    "panel": "diagnostik",
-   "deck_text": "Serologie C: Anti-HCV, HCV-RNA",
-   "reason": "nur Koinfektions-Abklärung (Anti-HCV, dann HCV-RNA) erfasst; 'bleibt nach Heilung positiv' nicht erfasst"
+   "deck_text": "Anti-HCV bleibt nach Heilung positiv",
+   "reason": "nur Koinfektions-Abklärung (Anti-HCV, dann HCV-RNA) erfasst"
   },
   {
    "panel": "therapie",
-   "deck_text": "C: DAA 8 bis 12 Wochen, über 95 Prozent geheilt",
+   "deck_text": "C: DAA 8–12 Wochen, >95 % geheilt",
    "reason": "Hepatitis C nicht in Erfassung"
   },
   {
@@ -53,35 +53,30 @@
   },
   {
    "panel": "therapie",
-   "deck_text": "Bei B ohne Impfschutz aktive und passive Impfung binnen 24 Stunden",
-   "reason": "Simultanimpfung erfasst, Zeitfenster 24 h nicht in Erfassung"
+   "deck_text": "aktive und passive Impfung binnen 24 Stunden",
+   "reason": "Simultanimpfung erfasst, 24-h-Fenster nicht"
   },
   {
    "panel": "therapie",
-   "deck_text": "Nadelstich: ausbluten, spülen, desinfizieren, Unfallarzt; bei C keine Prophylaxe",
-   "reason": "Ablauf Nadelstich nicht in Erfassung"
-  },
-  {
-   "panel": "therapie",
-   "deck_text": "Gegen C keine Impfung — Virus verändert sich zu schnell",
+   "deck_text": "Nadelstich-Ablauf, Unfallarzt; bei C keine Prophylaxe; C keine Impfung",
    "reason": "nicht in Erfassung"
   },
   {
    "panel": "perlen",
-   "deck_text": "C 70 bis 80 Prozent chronisch; DAA; viral/toxisch/autoimmun/Steatohepatitis; EBV/CMV",
+   "deck_text": "viral/toxisch/autoimmun/Steatohepatitis; EBV/CMV; C 70–80 %",
    "reason": "nicht in Erfassung"
   },
   {
    "panel": "perlen",
    "deck_text": "Meldepflicht namentlich bei Verdacht, Erkrankung und Tod",
-   "reason": "AMBOSS: namentliche Meldung akuter Infektion; Verdacht/Tod nicht explizit"
+   "reason": "AMBOSS § 6: namentliche Meldung akuter Infektion; Verdacht/Tod nicht explizit"
   },
   {
    "panel": "perlen",
-   "deck_text": "Nadelstichkette, D-Arzt",
-   "reason": "nicht in Erfassung"
+   "deck_text": "Welcher Marker zeigt die akute Infektion an? HBs-Antigen",
+   "reason": "AMBOSS: HBsAg bei akuter und chronischer Infektion; Anti-HBc-IgM = akute Hepatitis; Vereinfachung"
   }
  ],
  "status": "done",
- "validated": "2026-10-14"
+ "validated": "2026-10-23"
 }

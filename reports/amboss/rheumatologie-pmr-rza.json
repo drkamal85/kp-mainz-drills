@@ -5,20 +5,33 @@
   "sources/amboss/rheumatologie-pmr-rza.md"
  ],
  "counts": {
-  "ok": 70,
-  "fix": 1,
-  "unclear": 0
+  "ok": 52,
+  "fix": 0,
+  "unclear": 4
  },
- "fixes": [
+ "fixes": [],
+ "unclear": [
   {
-   "panel": "grundlagen/therapie",
-   "deck_text": "Prednisolon 12,5–25 mg/d",
-   "new_text": "Prednisolon 15–25 mg/d",
-   "amboss_quote": "AMBOSS Quelle 12: S2e-Leitlinie PMR Update 2024 (2025); Empfehlung 2: 15 bis 25 mg Prednison-Aequivalent"
+   "panel": "grundlagen",
+   "deck_text": "PMR: Prednisolon 15–25 mg/d (auch therapie, perlen, Rapid-Fire)",
+   "reason": "Dosis in Erfassung nur als DOSIS-Platzhalter"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "RZA ohne Sehstörung: Prednisolon 40–60 mg/d (auch therapie, perlen, Rapid-Fire)",
+   "reason": "Dosis in Erfassung nur als DOSIS-Platzhalter"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Reaktive Arthritis: nach Harnwegs- oder Darminfekt, meist selbstlimitierend",
+   "reason": "eigenes AMBOSS-Kapitel, nicht erfasst"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Rheumatoide Arthritis: Fingergelenke symmetrisch, RF und Anti-CCP positiv",
+   "reason": "nicht in Erfassung"
   }
  ],
- "unclear": [],
  "status": "done",
- "note": "Neubau R1 13.10.2026; Fakten in 2 unabhaengigen Audit-Runden gegen die Erfassung bzw. deutschen Standard geprueft, Fehler vor Veroeffentlichung behoben. Am 13.10.2026 auf ca. 320 Woerter vereinfacht, Merkbild PMR/RZA/axSpA; Audit-Runden 3-5: RZA-Dosis mit Bedingung, PMR-Startdosis 15-25 mg/d (AWMF S2e 060-006, 2025), CLEARED. R2 13.10.2026: KP-Perlen und Rapid-Fire unabhaengig geprueft, CLEARED. R3 14.10.2026: Tab 6 aus KP-Intel, Antworten unabhaengig gegen Erfassung bzw. Standard geprueft, CLEARED.",
- "validated": "2026-10-13"
+ "validated": "2026-10-23"
 }
