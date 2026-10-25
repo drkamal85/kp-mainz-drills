@@ -1,103 +1,146 @@
 {
- "slug": "diabetes-mellitus",
- "deck": "reviews/endokrinologie/diabetes-mellitus.html",
- "capture": [
-  "sources/amboss/diabetes-mellitus.md"
- ],
- "counts": {
-  "ok": 46,
-  "fix": 1,
-  "unclear": 12
- },
- "fixes": [
-  {
-   "panel": "therapie",
-   "deck_text": "Ziel-HbA1c meist 6,5–7,5 %, jede Stufe 3–6 Monate",
-   "new_text": "Ziel-HbA1c meist 6,5–8,5 %, jede Stufe 3–6 Monate",
-   "amboss_quote": "- Blutzucker: HbA1c-Zielbereich 6,5–8,5% (48–69 mmol/mol) — genauen Zielwert individuell festlegen",
-   "pass": 2
-  }
- ],
- "unclear": [
-  {
-   "panel": "klinik",
-   "deck_text": "DKA BZ < 700 / HHS BZ > 700, Letalität ~15 % / ~60 %",
-   "reason": "Hyperglykämisches Koma nicht in Erfassung (eigenes SOP-Kapitel)"
+  "slug": "diabetes-mellitus",
+  "deck": "reviews/endokrinologie/diabetes-mellitus.html",
+  "capture": [
+    "sources/amboss/diabetes-mellitus.md",
+    "sources/amboss/coma-diabeticum.md"
+  ],
+  "counts": {
+    "ok": 79,
+    "fix": 2,
+    "unclear": 23
   },
-  {
-   "panel": "klinik",
-   "deck_text": "Hypoglykämie: BZ < 50",
-   "reason": "Hypoglykämie-Definition nicht in Erfassung"
-  },
-  {
-   "panel": "klinik",
-   "deck_text": "Retinopathie/Neuropathie/Diab. Fuß Details",
-   "reason": "Folgeerkrankungen bekannte Lücke"
-  },
-  {
-   "panel": "diagnostik",
-   "deck_text": "HbA1c = BZ-„Gedächtnis\" der letzten 3–4 Monate",
-   "reason": "AMBOSS: letzte 3 Monate; kompatible Vereinfachung"
-  },
-  {
-   "panel": "diagnostik",
-   "deck_text": "1×/Jahr: Augenhintergrund, Fuß, Niere, Lipide, RR, EKG",
-   "reason": "Verlaufskontrollen/DMP nicht erfasst"
-  },
-  {
-   "panel": "therapie",
-   "deck_text": "Ziel-HbA1c meist 6,5–7,5 %",
-   "reason": "AMBOSS Typ 2: 6,5–8,5 % individuell; Teilbereich, kein klarer Widerspruch"
-  },
-  {
-   "panel": "therapie",
-   "deck_text": "48 h vor KM-Gabe / OP absetzen",
-   "reason": "AMBOSS nur „ggf. i.v. jodhaltige KM\"/perioperativ, keine 48 h"
-  },
-  {
-   "panel": "therapie",
-   "deck_text": "Metformin KI: dekompensierte Herzinsuffizienz, respiratorische Insuffizienz",
-   "reason": "In Erfassung nicht explizit genannt"
-  },
-  {
-   "panel": "therapie",
-   "deck_text": "DKA: NaCl 0,9 % → Low-Dose-Insulin → Kalium; ~50 mg/dl/h; Bikarbonat pH < 7",
-   "reason": "DKA-Therapie nicht in Erfassung"
-  },
-  {
-   "panel": "perlen",
-   "deck_text": "Lispro/Aspart/Glulisin 5–15 min; Glargin/Detemir ~24 h; Normalinsulin 15–30 min",
-   "reason": "Insulinpräparate-Kapitel nicht erfasst"
-  },
-  {
-   "panel": "protokoll",
-   "deck_text": "dann 10 IE Insulin intravenös und früh Kalium ... maximal 300 mg/dl täglich",
-   "reason": "DKA-Therapie nicht in Erfassung"
-  },
-  {
-   "panel": "protokoll",
-   "deck_text": "Urämie erzeugt Insulinresistenz, Bedarf zunächst steigen ... später sinkt",
-   "reason": "AMBOSS: eingeschränkte Nierenfunktion → Bedarf↓; Nuance"
-  }
- ],
- "status": "done",
- "validated": "2026-10-09",
- "second_pass": {
-  "date": "2026-10-09",
-  "checked": 84,
-  "applied": 1,
-  "rejected_by_orchestrator": [
-   {
-    "html_old": "sobald einer dieser vier Werte erreicht ist",
-    "reason": "AMBOSS trennt Typ 1 (≥1 Wert) und Typ 2 (≥2 Werte); Merksatz gilt für Typ 1 — nicht eindeutig"
-   }
-  ]
- },
- "third_pass": {
-  "date": "2026-10-10",
-  "model": "fable",
-  "checked": 62,
-  "applied": 0,
-  "rejected_by_orchestrator": []
- }
+  "fixes": [
+    {
+      "panel": "klinik",
+      "deck_text": "HHS (Typ 2): hyperosmolar OHNE Ketose, BZ > 700, höhere Letalität.",
+      "new_text": "HHS (Typ 2): hyperosmolar OHNE Ketose, BZ > 600, höhere Letalität.",
+      "amboss_quote": "Diagnostische Kriterien des hyperglykämischen Komas: Hyperosmolares Koma — Blutzucker >600 mg/dL (>33,3 mmol/L); Blutzucker: Hyperosmolares Koma (Typ-2-Diabetes): I.d.R. sehr hohe Werte um 600–1200 mg/dL"
+    },
+    {
+      "panel": "klinik",
+      "deck_text": "Tabelle DKA vs. HHS, Zeile BZ: HHS > 700 mg/dl",
+      "new_text": "HHS > 600 mg/dl",
+      "amboss_quote": "Hyperosmolares Koma … Blutzucker >600 mg/dL (>33,3 mmol/L)"
+    }
+  ],
+  "unclear": [
+    {
+      "panel": "klinik",
+      "deck_text": "Letalität DKA ~15 % / HHS ~60 % (Tabelle); 'höhere Letalität' (HHS)",
+      "reason": "Letalitätsangaben nicht in der Erfassung (coma-diabeticum nennt keine Letalität)"
+    },
+    {
+      "panel": "perlen",
+      "deck_text": "Rapid-Fire: DKA — Erstmaßnahme? Flüssigkeit (NaCl 0,9 %)",
+      "reason": "Flüssigkeit als Erstmaßnahme ✓; AMBOSS: 'Infusionslösung: I.d.R. balancierte Vollelektrolytlösung (bspw. Ringer-Acetat-Lösung)' — 'i.d.R.' = Leitliniennuance, kein klarer Widerspruch"
+    },
+    {
+      "panel": "protokoll",
+      "deck_text": "Einschub DKA: 'Ich gebe zuerst Kochsalzlösung, dann Normalinsulin …'",
+      "reason": "wie Rapid-Fire: AMBOSS bevorzugt i.d.R. balancierte Vollelektrolytlösung; Reihenfolge Volumen→Insulin→Kalium ✓; Na-K-ATPase-Mechanismus nicht erfasst"
+    },
+    {
+      "panel": "diagnostik",
+      "deck_text": "Diabetes ist gesichert, sobald einer dieser vier Werte erreicht ist",
+      "reason": "AMBOSS: Typ 1 ≥1, Typ 2 ≥2 eindeutig pathologische Parameter — didaktische Vereinfachung, Nuance"
+    },
+    {
+      "panel": "diagnostik",
+      "deck_text": "HbA1c = BZ-'Gedächtnis' der letzten 3–4 Monate",
+      "reason": "AMBOSS: 'der letzten 3 Monate'; 3–4 überlappend, Erythrozyten-Lebensdauer nicht erfasst"
+    },
+    {
+      "panel": "diagnostik",
+      "deck_text": "Gelegenheits-BZ ≥ 200 + Symptome",
+      "reason": "≥200 ✓; Zusatz 'Symptome' nicht in der Erfassung"
+    },
+    {
+      "panel": "diagnostik",
+      "deck_text": "oGTT nur bei unklarer Diagnose / Gestationsdiabetes",
+      "reason": "unklare Diagnose ✓; Gestationsdiabetes (Besondere Patientengruppen) nicht erfasst"
+    },
+    {
+      "panel": "diagnostik",
+      "deck_text": "Alle 3–6 Monate: HbA1c + Nüchtern-BZ; 1×/Jahr Augenhintergrund, Fuß, Lipide, RR, EKG",
+      "reason": "Ambulante Versorgung/DMP nicht erfasst; nur Nieren-Screening ≥1×/Jahr belegt"
+    },
+    {
+      "panel": "klinik",
+      "deck_text": "Hypoglykämie: BZ < 50, Sympathikus (Tremor, Schwitzen, Heißhunger)",
+      "reason": "Hypoglykämie-Kapitel nicht erfasst"
+    },
+    {
+      "panel": "klinik",
+      "deck_text": "Typ 1: oft Ketoazidose als Erstmanifestation (auch Grundlagen-Tabelle)",
+      "reason": "AMBOSS: 'Ketoazidose als Erstmanifestation möglich' — Gewichtung 'oft' nicht belegt"
+    },
+    {
+      "panel": "klinik",
+      "deck_text": "Retinopathie häufigste Erblindungsursache; ACE-Hemmer nephroprotektiv; strumpfförmige PNP, autonom; Diab. Fuß neuropathisch vs. ischämisch",
+      "reason": "Retinopathie-, Neuropathie-, Fuß-Kapitel und Nephropathie-Therapie nicht erfasst (bekannte Lücke)"
+    },
+    {
+      "panel": "grundlagen",
+      "deck_text": "Antikörper (nur bei unklarer Diagnose)",
+      "reason": "AMBOSS-Indikationen zusätzlich Screening bei positiver Familienanamnese und Diagnosesicherung — 'nur' Nuance"
+    },
+    {
+      "panel": "grundlagen",
+      "deck_text": "LADA … wird oft als 'Typ 2' verkannt (auch Perle 1)",
+      "reason": "Verkennungshäufigkeit nicht in der Erfassung"
+    },
+    {
+      "panel": "therapie",
+      "deck_text": "Metformin-KI: dekomp. Herzinsuffizienz, respiratorische Insuffizienz; 48 h vor KM/OP pausieren (auch Rapid-Fire)",
+      "reason": "KI-Liste in Erfassung ohne Herz-/Ateminsuffizienz explizit; Pausieren bei KM/perioperativ ✓, 48-h-Frist nicht erfasst"
+    },
+    {
+      "panel": "therapie",
+      "deck_text": "Glargin, Detemir ~24 h; Altinsulin SEA 15–30 min; Lispro, Aspart Wirkbeginn 5–15 min (auch Tab 6 Glargin ~24 h)",
+      "reason": "Insulinpräparate/Wirkprofile nicht erfasst"
+    },
+    {
+      "panel": "therapie",
+      "deck_text": "Hypo: Glukose p.o.; bewusstlos Glukose 40 % i.v. in laufende Infusion, dann 5 %; Glukagon s.c./i.m. (auch Rapid-Fire)",
+      "reason": "Hypoglykämie-Therapie nicht erfasst"
+    },
+    {
+      "panel": "protokoll",
+      "deck_text": "Dapagliflozin 10 mg einmal täglich",
+      "reason": "Dosis nicht erfasst"
+    },
+    {
+      "panel": "protokoll",
+      "deck_text": "10 bis 20 g Glukose i.v., also 25 bis 50 ml Glukose 40 Prozent",
+      "reason": "Hypoglykämie-Therapie nicht erfasst (Rechnung intern konsistent)"
+    },
+    {
+      "panel": "protokoll",
+      "deck_text": "Gestationsdiabetes: Makrosomie, neonatale Hypoglykämie, Präeklampsie; oGTT Woche 24–28",
+      "reason": "Besondere Patientengruppen nicht erfasst; 75 g ✓"
+    },
+    {
+      "panel": "protokoll",
+      "deck_text": "LADA … braucht früh Insulin",
+      "reason": "nicht in der Erfassung"
+    },
+    {
+      "panel": "protokoll",
+      "deck_text": "Charcot-Fuß, Entlastung, MRT",
+      "reason": "Diabetische Fußsyndrome nicht erfasst"
+    },
+    {
+      "panel": "perlen",
+      "deck_text": "Perle 6 Diabetischer Fuß warm/kühl, Malum perforans, Nekrosen",
+      "reason": "Diabetische Fußsyndrome nicht erfasst"
+    },
+    {
+      "panel": "perlen",
+      "deck_text": "Wichtigster Autoantikörper? GAD65",
+      "reason": "AMBOSS nennt Prävalenzen (GADA 60–85 % am höchsten), keine Rangfolge 'wichtigster'"
+    }
+  ],
+  "status": "done",
+  "validated": "2026-10-25"
 }
