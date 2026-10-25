@@ -194,13 +194,11 @@
   details.einschub>summary::-webkit-details-marker{display:none}
   details.einschub .einschub-plus{font-size:18px;line-height:1;transition:transform .2s}
   details.einschub[open] .einschub-plus{transform:rotate(45deg)}
-  /* Therapie-Tab: Merkbild-Treppe, Eskalationszeilen, DKA-Flow, kompakte Tabellen */
+  /* Therapie-Tab: Merkbild-Treppe, Eskalationszeilen, kompakte Tabellen */
   .therapie .dd th{background:var(--therapie-t);color:var(--therapie)}
   .dd.sm{font-size:13px;margin:12px 0;table-layout:fixed}
   .dd.sm td,.dd.sm th{overflow-wrap:break-word;hyphens:auto}
-  .dd.sm.c3 th:first-child{width:36%}
   .dd.sm.c2 th:first-child{width:30%}
-  .dd.sm.c1 th:first-child{width:26%}
   .dd.sm th,.dd.sm td{padding:7px 8px}
   .dd .ex{display:block;font-weight:500;font-size:11.5px;color:var(--muted);line-height:1.35;margin-top:2px}
   .stairs{display:flex;align-items:flex-end;gap:5px;margin:14px 0 8px}
@@ -215,9 +213,6 @@
   .esc{display:grid;gap:6px;font-size:13.5px;line-height:1.45;margin:4px 0 2px}
   .esc>div{background:#F4F1EA;border-radius:8px;padding:7px 11px}
   .esc .up{color:var(--therapie)} .esc .dn{color:var(--klinik)}
-  .flow{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:14px 0 10px}
-  .flow span{background:var(--grundlagen-t);color:var(--grundlagen);font-weight:800;font-size:13px;padding:5px 11px;border-radius:999px}
-  .flow i{font-style:normal;color:var(--muted);font-weight:700}
   .fn{font-size:12.5px;color:var(--muted);line-height:1.5;margin-top:-4px}
   /* Tier-Marke zusaetzlich in der Reiterleiste: der Kopfbereich scrollt weg,
      die Leiste bleibt haften - so ist das Ziel beim Lernen immer sichtbar. */
@@ -362,76 +357,54 @@
 
   <!-- ============ THERAPIE ============ -->
   <section class="panel" data-panel="therapie">
-    <p class="panel-intro">Typ 2 in Stufen, Typ 1 immer Insulin — dazu Hypo und DKA.</p>
     <details class="card therapie" open><summary><span class="ct"><span class="ctag">★ Typ 2</span><span class="ctitle">Stufenschema</span></span><span class="plus">+</span></summary>
       <div class="body">
         <div class="callout fact"><span class="lab">★ Merksatz</span><strong>Lebensstil → Metformin → Kombi → Insulin, je 3–6 Monate; HbA1c-Ziel 6,5–8,5 %.</strong></div>
         <div class="stairs" role="img" aria-label="Stufenschema Typ 2 als Treppe: 1 Lebensstil, 2 Metformin, 3 Kombination, 4 Insulin">
-          <div class="st"><span class="n">1</span><b>Lebens&shy;stil</b>Gewicht ↓, Be&shy;we&shy;gung, Er&shy;näh&shy;rung, Schulung</div>
-          <div class="st"><span class="n">2</span><b>Met&shy;formin</b>1. Wahl</div>
-          <div class="st"><span class="n">3</span><b>Kombi</b>+ 2. OAD oder + Insulin</div>
-          <div class="st"><span class="n">4</span><b>Insulin</b>in&shy;ten&shy;si&shy;viert</div>
+          <div class="st"><span class="n">1</span><b>Lebens&shy;stil</b></div>
+          <div class="st"><span class="n">2</span><b>Met&shy;formin</b></div>
+          <div class="st"><span class="n">3</span><b>Kombi</b></div>
+          <div class="st"><span class="n">4</span><b>Insulin</b></div>
         </div>
         <div class="esc">
-          <div><b class="dn">↓ deeskalieren:</b> Ziel unterschritten (z. B. HbA1c 6,3 %), NW &gt; Nutzen, Multimorbidität</div>
+          <div><b>Stufe 1:</b> Gewicht ↓, Bewegung, Ernährung, Schulung</div>
+          <div><b class="up">Herz/Niere:</b> gleich Metformin + SGLT2-Hemmer oder GLP-1-RA</div>
+          <div><b class="dn">↓ deeskalieren:</b> Ziel unterschritten (z. B. HbA1c 6,3 %), NW &gt; Nutzen</div>
         </div>
-        <div class="callout warning"><span class="lab">⚙ Herz / Niere</span>Kardiovaskuläre oder renale Erkrankung: <strong>gleich Metformin + SGLT2-Hemmer oder GLP-1-RA.</strong></div>
       </div>
     </details>
-    <details class="card therapie"><summary><span class="ct"><span class="ctag">★ Übersicht</span><span class="ctitle">Antidiabetika auf einen Blick</span></span><span class="plus">+</span></summary>
+    <details class="card therapie"><summary><span class="ct"><span class="ctag">★ Übersicht</span><span class="ctitle">Antidiabetika</span></span><span class="plus">+</span></summary>
       <div class="body">
         <div class="callout fact"><span class="lab">★ Merksatz</span><strong>Hypo + Gewicht ↑ = Sulfonylharnstoffe und Insulin; Herz-/Nierenschutz = SGLT2 und GLP-1.</strong></div>
-        <table class="dd sm c3"><tr><th>Klasse</th><th>✓ Vorteil</th><th>✗ Gefahr</th></tr>
-          <tr><td>Metformin<span class="ex">Biguanid</span></td><td>keine Hypo, kein Gewicht ↑</td><td>Laktat&shy;azidose, GI-NW</td></tr>
-          <tr><td>SGLT2-Hemmer<span class="ex">Dapagliflozin („-flozin")</span></td><td>Herz/Niere, Gewicht ↓</td><td>Genital&shy;infekte, DKA (auch eu&shy;glykämisch)</td></tr>
-          <tr><td>GLP-1-RA<span class="ex">Liraglutid · s.c.</span></td><td>Herz/Niere, Gewicht ↓↓</td><td>GI-NW</td></tr>
-          <tr><td>DPP-4-Hemmer<span class="ex">Sitagliptin</span></td><td>gewichts&shy;neutral</td><td>Pankre&shy;atitis, schwach</td></tr>
-          <tr><td>Sulfonyl&shy;harnstoffe / Glinide<span class="ex">Glimepirid / Repaglinid</span></td><td>billig, effektiv</td><td>Hypo, Gewicht ↑ → seltener</td></tr>
-          <tr><td>Insulin</td><td>stärkste Senkung</td><td>Hypo, Gewicht ↑</td></tr>
+        <table class="dd sm c2"><tr><th>Klasse</th><th>Merkpunkt</th></tr>
+          <tr><td>Metformin<span class="ex">1. Wahl</span></td><td>Laktat&shy;azidose (KI GFR &lt; 30; 48 h vor KM/OP pausieren), GI-NW</td></tr>
+          <tr><td>SGLT2-Hemmer<span class="ex">Dapagliflozin</span></td><td>Gewicht ↓; Genital&shy;infekte, DKA</td></tr>
+          <tr><td>GLP-1-RA</td><td>Gewicht ↓↓; GI-NW</td></tr>
+          <tr><td>DPP-4-Hemmer</td><td>gewichts&shy;neutral; Pankre&shy;atitis</td></tr>
+          <tr><td>Sulfonyl&shy;harnstoffe<span class="ex">Glimepirid</span></td><td>Hypo, Gewicht ↑ → seltener</td></tr>
         </table>
-        <p class="fn">GLP-1-RA und DPP-4 wirken glukoseabhängig → kaum Hypo. Rand: Glitazone (Gewicht ↑, Flüssigkeitsretention; KI Herzinsuffizienz), Acarbose.</p>
-      </div>
-    </details>
-    <details class="card therapie"><summary><span class="ct"><span class="ctag">⚠ Metformin</span><span class="ctitle">NW + Kontraindikationen</span></span><span class="plus">+</span></summary>
-      <div class="body">
-        <div class="callout fact"><span class="lab">★ Merksatz</span><strong>Gefürchtet ist die Laktatazidose → 48 h vor KM / OP absetzen</strong>, Insulin-Bridging.</div>
-        <ul class="b">
-          <li><strong>NW:</strong> GI-Beschwerden (v. a. zu Beginn), Laktatazidose</li>
-          <li><strong>KI:</strong> GFR &lt; 30 ml/min · dekomp. Herzinsuffizienz · respiratorische Insuffizienz · Alkoholismus · schwere Infekte · Leberfunktionsstörung</li>
-        </ul>
       </div>
     </details>
     <details class="card therapie"><summary><span class="ct"><span class="ctag">★ Typ 1</span><span class="ctitle">Insulintherapie</span></span><span class="plus">+</span></summary>
       <div class="body">
         <div class="callout fact"><span class="lab">★ Merksatz</span><strong>Typ 1 braucht immer Insulin — bevorzugt ICT (Basis-Bolus).</strong></div>
-        <table class="dd sm c1"><tr><th>Insulin</th><th>Beispiel</th><th>Einsatz</th></tr>
-          <tr><td>Basal</td><td>Glargin, Detemir</td><td>Grundbedarf</td></tr>
-          <tr><td>Normal</td><td>Altinsulin</td><td>Mahlzeit, Spritz-Ess-Abstand 15–30 min</td></tr>
-          <tr><td>Analoga</td><td>Lispro, Aspart</td><td>Mahlzeit, „die mit S sind schnell"</td></tr>
+        <table class="dd sm c2"><tr><th>Basal</th><td>Glargin, Detemir</td></tr>
+          <tr><th>Bolus</th><td>Altinsulin; Lispro, Aspart</td></tr>
         </table>
-        <ul class="b">
-          <li><strong>ICT</strong> (intensiviert): physiologisch, flexibel, Compliance nötig</li>
-          <li><strong>CT</strong> (konventionell): Mischinsulin, fester Essplan, morgens ⅔ / abends ⅓</li>
-        </ul>
-        <table class="dd sm c1"><tr><th>Morgens hoch</th><th>Ursache</th><th>Therapie</th></tr>
-          <tr><td>Dawn</td><td>Wachstums&shy;hormon</td><td>Abend-Basal später / ↑</td></tr>
-          <tr><td>Somogyi</td><td>zu viel Abendinsulin → nächtliche Hypo</td><td>Abend-Basal ↓</td></tr>
+        <table class="dd sm c2"><tr><th>Morgens hoch</th><th></th></tr>
+          <tr><td>Dawn</td><td>Wachstums&shy;hormon → Abend-Basal später/↑</td></tr>
+          <tr><td>Somogyi</td><td>zu viel Abendinsulin → nächtliche Hypo → Abend-Basal ↓</td></tr>
         </table>
-        <div class="callout fact"><span class="lab">⚙ Perioperativ</span>OAD pausieren, Typ 1 Insulin weiter; BZ-Ziel 140–180 mg/dl, Korrektur ab &gt; 180; lange OP → Insulinperfusor.</div>
+        <div class="callout fact"><span class="lab">⚙ Perioperativ</span>OAD pausieren, Typ 1 Insulin weiter; BZ-Ziel 140–180 mg/dl; lange OP → Insulinperfusor.</div>
       </div>
     </details>
     <details class="card therapie"><summary><span class="ct"><span class="ctag">▲ Notfall</span><span class="ctitle">Hypoglykämie &amp; DKA</span></span><span class="plus">+</span></summary>
       <div class="body">
         <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Hypo: sofort Glukose. DKA: erst Volumen, dann Insulin, dann Kalium.</strong></div>
-        <table class="dd sm c2"><tr><th>Hypo</th><th>Therapie</th></tr>
-          <tr><td>wach</td><td>Glukose p.o. (Saft, Traubenzucker)</td></tr>
-          <tr><td>bewusstlos</td><td>Glukose 40 % i.v. in laufende Infusion (Venenreizung), dann 5 % Dauerinfusion; alternativ Glukagon s.c./i.m.</td></tr>
+        <table class="dd sm c2"><tr><th>Hypo wach</th><td>Glukose p.o. (Saft, Traubenzucker)</td></tr>
+          <tr><th>bewusstlos</th><td>Glukose 40 % i.v. in laufende Infusion (Venenreizung), dann 5 % Dauerinfusion; alternativ Glukagon s.c./i.m.</td></tr>
         </table>
-        <div class="flow" role="img" aria-label="DKA-Reihenfolge: Volumen, Normalinsulin, Kalium"><span>1 Volumen</span><i>→</i><span>2 Insulin i.v.</span><i>→</i><span>3 Kalium</span></div>
-        <ul class="b">
-          <li>Vollelektrolytlösung oder NaCl 0,9 %; Low-Dose-Normalinsulin</li>
-          <li>BZ max. ~50 mg/dl/h senken (Hirnödem); Bikarbonat nur bei pH &lt; 7</li>
-        </ul>
+        <p class="fn">DKA-Details: KP-Perlen, Säure-Basen-Deck.</p>
       </div>
     </details>
   </section>
