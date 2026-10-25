@@ -194,13 +194,11 @@
   details.einschub>summary::-webkit-details-marker{display:none}
   details.einschub .einschub-plus{font-size:18px;line-height:1;transition:transform .2s}
   details.einschub[open] .einschub-plus{transform:rotate(45deg)}
-  /* Therapie-Tab: Merkbild-Treppe, Eskalationszeilen, DKA-Flow, kompakte Tabellen */
+  /* Therapie-Tab: Merkbild-Treppe, Eskalationszeilen, kompakte Tabellen */
   .therapie .dd th{background:var(--therapie-t);color:var(--therapie)}
   .dd.sm{font-size:13px;margin:12px 0;table-layout:fixed}
   .dd.sm td,.dd.sm th{overflow-wrap:break-word;hyphens:auto}
-  .dd.sm.c3 th:first-child{width:36%}
   .dd.sm.c2 th:first-child{width:30%}
-  .dd.sm.c1 th:first-child{width:26%}
   .dd.sm th,.dd.sm td{padding:7px 8px}
   .dd .ex{display:block;font-weight:500;font-size:11.5px;color:var(--muted);line-height:1.35;margin-top:2px}
   .stairs{display:flex;align-items:flex-end;gap:5px;margin:14px 0 8px}
@@ -215,9 +213,6 @@
   .esc{display:grid;gap:6px;font-size:13.5px;line-height:1.45;margin:4px 0 2px}
   .esc>div{background:#F4F1EA;border-radius:8px;padding:7px 11px}
   .esc .up{color:var(--therapie)} .esc .dn{color:var(--klinik)}
-  .flow{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:14px 0 10px}
-  .flow span{background:var(--grundlagen-t);color:var(--grundlagen);font-weight:800;font-size:13px;padding:5px 11px;border-radius:999px}
-  .flow i{font-style:normal;color:var(--muted);font-weight:700}
   .fn{font-size:12.5px;color:var(--muted);line-height:1.5;margin-top:-4px}
   /* Tier-Marke zusaetzlich in der Reiterleiste: der Kopfbereich scrollt weg,
      die Leiste bleibt haften - so ist das Ziel beim Lernen immer sichtbar. */
@@ -266,7 +261,7 @@
     <button class="tab" data-c="diagnostik" data-tab="diagnostik">Diagnostik ★</button>
     <button class="tab" data-c="therapie" data-tab="therapie">Therapie</button>
     <button class="tab" data-c="perlen" data-tab="perlen">KP-Perlen</button>
-    <button class="tab" data-c="protokoll" data-tab="protokoll">Fragen &amp; Protokolle ★ · 14 + 6</button>
+    <button class="tab" data-c="protokoll" data-tab="protokoll">Fragen &amp; Protokolle ★ · 18 + 4</button>
     <span class="tier-sticky kern">KERN<span class="zt">Ziel R5</span></span>
   </div>
 
@@ -362,94 +357,66 @@
 
   <!-- ============ THERAPIE ============ -->
   <section class="panel" data-panel="therapie">
-    <p class="panel-intro">Typ 2 in Stufen, Typ 1 immer Insulin — dazu Hypo und DKA.</p>
     <details class="card therapie" open><summary><span class="ct"><span class="ctag">★ Typ 2</span><span class="ctitle">Stufenschema</span></span><span class="plus">+</span></summary>
       <div class="body">
         <div class="callout fact"><span class="lab">★ Merksatz</span><strong>Lebensstil → Metformin → Kombi → Insulin, je 3–6 Monate; HbA1c-Ziel 6,5–8,5 %.</strong></div>
         <div class="stairs" role="img" aria-label="Stufenschema Typ 2 als Treppe: 1 Lebensstil, 2 Metformin, 3 Kombination, 4 Insulin">
-          <div class="st"><span class="n">1</span><b>Lebens&shy;stil</b>Gewicht ↓, Be&shy;we&shy;gung, Er&shy;näh&shy;rung, Schulung</div>
-          <div class="st"><span class="n">2</span><b>Met&shy;formin</b>1. Wahl</div>
-          <div class="st"><span class="n">3</span><b>Kombi</b>+ 2. OAD oder + Insulin</div>
-          <div class="st"><span class="n">4</span><b>Insulin</b>in&shy;ten&shy;si&shy;viert</div>
+          <div class="st"><span class="n">1</span><b>Lebens&shy;stil</b></div>
+          <div class="st"><span class="n">2</span><b>Met&shy;formin</b></div>
+          <div class="st"><span class="n">3</span><b>Kombi</b></div>
+          <div class="st"><span class="n">4</span><b>Insulin</b></div>
         </div>
         <div class="esc">
-          <div><b class="dn">↓ deeskalieren:</b> Ziel unterschritten (z. B. HbA1c 6,3 %), NW &gt; Nutzen, Multimorbidität</div>
+          <div><b>Stufe 1:</b> Gewicht ↓, Bewegung, Ernährung, Schulung</div>
+          <div><b class="up">Herz/Niere:</b> gleich Metformin + SGLT2-Hemmer oder GLP-1-RA</div>
+          <div><b class="dn">↓ deeskalieren:</b> Ziel unterschritten (z. B. HbA1c 6,3 %), NW &gt; Nutzen</div>
         </div>
-        <div class="callout warning"><span class="lab">⚙ Herz / Niere</span>Kardiovaskuläre oder renale Erkrankung: <strong>gleich Metformin + SGLT2-Hemmer oder GLP-1-RA.</strong></div>
       </div>
     </details>
-    <details class="card therapie"><summary><span class="ct"><span class="ctag">★ Übersicht</span><span class="ctitle">Antidiabetika auf einen Blick</span></span><span class="plus">+</span></summary>
+    <details class="card therapie"><summary><span class="ct"><span class="ctag">★ Übersicht</span><span class="ctitle">Antidiabetika</span></span><span class="plus">+</span></summary>
       <div class="body">
         <div class="callout fact"><span class="lab">★ Merksatz</span><strong>Hypo + Gewicht ↑ = Sulfonylharnstoffe und Insulin; Herz-/Nierenschutz = SGLT2 und GLP-1.</strong></div>
-        <table class="dd sm c3"><tr><th>Klasse</th><th>✓ Vorteil</th><th>✗ Gefahr</th></tr>
-          <tr><td>Metformin<span class="ex">Biguanid</span></td><td>keine Hypo, kein Gewicht ↑</td><td>Laktat&shy;azidose, GI-NW</td></tr>
-          <tr><td>SGLT2-Hemmer<span class="ex">Dapagliflozin („-flozin")</span></td><td>Herz/Niere, Gewicht ↓</td><td>Genital&shy;infekte, DKA (auch eu&shy;glykämisch)</td></tr>
-          <tr><td>GLP-1-RA<span class="ex">Liraglutid · s.c.</span></td><td>Herz/Niere, Gewicht ↓↓</td><td>GI-NW</td></tr>
-          <tr><td>DPP-4-Hemmer<span class="ex">Sitagliptin</span></td><td>gewichts&shy;neutral</td><td>Pankre&shy;atitis, schwach</td></tr>
-          <tr><td>Sulfonyl&shy;harnstoffe / Glinide<span class="ex">Glimepirid / Repaglinid</span></td><td>billig, effektiv</td><td>Hypo, Gewicht ↑ → seltener</td></tr>
-          <tr><td>Insulin</td><td>stärkste Senkung</td><td>Hypo, Gewicht ↑</td></tr>
+        <table class="dd sm c2"><tr><th>Klasse</th><th>Merkpunkt</th></tr>
+          <tr><td>Metformin<span class="ex">1. Wahl</span></td><td>Laktat&shy;azidose (KI GFR &lt; 30, dekomp. Herzinsuffizienz, respiratorische Insuffizienz, Alkoholismus, schwere Infekte, Leberfunktionsstörung; 48 h vor KM/OP pausieren), GI-NW</td></tr>
+          <tr><td>SGLT2-Hemmer<span class="ex">Dapagliflozin</span></td><td>Gewicht ↓; Genital&shy;infekte, DKA</td></tr>
+          <tr><td>GLP-1-RA</td><td>Gewicht ↓↓; GI-NW</td></tr>
+          <tr><td>DPP-4-Hemmer</td><td>gewichts&shy;neutral; Pankre&shy;atitis</td></tr>
+          <tr><td>Sulfonyl&shy;harnstoffe<span class="ex">Glimepirid</span></td><td>Hypo, Gewicht ↑ → seltener</td></tr>
         </table>
-        <p class="fn">GLP-1-RA und DPP-4 wirken glukoseabhängig → kaum Hypo. Rand: Glitazone (Gewicht ↑, Flüssigkeitsretention; KI Herzinsuffizienz), Acarbose.</p>
-      </div>
-    </details>
-    <details class="card therapie"><summary><span class="ct"><span class="ctag">⚠ Metformin</span><span class="ctitle">NW + Kontraindikationen</span></span><span class="plus">+</span></summary>
-      <div class="body">
-        <div class="callout fact"><span class="lab">★ Merksatz</span><strong>Gefürchtet ist die Laktatazidose → 48 h vor KM / OP absetzen</strong>, Insulin-Bridging.</div>
-        <ul class="b">
-          <li><strong>NW:</strong> GI-Beschwerden (v. a. zu Beginn), Laktatazidose</li>
-          <li><strong>KI:</strong> GFR &lt; 30 ml/min · dekomp. Herzinsuffizienz · respiratorische Insuffizienz · Alkoholismus · schwere Infekte · Leberfunktionsstörung</li>
-        </ul>
       </div>
     </details>
     <details class="card therapie"><summary><span class="ct"><span class="ctag">★ Typ 1</span><span class="ctitle">Insulintherapie</span></span><span class="plus">+</span></summary>
       <div class="body">
         <div class="callout fact"><span class="lab">★ Merksatz</span><strong>Typ 1 braucht immer Insulin — bevorzugt ICT (Basis-Bolus).</strong></div>
-        <table class="dd sm c1"><tr><th>Insulin</th><th>Beispiel</th><th>Einsatz</th></tr>
-          <tr><td>Basal</td><td>Glargin, Detemir</td><td>Grundbedarf</td></tr>
-          <tr><td>Normal</td><td>Altinsulin</td><td>Mahlzeit, Spritz-Ess-Abstand 15–30 min</td></tr>
-          <tr><td>Analoga</td><td>Lispro, Aspart</td><td>Mahlzeit, „die mit S sind schnell"</td></tr>
+        <table class="dd sm c2"><tr><th>Basal</th><td>Glargin, Detemir: ~24 h</td></tr>
+          <tr><th>Bolus</th><td>Altinsulin: Spritz-Ess-Abstand 15–30 min; Lispro, Aspart: Wirkbeginn 5–15 min</td></tr>
         </table>
-        <ul class="b">
-          <li><strong>ICT</strong> (intensiviert): physiologisch, flexibel, Compliance nötig</li>
-          <li><strong>CT</strong> (konventionell): Mischinsulin, fester Essplan, morgens ⅔ / abends ⅓</li>
-        </ul>
-        <table class="dd sm c1"><tr><th>Morgens hoch</th><th>Ursache</th><th>Therapie</th></tr>
-          <tr><td>Dawn</td><td>Wachstums&shy;hormon</td><td>Abend-Basal später / ↑</td></tr>
-          <tr><td>Somogyi</td><td>zu viel Abendinsulin → nächtliche Hypo</td><td>Abend-Basal ↓</td></tr>
+        <table class="dd sm c2"><tr><th>Morgens hoch</th><th></th></tr>
+          <tr><td>Dawn</td><td>Wachstums&shy;hormon → Abend-Basal später/↑</td></tr>
+          <tr><td>Somogyi</td><td>zu viel Abendinsulin → nächtliche Hypo → Abend-Basal ↓</td></tr>
         </table>
-        <div class="callout fact"><span class="lab">⚙ Perioperativ</span>OAD pausieren, Typ 1 Insulin weiter; BZ-Ziel 140–180 mg/dl, Korrektur ab &gt; 180; lange OP → Insulinperfusor.</div>
+        <div class="callout fact"><span class="lab">⚙ Perioperativ</span>OAD pausieren, Typ 1 Insulin weiter; BZ-Ziel 140–180 mg/dl; lange OP → Insulinperfusor.</div>
       </div>
     </details>
     <details class="card therapie"><summary><span class="ct"><span class="ctag">▲ Notfall</span><span class="ctitle">Hypoglykämie &amp; DKA</span></span><span class="plus">+</span></summary>
       <div class="body">
         <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Hypo: sofort Glukose. DKA: erst Volumen, dann Insulin, dann Kalium.</strong></div>
-        <table class="dd sm c2"><tr><th>Hypo</th><th>Therapie</th></tr>
-          <tr><td>wach</td><td>Glukose p.o. (Saft, Traubenzucker)</td></tr>
-          <tr><td>bewusstlos</td><td>Glukose 40 % i.v. in laufende Infusion (Venenreizung), dann 5 % Dauerinfusion; alternativ Glukagon s.c./i.m.</td></tr>
+        <table class="dd sm c2"><tr><th>Hypo wach</th><td>Glukose p.o. (Saft, Traubenzucker)</td></tr>
+          <tr><th>bewusstlos</th><td>Glukose 40 % i.v. in laufende Infusion (Venenreizung), dann 5 % Dauerinfusion; alternativ Glukagon s.c./i.m.</td></tr>
         </table>
-        <div class="flow" role="img" aria-label="DKA-Reihenfolge: Volumen, Normalinsulin, Kalium"><span>1 Volumen</span><i>→</i><span>2 Insulin i.v.</span><i>→</i><span>3 Kalium</span></div>
-        <ul class="b">
-          <li>Vollelektrolytlösung oder NaCl 0,9 %; Low-Dose-Normalinsulin</li>
-          <li>BZ max. ~50 mg/dl/h senken (Hirnödem); Bikarbonat nur bei pH &lt; 7</li>
-        </ul>
+        <p class="fn">DKA-Details: KP-Perlen, Säure-Basen-Deck.</p>
       </div>
     </details>
   </section>
 
   <!-- ============ KP-PERLEN ============ -->
   <section class="panel" data-panel="perlen">
-    <div class="pearl"><div class="ph">⭐ Perle 1 · Typ-1-Falle</div><div class="pt">Verlassen Sie sich nie allein auf den Habitus: Auch <strong>Typ-1-Diabetiker können adipös</strong> sein. Die <strong>LADA</strong> ist eine Typ-1-Sonderform des Erwachsenen — GAD65-positiv, langsamer Verlauf, oft als Typ 2 fehletikettiert.</div><div class="mn"><b>Faktoid:</b> In Mainz wurde gezielt nachgehakt, als ein Kandidat Typ 1 nur als „jung und schlank" beschrieb.</div></div>
-    <div class="pearl"><div class="ph">⭐ Perle 2 · Kalium-Paradox</div><div class="pt">Bei DKA ist das Serum-Kalium scheinbar normal oder hoch, der <strong>Gesamtkörper-Bestand aber erniedrigt</strong>. Unter Insulin wandert Kalium in die Zelle und der Spiegel fällt rasch ab → engmaschig kontrollieren und substituieren.</div><div class="mn"><b>Eselsbrücke:</b> „Wo H⁺ ist, ist auch K⁺" — die Azidose treibt Kalium aus der Zelle.</div></div>
-    <div class="pearl"><div class="ph">⭐ Perle 3 · DKA-Reihenfolge</div><div class="pt">Die Behandlungsreihenfolge der Ketoazidose ist prüfungsrelevant: <strong>erst Flüssigkeit, dann Insulin, dann Kalium</strong>. Bei Kalium &lt; 3,5 mmol/l wird Insulin zurückgestellt, bis Kalium substituiert ist — sonst droht eine bedrohliche Hypokaliämie.</div><div class="mn"><b>Eselsbrücke:</b> „Erst Wasser, dann Insulin, dann Kalium" — Volumen rettet die Niere zuerst.</div></div>
-    <div class="pearl"><div class="ph">⭐ Perle 4 · Tempo-Limit</div><div class="pt">Den Blutzucker bei DKA nur <strong>langsam senken — max. ~50 mg/dl pro Stunde</strong>. Zu schnelles Absenken zieht osmotisch Wasser ins Gehirn → Hirnödem (und Risiko der Netzhautablösung).</div><div class="mn"><b>Faktoid:</b> Ein Mainz-Prüfer formulierte das Limit als „maximal 300 mg/dl pro 24 Stunden — warum? Gefahr Hirnödem".</div></div>
-    <div class="pearl"><div class="ph">⭐ Perle 5 · -flozin</div><div class="pt"><strong>SGLT2-Hemmer („-flozin")</strong> spülen Glukose über die Niere aus — insulinunabhängig, gewichtssenkend, kardio- und nephroprotektiv. Schattenseite: Genitalmykosen, Harnwegsinfekte und die tückische euglykämische Ketoazidose.</div><div class="mn"><b>Eselsbrücke:</b> „DapagliFLOZIN wie flow — spült den Zucker raus".</div></div>
-    <div class="pearl"><div class="ph">⭐ Perle 6 · Das i.v.-Insulin</div><div class="pt"><strong>Normalinsulin</strong> (Altinsulin, z. B. Actrapid) ist das <strong>einzige Insulin, das intravenös</strong> gegeben werden darf — daher das Insulin der Wahl bei DKA, im Korrekturschema und intraoperativ. Spritz-Ess-Abstand 15–30 min.</div><div class="mn"><b>Faktoid:</b> Analoga und Verzögerungsinsuline gehören NICHT in die Vene.</div></div>
-    <div class="pearl"><div class="ph">⭐ Perle 7 · Schnell vs. lang</div><div class="pt"><strong>Bolus-Analoga</strong> Lispro, Aspart, Glulisin: Wirkbeginn 5–15 min, kein Spritz-Ess-Abstand.<br><strong>Basalinsuline</strong> Glargin und Detemir: ~24 h mit flachem Plateau. Bevorzugte Therapie bei Typ 1 ist die ICT.</div><div class="mn"><b>Eselsbrücke:</b> „die kurzen -pro/-art für die Mahlzeit, die langen -gin/-mir fürs Fundament".</div></div>
-    <div class="pearl"><div class="ph">⭐ Perle 8 · Metformin</div><div class="pt"><strong>Metformin ist 1. Wahl bei Typ 2: keine Hypoglykämie, keine Gewichtszunahme.</strong> Gefürchtete NW ist die Laktatazidose → 48 h vor KM/OP pausieren; KI bei GFR &lt; 30, dekompensierter Herzinsuffizienz, respiratorischer Insuffizienz und Alkoholismus.</div><div class="mn"><b>Faktoid:</b> Metformin macht NICHT dick und NICHT hypoglyk — das trennt es von den Sulfonylharnstoffen.</div></div>
-    <div class="pearl"><div class="ph">⭐ Perle 9 · Diabetischer Fuß</div><div class="pt"><strong>Neuropathisch:</strong> warm, trocken, gut durchblutet, Malum perforans an Druckstellen, Fußpulse tastbar.<br><strong>Ischämisch:</strong> kühl, blass, pulslos, akrale/laterale Nekrosen, schmerzhaft.</div><div class="mn"><b>Eselsbrücke:</b> warm &amp; trocken = Nerv, kühl &amp; pulslos = Gefäß.</div></div>
-    <div class="pearl"><div class="ph">⭐ Perle 10 · Letalitäts-Falle HHS</div><div class="pt">Das hyperosmolare Syndrom (HHS) hat die <strong>höhere Letalität (~60 %)</strong> — trotz fehlender Azidose. Grund: ältere Patienten, späte Diagnose, ausgeprägte Exsikkose und Elektrolytentgleisung.</div><div class="mn"><b>Faktoid:</b> Die „harmlosere" Entgleisung ohne Ketose ist die tödlichere.</div></div>
-    <div class="pearl"><div class="ph">⭐ Perle 11 · Sulfonylharnstoffe</div><div class="pt"><strong>Sulfonylharnstoffe (Glibenclamid, Glimepirid) machen Hypoglykämien und Gewichtszunahme</strong> — das Gegenteil von Metformin und SGLT2-Hemmern, weil sie die Insulinsekretion glukose-unabhängig erzwingen.</div><div class="mn"><b>Eselsbrücke:</b> Harnstoff peitscht Insulin raus → Hunger, Hypo, Hüftgold.</div></div>
-    <div class="pearl"><div class="ph">⭐ Perle 12 · Pseudoperitonitis diabetica</div><div class="pt">Eine DKA kann mit Bauchschmerzen und Abwehrspannung ein <strong>akutes Abdomen vortäuschen</strong> (Ketonkörper reizen das Peritoneum). Erst BZ, Ketone und BGA — nicht vorschnell operieren.</div><div class="mn"><b>Faktoid:</b> Das Ketoazidose-Abdomen braucht Insulin, kein Skalpell.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 1 · Auch Typ 1 kann adipös sein</div><div class="pt">Der Habitus beweist nichts. <strong>LADA</strong> ist die Typ-1-Sonderform des Erwachsenen: GAD65-positiv, langsamer Verlauf, oft als Typ 2 verkannt.</div><div class="mn"><b>Merke:</b> Habitus täuscht, GAD65 entscheidet.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 2 · DKA: Serum-Kalium täuscht</div><div class="pt">Serum-Kalium scheinbar normal oder hoch, <strong>Gesamtkörper-Kalium erniedrigt</strong>; unter Insulin fällt es rasch. Reihenfolge: <strong>Volumen → Normalinsulin i.v. → Kalium</strong>, engmaschig kontrollieren.</div><div class="mn"><b>Merke:</b> Wo H⁺ ist, ist auch K⁺.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 3 · DKA: Blutzucker nur langsam senken</div><div class="pt">Maximal <strong>~50 mg/dl pro Stunde</strong>. Zu schneller Abfall zieht osmotisch Wasser ins Gehirn → Hirnödem.</div><div class="mn"><b>Merke:</b> Zu schnell gesenkt = Hirnödem.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 4 · Pseudoperitonitis: DKA imitiert akutes Abdomen</div><div class="pt">Bauchschmerz und Abwehrspannung durch Ketonkörper. <strong>Erst BZ, Ketone, BGA</strong>, nicht vorschnell operieren.</div><div class="mn"><b>Merke:</b> Insulin statt Skalpell.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 5 · SGLT2: Ketoazidose bei normalem Blutzucker</div><div class="pt">Unter <strong>SGLT2-Hemmern („-flozin")</strong> droht die <strong>euglykämische Ketoazidose</strong>, tückisch, weil der Blutzucker normal ist.</div><div class="mn"><b>Merke:</b> Normaler Zucker schließt DKA nicht aus.</div></div>
+    <div class="pearl"><div class="ph">⭐ Perle 6 · Diabetischer Fuß: warm = Nerv, kühl = Gefäß</div><div class="pt"><strong>Neuropathisch:</strong> warm, trocken, Pulse tastbar, Malum perforans an Druckstellen.<br><strong>Ischämisch:</strong> kühl, blass, pulslos, akrale Nekrosen, schmerzhaft.</div><div class="mn"><b>Merke:</b> Warm &amp; trocken = Nerv, kühl &amp; pulslos = Gefäß.</div></div>
     <div class="sf-wrap">
       <h3>Rapid-Fire</h3>
       <div class="sf-intro">Atomare Einzelfakten — Ein-Wort-Abruf. Laut, sofort, dann aufdecken.</div>
@@ -460,7 +427,6 @@
       <details class="sf"><summary>oGTT-2-h — Diagnosegrenze?</summary><div class="sfa">≥ 200 mg/dl</div></details>
       <details class="sf"><summary>C-Peptid bei Typ 1?</summary><div class="sfa">niedrig / fehlend</div></details>
       <details class="sf"><summary>Wichtigster Autoantikörper?</summary><div class="sfa">GAD65</div></details>
-      <details class="sf"><summary>LADA?</summary><div class="sfa">autoimmuner Typ-1-Diabetes des Erwachsenen</div></details>
       <details class="sf"><summary>Typ-2-Therapie — 1. Wahl?</summary><div class="sfa">Metformin</div></details>
       <details class="sf"><summary>Metformin — gefürchtete NW?</summary><div class="sfa">Laktatazidose</div></details>
       <details class="sf"><summary>Metformin vor KM / OP?</summary><div class="sfa">48 h vorher absetzen</div></details>
@@ -469,118 +435,126 @@
       <details class="sf"><summary>HHS — typischer Typ?</summary><div class="sfa">Typ 2</div></details>
       <details class="sf"><summary>DKA — Atemmuster?</summary><div class="sfa">Kußmaul-Atmung</div></details>
       <details class="sf"><summary>DKA — Erstmaßnahme?</summary><div class="sfa">Flüssigkeit (NaCl 0,9 %)</div></details>
-      <details class="sf"><summary>BZ-Senkung bei DKA — Tempo?</summary><div class="sfa">max. ~50 mg/dl pro Stunde</div></details>
-      <details class="sf"><summary>Hypoglykämie — Definition?</summary><div class="sfa">BZ &lt; 50 mg/dl</div></details>
       <details class="sf"><summary>Bewusstlose Hypoglykämie — Therapie?</summary><div class="sfa">Glukose 40 % i.v. (oder Glukagon)</div></details>
     </div>
   </section>
 
   <section class="panel" data-panel="protokoll">
-    <p class="panel-intro">Generalprobe an den dokumentierten Mainz-Sessions (Protokolle 2024–2026). Jede Frage einzeln laut beantworten, dann aufdecken.</p>
-
+    <p class="panel-intro">Generalprobe an den dokumentierten Mainz-Sessions (Protokolle 2023–2026). Jede Frage einzeln laut beantworten, dann aufdecken.</p>
 
     <div class="pk">
-
-      <div class="pk-meta"><span>Mainz · 01.02.2024 / 02.12.2023</span><span>Innere · Frau Baum, Dr. Linke</span><span class="pk-badge">Bestanden</span></div>
-
-      <div class="pk-akte"><span class="lab">Fall</span>Patient mit HbA1c 7,2 ohne bekannten Diabetes bei Frau Baum; Dr. Linke fragt LADA, C-Peptid und GAD65 bei entgleistem Diabetes nach Pneumonie.</div>
-
+      <div class="pk-meta"><span>Mainz · 25.09.2024</span><span>Innere · Prof. Dr. Schmitz</span><span class="pk-badge">Bestanden</span></div>
       <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
-
-      <div class="pq"><div class="pq-frage">„Wie sichern Sie die Diagnose eines Diabetes mellitus?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich sichere den Diabetes mit HbA1c ab 6,5 Prozent oder Nüchternblutzucker ab 126 mg/dl. Alternativ gilt der oGTT-2-Stunden-Wert ab 200 mg/dl.</div></details></div>
-
-      <div class="pq"><div class="pq-frage">„Nennen Sie die Antikörper und trennen Sie Typ 1 von Typ 2."</div><details class="reveal"><summary>Antwort</summary><div class="ans">Beim Typ 1 finde ich GAD-, IA-2- und Inselzellantikörper. Der Typ 1 hat einen absoluten Insulinmangel, der Typ 2 eine Insulinresistenz.</div></details></div>
-
-      <div class="pq"><div class="pq-frage">„Was ist ein LADA, und warum bestimmen Sie C-Peptid und GAD65?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Der LADA ist ein langsam verlaufender Typ-1-Diabetes des Erwachsenen. Das C-Peptid zeigt die Eigenproduktion, die GAD65-Antikörper sichern die Autoimmungenese.</div></details></div>
-
+      <!-- KP-Intel F00536 · n=2 · KP-137, KP-419 -->
+      <div class="pq"><div class="pq-frage">„Welche Diagnosekriterien des Diabetes kennen Sie, mit Nüchternglukose, HbA1c und 2-Stunden-oGTT?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Diabetes liegt vor bei Nüchternglukose ab 126 mg/dl oder HbA1c ab 6,5 Prozent. Im oGTT gilt ein 2-Stunden-Wert ab 200 mg/dl.</div></details></div>
+      <!-- KP-Intel F00537 · n=2 · KP-137, KP-419 -->
+      <div class="pq"><div class="pq-frage">„Wie sieht das Stufenschema der Therapie beim Typ-2-Diabetes aus?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich beginne mit Lebensstil und Metformin. Ohne Zielerreichung nach 3 bis 6 Monaten kombiniere ich mit SGLT2-Hemmer, GLP-1-Analogon oder DPP-4-Hemmer. Zuletzt gebe ich Insulin.</div></details></div>
+      <!-- KP-Intel F04214 · n=1 · KP-137 -->
+      <div class="pq"><div class="pq-frage">„Welche Wirkung und welche Nebenwirkungen hat Metformin, und warum ist die Niereninsuffizienz eine absolute Kontraindikation?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Metformin senkt den Blutzucker ohne Hypoglykämie, macht aber oft Magen-Darm-Beschwerden. Bei einer GFR unter 30 droht eine Laktatazidose.</div></details></div>
+      <!-- KP-Intel F04143 · n=1 · KP-137 -->
+      <div class="pq"><div class="pq-frage">„Welchen Kombinationspartner geben Sie zu Metformin, mit welchem Beispiel und welcher Dosierung?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich kombiniere Metformin mit einem SGLT2-Hemmer, zum Beispiel Dapagliflozin 10 mg einmal täglich.</div></details></div>
     </div>
 
     <div class="pk">
-
-      <div class="pk-meta"><span>Mainz · 24.02.2024</span><span>Innere · Dr. Voßler</span><span class="pk-badge">Bestanden</span></div>
-
-      <div class="pk-akte"><span class="lab">Fall</span>Dr. Voßler fragt den Diabetes von der Definition bis zur Therapie, mit Schwerpunkt auf ketoazidotischem und hyperosmolarem Koma.</div>
-
+      <div class="pk-meta"><span>Mainz · 23.11.2024</span><span>Innere · Prüfer nicht überliefert</span></div>
       <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
-
-      <div class="pq"><div class="pq-frage">„Wie unterscheiden Sie das ketoazidotische vom hyperosmolaren Koma?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Die Ketoazidose betrifft den Typ 1 mit Ketonkörpern, Azidose und Kußmaul-Atmung. Das hyperosmolare Koma betrifft den Typ 2 mit extremer Hyperglykämie ohne Ketose.</div></details></div>
-
-      <div class="pq"><div class="pq-frage">„Wie behandeln Sie die diabetische Ketoazidose?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich gebe Volumen, dann 10 IE Insulin intravenös und früh Kalium. Den Blutzucker senke ich um maximal 300 mg/dl täglich wegen der Hirnödemgefahr.</div></details></div>
-
+      <!-- KP-Intel F00513 · n=2 · KP-130, KP-423 -->
+      <div class="pq"><div class="pq-frage">„Was ist das HbA1c?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Das HbA1c ist glykiertes Hämoglobin und zeigt den mittleren Blutzucker der letzten 3 Monate.</div></details></div>
     </div>
 
     <div class="pk">
-
-      <div class="pk-meta"><span>Mainz · 24.02.2024</span><span>Dr. Voßler · Antidiabetika</span><span class="pk-badge">Bestanden</span></div>
-
-      <div class="pk-akte"><span class="lab">Fall</span>Mechanismen von Biguaniden und SGLT2-Hemmern sowie Nebenwirkungen der Antidiabetika, wie Dr. Voßler sie abfragt.</div>
-
+      <div class="pk-meta"><span>Mainz · 23.05.2025</span><span>Innere · Dr. Christ</span><span class="pk-badge">Bestanden</span></div>
+      <div class="pk-akte"><span class="lab">Fall</span>87-jährige Patientin mit Typ-2-Diabetes und HbA1c 6,3 %.</div>
       <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
-
-      <div class="pq"><div class="pq-frage">„Wie wirkt Metformin, und welche Nebenwirkung fürchten Sie?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Metformin hemmt die hepatische Glukoneogenese und verbessert die Insulinsensitivität. Die gefürchtete Nebenwirkung ist die Laktatazidose, vor allem bei Niereninsuffizienz.</div></details></div>
-
-      <div class="pq"><div class="pq-frage">„Wie wirken die SGLT2-Hemmer?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">SGLT2-Hemmer blockieren die Glukoserückresorption im proximalen Tubulus. So scheidet der Patient Glukose mit dem Urin aus und verliert Kalorien.</div></details></div>
-
-      <div class="pq"><div class="pq-frage">„Welche Substanzen bevorzugen Sie bei einer Herz- oder Nierenerkrankung?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Bei Herz- oder Nierenerkrankung bevorzuge ich SGLT2-Hemmer und GLP-1-Rezeptoragonisten, weil sie die Prognose unabhängig vom Blutzucker verbessern.</div></details></div>
-
+      <!-- KP-Intel F00386 · n=2 · KP-086, KP-438 -->
+      <div class="pq"><div class="pq-frage">„Warum wurde die Therapie des Typ-2-Diabetes bei einem HbA1c von 6,3 % verändert?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Mit 6,3 Prozent liegt der Wert unter dem Zielbereich von 6,5 bis 8,5 Prozent. Deshalb deeskaliere ich, um Hypoglykämien zu vermeiden.</div></details></div>
+      <!-- KP-Intel F02983 · n=1 · KP-086 -->
+      <div class="pq"><div class="pq-frage">„Welche Komplikationen hat der Gestationsdiabetes, und wie führen Sie den oGTT durch?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Es drohen Makrosomie, neonatale Hypoglykämie und Präeklampsie. Den oGTT mache ich mit 75 g Glukose zwischen Woche 24 und 28 der Schwangerschaft.</div></details></div>
     </div>
 
     <div class="pk">
-
-      <div class="pk-meta"><span>Mainz · 02.12.2023 / 27.10.2023</span><span>Innere · Dr. Linke u. a.</span><span class="pk-badge">Bestanden</span></div>
-
-      <div class="pk-akte"><span class="lab">Fall</span>Typ-1-Therapie mit CT und ICT, Nephropathie und diabetischer Fuß aus den Protokollsammlungen vom Herbst 2023.</div>
-
+      <div class="pk-meta"><span>Mainz · 25.07.2025</span><span>Dr. Schneider</span><span class="pk-badge">Bestanden</span></div>
       <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
-
-      <div class="pq"><div class="pq-frage">„Wie behandeln Sie den Typ-1-Diabetes?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Den Typ 1 behandle ich lebenslang mit Insulin. Meist wähle ich die intensivierte konventionelle Therapie mit Basalinsulin und Bolusinsulin zu den Mahlzeiten.</div></details></div>
-
-      <div class="pq"><div class="pq-frage">„Was ist das Frühzeichen der diabetischen Nephropathie, und wie schützen Sie die Niere?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Das Frühzeichen ist die Mikroalbuminurie. Zum Schutz der Niere gebe ich einen ACE-Hemmer oder einen AT1-Blocker.</div></details></div>
-
-      <div class="pq"><div class="pq-frage">„Wie unterscheiden Sie den neuropathischen vom ischämischen diabetischen Fuß?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Der neuropathische Fuß ist warm, trocken und tastbar durchblutet, oft mit einem Druckulkus. Der ischämische Fuß ist kühl, blass und pulslos.</div></details></div>
-
+      <!-- KP-Intel F00344 · n=2 · KP-076, KP-444 -->
+      <div class="pq"><div class="pq-frage">„Was ist der Unterschied zwischen Typ-1- und Typ-2-Diabetes?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Typ 1 ist ein autoimmuner, absoluter Insulinmangel mit Autoantikörpern und niedrigem C-Peptid. Typ 2 beruht auf Insulinresistenz, meist bei älteren Adipösen.</div></details></div>
+      <!-- KP-Intel F00345 · n=2 · KP-076, KP-444 -->
+      <div class="pq"><div class="pq-frage">„Wie behandeln Sie den Typ-1-Diabetes?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Den Typ 1 behandle ich lebenslang mit Insulin, meist als intensivierte Therapie mit Basal- und Bolusinsulin.</div></details></div>
     </div>
 
     <div class="pk">
-
-      <div class="pk-meta"><span>Mainz · Anfang 2026</span><span>Innere · Dr. Sturm</span><span class="pk-badge">Bestanden</span></div>
-
-      <div class="pk-akte"><span class="lab">Fall</span>87-jähriger Patient mit blutendem Ulcus duodeni; Dr. Sturm fragt Somogyi-Syndrom und Insulinbedarf bei Niereninsuffizienz.</div>
-
+      <div class="pk-meta"><span>Mainz · Datum nicht überliefert</span><span>Innere · Dr. Kaul</span><span class="pk-badge">Bestanden</span></div>
       <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <!-- KP-Intel F09762 · n=1 · KP-348 -->
+      <div class="pq"><div class="pq-frage">„Wie definieren und klassifizieren Sie den Diabetes mellitus, mit Typ 1, Typ 2, LADA, MODY und sekundären Formen?"</div><details class="reveal"><summary>Antwort</summary><div class="ans vollzaehlig">Diabetes ist eine chronische Hyperglykämie durch Insulinmangel oder Insulinresistenz. Ich unterscheide Typ 1 mit der Sonderform LADA und Typ 2. Typ 3 umfasst MODY und sekundäre Formen, Typ 4 den Gestationsdiabetes.</div></details></div>
+    </div>
 
-      <div class="pq"><div class="pq-frage">„Ein insulinpflichtiger Patient hat wiederholt nächtliche Unterzuckerungen und morgens hohe Werte — wie heißt das, und wie entsteht es?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Das ist das Somogyi-Phänomen. Zu viel Abendinsulin führt nachts zur Hypoglykämie, die Gegenregulation mit Adrenalin und Glukagon treibt den Morgenwert hoch.</div></details></div>
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · 02.12.2023</span><span>Innere · Dr. Linke</span><span class="pk-badge">Bestanden</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <!-- KP-Intel F06283 · n=1 · KP-205 -->
+      <div class="pq"><div class="pq-frage">„Was ist ein LADA, was gilt für Insulin und C-Peptid, und welche Bedeutung haben GAD65-Antikörper?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Der LADA ist ein langsamer Autoimmundiabetes des Erwachsenen, gesichert durch GAD65-Antikörper. Das C-Peptid sinkt, und der Patient braucht früh Insulin.</div></details></div>
+    </div>
 
-      <div class="pq"><div class="pq-frage">„Warum ändert sich der Insulinbedarf bei einer Niereninsuffizienz?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Die Urämie erzeugt eine Insulinresistenz, sodass der Bedarf zunächst steigen kann. Später baut die Niere weniger Insulin ab, und der Bedarf sinkt.</div></details></div>
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · 26.07.2023</span><span>Innere · Dr. Gries</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <!-- KP-Intel F08025 · n=1 · KP-263 -->
+      <div class="pq"><div class="pq-frage">„Was unterscheidet kurzwirksames von langwirksamem Insulin beim Typ-1-Diabetes?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Kurzwirksames Insulin wie Lispro gebe ich zu den Mahlzeiten. Langwirksames Insulin wie Glargin deckt etwa 24 Stunden den Basalbedarf.</div></details></div>
+    </div>
 
-      <div class="pq"><div class="pq-frage">„Welche Augenkomplikation müssen Sie beim Diabetes kennen?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Das ist die diabetische Retinopathie mit Mikroaneurysmen, Blutungen und harten Exsudaten. Im proliferativen Stadium kommen Gefäßneubildungen und Glaskörperblutungen hinzu.</div></details></div>
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · 10.01.2024</span><span>Innere · Dr. Voßeler</span><span class="pk-badge">Bestanden</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <!-- KP-Intel F06084 · n=1 · KP-198 -->
+      <div class="pq"><div class="pq-frage">„Ein bewusstloser Patient atmet regelmäßig. Was messen Sie, und wie viel Gramm Glukose geben Sie bei einer Hypoglykämie?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich messe sofort den Blutzucker. Bei Hypoglykämie gebe ich 10 bis 20 g Glukose intravenös, also 25 bis 50 ml Glukose 40 Prozent.</div></details></div>
+    </div>
 
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · 26.08.2026</span><span>Dr. Tannert / Dr. Brill / Dr. Baum</span><span class="pk-badge">Bestanden</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <!-- KP-Intel F00876 · n=1 · KP-003 -->
+      <div class="pq"><div class="pq-frage">„Welche Komplikationen des Diabetes mellitus kennen Sie?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Makroangiopathisch entstehen KHK, pAVK und Schlaganfall. Mikroangiopathisch entstehen Retinopathie, Nephropathie und Neuropathie. Neuropathie und pAVK führen zum diabetischen Fußsyndrom.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · 05.07.2025</span><span>Chirurgie · Dr. Tannert</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <!-- KP-Intel F02827 · n=1 · KP-078 -->
+      <div class="pq"><div class="pq-frage">„Das Röntgenbild der rechten unteren Extremität zeigt ein Weichteilödem, die Knochen sind nicht abgrenzbar. Woran denken Sie beim Diabetiker?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich denke an einen Charcot-Fuß, also eine diabetische Neuroosteoarthropathie. Ich entlaste den Fuß sofort und sichere die Diagnose im MRT.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · Datum geschätzt 02/2026</span><span>Innere · Dr. Sturm</span></div>
+      <div class="pk-akte"><span class="lab">Fall</span>87-jähriger Patient mit blutendem Ulcus duodeni.</div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <!-- KP-Intel F02077 · n=1 · KP-049 -->
+      <div class="pq"><div class="pq-frage">„Ein insulinpflichtiger Patient hat nächtliche Hypoglykämien. Was ist das Somogyi-Phänomen?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Zu viel Abendinsulin löst nachts eine Hypoglykämie aus, danach ist der Morgenwert reaktiv hoch. Deshalb reduziere ich das abendliche Basalinsulin.</div></details></div>
+      <!-- KP-Intel F02079 · n=1 · KP-049 -->
+      <div class="pq"><div class="pq-frage">„Warum ist bei Niereninsuffizienz vermehrt Insulin erforderlich?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Der Insulinbedarf sinkt bei Niereninsuffizienz meist, er steigt nicht. Die Niere baut weniger Insulin ab, deshalb droht eine Hypoglykämie.</div></details></div>
+    </div>
+
+    <div class="pk">
+      <div class="pk-meta"><span>Mainz · 19.09.2025</span><span>Innere · Dr. Brill</span><span class="pk-badge">Bestanden</span></div>
+      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
+      <!-- KP-Intel F02494 · n=1 · KP-062 -->
+      <div class="pq"><div class="pq-frage">„Wie behandeln Sie eine perioperative Hyperglykämie?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich behandle sie mit Insulin, bei langen Eingriffen über einen Perfusor. Mein Zielbereich liegt bei 140 bis 180 mg/dl.</div></details></div>
     </div>
 
 
-
-    <details class="einschub" id="einschub-diabetische-ketoazidose"><summary class="einschub-h">Einschub: Diabetische Ketoazidose · 6 Fragen<span class="einschub-plus">+</span></summary>
-
+    <details class="einschub" id="einschub-diabetische-ketoazidose"><summary class="einschub-h">Einschub: Diabetische Ketoazidose · 4 Fragen<span class="einschub-plus">+</span></summary>
 
     <div class="pk">
       <div class="pk-meta"><span>Mainz · 07.08.2026</span><span>Dr. Laakmann / Dr. Kirdorf · Innere</span></div>
       <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
       <!-- KP-Intel F01022 · n=1 · KP-008 -->
-      <div class="pq"><div class="pq-frage">„Wie behandeln Sie die diabetische Ketoazidose mit Volumen und Insulin, wie kontrollieren und ersetzen Sie Kalium, und warum verschiebt Insulin das Kalium in die Zellen?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich gebe zuerst NaCl 0,9 Prozent, dann Normalinsulin, und ersetze Kalium nach engmaschigen Kontrollen. Insulin aktiviert die Natrium-Kalium-ATPase der Zellmembran.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Wie behandeln Sie die diabetische Ketoazidose mit Volumen und Insulin, wie kontrollieren und ersetzen Sie Kalium, und warum verschiebt Insulin das Kalium in die Zellen?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich gebe zuerst Kochsalzlösung, dann Normalinsulin, und ersetze Kalium nach engmaschigen Kontrollen. Insulin aktiviert die Natrium-Kalium-ATPase der Zellmembran.</div></details></div>
     </div>
 
     <div class="pk">
       <div class="pk-meta"><span>Mainz · 04.04.2025</span><span>Prüfer nicht überliefert · Innere</span></div>
       <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
       <!-- KP-Intel F03216 · n=1 · KP-096 -->
-      <div class="pq"><div class="pq-frage">„Ein Patient hat einen Blutzucker von 600 mg/dl, ist kardiopulmonal stabil und beschwerdefrei. Wie gehen Sie vor, vom Ausschluss einer Ketoazidose und eines diabetischen Komas über Anamnese, körperliche Untersuchung, Labor und BGA bis zur Insulintherapie?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Zuerst schließe ich mit Anamnese, Untersuchung und Labor samt BGA eine Ketoazidose aus. Dann senke ich den Zucker langsam mit Insulin.</div></details></div>
-    </div>
-
-    <div class="pk">
-      <div class="pk-meta"><span>Mainz · 12.07.2023</span><span>Dr. Schneider / Dr. Gries / Dr. Morgenthaler · Innere</span></div>
-      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
-      <!-- KP-Intel F08109 · n=1 · KP-266 -->
-      <div class="pq"><div class="pq-frage">„Die BGA zeigt eine Ketoazidose. Welche Diabetestypen kennen Sie, wie unterscheiden sich Typ 1 und Typ 2 mit absolutem Insulinmangel gegenüber Insulinresistenz, und wie ist die Pathophysiologie?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Typ 1 hat einen absoluten Insulinmangel, Typ 2 eine Insulinresistenz. Ohne Insulin steigt die Lipolyse, und die Leber bildet saure Ketonkörper.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Ein Patient hat einen Blutzucker von 600 mg/dl, ist kardiopulmonal stabil und beschwerdefrei. Wie gehen Sie vor, vom Ausschluss einer Ketoazidose und eines diabetischen Komas über Anamnese, körperliche Untersuchung, Labor und BGA bis zur Insulintherapie?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich schließe mit Anamnese, Untersuchung und Labor samt BGA eine Ketoazidose aus. Dann senke ich den Zucker mit Insulin, höchstens 50 mg/dl pro Stunde.</div></details></div>
     </div>
 
     <div class="pk">
@@ -597,12 +571,6 @@
       <div class="pq"><div class="pq-frage">„Wie grenzen Sie bei einer Hyperglykämie die Differenzialdiagnosen DKA, HHS und Steroiddiabetes voneinander ab?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Die DKA zeigt Ketose und Azidose, das HHS extreme Hyperglykämie ohne Ketose. Den Steroiddiabetes erkenne ich an der vorausgehenden Glukokortikoidtherapie.</div></details></div>
     </div>
 
-    <div class="pk">
-      <div class="pk-meta"><span>Mainz · Datum nicht überliefert</span><span>Dr. Unglaube · Innere</span></div>
-      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
-      <!-- KP-Intel F10830 · n=1 · KP-431 -->
-      <div class="pq"><div class="pq-frage">„Die BGA zeigt eine nicht kompensierte metabolische Azidose bei diabetischer Ketoazidose. Wie behandeln Sie, und wie wirkt Insulin?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich gebe Volumen, Normalinsulin intravenös und Kalium nach Spiegel. Insulin hemmt Lipolyse und Ketogenese und fördert die zelluläre Glukoseaufnahme.</div></details></div>
-    </div>
     </details>
 
   </section>
