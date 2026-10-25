@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-24T07:53:50.216Z",
+  "generatedAt": "2026-10-25T08:07:35.070Z",
   "totals": {
-    "open": 123,
-    "completed": 474,
+    "open": 121,
+    "completed": 476,
     "overdue": 0,
-    "schedulingIssues": 86
+    "schedulingIssues": 85
   },
   "byLevel": {
     "R1": {
@@ -24,8 +24,8 @@
       "completed": 84
     },
     "R5": {
-      "open": 26,
-      "completed": 7
+      "open": 24,
+      "completed": 9
     }
   },
   "byWorkstream": {
@@ -37,8 +37,8 @@
       "r1Open": 0
     },
     "B_r5": {
-      "open": 26,
-      "completed": 7,
+      "open": 24,
+      "completed": 9,
       "pilot": [
         {
           "name": "Review: Cholezystitis R5",
@@ -524,11 +524,6 @@
   "overdue": [],
   "upcoming14d": [
     {
-      "name": "Review: Vorhofflimmern R5",
-      "dueDate": "2026-10-28",
-      "duration": 180
-    },
-    {
       "name": "KP Sprache: 12 Satzbausteine auswendig lernen",
       "dueDate": "2026-10-29",
       "duration": 45
@@ -549,33 +544,18 @@
       "duration": 180
     },
     {
-      "name": "Review: Allgemeine Frakturlehre R5",
-      "dueDate": "2026-10-31",
-      "duration": 180
-    },
-    {
       "name": "Akte-Sim #4",
       "dueDate": "2026-10-31",
       "duration": 60
     },
     {
-      "name": "Review: Schlaganfall/Apoplex R5",
-      "dueDate": "2026-11-01",
+      "name": "Review: Allgemeine Frakturlehre R5",
+      "dueDate": "2026-11-03",
       "duration": 180
     },
     {
       "name": "Review: Impfungen/STIKO R5",
-      "dueDate": "2026-11-01",
-      "duration": 180
-    },
-    {
-      "name": "Review: Aufklärung, Einwilligung & Betreuung R5",
-      "dueDate": "2026-11-03",
-      "duration": 180
-    },
-    {
-      "name": "Review: Leistenhernie R5",
-      "dueDate": "2026-11-03",
+      "dueDate": "2026-11-04",
       "duration": 180
     },
     {
@@ -594,19 +574,24 @@
       "duration": 180
     },
     {
-      "name": "KP Crashkurs (Home) – Tag 1 – Innere Medizin",
-      "dueDate": "2026-11-06",
-      "duration": 600
-    },
-    {
       "name": "Review: Divertikulitis R5",
       "dueDate": "2026-11-06",
       "duration": 180
     },
     {
-      "name": "KP Crashkurs (Home) – Tag 2 – Chirurgie",
+      "name": "Review: Aufklärung, Einwilligung & Betreuung R5",
       "dueDate": "2026-11-07",
-      "duration": 600
+      "duration": 180
+    },
+    {
+      "name": "Review: Leistenhernie R5",
+      "dueDate": "2026-11-07",
+      "duration": 180
+    },
+    {
+      "name": "Review: Ileus R5",
+      "dueDate": "2026-11-08",
+      "duration": 180
     }
   ],
   "nextCheckpoint": null
