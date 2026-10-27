@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-26T08:32:44.032Z",
+  "generatedAt": "2026-10-27T08:39:45.422Z",
   "totals": {
     "open": 121,
     "completed": 477,
@@ -591,6 +591,21 @@
     {
       "name": "Review: Ileus R5",
       "dueDate": "2026-11-08",
+      "duration": 180
+    },
+    {
+      "name": "Review: Gastroduodenales Ulkus R5",
+      "dueDate": "2026-11-10",
+      "duration": 180
+    },
+    {
+      "name": "Review: Kolonkarzinom R5",
+      "dueDate": "2026-11-10",
+      "duration": 180
+    },
+    {
+      "name": "Review: Pneumothorax R5",
+      "dueDate": "2026-11-10",
       "duration": 180
     }
   ],
