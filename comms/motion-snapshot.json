@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-27T08:39:45.422Z",
+  "generatedAt": "2026-10-28T09:19:38.736Z",
   "totals": {
-    "open": 121,
-    "completed": 477,
+    "open": 120,
+    "completed": 478,
     "overdue": 0,
-    "schedulingIssues": 83
+    "schedulingIssues": 84
   },
   "byLevel": {
     "R1": {
@@ -24,8 +24,8 @@
       "completed": 84
     },
     "R5": {
-      "open": 23,
-      "completed": 10
+      "open": 22,
+      "completed": 11
     }
   },
   "byWorkstream": {
@@ -37,8 +37,8 @@
       "r1Open": 0
     },
     "B_r5": {
-      "open": 23,
-      "completed": 10,
+      "open": 22,
+      "completed": 11,
       "pilot": [
         {
           "name": "Review: Cholezystitis R5",
@@ -68,22 +68,22 @@
         },
         {
           "name": "Akte-Sim #4",
-          "dueDate": "2026-10-31",
+          "dueDate": "2026-11-12",
           "completed": false
         },
         {
           "name": "Akte-Sim #6",
-          "dueDate": "2026-11-05",
+          "dueDate": "2026-11-19",
           "completed": false
         },
         {
           "name": "Akte-Sim #7",
-          "dueDate": "2026-11-14",
+          "dueDate": "2026-11-26",
           "completed": false
         },
         {
           "name": "Akte-Sim #8",
-          "dueDate": "2026-11-28",
+          "dueDate": "2026-12-02",
           "completed": false
         },
         {
@@ -539,16 +539,6 @@
       "duration": 60
     },
     {
-      "name": "Review: Arterielle Hypertonie R5",
-      "dueDate": "2026-10-30",
-      "duration": 180
-    },
-    {
-      "name": "Akte-Sim #4",
-      "dueDate": "2026-10-31",
-      "duration": 60
-    },
-    {
       "name": "Review: Allgemeine Frakturlehre R5",
       "dueDate": "2026-11-03",
       "duration": 180
@@ -562,11 +552,6 @@
       "name": "Review: ACS/Myokardinfarkt R5",
       "dueDate": "2026-11-04",
       "duration": 180
-    },
-    {
-      "name": "Akte-Sim #6",
-      "dueDate": "2026-11-05",
-      "duration": 60
     },
     {
       "name": "Review: Herzinsuffizienz R5",
@@ -606,6 +591,16 @@
     {
       "name": "Review: Pneumothorax R5",
       "dueDate": "2026-11-10",
+      "duration": 180
+    },
+    {
+      "name": "Review: Harnwegsinfekt / Pyelonephritis R5",
+      "dueDate": "2026-11-11",
+      "duration": 180
+    },
+    {
+      "name": "Review: Proximale Femurfrakturen R5",
+      "dueDate": "2026-11-11",
       "duration": 180
     }
   ],
