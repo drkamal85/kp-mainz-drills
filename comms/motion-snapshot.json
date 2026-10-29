@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-10-28T09:19:38.736Z",
+  "generatedAt": "2026-10-29T09:22:50.513Z",
   "totals": {
-    "open": 120,
-    "completed": 478,
+    "open": 119,
+    "completed": 481,
     "overdue": 0,
     "schedulingIssues": 84
   },
@@ -30,7 +30,7 @@
   },
   "byWorkstream": {
     "A_coverage": {
-      "topicsTotal": 196,
+      "topicsTotal": 198,
       "studied": 64,
       "studyOpen": 0,
       "r1Built": 99,
@@ -524,19 +524,14 @@
   "overdue": [],
   "upcoming14d": [
     {
-      "name": "Einschub DKA lernen (Diabetes Tab 6, 4 Fragen)",
-      "dueDate": "2026-10-28",
-      "duration": 30
-    },
-    {
-      "name": "KP Sprache: 12 Satzbausteine auswendig lernen",
-      "dueDate": "2026-10-29",
-      "duration": 45
-    },
-    {
       "name": "Akte-Sim #3",
       "dueDate": "2026-10-29",
       "duration": 60
+    },
+    {
+      "name": "KP Sprache: Review Stufe 2",
+      "dueDate": "2026-10-31",
+      "duration": 20
     },
     {
       "name": "Review: Allgemeine Frakturlehre R5",
@@ -602,6 +597,11 @@
       "name": "Review: Proximale Femurfrakturen R5",
       "dueDate": "2026-11-11",
       "duration": 180
+    },
+    {
+      "name": "Akte-Sim #4",
+      "dueDate": "2026-11-12",
+      "duration": 60
     }
   ],
   "nextCheckpoint": null
