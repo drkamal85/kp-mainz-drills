@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-29T09:22:50.513Z",
+  "generatedAt": "2026-10-30T09:37:58.193Z",
   "totals": {
     "open": 119,
     "completed": 481,
@@ -63,32 +63,32 @@
         },
         {
           "name": "Akte-Sim #3",
-          "dueDate": "2026-10-29",
-          "completed": false
-        },
-        {
-          "name": "Akte-Sim #4",
           "dueDate": "2026-11-12",
           "completed": false
         },
         {
-          "name": "Akte-Sim #6",
+          "name": "Akte-Sim #4",
           "dueDate": "2026-11-19",
           "completed": false
         },
         {
-          "name": "Akte-Sim #7",
+          "name": "Akte-Sim #6",
           "dueDate": "2026-11-26",
           "completed": false
         },
         {
-          "name": "Akte-Sim #8",
+          "name": "Akte-Sim #7",
           "dueDate": "2026-12-02",
           "completed": false
         },
         {
           "name": "Akte-Sim #9",
           "dueDate": "2026-12-05",
+          "completed": false
+        },
+        {
+          "name": "Akte-Sim #8",
+          "dueDate": "2026-12-08",
           "completed": false
         },
         {
@@ -524,11 +524,6 @@
   "overdue": [],
   "upcoming14d": [
     {
-      "name": "Akte-Sim #3",
-      "dueDate": "2026-10-29",
-      "duration": 60
-    },
-    {
       "name": "KP Sprache: Review Stufe 2",
       "dueDate": "2026-10-31",
       "duration": 20
@@ -599,9 +594,19 @@
       "duration": 180
     },
     {
-      "name": "Akte-Sim #4",
+      "name": "Akte-Sim #3",
       "dueDate": "2026-11-12",
       "duration": 60
+    },
+    {
+      "name": "KP Crashkurs (Home) – Tag 1 – Innere Medizin",
+      "dueDate": "2026-11-13",
+      "duration": 600
+    },
+    {
+      "name": "Review: Schmerztherapie / WHO-Stufenschema R5",
+      "dueDate": "2026-11-13",
+      "duration": 180
     }
   ],
   "nextCheckpoint": null
