@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-30T09:37:58.193Z",
+  "generatedAt": "2026-10-31T09:18:06.291Z",
   "totals": {
     "open": 119,
     "completed": 481,
@@ -607,6 +607,11 @@
       "name": "Review: Schmerztherapie / WHO-Stufenschema R5",
       "dueDate": "2026-11-13",
       "duration": 180
+    },
+    {
+      "name": "KP Crashkurs (Home) – Tag 2 – Chirurgie",
+      "dueDate": "2026-11-14",
+      "duration": 600
     }
   ],
   "nextCheckpoint": null
