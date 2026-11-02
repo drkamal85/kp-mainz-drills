@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-11-01T10:05:53.577Z",
+  "generatedAt": "2026-11-02T10:34:13.642Z",
   "totals": {
-    "open": 119,
-    "completed": 470,
-    "overdue": 1,
-    "schedulingIssues": 83
+    "open": 118,
+    "completed": 471,
+    "overdue": 0,
+    "schedulingIssues": 79
   },
   "byLevel": {
     "R1": {
@@ -24,8 +24,8 @@
       "completed": 84
     },
     "R5": {
-      "open": 22,
-      "completed": 11
+      "open": 21,
+      "completed": 12
     }
   },
   "byWorkstream": {
@@ -37,8 +37,8 @@
       "r1Open": 0
     },
     "B_r5": {
-      "open": 22,
-      "completed": 11,
+      "open": 21,
+      "completed": 12,
       "pilot": [
         {
           "name": "Review: Cholezystitis R5",
@@ -359,18 +359,6 @@
       "scheduledStart": null
     },
     {
-      "name": "Review: Ikterus & Cholestase R4",
-      "dueDate": "2026-12-02",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Bildbefundung: dokumentierte Prüfungsbilder der KERN-Themen lernen",
-      "dueDate": "2026-12-10",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
       "name": "Drill: Sono/US komplett (Feb)",
       "dueDate": "2027-02-26",
       "schedulingIssue": true,
@@ -473,12 +461,6 @@
       "scheduledStart": null
     },
     {
-      "name": "Review: Allgemeine Frakturlehre R5",
-      "dueDate": "2026-11-03",
-      "schedulingIssue": false,
-      "scheduledStart": null
-    },
-    {
       "name": "Akte-Sim #21",
       "dueDate": "2027-02-27",
       "schedulingIssue": true,
@@ -519,20 +501,28 @@
       "dueDate": "2027-01-16",
       "schedulingIssue": true,
       "scheduledStart": null
-    }
-  ],
-  "overdue": [
-    {
-      "name": "KP Sprache: Review Stufe 2",
-      "dueDate": "2026-10-31"
-    }
-  ],
-  "upcoming14d": [
-    {
-      "name": "Review: Allgemeine Frakturlehre R5",
-      "dueDate": "2026-11-03",
-      "duration": 180
     },
+    {
+      "name": "Akte-Sim #14",
+      "dueDate": "2027-01-09",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Akte-Sim #13",
+      "dueDate": "2027-01-02",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Akte-Sim #12",
+      "dueDate": "2026-12-26",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    }
+  ],
+  "overdue": [],
+  "upcoming14d": [
     {
       "name": "Review: Impfungen/STIKO R5",
       "dueDate": "2026-11-04",
@@ -567,6 +557,11 @@
       "name": "Review: Ileus R5",
       "dueDate": "2026-11-08",
       "duration": 180
+    },
+    {
+      "name": "KP Sprache: Review Stufe 2",
+      "dueDate": "2026-11-09",
+      "duration": 20
     },
     {
       "name": "Review: Gastroduodenales Ulkus R5",
