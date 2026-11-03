@@ -309,3 +309,14 @@ arzneimittelinteraktionen-uaw, acs-myokardinfarkt, akute-leukaemien, akutes-abdo
 | pankreaskarzinom | 36 | 0 | 11 | – | done | 2026-10-23 |
 
 AMBOSS-validiert (23.10.2026): polytrauma-abcde, bluttransfusion, makrozytaere-anaemie-b12, pankreaskarzinom
+
+## Lauf 2026-11-03 — Re-Validierung acs-myokardinfarkt (Auftrag: NSTEMI-Zeitfenster)
+
+| Deck | ✓ | ✗ | ? | Korrekturen (Panel) | Status | Flag |
+|---|---|---|---|---|---|---|
+| acs-myokardinfarkt | 66 | 0 | 11 | – | done | 2026-11-03 |
+
+- Tab 3 „Beim NSTEMI nach Risiko, meist binnen 24 Stunden“ vs. Tab 4/6 „2–72 h“: kein Widerspruch. AMBOSS: Durchführung innerhalb von 2–72 h; innerhalb von 24 h, wenn mind. 1 Risikokriterium erfüllt ist (u. a. Anstieg und/oder Abfall des Troponins, dynamische ST-/T-Veränderungen, GRACE > 140). Bleibt ?, keine Änderung.
+- Neu geprüft nach Umbau vom 02./03.11.: EKG-Lokalisation (Grafik) und Stadien inkl. Zwischenstadium ✓.
+
+AMBOSS-validiert (03.11.2026): acs-myokardinfarkt

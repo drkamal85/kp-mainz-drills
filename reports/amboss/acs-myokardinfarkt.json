@@ -5,8 +5,8 @@
   "sources/amboss/acs-myokardinfarkt.md"
  ],
  "counts": {
-  "ok": 58,
-  "fix": 6,
+  "ok": 66,
+  "fix": 0,
   "unclear": 11
  },
  "fixes": [
@@ -71,7 +71,7 @@
   {
    "panel": "diagnostik",
    "deck_text": "Beim NSTEMI nach Risiko, meist binnen 24 Stunden",
-   "reason": "AMBOSS 2–72 h risikoabhängig; 'meist' nicht belegt"
+   "reason": "AMBOSS: Durchführung innerhalb von 2–72 h; innerhalb von 24 h, wenn mind. 1 Risikokriterium erfüllt (u. a. Anstieg und/oder Abfall des Troponins). Kein klarer Widerspruch zu „meist binnen 24 Stunden“ — Lauf 2026-11-03, Auftrag Mohamed."
   },
   {
    "panel": "therapie",
@@ -105,12 +105,12 @@
   },
   {
    "panel": "protokoll",
-   "deck_text": "Betablocker ... bei höhergradigem AV-Block abzusetzen",
+   "deck_text": "Der Patient hatte einen AV-Block Mobitz II. Betablocker bremsen die Überleitung noch mehr, deshalb setze ich sie ab.",
    "reason": "Nur Bradykardie als KI erfasst"
   }
  ],
  "status": "done",
- "validated": "2026-10-09",
+ "validated": "2026-11-03",
  "second_pass": {
   "date": "2026-10-09",
   "checked": 74,
@@ -123,5 +123,12 @@
   "checked": 71,
   "applied": 0,
   "rejected_by_orchestrator": []
- }
+ },
+ "fixes_lauf_2026-11-03": [],
+ "checked_2026-11-03": [
+  "Tab 1 Entitäten-Tabelle (umgestellt): ✓",
+  "Tab 3 EKG-Lokalisation (Grafik): V1–V6, I, aVL → RIVA ✓; II, III, aVF → RCA ✓; ST-Senkung V1–V4 → V7–V9, RCX ✓",
+  "Tab 3 Stadien inkl. Zwischenstadium (R-Verlust, rückläufige ST-Hebung, terminal negatives T) ✓",
+  "Tab 6 F13 neu formuliert: ? (Mobitz II nicht in Erfassung)"
+ ]
 }
