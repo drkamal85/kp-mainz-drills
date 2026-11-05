@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-11-04T10:29:42.661Z",
+  "generatedAt": "2026-11-05T10:22:41.237Z",
   "totals": {
     "open": 118,
     "completed": 472,
-    "overdue": 0,
-    "schedulingIssues": 73
+    "overdue": 1,
+    "schedulingIssues": 74
   },
   "byLevel": {
     "R1": {
@@ -419,12 +419,6 @@
       "scheduledStart": null
     },
     {
-      "name": "KP Crashkurs (Home) – Tag 5 – Probeexamen (Mock #1)",
-      "dueDate": "2026-12-05",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
       "name": "Akte-Sim #21",
       "dueDate": "2027-02-27",
       "schedulingIssue": true,
@@ -503,6 +497,18 @@
       "scheduledStart": null
     },
     {
+      "name": "Review: Impfungen/STIKO R5",
+      "dueDate": "2026-11-04",
+      "schedulingIssue": false,
+      "scheduledStart": null
+    },
+    {
+      "name": "Review: Herzinsuffizienz R5",
+      "dueDate": "2026-11-05",
+      "schedulingIssue": false,
+      "scheduledStart": null
+    },
+    {
       "name": "Drittes Fach: Protocol Review — Session 15",
       "dueDate": "2026-12-27",
       "schedulingIssue": true,
@@ -513,21 +519,15 @@
       "dueDate": "2027-02-24",
       "schedulingIssue": true,
       "scheduledStart": null
-    },
-    {
-      "name": "Drittes Fach: Protocol Review — Session 16",
-      "dueDate": "2026-12-28",
-      "schedulingIssue": true,
-      "scheduledStart": null
     }
   ],
-  "overdue": [],
-  "upcoming14d": [
+  "overdue": [
     {
       "name": "Review: Impfungen/STIKO R5",
-      "dueDate": "2026-11-04",
-      "duration": 180
-    },
+      "dueDate": "2026-11-04"
+    }
+  ],
+  "upcoming14d": [
     {
       "name": "Review: Herzinsuffizienz R5",
       "dueDate": "2026-11-05",
@@ -621,6 +621,21 @@
     {
       "name": "Review: Appendizitis R5",
       "dueDate": "2026-11-18",
+      "duration": 180
+    },
+    {
+      "name": "Review: Akutes Abdomen R5",
+      "dueDate": "2026-11-19",
+      "duration": 180
+    },
+    {
+      "name": "Akte-Sim #4",
+      "dueDate": "2026-11-19",
+      "duration": 60
+    },
+    {
+      "name": "Review: Lungenembolie R5",
+      "dueDate": "2026-11-19",
       "duration": 180
     }
   ],
