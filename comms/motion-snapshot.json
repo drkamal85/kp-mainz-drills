@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-11-06T10:24:41.261Z",
+  "generatedAt": "2026-11-07T09:38:26.604Z",
   "totals": {
     "open": 115,
     "completed": 475,
     "overdue": 0,
-    "schedulingIssues": 69
+    "schedulingIssues": 68
   },
   "byLevel": {
     "R1": {
@@ -341,12 +341,6 @@
       "scheduledStart": null
     },
     {
-      "name": "Review: Leberzirrhose R4",
-      "dueDate": "2026-12-08",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
       "name": "Drill: Sono/US komplett (Feb)",
       "dueDate": "2027-02-26",
       "schedulingIssue": true,
@@ -519,15 +513,16 @@
       "dueDate": "2027-01-10",
       "schedulingIssue": true,
       "scheduledStart": null
+    },
+    {
+      "name": "Oral Simulation with Partner — Session 7",
+      "dueDate": "2026-12-26",
+      "schedulingIssue": true,
+      "scheduledStart": null
     }
   ],
   "overdue": [],
   "upcoming14d": [
-    {
-      "name": "Review: Divertikulitis R5",
-      "dueDate": "2026-11-06",
-      "duration": 180
-    },
     {
       "name": "Review: Aufklärung, Einwilligung & Betreuung R5",
       "dueDate": "2026-11-07",
@@ -535,11 +530,6 @@
     },
     {
       "name": "Review: Leistenhernie R5",
-      "dueDate": "2026-11-07",
-      "duration": 180
-    },
-    {
-      "name": "Review: Ileus R5",
       "dueDate": "2026-11-08",
       "duration": 180
     },
@@ -549,8 +539,8 @@
       "duration": 20
     },
     {
-      "name": "Review: Gastroduodenales Ulkus R5",
-      "dueDate": "2026-11-10",
+      "name": "Review: Divertikulitis R5",
+      "dueDate": "2026-11-09",
       "duration": 180
     },
     {
@@ -559,7 +549,7 @@
       "duration": 180
     },
     {
-      "name": "Review: Pneumothorax R5",
+      "name": "Review: Ileus R5",
       "dueDate": "2026-11-10",
       "duration": 180
     },
@@ -574,9 +564,19 @@
       "duration": 180
     },
     {
+      "name": "Review: Pneumothorax R5",
+      "dueDate": "2026-11-11",
+      "duration": 180
+    },
+    {
       "name": "Akte-Sim #3",
       "dueDate": "2026-11-12",
       "duration": 60
+    },
+    {
+      "name": "Review: Gastroduodenales Ulkus R5",
+      "dueDate": "2026-11-12",
+      "duration": 180
     },
     {
       "name": "KP Crashkurs (Home) – Tag 1 – Innere Medizin",
