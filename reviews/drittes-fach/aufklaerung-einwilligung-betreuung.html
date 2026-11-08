@@ -188,6 +188,11 @@
     .tier{font-size:8.5px;padding:4px 7px}
     .tier .zt{font-size:8.5px}
   }
+  .ladder{margin:12px 0 10px}
+  .ladder .lv{display:flex;gap:10px;align-items:flex-start;background:var(--diagnostik-t);border-radius:10px;padding:9px 12px;font-size:13.5px;line-height:1.45}
+  .ladder .lv .n{flex:0 0 22px;height:22px;border-radius:50%;background:var(--diagnostik);color:#fff;display:grid;place-items:center;font-size:11.5px;font-weight:800;margin-top:1px}
+  .ladder .lv b{display:block;color:var(--diagnostik);font-size:14.5px}
+  .ladder .ar{text-align:center;color:var(--diagnostik);font-size:12px;font-weight:700;padding:4px 0}
   /* Tier-Marke zusaetzlich in der Reiterleiste: der Kopfbereich scrollt weg,
      die Leiste bleibt haften - so ist das Ziel beim Lernen immer sichtbar. */
   .tier-sticky{margin-left:auto;align-self:center;display:inline-flex;align-items:center;gap:4px;
@@ -235,43 +240,68 @@
     <button class="tab" data-c="diagnostik" data-tab="diagnostik">Betreuung ★</button>
     <button class="tab" data-c="therapie" data-tab="therapie">Sonderfälle</button>
     <button class="tab" data-c="perlen" data-tab="perlen">KP-Perlen</button>
-    <button class="tab" data-c="protokoll" data-tab="protokoll">Fragen &amp; Protokolle ★ · 19</button>
+    <button class="tab" data-c="protokoll" data-tab="protokoll">Fragen &amp; Protokolle ★ · 18</button>
     <span class="tier-sticky kern">KERN<span class="zt">Ziel R5</span></span>
   </div>
 
   <section class="panel active" data-panel="grundlagen">
-    <p class="panel-intro">Ohne sie ist der Eingriff Körperverletzung.</p>
-    <details class="card grundlagen" open><summary><span class="ct"><span class="ctag">★ Anker</span><span class="ctitle">Warum + was</span></span><span class="plus">+</span></summary>
+    <p class="panel-intro">Warum, wer, was, wann, wie.</p>
+    <details class="card grundlagen" open><summary><span class="ct"><span class="ctag">★ Anker</span><span class="ctitle">Warum aufklären?</span></span><span class="plus">+</span></summary>
       <div class="body">
-        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Jeder ärztliche Eingriff erfüllt den Tatbestand der Körperverletzung (§ 223 StGB).</strong> Gerechtfertigt wird er nur durch zwei Dinge: eine wirksame Einwilligung (nach Aufklärung) UND eine lege artis durchgeführte Maßnahme.</div>
-        <p><strong>Inhalte der Aufklärung:</strong></p>
-        <ul class="b"><li>Diagnose</li><li>Art, Umfang und Ablauf des Eingriffs</li><li>Risiken und Komplikationen</li><li>Erfolgsaussichten / Nutzen</li><li>Behandlungsalternativen</li><li>Folgen bei Unterlassung</li></ul>
-        <div class="callout fact"><span class="lab">⚙ Arten</span>Diagnose-, Verlaufs- und Risikoaufklärung (= Selbstbestimmungsaufklärung)<br>therapeutische/Sicherungsaufklärung (Verhaltenshinweise)<br>wirtschaftliche Aufklärung (Kosten)</div>
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Jeder Eingriff ist rechtlich eine Körperverletzung (§ 223 StGB).</strong><br>Erlaubt ist er nur, wenn beides stimmt:<br>1. Einwilligung nach Aufklärung<br>2. Durchführung lege artis</div>
+        <div class="callout warning"><span class="lab">⚠ Ohne Aufklärung</span>Einwilligung unwirksam → Eingriff rechtswidrig (Aufklärungsfehler)<br>Folge: Körperverletzung, Schadensersatz möglich<br>Die Aufklärung beweisen muss der <strong>Arzt</strong>.</div>
       </div>
     </details>
-    <details class="card grundlagen"><summary><span class="ct"><span class="ctag">Wie · Wann · Wer</span><span class="ctitle">Form, Zeitpunkt, Person</span></span><span class="plus">+</span></summary>
+    <details class="card grundlagen"><summary><span class="ct"><span class="ctag">Wer · Was · Wann · Wie</span><span class="ctitle">Das Aufklärungsgespräch</span></span><span class="plus">+</span></summary>
       <div class="body">
-        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Mündlich im persönlichen Gespräch durch einen Arzt (nicht delegierbar an die Pflege), in verständlicher Sprache (ggf. Dolmetscher). Bei elektiven Eingriffen mindestens am Vortag (~24 h) — nicht erst unmittelbar vor der OP.</strong></div>
-        <ul class="b"><li>rechtzeitig, damit der Patient frei und wohlüberlegt entscheiden kann (BGH)</li><li>Umfang: je dringlicher der Eingriff, desto knapper · je elektiver, desto umfassender</li><li>schriftliche Aufklärungsbögen ergänzen das Gespräch, ersetzen es nicht</li><li>Dokumentation in der Patientenakte (§ 630f BGB)</li></ul>
-        <div class="callout fact"><span class="lab">⚙ Beweislast</span>Die Beweislast für die ordnungsgemäße Aufklärung trägt der <strong>Arzt</strong>. Fehlt sie, liegt ein <strong>Aufklärungsfehler</strong> vor → die Einwilligung ist unwirksam, der Eingriff rechtswidrig (Schadensersatz möglich).</div>
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Ein Arzt spricht persönlich mit dem Patienten.<br>Geplanter Eingriff: mindestens 24 h vorher (am Vortag).</strong></div>
+        <table class="dd"><tr><th>Frage</th><th>Antwort</th></tr>
+          <tr><td>Wer?</td><td>Arzt mit Fachkunde für den Eingriff<br>nicht an die Pflege delegierbar</td></tr>
+          <tr><td>Was?</td><td>Diagnose · Ablauf · Risiken · Nutzen · Alternativen · Folgen ohne Eingriff</td></tr>
+          <tr><td>Wann?</td><td>so früh, dass er ohne Druck entscheiden kann<br>Notfall: siehe Sonderfälle</td></tr>
+          <tr><td>Wie?</td><td>mündlich, verständlich (ggf. Dolmetscher)<br>je dringlicher, desto kürzer</td></tr>
+          <tr><td>Bogen?</td><td>ergänzt das Gespräch, ersetzt es nicht</td></tr>
+        </table>
+        <div class="callout fact"><span class="lab">⚙ Dokumentation = Beweis</span>Datum · Inhalt · Name des Arztes<br>Unterschrift von Patient und Arzt</div>
+      </div>
+    </details>
+    <details class="card grundlagen"><summary><span class="ct"><span class="ctag">Arten</span><span class="ctitle">3 Arten der Aufklärung</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Entscheiden können · richtig verhalten · Kosten kennen.</strong></div>
+        <table class="dd"><tr><th>Art</th><th>Worum geht es?</th></tr>
+          <tr><td>Selbst&shy;bestimmungs&shy;aufklärung<br><span style="font-weight:400">(Diagnose, Verlauf, Risiko)</span></td><td>damit der Patient frei entscheiden kann</td></tr>
+          <tr><td>Sicherungs&shy;aufklärung<br><span style="font-weight:400">(therapeutisch)</span></td><td>richtiges Verhalten, z. B. nüchtern bleiben, Schonung nach OP</td></tr>
+          <tr><td>Wirtschaftliche Aufklärung</td><td>Kosten, z. B. wenn die Kasse nicht zahlt</td></tr>
+        </table>
       </div>
     </details>
   </section>
 
   <section class="panel" data-panel="klinik">
-    <p class="panel-intro">Wirksam nur bei Einwilligungsfähigkeit.</p>
-    <details class="card klinik" open><summary><span class="ct"><span class="ctag">Voraussetzungen</span><span class="ctitle">Wirksame Einwilligung</span></span><span class="plus">+</span></summary>
+    <p class="panel-intro">Wer darf Ja sagen – und was gilt beim Nein?</p>
+    <details class="card klinik" open><summary><span class="ct"><span class="ctag">★ Voraussetzungen</span><span class="ctitle">Wirksame Einwilligung</span></span><span class="plus">+</span></summary>
       <div class="body">
-        <div class="callout critical"><span class="lab">★ Merksatz — 4 Voraussetzungen</span><strong>Einwilligungsfähigkeit<br>vorherige Aufklärung<br>Freiwilligkeit<br>vor dem Eingriff erteilt.</strong> Die Einwilligung ist jederzeit formlos widerrufbar.</div>
-        <div class="callout fact"><span class="lab">⚙ ≠ Geschäftsfähigkeit</span><strong>Einwilligungsfähigkeit</strong> = natürliche Einsichts- und Steuerungsfähigkeit (Wesen, Bedeutung, Tragweite verstehen), keine starre Altersgrenze.<br><strong>Geschäftsfähigkeit</strong> = starre Altersgrenze (18 J.) — für die Einwilligung NICHT maßgeblich.</div>
+        <div class="callout critical"><span class="lab">★ Merksatz — 4 Bedingungen</span><strong>1. einwilligungsfähig<br>2. vorher aufgeklärt<br>3. freiwillig<br>4. vor dem Eingriff gegeben</strong><br>Widerruf jederzeit möglich, auch formlos.</div>
+        <div class="callout fact"><span class="lab">⚙ Einwilligungsfähig</span>Er versteht Art, Bedeutung und Tragweite und kann danach entscheiden.<br>Kein festes Alter: ≠ Geschäftsfähigkeit (18 J.)<br>Prüfen für die konkrete Entscheidung.</div>
+        <ul class="b"><li>typisch <strong>nicht</strong> einwilligungsfähig: bewusstlos · schwere Demenz oder Delir · akute Psychose · kleines Kind</li><li>dann entscheidet ein Vertreter: beim Kind die Eltern (unten), beim Erwachsenen → Tab Betreuung</li></ul>
       </div>
     </details>
-    <details class="card klinik"><summary><span class="ct"><span class="ctag">Beurteilung</span><span class="ctitle">Einwilligungsfähigkeit prüfen</span></span><span class="plus">+</span></summary>
+    <details class="card klinik"><summary><span class="ct"><span class="ctag">Kinder · Jugendliche</span><span class="ctitle">Minderjährige</span></span><span class="plus">+</span></summary>
       <div class="body">
-        <div class="callout fact"><span class="lab">★ Merksatz</span><strong>Kann der Patient Art, Bedeutung und Tragweite des Eingriffs verstehen und seinen Willen danach bestimmen? → einwilligungsfähig.</strong></div>
-        <p><strong>Nicht einwilligungsfähig (typisch):</strong></p>
-        <ul class="b"><li>Bewusstlose</li><li>schwere Demenz / Delir</li><li>akute Psychose mit fehlender Krankheitseinsicht</li><li>kleine Kinder</li></ul>
-        <div class="callout critical"><span class="lab">⚙ Wenn nicht einwilligungsfähig</span>Dann entscheidet ein Stellvertreter (Bevollmächtigter oder Betreuer) nach dem (mutmaßlichen) Patientenwillen. Bei Gefahr im Verzug → mutmaßliche Einwilligung (siehe Sonderfälle).</div>
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Unter 14 (meist nicht einwilligungsfähig): beide Eltern willigen ein.<br>14–17: der Jugendliche selbst, wenn er einsichtsfähig ist – sonst beide Eltern.</strong></div>
+        <table class="dd"><tr><th>Situation</th><th>Vorgehen</th></tr>
+          <tr><td>Lebensgefahr (Notfall)</td><td>sofort behandeln, Eltern nicht nötig</td></tr>
+          <tr><td>Eltern verweigern, Kindeswohl in Gefahr</td><td>Familiengericht einschalten</td></tr>
+        </table>
+      </div>
+    </details>
+    <details class="card klinik"><summary><span class="ct"><span class="ctag">Nein · Nichtwissen</span><span class="ctitle">Patient lehnt ab oder will nichts wissen</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Ein einwilligungsfähiger Patient darf Nein sagen – auch zu einer sinnvollen OP.</strong></div>
+        <table class="dd"><tr><th>Situation</th><th>Was tun?</th></tr>
+          <tr><td>lehnt den Eingriff ab</td><td>respektieren und dokumentieren<br>über Folgen aufklären, Alternative anbieten</td></tr>
+          <tr><td>will nichts wissen (Verzicht)</td><td>erlaubt (Recht auf Nichtwissen), dokumentieren<br>das Nötigste trotzdem sagen, z. B. nüchtern bleiben</td></tr>
+        </table>
       </div>
     </details>
   </section>
@@ -286,7 +316,6 @@
           <tr><td><strong>Betreuung</strong> (§ 1814 ff. BGB)</td><td>Das <strong>Betreuungsgericht</strong> bestimmt einen Betreuer, wenn ein Erwachsener wegen Krankheit oder Behinderung seine Dinge nicht selbst regeln kann und keine Vollmacht hat. Nur für festgelegte Bereiche, z. B. Gesundheit.</td></tr>
           <tr><td><strong>Betreuungsverfügung</strong></td><td>Der Patient legt vorher fest, <strong>WER</strong> sein Betreuer werden soll.</td></tr>
         </table>
-        <div class="callout fact"><span class="lab">&#9881; Merkhilfe</span><strong>Vollmacht = Schlüssel direkt in die Hand</strong> (die Person entscheidet sofort, kein Gericht). <strong>Betreuungsverfügung = Wunschzettel ans Gericht</strong> (das Gericht bestellt die gewünschte Person als Betreuer).</div>
         <div class="callout fact"><span class="lab">⚙ Ehegatten-Notvertretung</span>Seit 2023 darf der <strong>Ehepartner</strong> einen nicht entscheidungsfähigen Patienten in Gesundheitsfragen bis zu <strong>6 Monate</strong> vertreten, auch ohne Vollmacht oder Betreuung.</div>
       </div>
     </details>
@@ -294,25 +323,33 @@
       <div class="body">
         <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Die Patientenverfügung (§ 1827 BGB) ist BINDEND, wenn sie zur konkreten Behandlungssituation passt.</strong> Der Patient hat sie vorher schriftlich und einwilligungsfähig verfasst. Arzt und Betreuer müssen sie umsetzen.<span style="display:block;margin-top:6px;font-size:13px;color:var(--muted)">&#9881; Passt sie, gilt sie.</span></div>
         <ul class="b"><li>Passt sie nicht oder fehlt sie → Behandlungswünsche bzw. mutmaßlicher Wille („Was hätte der Patient gewollt?")</li><li>Bei gefährlichen Eingriffen (Risiko: Tod oder schwerer Schaden) braucht der Betreuer oder Bevollmächtigte die <strong>Genehmigung des Betreuungsgerichts</strong> (§ 1829 BGB), außer im Eilfall.</li></ul>
-        <div class="callout fact"><span class="lab">⚙ Reihenfolge des Willens</span>1. Was der Patient jetzt sagt (wenn einwilligungsfähig)<br>2. Patientenverfügung<br>3. Behandlungswünsche / mutmaßlicher Wille (über Bevollmächtigten oder Betreuer)<span style="display:block;margin-top:6px;font-size:13px;color:var(--muted)">&#9881; Fragen → lesen → vermuten: den Patienten fragen, die Verfügung lesen, den Willen vermuten.</span></div>
+        <div class="callout fact"><span class="lab">⚙ Reihenfolge des Willens</span>1. Was der Patient jetzt sagt (wenn einwilligungsfähig)<br>2. Patientenverfügung<br>3. Behandlungswünsche / mutmaßlicher Wille (über Bevollmächtigten oder Betreuer)</div>
       </div>
     </details>
   </section>
 
   <section class="panel" data-panel="therapie">
-    <p class="panel-intro">Notfall, Minderjährige, Zwang, Schweigepflicht.</p>
+    <p class="panel-intro">Notfall, Zwang, Schweigepflicht.</p>
     <details class="card therapie" open><summary><span class="ct"><span class="ctag">★ Notfall</span><span class="ctitle">Mutmaßliche Einwilligung</span></span><span class="plus">+</span></summary>
       <div class="body">
-        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Im Notfall bei nicht einwilligungsfähigem Patienten ohne erreichbaren Vertreter → Behandlung nach mutmaßlicher Einwilligung</strong> (was der Patient vernünftigerweise gewollt hätte). Lebensrettende Maßnahmen sind im Zweifel indiziert.</div>
-        <ul class="b"><li>die Aufklärung kann akut entfallen, muss aber <strong>nachgeholt werden (Nachaufklärung)</strong></li><li>eine Patientenverfügung ist auch im Notfall zu beachten — vor der Reanimation an die PV denken!</li><li>nicht einwilligungsfähig + keine Angehörigen/Vollmacht → Antrag auf rechtliche Betreuung beim Betreuungsgericht</li></ul>
-        <div class="callout fact"><span class="lab">⚙ Mainz-Fälle</span>93-J. lehnt Gefäß-OP ab → sie ist entscheidungsfähig: Wunsch respektieren, konservativ + Analgesie — und alles dokumentieren.<br>95-J. mit Pneumonie: wenn wach, fragen; sonst Patientenverfügung anschauen.</div>
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Notfall + Patient kann nicht entscheiden + kein Vertreter erreichbar → behandeln nach mutmaßlicher Einwilligung.</strong><br>Das ist, was der Patient vernünftigerweise gewollt hätte. Im Zweifel lebensrettend handeln.</div>
+        <ul class="b"><li>Beispiel: dementer Patient braucht eine Notfall-OP</li><li>Aufklärung entfällt → sobald möglich <strong>nachholen</strong> (Nachaufklärung)</li><li>wenn möglich Angehörige nach dem Willen des Patienten fragen</li><li>Patientenverfügung gilt auch im Notfall → vor der Reanimation daran denken</li><li>Patientenverfügung liegt im Notfall (noch) nicht vor → medizinisch entscheiden; wird sie nachgereicht und passt, gilt sie</li></ul>
       </div>
     </details>
-    <details class="card therapie"><summary><span class="ct"><span class="ctag">Minderjährige · Zwang</span><span class="ctitle">Minderjährige · Unterbringung · Schweigepflicht</span></span><span class="plus">+</span></summary>
+    <details class="card therapie"><summary><span class="ct"><span class="ctag">Zwang</span><span class="ctitle">Unterbringung gegen den Willen</span></span><span class="plus">+</span></summary>
       <div class="body">
-        <div class="callout fact"><span class="lab">★ Minderjährige</span>Einwilligung der Sorgeberechtigten; ein einsichtsfähiger Jugendlicher entscheidet zunehmend mit. Gefährdet eine Verweigerung der Eltern das Kindeswohl → Familiengericht (im Notfall lebensrettend behandeln).<span style="display:block;margin-top:6px;font-size:13px;color:var(--muted)">&#9881; Kinder haben eine Familie, Erwachsene einen Betreuer: Kind → Familiengericht, Erwachsener → Betreuungsgericht. Leben zuerst, Papier danach.</span></div>
-        <div class="callout critical"><span class="lab">★ Unterbringung / Zwang</span>Gegen den Willen nur bei <strong>Eigen- oder Fremdgefährdung</strong>: öffentlich-rechtlich nach PsychKG (Länder) oder betreuungsrechtlich (§ 1831 BGB) — immer mit gerichtlicher Genehmigung.</div>
-        <div class="callout fact"><span class="lab">⚙ Schweigepflicht (§ 203 StGB)</span>Durchbrechung erlaubt bei:<br>Einwilligung des Patienten<br>gesetzliche Offenbarungspflicht (Meldepflicht IfSG, Geburt, Tod)<br>rechtfertigender Notstand (§ 34 StGB, z. B. Meldung eines fahruntüchtigen Patienten an die Behörde)</div>
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Nur bei Eigen- oder Fremdgefährdung – und immer mit Genehmigung des Gerichts.</strong></div>
+        <table class="dd"><tr><th>Gesetz</th><th>Wann?</th></tr><tr><td>PsychKG (Landes&shy;gesetz)</td><td>akute Eigen- <strong>oder</strong> Fremd&shy;gefährdung durch psychische Krankheit</td></tr><tr><td>Betreuungs&shy;recht (§ 1831 BGB)</td><td>nur Eigen&shy;gefährdung, über den Betreuer</td></tr></table>
+      </div>
+    </details>
+    <details class="card therapie" open><summary><span class="ct"><span class="ctag">★ Oft gefragt</span><span class="ctitle">Schweigepflicht (§ 203 StGB)</span></span><span class="plus">+</span></summary>
+      <div class="body">
+        <div class="callout critical"><span class="lab">★ Merksatz</span><strong>Was ich als Arzt erfahre, bleibt geheim.<br>Das gilt auch gegenüber Angehörigen und nach dem Tod.</strong></div>
+        <table class="dd"><tr><th>Wann darf ich reden?</th><th>Beispiel</th></tr>
+          <tr><td>Patient entbindet mich (Einwilligung)</td><td>er erlaubt die Information an die Familie</td></tr>
+          <tr><td>Gesetz verlangt es (Meldepflicht)</td><td>Infektions&shy;schutz&shy;gesetz, Geburt, Tod</td></tr>
+          <tr><td>Notstand (§ 34 StGB): akute Gefahr für Leben oder Gesundheit</td><td>fahruntüchtiger Patient fährt weiter → Behörde<br>Kind wird misshandelt (Kindeswohl)</td></tr>
+        </table>
       </div>
     </details>
   </section>
@@ -351,7 +388,7 @@
       <details class="sf"><summary>Riskanter Eingriff durch Betreuer — was nötig?</summary><div class="sfa">Genehmigung des Betreuungsgerichts (außer Eilfall)</div></details>
       <details class="sf"><summary>Ehegatten-Notvertretung — wie lange?</summary><div class="sfa">bis 6 Monate</div></details>
       <details class="sf"><summary>Zwang/Unterbringung — Voraussetzung?</summary><div class="sfa">Eigen- oder Fremdgefährdung + gerichtliche Genehmigung</div></details>
-      <details class="sf"><summary>Minderjährige — wer willigt ein?</summary><div class="sfa">Sorgeberechtigte (einsichtsfähiger Jugendlicher entscheidet mit)</div></details>
+      <details class="sf"><summary>Minderjährige — wer willigt ein?</summary><div class="sfa">unter 14 beide Sorgeberechtigte; ab 14 der Jugendliche selbst, wenn einsichtsfähig</div></details>
     </div>
   </section>
 
@@ -417,7 +454,7 @@
 
       <div class="pq"><div class="pq-frage">„Die Patientin lehnt die Operation ab — wie gehen Sie vor?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ist sie einwilligungsfähig, respektiere ich die Ablehnung und dokumentiere sie. Ich kläre trotzdem therapeutisch auf, etwa über Folgen und Alternativen.</div></details></div>
 
-      <div class="pq"><div class="pq-frage">„Ein 17-Jähriger braucht eine Notfall-Operation — brauchen Sie die Eltern?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Bei akut lebensbedrohlicher Lage nicht, dann operiere ich sofort. Sonst willigen die Sorgeberechtigten ein, und ich prüfe seine eigene Einwilligungsfähigkeit.</div></details></div>
+      <div class="pq"><div class="pq-frage">„Ein 17-Jähriger braucht eine Notfall-Operation — brauchen Sie die Eltern?"</div><details class="reveal"><summary>Antwort</summary><div class="ans">Bei akut lebensbedrohlicher Lage nicht, dann operiere ich sofort. Sonst prüfe ich seine Einsichtsfähigkeit. Ist er einsichtsfähig, willigt er selbst ein, sonst die Sorgeberechtigten.</div></details></div>
 
     </div>
 
@@ -435,17 +472,6 @@
 
     </div>
 
-
-    <div class="pk">
-
-      <div class="pk-meta"><span>Mainz · Februar bis August 2024 (6 Protokolle)</span><span>Dr. Unglaube, Dr. Hake, Dr. Brill, Dr. Gohrbandt · Rechtsmedizin (3. Fach)</span></div>
-
-      <div class="pk-q"><span class="lab">Gefragt wurde — einzeln beantworten</span></div>
-
-      <!-- KP-Intel F00007 · n=9 · KP-141 KP-142 KP-146 KP-147 KP-183 KP-186 -->
-      <div class="pq"><div class="pq-frage">„Erklären Sie die ärztliche Schweigepflicht."</div><details class="reveal"><summary>Antwort</summary><div class="ans">Ich unterliege der Schweigepflicht nach § 203 StGB. Brechen darf ich sie nur bei Einwilligung, gesetzlicher Meldepflicht und rechtfertigendem Notstand.</div></details></div>
-
-    </div>
 
   </section>
 
