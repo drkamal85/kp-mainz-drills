@@ -1,19 +1,19 @@
 {
-  "generatedAt": "2026-11-07T09:38:26.604Z",
+  "generatedAt": "2026-11-08T09:52:36.489Z",
   "totals": {
     "open": 115,
-    "completed": 475,
+    "completed": 461,
     "overdue": 0,
-    "schedulingIssues": 68
+    "schedulingIssues": 67
   },
   "byLevel": {
     "R1": {
       "open": 0,
-      "completed": 100
+      "completed": 92
     },
     "R2": {
       "open": 0,
-      "completed": 99
+      "completed": 94
     },
     "R3": {
       "open": 0,
@@ -30,10 +30,10 @@
   },
   "byWorkstream": {
     "A_coverage": {
-      "topicsTotal": 198,
+      "topicsTotal": 197,
       "studied": 63,
       "studyOpen": 0,
-      "r1Built": 96,
+      "r1Built": 89,
       "r1Open": 0
     },
     "B_r5": {
@@ -335,12 +335,6 @@
       "scheduledStart": null
     },
     {
-      "name": "Review: Akuttoxikologie / Intoxikation R4",
-      "dueDate": "2026-12-09",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
       "name": "Drill: Sono/US komplett (Feb)",
       "dueDate": "2027-02-26",
       "schedulingIssue": true,
@@ -519,17 +513,23 @@
       "dueDate": "2026-12-26",
       "schedulingIssue": true,
       "scheduledStart": null
+    },
+    {
+      "name": "Oral Simulation with Partner — Session 10",
+      "dueDate": "2027-02-06",
+      "schedulingIssue": true,
+      "scheduledStart": null
     }
   ],
   "overdue": [],
   "upcoming14d": [
     {
-      "name": "Review: Aufklärung, Einwilligung & Betreuung R5",
-      "dueDate": "2026-11-07",
+      "name": "Review: Leistenhernie R5",
+      "dueDate": "2026-11-08",
       "duration": 180
     },
     {
-      "name": "Review: Leistenhernie R5",
+      "name": "Review: Aufklärung, Einwilligung & Betreuung R5",
       "dueDate": "2026-11-08",
       "duration": 180
     },
