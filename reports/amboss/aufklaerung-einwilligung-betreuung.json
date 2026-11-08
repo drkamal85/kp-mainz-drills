@@ -6,48 +6,158 @@
   "sources/amboss/aufklaerung-einwilligung-betreuung.md"
  ],
  "counts": {
-  "ok": 30,
+  "ok": 64,
   "fix": 0,
-  "unclear": 7
+  "unclear": 29
  },
  "fixes": [],
  "unclear": [
   {
    "panel": "grundlagen",
-   "deck_text": "Bei elektiven Eingriffen mindestens am Vortag (~24 h)",
-   "reason": "AMBOSS: rechtzeitig, ohne Zeitangabe"
+   "deck_text": "Geplanter Eingriff: mindestens 24 h vorher (am Vortag).",
+   "reason": "AMBOSS: 'so rechtzeitig (mit ausreichendem Abstand) ... ohne Handlungsdruck', 'bestenfalls bereits bei Festlegung des Operationstermins'; keine Stundenangabe (gleich in Perle 3, Rapid-Fire, tab-6)"
   },
   {
    "panel": "grundlagen",
-   "deck_text": "§ 630f BGB; Beweislast Arzt; wirtschaftliche Aufklärung",
+   "deck_text": "Folge: Körperverletzung, Schadensersatz möglich",
+   "reason": "Schadensersatz nicht in Erfassung (gleich in tab-6 'Schadensersatzansprüche')"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Die Aufklärung beweisen muss der Arzt.",
+   "reason": "Beweislast nicht in Erfassung; AMBOSS nur: Dokumentation 'aus forensischen Gründen zu empfehlen' (gleich in Rapid-Fire, tab-6)"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Arzt mit Fachkunde für den Eingriff / nicht an die Pflege delegierbar",
+   "reason": "Delegation ärztlicher Tätigkeit = bekannte Erfassungslücke; AMBOSS nur 'ärztliches Aufklärungsgespräch' (gleich in Rapid-Fire 'nicht delegierbar')"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Was? Diagnose · Ablauf · Risiken · Nutzen · Alternativen · Folgen ohne Eingriff",
+   "reason": "AMBOSS nennt nur 'Ablauf des geplanten Eingriffs und alle relevanten Risiken und Komplikationen'; Diagnose, Nutzen, Alternativen, Folgen ohne Eingriff nicht in Erfassung (gleich in Rapid-Fire, tab-6)"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Dokumentation = Beweis Datum · Inhalt · Name des Arztes / Unterschrift von Patient und Arzt",
+   "reason": "AMBOSS: schriftliche Einwilligung empfohlen, 'jedoch nicht zwingend notwendig'; Einzelangaben nicht in Erfassung (gleich in tab-6)"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Selbstbestimmungsaufklärung (Diagnose, Verlauf, Risiko)",
+   "reason": "Begriff nicht in Erfassung (nur 'Selbstbestimmungsrecht')"
+  },
+  {
+   "panel": "grundlagen",
+   "deck_text": "Wirtschaftliche Aufklärung: Kosten, z. B. wenn die Kasse nicht zahlt",
    "reason": "nicht in Erfassung"
   },
   {
-   "panel": "diagnostik",
-   "deck_text": "Vorsorgevollmacht hat Vorrang, Betreuung subsidiär",
-   "reason": "AMBOSS: Erforderlichkeitsgrundsatz; Ehegattenrecht nur ohne Vorsorgevollmacht; kompatibel"
+   "panel": "klinik",
+   "deck_text": "Widerruf jederzeit möglich, auch formlos.",
+   "reason": "nicht in Erfassung (gleich in Rapid-Fire)"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "Er versteht Art, Bedeutung und Tragweite und kann danach entscheiden. Prüfen für die konkrete Entscheidung.",
+   "reason": "Definition nicht in Erfassung; AMBOSS: 'Einsichts- und Urteilsfähigkeit ... zur sachgemäßen Bewertung' (gleich in tab-6)"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "über Folgen aufklären, Alternative anbieten",
+   "reason": "Alternative anbieten nicht in Erfassung; AMBOSS (Entlassung gegen ärztlichen Rat): Information, Dokumentation (gleich in Perle 8, tab-6)"
+  },
+  {
+   "panel": "klinik",
+   "deck_text": "das Nötigste trotzdem sagen, z. B. nüchtern bleiben",
+   "reason": "bei Verzicht nicht in Erfassung; AMBOSS nur Recht auf Nicht-Wissen + Dokumentation (gleich in tab-6)"
   },
   {
    "panel": "diagnostik",
-   "deck_text": "Patientenverfügung § 1827 BGB bindend; Reihenfolge des Willens",
-   "reason": "AMBOSS: wirksame PV i.d.R. zu berücksichtigen; § 1827 nicht in Erfassung"
+   "deck_text": "Vorsorgevollmacht: ... als er geschäftsfähig war. Gibt es sie, braucht es keine Betreuung.",
+   "reason": "Definition nicht in Erfassung; Vorrang kompatibel mit Erforderlichkeitsgrundsatz und 'keine Vorsorgevollmacht' als Voraussetzung des Ehegattenrechts (gleich in Perle 5, Rapid-Fire, tab-6)"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Ehegatte seit 2023",
+   "reason": "Jahr bzw. 1. Januar 2023 nicht in Erfassung; § 1358 BGB, Gesundheitssorge, max. 6 Monate passen (gleich in Perle 10, tab-6)"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Vertreter uneinig + kein Notfall (z. B. 3 Söhne) → nicht operieren",
+   "reason": "nicht in Erfassung, protokollbasiert (gleich in Perle 9, tab-6)"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "riskanter Eingriff (Tod oder schwerer Schaden möglich) → Genehmigung nötig (§ 1829 BGB), außer im Eilfall",
+   "reason": "§ 1829 nur als Quellentitel 'Genehmigung des Betreuungsgerichts bei ärztlichen Maßnahmen'; Kriterien und Eilfall-Ausnahme nicht in Erfassung (gleich in Rapid-Fire)"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Die Patientenverfügung (§ 1827 BGB) bindet Arzt und Vertreter, wenn sie zur aktuellen Situation passt.",
+   "reason": "AMBOSS: 'Eine wirksame Patientenverfügung ist i.d.R. zu berücksichtigen ... Ausnahmen können gelten, bspw. zum Schutz Dritter'; § 1827 nicht in Erfassung (gleich in Perle 6, Rapid-Fire, tab-6)"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "schriftlich, vorher, im einwilligungsfähigen Zustand verfasst",
+   "reason": "Formvoraussetzungen der PV nicht in Erfassung"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Patientenverfügung: WAS behandelt wird / Vollmacht: WER entscheidet",
+   "reason": "didaktische Gegenüberstellung, nicht in Erfassung"
+  },
+  {
+   "panel": "diagnostik",
+   "deck_text": "Reihenfolge des Willens 1. jetzt 2. Patientenverfügung 3. mutmaßlicher Wille (frühere Äußerungen, Werte)",
+   "reason": "AMBOSS: mutmaßlicher Patientenwille, 'wobei einer Patientenverfügung besondere Gewichtung zukommt'; Reihenfolge nicht explizit (gleich in Perle 7, Rapid-Fire, tab-6)"
   },
   {
    "panel": "therapie",
-   "deck_text": "Unterbringung bei Eigen- oder Fremdgefährdung ... PsychKG oder § 1831 BGB — immer mit gerichtlicher Genehmigung",
-   "reason": "AMBOSS: § 1831 nur Eigengefährdung, Fremdgefährdung nur PsychKG; Satz kombiniert beide"
+   "deck_text": "Im Zweifel lebensrettend handeln.",
+   "reason": "nicht in Erfassung"
   },
   {
    "panel": "therapie",
-   "deck_text": "Schweigepflicht § 203 StGB, § 34 StGB",
-   "reason": "Schweigepflicht bekannte Lücke"
+   "deck_text": "Patientenverfügung liegt im Notfall (noch) nicht vor → medizinisch entscheiden; wird sie nachgereicht und passt, gilt sie",
+   "reason": "nicht in Erfassung"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Nur bei Eigen- oder Fremdgefährdung – und immer mit Genehmigung des Gerichts.",
+   "reason": "Nuance: AMBOSS PsychKG 'Erste Unterbringung durch Arzt/Ärztin ... erfordert im Verlauf eine richterliche Prüfung'; Betreuungsrecht: bei unmittelbarer Gefährdung ohne Erlaubnis des Gerichts, Anhörung nachholen (gleich in Rapid-Fire)"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Schweigepflicht (§ 203 StGB): bleibt geheim, auch gegenüber Angehörigen und nach dem Tod",
+   "reason": "Schweigepflicht nicht erfasst (bekannte Lücke) (gleich in tab-6)"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Ausnahmen: Entbindung (Einwilligung); Meldepflicht (Infektionsschutzgesetz, Geburt, Tod)",
+   "reason": "Schweigepflicht nicht erfasst (bekannte Lücke)"
+  },
+  {
+   "panel": "therapie",
+   "deck_text": "Notstand (§ 34 StGB): fahruntüchtiger Patient → Behörde; Kind wird misshandelt",
+   "reason": "Schweigepflicht nicht erfasst (bekannte Lücke); AMBOSS nennt rechtfertigenden Notstand nur als Grundlage für Zwangsmaßnahmen in der Somatik"
+  },
+  {
+   "panel": "perlen",
+   "deck_text": "natürliche Einsichts- und Steuerungsfähigkeit (keine Altersgrenze)",
+   "reason": "AMBOSS: 'Einsichts- und Urteilsfähigkeit'; abweichender Begriff, kein klarer Widerspruch (Perle 2 und Rapid-Fire)"
   },
   {
    "panel": "protokoll",
-   "deck_text": "Nur ein approbierter Arzt mit Fachkunde für den Eingriff darf aufklären",
-   "reason": "nicht in Erfassung"
+   "deck_text": "Nur ein approbierter Arzt mit Fachkunde für den Eingriff darf aufklären. Ein Internist darf also keine Bypass-Operation aufklären.",
+   "reason": "nicht in Erfassung (Delegation = bekannte Lücke)"
+  },
+  {
+   "panel": "protokoll",
+   "deck_text": "Ohne Vollmacht beantrage ich beim Betreuungsgericht eine Betreuung.",
+   "reason": "AMBOSS: 'Anregung möglich durch: Die Betroffenen selbst oder Dritte'; Diagnostik-Panel sagt 'regt an'; Wortwahl, kein klarer Widerspruch"
   }
  ],
  "status": "done",
- "validated": "2026-10-14"
+ "validated": "2026-11-08"
 }

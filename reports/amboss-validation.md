@@ -26,7 +26,7 @@ Ohne Erfassung, nicht geprüft: beckenringfrakturen, claviculafraktur, kreuzband
 | appendizitis | 36 | 0 | 14 | 0/55 | 0/41 |
 | arterielle-hypertonie | 52 | 2 | 9 | 0/62 | 0/48 |
 | asthma-bronchiale | 56 | 5 | 12 | — | 1/58 |
-| aufklaerung-einwilligung-betreuung | 30 | 0 | 7 | 0/44 | 0/42 |
+| aufklaerung-einwilligung-betreuung | 64 | 0 | 29 | 0/44 | 0/42 |
 | av-block | 30 | 0 | 12 | — | 0/47 |
 | bluttransfusion | 28 | 0 | 14 | 0/57 | 0/46 |
 | borreliose-fsme | 30 | 0 | 17 | — | 0/38 |
