@@ -68,5 +68,25 @@
   }
  ],
  "status": "done",
- "validated": "2026-10-14"
+ "validated": "2026-10-14",
+ "runs": [
+  {
+   "date": "2026-11-09",
+   "scope": "Tab 6 F17 (Stoma) und F18 (Prognose), auf Auftrag",
+   "fixes": [],
+   "unclear": [
+    {
+     "panel": "protokoll",
+     "deck_text": "Beim doppelläufigen Stoma liegen beide Schenkel nebeneinander … endständig: abführender Schenkel blind verschlossen.",
+     "reason": "Erfassung kolonkarzinom.md definiert doppelläufiges/endständiges Stoma nicht (nur 'Anlage eines endständigen Stomas', Z. 317)."
+    },
+    {
+     "panel": "protokoll",
+     "deck_text": "T3 N0 M0 etwa 90 % 5 Jahre; Stadium III 50 %, mit adjuvanter Chemotherapie bis 65 %.",
+     "reason": "AMBOSS nennt nur die relative 5-Jahres-Überlebensrate gesamt ca. 65 % und 'adjuvante Chemotherapie verbessert die 5-JÜR im Stadium III signifikant'; keine stadienbezogenen Zahlen, daher kein klarer Widerspruch."
+    }
+   ],
+   "status": "done (Teilprüfung, Flag-Datum unverändert)"
+  }
+ ]
 }

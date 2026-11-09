@@ -320,3 +320,8 @@ AMBOSS-validiert (23.10.2026): polytrauma-abcde, bluttransfusion, makrozytaere-a
 - Neu geprüft nach Umbau vom 02./03.11.: EKG-Lokalisation (Grafik) und Stadien inkl. Zwischenstadium ✓.
 
 AMBOSS-validiert (03.11.2026): acs-myokardinfarkt
+
+
+## kolonkarzinom · Teilprüfung 09.11.2026 (Tab 6 F17, F18)
+
+- ✓ 0 · ✗ 0 · ? 2. Stoma-Definitionen nicht in der Erfassung; Prognose: AMBOSS nur gesamt ca. 65 %, Stadium III durch adjuvante Chemo signifikant besser, keine Stadienzahlen. Keine Änderung, Flag-Datum bleibt 14.10.2026.
