@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-11-09T10:55:33.216Z",
+  "generatedAt": "2026-11-10T10:46:57.263Z",
   "totals": {
-    "open": 113,
-    "completed": 462,
+    "open": 112,
+    "completed": 463,
     "overdue": 0,
-    "schedulingIssues": 67
+    "schedulingIssues": 63
   },
   "byLevel": {
     "R1": {
@@ -24,8 +24,8 @@
       "completed": 84
     },
     "R5": {
-      "open": 17,
-      "completed": 16
+      "open": 16,
+      "completed": 17
     }
   },
   "byWorkstream": {
@@ -37,8 +37,8 @@
       "r1Open": 0
     },
     "B_r5": {
-      "open": 17,
-      "completed": 16,
+      "open": 16,
+      "completed": 17,
       "pilot": [
         {
           "name": "Review: Cholezystitis R5",
@@ -160,12 +160,6 @@
     }
   },
   "flagged": [
-    {
-      "name": "Einschub Kontrastmittel lernen (Arzneimittel-UAW Tab 6, Fragen 19–30)",
-      "dueDate": "2026-12-20",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
     {
       "name": "Review: COPD R4",
       "dueDate": "2026-12-31",
@@ -323,12 +317,6 @@
       "scheduledStart": null
     },
     {
-      "name": "Review: Pneumonie R4",
-      "dueDate": "2026-12-11",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
       "name": "Drill: Sono/US komplett (Feb)",
       "dueDate": "2027-02-26",
       "schedulingIssue": true,
@@ -386,18 +374,6 @@
       "name": "Drill: Röntgen (Jan)",
       "dueDate": "2027-01-31",
       "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "KP Crashkurs (Home) – Tag 2 – Chirurgie",
-      "dueDate": "2026-11-14",
-      "schedulingIssue": false,
-      "scheduledStart": null
-    },
-    {
-      "name": "KP Crashkurs (Home) – Tag 1 – Innere Medizin",
-      "dueDate": "2026-11-13",
-      "schedulingIssue": false,
       "scheduledStart": null
     },
     {
@@ -519,42 +495,36 @@
       "dueDate": "2027-02-06",
       "schedulingIssue": true,
       "scheduledStart": null
+    },
+    {
+      "name": "Practice: Anamnesebogen — Complete from real Akte (Session 5)",
+      "dueDate": "2027-01-25",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Drittes Fach: Protocol Review — Session 18",
+      "dueDate": "2026-12-30",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Oral Simulation with Partner — Session 12",
+      "dueDate": "2027-02-21",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Drittes Fach: Protocol Review — Session 19",
+      "dueDate": "2026-12-31",
+      "schedulingIssue": true,
+      "scheduledStart": null
     }
   ],
   "overdue": [],
   "upcoming14d": [
     {
-      "name": "Review: Kolonkarzinom R5",
-      "dueDate": "2026-11-10",
-      "duration": 180
-    },
-    {
-      "name": "Review: Leistenhernie R5",
-      "dueDate": "2026-11-10",
-      "duration": 180
-    },
-    {
-      "name": "Review: Ileus R5",
-      "dueDate": "2026-11-10",
-      "duration": 180
-    },
-    {
       "name": "Review: Divertikulitis R5",
-      "dueDate": "2026-11-10",
-      "duration": 180
-    },
-    {
-      "name": "Review: Harnwegsinfekt / Pyelonephritis R5",
-      "dueDate": "2026-11-11",
-      "duration": 180
-    },
-    {
-      "name": "Review: Proximale Femurfrakturen R5",
-      "dueDate": "2026-11-11",
-      "duration": 180
-    },
-    {
-      "name": "Review: Pneumothorax R5",
       "dueDate": "2026-11-11",
       "duration": 180
     },
@@ -564,13 +534,8 @@
       "duration": 60
     },
     {
-      "name": "Review: Gastroduodenales Ulkus R5",
+      "name": "Review: Leistenhernie R5",
       "dueDate": "2026-11-12",
-      "duration": 180
-    },
-    {
-      "name": "Review: Schmerztherapie / WHO-Stufenschema R5",
-      "dueDate": "2026-11-13",
       "duration": 180
     },
     {
@@ -579,28 +544,23 @@
       "duration": 600
     },
     {
-      "name": "KP Crashkurs (Home) – Tag 2 – Chirurgie",
-      "dueDate": "2026-11-14",
-      "duration": 600
-    },
-    {
-      "name": "Review: Bluttransfusion R5",
-      "dueDate": "2026-11-18",
+      "name": "Review: Ileus R5",
+      "dueDate": "2026-11-15",
       "duration": 180
     },
     {
-      "name": "Review: Anästhesie & Atemwegssicherung R5",
-      "dueDate": "2026-11-18",
+      "name": "Review: Harnwegsinfekt / Pyelonephritis R5",
+      "dueDate": "2026-11-16",
       "duration": 180
     },
     {
-      "name": "Review: Appendizitis R5",
-      "dueDate": "2026-11-18",
+      "name": "Review: Proximale Femurfrakturen R5",
+      "dueDate": "2026-11-17",
       "duration": 180
     },
     {
-      "name": "Review: Akutes Abdomen R5",
-      "dueDate": "2026-11-19",
+      "name": "Review: Pneumothorax R5",
+      "dueDate": "2026-11-18",
       "duration": 180
     },
     {
@@ -609,13 +569,38 @@
       "duration": 60
     },
     {
-      "name": "Review: Lungenembolie R5",
+      "name": "Review: Gastroduodenales Ulkus R5",
       "dueDate": "2026-11-19",
       "duration": 180
     },
     {
-      "name": "Review: Antibiotikatherapie (kalkuliert) R5",
+      "name": "KP Crashkurs (Home) – Tag 2 – Chirurgie",
+      "dueDate": "2026-11-20",
+      "duration": 600
+    },
+    {
+      "name": "Review: Schmerztherapie / WHO-Stufenschema R5",
+      "dueDate": "2026-11-20",
+      "duration": 180
+    },
+    {
+      "name": "Review: Bluttransfusion R5",
+      "dueDate": "2026-11-21",
+      "duration": 180
+    },
+    {
+      "name": "Review: Anästhesie & Atemwegssicherung R5",
+      "dueDate": "2026-11-22",
+      "duration": 180
+    },
+    {
+      "name": "Review: Appendizitis R5",
       "dueDate": "2026-11-23",
+      "duration": 180
+    },
+    {
+      "name": "Review: Akutes Abdomen R5",
+      "dueDate": "2026-11-24",
       "duration": 180
     }
   ],
