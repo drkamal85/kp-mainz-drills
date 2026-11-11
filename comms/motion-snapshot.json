@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-11-10T10:46:57.263Z",
+  "generatedAt": "2026-11-11T10:22:35.547Z",
   "totals": {
     "open": 112,
     "completed": 463,
     "overdue": 0,
-    "schedulingIssues": 63
+    "schedulingIssues": 61
   },
   "byLevel": {
     "R1": {
@@ -305,18 +305,6 @@
       "scheduledStart": null
     },
     {
-      "name": "Review: Check-up / Prävention R4",
-      "dueDate": "2026-12-12",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Review: Hüft- / Knie-TEP R4",
-      "dueDate": "2026-12-11",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
       "name": "Drill: Sono/US komplett (Feb)",
       "dueDate": "2027-02-26",
       "schedulingIssue": true,
@@ -519,6 +507,18 @@
       "dueDate": "2026-12-31",
       "schedulingIssue": true,
       "scheduledStart": null
+    },
+    {
+      "name": "Oral Simulation with Partner — Session 8",
+      "dueDate": "2027-01-09",
+      "schedulingIssue": true,
+      "scheduledStart": null
+    },
+    {
+      "name": "Drittes Fach: Protocol Review — Session 13",
+      "dueDate": "2026-12-25",
+      "schedulingIssue": true,
+      "scheduledStart": null
     }
   ],
   "overdue": [],
@@ -601,6 +601,11 @@
     {
       "name": "Review: Akutes Abdomen R5",
       "dueDate": "2026-11-24",
+      "duration": 180
+    },
+    {
+      "name": "Review: Lungenembolie R5",
+      "dueDate": "2026-11-25",
       "duration": 180
     }
   ],
