@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-11-11T10:22:35.547Z",
+  "generatedAt": "2026-11-12T10:40:21.366Z",
   "totals": {
-    "open": 112,
-    "completed": 463,
+    "open": 111,
+    "completed": 464,
     "overdue": 0,
-    "schedulingIssues": 61
+    "schedulingIssues": 59
   },
   "byLevel": {
     "R1": {
@@ -24,8 +24,8 @@
       "completed": 84
     },
     "R5": {
-      "open": 16,
-      "completed": 17
+      "open": 15,
+      "completed": 18
     }
   },
   "byWorkstream": {
@@ -37,8 +37,8 @@
       "r1Open": 0
     },
     "B_r5": {
-      "open": 16,
-      "completed": 17,
+      "open": 15,
+      "completed": 18,
       "pilot": [
         {
           "name": "Review: Cholezystitis R5",
@@ -293,18 +293,6 @@
       "scheduledStart": null
     },
     {
-      "name": "Review: Lebermetastasen / Lebertumor R4",
-      "dueDate": "2026-12-13",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Review: AV-Block R4",
-      "dueDate": "2026-12-12",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
       "name": "Drill: Sono/US komplett (Feb)",
       "dueDate": "2027-02-26",
       "schedulingIssue": true,
@@ -519,15 +507,16 @@
       "dueDate": "2026-12-25",
       "schedulingIssue": true,
       "scheduledStart": null
+    },
+    {
+      "name": "Drittes Fach: Protocol Review — Session 14",
+      "dueDate": "2026-12-26",
+      "schedulingIssue": true,
+      "scheduledStart": null
     }
   ],
   "overdue": [],
   "upcoming14d": [
-    {
-      "name": "Review: Divertikulitis R5",
-      "dueDate": "2026-11-11",
-      "duration": 180
-    },
     {
       "name": "Akte-Sim #3",
       "dueDate": "2026-11-12",
@@ -607,6 +596,16 @@
       "name": "Review: Lungenembolie R5",
       "dueDate": "2026-11-25",
       "duration": 180
+    },
+    {
+      "name": "Review: Antibiotikatherapie (kalkuliert) R5",
+      "dueDate": "2026-11-26",
+      "duration": 180
+    },
+    {
+      "name": "Akte-Sim #6",
+      "dueDate": "2026-11-26",
+      "duration": 60
     }
   ],
   "nextCheckpoint": null
