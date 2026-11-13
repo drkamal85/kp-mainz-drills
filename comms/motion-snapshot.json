@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-11-12T10:40:21.366Z",
+  "generatedAt": "2026-11-13T10:33:22.249Z",
   "totals": {
-    "open": 111,
-    "completed": 464,
+    "open": 109,
+    "completed": 466,
     "overdue": 0,
-    "schedulingIssues": 59
+    "schedulingIssues": 58
   },
   "byLevel": {
     "R1": {
@@ -24,8 +24,8 @@
       "completed": 84
     },
     "R5": {
-      "open": 15,
-      "completed": 18
+      "open": 14,
+      "completed": 19
     }
   },
   "byWorkstream": {
@@ -37,8 +37,8 @@
       "r1Open": 0
     },
     "B_r5": {
-      "open": 15,
-      "completed": 18,
+      "open": 14,
+      "completed": 19,
       "pilot": [
         {
           "name": "Review: Cholezystitis R5",
@@ -48,8 +48,8 @@
       ]
     },
     "C_akte": {
-      "open": 18,
-      "completed": 2,
+      "open": 17,
+      "completed": 3,
       "sessions": [
         {
           "name": "Akte-Sim #1",
@@ -64,7 +64,7 @@
         {
           "name": "Akte-Sim #3",
           "dueDate": "2026-11-12",
-          "completed": false
+          "completed": true
         },
         {
           "name": "Akte-Sim #4",
@@ -283,12 +283,6 @@
     {
       "name": "Review: Pankreatitis R4",
       "dueDate": "2026-12-15",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
-      "name": "Review: Sepsis & septischer Schock R4",
-      "dueDate": "2026-12-14",
       "schedulingIssue": true,
       "scheduledStart": null
     },
@@ -518,16 +512,6 @@
   "overdue": [],
   "upcoming14d": [
     {
-      "name": "Akte-Sim #3",
-      "dueDate": "2026-11-12",
-      "duration": 60
-    },
-    {
-      "name": "Review: Leistenhernie R5",
-      "dueDate": "2026-11-12",
-      "duration": 180
-    },
-    {
       "name": "KP Crashkurs (Home) – Tag 1 – Innere Medizin",
       "dueDate": "2026-11-13",
       "duration": 600
@@ -606,6 +590,11 @@
       "name": "Akte-Sim #6",
       "dueDate": "2026-11-26",
       "duration": 60
+    },
+    {
+      "name": "Review: Antikoagulation & Bridging R5",
+      "dueDate": "2026-11-27",
+      "duration": 180
     }
   ],
   "nextCheckpoint": null
