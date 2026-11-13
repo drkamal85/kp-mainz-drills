@@ -1,57 +1,57 @@
 {
- "slug": "arzneimittelinteraktionen-uaw",
- "deck": "reviews/drittes-fach/arzneimittelinteraktionen-uaw.html",
- "capture": [
-  "sources/amboss/arzneimittelinteraktionen-uaw.md"
- ],
- "counts": {
-  "ok": 14,
-  "fix": 0,
-  "unclear": 8
- },
- "fixes": [],
- "unclear": [
-  {
-   "panel": "grundlagen",
-   "deck_text": "UAW-Definition, Typ A/Typ B",
-   "reason": "Kapitel Pharmakologische Grundlagen hat kein UAW-Kapitel (bekannte Lücke)"
+  "slug": "arzneimittelinteraktionen-uaw",
+  "deck": "reviews/drittes-fach/arzneimittelinteraktionen-uaw.html",
+  "capture": [
+    "sources/amboss/arzneimittelinteraktionen-uaw.md"
+  ],
+  "counts": {
+    "ok": 12,
+    "fix": 0,
+    "unclear": 8
   },
-  {
-   "panel": "grundlagen",
-   "deck_text": "Betablocker + Verapamil; NSAR + ACE-Hemmer + Diuretikum",
-   "reason": "Kombinationsfolgen nicht in Erfassung"
-  },
-  {
-   "panel": "grundlagen",
-   "deck_text": "Pharmakovigilanz: AkdÄ/BfArM, § 6 IfSG, PEI, Rote-Hand-Brief",
-   "reason": "Meldewege bekannte Lücke"
-  },
-  {
-   "panel": "klinik",
-   "deck_text": "Substanz-UAW-Tabelle (Metamizol max. 4 g/d, Amiodaron HWZ 20–100 Tage, MTX-Folsäure 24–48 h, Gadolinium GFR < 30 u. a.)",
-   "reason": "Einzel-UAW nicht in Erfassung"
-  },
-  {
-   "panel": "diagnostik",
-   "deck_text": "QTc über 500 ms: Torsade-Gefahr; Labor nach Wirkstoff",
-   "reason": "nicht in Erfassung"
-  },
-  {
-   "panel": "therapie",
-   "deck_text": "AT1-Blocker bei Husten, Magnesium bei Torsade, Polypharmazie ab 5, PRISCUS",
-   "reason": "nicht in Erfassung"
-  },
-  {
-   "panel": "perlen",
-   "deck_text": "Perlen 1–6, 8 und Rapid-Fire zu Einzel-UAW",
-   "reason": "nicht in Erfassung"
-  },
-  {
-   "panel": "protokoll",
-   "deck_text": "Antworten zu Betablocker-, ACE-Hemmer-, Kortison-, PPI-, Metamizol-, Zytostatika-, Statin-, MCP- und KM-UAW",
-   "reason": "nicht in Erfassung"
-  }
- ],
- "status": "done",
- "validated": "2026-10-14"
+  "fixes": [],
+  "unclear": [
+    {
+      "panel": "grundlagen",
+      "deck_text": "Typ A/Typ B UAW, Pharmakovigilanz (AkdÄ/BfArM, § 6 IfSG, PEI, Rote-Hand-Brief)",
+      "reason": "Erfassung enthält kein UAW-/Pharmakovigilanz-Kapitel (bekannte Lücke laut Capture-Header)"
+    },
+    {
+      "panel": "grundlagen",
+      "deck_text": "Hemmer = Bremse: Clarithromycin",
+      "reason": "Capture nennt bei CYP3A-Inhibitoren 'Makrolide (v.a. Erythromycin)'; Clarithromycin nur als Substrat gelistet"
+    },
+    {
+      "panel": "klinik",
+      "deck_text": "Typische UAW-Tabelle (Metamizol, Betablocker, Glukokortikoide, ACE-Hemmer, Amiodaron, Zytostatika, MTX, Thiazide, Statine, PPI, KM ...)",
+      "reason": "Einzel-UAW nicht in der Erfassung"
+    },
+    {
+      "panel": "diagnostik",
+      "deck_text": "QTc über 500 ms, Labor nach Wirkstoff",
+      "reason": "nicht in der Erfassung"
+    },
+    {
+      "panel": "therapie",
+      "deck_text": "Polypharmazie ab 5 Dauermedikamenten, PRISCUS-Liste",
+      "reason": "nicht in der Erfassung; Capture nur: Interaktionspotenzial steigt mit der Menge der Pharmaka"
+    },
+    {
+      "panel": "perlen",
+      "deck_text": "Rapid-Fire Metamizol 4 g/5 g, Amiodaron-HWZ 20–100 Tage, Folsäure 24–48 h",
+      "reason": "nicht in der Erfassung"
+    },
+    {
+      "panel": "protokoll",
+      "deck_text": "Kontrastmittel-Antworten (GFR 30/60, 1 ml/kg, Perchlorat, Gadolinium)",
+      "reason": "nicht in der Erfassung"
+    },
+    {
+      "panel": "protokoll",
+      "deck_text": "Azathioprin/TNF-Antikörper, MCP-Frühdyskinesie/Biperiden",
+      "reason": "nicht in der Erfassung"
+    }
+  ],
+  "status": "done",
+  "validated": "2026-11-13"
 }

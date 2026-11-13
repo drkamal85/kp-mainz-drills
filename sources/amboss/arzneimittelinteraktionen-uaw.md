@@ -2,11 +2,11 @@
 
 - **Artikel-ID:** 7N04cg
 - **URL:** https://next.amboss.com/de/article/7N04cg
-- **Zuletzt bearbeitet (AMBOSS):** 08.10.2026
-- **Erfasst:** 2026-10-14
-- **Methode:** Browser-Tool Copy/Paste-Methode (Claude-Browser, AMBOSS Lernansicht), keine Website-Bearbeitung. Jeder Abschnitt einzeln ausgeklappt, in den Viewport gescrollt und per DOM-Textextraktion wörtlich übernommen; Listen-Hierarchie und Tabellen aus der Seitenstruktur übertragen (Zeilenumbrüche in Tabellenzellen als <br>). Keine Paraphrasierung, nichts ergänzt.
+- **Zuletzt bearbeitet (AMBOSS):** 09.11.2026
+- **Erfasst:** 2026-11-13
+- **Methode:** Browser-Tool Copy/Paste-Methode (Claude-Browser, AMBOSS Lernansicht), keine Website-Bearbeitung. Alle Abschnitte ausgeklappt, jeder Abschnitt einzeln in den Viewport gescrollt und per DOM-Textextraktion wörtlich übernommen; Listen-Hierarchie und Tabellen aus der Seitenstruktur übertragen (Zeilenumbrüche in Tabellenzellen als <br>, Merke-/Cave-Kästen als Zitat ">"). Keine Paraphrasierung, nichts ergänzt.
 - **KP-Zuordnung:** Topic #1 "Arzneimittelinteraktionen & UAW" (KERN) — Mapping: Kapitel "Pharmakologische Grundlagen" (Medikamenteninteraktionen/Cytochrom-P450); AMBOSS hat kein eigenes Kapitel zu UAW/Pharmakovigilanz (Suche "Unerwünschte Arzneimittelwirkung", "Pharmakovigilanz", 14.10.2026) — UAW-Einzelinhalte und Meldewege daher nicht in dieser Erfassung
-- **Bekannte Lücken:** Bildinhalte/Grafiken nur soweit als Text (Bildunterschrift/Verweis) im Artikel vorhanden; Popup-Definitionen (Info-Kästchen) und Dosierungs-Aufklapper nicht einzeln geöffnet; Audio/Video (Podcast, Meditricks) nur als Titel. Alle Abschnitte des Kapitels lieferten Text (kein leerer Abschnitt).
+- **Bekannte Lücken:** Bildinhalte/Grafiken nur soweit als Text (Bildtitel/Verweis) im Artikel vorhanden; Popup-Definitionen und Dosierungs-Aufklapper nicht einzeln geöffnet; Audio/Video (Podcast, Meditricks) nur als Titel. Alle Abschnitte lieferten Text.
 
 ---
 
@@ -33,7 +33,7 @@ Auditor: Pharmakokinetik Teil 1 - Topische und systemische Wirkstoffe
 
 ## Pharmakokinetik
 
-Die Pharmakokinetik beschreibt, wie ein Pharmakon vom Körper aufgenommen, verteilt, metabolisiert und ausgeschieden wird!
+> Die Pharmakokinetik beschreibt, wie ein Pharmakon vom Körper aufgenommen, verteilt, metabolisiert und ausgeschieden wird!
 
 ### Liberation (Freisetzung)
 
@@ -66,11 +66,11 @@ Zur Beschreibung der Resorption sind unterschiedliche Größen relevant:
 | --- | --- | --- | --- |
 | Lipophilie | Vorwiegend unpolare Substanzen | Passage der Lipiddoppelschicht von Membranen ist weitestgehend ungehindert möglich<br>Erlaubt topische Aufnahme über die Haut<br>ZNS-Gängigkeit: Weitestgehend freie Diffusion durch die Blut-Hirn-Schranke<br>Ausscheidung v.a. über Biotransformation des Leber-/Gallensystems | Scopolamin<br>Tertiäres Amin<br>Einsatz bei Kinetosen |
 | Hydrophilie | Vorwiegend polare Substanzen | Passage der Lipiddoppelschicht von Membranen erfordert spezielle Durchtrittsmöglichkeiten<br>Kleinere hydrophile Stoffe können entlang eines Gradienten durch Membranporen diffundieren<br>Ausscheidung v.a. über die Niere | Butylscopolamin<br>Quartäres Amin<br>Einsatz zur Spasmolyse im Gastrointestinaltrakt |
-| Amphiphilie | Sowohl lipophile als auch hydrophile Eigenschaften | Lokalanästhetika, bspw. Lidocain |  |
+| Amphiphilie | Sowohl lipophile als auch hydrophile Eigenschaften | Lokalanästhetika, bspw. Lidocain |
 
 ### Distribution (Verteilung)
 
-Nachdem das Pharmakon in die Blutbahn gelangt ist, erfolgt die initiale Verteilung zuerst in die am stärksten durchbluteten(!) Organe!
+> Nachdem das Pharmakon in die Blutbahn gelangt ist, erfolgt die initiale Verteilung zuerst in die am stärksten durchbluteten(!) Organe!
 
 Wichtig zur Einschätzung der Verteilung in den Geweben sind:
 
@@ -99,7 +99,7 @@ Die Biotransformation ist eine Reaktion, der sowohl körpereigene als auch körp
   - Aktivierung: Überführung von Prodrugs in ihre aktive Wirkform
   - Giftung: Entstehung von toxischen Metaboliten
 
-Die Biotransformation kann auch zur Entstehung von toxischen Metaboliten führen und ist daher nicht grundsätzlich eine nützliche Reaktion für den Organismus!
+> Die Biotransformation kann auch zur Entstehung von toxischen Metaboliten führen und ist daher nicht grundsätzlich eine nützliche Reaktion für den Organismus!
 
 ReaktionsordnungenArzneimittelmetabolismus (Phase I und II)
 
@@ -109,7 +109,7 @@ ReaktionsordnungenArzneimittelmetabolismus (Phase I und II)
 - Halbwertszeit (HWZ): Zeitraum, in dem die Plasmakonzentration eines Pharmakons die Hälfte der Ursprungskonzentration erreicht hat
   - Kontextsensitive Halbwertszeit: Von der Infusionsdauer sowie der Pharmakokinetik eines Pharmakons abhängige Halbwertszeit [1]
 
-Nach 4 Halbwertszeiten sind mehr als 90% der Substanz eliminiert!
+> Nach 4 Halbwertszeiten sind mehr als 90% der Substanz eliminiert!
 
 Kontextsensitive Halbwertszeit
 
@@ -127,7 +127,9 @@ Auditor: Pharmakokinetik Teil 1 - Topische und systemische WirkstoffeAuditor: Ph
 
 ## Pharmakodynamik
 
-Die Pharmakodynamik beschreibt, wie das Medikament an seinem Zielort in Abhängigkeit von der Dosis und anderen Faktoren wirkt!
+> Die Pharmakodynamik beschreibt, wie das Medikament an seinem Zielort in Abhängigkeit von der Dosis und anderen Faktoren wirkt!
+
+### Rezeptortypen
 
 Jedes Molekül mit Funktion im Organismus kann ein Angriffspunkt für Pharmaka sein:
 
@@ -140,6 +142,9 @@ Jedes Molekül mit Funktion im Organismus kann ein Angriffspunkt für Pharmaka s
 - Wirkung an Enzymen
 - Wirkung auf DNA (bspw. Zytostatika)
 - Wirkung durch physikalischen/chemischen Einfluss (bspw. osmotische Diuretika, Antazida)
+
+### Interaktion zwischen Rezeptor und Pharmakon
+
 - Affinität: Bezeichnet die Stärke der Bindung eines Pharmakons an den Rezeptor
   - Bindungen meist leicht lösbar
   - Seltener kovalente Bindungen, die nahezu irreversibel sind (bspw. ASS-Bindung an die Cyclooxygenase)
@@ -153,6 +158,8 @@ Jedes Molekül mit Funktion im Organismus kann ein Angriffspunkt für Pharmaka s
 Pharmakodynamische Effekte verschiedener Pharmakon-Typen
 
 Auditor: Pharmakodynamik Teil 1 - WirkungenAuditor: Neurotransmitter 3 - Acetylcholin
+
+### Dosis-Wirkungs-Beziehung
 
 Die Zusammenhänge zwischen Wirkstoffkonzentration und Wirkung eines Pharmakons werden mit den folgenden Begriffen beschrieben:
 
@@ -213,7 +220,7 @@ Ist das betroffene Enzym an der Aktivierung des Medikaments beteiligt, sind die 
 - Interaktionspotenzial steigt mit der Menge der eingenommenen Pharmaka
 - Größtes Interaktionspotenzial bei Enzyminduktoren des Cytochrom-P450-Systems
 
-Bei Arzneimittelinteraktionen mit Wirkungsverstärkung bzw. -abschwächung sollte eine Dosisanpassung oder ein Substanzwechsel in Betracht gezogen werden!
+> Bei Arzneimittelinteraktionen mit Wirkungsverstärkung bzw. -abschwächung sollte eine Dosisanpassung oder ein Substanzwechsel in Betracht gezogen werden!
 
 ### Cytochrom-P450-System
 
@@ -224,19 +231,19 @@ Bei Arzneimittelinteraktionen mit Wirkungsverstärkung bzw. -abschwächung sollt
 - Pharmakogenetik: CYP2D6
   - Ultrarapid Metabolizer: Bei CYP2D6 kann es aufgrund einer Genduplikation auf Chromosom 22 zu einer Überaktivität des Enzyms kommen. Bei diesen Patienten müssen deutlich höhere Dosen für die gleiche Wirkung eingesetzt werden!
 
-Carbamazepin bewirkt eine Autoinduktion des CYP3A4-Metabolismus! Daher muss bei langfristiger Gabe eine Dosiserhöhung erfolgen!
+> Carbamazepin bewirkt eine Autoinduktion des CYP3A4-Metabolismus! Daher muss bei langfristiger Gabe eine Dosiserhöhung erfolgen!
 
-Rifampicin und Carbamazepin gehören zu den stärksten Induktoren, sodass mit zahlreichen Interaktionen zu rechnen ist!
+> Rifampicin und Carbamazepin gehören zu den stärksten Induktoren, sodass mit zahlreichen Interaktionen zu rechnen ist!
 
-| Cytochrom-P450-Isoformen – Substrate, Inhibitoren und Induktoren |  |  |  |  |
-| --- | --- | --- | --- | --- |
-| CYP-Isoform | Substrate (Auswahl) | Inhibitoren (Auswahl) | Induktoren (Auswahl) |  |
-| CYP1A2 | Antidepressiva<br>Duloxetin<br>Imipramin<br>Antipsychotika<br>Clozapin<br>Nicht-Opioid-Analgetika: Naproxen, Paracetamol<br>Theophyllin | Cimetidin<br>Ciprofloxacin<br>Fluvoxamin<br>Ticlopidin<br>Amiodaron | Omeprazol<br>Insulin<br>Grillfleisch<br>Tabakrauch |  |
-| CYP2C | CYP2C19 | Antidepressiva<br>Citalopram<br>Antipsychotika: Clozapin<br>Benzodiazepine: Diazepam<br>Clopidogrel<br>Protonenpumpeninhibitoren | Omeprazol<br>Azol-Antimykotika (bspw. Itraconazol)<br>Cimetidin | Prednison<br>Carbamazepin<br>Rifampicin<br>Johanniskraut |
-| CYP2C9 | Verschiedene NSAID (u.a. Celecoxib, Ibuprofen, Diclofenac)<br>Vitamin-K-Antagonisten<br>AT1-Rezeptor-Blocker | Amiodaron<br>Azol-Antimykotika (bspw. Fluconazol)<br>Cotrimoxazol (Sulfamethoxazol) | Rifampicin<br>Johanniskraut |  |
-| CYP2D6 | Antidepressiva<br>SSNRI: Duloxetin, Venlafaxin<br>SSRI: Fluoxetin, Fluvoxamin, Citalopram<br>Antipsychotika<br>Typische Antipsychotika: Haloperidol<br>Atypische Antipsychotika: Clozapin<br>Antiarrhythmika (bspw. Flecainid)<br>Betablocker: Carvedilol, Metoprolol, Nebivolol, Propranolol | Amiodaron<br>Verschiedene Antidepressiva<br>Verschiedene Antipsychotika<br>Metoclopramid<br>Propranolol | Schwangerschaft |  |
-| CYP3A | CYP3A4 CYP3A5 CYP3A7 | Amiodaron<br>Antidepressiva<br>SSRI: Citalopram<br>SSNRI: Venlafaxin<br>Antipsychotika<br>Haloperidol<br>AT1-Rezeptor-Blocker<br>Benzodiazepine<br>Calciumantagonisten: Verapamil<br>Carbamazepin<br>HIV-Virostatika<br>Immunsuppressiva: Ciclosporin, Tacrolimus<br>Makrolide (bspw. Clarithromycin)<br>Orale Antikoagulanzien<br>Vitamin-K-Antagonisten: Phenprocoumon<br>DOAK: Apixaban, Rivaroxaban<br>Orale Kontrazeptiva<br>Statine (außer Pravastatin )<br>Steroidhormone (bspw. Glucocorticoide, Östrogene, Testosteron)<br>Tamoxifen | Amiodaron<br>Azol-Antimykotika (bspw. Itraconazol)<br>Makrolide (v.a. Erythromycin)<br>Einige HIV-Virostatika<br>Grapefruit-Saft<br>Calciumantagonisten: Diltiazem, Verapamil | Carbamazepin<br>Rifampicin<br>Johanniskraut<br>Glucocorticoide<br>Barbiturate<br>Einige HIV-Virostatika |
-| CYP2B6 | Antidepressiva<br>Bupropion SSRI: Fluoxetin, Sertralin<br>Opioide: Levomethadon, Methadon Diazepam Clomethiazol Cyclophosphamid Ketamin Propofol Tamoxifen Valproat | — | Carbamazepin Phenobarbital Phenytoin Rifampicin |  |
+| Cytochrom-P450-Isoformen – Substrate, Inhibitoren und Induktoren |
+| --- |
+| CYP-Isoform | Substrate (Auswahl) | Inhibitoren (Auswahl) | Induktoren (Auswahl) |
+| CYP1A2 | Antidepressiva<br>Agomelatin<br>Duloxetin<br>Trizyklische Antidepressiva: Amitriptylin, Clomipramin, Imipramin<br>Mirtazapin<br>Antipsychotika<br>Typische Antipsychotika: Chlorpromazin, Loxapin, Perazin<br>Atypische Antipsychotika: Clozapin, Olanzapin<br>Nicht-Opioid-Analgetika: Naproxen, Paracetamol<br>Cimetidin<br>Estradiol<br>Propranolol<br>Theophyllin<br>Tizanidin | Cimetidin<br>Ciprofloxacin<br>Fluvoxamin<br>Ticlopidin<br>Amiodaron<br>Perazin | Omeprazol<br>Insulin<br>Grillfleisch<br>Tabakrauch |
+| CYP2C | CYP2C19 | Antidepressiva<br>Bupropion<br>Moclobemid<br>SSRI: Citalopram, Escitalopram, Fluoxetin, Sertralin<br>Trizyklische Antidepressiva: Amitriptylin, Clomipramin, Doxepin, Imipramin, Trimipramin<br>Venlafaxin<br>Antipsychotika: Clozapin<br>Benzodiazepine: Bromazepam, Diazepam<br>Atomoxetin<br>Clopidogrel<br>Protonenpumpeninhibitoren<br>Ritonavir | Omeprazol<br>Azol-Antimykotika (bspw. Itraconazol)<br>Cimetidin<br>Antidepressiva<br>Fluoxetin<br>Fluvoxamin<br>Moclobemid | Prednison<br>Carbamazepin<br>Rifampicin<br>Johanniskraut<br>Phenytoin |
+| CYP2C9 | Antidepressiva<br>Trizyklische Antidepressiva: Amitriptylin, Doxepin, Trimipramin<br>SSRI: Fluoxetin, Sertralin<br>SSNRI: Venlafaxin<br>Verschiedene NSAID (u.a. Celecoxib, Ibuprofen, Diclofenac, Naproxen)<br>Metoclopramid<br>Vitamin-K-Antagonisten<br>AT1-Rezeptor-Blocker: Losartan<br>Tamoxifen<br>Valproat<br>Zolpidem | Amiodaron<br>Azol-Antimykotika (bspw. Fluconazol)<br>Cotrimoxazol (Sulfamethoxazol)<br>Valproat | Rifampicin<br>Johanniskraut<br>Dexamethason |
+| CYP2D6 | Antidepressiva<br>Mirtazapin<br>Opipramol<br>SSNRI: Duloxetin, Venlafaxin<br>SSRI: Fluoxetin, Fluvoxamin, Paroxetin, Sertralin, Citalopram<br>Trizyklische Antidepressiva: Amitriptylin, Clomipramin, Doxepin, Imipramin, Trimipramin<br>Antipsychotika<br>Typische Antipsychotika: Chlorpromazin, Chlorprothixen, Flupentixol, Haloperidol, Loxapin, Zuclopenthixol<br>Atypische Antipsychotika: Aripiprazol, Clozapin, Risperidon<br>Opioide: Codein, Dihydrocodein, Levomethadon, Methadon, Tramadol<br>Antiarrhythmika (bspw. Flecainid)<br>Atomoxetin<br>Betablocker: Carvedilol, Metoprolol, Nebivolol, Propranolol<br>Diphenhydramin<br>Donepezil<br>Metoclopramid<br>Promethazin<br>Tamoxifen<br>Urapidil | Amiodaron<br>Cimetidin<br>Verschiedene Antidepressiva: Duloxetin, Fluoxetin, Paroxetin, Moclobemid<br>Verschiedene Antipsychotika: Levomepromazin, Melperon<br>Metoclopramid<br>Propranolol | Schwangerschaft |
+| CYP3A | CYP3A4 CYP3A5 CYP3A7 | Amiodaron<br>Antidepressiva<br>Trizyklische Antidepressiva: Amitriptylin<br>SSRI: Citalopram<br>SSNRI: Venlafaxin<br>SARI: Trazodon<br>Antipsychotika<br>Typische Antipsychotika: Haloperidol<br>Atypische Antipsychotika: Aripiprazol, Quetiapin, Risperidon, Ziprasidon<br>AT1-Rezeptor-Blocker: Losartan<br>Benzodiazepine: Alprazolam, Diazepam, Midazolam<br>Calciumantagonisten: Verapamil, Diltiazem<br>Carbamazepin<br>HIV-Virostatika<br>Immunsuppressiva: Ciclosporin, Tacrolimus<br>Makrolide (z.B. Clarithromycin)<br>Orale Antikoagulanzien<br>Vitamin-K-Antagonisten: Phenprocoumon<br>DOAK: Apixaban, Rivaroxaban, Edoxaban<br>Opioide: Fentanyl, Methadon, Tramadol<br>Orale Kontrazeptiva<br>Protonenpumpeninhibitoren: Insb. Omeprazol und Esomeprazol<br>Sildenafil<br>Statine (außer Pravastatin )<br>Steroidhormone (bspw. Glucocorticoide, Östrogene, Testosteron)<br>Sulfonylharnstoffe: Bspw. Glibenclamid, Glimepirid<br>Tamoxifen<br>Zolpidem | Amiodaron<br>Azol-Antimykotika (bspw. Itraconazol)<br>Makrolide (v.a. Erythromycin)<br>Einige HIV-Virostatika<br>Grapefruit-Saft<br>Calciumantagonisten: Diltiazem, Verapamil | Carbamazepin<br>Rifampicin<br>Johanniskraut<br>Glucocorticoide<br>Barbiturate<br>Einige HIV-Virostatika<br>Phenytoin |
+| CYP2B6 | Antidepressiva<br>Bupropion<br>SSRI: Fluoxetin, Sertralin<br>Opioide: Levomethadon, Methadon<br>Diazepam<br>Clomethiazol<br>Cyclophosphamid<br>Ketamin<br>Propofol<br>Tamoxifen<br>Valproat | — | Carbamazepin<br>Phenobarbital<br>Phenytoin<br>Rifampicin |
 
 ### P-Glykoprotein (P-gp)
 
@@ -262,26 +269,14 @@ Patienteninformationen zu Medikamenten-Anwendung von gesundheitsinformation.de
 
 ## Quellen
 
-1.
+1. Roberts, Freshwater-Turner: Pharmacokinetics and anaesthesia. In: Continuing Education in Anaesthesia Critical Care & Pain. Band: 7, Nummer: 1, 2007, doi: 10.1093/bjaceaccp/mkl058p.25-29. Öffnen in LIVIVO by ZB MED
 
-Roberts, Freshwater-Turner: Pharmacokinetics and anaesthesiaIn: Continuing Education in Anaesthesia Critical Care & Pain. Band: 7, Nummer: 1, 2007, doi: 10.1093/bjaceaccp/mkl058p.25-29. Öffnen in LIVIVO by ZB MED
+2. Lüllmann et al.: Pharmakologie und Toxikologie. 15. Auflage Thieme 2002, ISBN: 3-133-68515-5. Öffnen in LIVIVO by ZB MED
 
-2.
+3. Wehling: Klinische Pharmakologie. 2. Auflage Thieme 2011, ISBN: 978-3-131-60282-4. Öffnen in LIVIVO by ZB MED
 
-Lüllmann et al.: Pharmakologie und Toxikologie. 15. Auflage Thieme 2002, ISBN: 3-133-68515-5. Öffnen in LIVIVO by ZB MED
+4. Freissmuth et al.: Pharmakologie und Toxikologie. Springer 2012, ISBN: 978-3-642-12353-5. Öffnen in LIVIVO by ZB MED
 
-3.
+5. Hukkanen et al.: Effect of nicotine on cytochrome P450 1A2 activity. In: British Journal of Clinical Pharmacology. Band: 72, Nummer: 5, 2011, doi: 10.1111/j.1365-2125.2011.04023.xp.836-838. Öffnen in LIVIVO by ZB MED
 
-Wehling: Klinische Pharmakologie. 2. Auflage Thieme 2011, ISBN: 978-3-131-60282-4. Öffnen in LIVIVO by ZB MED
-
-4.
-
-Freissmuth et al.: Pharmakologie und Toxikologie. Springer 2012, ISBN: 978-3-642-12353-5. Öffnen in LIVIVO by ZB MED
-
-5.
-
-Hukkanen et al.: Effect of nicotine on cytochrome P450 1A2 activityIn: British Journal of Clinical Pharmacology. Band: 72, Nummer: 5, 2011, doi: 10.1111/j.1365-2125.2011.04023.xp.836-838. Öffnen in LIVIVO by ZB MED
-
-6.
-
-Karow: Allgemeine und Spezielle Pharmakologie und Toxikologie 2021. 29. Auflage Thomas Karow (Verlag) 2020, ISBN: 978-3-982-12231-1. Öffnen in LIVIVO by ZB MED
+6. Karow: Allgemeine und Spezielle Pharmakologie und Toxikologie 2021. 29. Auflage Thomas Karow (Verlag) 2020, ISBN: 978-3-982-12231-1. Öffnen in LIVIVO by ZB MED

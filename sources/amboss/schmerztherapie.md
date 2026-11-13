@@ -2,11 +2,11 @@
 
 - **Artikel-ID:** xN0EWg
 - **URL:** https://next.amboss.com/de/article/xN0EWg
-- **Zuletzt bearbeitet (AMBOSS):** 02.10.2026
-- **Erfasst:** 2026-10-14
-- **Methode:** Browser-Tool Copy/Paste-Methode (Claude-Browser, AMBOSS Lernansicht), keine Website-Bearbeitung. Jeder Abschnitt einzeln ausgeklappt, in den Viewport gescrollt und per DOM-Textextraktion wörtlich übernommen; Listen-Hierarchie und Tabellen aus der Seitenstruktur übertragen (Zeilenumbrüche in Tabellenzellen als <br>). Keine Paraphrasierung, nichts ergänzt.
+- **Zuletzt bearbeitet (AMBOSS):** 29.10.2026
+- **Erfasst:** 2026-11-13
+- **Methode:** Browser-Tool Copy/Paste-Methode (Claude-Browser, AMBOSS Lernansicht), keine Website-Bearbeitung. Alle Abschnitte ausgeklappt, jeder Abschnitt einzeln in den Viewport gescrollt und per DOM-Textextraktion wörtlich übernommen; Listen-Hierarchie und Tabellen aus der Seitenstruktur übertragen (Zeilenumbrüche in Tabellenzellen als <br>, Merke-/Cave-Kästen als Zitat ">"). Keine Paraphrasierung, nichts ergänzt.
 - **KP-Zuordnung:** Topic #2 "Schmerztherapie / WHO-Schema" (KERN)
-- **Bekannte Lücken:** Bildinhalte/Grafiken nur soweit als Text (Bildunterschrift/Verweis) im Artikel vorhanden; Popup-Definitionen (Info-Kästchen) und Dosierungs-Aufklapper nicht einzeln geöffnet; Audio/Video (Podcast, Meditricks) nur als Titel. Alle Abschnitte des Kapitels lieferten Text (kein leerer Abschnitt).
+- **Bekannte Lücken:** Bildinhalte/Grafiken nur soweit als Text (Bildtitel/Verweis) im Artikel vorhanden; Popup-Definitionen und Dosierungs-Aufklapper nicht einzeln geöffnet; Audio/Video (Podcast, Meditricks) nur als Titel. Alle Abschnitte lieferten Text.
 
 ---
 
@@ -70,8 +70,8 @@ Früher und später Schmerz
   - Gallenblase: Unter anderem sensibel vom rechten N. phrenicus (C4) versorgt → Bspw. bei Cholezystolithiasis Schmerzausstrahlung in die rechte Schulter und Hyperästhesie unter dem rechten Schulterblatt/Rücken (= Boas-Zeichen)
   - Milz: Unter anderem sensibel vom linken N. phrenicus (C4) versorgt → Bei Milzruptur Schmerzausstrahlung in die linke Schulter (= Kehr-Zeichen) und Druckschmerz an der linken Halsseite (= Saegesser-Zeichen)
 
-| Übersicht Head'sche Zonen |  |  |
-| --- | --- | --- |
+| Übersicht Head'sche Zonen |
+| --- |
 | Organ | Dermatom | Projektion |
 | Diaphragma | C4 | Schulter |
 | Herz | Th3–4 | Linker Thorax |
@@ -122,38 +122,40 @@ Schmerzskalen
 
 ## Medikamentöse Schmerztherapie
 
-| Prinzipien der medikamentösen Schmerztherapie |  |
-| --- | --- |
+| Prinzipien der medikamentösen Schmerztherapie |
+| --- |
 | Prinzip | Erläuterung |
 | „By the mouth“ | Orale Applikation bevorzugen<br>Langwirksame (retardierte) Analgetika |
 | „By the clock“ | Regelmäßiges und festgelegtes Einnahme-Zeitschema |
 | „By the ladder“ | Entsprechend des WHO-Stufenschemas symptomorientierte Schmerzmedikation |
 
-Merkwort für die Prinzipien der Schmerztherapie: „DNA“ – „Durch den Mund“ – „Nach der Uhr“ – „Auf der Leiter“!
+> Merkwort für die Prinzipien der Schmerztherapie: „DNA“ – „Durch den Mund“ – „Nach der Uhr“ – „Auf der Leiter“!
 
 Auch hier werden zur Beurteilung des Verlaufs und des Therapieerfolgs regelmäßig Schmerzskalen wie die NRS oder VAS angewendet. Gleichzeitig sollten die Patient:innen immer über ihre Zufriedenheit mit der Schmerztherapie befragt werden.
 
-Jeder Schmerztherapie geht eine gründliche Anamnese zu Schmerzintensität und -qualität voraus!
+> Jeder Schmerztherapie geht eine gründliche Anamnese zu Schmerzintensität und -qualität voraus!
+
+> Bei Kindern wird die Dosis von Analgetika i.d.R. nach dem Körpergewicht berechnet, siehe auch: Medikamente gegen Fieber und/oder Schmerzen im Kindes- und Jugendalter!
 
 ### WHO-Stufenschema
 
-| WHO-Stufenschema |  |
-| --- | --- |
+| WHO-Stufenschema |
+| --- |
 | Stufe I | Nicht-Opioid-Analgetikum (± Koanalgetikum ± Adjuvans) |
 | Stufe II | Nicht-Opioid-Analgetikum + niedrigpotente Opioide (± Koanalgetikum ± Adjuvans) |
 | Stufe III | Nicht-Opioid-Analgetikum + hochpotente Opioide (± Koanalgetikum ± Adjuvans) |
 
 Die Therapie chronischer Schmerzen orientiert sich am WHO-Stufenschema . Die Medikation besteht aus einer Basistherapie (retardierte Präparate, die nach festem Schema und Dosierung eingenommen werden) und einer adäquaten Bedarfsmedikation (unretardierte Analgetika, die Schmerzspitzen therapieren). Weiterhin kann eine Begleitmedikation mit Koanalgetika und Adjuvanzien erfolgen, um spezielle Schmerzformen wirkungsvoller zu behandeln bzw. um Nebenwirkungen der Therapie entgegenzuwirken. Sind Patient:innen nicht schmerzfrei, muss in die nächsthöhere Stufe übergegangen werden.
 
-Ein häufiger „Fehler“ in der Schmerztherapie ist die Durchführung einer analgetischen Therapie mittels alleiniger Gabe eines Opioids. Um eine effektive und ausbalancierte Analgesie zu erreichen, sollte in jeder Behandlungsstufe die (zusätzliche) Gabe eines Nicht-Opioid-Analgetikums sowie ggf. eines Koanalgetikums erfolgen!
+> Ein häufiger „Fehler“ in der Schmerztherapie ist die Durchführung einer analgetischen Therapie mittels alleiniger Gabe eines Opioids. Um eine effektive und ausbalancierte Analgesie zu erreichen, sollte in jeder Behandlungsstufe die (zusätzliche) Gabe eines Nicht-Opioid-Analgetikums sowie ggf. eines Koanalgetikums erfolgen!
 
 ### Kurzübersicht Analgetika (Beispielsubstanzen)
 
-| Übersicht Analgetika (beispielhaft) |  |  |
-| --- | --- | --- |
+| Übersicht Analgetika (beispielhaft) |
+| --- |
 | Nicht-Opioid-Analgetika | Niedrigpotente Opioide | Hochpotente Opioide |
 | Diclofenac<br>Ibuprofen<br>Acetylsalicylsäure<br>Celecoxib<br>Paracetamol<br>Metamizol | Tramadol<br>Tilidin<br>Dihydrocodein | Morphin<br>Oxycodon<br>Levomethadon<br>Fentanyl<br>Pethidin<br>Buprenorphin<br>Piritramid |
-| Genaue Informationen zu den Substanzen befinden sich in den jeweiligen Kapiteln |  |  |
+| Genaue Informationen zu den Substanzen befinden sich in den jeweiligen Kapiteln |
 
 #### Bedarfsmedikation
 
@@ -202,7 +204,7 @@ Supportiv können zahlreiche Verfahren eine Schmerzreduktion erzielen. Die Erfol
 
 ## Therapieempfehlungen
 
-Für Therapieempfehlungen zur perioperativen Schmerztherapie siehe: Beispielalgorithmus für die Schmerztherapie im Aufwachraum sowie Beispielalgorithmus für die Schmerztherapie auf Station.
+> Für Therapieempfehlungen zur perioperativen Schmerztherapie siehe: Beispielalgorithmus für die Schmerztherapie im Aufwachraum sowie Beispielalgorithmus für die Schmerztherapie auf Station.
 
 ### Akutschmerztherapie in der Notaufnahme [2][3][4]
 
@@ -240,16 +242,16 @@ Für Therapieempfehlungen zur perioperativen Schmerztherapie siehe: Beispielalgo
   - Dosistitration bis zu einer Schmerzreduktion >3 Punkte auf der numerischen Schmerzskala
   - Anschlagszeit bei repetitiven Dosen beachten
 
-| Übersicht der Akutschmerztherapie in der Notaufnahme |  |  |
-| --- | --- | --- |
+| Übersicht der Akutschmerztherapie in der Notaufnahme |
+| --- |
 | Schmerzstärke | Primärer Therapieansatz | Mögliche Ergänzung |
 | Leicht | Ein Nicht-Opioid-Analgetikum | Kombination zweier Nicht-Opioid-Analgetika |
 | Moderat | Zwei Nicht-Opioid-Analgetika + hochpotentes Opioid (eher p.o.) | Intravenöse Gabe der Nicht-Opioid-Analgetika erwägen |
 | Stark | Hochpotentes Opioid (eher i.v.) | Kombination mit Nicht-Opioid-Analgetikum<br>Dosistitration des Opioids |
 
-Bei Therapieversagen kann trotz initial geringerer Schmerzen die Eskalation auf eine höhere Stufe erwogen werden!
+> Bei Therapieversagen kann trotz initial geringerer Schmerzen die Eskalation auf eine höhere Stufe erwogen werden!
 
-Bei der Akutschmerztherapie mit Opioiden (insb. bei i.v. Anwendung) ist wegen der drohenden Atemdepression ein Monitoring der Vitalparameter obligat!
+> Bei der Akutschmerztherapie mit Opioiden (insb. bei i.v. Anwendung) ist wegen der drohenden Atemdepression ein Monitoring der Vitalparameter obligat!
 
 Schmerzskalen
 
@@ -304,30 +306,16 @@ Inhaltliches Feedback zu den Meditricks-Videos bitte über den zugehörigen Feed
 
 ## Quellen
 
-1.
+1. Vickers, Linde: Acupuncture for Chronic Pain. In: JAMA. Band: 311, Nummer: 9, 2014, doi: 10.1001/jama.2013.285478p.955. Öffnen in LIVIVO by ZB MED
 
-Vickers, Linde: Acupuncture for Chronic PainIn: JAMA. Band: 311, Nummer: 9, 2014, doi: 10.1001/jama.2013.285478p.955. Öffnen in LIVIVO by ZB MED
+2. Kumle et al.: Schmerztherapie in der Notfallmedizin. In: Der Anaesthesist. Band: 62, Nummer: 11, 2013, doi: 10.1007/s00101-013-2247-xp.902-913. Öffnen in LIVIVO by ZB MED
 
-2.
+3. Häske et al.: Analgesie bei Traumapatienten in der Notfallmedizin. In: Der Anaesthesist. Band: 69, Nummer: 2, 2020, doi: 10.1007/s00101-020-00735-4p.137-148. Öffnen in LIVIVO by ZB MED
 
-Kumle et al.: Schmerztherapie in der NotfallmedizinIn: Der Anaesthesist. Band: 62, Nummer: 11, 2013, doi: 10.1007/s00101-013-2247-xp.902-913. Öffnen in LIVIVO by ZB MED
+4. Michael et al.: Analgesie, Sedierung und Anästhesie in der Notfallmedizin. In: Anästhesiologie & Intensivmedizin. Band: 61, Nummer: 2, 2020, doi: 10.19224/ai2020.051p.51-65. Öffnen in LIVIVO by ZB MED
 
-3.
+5. Bähr, Frotscher: Neurologisch-topische Diagnostik. 10. Auflage Thieme 2014, ISBN: 978-3-135-35810-9. Öffnen in LIVIVO by ZB MED
 
-Häske et al.: Analgesie bei Traumapatienten in der NotfallmedizinIn: Der Anaesthesist. Band: 69, Nummer: 2, 2020, doi: 10.1007/s00101-020-00735-4p.137-148. Öffnen in LIVIVO by ZB MED
+6. Schmidt, Schaible: Neuro- und Sinnesphysiologie. 5. Auflage Springer 2005, ISBN: 978-3-540-25700-4. Öffnen in LIVIVO by ZB MED
 
-4.
-
-Michael et al.: Analgesie, Sedierung und Anästhesie in der NotfallmedizinIn: Anästhesiologie & Intensivmedizin. Band: 61, Nummer: 2, 2020, doi: 10.19224/ai2020.051p.51-65. Öffnen in LIVIVO by ZB MED
-
-5.
-
-Bähr, Frotscher: Neurologisch-topische Diagnostik. 10. Auflage Thieme 2014, ISBN: 978-3-135-35810-9. Öffnen in LIVIVO by ZB MED
-
-6.
-
-Schmidt, Schaible: Neuro- und Sinnesphysiologie. 5. Auflage Springer 2005, ISBN: 978-3-540-25700-4. Öffnen in LIVIVO by ZB MED
-
-7.
-
-Karow: Allgemeine und Spezielle Pharmakologie und Toxikologie 2021. 29. Auflage Thomas Karow (Verlag) 2020, ISBN: 978-3-982-12231-1. Öffnen in LIVIVO by ZB MED
+7. Karow: Allgemeine und Spezielle Pharmakologie und Toxikologie 2021. 29. Auflage Thomas Karow (Verlag) 2020, ISBN: 978-3-982-12231-1. Öffnen in LIVIVO by ZB MED

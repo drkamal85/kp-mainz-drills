@@ -1,67 +1,72 @@
 {
- "slug": "schmerztherapie",
- "deck": "reviews/drittes-fach/schmerztherapie.html",
- "capture": [
-  "sources/amboss/schmerztherapie.md"
- ],
- "counts": {
-  "ok": 24,
-  "fix": 0,
-  "unclear": 10
- },
- "fixes": [],
- "unclear": [
-  {
-   "panel": "grundlagen",
-   "deck_text": "μ, δ, κ — der μ-Rezeptor macht die Wirkung und alle Nebenwirkungen; Naloxon hebt alles auf",
-   "reason": "nicht in Erfassung"
+  "slug": "schmerztherapie",
+  "deck": "reviews/drittes-fach/schmerztherapie.html",
+  "capture": [
+    "sources/amboss/schmerztherapie.md"
+  ],
+  "counts": {
+    "ok": 24,
+    "fix": 0,
+    "unclear": 11
   },
-  {
-   "panel": "grundlagen",
-   "deck_text": "Kortison: Schwellung, etwa bei Metastasen",
-   "reason": "AMBOSS: Glucocorticoide bei Hirndruck und Nervenkompression; kompatibel"
-  },
-  {
-   "panel": "klinik",
-   "deck_text": "Gewebeschmerz spricht auf Opioide an, Nervenschmerz nicht",
-   "reason": "AMBOSS gliedert zentral/peripher anders; nicht direkt vergleichbar"
-  },
-  {
-   "panel": "klinik",
-   "deck_text": "Metamizol: Agranulozytose; Paracetamol: Leber; NSAR: Ulkus/Niere; Obstipation ohne Toleranz",
-   "reason": "Substanz-NW nicht in Erfassung"
-  },
-  {
-   "panel": "diagnostik",
-   "deck_text": "Beim Dementen oder Beatmeten nach Mimik und Unruhe gehen",
-   "reason": "nicht in Erfassung"
-  },
-  {
-   "panel": "therapie",
-   "deck_text": "Opioidrotation; Naloxon 0,4 mg i.v.",
-   "reason": "nicht in Erfassung"
-  },
-  {
-   "panel": "therapie",
-   "deck_text": "BtM-Rezept: gelb, dreiteilig, 8 Tage, 3 Jahre, 30 Tage, N1–N3",
-   "reason": "BtM-Recht nicht in Erfassung"
-  },
-  {
-   "panel": "perlen",
-   "deck_text": "Kolik: Metamizol + Buscopan, Nitrospray; Remifentanil; Amitriptylin-Wirkmechanismus",
-   "reason": "protokollbasiert / nicht in Erfassung"
-  },
-  {
-   "panel": "protokoll",
-   "deck_text": "Neutrophile unter 500/µl; Diclofenac-KI NYHA II, KHK, pAVK",
-   "reason": "nicht in Erfassung"
-  },
-  {
-   "panel": "protokoll",
-   "deck_text": "Der chronische besteht über 3 Monate",
-   "reason": "AMBOSS: länger als drei bis zwölf Monate je nach Definition; kompatibel"
-  }
- ],
- "status": "done",
- "validated": "2026-10-14"
+  "fixes": [],
+  "unclear": [
+    {
+      "panel": "grundlagen",
+      "deck_text": "μ, δ, κ — der μ-Rezeptor macht Wirkung und alle Nebenwirkungen; Naloxon",
+      "reason": "Opioidrezeptoren nicht in der Erfassung"
+    },
+    {
+      "panel": "grundlagen",
+      "deck_text": "Kortison: Schwellung, etwa bei Metastasen",
+      "reason": "Capture: Glucocorticoide bei Hirndruck und Nervenkompression; Bisphosphonate bei Knochenmetastasen — vereinfachte Zuordnung, kein klarer Widerspruch"
+    },
+    {
+      "panel": "klinik",
+      "deck_text": "Gewebeschmerz spricht auf Opioide an, Nervenschmerz nicht",
+      "reason": "Capture äußert sich nicht zur Opioid-Wirksamkeit beim neuropathischen Schmerz"
+    },
+    {
+      "panel": "klinik",
+      "deck_text": "Nebenwirkungen Metamizol/Paracetamol/NSAR; Antidot Acetylcystein; keine Toleranz für Obstipation",
+      "reason": "Substanz-UAW nicht in der Erfassung"
+    },
+    {
+      "panel": "therapie",
+      "deck_text": "Naloxon 0,4 mg i.v.; kürzere Wirkdauer als Opioid",
+      "reason": "nicht in der Erfassung"
+    },
+    {
+      "panel": "therapie",
+      "deck_text": "BTM-Rezept: gelb, dreiteilig, 8 Tage, 3 Jahre, 30 Tage Höchstmengen, N1–N3",
+      "reason": "nicht in der Erfassung"
+    },
+    {
+      "panel": "perlen",
+      "deck_text": "Kolik: Metamizol + Buscopan, Nitrospray",
+      "reason": "protokollbasierte Prüfungsformulierung, nicht in der Erfassung"
+    },
+    {
+      "panel": "perlen",
+      "deck_text": "Remifentanil: extrem kurze Wirkdauer, organunabhängiger Abbau",
+      "reason": "nicht in der Erfassung"
+    },
+    {
+      "panel": "protokoll",
+      "deck_text": "Neutrophile unter 500/µl bei Agranulozytose",
+      "reason": "nicht in der Erfassung"
+    },
+    {
+      "panel": "protokoll",
+      "deck_text": "Diclofenac KI Herzinsuffizienz ab NYHA II, KHK, pAVK, zerebrovaskulär",
+      "reason": "nicht in der Erfassung"
+    },
+    {
+      "panel": "protokoll",
+      "deck_text": "Chronischer Schmerz über 3 Monate",
+      "reason": "Capture: länger als drei bis zwölf Monate (je nach Definition) — Untergrenze stimmt, Definitionsnuance"
+    }
+  ],
+  "status": "done",
+  "validated": "2026-11-13"
 }

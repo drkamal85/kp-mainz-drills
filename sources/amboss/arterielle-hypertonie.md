@@ -2,11 +2,11 @@
 
 - **Artikel-ID:** Xh09cf
 - **URL:** https://next.amboss.com/de/article/Xh09cf
-- **Zuletzt bearbeitet (AMBOSS):** 13.10.2026
-- **Erfasst:** 2026-10-23
-- **Methode:** Browser-Tool Copy/Paste-Methode (Claude-Browser, AMBOSS Lernansicht), keine Website-Bearbeitung. Jeder Abschnitt einzeln ausgeklappt, in den Viewport gescrollt und per DOM-Textextraktion wörtlich übernommen; Listen-Hierarchie und Tabellen aus der Seitenstruktur übertragen (Zeilenumbrüche in Tabellenzellen als <br>). Keine Paraphrasierung, nichts ergänzt.
+- **Zuletzt bearbeitet (AMBOSS):** 02.11.2026
+- **Erfasst:** 2026-11-13
+- **Methode:** Browser-Tool Copy/Paste-Methode (Claude-Browser, AMBOSS Lernansicht), keine Website-Bearbeitung. Alle Abschnitte ausgeklappt, jeder Abschnitt einzeln in den Viewport gescrollt und per DOM-Textextraktion wörtlich übernommen; Listen-Hierarchie und Tabellen aus der Seitenstruktur übertragen (Zeilenumbrüche in Tabellenzellen als <br>, Merke-/Cave-Kästen als Zitat ">"). Keine Paraphrasierung, nichts ergänzt.
 - **KP-Zuordnung:** Topic #9 "Arterielle Hypertonie" (KERN)
-- **Bekannte Lücken:** Bildinhalte/Grafiken nur soweit als Text (Bildunterschrift/Verweis) im Artikel vorhanden; Popup-Definitionen (Info-Kästchen) und Dosierungs-Aufklapper nicht einzeln geöffnet; Audio/Video (Podcast, Meditricks) nur als Titel. Alle Abschnitte des Kapitels lieferten Text (kein leerer Abschnitt).
+- **Bekannte Lücken:** Bildinhalte/Grafiken nur soweit als Text (Bildtitel/Verweis) im Artikel vorhanden; Popup-Definitionen und Dosierungs-Aufklapper nicht einzeln geöffnet; Audio/Video (Podcast, Meditricks) nur als Titel. Alle Abschnitte lieferten Text.
 
 ---
 
@@ -189,7 +189,7 @@ NierenarterienstenosePerkutane transluminale Angioplastie (PTA) ohne und mit Ste
 
 NierenarterienstenoseBilaterale NierenarterienstenoseLinke Nierenarterienstenose
 
-## Symptomatik
+## Symptomatik[1][4]
 
 - Häufig lange asymptomatisch
 - Ggf. unspezifische Symptome
@@ -213,7 +213,7 @@ NierenarterienstenoseBilaterale NierenarterienstenoseLinke Nierenarterienstenose
 - Stadium 2: Hypertoniebedingte Endorganschäden, Diabetes mellitus oder chronische Nierenkrankheit (Stadium G3)
 - Stadium 3: Kardiovaskuläre Erkrankung oder chronische Nierenkrankheit (Stadium G4 oder G5)
 
-## Diagnostik
+## Diagnostik[1][2][4]
 
 ### Screening
 
@@ -554,7 +554,7 @@ Standardgetränke mit ca. 12 g Reinalkohol
   - Indikation: Nach individueller Abwägung möglich bei unkontrollierter resistenter Hypertonie oder Unverträglichkeiten gegen Antihypertensiva [2][19]
 - Baroreflexstimulation: Aktuell (außerhalb klinischer Studien) nicht empfohlen
 
-## Hypertensive Entgleisung
+## Hypertensive Entgleisung[1][4][5]
 
 ### Definition
 
@@ -654,7 +654,7 @@ Standardgetränke mit ca. 12 g Reinalkohol
 
 Symptomkarte: Hypertensive Entgleisung und hypertensiver Notfall
 
-## Hypertensiver Notfall
+## Hypertensiver Notfall[2][4][5]
 
 Die im klinischen Alltag mitunter noch weitverbreitete Formulierung „Hypertensive Krise“ gilt als obsolet und wird in den Leitlinien nicht mehr verwendet. Dieser Überbegriff umfasste definitionsgemäß die hypertensive Entgleisung und den hypertensiven Notfall, die sich jedoch insb. in ihrer Behandlung deutlich unterscheiden. Mitunter wurde der Begriff auch als Synonym für eine hypertensive Entgleisung ≥180 mmHg systolisch oder ≥110 mmHg diastolisch genutzt. Für die nachfolgend beschriebenen Situationen mit dem Auftreten akuter, potenziell lebensbedrohlicher Endorganschäden – in denen eine umgehende Behandlung notwendig ist – sollte die Formulierung hypertensiver Notfall verwendet werden. Davon abzugrenzen ist die hypertensive Entgleisung ohne akute Endorganschäden (siehe dazu: Hypertensive Entgleisung). [5]
 
@@ -790,7 +790,7 @@ Die im klinischen Alltag mitunter noch weitverbreitete Formulierung „Hypertens
 
 Symptomkarte: Hypertensive Entgleisung und hypertensiver Notfall
 
-## Maligne Hypertonie
+## Maligne Hypertonie[2][4][5]
 
 - Definition: Hypertensiver Notfall, Syndrom aus
   - Schwerer arterieller Hypertonie
@@ -849,7 +849,7 @@ Ein akuter Blutdruckanstieg ohne eine begleitende akute Organschädigung wird al
 
 Symptomkarte: Hypertensive Entgleisung und hypertensiver NotfallRuhe-EKG schreiben (12-Kanal-EKG) | Praktische Fähigkeiten | AMBOSS
 
-## Komplikationen
+## Komplikationen[4]
 
 In dieser Sektion werden Komplikationen langfristig erhöhter Blutdruckwerte behandelt. Für Komplikationen kurzfristig erhöhter Blutdruckwerte siehe: Hypertensive Entgleisung und hypertensiver Notfall.
 
@@ -936,7 +936,7 @@ Hämosiderinablagerungen in den Stammganglien und im Thalamus (MRT) 1/2Hämoside
 
 Es werden die wichtigsten Komplikationen genannt. Kein Anspruch auf Vollständigkeit.
 
-## Nachsorge
+## Nachsorge[1][4]
 
 Bei arterieller Hypertonie ist eine konsequente und regelmäßige Nachsorge notwendig, um eine gute Blutdruckeinstellung gewährleisten zu können. Die Langzeitbetreuung erfolgt i.d.R. in einer hausärztlichen Praxis.
 
@@ -967,12 +967,12 @@ Bei arterieller Hypertonie ist eine konsequente und regelmäßige Nachsorge notw
   - Ggf. Hilfestellungen für weitere Optimierung nicht-medikamentöser Maßnahmen
   - Siehe auch: Therapie der arteriellen Hypertonie
 
-## Fahreignung bei arterieller Hypertonie
+## Fahreignung bei arterieller Hypertonie[29]
 
 | Fahreignung bei arterieller Hypertonie |
 | --- |
 | Private Fahrer:innen | Berufskraftfahrer:innen |
-| Keine Fahreignung bei<br>Zerebraler Symptomatik oder<br>Sehstörungen | Keine Fahreignung bei<br>Zerebraler Symptomatik oder<br>Sehstörungen oder<br>Blutdruckwerten >180 mmHg systolisch bzw. >110 mmHg diastolisch (Einzelfallentscheidung) |
+| Keine Fahreignung bei Zerebraler Symptomatik oder<br>Sehstörungen | Keine Fahreignung bei Zerebraler Symptomatik oder<br>Sehstörungen oder<br>Blutdruckwerten >180 mmHg systolisch bzw. >110 mmHg diastolisch (Einzelfallentscheidung) |
 | Bei medikamentöser antihypertensiver Therapie: Auf möglichen Kontrollverlust am Steuer durch Blutdruckabfall hinweisen |
 
 - Für Empfehlungen zur Fahreignung im Rahmen weiterer kardiovaskulärer Erkrankungen siehe auch:
@@ -1158,53 +1158,53 @@ Quelle: In Anlehnung an die ICD-10-GM Version 2026, BfArM.
 
 1. Nationale VersorgungsLeitlinie (NVL) Hypertonie – Langfassung 2023 (Version 1.0)Stand: 2023. Abgerufen am: 30.06.2023.
 
-2. Mancia et al.: 2023 ESH Guidelines for the management of arterial hypertension: The Task Force for the management of arterial hypertension of the European Society of Hypertension Endorsed by the International Society of Hypertension (ISH) and the European Renal Association (ERA)In: Journal of Hypertension. 2023, doi: 10.1097/hjh.0000000000003480Öffnen in LIVIVO by ZB MED
+2. Mancia et al.: 2023 ESH Guidelines for the management of arterial hypertension: The Task Force for the management of arterial hypertension of the European Society of Hypertension Endorsed by the International Society of Hypertension (ISH) and the European Renal Association (ERA). In: Journal of Hypertension. 2023, doi: 10.1097/hjh.0000000000003480Öffnen in LIVIVO by ZB MED
 
-3. McEvoy et al.: 2024 ESC Guidelines for the management of elevated blood pressure and hypertensionIn: European Heart Journal. Band: 45, Nummer: 38, 2024, doi: 10.1093/eurheartj/ehae178p.3912-4018. Öffnen in LIVIVO by ZB MED
+3. McEvoy et al.: 2024 ESC Guidelines for the management of elevated blood pressure and hypertension. In: European Heart Journal. Band: 45, Nummer: 38, 2024, doi: 10.1093/eurheartj/ehae178p.3912-4018. Öffnen in LIVIVO by ZB MED
 
-4. Williams et al.: ESC/ESH Guidelines for the management of arterial hypertensionIn: European Heart Journal. Band: 39, Nummer: 33, 2018, doi: 10.1093/eurheartj/ehy339p.3021-3104. Öffnen in LIVIVO by ZB MED
+4. Williams et al.: ESC/ESH Guidelines for the management of arterial hypertension. In: European Heart Journal. Band: 39, Nummer: 33, 2018, doi: 10.1093/eurheartj/ehy339p.3021-3104. Öffnen in LIVIVO by ZB MED
 
-5. Born et al.: ESC Council on hypertension position document on the management of hypertensive emergenciesIn: European Heart Journal - Cardiovascular Pharmacotherapy. Band: 5, Nummer: 1, 2018, doi: 10.1093/ehjcvp/pvy032p.37-46. Öffnen in LIVIVO by ZB MED
+5. Born et al.: ESC Council on hypertension position document on the management of hypertensive emergencies. In: European Heart Journal - Cardiovascular Pharmacotherapy. Band: 5, Nummer: 1, 2018, doi: 10.1093/ehjcvp/pvy032p.37-46. Öffnen in LIVIVO by ZB MED
 
-6. Ding et al.: Long-Term Coffee Consumption and Risk of Cardiovascular DiseaseIn: Circulation. Band: 129, Nummer: 6, 2014, doi: 10.1161/circulationaha.113.005925p.643-659. Öffnen in LIVIVO by ZB MED
+6. Ding et al.: Long-Term Coffee Consumption and Risk of Cardiovascular Disease. In: Circulation. Band: 129, Nummer: 6, 2014, doi: 10.1161/circulationaha.113.005925p.643-659. Öffnen in LIVIVO by ZB MED
 
 7. Endokrine Hypertonie (Sekundäre Hypertonie)Abgerufen am: 15.06.2023.
 
-8. Spitzweg, Reincke: Schilddrüse und BlutdruckIn: Der Internist. Band: 51, Nummer: 5, 2010, doi: 10.1007/s00108-009-2499-3p.603-610. Öffnen in LIVIVO by ZB MED
+8. Spitzweg, Reincke: Schilddrüse und Blutdruck. In: Der Internist. Band: 51, Nummer: 5, 2010, doi: 10.1007/s00108-009-2499-3p.603-610. Öffnen in LIVIVO by ZB MED
 
-9. Hansen, Rump: Hypokaliämische Hypertonie durch LakritzabususIn: DMW - Deutsche Medizinische Wochenschrift. Band: 132, Nummer: 46, 2007, doi: 10.1055/s-2007-991671p.2447-2448. Öffnen in LIVIVO by ZB MED
+9. Hansen, Rump: Hypokaliämische Hypertonie durch Lakritzabusus. In: DMW - Deutsche Medizinische Wochenschrift. Band: 132, Nummer: 46, 2007, doi: 10.1055/s-2007-991671p.2447-2448. Öffnen in LIVIVO by ZB MED
 
 10. S2k-Leitlinie: Erkrankungen der NierenarterieStand: 2017. Abgerufen am: 15.06.2023.
 
-11. Clark et al.: Association of a difference in systolic blood pressure between arms with vascular disease and mortality: a systematic review and meta-analysisIn: The Lancet. Band: 379, Nummer: 9819, 2012, doi: 10.1016/s0140-6736(11)61710-8p.905-914. Öffnen in LIVIVO by ZB MED
+11. Clark et al.: Association of a difference in systolic blood pressure between arms with vascular disease and mortality: a systematic review and meta-analysis. In: The Lancet. Band: 379, Nummer: 9819, 2012, doi: 10.1016/s0140-6736(11)61710-8p.905-914. Öffnen in LIVIVO by ZB MED
 
-12. Ishigami et al.: Effects of Cuff Size on the Accuracy of Blood Pressure ReadingsIn: JAMA Internal Medicine. 2023, doi: 10.1001/jamainternmed.2023.3264Öffnen in LIVIVO by ZB MED
+12. Ishigami et al.: Effects of Cuff Size on the Accuracy of Blood Pressure Readings. In: JAMA Internal Medicine. 2023, doi: 10.1001/jamainternmed.2023.3264Öffnen in LIVIVO by ZB MED
 
-13. Zheng et al.: How Important is the Recommended Slow Cuff Pressure Deflation Rate for Blood Pressure Measurement?In: Annals of Biomedical Engineering. Band: 39, Nummer: 10, 2011, doi: 10.1007/s10439-011-0347-9p.2584-2591. Öffnen in LIVIVO by ZB MED
+13. Zheng et al.: How Important is the Recommended Slow Cuff Pressure Deflation Rate for Blood Pressure Measurement?. In: Annals of Biomedical Engineering. Band: 39, Nummer: 10, 2011, doi: 10.1007/s10439-011-0347-9p.2584-2591. Öffnen in LIVIVO by ZB MED
 
-14. Middeke: Chronopathologie der Hypertonie und antihypertensive ChronotherapieIn: Aktuelle Kardiologie. Band: 2, Nummer: 03, 2013, doi: 10.1055/s-0032-1328503p.183-188. Öffnen in LIVIVO by ZB MED
+14. Middeke: Chronopathologie der Hypertonie und antihypertensive Chronotherapie. In: Aktuelle Kardiologie. Band: 2, Nummer: 03, 2013, doi: 10.1055/s-0032-1328503p.183-188. Öffnen in LIVIVO by ZB MED
 
-15. Kamhieh‐Milz et al.: Regular blood donation may help in the management of hypertension: an observational study on 292 blood donorsIn: Transfusion. Band: 56, Nummer: 3, 2015, doi: 10.1111/trf.13428p.637-644. Öffnen in LIVIVO by ZB MED
+15. Kamhieh‐Milz et al.: Regular blood donation may help in the management of hypertension: an observational study on 292 blood donors. In: Transfusion. Band: 56, Nummer: 3, 2015, doi: 10.1111/trf.13428p.637-644. Öffnen in LIVIVO by ZB MED
 
 16. Global Strategy for Asthma Management and Prevention - Updated 2021Stand: 2021. Abgerufen am: 05.01.2022.
 
-17. Williams et al.: Spironolactone versus placebo, bisoprolol, and doxazosin to determine the optimal treatment for drug-resistant hypertension (PATHWAY-2): a randomised, double-blind, crossover trialIn: The Lancet. Band: 386, Nummer: 10008, 2015, doi: 10.1016/s0140-6736(15)00257-3p.2059-2068. Öffnen in LIVIVO by ZB MED
+17. Williams et al.: Spironolactone versus placebo, bisoprolol, and doxazosin to determine the optimal treatment for drug-resistant hypertension (PATHWAY-2): a randomised, double-blind, crossover trial. In: The Lancet. Band: 386, Nummer: 10008, 2015, doi: 10.1016/s0140-6736(15)00257-3p.2059-2068. Öffnen in LIVIVO by ZB MED
 
-18. Parving et al.: Cardiorenal End Points in a Trial of Aliskiren for Type 2 DiabetesIn: New England Journal of Medicine. Band: 367, Nummer: 23, 2012, doi: 10.1056/nejmoa1208799p.2204-2213. Öffnen in LIVIVO by ZB MED
+18. Parving et al.: Cardiorenal End Points in a Trial of Aliskiren for Type 2 Diabetes. In: New England Journal of Medicine. Band: 367, Nummer: 23, 2012, doi: 10.1056/nejmoa1208799p.2204-2213. Öffnen in LIVIVO by ZB MED
 
-19. Halbach et al.: Kommentar zum Konsensuspapier zur renalen Denervation der Arbeitsgruppe Hypertonie der European Society of Cardiology (ESC) und der European Association of Percutaneous Cardiovascular Interventions (EAPCI)In: Die Kardiologie. 2023, doi: 10.1007/s12181-023-00618-zÖffnen in LIVIVO by ZB MED
+19. Halbach et al.: Kommentar zum Konsensuspapier zur renalen Denervation der Arbeitsgruppe Hypertonie der European Society of Cardiology (ESC) und der European Association of Percutaneous Cardiovascular Interventions (EAPCI). In: Die Kardiologie. 2023, doi: 10.1007/s12181-023-00618-zÖffnen in LIVIVO by ZB MED
 
-20. Göbel, Matlach: Hypertone Veränderungen des FundusIn: Der Ophthalmologe. Band: 110, Nummer: 10, 2013, doi: 10.1007/s00347-013-2953-4p.995-1007. Öffnen in LIVIVO by ZB MED
+20. Göbel, Matlach: Hypertone Veränderungen des Fundus. In: Der Ophthalmologe. Band: 110, Nummer: 10, 2013, doi: 10.1007/s00347-013-2953-4p.995-1007. Öffnen in LIVIVO by ZB MED
 
-21. Peixoto, Solomon: Acute Severe HypertensionIn: New England Journal of Medicine. Band: 381, Nummer: 19, 2019, doi: 10.1056/nejmcp1901117p.1843-1852. Öffnen in LIVIVO by ZB MED
+21. Peixoto, Solomon: Acute Severe Hypertension. In: New England Journal of Medicine. Band: 381, Nummer: 19, 2019, doi: 10.1056/nejmcp1901117p.1843-1852. Öffnen in LIVIVO by ZB MED
 
-22. Hirschl: Guidelines for the drug treatment of hypertensive crisesIn: Drugs. Band: 50, Nummer: 6, 1995, p.991-1000. Öffnen in LIVIVO by ZB MED
+22. Hirschl: Guidelines for the drug treatment of hypertensive crises. In: Drugs. Band: 50, Nummer: 6, 1995, p.991-1000. Öffnen in LIVIVO by ZB MED
 
 23. Karow: Allgemeine und Spezielle Pharmakologie und Toxikologie 2021. 29. Auflage Thomas Karow (Verlag) 2020, ISBN: 978-3-982-12231-1. Öffnen in LIVIVO by ZB MED
 
-24. Regitz-Zagrosek et al.: 2018 ESC Guidelines for the management of cardiovascular diseases during pregnancyIn: European Heart Journal. Band: 39, Nummer: 34, 2018, doi: 10.1093/eurheartj/ehy340p.3165-3241. Öffnen in LIVIVO by ZB MED
+24. Regitz-Zagrosek et al.: 2018 ESC Guidelines for the management of cardiovascular diseases during pregnancy. In: European Heart Journal. Band: 39, Nummer: 34, 2018, doi: 10.1093/eurheartj/ehy340p.3165-3241. Öffnen in LIVIVO by ZB MED
 
-25. Mahfoud et al.: Kommentar zu den Leitlinien (2018) der Europäischen Gesellschaft für Kardiologie (ESC) und der Europäischen Gesellschaft für Hypertonie (ESH) für das Management der arteriellen HypertonieIn: Der Kardiologe. Band: 13, Nummer: 1, 2019, doi: 10.1007/s12181-019-0300-yp.17-23. Öffnen in LIVIVO by ZB MED
+25. Mahfoud et al.: Kommentar zu den Leitlinien (2018) der Europäischen Gesellschaft für Kardiologie (ESC) und der Europäischen Gesellschaft für Hypertonie (ESH) für das Management der arteriellen Hypertonie. In: Der Kardiologe. Band: 13, Nummer: 1, 2019, doi: 10.1007/s12181-019-0300-yp.17-23. Öffnen in LIVIVO by ZB MED
 
 26. S2k-Leitlinie Behandlung von spontanen intrazerebralen BlutungenStand: 2021. Abgerufen am: 05.09.2023.
 
@@ -1214,6 +1214,6 @@ Quelle: In Anlehnung an die ICD-10-GM Version 2026, BfArM.
 
 29. Herold et al.: Innere Medizin 2021. Herold 2021, ISBN: 978-3-982-11660-0. Öffnen in LIVIVO by ZB MED
 
-30. Whelton et al.: 2017 ACC/AHA/AAPA/ABC/ACPM/AGS/APhA/ASH/ASPC/NMA/PCNA Guideline for the Prevention, Detection, Evaluation, and Management of High Blood Pressure in Adults: Executive SummaryIn: Journal of the American College of Cardiology. 2017, doi: 10.1016/j.jacc.2017.11.005Öffnen in LIVIVO by ZB MED
+30. Whelton et al.: 2017 ACC/AHA/AAPA/ABC/ACPM/AGS/APhA/ASH/ASPC/NMA/PCNA Guideline for the Prevention, Detection, Evaluation, and Management of High Blood Pressure in Adults: Executive Summary. In: Journal of the American College of Cardiology. 2017, doi: 10.1016/j.jacc.2017.11.005Öffnen in LIVIVO by ZB MED
 
 31. Herold et al.: Innere Medizin 2024. Dr. med. Gerd Herold 2023, ISBN: 978-3-982-11663-1. Öffnen in LIVIVO by ZB MED

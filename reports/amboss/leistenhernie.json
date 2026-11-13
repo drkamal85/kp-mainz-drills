@@ -1,113 +1,99 @@
 {
- "slug": "leistenhernie",
- "deck": "reviews/chirurgie/leistenhernie.html",
- "capture": [
-  "sources/amboss/leistenhernie.md"
- ],
- "counts": {
-  "ok": 36,
-  "fix": 1,
-  "unclear": 15
- },
- "fixes": [
-  {
-   "panel": "protokoll",
-   "deck_text": "Ich operiere dringlich, reponiere den Darm und prüfe seine Vitalität.",
-   "new_text": "Ich operiere notfallmäßig, reponiere den Darm und prüfe seine Vitalität.",
-   "amboss_quote": "- Inkarzerierten Leistenhernien → Sofortiger Notfalleingriff",
-   "pass": 2
-  }
- ],
- "unclear": [
-  {
-   "panel": "grundlagen",
-   "deck_text": "Indirekt: angeboren (Kinder/junge ♂)",
-   "reason": "AMBOSS: angeboren oder erworben; Mnemonic-Vereinfachung"
+  "slug": "leistenhernie",
+  "deck": "reviews/chirurgie/leistenhernie.html",
+  "capture": [
+    "sources/amboss/leistenhernie.md"
+  ],
+  "counts": {
+    "ok": 34,
+    "fix": 1,
+    "unclear": 15
   },
-  {
-   "panel": "grundlagen",
-   "deck_text": "Haut → Camper-Fett → 3 Muskeln → Fascia transversalis → Peritoneum",
-   "reason": "Schichtaufbau nicht in Erfassung"
-  },
-  {
-   "panel": "grundlagen",
-   "deck_text": "Nabelhernie / Narbenhernie / Hiatushernie (Übersicht)",
-   "reason": "nicht in Erfassung (Grundlagenkapitel Hernien fehlt)"
-  },
-  {
-   "panel": "klinik",
-   "deck_text": "Narbenhernie: Entsteht nach Laparotomie ... Operation dringlich",
-   "reason": "nicht in Erfassung"
-  },
-  {
-   "panel": "klinik",
-   "deck_text": "Hiatushernie: Axial in über 90 Prozent ... ÖGD, PPI",
-   "reason": "nicht in Erfassung"
-  },
-  {
-   "panel": "diagnostik",
-   "deck_text": "MRT nur bei unklarem Befund",
-   "reason": "nicht in Erfassung"
-  },
-  {
-   "panel": "diagnostik",
-   "deck_text": "Hodentumor; Lymphom, Lymphknotenmetastase",
-   "reason": "nicht explizit in DD-Liste (nicht vollständig)"
-  },
-  {
-   "panel": "therapie",
-   "deck_text": "Lichtenstein: spannungsfreie Netzplastik — Goldstandard offen",
-   "reason": "Goldstandard-Aussage nicht in Erfassung"
-  },
-  {
-   "panel": "therapie",
-   "deck_text": "Rezidiv ~0,5–10 %. Komplikationen: Ductus-deferens-Verletzung, Nervenläsion ...",
-   "reason": "OP-Komplikationen nicht in Erfassung (Lücke)"
-  },
-  {
-   "panel": "perlen",
-   "deck_text": "Schenkelhernie (klemmt in 30 % ein) nicht sicher ausgeschlossen",
-   "reason": "Begründung/Rate nicht in Erfassung"
-  },
-  {
-   "panel": "perlen",
-   "deck_text": "Femoralhernie: unterhalb Leistenband, medial der V. femoralis, ältere Frauen",
-   "reason": "nicht in Erfassung"
-  },
-  {
-   "panel": "protokoll",
-   "deck_text": "Bei Shouldice dopple ich die Fascia transversalis und fixiere sie am Leistenband.",
-   "reason": "AMBOSS: Internus/Transversus am Leistenband fixiert; kompatibel"
-  },
-  {
-   "panel": "protokoll",
-   "deck_text": "Ein Netz lege ich nicht ein, weil die Infektionsgefahr erhöht ist.",
-   "reason": "nicht in Erfassung"
-  },
-  {
-   "panel": "protokoll",
-   "deck_text": "Beim Rezidiv wechsle ich das Verfahren ...",
-   "reason": "nicht in Erfassung"
-  },
-  {
-   "panel": "protokoll",
-   "deck_text": "Bei beidseitigen Hernien operiere ich laparoskopisch mit TAPP oder TEP.",
-   "reason": "nicht in Erfassung"
-  }
- ],
- "status": "done",
- "validated": "2026-10-09",
- "second_pass": {
-  "date": "2026-10-09",
-  "checked": 46,
-  "applied": 1,
-  "rejected_by_orchestrator": []
- },
- "third_pass": {
-  "date": "2026-10-10",
-  "model": "fable",
-  "checked": 42,
-  "applied": 0,
-  "rejected_by_orchestrator": []
- }
+  "fixes": [
+    {
+      "panel": "therapie",
+      "deck_text": "⚙ Rezidiv ~0,5–10 %.",
+      "new_text": "⚙ Rezidiv ~0,5–15 %.",
+      "amboss_quote": "- Rezidivrate nach operativer Versorgung: Ca. 0,5–15% [24]"
+    }
+  ],
+  "unclear": [
+    {
+      "panel": "grundlagen",
+      "deck_text": "Indirekt: angeboren (LIA-Mnemonik); Rapid-Fire 'meist angeboren'",
+      "reason": "Capture: indirekt 'Angeboren oder erworben' — Mnemonik/'meist' ist Vereinfachung, kein klarer Widerspruch; Mnemonik nicht editierbar"
+    },
+    {
+      "panel": "grundlagen",
+      "deck_text": "Nabelhernie Spontanverschluss bis 2. Lebensjahr; Hiatushernie axial/paraösophageal",
+      "reason": "nicht in der Erfassung"
+    },
+    {
+      "panel": "grundlagen",
+      "deck_text": "Schichten Bauchwand (Camper-Fett ...)",
+      "reason": "Schichtaufbau nur als Bildtitel in der Erfassung"
+    },
+    {
+      "panel": "klinik",
+      "deck_text": "Narbenhernie häufigste Ursache einer Einklemmung; Narbenhernie-Inkarzeration dringlich",
+      "reason": "Narbenhernie nicht in der Erfassung"
+    },
+    {
+      "panel": "klinik",
+      "deck_text": "Hiatushernie axial >90 %, Upside-down-Magen, ÖGD, PPI",
+      "reason": "nicht in der Erfassung"
+    },
+    {
+      "panel": "diagnostik",
+      "deck_text": "Sono entscheidet elektiv gegen Notfall",
+      "reason": "Capture: Sonografie Verfahren der Wahl; Entscheidungsfunktion nicht beschrieben"
+    },
+    {
+      "panel": "therapie",
+      "deck_text": "Lichtenstein Goldstandard offen",
+      "reason": "Capture: Verfahren der Wahl bei bestimmten Indikationen; 'Goldstandard' nicht so benannt"
+    },
+    {
+      "panel": "therapie",
+      "deck_text": "Komplikation Netzschrumpfung",
+      "reason": "Capture nur: Langzeitkomplikationen nach Netzeinlage"
+    },
+    {
+      "panel": "perlen",
+      "deck_text": "Schenkelhernie klemmt in 30 % ein; Femoralhernie medial der V. femoralis, ältere Frauen",
+      "reason": "nicht in der Erfassung"
+    },
+    {
+      "panel": "perlen",
+      "deck_text": "Häufigste äußere Hernie: Leistenhernie",
+      "reason": "nicht in der Erfassung"
+    },
+    {
+      "panel": "protokoll",
+      "deck_text": "Bei Inkarzeration kein Netz wegen Infektionsgefahr",
+      "reason": "nicht in der Erfassung"
+    },
+    {
+      "panel": "protokoll",
+      "deck_text": "Shouldice: Fascia transversalis gedoppelt und am Leistenband fixiert",
+      "reason": "Capture: Fixierung von M. obliquus internus und M. transversus am Leistenband — Nuance, kein klarer Widerspruch"
+    },
+    {
+      "panel": "protokoll",
+      "deck_text": "TEP technisch schwieriger, TAPP höheres Verletzungsrisiko",
+      "reason": "nicht in der Erfassung"
+    },
+    {
+      "panel": "protokoll",
+      "deck_text": "Vitalitätsprüfung Farbe/Peristaltik/Mesenterialpulsation; Miserere",
+      "reason": "nicht in der Erfassung"
+    },
+    {
+      "panel": "protokoll",
+      "deck_text": "Femoralhernie in der Lacuna vasorum",
+      "reason": "nicht in der Erfassung"
+    }
+  ],
+  "status": "done",
+  "validated": "2026-11-13"
 }

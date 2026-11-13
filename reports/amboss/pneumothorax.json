@@ -1,80 +1,67 @@
 {
- "slug": "pneumothorax",
- "deck": "reviews/pneumologie/pneumothorax.html",
- "capture": [
-  "sources/amboss/pneumothorax.md"
- ],
- "counts": {
-  "ok": 52,
-  "fix": 0,
-  "unclear": 10
- },
- "fixes": [],
- "unclear": [
-  {
-   "panel": "diagnostik",
-   "deck_text": "Röntgen-Thorax (2 Ebenen, p.a. im Stehen)",
-   "reason": "AMBOSS: Standard p.a. im Stehen; seitlich nur Zusatz bei SSP"
+  "slug": "pneumothorax",
+  "deck": "reviews/pneumologie/pneumothorax.html",
+  "capture": [
+    "sources/amboss/pneumothorax.md"
+  ],
+  "counts": {
+    "ok": 52,
+    "fix": 0,
+    "unclear": 10
   },
-  {
-   "panel": "diagnostik",
-   "deck_text": "CT: bei Unklarheit Goldstandard",
-   "reason": "AMBOSS: hohe Sensitivität, nicht Standarddiagnostik; „Goldstandard\" nicht genannt"
-  },
-  {
-   "panel": "diagnostik",
-   "deck_text": "Sono: fehlendes Lungengleiten — schnelle Akutdiagnostik nach Trauma",
-   "reason": "Sonobefund nicht im Detail erfasst"
-  },
-  {
-   "panel": "therapie",
-   "deck_text": "Immer: O₂ 4–6 l/min, Oberkörperhochlagerung, stationär",
-   "reason": "AMBOSS: ambulante Behandlung bei konservativer Therapie erwägbar"
-  },
-  {
-   "panel": "therapie",
-   "deck_text": "Ventilmechanismus, z. B. Tiegel-Ventil",
-   "reason": "AMBOSS: Rückschlagventil; Produktname nicht erfasst"
-  },
-  {
-   "panel": "perlen",
-   "deck_text": "Häufigste iatrogene Ursache? ZVK (V. subclavia)",
-   "reason": "AMBOSS listet Ursachen ohne Häufigkeitsrang"
-  },
-  {
-   "panel": "grundlagen",
-   "deck_text": "Iatrogen: ZVK (V. subclavia), Schrittmacher/Port, Beatmung",
-   "reason": "Schrittmacher/Port/Beatmung nicht als Ursache erfasst"
-  },
-  {
-   "panel": "perlen",
-   "deck_text": "Ausgedehntes Hautemphysem kann auf Spannungspneu oder Mediastinalverlagerung hinweisen",
-   "reason": "protokollbasiert; Hautemphysem als Befund bestätigt"
-  },
-  {
-   "panel": "protokoll",
-   "deck_text": "Bülau lege ich im 4. bis 5. ICR medioaxillär bei Luft mit Flüssigkeit.",
-   "reason": "AMBOSS: Bülau Standardzugang für die meisten Indikationen"
-  },
-  {
-   "panel": "protokoll",
-   "deck_text": "Dann inzidiere ich im 5. ICR, präpariere stumpf, lege die Drainage und fixiere sie mit Tabaksbeutelnaht.",
-   "reason": "AMBOSS: 4.–5. ICR, Annaht; Nahttechnik nicht erfasst"
-  }
- ],
- "status": "done",
- "validated": "2026-10-09",
- "second_pass": {
-  "date": "2026-10-09",
-  "checked": 63,
-  "applied": 0,
-  "rejected_by_orchestrator": []
- },
- "third_pass": {
-  "date": "2026-10-10",
-  "model": "fable",
-  "checked": 47,
-  "applied": 0,
-  "rejected_by_orchestrator": []
- }
+  "fixes": [],
+  "unclear": [
+    {
+      "panel": "therapie",
+      "deck_text": "Basis: Immer ... stationär",
+      "reason": "Capture: ambulante Behandlung bei kleinem PSP unter Bedingungen erwägbar — Nuance"
+    },
+    {
+      "panel": "diagnostik",
+      "deck_text": "CT bei Unklarheit Goldstandard",
+      "reason": "Capture: CT bei unklarem Röntgenbefund indiziert, 'nicht Teil der Standarddiagnostik'; Begriff Goldstandard nicht belegt"
+    },
+    {
+      "panel": "grundlagen",
+      "deck_text": "Primär spontan: Raucher",
+      "reason": "Capture: Rauchen Risikofaktor (90 % der Betroffenen) — ✓ sinngemäß, Typisierung als Lungengesunde Raucher Vereinfachung"
+    },
+    {
+      "panel": "perlen",
+      "deck_text": "Häufigste iatrogene Ursache: ZVK (V. subclavia)",
+      "reason": "Capture nennt Subklaviapunktion als Ursache, keine Häufigkeitsangabe"
+    },
+    {
+      "panel": "perlen",
+      "deck_text": "Hautemphysem ... häufige Mainz-Frage",
+      "reason": "protokollbasierte Formulierung"
+    },
+    {
+      "panel": "therapie",
+      "deck_text": "Monaldi Notfallposition, Luft",
+      "reason": "Capture: Monaldi eher Ausnahmefall, bspw. notfallmäßige Entlastung — ✓ sinngemäß"
+    },
+    {
+      "panel": "protokoll",
+      "deck_text": "Inzision im 5. ICR, Tabaksbeutelnaht",
+      "reason": "Capture: 4.–5. ICR; Tabaksbeutelnaht nicht erwähnt"
+    },
+    {
+      "panel": "protokoll",
+      "deck_text": "Milzruptur führt zum Schock",
+      "reason": "nicht in der Erfassung"
+    },
+    {
+      "panel": "protokoll",
+      "deck_text": "Pleuraerguss-Antworten (Transsudat/Exsudat, Empyem, TB-PCR 2–3 Tage)",
+      "reason": "nicht in der Erfassung"
+    },
+    {
+      "panel": "protokoll",
+      "deck_text": "Pleurapunktion sonogesteuert dorsal",
+      "reason": "nicht in der Erfassung"
+    }
+  ],
+  "status": "done",
+  "validated": "2026-11-13"
 }

@@ -1,67 +1,67 @@
 {
- "slug": "arterielle-hypertonie",
- "deck": "reviews/kardiologie/arterielle-hypertonie.html",
- "capture": [
-  "sources/amboss/arterielle-hypertonie.md"
- ],
- "counts": {
-  "ok": 55,
-  "fix": 0,
-  "unclear": 10
- },
- "fixes": [],
- "unclear": [
-  {
-   "panel": "grundlagen",
-   "deck_text": "Alter, Adipositas und hohe Kochsalzzufuhr sind die stärksten Treiber",
-   "reason": "Rangfolge nicht in Erfassung (nur Liste der Risikofaktoren)"
+  "slug": "arterielle-hypertonie",
+  "deck": "reviews/kardiologie/arterielle-hypertonie.html",
+  "capture": [
+    "sources/amboss/arterielle-hypertonie.md"
+  ],
+  "counts": {
+    "ok": 55,
+    "fix": 0,
+    "unclear": 10
   },
-  {
-   "panel": "klinik",
-   "deck_text": "Blutdruckdifferenz zwischen den Armen → Dissektion",
-   "reason": "AMBOSS nennt Armdifferenz nur bei Aortenisthmusstenose"
-  },
-  {
-   "panel": "diagnostik",
-   "deck_text": "Fundus I Kaliberschwankung",
-   "reason": "AMBOSS: I leichte Verengung und sichtbare Schlängelung der Arteriolen; Formulierung abweichend"
-  },
-  {
-   "panel": "therapie",
-   "deck_text": "D — Diuretikum (Thiazid): HCT",
-   "reason": "AMBOSS: Hydrochlorothiazid nur 2. Wahl (Chlortalidon/Xipamid/Indapamid); Beispiel, kein klarer Widerspruch"
-  },
-  {
-   "panel": "therapie",
-   "deck_text": "Zielwert < 130/80 mmHg bei guter Verträglichkeit",
-   "reason": "AMBOSS: langfristig ~130 systolisch, 70–79 diastolisch; kompatibel"
-  },
-  {
-   "panel": "therapie",
-   "deck_text": "Krise > 180/110 ohne Organschaden; oral z. B. Nitrendipin",
-   "reason": "AMBOSS: Begriff 'Krise' obsolet (hypertensive Entgleisung); Nitrendipin nicht erfasst (retardiertes Nifedipin, Captopril, Lisinopril)"
-  },
-  {
-   "panel": "therapie",
-   "deck_text": "in der ersten Stunde um höchstens ein Drittel senken",
-   "reason": "AMBOSS: keine zu rasche Senkung; MAD 20–25 % je nach Organschaden; nicht direkt vergleichbar"
-  },
-  {
-   "panel": "perlen",
-   "deck_text": "ACE-Hemmer-Nebenwirkung: trockener Reizhusten",
-   "reason": "Reizhusten nicht in Erfassung"
-  },
-  {
-   "panel": "protokoll",
-   "deck_text": "Reizhusten durch Bradykinin, Angioödem; RAAS-Physiologie; Amlodipin-NW Knöchelödeme/Flush",
-   "reason": "nicht in Erfassung"
-  },
-  {
-   "panel": "protokoll",
-   "deck_text": "Schwangerschaft: Methyldopa oder Nifedipin",
-   "reason": "nicht in Erfassung (nur ACE-Hemmer-KI erfasst ✓)"
-  }
- ],
- "status": "done",
- "validated": "2026-10-23"
+  "fixes": [],
+  "unclear": [
+    {
+      "panel": "therapie",
+      "deck_text": "Senkung in der ersten Stunde um höchstens ein Drittel",
+      "reason": "Capture: MAD-Senkung 20–25 % (Enzephalopathie/maligne Hypertonie), Entgleisung: Senkung über 24–48 h; Drittel-Regel nicht belegt"
+    },
+    {
+      "panel": "therapie",
+      "deck_text": "Krise oral z. B. Nitrendipin",
+      "reason": "Capture: retardiertes Nifedipin, Captopril, Lisinopril, GTN+Amlodipin; Nitrendipin nicht genannt"
+    },
+    {
+      "panel": "therapie",
+      "deck_text": "Krise = RR >180/110 ohne Organschaden",
+      "reason": "Capture: Begriff 'hypertensive Krise' obsolet, heute 'hypertensive Entgleisung' — Terminologie-Nuance"
+    },
+    {
+      "panel": "therapie",
+      "deck_text": "Zielwert generell <140/90, bei guter Verträglichkeit <130/80",
+      "reason": "Capture: initial <140/90 in 3 Monaten, langfristig systolisch ~130 — sinngemäß"
+    },
+    {
+      "panel": "diagnostik",
+      "deck_text": "Fundus Stadium I: Kaliberschwankung",
+      "reason": "Capture: leichte Verengung und sichtbare Schlängelung der Arteriolen — Vereinfachung"
+    },
+    {
+      "panel": "diagnostik",
+      "deck_text": "Metanephrine im Urin",
+      "reason": "Capture: im Plasma oder im 24-h-Sammelurin — ✓ Teilmenge"
+    },
+    {
+      "panel": "grundlagen",
+      "deck_text": "Alter, Adipositas, Kochsalz stärkste Treiber",
+      "reason": "Capture listet Risikofaktoren ohne Gewichtung"
+    },
+    {
+      "panel": "klinik",
+      "deck_text": "Ohrensausen, Palpitationen",
+      "reason": "nicht als Symptom in der Erfassung gelistet"
+    },
+    {
+      "panel": "protokoll",
+      "deck_text": "Nierenarterienstenose: Statin, Angioplastie mit Stent bei Resistenz/Nierenfunktionsverlust",
+      "reason": "teilweise in Erfassung; Statin nicht geprüft"
+    },
+    {
+      "panel": "protokoll",
+      "deck_text": "Schwangerschaft: Methyldopa oder Nifedipin; Präeklampsie/HELLP",
+      "reason": "nicht in dieser Erfassung (eigenes Kapitel)"
+    }
+  ],
+  "status": "done",
+  "validated": "2026-11-13"
 }
