@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-11-13T10:33:22.249Z",
+  "generatedAt": "2026-11-14T09:49:34.354Z",
   "totals": {
-    "open": 109,
-    "completed": 466,
+    "open": 108,
+    "completed": 467,
     "overdue": 0,
-    "schedulingIssues": 58
+    "schedulingIssues": 57
   },
   "byLevel": {
     "R1": {
@@ -281,12 +281,6 @@
       "scheduledStart": null
     },
     {
-      "name": "Review: Pankreatitis R4",
-      "dueDate": "2026-12-15",
-      "schedulingIssue": true,
-      "scheduledStart": null
-    },
-    {
       "name": "Drill: Sono/US komplett (Feb)",
       "dueDate": "2027-02-26",
       "schedulingIssue": true,
@@ -512,27 +506,12 @@
   "overdue": [],
   "upcoming14d": [
     {
-      "name": "KP Crashkurs (Home) – Tag 1 – Innere Medizin",
-      "dueDate": "2026-11-13",
-      "duration": 600
-    },
-    {
       "name": "Review: Ileus R5",
-      "dueDate": "2026-11-15",
-      "duration": 180
-    },
-    {
-      "name": "Review: Harnwegsinfekt / Pyelonephritis R5",
-      "dueDate": "2026-11-16",
-      "duration": 180
-    },
-    {
-      "name": "Review: Proximale Femurfrakturen R5",
       "dueDate": "2026-11-17",
       "duration": 180
     },
     {
-      "name": "Review: Pneumothorax R5",
+      "name": "Review: Harnwegsinfekt / Pyelonephritis R5",
       "dueDate": "2026-11-18",
       "duration": 180
     },
@@ -542,47 +521,42 @@
       "duration": 60
     },
     {
-      "name": "Review: Gastroduodenales Ulkus R5",
+      "name": "Review: Proximale Femurfrakturen R5",
       "dueDate": "2026-11-19",
       "duration": 180
     },
     {
-      "name": "KP Crashkurs (Home) – Tag 2 – Chirurgie",
+      "name": "Review: Pneumothorax R5",
       "dueDate": "2026-11-20",
+      "duration": 180
+    },
+    {
+      "name": "KP Crashkurs (Home) – Tag 2 – Chirurgie",
+      "dueDate": "2026-11-21",
       "duration": 600
     },
     {
       "name": "Review: Schmerztherapie / WHO-Stufenschema R5",
-      "dueDate": "2026-11-20",
-      "duration": 180
-    },
-    {
-      "name": "Review: Bluttransfusion R5",
-      "dueDate": "2026-11-21",
-      "duration": 180
-    },
-    {
-      "name": "Review: Anästhesie & Atemwegssicherung R5",
       "dueDate": "2026-11-22",
       "duration": 180
     },
     {
-      "name": "Review: Appendizitis R5",
+      "name": "Review: Bluttransfusion R5",
       "dueDate": "2026-11-23",
       "duration": 180
     },
     {
-      "name": "Review: Akutes Abdomen R5",
-      "dueDate": "2026-11-24",
+      "name": "Review: Gastroduodenales Ulkus R5",
+      "dueDate": "2026-11-23",
       "duration": 180
     },
     {
-      "name": "Review: Lungenembolie R5",
+      "name": "Review: Appendizitis R5",
       "dueDate": "2026-11-25",
       "duration": 180
     },
     {
-      "name": "Review: Antibiotikatherapie (kalkuliert) R5",
+      "name": "Review: Akutes Abdomen R5",
       "dueDate": "2026-11-26",
       "duration": 180
     },
@@ -592,8 +566,13 @@
       "duration": 60
     },
     {
-      "name": "Review: Antikoagulation & Bridging R5",
+      "name": "Review: Lungenembolie R5",
       "dueDate": "2026-11-27",
+      "duration": 180
+    },
+    {
+      "name": "Review: Antibiotikatherapie (kalkuliert) R5",
+      "dueDate": "2026-11-28",
       "duration": 180
     }
   ],
